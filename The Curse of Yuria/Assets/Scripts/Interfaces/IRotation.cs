@@ -2,17 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IRotation : MonoBehaviour
+public interface IRotation
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    float lerpSpeed { get; set; }
+    void Rotate(Vector2 eulerAnglesOffset);
+    void RotateTo(Vector2 eulerAngles);
 }

@@ -2,17 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IFactory : MonoBehaviour
+public interface IFactory
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    IEnemy getEnemyPrefab(string enemyPrefabName);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IGlobal : MonoBehaviour
+public interface IGlobal
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    IParty getParty { get; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    IInventory getHelmets { get; }
+    IInventory getEarrings { get; }
+    IInventory getGlasses { get; }
+    IInventory getMasks { get; }
+    IInventory getMeleeWeapons { get; }
+    IInventory getCapes { get; }
+    IInventory getBackArmor { get; }
+    IInventory getArmor { get; }
+    IInventory getArmorShield { get; }
+    IInventory getBows { get; }
 }
