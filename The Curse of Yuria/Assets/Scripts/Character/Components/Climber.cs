@@ -2,17 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Climber : MonoBehaviour
+namespace TCOY.Character
 {
-    // Start is called before the first frame update
-    void Start()
+    [System.Serializable]
+    public class Climber : IClimber
     {
-        
-    }
+        [SerializeField] bool isActive = false;
+        [SerializeField] Rigidbody2D rigidBody2D;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Vector2 velocity = Vector2.zero;
+
+        public bool GetIsActive()
+        {
+            return isActive;
+        }
+
+        public void SetIsActive(bool isActive)
+        {
+            this.isActive = isActive;
+        }
+
+        public void Add(float offsetY)
+        {
+            velocity += new Vector2(0f, offsetY);
+        }
+
+        public void Update()
+        {
+            if (!isActive)
+                return;
+
+            rigidBody2D.velocity = velocity;
+            velocity = Vector2.zero;
+        }
     }
 }

@@ -6,6 +6,6 @@ public interface IStats
 {
     int GetStaticAttributeValue(string attributeName);
     int GetDynamicAttributeValue(string attributeName);
-    int OffsetDynamicAttributeValue(string attributeName, string offsetIdentifier, int offsetValue);
-    int RemoveOffsetValue(string attributeName, string offsetIdentifier);
+    void OffsetDynamicAttributeValue(string attributeName, int offsetValue);
+    void ResetAll();
 }

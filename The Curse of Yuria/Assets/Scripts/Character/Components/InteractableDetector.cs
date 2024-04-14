@@ -2,17 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableDetector : MonoBehaviour
+namespace TCOY
 {
-    // Start is called before the first frame update
-    void Start()
+    [System.Serializable]
+    public class InteractableDetector
     {
-        
-    }
+        [SerializeField] Transform origin;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        IInteractable interactable = null;
+
+        public void Initialize()
+        {
+
+        }
+
+        public void Update()
+        {
+            if (!Physics.Raycast(origin.position, origin.forward, out RaycastHit hit, 3f))
+                return;
+
+            interactable = hit.transform.GetComponent<IInteractable>();
+
+            if (interactable == null)
+                return;
+
+            interactable.Interact();
+        }
     }
 }

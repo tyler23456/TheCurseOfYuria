@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TCOY.Character
+namespace TCOY.DontDestroyOnLoad
 {
-    public class Equipped
+    public class Inventory
     {
-
+       
     }
 }

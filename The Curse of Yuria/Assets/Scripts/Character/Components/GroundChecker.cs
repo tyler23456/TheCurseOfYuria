@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundChecker : MonoBehaviour
+namespace TCOY.Character
 {
-    // Start is called before the first frame update
-    void Start()
+    [System.Serializable]
+    public class GroundChecker
     {
-        
-    }
+        [SerializeField] Animator animator;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void Initialize()
+        {
+
+        }
+
+        public void Update()
+        {
+            if (!Physics.Raycast(animator.transform.position, Vector2.down, 0.2f))
+                return;
+
+            
+        }
     }
 }

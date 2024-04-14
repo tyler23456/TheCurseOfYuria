@@ -1,18 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class ATBGuage : MonoBehaviour
+namespace TCOY.Character
 {
-    // Start is called before the first frame update
-    void Start()
+    [System.Serializable]
+    public class ATBGuage
     {
-        
-    }
+        [SerializeField] float maximumValue;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        float accumulator = 0f;
+
+        public Action OnATBGuageFilled { get; set; } = () => { };
+
+        public void Initialize()
+        {
+
+        }
+
+        public void Update()
+        {
+            accumulator += Time.deltaTime;
+
+            if (accumulator < maximumValue)
+                return;
+
+            accumulator = 0f;
+            OnATBGuageFilled.Invoke();
+        }
     }
 }
