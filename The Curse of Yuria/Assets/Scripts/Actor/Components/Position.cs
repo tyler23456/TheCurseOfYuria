@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TCOY.Character
+namespace TCOY.Actors
 {
-    [System.Serializable]
-    public class Climber : IClimber
+    public class Position : IPosition
     {
         [SerializeField] bool isActive = false;
         [SerializeField] Rigidbody2D rigidBody2D;
@@ -22,9 +21,14 @@ namespace TCOY.Character
             this.isActive = isActive;
         }
 
-        public void Add(float offsetY)
+        public void Set(Vector2 position)
         {
-            velocity += new Vector2(0f, offsetY);
+            velocity = -rigidBody2D.velocity + position;
+        }
+
+        public void Add(float offsetX)
+        {
+            velocity += new Vector2(offsetX, 0f);
         }
 
         public void Update()

@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableBase : MonoBehaviour
+namespace TCOY.Interactables
 {
-    // Start is called before the first frame update
-    void Start()
+    public abstract class InteractableBase : MonoBehaviour
     {
         
-    }
+        public virtual void Interact(Collider other)
+        {
+            
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        protected void OnTriggerStay(Collider other)
+        {
+            IPlayerControls playerControls = other.GetComponent<IPlayerControls>();
+
+            if (playerControls == null)
+                return;
+
+            Interact(other);
+        }
     }
 }

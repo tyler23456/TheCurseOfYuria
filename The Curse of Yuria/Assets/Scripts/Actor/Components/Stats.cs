@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Linq;
+using System.Collections.ObjectModel;
 
-namespace TCOY.Character
+namespace TCOY.Actors
 {
     [System.Serializable]
     public class Stats : IStats
@@ -18,6 +21,9 @@ namespace TCOY.Character
 
         Dictionary<string, int> dynamicStats = new Dictionary<string, int>();
         Dictionary<string, int> staticStats = new Dictionary<string, int>();
+
+        public Action<Dictionary<string, int>> onStatsChanged { get; set; } = (statsDictionary) => { };
+        public Action onZeroHealth { get; set; } = () => { };
 
         public void Initialize()
         {
@@ -53,6 +59,7 @@ namespace TCOY.Character
         public void OffsetDynamicAttributeValue(string attributeName, int offsetValue)
         {
             dynamicStats[attributeName] += offsetValue;
+            onStatsChanged.Invoke(dynamicStats);          
         }
 
         public void ResetAll()
@@ -65,6 +72,7 @@ namespace TCOY.Character
             dynamicStats["Aura"] = Aura;
             dynamicStats["Speed"] = Speed;
             dynamicStats["Luck"] = Luck;
+            onStatsChanged.Invoke(dynamicStats);
         }
     }
 }

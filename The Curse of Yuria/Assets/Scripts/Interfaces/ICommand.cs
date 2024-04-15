@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ICommand
 {
-    void Use(ICharacter target);
+    void Use(IActor target);
 }

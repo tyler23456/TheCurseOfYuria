@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TCOY.Character
+public interface IItem
 {
-    public class Equipped
-    {
-
-    }
+    void Use(IActor target);
 }

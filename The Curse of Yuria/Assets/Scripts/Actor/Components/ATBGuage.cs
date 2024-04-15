@@ -3,25 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace TCOY.Character
+namespace TCOY.Actors
 {
     [System.Serializable]
     public class ATBGuage
     {
-        [SerializeField] float maximumValue;
+        [SerializeField] float maximumValue = 100f;
 
         float accumulator = 0f;
+        float speed = 0.01f;
 
         public Action OnATBGuageFilled { get; set; } = () => { };
 
-        public void Initialize()
+        public void Initialize(Dictionary<string, int> statsDictionary)
         {
+            speed = statsDictionary["Speed"];
+        }
 
+        public void OnStatsChanged(Dictionary<string, int> statsDictionary)
+        {
+            speed = statsDictionary["Speed"];
         }
 
         public void Update()
         {
-            accumulator += Time.deltaTime;
+            accumulator += Time.deltaTime * speed;
 
             if (accumulator < maximumValue)
                 return;

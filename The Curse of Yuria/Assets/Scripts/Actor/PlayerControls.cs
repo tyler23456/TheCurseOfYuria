@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 
-namespace TCOY.Character
+namespace TCOY.Actors
 {
-    public class PlayerControls : MonoBehaviour
+    public class PlayerControls : MonoBehaviour, IPlayerControls
     {
         [SerializeField] new Transform camera;
         [SerializeField] Animator animator;
@@ -14,11 +15,15 @@ namespace TCOY.Character
 
         [SerializeField] JumpEvent jumpEvent;
 
+        [SerializeField] Assets.HeroEditor.Common.Scripts.CharacterScripts.Character character;
+        [SerializeField] List<Sprite> sprites;
+
         Vector2 velocity;
 
         void Start()
         {
-
+            character.Armor.Clear();
+            character.Armor.AddRange(sprites);
         }
         
         void Update()
@@ -66,6 +71,11 @@ namespace TCOY.Character
             jumpEvent.Update();
 
             velocity = (tempVelocity + jumpEvent.getJumpVelocity);
+
+
+
+
+
         }
 
         public void FixedUpdate()

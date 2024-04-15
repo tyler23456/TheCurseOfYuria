@@ -4,7 +4,8 @@ using UnityEngine;
 
 public interface IRotation
 {
-    float lerpSpeed { get; set; }
-    void Rotate(Vector2 eulerAnglesOffset);
-    void RotateTo(Vector2 eulerAngles);
+    void SetAxes(bool xAxis, bool yAxis);
+    void Forward(Vector2 forward);
+    void Add(Vector2 eulerAnglesOffset);
+    void Forward(Vector2 relativeForward, Vector2 localForward);
 }
