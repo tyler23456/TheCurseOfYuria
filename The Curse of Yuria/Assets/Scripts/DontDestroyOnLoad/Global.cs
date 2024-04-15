@@ -20,6 +20,8 @@ namespace TCOY.DontDestroyOnLoad
         Inventory shields { get; }
         Inventory bows { get; }
         Inventory supplies { get; }
+        Inventory questItems { get; }
+        Inventory completedQuests { get; }
 
         public Camera getCamera => mainCamera;
         List<IPlayer> IGlobal.getParty => party;
@@ -34,6 +36,8 @@ namespace TCOY.DontDestroyOnLoad
         IInventory IGlobal.getShields => shields;
         IInventory IGlobal.getBows => bows;
         IInventory IGlobal.getSupplies => supplies;
+        IInventory IGlobal.getQuestItems => questItems;
+        IInventory IGlobal.getCompletedQuests => completedQuests;
 
         public void Awake()
         {

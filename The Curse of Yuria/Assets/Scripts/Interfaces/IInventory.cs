@@ -9,4 +9,5 @@ public interface IInventory
     void Add(string name, int count);
     void Remove(string name, int count = 1);
     void RemoveAt(int index, int count = 1);
+    bool Contains(string name, int count = 1);
 }

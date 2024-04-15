@@ -30,5 +30,10 @@ namespace TCOY.DontDestroyOnLoad
         {
             throw new System.NotImplementedException();
         }
+
+        bool IInventory.Contains(string name, int count)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

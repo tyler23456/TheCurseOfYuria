@@ -18,6 +18,8 @@ public interface IGlobal
     IInventory getShields { get; }
     IInventory getBows { get; }
     IInventory getSupplies { get; }
+    IInventory getQuestItems { get; }
+    IInventory getCompletedQuests { get; }
 
     public void AddToInventory(HeroEditor.Common.Data.ItemSprite item, HeroEditor.Common.Enums.EquipmentPart part, Color? color);
 }

@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chest : MonoBehaviour
+namespace TCOY.Interactables
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Chest : InteractableBase, IInteractable
     {
-        
-    }
+        [SerializeField] List<Item> items;
+        [SerializeField] Sprite OpenChest;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        bool isAlreadyUsed = false;
+       
+        public override void Interact(IPlayer player)
+        {
+            if (isAlreadyUsed)
+                return;
+
+            base.Interact(player);
+
+            foreach (Item item in items)
+                item.Interact(player);
+
+            GetComponent<SpriteRenderer>().sprite = OpenChest;
+            isAlreadyUsed = true;
+        }
     }
 }

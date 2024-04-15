@@ -8,18 +8,17 @@ namespace TCOY.Interactables
     {
         [SerializeField] List<AttributeModifier> attributeModifiers;
 
-        IGlobal global;
         bool isBeingUsed = false;
         bool isSupply = false;
         
-        public void Start()
+        public new void Start()
         {
-            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
+            base.Start();
         }
 
-        public override void Interact(Collider other)
+        public override void Interact(IPlayer player)
         {
-            base.Interact(other);
+            base.Interact(player);
         }
 
         public virtual void Use(IActor target)
@@ -30,7 +29,7 @@ namespace TCOY.Interactables
             {
                 foreach (AttributeModifier attributeModifier in attributeModifiers)
                     target.getStats.OffsetDynamicAttributeValue(attributeModifier.name, attributeModifier.value);
-            }              
+            }
             else
             {
                 foreach (AttributeModifier attributeModifier in attributeModifiers)
