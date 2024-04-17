@@ -38,6 +38,7 @@ namespace TCOY.Actors
         public Action<Dictionary<string, int>> onStatsChanged { get; set; } = (statsDictionary) => { };
         public Action onZeroHealth { get; set; } = () => { };
         public Action<int> onApplyDamage { get; set; } = (damage) => { };
+        public Action<int> onApplyRecovery { get; set; } = (recovery) => { };
 
         public void Initialize()
         {
@@ -160,6 +161,16 @@ namespace TCOY.Actors
             int defense = baseStats["Aura"] + addedStats["Aura"];
             int damage = attack * (100 / (100 + defense));
             onApplyDamage.Invoke(damage);
+        }
+
+        public void ApplyRawDamage(int attack, string type)
+        {
+            onApplyDamage.Invoke(attack);
+        }
+
+        public void ApplyRawRecovery(int recovery)
+        {
+            onApplyDamage.Invoke(recovery);
         }
     }
 }

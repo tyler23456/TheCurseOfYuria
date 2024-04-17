@@ -13,9 +13,11 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] SpriteCollection spriteCollection;
 
         [SerializeField] AssetLabelReference itemsReference;
+        [SerializeField] AssetLabelReference statusEffectsReference;
 
         public Dictionary<string, ItemSprite> itemSprites { get; private set; } = new Dictionary<string, ItemSprite>();
         public Dictionary<string, GameObject> itemPrefabs { get; private set; } = new Dictionary<string, GameObject>();
+        public Dictionary<string, GameObject> statusEffectsPrefabs { get; private set; } = new Dictionary<string, GameObject>();
 
         public SpriteCollection getSpriteCollection => spriteCollection;
         
@@ -29,6 +31,11 @@ namespace TCOY.DontDestroyOnLoad
             Addressables.LoadAssetsAsync<GameObject>(itemsReference, (i) =>
             {
                 itemPrefabs.Add(i.name, i);
+            }).WaitForCompletion();
+
+            Addressables.LoadAssetsAsync<GameObject>(statusEffectsReference, (i) =>
+            {
+                statusEffectsPrefabs.Add(i.name, i);
             }).WaitForCompletion();
         }
 

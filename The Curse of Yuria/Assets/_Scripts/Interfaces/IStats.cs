@@ -11,4 +11,6 @@ public interface IStats
     void ResetAll();
     void ApplyPhysicalDamage(int attack, string type);
     void ApplyMagicalDamage(int attack, string type);
+    public void ApplyRawDamage(int attack, string type);
+    public void ApplyRawRecovery(int recovery);
 }
