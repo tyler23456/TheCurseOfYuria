@@ -38,6 +38,11 @@ namespace TCOY.Interactables
             
         }
 
+        public virtual void Use(IActor user, IActor[] targets)
+        {
+
+        }
+
 
         protected void OnTriggerStay(Collider other)
         {

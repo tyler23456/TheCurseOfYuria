@@ -5,13 +5,8 @@ using HeroEditor.Common.Enums;
 
 namespace TCOY.Interactables
 {
-    public class Item : InteractableBase, IInteractable, IItem
+    public class Item : InteractableBase, IInteractable
     {
-        [SerializeField] List<AttributeModifier> attributeModifiers;
-
-        bool isBeingUsed = false;
-        bool isSupply = false;
-        
         protected new void Start()
         {
             base.Start();
@@ -27,25 +22,10 @@ namespace TCOY.Interactables
             global.getCompletedIds.Add(getID, 1);
         }
 
-        public virtual void Use(IActor target)
+        public override void Use(IActor user, IActor[] targets)
         {
-            isBeingUsed = !isBeingUsed;
-
-            if (isBeingUsed)
-            {
-                foreach (AttributeModifier attributeModifier in attributeModifiers)
-                    target.getStats.OffsetAddedAttributeValue(attributeModifier.name, attributeModifier.value);
-            }
-            else
-            {
-                foreach (AttributeModifier attributeModifier in attributeModifiers)
-                    target.getStats.OffsetAddedAttributeValue(attributeModifier.name, -attributeModifier.value);
-            }
-
-            if (isSupply)
-            {
-                global.getSupplies.Remove(name);
-            }
+            foreach (IActor target in targets)
+                Instantiate(gameObject, target.getGameObject.transform);
         }
 
         public class AttributeModifier

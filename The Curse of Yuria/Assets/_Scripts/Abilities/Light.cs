@@ -4,18 +4,12 @@ using UnityEngine;
 
 namespace TCOY.Abilities
 {
-    public class Light : MonoBehaviour
+    public class Light : AbilityBase, IAbility
     {
-        // Start is called before the first frame update
-        void Start()
+
+        private void OnDestroy()
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            
         }
     }
 }

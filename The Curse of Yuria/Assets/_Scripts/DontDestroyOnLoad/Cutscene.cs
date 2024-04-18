@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class Cutscene : MonoBehaviour
+    public class Cutscene : MonoBehaviour, ICutscene
     {
         [SerializeField] RectTransform promptPanel;
         [SerializeField] Image promptIcon;

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IBattleManager
 {
-    void ExecuteCommand(IActor user, IActor target, ICommand command);
+    
 }

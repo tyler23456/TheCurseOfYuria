@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightSkip : MonoBehaviour
+namespace TCOY.Abilities
 {
-    // Start is called before the first frame update
-    void Start()
+    public class LightSkip : AbilityBase, IAbility
     {
-        
-    }
+        private void OnDestroy()
+        {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
     }
 }
