@@ -8,8 +8,20 @@ namespace TCOY.Abilities
     {
         protected override string particleSystemName => "Flame_Center_1";
 
-        private void OnDestroy()
+        private void Reset()
         {
+            power = 5;
+            duration = float.PositiveInfinity;
+            cost = 5;
+            group = IAbility.Group.Magic;
+            type = IAbility.Type.Damage;
+            element = IAbility.Element.Fire;
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
 
         }
     }

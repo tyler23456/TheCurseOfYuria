@@ -8,9 +8,19 @@ namespace TCOY.Abilities
     {
         protected override string particleSystemName => "Hit_2_normal";
 
-        private void OnDestroy()
+        private void Reset()
         {
+            power = 0;
+            duration = float.PositiveInfinity;
+            cost = 5;
+            group = IAbility.Group.Magic;
+            type = IAbility.Type.None;
+            element = IAbility.Element.None;
+        }
 
+        protected override void OnDestroy()
+        {
+            
         }
     }
 }

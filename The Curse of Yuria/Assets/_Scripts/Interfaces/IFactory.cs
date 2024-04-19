@@ -6,10 +6,12 @@ using HeroEditor.Common.Enums;
 using HeroEditor.Common;
 
 public interface IFactory
-{ 
+{
     Dictionary<string, ItemSprite> itemSprites { get; }
+    Dictionary<string, IItem> itemPrefabs { get; }
     Dictionary<string, GameObject> particleSystemPrefabs { get; }
-    Dictionary<string, GameObject> itemPrefabs { get; }
+    Dictionary<string, IAbility> abilityPrefabs { get; }
+    Dictionary<string, IEquipment> equipmentPrefabs { get; }
     SpriteCollection getSpriteCollection { get; }
     IEnemy GetEnemyPrefab(string enemyPrefabName);
 }

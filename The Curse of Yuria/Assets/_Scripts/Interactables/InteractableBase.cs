@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace TCOY.Interactables
 {
+    [RequireComponent(typeof(BoxCollider2D))]
     public abstract class InteractableBase : MonoBehaviour
     {
         [SerializeField] string id;

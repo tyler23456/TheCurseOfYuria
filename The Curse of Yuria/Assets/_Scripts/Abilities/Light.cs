@@ -12,15 +12,17 @@ namespace TCOY.Abilities
         {
             power = 5;
             duration = float.PositiveInfinity;
-
-            attribute = IStats.Attributes.Magic;
+            cost = 5;
             group = IAbility.Group.Magic;
-            type = IAbility.Type.Light;
+            type = IAbility.Type.Damage;      
+            element = IAbility.Element.Light;
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
-            getTarget.getStats.ApplyDamage(getUser.getStats.GetAttribute(attribute) + power, group, type);
+            base.OnDestroy();
+
+
         }
     }
 }

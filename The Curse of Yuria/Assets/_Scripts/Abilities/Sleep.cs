@@ -8,8 +8,20 @@ namespace TCOY.Abilities
     {
         protected override string particleSystemName => "Water_Splash_13_air_2";
 
-        private void OnDestroy()
+        private void Reset()
         {
+            power = 5;
+            duration = float.PositiveInfinity;
+            cost = 5;
+            group = IAbility.Group.Magic;
+            type = IAbility.Type.Damage;
+            element = IAbility.Element.Sleep ;
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
 
         }
     }

@@ -8,8 +8,20 @@ namespace TCOY.Abilities
     {
         protected override string particleSystemName => "Health_Up_white";
 
-        private void OnDestroy()
+        private void Reset()
         {
+            power = 5;
+            duration = float.PositiveInfinity;
+            cost = 5;
+            group = IAbility.Group.Magic;
+            type = IAbility.Type.None;
+            element = IAbility.Element.None;
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
 
         }
     }

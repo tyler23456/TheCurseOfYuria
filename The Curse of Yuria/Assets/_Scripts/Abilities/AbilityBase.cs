@@ -9,10 +9,11 @@ namespace TCOY.Abilities
     public abstract class AbilityBase : MonoBehaviour
     {
         [SerializeField] protected int power;
+        [SerializeField] protected int cost;
         [SerializeField] protected float duration = float.PositiveInfinity;
-        [SerializeField] protected IStats.Attributes attribute = IStats.Attributes.None;
         [SerializeField] protected IAbility.Group group = IAbility.Group.None;
         [SerializeField] protected IAbility.Type type = IAbility.Type.None;
+        [SerializeField] protected IAbility.Element element = IAbility.Element.None;
 
         protected float attack = 10;
 
@@ -37,6 +38,13 @@ namespace TCOY.Abilities
 
             ParticleSystem particleSystem = Instantiate(factory.particleSystemPrefabs[particleSystemName], transform).GetComponent<ParticleSystem>();
             Destroy(gameObject, particleSystem.main.duration);
+
+        }
+
+        protected virtual void OnDestroy()
+        {
+            getTarget.getStats.ApplyAbility(power, getUser.getStats, group, type, element);
+
         }
     }
 }

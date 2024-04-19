@@ -8,8 +8,20 @@ namespace TCOY.Abilities
     {
         protected override string particleSystemName => "Ground_Hit_2_blue";
 
-        private void OnDestroy()
+        private void Reset()
         {
+            power = 5;
+            duration = float.PositiveInfinity;
+            cost = 5;
+            group = IAbility.Group.Magic;
+            type = IAbility.Type.Damage;
+            element = IAbility.Element.Light;
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
 
         }
     }

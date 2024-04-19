@@ -70,7 +70,7 @@ namespace TCOY.DontDestroyOnLoad
                 case "Cape":
                     return capes;
                 case "Armor":
-                    return helmets;
+                    return armor;
                 case "Shield":
                     return shields;
                 case "Bow":
