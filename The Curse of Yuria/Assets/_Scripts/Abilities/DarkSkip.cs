@@ -6,6 +6,8 @@ namespace TCOY.Abilities
 {
     public class DarkSkip : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "ready_attack_black";
+
         private void OnDestroy()
         {
 

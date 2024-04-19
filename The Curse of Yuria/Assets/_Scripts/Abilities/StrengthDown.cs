@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace TCOY.Abilities
 {
-    public class BuffOrDebuff : AbilityBase, IAbility
+    public class StrengthDown : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "Teleport_normal_reverse";
+
         private void OnDestroy()
         {
 

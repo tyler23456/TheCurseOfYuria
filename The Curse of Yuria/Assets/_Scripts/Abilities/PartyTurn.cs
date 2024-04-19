@@ -6,6 +6,8 @@ namespace TCOY.Abilities
 {
     public class PartyTurn : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "Default";
+
         private void OnDestroy()
         {
 

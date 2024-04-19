@@ -6,6 +6,7 @@ namespace TCOY.Abilities
 {
     public class Wings : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "Hit_2_normal";
 
         private void OnDestroy()
         {

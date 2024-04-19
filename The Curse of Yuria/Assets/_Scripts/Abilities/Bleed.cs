@@ -6,6 +6,8 @@ namespace TCOY.Abilities
 {
     public class Bleed : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "blood_01";
+
         private void OnDestroy()
         {
 

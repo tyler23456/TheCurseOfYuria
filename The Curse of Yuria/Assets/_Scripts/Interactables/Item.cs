@@ -27,11 +27,5 @@ namespace TCOY.Interactables
             foreach (IActor target in targets)
                 Instantiate(gameObject, target.getGameObject.transform);
         }
-
-        public class AttributeModifier
-        {
-            public string name = "";
-            public int value = 1;
-        }
     }
 }

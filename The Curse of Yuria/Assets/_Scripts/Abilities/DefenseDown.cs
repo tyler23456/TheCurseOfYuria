@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace TCOY.Abilities
 {
-    public class EffectSkip : AbilityBase, IAbility
+    public class DefenseDown : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "Teleport_blue_reverse";
+
         private void OnDestroy()
         {
 

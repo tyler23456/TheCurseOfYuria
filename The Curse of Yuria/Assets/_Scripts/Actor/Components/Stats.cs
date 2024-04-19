@@ -10,6 +10,8 @@ namespace TCOY.Actors
     [System.Serializable]
     public class Stats : IStats
     {
+        static IStats.Attributes[] defenseType;
+
         [SerializeField] int MaxHealthPoints;
         [SerializeField] int MaxMagicPoints;
         [SerializeField] int Strength;
@@ -19,158 +21,121 @@ namespace TCOY.Actors
         [SerializeField] int Speed;
         [SerializeField] int Luck;
 
-        [SerializeField] int poisonVulnerability;
-        [SerializeField] int sleepVulnerability;
-        [SerializeField] int confuseVulnerability;
-        [SerializeField] int paralyzeVulnerability;
-        [SerializeField] int fireVulnerability;
-        [SerializeField] int iceVulnerability;
-        [SerializeField] int thunderVulnerability;
-        [SerializeField] int waterVulnerability;
-        [SerializeField] int lightVulnerability;
-        [SerializeField] int darkVulnerability;
+        [SerializeField] int poison;
+        [SerializeField] int sleep;
+        [SerializeField] int confuse;
+        [SerializeField] int paralyze;
+        [SerializeField] int fire;
+        [SerializeField] int ice;
+        [SerializeField] int thunder;
+        [SerializeField] int water;
+        [SerializeField] int light;
+        [SerializeField] int dark;
 
-        Dictionary<string, int> baseStats = new Dictionary<string, int>();
-        Dictionary<string, int> addedStats = new Dictionary<string, int>();
-        Dictionary<string, int> baseVulnerability = new Dictionary<string, int>();
-        Dictionary<string, int> addedVulnerability = new Dictionary<string, int>();
+        int[] baseStats;
+        int[] addedStats;
+        int[] baseVulnerability;
+        int[] addedVulnerability;
 
-        public Action<Dictionary<string, int>> onStatsChanged { get; set; } = (statsDictionary) => { };
+        public Action<int[]> onStatsChanged { get; set; } = (statsDictionary) => { };
         public Action onZeroHealth { get; set; } = () => { };
         public Action<int> onApplyDamage { get; set; } = (damage) => { };
         public Action<int> onApplyRecovery { get; set; } = (recovery) => { };
 
         public void Initialize()
         {
-            baseStats.Add("MaxHealthPoints", MaxHealthPoints);
-            baseStats.Add("MaxMagicPoints", MaxMagicPoints);
-            baseStats.Add("Strength", Strength);
-            baseStats.Add("Magic", Magic);
-            baseStats.Add("Defense", Defense);
-            baseStats.Add("Aura", Aura);
-            baseStats.Add("Speed", Speed);
-            baseStats.Add("Luck", Luck);
+            defenseType = new IStats.Attributes[] { 
+                IStats.Attributes.None, 
+                IStats.Attributes.Defense, 
+                IStats.Attributes.Defense, 
+                IStats.Attributes.Aura };
 
-            baseVulnerability.Add("None", Luck);
-            baseVulnerability.Add("Poison", MaxHealthPoints);
-            baseVulnerability.Add("Sleep", MaxMagicPoints);
-            baseVulnerability.Add("Confuse", Strength);
-            baseVulnerability.Add("Paralyze", Magic);
-            baseVulnerability.Add("Fire", Defense);
-            baseVulnerability.Add("Ice", Aura);
-            baseVulnerability.Add("Thunder", Speed);
-            baseVulnerability.Add("Water", Luck);
-            baseVulnerability.Add("Light", Luck);
-            baseVulnerability.Add("Dark", Luck);
+            baseStats = new int[] { 
+                0, 
+                MaxHealthPoints, 
+                0, 
+                MaxMagicPoints, 
+                0, 
+                Strength, 
+                Defense, 
+                Aura, 
+                Speed, 
+                Luck };
+            
+            baseVulnerability = new int[] { 
+                0, 
+                fire, 
+                ice, 
+                thunder, 
+                water, 
+                light, 
+                dark };
 
-            addedStats.Add("MaxHealthPoints", 0);
-            addedStats.Add("HealthPoints", 0);
-            addedStats.Add("MaxMagicPoints", 0);
-            addedStats.Add("MagicPoints", 0);
-            addedStats.Add("Strength", 0);
-            addedStats.Add("Magic", 0);
-            addedStats.Add("Defense", 0);
-            addedStats.Add("Aura", 0);
-            addedStats.Add("Speed", 0);
-            addedStats.Add("Luck", 0);
+            baseStats = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-            addedVulnerability.Add("None", 0);
-            addedVulnerability.Add("Poison", 0);
-            addedVulnerability.Add("Sleep", 0);
-            addedVulnerability.Add("Confuse", 0);
-            addedVulnerability.Add("Paralyze", 0);
-            addedVulnerability.Add("Fire", 0);
-            addedVulnerability.Add("Ice", 0);
-            addedVulnerability.Add("Thunder", 0);
-            addedVulnerability.Add("Water", 0);
-            addedVulnerability.Add("Light", 0);
-            addedVulnerability.Add("Dark", 0);
+            baseVulnerability = new int[] { 0, 0, 0, 0, 0, 0, 0 };
         }
 
-        public int GetBaseAttributeValue(string attributeName)
+        public int GetBaseAttribute(IStats.Attributes attribute)
         {
-            return baseStats[attributeName];
+            return baseStats[(int)attribute];
         }
 
-        public int GetAddedAttributeValue(string attributeName)
+        public int GetAddedAttribute(IStats.Attributes attribute)
         {
-            return addedStats[attributeName];
+            return addedStats[(int)attribute];
         }
 
-        public int GetTotalAttributeValue(string attributeName)
+        public int GetAttribute(IStats.Attributes attribute)
         {
-            return baseStats[attributeName] + addedStats[attributeName];
+            return baseStats[(int)attribute] + addedStats[(int)attribute];
         }
 
-        public int GetBaseVulnerabilityValue(string typeName)
+        public int GetBaseVulnerability(IAbility.Type type)
         {
-            return baseVulnerability[typeName];
+            return baseVulnerability[(int)type];
         }
 
-        public int GetAddedVulnerabilityValue(string typeName)
+        public int GetAddedVulnerability(IAbility.Type type)
         {
-            return addedVulnerability[typeName];
+            return addedVulnerability[(int)type];
         }
 
-        public int GetTotalVulnerabilityValue(string typeName)
+        public int GetVulnerability(IAbility.Type type)
         {
-            return baseVulnerability[typeName] + addedVulnerability[typeName];
+            return baseVulnerability[(int)type] + addedVulnerability[(int)type];
         }
 
-        public void OffsetAddedAttributeValue(string attributeName, int offsetValue)
+        public void OffsetAddedAttribute(IStats.Attributes attribute, int offsetValue)
         {
-            addedStats[attributeName] += offsetValue;
+            addedStats[(int)attribute] += offsetValue;
             onStatsChanged.Invoke(addedStats);          
         }
 
         public void ResetAll()
         {
-            addedStats.Add("MaxHealthPoints", 0);
-            addedStats.Add("MaxMagicPoints", 0);
-            addedStats.Add("Strength", 0);
-            addedStats.Add("Magic", 0);
-            addedStats.Add("Defense", 0);
-            addedStats.Add("Aura", 0);
-            addedStats.Add("Speed", 0);
-            addedStats.Add("Luck", 0);
-
-            addedVulnerability["None"] = 0;
-            addedVulnerability["Poison"] = 0;
-            addedVulnerability["Sleep"] = 0;
-            addedVulnerability["Confuse"] = 0;
-            addedVulnerability["Paralyze"] = 0;
-            addedVulnerability["Fire"] = 0;
-            addedVulnerability["Ice"] = 0;
-            addedVulnerability["Thunder"] = 0;
-            addedVulnerability["Water"] = 0;
-            addedVulnerability["Light"] = 0;
-            addedVulnerability["Dark"] = 0;
-            
+            Array.Fill(addedStats, 0);
+            Array.Fill(addedStats, 0);
             onStatsChanged.Invoke(addedStats);
         }
 
-        public void ApplyPhysicalDamage(int attack, string type)
+        public void ApplyMagicCost(int cost)
         {
-            int defense = baseStats["Defense"] + addedStats["Defense"] + baseStats[type] + addedStats[type];     
+            addedStats[(int)IStats.Attributes.MP] -= cost;
+        }
+
+        public bool ApplyDamage(int attack, IAbility.Group group, IAbility.Type type)
+        {
+            int defense = GetAttribute(defenseType[(int)group]) + GetVulnerability(type);
             int damage = attack * (100 / (100 + defense));
+
             onApplyDamage.Invoke(damage);
+            return false; //this will test whether an effect takes place
         }
 
-        public void ApplyMagicalDamage(int attack, string type)
+        public void ApplyRecovery(int recovery)
         {
-            int defense = baseStats["Aura"] + addedStats["Aura"];
-            int damage = attack * (100 / (100 + defense));
-            onApplyDamage.Invoke(damage);
-        }
-
-        public void ApplyRawDamage(int attack, string type)
-        {
-            onApplyDamage.Invoke(attack);
-        }
-
-        public void ApplyRawRecovery(int recovery)
-        {
-            onApplyDamage.Invoke(recovery);
+            onApplyRecovery.Invoke(recovery);
         }
     }
 }

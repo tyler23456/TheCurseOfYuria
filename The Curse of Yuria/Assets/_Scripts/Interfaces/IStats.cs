@@ -4,13 +4,14 @@ using UnityEngine;
 
 public interface IStats
 {
-    int GetBaseAttributeValue(string attributeName);
-    int GetAddedAttributeValue(string attributeName);
-    int GetTotalAttributeValue(string attributeName);
-    void OffsetAddedAttributeValue(string attributeName, int offsetValue);
+    enum Attributes { None, MaxHP, HP, MaxMP, MP, Strength, Defense, Magic, Aura, Speed, Luck }
+
+    int GetBaseAttribute(Attributes attribute);
+    int GetAddedAttribute(Attributes attribute);
+    int GetAttribute(Attributes attribute);
+    void OffsetAddedAttribute(Attributes attribute, int offsetValue);
     void ResetAll();
-    void ApplyPhysicalDamage(int attack, string type);
-    void ApplyMagicalDamage(int attack, string type);
-    public void ApplyRawDamage(int attack, string type);
-    public void ApplyRawRecovery(int recovery);
+    void ApplyMagicCost(int cost);
+    bool ApplyDamage(int attack, IAbility.Group group, IAbility.Type type);
+    void ApplyRecovery(int recovery);
 }

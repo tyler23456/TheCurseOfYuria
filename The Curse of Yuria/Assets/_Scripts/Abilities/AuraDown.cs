@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace TCOY.Abilities
 {
-    public class Water : AbilityBase, IAbility
+    public class AuraDown : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "Teleport_purple_reverse";
+
         private void OnDestroy()
         {
 

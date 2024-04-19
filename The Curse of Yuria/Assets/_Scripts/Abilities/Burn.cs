@@ -6,6 +6,8 @@ namespace TCOY.Abilities
 {
     public class Burn : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "Flame_burn";
+
         private void OnDestroy()
         {
 

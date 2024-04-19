@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace TCOY.Abilities
 {
-    public class QuadTurn : AbilityBase, IAbility
+    public class LuckUp : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "Teleport_yellow";
+
         private void OnDestroy()
         {
 

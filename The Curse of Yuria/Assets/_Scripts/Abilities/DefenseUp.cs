@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace TCOY.Abilities
 {
-    public class HitSkip : AbilityBase, IAbility
+    public class DefenseUp : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "Teleport_blue";
+
         private void OnDestroy()
         {
 

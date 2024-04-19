@@ -4,12 +4,9 @@ using UnityEngine;
 
 namespace TCOY.Abilities
 {
-    public class Enthrall : AbilityBase, IAbility
+    public class SpeedDown : AbilityBase, IAbility
     {
-        protected override string particleSystemName => "Flame_green";
-
-  
-        
+        protected override string particleSystemName => "Teleport_yellow_reverse";
 
         private void OnDestroy()
         {

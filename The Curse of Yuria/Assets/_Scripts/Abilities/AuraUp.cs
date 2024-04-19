@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace TCOY.Abilities
 {
-    public class QuadCast : AbilityBase, IAbility
+    public class AuraUp : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "Teleport_purple";
+
         private void OnDestroy()
         {
 

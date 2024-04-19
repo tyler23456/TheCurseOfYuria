@@ -6,6 +6,8 @@ namespace TCOY.Abilities
 {
     public class Stun : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "explosion_1";
+
         private void OnDestroy()
         {
 

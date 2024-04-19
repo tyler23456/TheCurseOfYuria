@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace TCOY.Abilities
 {
-    public class DeathSkip : AbilityBase, IAbility
+    public class MagicDown : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "Teleport_green_reverse";
+
         private void OnDestroy()
         {
 

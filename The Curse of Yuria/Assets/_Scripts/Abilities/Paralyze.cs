@@ -6,6 +6,8 @@ namespace TCOY.Abilities
 {
     public class Paralyze : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "plazma";
+
         private void OnDestroy()
         {
 

@@ -6,6 +6,8 @@ namespace TCOY.Abilities
 {
     public class Nullify : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "Ground_Hit_2_blue";
+
         private void OnDestroy()
         {
 

@@ -6,6 +6,8 @@ namespace TCOY.Abilities
 {
     public class LightSkip : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "ready_attack_white";
+
         private void OnDestroy()
         {
 

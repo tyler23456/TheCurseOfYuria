@@ -6,6 +6,8 @@ namespace TCOY.Abilities
 {
     public class ThunderSkip : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "ready_attack_yellow";
+
         private void OnDestroy()
         {
 

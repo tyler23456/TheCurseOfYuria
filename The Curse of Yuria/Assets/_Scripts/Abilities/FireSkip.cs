@@ -6,6 +6,8 @@ namespace TCOY.Abilities
 {
     public class FireSkip : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "ready_attack";
+
         private void OnDestroy()
         {
 

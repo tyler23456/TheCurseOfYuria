@@ -6,6 +6,8 @@ namespace TCOY.Abilities
 {
     public class Life : AbilityBase, IAbility
     {
+        protected override string particleSystemName => "Health_Up_green";
+
         private void OnDestroy()
         {
 
