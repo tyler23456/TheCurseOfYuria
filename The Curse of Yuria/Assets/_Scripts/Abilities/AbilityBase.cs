@@ -15,6 +15,8 @@ namespace TCOY.Abilities
         [SerializeField] protected IAbility.Type type = IAbility.Type.None;
         [SerializeField] protected IAbility.Element element = IAbility.Element.None;
 
+        [SerializeField, HideInInspector] protected string identifiers;
+
         protected float attack = 10;
 
         IGlobal global;
@@ -28,8 +30,10 @@ namespace TCOY.Abilities
         public IFactory getFactory => factory;
         public IActor getUser => user;
         public IActor getTarget => target;
-        
-        public virtual void Start()
+
+        public string getIdentifiers => name + '|' + group.ToString() + '|' + type.ToString() + '|' + element.ToString();
+
+        protected virtual void Start()
         {
             IGlobal global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
             IFactory factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
@@ -37,8 +41,7 @@ namespace TCOY.Abilities
             target = transform.parent.GetComponent<IActor>();
 
             ParticleSystem particleSystem = Instantiate(factory.particleSystemPrefabs[particleSystemName], transform).GetComponent<ParticleSystem>();
-            Destroy(gameObject, particleSystem.main.duration);
-
+            Destroy(gameObject, particleSystem.main.duration);           
         }
 
         protected virtual void OnDestroy()

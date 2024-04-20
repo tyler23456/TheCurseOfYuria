@@ -23,6 +23,9 @@ namespace TCOY.Actors
         public IStats getStats => stats;
         public Character getCharacter => character;
 
+        public List<IReactor> counters { get; private set; } = new List<IReactor>();
+        public List<IReactor> interrupts { get; private set; } = new List<IReactor>();
+
         protected void Start()
         {
             

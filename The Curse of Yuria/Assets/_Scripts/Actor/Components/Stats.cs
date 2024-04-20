@@ -53,9 +53,9 @@ namespace TCOY.Actors
             return weaknesses[(int)type];
         }
 
-        public void OffsetAddedAttribute(IStats.Attributes attribute, int offsetValue)
+        public void OffsetAttribute(IStats.Attributes attribute, int offset)
         {
-            attributes[(int)attribute] += offsetValue;
+            attributes[(int)attribute] += offset;
             onStatsChanged.Invoke(attributes);          
         }
 

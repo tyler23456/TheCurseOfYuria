@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IEquipment
 {
-    void Equip();
-    void Unequip();
+    void Equip(IActor target);
+    void Unequip(IActor target);
 }
