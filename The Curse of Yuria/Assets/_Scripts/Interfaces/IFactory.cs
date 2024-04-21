@@ -11,7 +11,7 @@ public interface IFactory
     Dictionary<string, IItem> itemPrefabs { get; }
     Dictionary<string, GameObject> particleSystemPrefabs { get; }
     Dictionary<string, IAbility> abilityPrefabs { get; }
-    Dictionary<string, IEquipment> equipmentPrefabs { get; }
+    Dictionary<string, IEquipable> equipmentPrefabs { get; }
     SpriteCollection getSpriteCollection { get; }
     IEnemy GetEnemyPrefab(string enemyPrefabName);
 }

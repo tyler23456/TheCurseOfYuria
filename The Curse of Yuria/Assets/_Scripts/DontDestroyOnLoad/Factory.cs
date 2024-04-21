@@ -21,7 +21,7 @@ namespace TCOY.DontDestroyOnLoad
         public Dictionary<string, IItem> itemPrefabs { get; private set; } = new Dictionary<string, IItem>();
         public Dictionary<string, GameObject> particleSystemPrefabs { get; private set; } = new Dictionary<string, GameObject>();
         public Dictionary<string, IAbility> abilityPrefabs { get; private set; } = new Dictionary<string, IAbility>();
-        public Dictionary<string, IEquipment> equipmentPrefabs { get; private set; } = new Dictionary<string, IEquipment>();
+        public Dictionary<string, IEquipable> equipmentPrefabs { get; private set; } = new Dictionary<string, IEquipable>();
 
         public SpriteCollection getSpriteCollection => spriteCollection;
         
@@ -49,7 +49,7 @@ namespace TCOY.DontDestroyOnLoad
 
             Addressables.LoadAssetsAsync<GameObject>(equipmentReference, (i) =>
             {
-                equipmentPrefabs.Add(i.name, i.GetComponent<IEquipment>());
+                equipmentPrefabs.Add(i.name, i.GetComponent<IEquipable>());
             }).WaitForCompletion();
         }
 

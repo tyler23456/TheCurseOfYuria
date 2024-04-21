@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleManager : MonoBehaviour
+namespace TCOY.BattleSystem
 {
-    IGlobal global;
-    IFactory factory;
-
-
-    void Start()
+    public class BattleManager : MonoBehaviour
     {
-        
-    }
+        IGlobal global;
+        IFactory factory;
 
-    void Update()
-    {
-        
+
+        void Start()
+        {
+            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
+            factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
+        }
+
+        void Update()
+        {
+
+        }
     }
 }

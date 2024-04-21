@@ -1,39 +1,76 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Linq;
 
 namespace TCOY.DontDestroyOnLoad
 {
     public class Inventory : IInventory
     {
-        public void Add(string name, int count)
+        List<string> names = new List<string>();
+        List<int> counts = new List<int>();
+
+        public int count => names.Count;
+
+        public void Add(string name, int count = 1)
         {
-            throw new System.NotImplementedException();
+            int index = names.IndexOf(name);
+
+            if (index == -1)
+            {
+                names.Add(name);
+                counts.Add(count);
+            }
+            else
+            {
+                counts[index] += count;
+            }
         }
 
-        public string[] getAllItems()
+        public bool Remove(string name, int count = 1)
         {
-            throw new System.NotImplementedException();
+            int index = names.IndexOf(name);
+         
+            if (index == -1 || counts[index] - count < 0)
+            {
+                return false;
+            }
+            else if (counts[index] - count == 0)
+            {
+                names.RemoveAt(index);
+                counts.RemoveAt(index);
+                return true;
+            }
+            else
+            {
+                counts[index] -= count;
+                return true;
+            }
         }
 
-        public string[] getUnmarkedItems()
+        public string GetName(int index)
         {
-            throw new System.NotImplementedException();
+            return names[index];
         }
 
-        public void Remove(string name, int count = 1)
+        public int GetCount(int index)
         {
-            throw new System.NotImplementedException();
+            return counts[index];
         }
 
-        public void RemoveAt(int index, int count = 1)
+        public bool Contains(string name, int count = 1)
         {
-            throw new System.NotImplementedException();
-        }
+            int index = names.IndexOf(name);
 
-        bool IInventory.Contains(string name, int count)
-        {
-            throw new System.NotImplementedException();
+            if (index == -1 || counts[index] < count)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

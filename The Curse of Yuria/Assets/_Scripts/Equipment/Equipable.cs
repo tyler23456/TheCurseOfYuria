@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TCOY.Equipment
 {
-    public class Equipment : MonoBehaviour, IEquipment
+    public class Equipable : MonoBehaviour, IEquipable
     {
         [SerializeField] List<Modifier> modifiers;
         [SerializeField] List<Reactor> counters; //Reactor System

@@ -10,5 +10,5 @@ public interface IActor
     IStats getStats { get; }
     List<IReactor> counters { get; }
     List<IReactor> interrupts { get; }
-    void Equip(HeroEditor.Common.Data.ItemSprite item, HeroEditor.Common.Enums.EquipmentPart part, Color? color);
+    IEquipment getEquipment { get;}
 }
