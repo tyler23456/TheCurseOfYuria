@@ -7,6 +7,7 @@ namespace TCOY.Interactables
 {
     public class Item : InteractableBase, IInteractable
     {
+        
         protected new void Start()
         {
             base.Start();

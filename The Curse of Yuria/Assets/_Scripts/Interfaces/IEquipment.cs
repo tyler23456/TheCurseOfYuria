@@ -5,13 +5,10 @@ using UnityEngine;
 
 public interface IEquipment
 {
-    string helmet { get; set; }
-    string earring { get; set; }
-    string glasses { get; set; }
-    string meleeWeapon1H { get; set; }
-    string meleeWeapon2H { get; set; }
-    string cape { get; set; }
-    string armor { get; set; }
-    string shield { get; set; }
-    string bow { get; set; }
+    enum Part { helmet, earring, glasses, weapon, weapon2, cape, armor, shield }
+    public void Initialize();
+    public string GetPart(IEquipment.Part part);
+    public void Equip(IEquipment.Part part, string itemName = "None");
+    public string[] GetSerializedData();
+    public void SetSerializedData(string[] array);
 }

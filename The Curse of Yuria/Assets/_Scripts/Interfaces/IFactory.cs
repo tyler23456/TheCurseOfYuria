@@ -8,7 +8,7 @@ using HeroEditor.Common;
 public interface IFactory
 {
     Dictionary<string, ItemSprite> itemSprites { get; }
-    Dictionary<string, IItem> itemPrefabs { get; }
+    Dictionary<string, IInteractable> itemPrefabs { get; }
     Dictionary<string, GameObject> particleSystemPrefabs { get; }
     Dictionary<string, IAbility> abilityPrefabs { get; }
     Dictionary<string, IEquipable> equipmentPrefabs { get; }

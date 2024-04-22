@@ -18,7 +18,7 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] AssetLabelReference equipmentReference;
 
         public Dictionary<string, ItemSprite> itemSprites { get; private set; } = new Dictionary<string, ItemSprite>();
-        public Dictionary<string, IItem> itemPrefabs { get; private set; } = new Dictionary<string, IItem>();
+        public Dictionary<string, IInteractable> itemPrefabs { get; private set; } = new Dictionary<string, IInteractable>();
         public Dictionary<string, GameObject> particleSystemPrefabs { get; private set; } = new Dictionary<string, GameObject>();
         public Dictionary<string, IAbility> abilityPrefabs { get; private set; } = new Dictionary<string, IAbility>();
         public Dictionary<string, IEquipable> equipmentPrefabs { get; private set; } = new Dictionary<string, IEquipable>();
@@ -34,7 +34,7 @@ namespace TCOY.DontDestroyOnLoad
 
             Addressables.LoadAssetsAsync<GameObject>(itemsReference, (i) =>
             {
-                itemPrefabs.Add(i.name, i.GetComponent<IItem>());
+                itemPrefabs.Add(i.name, i.GetComponent<IInteractable>());
             }).WaitForCompletion();
 
             Addressables.LoadAssetsAsync<GameObject>(particleSystemReference, (i) =>

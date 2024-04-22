@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
-using HeroEditor.Common.Data;
-using HeroEditor.Common.Enums;
 
 namespace TCOY.Actors
 {
