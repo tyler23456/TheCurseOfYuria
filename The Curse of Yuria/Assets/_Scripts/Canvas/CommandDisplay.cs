@@ -6,6 +6,8 @@ namespace TCOY.Canvas
 {
     public class CommandDisplay : MonoBehaviour
     {
+        
+
         void Start()
         {
 

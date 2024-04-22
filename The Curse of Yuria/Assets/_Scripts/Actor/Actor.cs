@@ -18,9 +18,11 @@ namespace TCOY.Actors
         [SerializeField] ATBGuage aTBGuage;
         [SerializeField] GroundChecker groundChecker;
         [SerializeField] JumpEvent jumpEvent;
-        [SerializeField] Character character;
+        [SerializeField] Character character;    
 
         Equipment equipment;
+        Skillset magic;
+        Skillset techniques;
 
         public GameObject getGameObject => gameObject;
         public IPosition getPosition => position;
@@ -29,6 +31,8 @@ namespace TCOY.Actors
         public IStats getStats => stats;
         public Character getCharacter => character;
         public IEquipment getEquipment => equipment;
+        public ISkillset getMagic => magic;
+        public ISkillset getTechniques => techniques;
 
         public List<IReactor> counters { get; private set; } = new List<IReactor>();
         public List<IReactor> interrupts { get; private set; } = new List<IReactor>();

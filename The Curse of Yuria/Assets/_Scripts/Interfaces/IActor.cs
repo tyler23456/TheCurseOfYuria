@@ -11,4 +11,6 @@ public interface IActor
     List<IReactor> counters { get; }
     List<IReactor> interrupts { get; }
     IEquipment getEquipment { get;}
+    public ISkillset getMagic { get; }
+    public ISkillset getTechniques { get; }
 }
