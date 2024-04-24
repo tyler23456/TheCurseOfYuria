@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HeroEditor.Common.Data;
 using HeroEditor.Common.Enums;
+using UnityEngine.UI;
 
 namespace TCOY.DontDestroyOnLoad
 {
@@ -10,8 +11,15 @@ namespace TCOY.DontDestroyOnLoad
     {
         IFactory factory;
 
+        [SerializeField] RectTransform titleScreenDisplay;
+        [SerializeField] RectTransform equipmentDisplay;
+        [SerializeField] RectTransform commandDisplay;
+        [SerializeField] RectTransform optionsDisplay;
+        [SerializeField] RectTransform gameOverDisplay;
+        
         [SerializeField] Camera mainCamera;
         [SerializeField] List<IPlayer> party;
+        [SerializeField] List<IActor> actors;
 
         Inventory helmets { get; }
         Inventory earrings { get; }
@@ -28,8 +36,12 @@ namespace TCOY.DontDestroyOnLoad
         Inventory completedQuests { get; }
         Inventory completedIds { get; }
 
+        public Queue<IPlayer.Names> aTBGuageFilledQueue { get; set; } = new Queue<IPlayer.Names>();
+        public Queue<(IActor user, string command, IActor target)> commandQueue { get; set; }
+
         public Camera getCamera => mainCamera;
         List<IPlayer> IGlobal.getParty => party;
+        List<IActor> IGlobal.getActors => actors;
         IInventory IGlobal.getHelmets => helmets;
         IInventory IGlobal.getEarrings => earrings;
         IInventory IGlobal.getGlasses => glasses;
@@ -44,6 +56,8 @@ namespace TCOY.DontDestroyOnLoad
         IInventory IGlobal.getQuestItems => questItems;
         IInventory IGlobal.getCompletedQuests => completedQuests;
         IInventory IGlobal.getCompletedIds => completedIds;
+
+        
 
         public void Awake()
         {

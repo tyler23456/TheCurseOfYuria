@@ -7,10 +7,11 @@ namespace TCOY.Actors
 {
     public class Actor : MonoBehaviour, IActor
     {
-        IGlobal global;
-        IFactory factory;
-        IBattleManager battleManager;
+        protected IGlobal global;
+        protected IFactory factory;
+        protected IBattleManager battleManager;
 
+        [SerializeField] new Collider2D collider2D;
         [SerializeField] Position position;
         [SerializeField] Climber climber;
         [SerializeField] Rotation rotation;
@@ -21,9 +22,10 @@ namespace TCOY.Actors
         [SerializeField] Character character;    
 
         Equipment equipment;
-        Skillset magic;
-        Skillset techniques;
+        Inventory magic;
+        Inventory techniques;
 
+        public Collider2D getCollider2D => collider2D;
         public GameObject getGameObject => gameObject;
         public IPosition getPosition => position;
         public IClimber getClimber => climber;
@@ -31,8 +33,8 @@ namespace TCOY.Actors
         public IStats getStats => stats;
         public Character getCharacter => character;
         public IEquipment getEquipment => equipment;
-        public ISkillset getMagic => magic;
-        public ISkillset getTechniques => techniques;
+        public IInventory getMagic => magic;
+        public IInventory getTechniques => techniques;
 
         public List<IReactor> counters { get; private set; } = new List<IReactor>();
         public List<IReactor> interrupts { get; private set; } = new List<IReactor>();

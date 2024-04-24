@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IActor
 {
+    Collider2D getCollider2D { get; }
     GameObject getGameObject { get; }
     IPosition getPosition { get; }
     IRotation getRotation { get; }
@@ -11,6 +12,6 @@ public interface IActor
     List<IReactor> counters { get; }
     List<IReactor> interrupts { get; }
     IEquipment getEquipment { get;}
-    public ISkillset getMagic { get; }
-    public ISkillset getTechniques { get; }
+    public IInventory getMagic { get; }
+    public IInventory getTechniques { get; }
 }

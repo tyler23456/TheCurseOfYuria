@@ -5,7 +5,11 @@ using UnityEngine;
 public interface IGlobal
 {
     List<IPlayer> getParty { get; }
+    List<IActor> getActors { get; }
     Camera getCamera { get; }
+
+    Queue<IPlayer.Names> aTBGuageFilledQueue { get; set; }
+    Queue<(IActor user, string command, IActor target)> commandQueue { get; set; }
 
     IInventory getHelmets { get; }
     IInventory getEarrings { get; }

@@ -8,6 +8,12 @@ namespace TCOY.Canvas
 {
     public class EquipmentDisplay : MonoBehaviour
     {
+        IInventoryUI inventoryUI;
+        IGlobal global;
+        IFactory factory;
+
+        [SerializeField] RectTransform root;
+
         [SerializeField] Button helmetsTab;
         [SerializeField] Button earringsTab;
         [SerializeField] Button glassesTab;
@@ -39,11 +45,6 @@ namespace TCOY.Canvas
         [SerializeField] Image armorSlot;
         [SerializeField] Image shieldSlot;
 
-        [SerializeField] RectTransform root;
-
-        IInventoryUI inventoryUI;
-        IGlobal global;
-        IFactory factory;
         IEquipment.Part currentPart = IEquipment.Part.helmet;
         int partyMemberIndex = 0;
 
