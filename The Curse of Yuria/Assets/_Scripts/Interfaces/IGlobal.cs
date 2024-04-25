@@ -16,7 +16,7 @@ public interface IGlobal
     IInventory getGlasses { get; }
     IInventory getMasks { get; }
     IInventory getMeleeWeapons1H { get; }
-    IInventory getMeleeWeapons2H { get; }
+    IInventory getMeleeWeapons2H { get;}
     IInventory getCapes { get; }
     IInventory getArmor { get; }
     IInventory getShields { get; }

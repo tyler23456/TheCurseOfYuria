@@ -24,7 +24,7 @@ namespace TCOY.DontDestroyOnLoad
         public Dictionary<string, IEquipable> equipmentPrefabs { get; private set; } = new Dictionary<string, IEquipable>();
 
         public SpriteCollection getSpriteCollection => spriteCollection;
-        
+
         private void Awake()
         {
             List<ItemSprite> items = getSpriteCollection.GetAllSprites();
@@ -56,6 +56,14 @@ namespace TCOY.DontDestroyOnLoad
         public IEnemy GetEnemyPrefab(string enemyPrefabName)
         {
             return null;
+        }
+
+        public EquipmentPart GetEquipmentPart(string itemName)
+        {
+            ItemSprite item = itemSprites[itemName];
+            string partString = item.Id.Split('.')[2];
+            System.Enum.TryParse(partString, out EquipmentPart result);
+            return result;
         }
     }
 }

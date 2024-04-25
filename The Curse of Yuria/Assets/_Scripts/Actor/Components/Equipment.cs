@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
-using HeroEditor.Common.Data;
 using HeroEditor.Common.Enums;
 
 namespace TCOY.Actors
@@ -15,21 +14,38 @@ namespace TCOY.Actors
         [SerializeField] Character character;
 
         string[] parts;
+        
 
         public void Initialize()
         {
-            parts = new string[] { "None", "None", "None", "None", "None", "None", "None", "None", };
+            parts = new string[19] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", };
             factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
         }
 
-        public string GetPart(IEquipment.Part part)
+        public string GetPart(EquipmentPart part)
         {
             return parts[(int)part];
         }
 
-        public void Equip(IEquipment.Part part, string itemName = "None")
+        public void Equip(EquipmentPart part, string itemName)
         {
+            if ((int)part >= 7 && (int)part <= 10)
+            {
+                parts[7] = "";
+                parts[8] = "";
+                parts[9] = "";
+                parts[10] = "";
+                /*character.UnEquip(EquipmentPart.MeleeWeapon1H);
+                character.UnEquip(EquipmentPart.MeleeWeapon2H);
+                character.UnEquip(EquipmentPart.Bow);*/
+            }
             parts[(int)part] = itemName;
+            character.Equip(factory.itemSprites[itemName], part);
+        }
+
+        public void Unequip(EquipmentPart part)
+        {
+            character.UnEquip(part);
         }
 
         public string[] GetSerializedData()

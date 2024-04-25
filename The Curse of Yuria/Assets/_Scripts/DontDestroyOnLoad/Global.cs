@@ -57,8 +57,6 @@ namespace TCOY.DontDestroyOnLoad
         IInventory IGlobal.getCompletedQuests => completedQuests;
         IInventory IGlobal.getCompletedIds => completedIds;
 
-        
-
         public void Awake()
         {
             factory = GetComponent<IFactory>();

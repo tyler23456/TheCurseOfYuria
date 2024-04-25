@@ -17,6 +17,9 @@ namespace TCOY.DontDestroyOnLoad
         public RectTransform buttonParent { get; set; } = null;
         public IInventory inventory { get; set; } = null;
 
+        public List<Button> icons { get; set; } = new List<Button>();
+        public Button icon = null;
+
         public void Show()
         {
             if (isVertical)
@@ -32,11 +35,13 @@ namespace TCOY.DontDestroyOnLoad
             int row = 0;
             int column = 0;
 
+            icons.Clear();
+
             for (int i = 0; i < inventory.count; i++)
             {
-                Button button = Instantiate(buttonPrefab);
-                button.onClick.AddListener(() => { OnClick(inventory.GetName(i)); });
-                RectTransform rectTransform = (RectTransform)button.transform;
+                icon = Instantiate(buttonPrefab);
+                icon.onClick.AddListener(() => { OnClick(inventory.GetName(i)); });
+                RectTransform rectTransform = (RectTransform)icon.transform;
                 rectTransform.anchoredPosition = new Vector2(origin.x + row * windowSize.x, origin.y + column * windowSize.y);
                 //need to set the image
 
@@ -45,7 +50,7 @@ namespace TCOY.DontDestroyOnLoad
                 {
                     row = 0;
                     column++;
-                }                   
+                }
             }
         }
 

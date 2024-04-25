@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+using HeroEditor.Common.Enums;
 
 namespace TCOY.Canvas
 {
@@ -17,35 +17,32 @@ namespace TCOY.Canvas
         [SerializeField] Button helmetsTab;
         [SerializeField] Button earringsTab;
         [SerializeField] Button glassesTab;
-        [SerializeField] Button meleeWeapon1HTab;
-        [SerializeField] Button meleeWeapon2HTab;
+        [SerializeField] Button meleeWeapons1HTab;
+        [SerializeField] Button meleeWeapons2HTab;
         [SerializeField] Button capesTab;
         [SerializeField] Button armorTab;
-        [SerializeField] Button shieldTab;
+        [SerializeField] Button shieldsTab;
         [SerializeField] Button bowsTab;
-
-        [SerializeField] Button riverTab;
-        [SerializeField] Button sarahTab;
-        [SerializeField] Button nathanTab;
-        [SerializeField] Button ashlynTab;
-        [SerializeField] Button juelTab;
-        [SerializeField] Button ninaTab;
-        [SerializeField] Button onyxTab;
+    
+        [SerializeField] Text itemName;
+        [SerializeField] Text itemInfo;
 
         [SerializeField] Image partyMemberSprite;
-        [SerializeField] Text itemInfo;
-        [SerializeField] Text partyMemberInfo;
-
         [SerializeField] Text partyMemberName;
+        [SerializeField] Text partyMemberStats;
+        [SerializeField] Text partyMemberValues;
+
         [SerializeField] Image helmetSlot;
         [SerializeField] Image earringSlot;
         [SerializeField] Image glassesSlot;
-        [SerializeField] Image weaponSlot;
+        [SerializeField] Image meleeWeapon1HSlot;
+        [SerializeField] Image meleeWeapon2HSlot;
         [SerializeField] Image capeSlot;
         [SerializeField] Image armorSlot;
         [SerializeField] Image shieldSlot;
+        [SerializeField] Image bowsSlot;
 
-        IEquipment.Part currentPart = IEquipment.Part.helmet;
+        EquipmentPart currentPart = EquipmentPart.Helmet;
         int partyMemberIndex = 0;
 
         void Start()
@@ -54,40 +51,21 @@ namespace TCOY.Canvas
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
             factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
 
-            helmetsTab.onClick.AddListener(() => { OnClickEquipmentPartTab(IEquipment.Part.helmet, global.getHelmets); });
-            earringsTab.onClick.AddListener(() => { OnClickEquipmentPartTab(IEquipment.Part.earring, global.getEarrings); });
-            glassesTab.onClick.AddListener(() => { OnClickEquipmentPartTab(IEquipment.Part.glasses, global.getGlasses); });
-            meleeWeapon1HTab.onClick.AddListener(() => { OnClickEquipmentPartTab(IEquipment.Part.weapon, global.getMeleeWeapons1H); });
-            meleeWeapon2HTab.onClick.AddListener(() => { OnClickEquipmentPartTab(IEquipment.Part.weapon, global.getMeleeWeapons2H); });
-            capesTab.onClick.AddListener(() => { OnClickEquipmentPartTab(IEquipment.Part.cape, global.getCapes); });
-            armorTab.onClick.AddListener(() => { OnClickEquipmentPartTab(IEquipment.Part.armor, global.getArmor); });
-            shieldTab.onClick.AddListener(() => { OnClickEquipmentPartTab(IEquipment.Part.weapon, global.getShields); });
+            helmetsTab.onClick.AddListener(() => { OnClickEquipmentPartTab(EquipmentPart.Helmet, global.getHelmets); });
+            earringsTab.onClick.AddListener(() => { OnClickEquipmentPartTab(EquipmentPart.Earrings, global.getEarrings); });
+            glassesTab.onClick.AddListener(() => { OnClickEquipmentPartTab(EquipmentPart.Glasses, global.getGlasses); });
+            meleeWeapons1HTab.onClick.AddListener(() => { OnClickEquipmentPartTab(EquipmentPart.MeleeWeapon1H, global.getMeleeWeapons1H); });
+            meleeWeapons2HTab.onClick.AddListener(() => { OnClickEquipmentPartTab(EquipmentPart.MeleeWeapon2H, global.getMeleeWeapons2H); });
+            capesTab.onClick.AddListener(() => { OnClickEquipmentPartTab(EquipmentPart.Cape, global.getCapes); });
+            armorTab.onClick.AddListener(() => { OnClickEquipmentPartTab(EquipmentPart.Armor, global.getArmor); });
+            shieldsTab.onClick.AddListener(() => { OnClickEquipmentPartTab(EquipmentPart.Shield, global.getShields); });
+            bowsTab.onClick.AddListener(() => { OnClickEquipmentPartTab(EquipmentPart.Bow, global.getShields); });
 
-            int partyCount = global.getParty.Count;
-
-            if (partyCount >= 1)
-                riverTab.onClick.AddListener(() => OnClickPartyMemberTab(0));
-
-            if (partyCount >= 2)
-                sarahTab.onClick.AddListener(() => OnClickPartyMemberTab(1));
-
-            if (partyCount >= 3)
-                nathanTab.onClick.AddListener(() => OnClickPartyMemberTab(2));
-
-            if (partyCount >= 4)
-                ashlynTab.onClick.AddListener(() => OnClickPartyMemberTab(3));
-
-            if (partyCount >= 5)
-                juelTab.onClick.AddListener(() => OnClickPartyMemberTab(4));
-
-            if (partyCount >= 6)
-                ninaTab.onClick.AddListener(() => OnClickPartyMemberTab(5));
-
-            if (partyCount >= 7)
-                onyxTab.onClick.AddListener(() => OnClickPartyMemberTab(6));
+            partyMemberIndex = 0;
+            OnClickEquipmentPartTab(EquipmentPart.Helmet, global.getHelmets);
         }
         
-        public void OnClickEquipmentPartTab(IEquipment.Part part, IInventory inventory)
+        public void OnClickEquipmentPartTab(EquipmentPart part, IInventory inventory)
         {
             currentPart = part;
             inventoryUI.isVertical = false;
@@ -100,31 +78,36 @@ namespace TCOY.Canvas
         public void OnEquip(string itemName)
         {
             global.getParty[partyMemberIndex].getEquipment.Equip(currentPart, itemName);
-            OnClickPartyMemberTab(partyMemberIndex);
+            RefreshPartyMember();
         }
 
-        public void OnClickPartyMemberTab(int partyMemberIndex)
+        public void RefreshPartyMember()
         {
-            this.partyMemberIndex = partyMemberIndex;
-            helmetSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(IEquipment.Part.helmet)].getSprite;
-            earringSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(IEquipment.Part.earring)].getSprite; ;
-            glassesSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(IEquipment.Part.glasses)].getSprite;
-            weaponSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(IEquipment.Part.weapon)].getSprite;
-            capeSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(IEquipment.Part.cape)].getSprite; ;
-            armorSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(IEquipment.Part.armor)].getSprite; ;
-            shieldSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(IEquipment.Part.shield)].getSprite; ;
+            helmetSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Helmet)].getSprite;
+            earringSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Earrings)].getSprite;
+            glassesSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Glasses)].getSprite;
+            meleeWeapon1HSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.MeleeWeapon1H)].getSprite;
+            meleeWeapon2HSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.MeleeWeapon1H)].getSprite;
+            capeSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Cape)].getSprite;
+            armorSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Armor)].getSprite;
+            shieldSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Shield)].getSprite;
+            bowsSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Bow)].getSprite;
         }
 
-        public void Show()
+        public void Update()
         {
-            root.gameObject.SetActive(true);
-            OnClickEquipmentPartTab(IEquipment.Part.helmet, global.getHelmets);
-            partyMemberIndex = 0;
-        }
-
-        public void Hide()
-        {
-            root.gameObject.SetActive(false);
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                partyMemberIndex--;
+                partyMemberIndex = Mathf.Clamp(partyMemberIndex, 0, global.getParty.Count - 1);
+                RefreshPartyMember();
+            }
+            else if (Input.GetKeyDown(KeyCode.E))
+            {
+                partyMemberIndex++;
+                partyMemberIndex = Mathf.Clamp(partyMemberIndex, 0, global.getParty.Count - 1);
+                RefreshPartyMember();
+            }
         }
     }
 }

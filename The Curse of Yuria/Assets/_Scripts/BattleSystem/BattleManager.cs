@@ -8,6 +8,7 @@ namespace TCOY.BattleSystem
     {
         IGlobal global;
         IFactory factory;
+        bool isRunning = false;
 
 
         void Start()
@@ -18,7 +19,20 @@ namespace TCOY.BattleSystem
 
         void Update()
         {
+            if (global.commandQueue.Count == 0 || isRunning)
+                return;
 
+            isRunning = true;
+            RunCommand();
+        }
+
+        void RunCommand()
+        {
+            
+
+
+
+            
         }
     }
 }
