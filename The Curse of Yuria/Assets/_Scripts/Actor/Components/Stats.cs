@@ -71,7 +71,7 @@ namespace TCOY.Actors
             attributes[(int)IStats.Attributes.MP] -= cost;
         }
 
-        public bool ApplyAbility(int power, IStats user, IAbility.Group group, IAbility.Type type, IAbility.Element element)
+        public bool ApplySkillCalculation(int power, IStats user, IAbility.Group group, IAbility.Type type, IAbility.Element element)
         {
             if (type == IAbility.Type.Damage)
                 if (group >= IAbility.Group.Magic)

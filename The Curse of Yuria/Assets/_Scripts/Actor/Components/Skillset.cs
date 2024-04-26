@@ -7,13 +7,23 @@ namespace TCOY.Actors
     [System.Serializable]
     public class Skillset : ISkillset
     {
-        List<string> skills;
+        [SerializeField] List<string> skills;
 
         public int count => skills.Count;
 
         public string GetSkill(int index)
         {
             return skills[index];
+        }
+
+        public void AddSkill(string skill)
+        {
+            skills.Add(skill);
+        }
+
+        public void RemoveSkill(string skill)
+        {
+            skills.Remove(skill);
         }
 
         public string[] GetSerializedData()

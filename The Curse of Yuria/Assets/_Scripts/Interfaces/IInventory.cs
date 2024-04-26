@@ -10,4 +10,8 @@ public interface IInventory
     public string GetName(int index);
     public int GetCount(int index);
     public bool Contains(string name, int count = 1);
+    string[] GetNames();
+    public int[] GetCounts();
+    public void SetNames(string[] names);
+    public void SetCounts(int[] counts);
 }

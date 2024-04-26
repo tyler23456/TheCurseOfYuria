@@ -11,19 +11,20 @@ namespace TCOY.Actors
         protected IFactory factory;
         protected IBattleManager battleManager;
 
-        [SerializeField] new Collider2D collider2D;
-        [SerializeField] Position position;
-        [SerializeField] Climber climber;
-        [SerializeField] Rotation rotation;
-        [SerializeField] Stats stats;
-        [SerializeField] ATBGuage aTBGuage;
-        [SerializeField] GroundChecker groundChecker;
-        [SerializeField] JumpEvent jumpEvent;
-        [SerializeField] Character character;    
-
-        Equipment equipment;
-        Inventory magic;
-        Inventory techniques;
+        [SerializeField] protected new Collider2D collider2D;
+        [SerializeField] protected Position position;
+        [SerializeField] protected Climber climber;
+        [SerializeField] protected Rotation rotation;
+        [SerializeField] protected Stats stats;
+        [SerializeField] protected ATBGuage aTBGuage;
+        [SerializeField] protected GroundChecker groundChecker;
+        [SerializeField] protected JumpEvent jumpEvent;
+        [SerializeField] protected Character character;
+        [SerializeField] protected Equipment equipment;
+        [SerializeField] protected string attack;
+        [SerializeField] protected Inventory magic;
+        [SerializeField] protected Inventory techniques;
+        [SerializeField] protected UserAnimator animator;
 
         public Collider2D getCollider2D => collider2D;
         public GameObject getGameObject => gameObject;
@@ -33,8 +34,10 @@ namespace TCOY.Actors
         public IStats getStats => stats;
         public Character getCharacter => character;
         public IEquipment getEquipment => equipment;
+        public string getAttack => attack;
         public IInventory getMagic => magic;
         public IInventory getTechniques => techniques;
+        public IAnimator getAnimator => animator;
 
         public List<IReactor> counters { get; private set; } = new List<IReactor>();
         public List<IReactor> interrupts { get; private set; } = new List<IReactor>();

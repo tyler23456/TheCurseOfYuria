@@ -10,16 +10,18 @@ namespace TCOY.Actors
     public class Equipment : IEquipment
     {
         IFactory factory;
-
         [SerializeField] Character character;
-
         string[] parts;
-        
 
-        public void Initialize()
+        public void Reset(GameObject obj)
         {
-            parts = new string[19] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", };
+            character = obj.GetComponent<Character>();           
+        }
+
+        public void Start(IFactory factory)
+        {
             factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
+            parts = new string[19] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", };
         }
 
         public string GetPart(EquipmentPart part)

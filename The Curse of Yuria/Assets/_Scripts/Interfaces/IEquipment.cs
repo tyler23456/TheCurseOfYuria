@@ -5,8 +5,6 @@ using HeroEditor.Common.Enums;
 
 public interface IEquipment
 {
-    enum Part { helmet, earring, glasses, weapon, cape, armor, shield }
-    public void Initialize();
     public string GetPart(EquipmentPart part);
     public void Equip(EquipmentPart part, string itemName);
     public void Unequip(EquipmentPart part);

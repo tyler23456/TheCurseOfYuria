@@ -70,4 +70,26 @@ public class Inventory : IInventory
             return true;
         }
     }
+
+    public string[] GetNames()
+    {
+        return names.ToArray();
+    }
+
+    public int[] GetCounts()
+    {
+        return counts.ToArray();
+    }
+
+    public void SetNames(string[] names)
+    {
+        this.names.Clear();
+        this.names.AddRange(names);
+    }
+
+    public void SetCounts(int[] counts)
+    {
+        this.counts.Clear();
+        this.counts.AddRange(counts);
+    }
 }

@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace TCOY.BattleSystem
 {
-    public class BattleManager : MonoBehaviour
+    public class BattleManager : MonoBehaviour, IBattleManager
     {
         IGlobal global;
         IFactory factory;
-        bool isRunning = false;
+        public bool isRunning { get; set; } = false;
 
 
         void Start()
@@ -23,16 +23,8 @@ namespace TCOY.BattleSystem
                 return;
 
             isRunning = true;
-            RunCommand();
+
         }
 
-        void RunCommand()
-        {
-            
-
-
-
-            
-        }
     }
 }

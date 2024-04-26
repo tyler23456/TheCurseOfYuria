@@ -12,6 +12,7 @@ public interface IActor
     List<IReactor> counters { get; }
     List<IReactor> interrupts { get; }
     IEquipment getEquipment { get;}
-    public IInventory getMagic { get; }
-    public IInventory getTechniques { get; }
+    IInventory getMagic { get; }
+    IInventory getTechniques { get; }
+    IAnimator getAnimator { get; }
 }
