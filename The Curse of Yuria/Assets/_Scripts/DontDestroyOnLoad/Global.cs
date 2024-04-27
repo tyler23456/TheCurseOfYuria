@@ -12,6 +12,7 @@ namespace TCOY.DontDestroyOnLoad
         IFactory factory;
 
         [SerializeField] RectTransform titleScreenDisplay;
+        [SerializeField] RectTransform promptDisplay;
         [SerializeField] RectTransform equipmentDisplay;
         [SerializeField] RectTransform commandDisplay;
         [SerializeField] RectTransform optionsDisplay;
@@ -64,7 +65,7 @@ namespace TCOY.DontDestroyOnLoad
 
         public IInventory GetInventoryOf(string itemName)
         {
-            ItemSprite item = factory.itemSprites[itemName];
+            ItemSprite item = factory.GetSprite(itemName);
             string partString = item.Id.Split('.')[2];
 
             switch (partString)

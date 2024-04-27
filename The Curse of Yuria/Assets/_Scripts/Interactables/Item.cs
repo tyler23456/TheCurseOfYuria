@@ -7,7 +7,6 @@ namespace TCOY.Interactables
 {
     public class Item : InteractableBase, IInteractable
     {
-        
         protected new void Start()
         {
             base.Start();
@@ -15,7 +14,7 @@ namespace TCOY.Interactables
             if (global.getCompletedIds.Contains(getID))
                 gameObject.SetActive(false);
         }
-
+        
         public override void Interact(IPlayer player)
         {
             global.GetInventoryOf(name).Add(name, 1);

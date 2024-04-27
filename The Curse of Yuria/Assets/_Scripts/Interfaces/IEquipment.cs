@@ -5,9 +5,10 @@ using HeroEditor.Common.Enums;
 
 public interface IEquipment
 {
-    public string GetPart(EquipmentPart part);
-    public void Equip(EquipmentPart part, string itemName);
-    public void Unequip(EquipmentPart part);
-    public string[] GetSerializedData();
-    public void SetSerializedData(string[] array);
+    string GetPart(EquipmentPart part);
+    void Equip(EquipmentPart part, string itemName);
+    void Unequip(EquipmentPart part);
+    bool Contains(string name);
+    string[] GetSerializedData();
+    void SetSerializedData(string[] array);
 }

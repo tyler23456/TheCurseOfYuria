@@ -4,14 +4,13 @@ using UnityEngine;
 using HeroEditor.Common.Data;
 using HeroEditor.Common.Enums;
 using HeroEditor.Common;
+using Assets.HeroEditor.Common.Scripts.Data;
 
 public interface IFactory
 {
-    Dictionary<string, ItemSprite> itemSprites { get; }
-    Dictionary<string, IInteractable> itemPrefabs { get; }
-    Dictionary<string, GameObject> particleSystemPrefabs { get; }
-    Dictionary<string, IAbility> abilityPrefabs { get; }
-    Dictionary<string, IEquipable> equipmentPrefabs { get; }
-    SpriteCollection getSpriteCollection { get; }
-    IEnemy GetEnemyPrefab(string enemyPrefabName);
+    ItemSprite GetSprite(string name);
+    ItemIcon GetIcon(string name);
+    Sprite GetItemPrefab(string name);
+    GameObject GetParticleSystemPrefab(string name);
+    ISkill GetAbilityPrefab(string name);
 }

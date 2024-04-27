@@ -5,36 +5,31 @@ using HeroEditor.Common.Data;
 using HeroEditor.Common.Enums;
 using HeroEditor.Common;
 using UnityEngine.AddressableAssets;
+using Assets.HeroEditor.Common.Scripts.Collections;
+using Assets.HeroEditor.Common.Scripts.Data;
 
 namespace TCOY.DontDestroyOnLoad
 {
     public class Factory : MonoBehaviour, IFactory
     {
-        [SerializeField] SpriteCollection spriteCollection;
-
         [SerializeField] AssetLabelReference itemsReference;
         [SerializeField] AssetLabelReference particleSystemReference;
         [SerializeField] AssetLabelReference abilitiesReference;
-        [SerializeField] AssetLabelReference equipmentReference;
 
-        public Dictionary<string, ItemSprite> itemSprites { get; private set; } = new Dictionary<string, ItemSprite>();
-        public Dictionary<string, IInteractable> itemPrefabs { get; private set; } = new Dictionary<string, IInteractable>();
-        public Dictionary<string, GameObject> particleSystemPrefabs { get; private set; } = new Dictionary<string, GameObject>();
-        public Dictionary<string, IAbility> abilityPrefabs { get; private set; } = new Dictionary<string, IAbility>();
-        public Dictionary<string, IEquipable> equipmentPrefabs { get; private set; } = new Dictionary<string, IEquipable>();
+        Dictionary<string, ItemIcon> icons = new Dictionary<string, ItemIcon>();
+        Dictionary<string, ItemSprite> sprites = new Dictionary<string, ItemSprite>();
 
-        public SpriteCollection getSpriteCollection => spriteCollection;
+        Dictionary<string, Sprite> itemPrefabs = new Dictionary<string, Sprite>();     
+        Dictionary<string, GameObject> particleSystemPrefabs = new Dictionary<string, GameObject>();
+        Dictionary<string, ISkill> abilityPrefabs = new Dictionary<string, ISkill>();
 
         private void Awake()
         {
-            List<ItemSprite> items = getSpriteCollection.GetAllSprites();
 
-            foreach (ItemSprite item in items)
-                itemSprites.Add(item.Name, item);
 
-            Addressables.LoadAssetsAsync<GameObject>(itemsReference, (i) =>
+            Addressables.LoadAssetsAsync<Sprite>(itemsReference, (i) =>
             {
-                itemPrefabs.Add(i.name, i.GetComponent<IInteractable>());
+                itemPrefabs.Add(i.name, i);
             }).WaitForCompletion();
 
             Addressables.LoadAssetsAsync<GameObject>(particleSystemReference, (i) =>
@@ -44,26 +39,41 @@ namespace TCOY.DontDestroyOnLoad
 
             Addressables.LoadAssetsAsync<GameObject>(abilitiesReference, (i) =>
             {
-                abilityPrefabs.Add(i.name, i.GetComponent<IAbility>());
+                abilityPrefabs.Add(i.name, i.GetComponent<ISkill>());
             }).WaitForCompletion();
-
-            Addressables.LoadAssetsAsync<GameObject>(equipmentReference, (i) =>
-            {
-                equipmentPrefabs.Add(i.name, i.GetComponent<IEquipable>());
-            }).WaitForCompletion();
-        }
-
-        public IEnemy GetEnemyPrefab(string enemyPrefabName)
-        {
-            return null;
         }
 
         public EquipmentPart GetEquipmentPart(string itemName)
         {
-            ItemSprite item = itemSprites[itemName];
+            ItemSprite item = sprites[itemName];
             string partString = item.Id.Split('.')[2];
             System.Enum.TryParse(partString, out EquipmentPart result);
             return result;
+        }
+
+        public ItemSprite GetSprite(string name)
+        {
+            return sprites[name];
+        }
+
+        public ItemIcon GetIcon(string name)
+        {
+            return icons[name];
+        }
+
+        public Sprite GetItemPrefab(string name)
+        {
+            return itemPrefabs[name];
+        }
+
+        public GameObject GetParticleSystemPrefab(string name)
+        {
+            return particleSystemPrefabs[name];
+        }
+
+        public ISkill GetAbilityPrefab(string name)
+        {
+            return abilityPrefabs[name];
         }
     }
 }

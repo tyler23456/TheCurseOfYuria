@@ -42,12 +42,21 @@ namespace TCOY.Actors
                 character.UnEquip(EquipmentPart.Bow);*/
             }
             parts[(int)part] = itemName;
-            character.Equip(factory.itemSprites[itemName], part);
+            character.Equip(factory.GetSprite(itemName), part);
         }
 
         public void Unequip(EquipmentPart part)
         {
             character.UnEquip(part);
+        }
+
+        public bool Contains(string name)
+        {
+            foreach (string part in parts)
+                if (part == name)
+                    return true;
+
+            return false;
         }
 
         public string[] GetSerializedData()

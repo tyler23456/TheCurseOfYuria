@@ -48,7 +48,7 @@ namespace TCOY.Actors
             return attributes[(int)attribute];
         }
 
-        public int GetWeakness(IAbility.Element type)
+        public int GetWeakness(ISkill.Element type)
         {
             return weaknesses[(int)type];
         }
@@ -71,39 +71,39 @@ namespace TCOY.Actors
             attributes[(int)IStats.Attributes.MP] -= cost;
         }
 
-        public bool ApplySkillCalculation(int power, IStats user, IAbility.Group group, IAbility.Type type, IAbility.Element element)
+        public bool ApplySkillCalculation(int power, IStats user, ISkill.Group group, ISkill.Type type, ISkill.Element element)
         {
-            if (type == IAbility.Type.Damage)
-                if (group >= IAbility.Group.Magic)
+            if (type == ISkill.Type.Damage)
+                if (group >= ISkill.Group.Magic)
                 {
                     int defense = GetAttribute(IStats.Attributes.Aura) + GetWeakness(element);
                     int total = (user.GetAttribute(IStats.Attributes.Magic) + power) * (100 / (100 + defense));
                     onApplyDamage.Invoke(total);
                 }
-                else if (group >= IAbility.Group.Melee)
+                else if (group >= ISkill.Group.Melee)
                 {
                     int defense = GetAttribute(IStats.Attributes.Defense) + GetWeakness(element);
                     int total = (user.GetAttribute(IStats.Attributes.Strength) + power) * (100 / (100 + defense));
                     onApplyDamage.Invoke(total);
                 }
-                else if (group >= IAbility.Group.None)
+                else if (group >= ISkill.Group.None)
                 {
                     int defense = GetWeakness(element);
                     int total = power * (100 / (100 + defense));
                     onApplyDamage.Invoke(total);
                 }
-            else if (type == IAbility.Type.Recovery)
-                    if (group >= IAbility.Group.Magic)
+            else if (type == ISkill.Type.Recovery)
+                    if (group >= ISkill.Group.Magic)
                     {
                         int total = user.GetAttribute(IStats.Attributes.Magic) + power;
                         onApplyDamage.Invoke(total);
                     }
-                    else if (group >= IAbility.Group.Melee)
+                    else if (group >= ISkill.Group.Melee)
                     {
                         int total = user.GetAttribute(IStats.Attributes.Strength) + power;
                         onApplyDamage.Invoke(total);
                     }
-                    else if (group >= IAbility.Group.None)
+                    else if (group >= ISkill.Group.None)
                     {
                         int total = power;
                         onApplyDamage.Invoke(total);

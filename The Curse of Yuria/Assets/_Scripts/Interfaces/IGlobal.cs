@@ -27,4 +27,6 @@ public interface IGlobal
     IInventory getCompletedIds { get; }
 
     IInventory GetInventoryOf(string itemName);
+
+    Coroutine StartCoroutine(IEnumerator routine);
 }

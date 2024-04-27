@@ -32,10 +32,10 @@ namespace TCOY.Actors
         void MakeADecision()
         {
             string skill = combinedSkills.Peek();
-            IAbility.Type skillType = factory.abilityPrefabs[skill].getType;
+            ISkill.Type skillType = factory.GetAbilityPrefab(skill).getType;
             IActor target = null;
 
-            if (skillType == IAbility.Type.Damage)
+            if (skillType == ISkill.Type.Damage)
             {
                 target = global.getParty[Random.Range(0, global.getParty.Count)];
             }

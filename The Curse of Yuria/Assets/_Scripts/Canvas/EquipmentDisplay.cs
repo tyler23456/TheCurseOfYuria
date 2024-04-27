@@ -83,15 +83,15 @@ namespace TCOY.Canvas
 
         public void RefreshPartyMember()
         {
-            helmetSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Helmet)].getSprite;
-            earringSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Earrings)].getSprite;
-            glassesSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Glasses)].getSprite;
-            meleeWeapon1HSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.MeleeWeapon1H)].getSprite;
-            meleeWeapon2HSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.MeleeWeapon1H)].getSprite;
-            capeSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Cape)].getSprite;
-            armorSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Armor)].getSprite;
-            shieldSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Shield)].getSprite;
-            bowsSlot.sprite = factory.itemPrefabs[global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Bow)].getSprite;
+            helmetSlot.sprite = factory.GetItemPrefab(global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Helmet));
+            earringSlot.sprite = factory.GetItemPrefab(global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Earrings));
+            glassesSlot.sprite = factory.GetItemPrefab(global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Glasses));
+            meleeWeapon1HSlot.sprite = factory.GetItemPrefab(global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.MeleeWeapon1H));
+            meleeWeapon2HSlot.sprite = factory.GetItemPrefab(global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.MeleeWeapon1H));
+            capeSlot.sprite = factory.GetItemPrefab(global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Cape));
+            armorSlot.sprite = factory.GetItemPrefab(global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Armor));
+            shieldSlot.sprite = factory.GetItemPrefab(global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Shield));
+            bowsSlot.sprite = factory.GetItemPrefab(global.getParty[partyMemberIndex].getEquipment.GetPart(EquipmentPart.Bow));
         }
 
         public void Update()

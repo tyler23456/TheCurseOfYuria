@@ -8,6 +8,8 @@ namespace TCOY.DontDestroyOnLoad
 {
     public class InventoryUI : MonoBehaviour, IInventoryUI
     {
+        IFactory factory;
+
         [SerializeField] Button buttonPrefab;
 
         public bool isVertical { get; set; } = false;
@@ -18,7 +20,12 @@ namespace TCOY.DontDestroyOnLoad
         public IInventory inventory { get; set; } = null;
 
         public List<Button> icons { get; set; } = new List<Button>();
-        public Button icon = null;
+        Button icon = null;
+
+        public void Start()
+        {
+            factory = GetComponent<IFactory>();
+        }
 
         public void Show()
         {
@@ -44,6 +51,7 @@ namespace TCOY.DontDestroyOnLoad
                 RectTransform rectTransform = (RectTransform)icon.transform;
                 rectTransform.anchoredPosition = new Vector2(origin.x + row * windowSize.x, origin.y + column * windowSize.y);
                 //need to set the image
+                icon.image.sprite = factory.GetIcon(inventory.GetName(i)).Sprite;
 
                 row++;
                 if (row >= maxRows)

@@ -8,8 +8,7 @@ namespace TCOY.Interactables
     [RequireComponent(typeof(BoxCollider2D))]
     public abstract class InteractableBase : MonoBehaviour
     {
-        [SerializeField] string id;
-        [SerializeField] Sprite sprite;
+        string id;
 
         GameObject obj;
         protected IGlobal global;
@@ -17,13 +16,6 @@ namespace TCOY.Interactables
         protected ICutscene cutscene;
 
         protected string getID => id;
-
-        public Sprite getSprite => sprite;
-
-        protected void Reset()
-        {
-            sprite = GetComponent<Sprite>();
-        }
 
         public void Start()
         {

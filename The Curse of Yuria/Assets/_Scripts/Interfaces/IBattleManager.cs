@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IBattleManager
 {
-    
+    bool isRunning { get; set; }
 }
