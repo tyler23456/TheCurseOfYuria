@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class Supply : Skill
+    public class Supply : Scroll
     {
         public override void Use(IActor user, IActor[] targets)
         {
             IGlobal global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-            global.getSupplies.Remove(sprite.name);
+            global.getSupplies.Remove(icon.name);
             global.StartCoroutine(performAnimation(user, targets));
         }
     }
