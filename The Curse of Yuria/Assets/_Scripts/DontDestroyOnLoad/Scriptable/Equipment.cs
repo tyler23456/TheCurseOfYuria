@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HeroEditor.Common.Enums;
+using HeroEditor.Common.Data;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class Equipment : ItemBase
+    public class Equipment : ItemBase, IItem
     {
-        [SerializeField] List<Modifier> modifiers;
-        [SerializeField] List<Reactor> counters; //Reactor System
-        [SerializeField] List<Reactor> interrupts;
+        [SerializeField] protected ItemSprite itemSprites;
+        [SerializeField] protected List<Modifier> modifiers;
+        [SerializeField] protected List<Reactor> counters; //Reactor System
+        [SerializeField] protected List<Reactor> interrupts;
+
+        public void SetItemSprite(ItemSprite itemSprites)
+        {
+            this.itemSprites = itemSprites;
+        }
 
         public override void Use(IActor user, IActor[] targets)
         {

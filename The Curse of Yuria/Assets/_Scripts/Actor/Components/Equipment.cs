@@ -42,7 +42,7 @@ namespace TCOY.Actors
                 character.UnEquip(EquipmentPart.Bow);*/
             }
             parts[(int)part] = itemName;
-            character.Equip(factory.GetSprite(itemName), part);
+            character.Equip(null, part);
         }
 
         public void Unequip(EquipmentPart part)

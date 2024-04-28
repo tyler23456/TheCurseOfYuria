@@ -65,8 +65,8 @@ namespace TCOY.DontDestroyOnLoad
 
         public IInventory GetInventoryOf(string itemName)
         {
-            ItemSprite item = factory.GetSprite(itemName);
-            string partString = item.Id.Split('.')[2];
+
+            string partString = "";
 
             switch (partString)
             {

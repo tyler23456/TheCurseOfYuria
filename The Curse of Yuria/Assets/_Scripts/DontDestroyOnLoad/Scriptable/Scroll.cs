@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class Scroll : ItemBase
+    public class Scroll : ItemBase, IItem
     {
         [SerializeField] protected int power;
         [SerializeField] protected int cost;

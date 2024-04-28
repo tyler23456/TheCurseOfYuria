@@ -17,8 +17,6 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] AssetLabelReference abilitiesReference;
 
         Dictionary<string, ItemIcon> icons = new Dictionary<string, ItemIcon>();
-        Dictionary<string, ItemSprite> sprites = new Dictionary<string, ItemSprite>();
-
         Dictionary<string, Sprite> itemPrefabs = new Dictionary<string, Sprite>();     
         Dictionary<string, GameObject> particleSystemPrefabs = new Dictionary<string, GameObject>();
         Dictionary<string, ISkill> abilityPrefabs = new Dictionary<string, ISkill>();
@@ -41,19 +39,6 @@ namespace TCOY.DontDestroyOnLoad
             {
                 abilityPrefabs.Add(i.name, i.GetComponent<ISkill>());
             }).WaitForCompletion();
-        }
-
-        public EquipmentPart GetEquipmentPart(string itemName)
-        {
-            ItemSprite item = sprites[itemName];
-            string partString = item.Id.Split('.')[2];
-            System.Enum.TryParse(partString, out EquipmentPart result);
-            return result;
-        }
-
-        public ItemSprite GetSprite(string name)
-        {
-            return sprites[name];
         }
 
         public ItemIcon GetIcon(string name)

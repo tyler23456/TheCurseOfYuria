@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using HeroEditor.Common.Enums;
+using HeroEditor.Common.Data;
+using System;
+using HeroEditor.Common;
 
 namespace TCOY.DontDestroyOnLoad
 {
@@ -37,15 +40,17 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] bool refresh;
         [SerializeField] bool createAllWithNoMatchingIcon = true;
         [SerializeField] bool removeAllWithNoMatchingIcon = false;
+        [SerializeField] bool refreshPrefabs = false;
 
         GameObject prefab;
-        ItemBase asset;
+        IItem asset;
         GameObject obj;
-        Object[] objArray;
 
         new BoxCollider2D collider;
         Item item;
         new SpriteRenderer renderer;
+
+        Dictionary<string, ItemSprite> itemSprites = new Dictionary<string, ItemSprite>();
 
         void Update()
         {
@@ -53,6 +58,11 @@ namespace TCOY.DontDestroyOnLoad
                 return;
 
             refresh = false;
+
+            SpriteCollection spriteCollection = Resources.Load<SpriteCollection>("SpriteCollection");
+            foreach (ItemSprite itemSprite in spriteCollection.GetAllSprites())
+                if (!itemSprites.ContainsKey(itemSprite.Name))
+                    itemSprites.Add(itemSprite.Name, itemSprite);
 
             factory = GetComponent<IFactory>();
 
@@ -133,15 +143,15 @@ namespace TCOY.DontDestroyOnLoad
         }
 
         
-        void RefreshItemCategory(Sprite icon, string path, ItemBase scriptableObject)
+        void RefreshItemCategory(Sprite icon, string path, IItem scriptableObject)
         {
             prefab = (GameObject)AssetDatabase.LoadAssetAtPath(prefabsRootPath + path + ".prefab", typeof(GameObject));
-            asset = (ItemBase)AssetDatabase.LoadAssetAtPath(assetsRootPath + path + ".asset", typeof(ItemBase));
+            asset = (IItem)AssetDatabase.LoadAssetAtPath(assetsRootPath + path + ".asset", typeof(IItem));
 
             if (prefab == null)
                 prefab = CreateOrReplacePrefab(icon, path);
-            //else
-                //RefreshPrefab(icon, prefab, path);
+            else if (refreshPrefabs)
+                RefreshPrefab(icon, prefab, path);
 
             if (asset == null)
                 CreateScriptableObject(icon, prefab, scriptableObject, path);
@@ -175,17 +185,22 @@ namespace TCOY.DontDestroyOnLoad
             CreateOrReplacePrefab(icon, path);
         }
 
-        void CreateScriptableObject(Sprite icon, GameObject prefab, ItemBase scriptableObject, string path)
+
+        void CreateScriptableObject(Sprite icon, GameObject prefab, IItem scriptableObject, string path)
         {
-            AssetDatabase.CreateAsset(scriptableObject, assetsRootPath + path + ".asset");
+            AssetDatabase.CreateAsset((ItemBase)scriptableObject, assetsRootPath + path + ".asset");
             RefreshScriptableObject(icon, prefab, path);
         }
 
         void RefreshScriptableObject(Sprite icon, GameObject prefab, string path)
         {
-            asset = (ItemBase)AssetDatabase.LoadAssetAtPath(assetsRootPath + path + ".asset", typeof(ItemBase));
+            asset = (IItem)AssetDatabase.LoadAssetAtPath(assetsRootPath + path + ".asset", typeof(IItem));
+
             asset.SetIcon(icon);
-            asset.SetSprite(Resources.LoadAll<Sprite>(assetsRootPath + path + icon.name + ".asset"));
+
+            if (asset is Equipment)
+                ((Equipment)asset).SetItemSprite(itemSprites[icon.name]);
+
             asset.SetPrefab(prefab);
         }
     }

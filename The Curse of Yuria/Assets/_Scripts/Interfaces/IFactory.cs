@@ -8,7 +8,6 @@ using Assets.HeroEditor.Common.Scripts.Data;
 
 public interface IFactory
 {
-    ItemSprite GetSprite(string name);
     ItemIcon GetIcon(string name);
     Sprite GetItemPrefab(string name);
     GameObject GetParticleSystemPrefab(string name);

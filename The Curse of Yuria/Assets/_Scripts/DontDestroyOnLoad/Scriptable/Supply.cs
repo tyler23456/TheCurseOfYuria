@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class Supply : Scroll
+    public class Supply : Scroll, IItem
     {
         public override void Use(IActor user, IActor[] targets)
         {

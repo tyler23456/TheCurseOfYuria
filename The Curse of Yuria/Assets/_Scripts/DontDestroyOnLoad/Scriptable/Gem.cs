@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class Gem : ItemBase
+    public class Gem : ItemBase, IItem
     {
         [SerializeField] int value;
     }
