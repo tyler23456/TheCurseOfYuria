@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: SwampLordMask2  [FullHair]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 73b17fcdd8104d3abfae2e02e6538104, type: 3}
+  _prefab: {fileID: 3231251900909816560, guid: 184cb59b89ca05247b529b590d2fb630, type: 3}
   info: 
+  _itemSprites:
+    Name: SwampLordMask2  [FullHair]
+    Collection: SwampLords
+    Edition: Plugins
+    Id: Plugins.SwampLords.Helmet.SwampLordMask2  [FullHair]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/SwampLords/SwampLordMask2 
+      [FullHair].png
+    Sprite: {fileID: 21300000, guid: 45e0b4149cfa44618b9e6bc2c32eb7e4, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 45e0b4149cfa44618b9e6bc2c32eb7e4, type: 3}
+    Multiple: 1
+    Hash: 3ea1353b45efcccd42ff99eae3843cc5
+    Tags:
+    - FullHair
   modifiers: []

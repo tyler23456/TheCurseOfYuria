@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: ShamanWand
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 9acfccb056424cf69d534eea8ef11869, type: 3}
+  _prefab: {fileID: 7693519222210468747, guid: e3df6224ccab984439cab6306873419c, type: 3}
   info: 
+  _itemSprites:
+    Name: ShamanWand
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.ShamanWand
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Wand/ShamanWand.png
+    Sprite: {fileID: 21300000, guid: e147673b7a14474f8e5c5151f29b5eb2, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: e147673b7a14474f8e5c5151f29b5eb2, type: 3}
+    Multiple: 1
+    Hash: 695bc45c705f6e3a7b49cd83f0975df7
+    Tags: []
   modifiers: []

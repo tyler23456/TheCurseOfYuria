@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: ChampionHelm
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 785ef024e39b4c5a828b95c15b7c62d8, type: 3}
+  _prefab: {fileID: 6554172009984909013, guid: efeb52e33cf019749bdda5865a9c2080, type: 3}
   info: 
+  _itemSprites:
+    Name: ChampionHelm
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.ChampionHelm
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/ChampionHelm.png
+    Sprite: {fileID: 21300000, guid: afe0d901c905475898176fe862af3bca, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: afe0d901c905475898176fe862af3bca, type: 3}
+    Multiple: 1
+    Hash: 40545ab5a8f37c78116f54d69b312614
+    Tags: []
   modifiers: []

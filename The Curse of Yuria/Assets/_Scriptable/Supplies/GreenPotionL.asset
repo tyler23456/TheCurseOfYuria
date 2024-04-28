@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: GreenPotionL
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: c1d44152276898c40821468663ae10ac, type: 3}
+  _prefab: {fileID: 6059734530277349672, guid: 88fbf1f5b5b015c468c174fbbed65572, type: 3}
   info: 
   power: 0
   cost: 0

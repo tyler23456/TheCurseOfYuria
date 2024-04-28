@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: FireAdeptWand2
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 29ff4b84115a44b590b1e2ec24ebf751, type: 3}
+  _prefab: {fileID: 8451542013750343944, guid: 0446ced4051545e4583bd1247ff754c9, type: 3}
   info: 
+  _itemSprites:
+    Name: FireAdeptWand2
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.FireAdeptWand2
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Wand/FireAdeptWand2.png
+    Sprite: {fileID: 21300000, guid: c2dc405f369442479b9950c710b67b8c, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: c2dc405f369442479b9950c710b67b8c, type: 3}
+    Multiple: 1
+    Hash: 087cf40b3a425837d78bb6160d11c339
+    Tags: []
   modifiers: []

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: WoodcutterAxe
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 05d3e5bf58cb4aedaa3d892ad74b6926, type: 3}
+  _prefab: {fileID: 3246058729891468691, guid: 8203137204665424788a252cd2646131, type: 3}
   info: 
+  _itemSprites:
+    Name: WoodcutterAxe
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.WoodcutterAxe
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Axe/WoodcutterAxe.png
+    Sprite: {fileID: 21300000, guid: cd9381af1a1e46778befa81050bdcce7, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: cd9381af1a1e46778befa81050bdcce7, type: 3}
+    Multiple: 1
+    Hash: 7e5fced1404cb1bc6e06891c1ad8d3a5
+    Tags: []
   modifiers: []

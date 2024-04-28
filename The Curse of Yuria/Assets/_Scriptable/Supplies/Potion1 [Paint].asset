@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Potion1 [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 67f59ab6f3d04b57bbfc913e21cb8b42, type: 3}
+  _prefab: {fileID: 6105299030534341732, guid: 61daf273af2131f47be0aafe0aef797c, type: 3}
   info: 
   power: 0
   cost: 0

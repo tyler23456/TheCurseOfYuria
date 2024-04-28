@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: WoodenStake
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: a8b40e1e019b4fd9828f5c778c30c432, type: 3}
+  _prefab: {fileID: 3524237799614445834, guid: 33d88f51954bfa144bd72cd28a7decec, type: 3}
   info: 
+  _itemSprites:
+    Name: WoodenStake
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon2H.WoodenStake
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon2H/Basic/Spear/WoodenStake.png
+    Sprite: {fileID: 21300000, guid: a443fca23c774c19bdb31166f8711162, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: a443fca23c774c19bdb31166f8711162, type: 3}
+    Multiple: 1
+    Hash: 318fd2d3fae9a9d3f383baaa230a27c2
+    Tags: []
   modifiers: []

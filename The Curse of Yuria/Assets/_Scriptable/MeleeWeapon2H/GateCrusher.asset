@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: GateCrusher
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 8aca57b377384f87b812d426d31ae0e8, type: 3}
+  _prefab: {fileID: 4128929835462718789, guid: b73f27557708a7044b1996ee91183f53, type: 3}
   info: 
+  _itemSprites:
+    Name: GateCrusher
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon2H.GateCrusher
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon2H/Basic/Hammer/GateCrusher.png
+    Sprite: {fileID: 21300000, guid: 8370d51bd9f841009fb5dd4b39be45b6, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 8370d51bd9f841009fb5dd4b39be45b6, type: 3}
+    Multiple: 1
+    Hash: a63f0a4865698356f73ef053a3d39bb1
+    Tags: []
   modifiers: []

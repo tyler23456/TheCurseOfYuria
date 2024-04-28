@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SantaHelperHat3
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: f4825239442744c6a39c1eb8b135eb97, type: 3}
+  _prefab: {fileID: 3147420993197409136, guid: 08cce489968ee9944b4794c5401bbfdd, type: 3}
   info: 
+  _itemSprites:
+    Name: SantaHelperHat3
+    Collection: Christmas
+    Edition: Plugins
+    Id: Plugins.Christmas.Helmet.SantaHelperHat3
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Christmas/SantaHelperHat3.png
+    Sprite: {fileID: 21300000, guid: f86ec4b0d27d4ebc80cc90467722e204, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: f86ec4b0d27d4ebc80cc90467722e204, type: 3}
+    Multiple: 1
+    Hash: 455a837310c0fa390bf8877fef1e12a9
+    Tags: []
   modifiers: []

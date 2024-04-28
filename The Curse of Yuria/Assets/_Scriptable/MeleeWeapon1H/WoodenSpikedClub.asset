@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: WoodenSpikedClub
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: cb50ed059c34454687c4a720272b35e4, type: 3}
+  _prefab: {fileID: 8441392230253906572, guid: 4012be9ccd29d9148bd75eedc9f90499, type: 3}
   info: 
+  _itemSprites:
+    Name: WoodenSpikedClub
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.WoodenSpikedClub
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Hammer/WoodenSpikedClub.png
+    Sprite: {fileID: 21300000, guid: c29804c74ed44b12a8d1bea2a349b610, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: c29804c74ed44b12a8d1bea2a349b610, type: 3}
+    Multiple: 1
+    Hash: 8424d610b6ef8a5a19a2de1b9eb86125
+    Tags: []
   modifiers: []

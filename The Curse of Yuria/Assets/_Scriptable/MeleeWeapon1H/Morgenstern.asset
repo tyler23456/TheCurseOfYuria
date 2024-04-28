@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: Morgenstern
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: a67c8f52034d4de99f68d316377057bc, type: 3}
+  _prefab: {fileID: 712382994972517142, guid: e26ca989d3dfa0847a67b02beb9911b0, type: 3}
   info: 
+  _itemSprites:
+    Name: Morgenstern
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.Morgenstern
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Hammer/Morgenstern.png
+    Sprite: {fileID: 21300000, guid: 645ac2153fb447ecbe9c5eaef3e49833, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 645ac2153fb447ecbe9c5eaef3e49833, type: 3}
+    Multiple: 1
+    Hash: d8e80f9583c9b8b1555685a26ff7b306
+    Tags: []
   modifiers: []

@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: LandsknechtHelm [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 3d3194d68568413495872378c809babb, type: 3}
+  _prefab: {fileID: 6653532928683910433, guid: 8304277e7cdbdbf4fae5770e627a526d, type: 3}
   info: 
+  _itemSprites:
+    Name: LandsknechtHelm [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.LandsknechtHelm [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/LandsknechtHelm
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: faad24028bde44f1bdb82fded6788525, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: faad24028bde44f1bdb82fded6788525, type: 3}
+    Multiple: 1
+    Hash: 352005ccde550ce2a6689b2e9be8059c
+    Tags:
+    - Paint
   modifiers: []

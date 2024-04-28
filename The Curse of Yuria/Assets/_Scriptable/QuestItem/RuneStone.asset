@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: RuneStone
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: a3f2579b8245ddc41ad17428cd7f5b50, type: 3}
+  _prefab: {fileID: 53460122985009500, guid: cd3a7e3ba5e8efe4aa124d15fa814385, type: 3}
   info: 
   bookPrefab: {fileID: 0}
   pagesText: []

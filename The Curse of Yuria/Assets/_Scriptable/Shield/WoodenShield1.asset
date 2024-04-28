@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: WoodenShield1
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: c6592b0acdbd4905b0eea1430fee7b86, type: 3}
+  _prefab: {fileID: 4348601425348187053, guid: d545cc1c29f516b4797bd9c6d6767087, type: 3}
   info: 
+  _itemSprites:
+    Name: WoodenShield1
+    Collection: Vikings
+    Edition: Plugins
+    Id: Plugins.Vikings.Shield.WoodenShield1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Vikings/WoodenShield1.png
+    Sprite: {fileID: 21300000, guid: 74f00f752c234a3ab3837ea5c02cd468, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 74f00f752c234a3ab3837ea5c02cd468, type: 3}
+    Multiple: 1
+    Hash: e2fe9a14da64da13542fed85fb588409
+    Tags: []
   modifiers: []

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SandHealerStaff1
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 228ceb8a8ed447c78ffaa62c62d3a503, type: 3}
+  _prefab: {fileID: 961360798255397643, guid: 9ac9e69dcad00414eaccc0ea8b2f0b79, type: 3}
   info: 
+  _itemSprites:
+    Name: SandHealerStaff1
+    Collection: SandLords
+    Edition: Plugins
+    Id: Plugins.SandLords.MeleeWeapon1H.SandHealerStaff1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/SandLords/Staff/SandHealerStaff1.png
+    Sprite: {fileID: 21300000, guid: be3fd373ecc5457786684779ebb2dd11, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: be3fd373ecc5457786684779ebb2dd11, type: 3}
+    Multiple: 1
+    Hash: 9add7f1b90910b21c1cf675e5c938f77
+    Tags: []
   modifiers: []

@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: StormBringerArmor
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 194c5db9dcb5421295e8daddcd313cb3, type: 3}
+  _prefab: {fileID: 5354023141384380620, guid: 92f09eac233ee1642bf4bc2ee039dfbc, type: 3}
   info: 
+  _itemSprites:
+    Name: StormBringerArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.StormBringerArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/StormBringerArmor.png
+    Sprite: {fileID: 21300004, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300002, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300022, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300010, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300008, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300016, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300018, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300012, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300006, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300014, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300020, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300000, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    Multiple: 1
+    Hash: 68507f1d8428cf3130e6e8ce702d9ceb
+    Tags: []
   modifiers: []

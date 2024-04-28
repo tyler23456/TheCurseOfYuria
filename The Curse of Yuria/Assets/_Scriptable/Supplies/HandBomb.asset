@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: HandBomb
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 7852e5296832479c8d22aac92517c9e0, type: 3}
+  _prefab: {fileID: 6753651247521393644, guid: 19c41446a65102e4190ae983f786dade, type: 3}
   info: 
   power: 0
   cost: 0

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: FamilySword
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 751ca05076224dd58e47369a4ef7150b, type: 3}
+  _prefab: {fileID: 4547185960210801290, guid: 68d27181fe3459f4cb4adacb509cc92c, type: 3}
   info: 
+  _itemSprites:
+    Name: FamilySword
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.FamilySword
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Sword/FamilySword.png
+    Sprite: {fileID: 21300000, guid: 6ce99d07cd2c4a58bf2962863e9110a3, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 6ce99d07cd2c4a58bf2962863e9110a3, type: 3}
+    Multiple: 1
+    Hash: e161153b5c15604d8ba1c25151e24d6e
+    Tags: []
   modifiers: []

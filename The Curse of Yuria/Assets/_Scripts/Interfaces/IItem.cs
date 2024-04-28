@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IItem
 {
-    void SetIcon(Sprite icon);
-    public void SetPrefab(GameObject prefab);
+    Sprite icon { get; set; }
+    GameObject prefab { get; set; }
+    string getInfo { get; }
 }

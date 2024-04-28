@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: PathfinderHat [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 8b95fd0bc81645e198670fed7b3907f7, type: 3}
+  _prefab: {fileID: 459955533550718842, guid: efe6412e26bc8fe4d8b57f6240b5c08d, type: 3}
   info: 
+  _itemSprites:
+    Name: PathfinderHat [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.PathfinderHat [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/PathfinderHat
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 8862c9695f8b44dcac8a53692dd54f42, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 8862c9695f8b44dcac8a53692dd54f42, type: 3}
+    Multiple: 1
+    Hash: 43e92b3f9a915bdc1504dd9194c907d4
+    Tags:
+    - Paint
   modifiers: []

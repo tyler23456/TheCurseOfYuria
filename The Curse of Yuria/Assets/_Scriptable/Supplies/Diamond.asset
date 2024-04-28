@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Diamond
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: b195cb382c8e1bc4f955e38339bb9733, type: 3}
+  _prefab: {fileID: 5356660892184350978, guid: 43fac63d0c015c546825ebda2520fef7, type: 3}
   info: 
   power: 0
   cost: 0

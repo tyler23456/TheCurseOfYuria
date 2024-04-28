@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: WolfSword [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 486141d060e24c33952cf7cc6fa4780c, type: 3}
+  _prefab: {fileID: 243376089463897424, guid: 5269a1b54c9a6144294de8ae404132ef, type: 3}
   info: 
+  _itemSprites:
+    Name: WolfSword [Paint]
+    Collection: Thrones
+    Edition: Plugins
+    Id: Plugins.Thrones.MeleeWeapon1H.WolfSword [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Thrones/Sword/WolfSword
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 95ed037f15324b968c245676600b436c, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 95ed037f15324b968c245676600b436c, type: 3}
+    Multiple: 1
+    Hash: 8579c4e1ac38f3c1f384c2c3b2294639
+    Tags:
+    - Paint
   modifiers: []

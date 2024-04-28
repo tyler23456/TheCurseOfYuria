@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: SamuraiElder
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: d72003eba2294a4abf352c2f988cb5e1, type: 3}
+  _prefab: {fileID: 7453220893324813330, guid: 842ea3a1b88cb5b41958276f80ebdd60, type: 3}
   info: 
+  _itemSprites:
+    Name: SamuraiElder
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.Armor.SamuraiElder
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Samurai/SamuraiElder.png
+    Sprite: {fileID: 21300004, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300002, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300022, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300010, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300008, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300016, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300018, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300012, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300006, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300014, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300020, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300000, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    Multiple: 1
+    Hash: 4bd47f4b7f8ecd70f300f83681200cb9
+    Tags: []
   modifiers: []

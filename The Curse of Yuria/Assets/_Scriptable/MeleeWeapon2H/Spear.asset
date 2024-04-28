@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: Spear
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 4c9cf910714e458a84fe5563a0a7d71b, type: 3}
+  _prefab: {fileID: 1794723999855701605, guid: cc2eccb41edb00c449f7b1e5239d5272, type: 3}
   info: 
+  _itemSprites:
+    Name: Spear
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon2H.Spear
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon2H/Basic/Spear/Spear.png
+    Sprite: {fileID: 21300000, guid: fc3b72b9246e40fdb693be4f0a4f5e56, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: fc3b72b9246e40fdb693be4f0a4f5e56, type: 3}
+    Multiple: 1
+    Hash: 4720b7351bb1604b722a71ed8e71fdf5
+    Tags: []
   modifiers: []

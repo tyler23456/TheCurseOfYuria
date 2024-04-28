@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: ScoutHelm
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 3a141c63ca4442f9b11de16b4e9a2ec8, type: 3}
+  _prefab: {fileID: 5366266547790954531, guid: 2e4c96c6215be0340a94da27c812bc99, type: 3}
   info: 
+  _itemSprites:
+    Name: ScoutHelm
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.ScoutHelm
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/ScoutHelm.png
+    Sprite: {fileID: 21300000, guid: 33625e2025e14c5d96bf2aab6e45ccf6, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 33625e2025e14c5d96bf2aab6e45ccf6, type: 3}
+    Multiple: 1
+    Hash: a77ab5965766bfb53f097586b213df3d
+    Tags: []
   modifiers: []

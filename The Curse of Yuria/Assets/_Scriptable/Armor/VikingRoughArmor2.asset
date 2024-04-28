@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: VikingRoughArmor2
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 65cf0edcf83a4d51b0738d1074d6445d, type: 3}
+  _prefab: {fileID: 545345289590886614, guid: 4b231f67a5cdc2e4b9b3a13363bf60cb, type: 3}
   info: 
+  _itemSprites:
+    Name: VikingRoughArmor2
+    Collection: Vikings
+    Edition: Plugins
+    Id: Plugins.Vikings.Armor.VikingRoughArmor2
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Vikings/VikingRoughArmor2.png
+    Sprite: {fileID: 21300004, guid: fdef70d24be54eeba4a3b5bdabd5ee2a, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: fdef70d24be54eeba4a3b5bdabd5ee2a, type: 3}
+    - {fileID: 21300002, guid: fdef70d24be54eeba4a3b5bdabd5ee2a, type: 3}
+    - {fileID: 21300022, guid: fdef70d24be54eeba4a3b5bdabd5ee2a, type: 3}
+    - {fileID: 21300010, guid: fdef70d24be54eeba4a3b5bdabd5ee2a, type: 3}
+    - {fileID: 21300008, guid: fdef70d24be54eeba4a3b5bdabd5ee2a, type: 3}
+    - {fileID: 21300016, guid: fdef70d24be54eeba4a3b5bdabd5ee2a, type: 3}
+    - {fileID: 21300018, guid: fdef70d24be54eeba4a3b5bdabd5ee2a, type: 3}
+    - {fileID: 21300012, guid: fdef70d24be54eeba4a3b5bdabd5ee2a, type: 3}
+    - {fileID: 21300006, guid: fdef70d24be54eeba4a3b5bdabd5ee2a, type: 3}
+    - {fileID: 21300014, guid: fdef70d24be54eeba4a3b5bdabd5ee2a, type: 3}
+    - {fileID: 21300020, guid: fdef70d24be54eeba4a3b5bdabd5ee2a, type: 3}
+    - {fileID: 21300000, guid: fdef70d24be54eeba4a3b5bdabd5ee2a, type: 3}
+    Multiple: 1
+    Hash: c1de7f1c999067fab8ec72c67dbc8797
+    Tags: []
   modifiers: []

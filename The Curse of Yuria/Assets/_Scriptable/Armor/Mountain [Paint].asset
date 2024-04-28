@@ -13,8 +13,32 @@ MonoBehaviour:
   m_Name: Mountain [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: ec09f7db09f741c3a6d7120d0ff9520b, type: 3}
+  _prefab: {fileID: 5909075929963954280, guid: 074eb4837733c714991f4a661f86452b, type: 3}
   info: 
+  _itemSprites:
+    Name: Mountain [Paint]
+    Collection: Thrones
+    Edition: Plugins
+    Id: Plugins.Thrones.Armor.Mountain [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Thrones/Mountain
+      [Paint].png
+    Sprite: {fileID: 21300004, guid: 3c966d6adbda47749ce47df1b477c0e8, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 3c966d6adbda47749ce47df1b477c0e8, type: 3}
+    - {fileID: 21300002, guid: 3c966d6adbda47749ce47df1b477c0e8, type: 3}
+    - {fileID: 21300022, guid: 3c966d6adbda47749ce47df1b477c0e8, type: 3}
+    - {fileID: 21300010, guid: 3c966d6adbda47749ce47df1b477c0e8, type: 3}
+    - {fileID: 21300008, guid: 3c966d6adbda47749ce47df1b477c0e8, type: 3}
+    - {fileID: 21300016, guid: 3c966d6adbda47749ce47df1b477c0e8, type: 3}
+    - {fileID: 21300018, guid: 3c966d6adbda47749ce47df1b477c0e8, type: 3}
+    - {fileID: 21300012, guid: 3c966d6adbda47749ce47df1b477c0e8, type: 3}
+    - {fileID: 21300006, guid: 3c966d6adbda47749ce47df1b477c0e8, type: 3}
+    - {fileID: 21300014, guid: 3c966d6adbda47749ce47df1b477c0e8, type: 3}
+    - {fileID: 21300020, guid: 3c966d6adbda47749ce47df1b477c0e8, type: 3}
+    - {fileID: 21300000, guid: 3c966d6adbda47749ce47df1b477c0e8, type: 3}
+    Multiple: 1
+    Hash: 26e25d3fd415c6bc36d2182b87d50ef2
+    Tags:
+    - Paint
   modifiers: []

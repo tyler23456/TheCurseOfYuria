@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: InquisitorHat1 [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: fcd75d4074214a8ca1aef29d61a01088, type: 3}
+  _prefab: {fileID: 5335033011142474804, guid: 6ece6b23e3b00fb4ea555416c5aeaf32, type: 3}
   info: 
+  _itemSprites:
+    Name: InquisitorHat1 [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.InquisitorHat1 [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/InquisitorHat1
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: b8616c98ffad499a8549fa4a68269866, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: b8616c98ffad499a8549fa4a68269866, type: 3}
+    Multiple: 1
+    Hash: 3a44ae6a22faa6abc27456370c2d77c0
+    Tags:
+    - Paint
   modifiers: []

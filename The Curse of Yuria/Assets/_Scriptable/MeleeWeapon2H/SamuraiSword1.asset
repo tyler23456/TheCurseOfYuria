@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SamuraiSword1
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: bdb63d5519ca40c8bf7468ac73a9adb2, type: 3}
+  _prefab: {fileID: 500318894700972718, guid: 201ceb18dfc83324db2c1f8301a8a10f, type: 3}
   info: 
+  _itemSprites:
+    Name: SamuraiSword1
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.MeleeWeapon2H.SamuraiSword1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon2H/Samurai/Sword/SamuraiSword1.png
+    Sprite: {fileID: 21300000, guid: 6af546378dd54406a91a43bf2a4091dc, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 6af546378dd54406a91a43bf2a4091dc, type: 3}
+    Multiple: 1
+    Hash: 7271e0c0a0d5e880ea4e34fb1b9fa9ca
+    Tags: []
   modifiers: []

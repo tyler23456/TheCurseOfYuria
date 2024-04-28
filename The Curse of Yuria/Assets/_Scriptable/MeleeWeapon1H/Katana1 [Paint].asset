@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: Katana1 [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: d5eb69fbc48a41ff88e38925f3d3cd8f, type: 3}
+  _prefab: {fileID: 6933205809263915161, guid: 32edcce196e9e2a44b10bc1ef5f95a16, type: 3}
   info: 
+  _itemSprites:
+    Name: Katana1 [Paint]
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.MeleeWeapon1H.Katana1 [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Samurai/Sword/Katana1
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 0ccfc8393cca4476ba71df31e56b36d4, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 0ccfc8393cca4476ba71df31e56b36d4, type: 3}
+    Multiple: 1
+    Hash: e14547dca0acb59db9f32d510fe93fff
+    Tags:
+    - Paint
   modifiers: []

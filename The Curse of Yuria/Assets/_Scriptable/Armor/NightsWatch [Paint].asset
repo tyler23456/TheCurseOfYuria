@@ -13,8 +13,32 @@ MonoBehaviour:
   m_Name: NightsWatch [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 84ec4ffb79a745cd9ba7960274ff10ff, type: 3}
+  _prefab: {fileID: 8192511732208811078, guid: 0300593a035a53049b3a42546d5fbc7f, type: 3}
   info: 
+  _itemSprites:
+    Name: NightsWatch [Paint]
+    Collection: Thrones
+    Edition: Plugins
+    Id: Plugins.Thrones.Armor.NightsWatch [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Thrones/NightsWatch
+      [Paint].png
+    Sprite: {fileID: 21300004, guid: d97e7639175742f2a488ffeec31c685a, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: d97e7639175742f2a488ffeec31c685a, type: 3}
+    - {fileID: 21300002, guid: d97e7639175742f2a488ffeec31c685a, type: 3}
+    - {fileID: 21300022, guid: d97e7639175742f2a488ffeec31c685a, type: 3}
+    - {fileID: 21300010, guid: d97e7639175742f2a488ffeec31c685a, type: 3}
+    - {fileID: 21300008, guid: d97e7639175742f2a488ffeec31c685a, type: 3}
+    - {fileID: 21300016, guid: d97e7639175742f2a488ffeec31c685a, type: 3}
+    - {fileID: 21300018, guid: d97e7639175742f2a488ffeec31c685a, type: 3}
+    - {fileID: 21300012, guid: d97e7639175742f2a488ffeec31c685a, type: 3}
+    - {fileID: 21300006, guid: d97e7639175742f2a488ffeec31c685a, type: 3}
+    - {fileID: 21300014, guid: d97e7639175742f2a488ffeec31c685a, type: 3}
+    - {fileID: 21300020, guid: d97e7639175742f2a488ffeec31c685a, type: 3}
+    - {fileID: 21300000, guid: d97e7639175742f2a488ffeec31c685a, type: 3}
+    Multiple: 1
+    Hash: b775e21a07b711ba613c98acabab1aad
+    Tags:
+    - Paint
   modifiers: []

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: AmateurDipperHat
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 2e43b63e12974f46bab8fc2455944a8b, type: 3}
+  _prefab: {fileID: 5533188706437532671, guid: d88e8747e90ff4645bdc2cca2024a8c2, type: 3}
   info: 
+  _itemSprites:
+    Name: AmateurDipperHat
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.AmateurDipperHat
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/AmateurDipperHat.png
+    Sprite: {fileID: 21300000, guid: f66c924bb9fa4d06943791a4d86d0a1e, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: f66c924bb9fa4d06943791a4d86d0a1e, type: 3}
+    Multiple: 1
+    Hash: 904776c7cf7d188aed9a960e5609c1c1
+    Tags: []
   modifiers: []

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: BroadSword
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: bd9750af371e4e88816d9a74c8dac726, type: 3}
+  _prefab: {fileID: 8307040692048901024, guid: 288b9c32b910a13458b625ef1fa67d4f, type: 3}
   info: 
+  _itemSprites:
+    Name: BroadSword
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon2H.BroadSword
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon2H/Basic/Sword/BroadSword.png
+    Sprite: {fileID: 21300000, guid: 6fbd712563024c7396ad77a5c2696f70, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 6fbd712563024c7396ad77a5c2696f70, type: 3}
+    Multiple: 1
+    Hash: 6f9ddba4409beccfbc85fe0f15a4123c
+    Tags: []
   modifiers: []

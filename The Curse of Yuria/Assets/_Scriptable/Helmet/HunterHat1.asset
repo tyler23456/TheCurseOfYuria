@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: HunterHat1
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 8336311f5ada44d7bd7d345be02bde57, type: 3}
+  _prefab: {fileID: 5074366330063855026, guid: 33f60294f6f3cdd4284f0324c6623ac8, type: 3}
   info: 
+  _itemSprites:
+    Name: HunterHat1
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.HunterHat1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/HunterHat1.png
+    Sprite: {fileID: 21300000, guid: 234e6039b259424abbf3a15e8f7da928, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 234e6039b259424abbf3a15e8f7da928, type: 3}
+    Multiple: 1
+    Hash: 6f27c238e51c17ddc20258537115bb4e
+    Tags: []
   modifiers: []

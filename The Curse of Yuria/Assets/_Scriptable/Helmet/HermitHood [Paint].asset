@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: HermitHood [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: fb26e92505d6472e87312489dadfb1aa, type: 3}
+  _prefab: {fileID: 8107605977419980604, guid: 59f2c033375f083439b681ad57f1eae7, type: 3}
   info: 
+  _itemSprites:
+    Name: HermitHood [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.HermitHood [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/HermitHood
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 399ea8fd30d246619d3433bd9aa0e388, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 399ea8fd30d246619d3433bd9aa0e388, type: 3}
+    Multiple: 1
+    Hash: 745352a4b5ecf87679d1294216ab2fb5
+    Tags:
+    - Paint
   modifiers: []

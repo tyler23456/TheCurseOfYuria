@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: PyromancerWand
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: a15d56eaccb34831bb30386296b864f3, type: 3}
+  _prefab: {fileID: 8989948903179870339, guid: c800d39ced9868649a00203bbe90f2e8, type: 3}
   info: 
+  _itemSprites:
+    Name: PyromancerWand
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.PyromancerWand
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Wand/PyromancerWand.png
+    Sprite: {fileID: 21300000, guid: 3646850d551748d3ae676f516f8239e1, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 3646850d551748d3ae676f516f8239e1, type: 3}
+    Multiple: 1
+    Hash: cab6cedd02940e9b67c1743ffad7533c
+    Tags: []
   modifiers: []

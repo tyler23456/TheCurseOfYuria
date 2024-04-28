@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: GuardHelm1 [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 916da663fc1d4567afc85433dc52c8b2, type: 3}
+  _prefab: {fileID: 8595390446859878114, guid: 2960597e509046542b70ccbc080232bb, type: 3}
   info: 
+  _itemSprites:
+    Name: GuardHelm1 [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.GuardHelm1 [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/GuardHelm1
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: a2532d7e20614f61981e1d2fe6d8e386, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: a2532d7e20614f61981e1d2fe6d8e386, type: 3}
+    Multiple: 1
+    Hash: fa6d6040c3459bc3597da236b4ce6dc1
+    Tags:
+    - Paint
   modifiers: []

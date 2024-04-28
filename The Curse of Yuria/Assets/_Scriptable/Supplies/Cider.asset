@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Cider
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 0aad1ee6a045e9b468d3f500902cfd16, type: 3}
+  _prefab: {fileID: 1361236082567907644, guid: 22e8b339b816c1641825395ea86e1979, type: 3}
   info: 
   power: 0
   cost: 0

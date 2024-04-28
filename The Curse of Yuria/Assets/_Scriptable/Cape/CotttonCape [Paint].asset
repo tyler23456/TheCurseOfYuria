@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: CotttonCape [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 76366e09114f44cab89522c7efcb8829, type: 3}
+  _prefab: {fileID: 8122742819095027860, guid: 4b7663adf4b077a4bbccfa8bcc9b4c87, type: 3}
   info: 
+  _itemSprites:
+    Name: CotttonCape [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Cape.CotttonCape [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Cape/Basic/CotttonCape
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 9643184d005ca454ca39c404c0411ef1, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 9643184d005ca454ca39c404c0411ef1, type: 3}
+    Multiple: 1
+    Hash: 5fd44ed08c7a5195f2c34780400730a4
+    Tags:
+    - Paint
   modifiers: []

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: RedPotionM
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 19f71428793356e479f4550955a7c19c, type: 3}
+  _prefab: {fileID: 7917745998724222133, guid: a5c6e4c55d6c26a499b06887ba3ecb71, type: 3}
   info: 
   power: 0
   cost: 0

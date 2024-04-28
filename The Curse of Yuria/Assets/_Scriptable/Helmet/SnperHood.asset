@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SnperHood
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 1a91a70f91f548148c6558d7fc7e6e5b, type: 3}
+  _prefab: {fileID: 131578273587565736, guid: ea609cb359ff7f54fae1d5488392df02, type: 3}
   info: 
+  _itemSprites:
+    Name: SnperHood
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.SnperHood
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/SnperHood.png
+    Sprite: {fileID: 21300000, guid: e1dd5ed5ce744743a79a710c9dd8eea8, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: e1dd5ed5ce744743a79a710c9dd8eea8, type: 3}
+    Multiple: 1
+    Hash: c69fa0292dd5dd8c58de3ee25fa4e292
+    Tags: []
   modifiers: []

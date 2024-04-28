@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: Deserter
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: b38838e034344768bdfa5fb343db2b9d, type: 3}
+  _prefab: {fileID: 6270136068831393846, guid: 1105a24005fd35c4797c856bf9cc1e32, type: 3}
   info: 
+  _itemSprites:
+    Name: Deserter
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.Deserter
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/Deserter.png
+    Sprite: {fileID: 21300004, guid: 0556c9854f5646e4ae0707772ab3ffca, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 0556c9854f5646e4ae0707772ab3ffca, type: 3}
+    - {fileID: 21300002, guid: 0556c9854f5646e4ae0707772ab3ffca, type: 3}
+    - {fileID: 21300022, guid: 0556c9854f5646e4ae0707772ab3ffca, type: 3}
+    - {fileID: 21300010, guid: 0556c9854f5646e4ae0707772ab3ffca, type: 3}
+    - {fileID: 21300008, guid: 0556c9854f5646e4ae0707772ab3ffca, type: 3}
+    - {fileID: 21300016, guid: 0556c9854f5646e4ae0707772ab3ffca, type: 3}
+    - {fileID: 21300018, guid: 0556c9854f5646e4ae0707772ab3ffca, type: 3}
+    - {fileID: 21300012, guid: 0556c9854f5646e4ae0707772ab3ffca, type: 3}
+    - {fileID: 21300006, guid: 0556c9854f5646e4ae0707772ab3ffca, type: 3}
+    - {fileID: 21300014, guid: 0556c9854f5646e4ae0707772ab3ffca, type: 3}
+    - {fileID: 21300020, guid: 0556c9854f5646e4ae0707772ab3ffca, type: 3}
+    - {fileID: 21300000, guid: 0556c9854f5646e4ae0707772ab3ffca, type: 3}
+    Multiple: 1
+    Hash: 188a09aaa3ce409d71d0ad3472d37f30
+    Tags: []
   modifiers: []

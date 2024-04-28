@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: Robe
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 2c0b52a039f547cf9a43a8c57744eb72, type: 3}
+  _prefab: {fileID: 7708297310091785921, guid: aab47cf983b815941bd4f4f5ca382777, type: 3}
   info: 
+  _itemSprites:
+    Name: Robe
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.Robe
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/Robe.png
+    Sprite: {fileID: 21300024, guid: 4d91f82d531c4ef4a125910258c8e8f6, type: 3}
+    Sprites:
+    - {fileID: 21300024, guid: 4d91f82d531c4ef4a125910258c8e8f6, type: 3}
+    - {fileID: 21300022, guid: 4d91f82d531c4ef4a125910258c8e8f6, type: 3}
+    - {fileID: 21300040, guid: 4d91f82d531c4ef4a125910258c8e8f6, type: 3}
+    - {fileID: 21300028, guid: 4d91f82d531c4ef4a125910258c8e8f6, type: 3}
+    - {fileID: 21300026, guid: 4d91f82d531c4ef4a125910258c8e8f6, type: 3}
+    - {fileID: 21300034, guid: 4d91f82d531c4ef4a125910258c8e8f6, type: 3}
+    - {fileID: 21300036, guid: 4d91f82d531c4ef4a125910258c8e8f6, type: 3}
+    - {fileID: 21300030, guid: 4d91f82d531c4ef4a125910258c8e8f6, type: 3}
+    - {fileID: 21300006, guid: 4d91f82d531c4ef4a125910258c8e8f6, type: 3}
+    - {fileID: 21300032, guid: 4d91f82d531c4ef4a125910258c8e8f6, type: 3}
+    - {fileID: 21300038, guid: 4d91f82d531c4ef4a125910258c8e8f6, type: 3}
+    - {fileID: 21300000, guid: 4d91f82d531c4ef4a125910258c8e8f6, type: 3}
+    Multiple: 1
+    Hash: 35dd1afaae61b1a6bdb5ed7a778b7062
+    Tags: []
   modifiers: []

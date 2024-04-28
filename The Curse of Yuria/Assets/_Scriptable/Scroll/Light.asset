@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Light
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: da98aa7fe8a8aff4190d9b5eeb7a893c, type: 3}
+  _prefab: {fileID: 493294569538552666, guid: 6e6fc9afc3f3867409e9cbdbd68e8143, type: 3}
   info: 
   power: 0
   cost: 0

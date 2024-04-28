@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SwampMage2Staff
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 9e949687d5f3495dbd5b30cb9a703ac3, type: 3}
+  _prefab: {fileID: 8174255100215907856, guid: afbe9b2db437d17458d49c078420ad09, type: 3}
   info: 
+  _itemSprites:
+    Name: SwampMage2Staff
+    Collection: SwampLords
+    Edition: Plugins
+    Id: Plugins.SwampLords.MeleeWeapon1H.SwampMage2Staff
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/SwampLords/Staff/SwampMage2Staff.png
+    Sprite: {fileID: 21300000, guid: 4991dd2d39014235b01de09e76b5248d, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 4991dd2d39014235b01de09e76b5248d, type: 3}
+    Multiple: 1
+    Hash: 3129afc4d3fa60b50c87b83fe461fabc
+    Tags: []
   modifiers: []

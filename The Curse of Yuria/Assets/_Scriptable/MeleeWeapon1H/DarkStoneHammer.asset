@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: DarkStoneHammer
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 59119730400a446ca4f1298b8de89993, type: 3}
+  _prefab: {fileID: 4748599973578446347, guid: 49859233b4d60cf479b28d900e79e4f3, type: 3}
   info: 
+  _itemSprites:
+    Name: DarkStoneHammer
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.DarkStoneHammer
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Hammer/DarkStoneHammer.png
+    Sprite: {fileID: 21300000, guid: 6df95040fcc349598deb098045cfe51b, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 6df95040fcc349598deb098045cfe51b, type: 3}
+    Multiple: 1
+    Hash: ce3265afaf2443b626e7a1e1e1fd019e
+    Tags: []
   modifiers: []

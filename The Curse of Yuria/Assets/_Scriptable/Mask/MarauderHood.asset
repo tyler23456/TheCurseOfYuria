@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: MarauderHood
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: a35c230422cb4963bb513505b12f4023, type: 3}
+  _prefab: {fileID: 4223698431118745868, guid: 938456eb4c2a7314dad2407dc0206e4a, type: 3}
   info: 
+  _itemSprites:
+    Name: MarauderHood
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.MarauderHood
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/MarauderHood.png
+    Sprite: {fileID: 21300000, guid: eb98205366de43598eab7de85d268529, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: eb98205366de43598eab7de85d268529, type: 3}
+    Multiple: 1
+    Hash: 082d19911bd1882f3586b16687f4c7ae
+    Tags: []
   modifiers: []

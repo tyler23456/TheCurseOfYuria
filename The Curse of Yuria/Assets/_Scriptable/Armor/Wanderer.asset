@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: Wanderer
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 8407c65b8e084e5aa4ed0665be61b9e7, type: 3}
+  _prefab: {fileID: 8577717251015223384, guid: b2d86a49375faf9429c6a8480ff806a3, type: 3}
   info: 
+  _itemSprites:
+    Name: Wanderer
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.Wanderer
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/Wanderer.png
+    Sprite: {fileID: 21300024, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    Sprites:
+    - {fileID: 21300024, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300022, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300040, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300028, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300026, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300034, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300036, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300030, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300006, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300032, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300038, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300000, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    Multiple: 1
+    Hash: 9bb0a899f7c4ee9fe644ef407fcfcefd
+    Tags: []
   modifiers: []

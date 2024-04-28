@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: LuckUp
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: bb53ebf18260c294bb593817b18ba7f4, type: 3}
+  _prefab: {fileID: 2298920296992298825, guid: 5fd887a76157b4a4fb82f9463b5de19a, type: 3}
   info: 
   power: 0
   cost: 0

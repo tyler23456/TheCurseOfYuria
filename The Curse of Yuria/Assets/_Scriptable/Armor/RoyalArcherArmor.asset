@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: RoyalArcherArmor
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 0b64496715c7483ab0129e0e8d581aa6, type: 3}
+  _prefab: {fileID: 6639062175798410835, guid: a9d1a5a875775e74f9c0d1e140d11e7a, type: 3}
   info: 
+  _itemSprites:
+    Name: RoyalArcherArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.RoyalArcherArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/RoyalArcherArmor.png
+    Sprite: {fileID: 21300004, guid: 761cd585b8f64398ad51a7dad9affba7, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 761cd585b8f64398ad51a7dad9affba7, type: 3}
+    - {fileID: 21300002, guid: 761cd585b8f64398ad51a7dad9affba7, type: 3}
+    - {fileID: 21300022, guid: 761cd585b8f64398ad51a7dad9affba7, type: 3}
+    - {fileID: 21300010, guid: 761cd585b8f64398ad51a7dad9affba7, type: 3}
+    - {fileID: 21300008, guid: 761cd585b8f64398ad51a7dad9affba7, type: 3}
+    - {fileID: 21300016, guid: 761cd585b8f64398ad51a7dad9affba7, type: 3}
+    - {fileID: 21300018, guid: 761cd585b8f64398ad51a7dad9affba7, type: 3}
+    - {fileID: 21300012, guid: 761cd585b8f64398ad51a7dad9affba7, type: 3}
+    - {fileID: 21300006, guid: 761cd585b8f64398ad51a7dad9affba7, type: 3}
+    - {fileID: 21300014, guid: 761cd585b8f64398ad51a7dad9affba7, type: 3}
+    - {fileID: 21300020, guid: 761cd585b8f64398ad51a7dad9affba7, type: 3}
+    - {fileID: 21300000, guid: 761cd585b8f64398ad51a7dad9affba7, type: 3}
+    Multiple: 1
+    Hash: 65a7689f575e85ebb95f9a51a9df7493
+    Tags: []
   modifiers: []

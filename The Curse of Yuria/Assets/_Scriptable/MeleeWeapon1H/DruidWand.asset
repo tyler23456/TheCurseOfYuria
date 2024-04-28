@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: DruidWand
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: bcd2bdaf93614285b712e574051985ec, type: 3}
+  _prefab: {fileID: 2910897707061711776, guid: be415e84cbe54e74284c102ce3ec496f, type: 3}
   info: 
+  _itemSprites:
+    Name: DruidWand
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.DruidWand
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Wand/DruidWand.png
+    Sprite: {fileID: 21300000, guid: ad947d72a3814922a9eb5fc5a68751e8, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: ad947d72a3814922a9eb5fc5a68751e8, type: 3}
+    Multiple: 1
+    Hash: 9243d0cf38a29a8ca10c27fdc145f3c4
+    Tags: []
   modifiers: []

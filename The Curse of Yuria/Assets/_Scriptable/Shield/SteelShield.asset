@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SteelShield
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 4094a73516f348e1ad7757d2f7253c09, type: 3}
+  _prefab: {fileID: 8393439147522270524, guid: 30192124fdd5ac240aa442c4a089e48f, type: 3}
   info: 
+  _itemSprites:
+    Name: SteelShield
+    Collection: Knights
+    Edition: Plugins
+    Id: Plugins.Knights.Shield.SteelShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Knights/SteelShield.png
+    Sprite: {fileID: 21300000, guid: bd361d1a3a4142f29fb49c401e33cc4d, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: bd361d1a3a4142f29fb49c401e33cc4d, type: 3}
+    Multiple: 1
+    Hash: effb00170c5f6bb37024484f1b50a34b
+    Tags: []
   modifiers: []

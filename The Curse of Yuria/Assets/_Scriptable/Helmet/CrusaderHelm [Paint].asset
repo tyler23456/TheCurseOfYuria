@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: CrusaderHelm [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 66f77dff949647dc819238749b60c604, type: 3}
+  _prefab: {fileID: 7087451040411730312, guid: c65aabac32626de4c98e22ef384fceb6, type: 3}
   info: 
+  _itemSprites:
+    Name: CrusaderHelm [Paint]
+    Collection: Knights
+    Edition: Plugins
+    Id: Plugins.Knights.Helmet.CrusaderHelm [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Knights/CrusaderHelm
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 0c04e3d979514b4a88953dd88835eddf, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 0c04e3d979514b4a88953dd88835eddf, type: 3}
+    Multiple: 1
+    Hash: b531195c846b87b377d56e3174aa4d1a
+    Tags:
+    - Paint
   modifiers: []

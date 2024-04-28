@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: RoyalArcherHat
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: c444ed5f75a84fbca3762ca6dc98a803, type: 3}
+  _prefab: {fileID: 2860812282519240895, guid: bfcd4e1e4c8034743b57b2b2de95e2ba, type: 3}
   info: 
+  _itemSprites:
+    Name: RoyalArcherHat
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.RoyalArcherHat
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/RoyalArcherHat.png
+    Sprite: {fileID: 21300000, guid: ba989c8209ec4d6699fd364a66d5a240, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: ba989c8209ec4d6699fd364a66d5a240, type: 3}
+    Multiple: 1
+    Hash: 5a862434264ad0b845149528ff117858
+    Tags: []
   modifiers: []

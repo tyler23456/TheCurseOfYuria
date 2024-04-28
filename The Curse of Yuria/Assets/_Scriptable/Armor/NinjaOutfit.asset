@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: NinjaOutfit
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: c9c95dfcc7578d04393bbed6af5f9532, type: 3}
+  _prefab: {fileID: 5475007558764175737, guid: 5504e9737bf701f469ff34b8d6c5309c, type: 3}
   info: 
+  _itemSprites:
+    Name: NinjaOutfit
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.NinjaOutfit
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/NinjaOutfit.png
+    Sprite: {fileID: 21300004, guid: 57b93ca7f6a80974bb47fea3687807b0, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 57b93ca7f6a80974bb47fea3687807b0, type: 3}
+    - {fileID: 21300002, guid: 57b93ca7f6a80974bb47fea3687807b0, type: 3}
+    - {fileID: 21300022, guid: 57b93ca7f6a80974bb47fea3687807b0, type: 3}
+    - {fileID: 21300010, guid: 57b93ca7f6a80974bb47fea3687807b0, type: 3}
+    - {fileID: 21300008, guid: 57b93ca7f6a80974bb47fea3687807b0, type: 3}
+    - {fileID: 21300016, guid: 57b93ca7f6a80974bb47fea3687807b0, type: 3}
+    - {fileID: 21300018, guid: 57b93ca7f6a80974bb47fea3687807b0, type: 3}
+    - {fileID: 21300012, guid: 57b93ca7f6a80974bb47fea3687807b0, type: 3}
+    - {fileID: 21300006, guid: 57b93ca7f6a80974bb47fea3687807b0, type: 3}
+    - {fileID: 21300014, guid: 57b93ca7f6a80974bb47fea3687807b0, type: 3}
+    - {fileID: 21300020, guid: 57b93ca7f6a80974bb47fea3687807b0, type: 3}
+    - {fileID: 21300000, guid: 57b93ca7f6a80974bb47fea3687807b0, type: 3}
+    Multiple: 1
+    Hash: 44e5ed2eaa1008c1eb496dfadee27a75
+    Tags: []
   modifiers: []

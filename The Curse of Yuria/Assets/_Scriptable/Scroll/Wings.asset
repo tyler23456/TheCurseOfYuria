@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Wings
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 1e455401302f1fd4886a239a420c258f, type: 3}
+  _prefab: {fileID: 3136460684774624794, guid: e2663bc82aa5cb6428e0a3f706bf0ba0, type: 3}
   info: 
   power: 0
   cost: 0

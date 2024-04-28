@@ -8,15 +8,12 @@ namespace TCOY.DontDestroyOnLoad
 {
     public class Equipment : ItemBase, IItem
     {
-        [SerializeField] protected ItemSprite itemSprites;
+        [SerializeField] protected ItemSprite _itemSprites;
         [SerializeField] protected List<Modifier> modifiers;
         [SerializeField] protected List<Reactor> counters; //Reactor System
         [SerializeField] protected List<Reactor> interrupts;
 
-        public void SetItemSprite(ItemSprite itemSprites)
-        {
-            this.itemSprites = itemSprites;
-        }
+        public ItemSprite itemSprite { get { return _itemSprites; } set { _itemSprites = value; } }
 
         public override void Use(IActor user, IActor[] targets)
         {

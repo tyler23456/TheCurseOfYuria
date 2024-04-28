@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: WarlockWand
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 11a90d1d1aaf432a8376ad703c11ea05, type: 3}
+  _prefab: {fileID: 3289722643481286447, guid: 6d6c813e13560d143a19b837f134b5b3, type: 3}
   info: 
+  _itemSprites:
+    Name: WarlockWand
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.WarlockWand
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Wand/WarlockWand.png
+    Sprite: {fileID: 21300000, guid: d0613a05ddd04e5fb42cb0c5cec85265, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: d0613a05ddd04e5fb42cb0c5cec85265, type: 3}
+    Multiple: 1
+    Hash: a195636ea2ecf3ef107ff4ad9e674025
+    Tags: []
   modifiers: []

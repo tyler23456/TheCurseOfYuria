@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: WoodenBuckler
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 22c72a2b4cd9429fa0af8e0aad1753b1, type: 3}
+  _prefab: {fileID: 9156884347528662347, guid: 5ece511542efb0045973640e345f192c, type: 3}
   info: 
+  _itemSprites:
+    Name: WoodenBuckler
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.WoodenBuckler
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Basic/WoodenBuckler.png
+    Sprite: {fileID: 21300000, guid: a07c5229371041ce901362bef4e0d1c5, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: a07c5229371041ce901362bef4e0d1c5, type: 3}
+    Multiple: 1
+    Hash: 2ea4347a3e4e33f4ad90bbb1361ea046
+    Tags: []
   modifiers: []

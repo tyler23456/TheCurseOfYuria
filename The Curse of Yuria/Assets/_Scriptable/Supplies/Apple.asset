@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: a27d2a28981c46f1a20509a1173678e9, type: 3}
+  _prefab: {fileID: 4170463746371817613, guid: dcbaff1f6d245d74ab345b2621ee7616, type: 3}
   info: 
   power: 0
   cost: 0

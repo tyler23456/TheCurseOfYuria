@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: CataphractSpear
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 7e61bf6da2c44351982e0bafee01c39b, type: 3}
+  _prefab: {fileID: 4968674302309639555, guid: f5b3387df52221143a3d0fd7c5c74c2f, type: 3}
   info: 
+  _itemSprites:
+    Name: CataphractSpear
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon2H.CataphractSpear
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon2H/Basic/Spear/CataphractSpear.png
+    Sprite: {fileID: 21300000, guid: 7972fb0fd0924a1eba82f9dd148911ec, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 7972fb0fd0924a1eba82f9dd148911ec, type: 3}
+    Multiple: 1
+    Hash: 70775954cf59b89f41fbb14227ba1e7a
+    Tags: []
   modifiers: []

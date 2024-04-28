@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: TwoHandedWoodenMace
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 92caa4b2b3c04b10b2625b4edf592d3c, type: 3}
+  _prefab: {fileID: 8923464013372982572, guid: 16fba56043b801044b0b5bff20245706, type: 3}
   info: 
+  _itemSprites:
+    Name: TwoHandedWoodenMace
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon2H.TwoHandedWoodenMace
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon2H/Basic/Hammer/TwoHandedWoodenMace.png
+    Sprite: {fileID: 21300000, guid: 76cee94c21a4416f8d23a81bfbd123ce, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 76cee94c21a4416f8d23a81bfbd123ce, type: 3}
+    Multiple: 1
+    Hash: 029069702e4102a9e2517a5892743de9
+    Tags: []
   modifiers: []

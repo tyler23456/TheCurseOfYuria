@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: DarkKnightShield
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: e0601474fae4450ea712dfbc9c430922, type: 3}
+  _prefab: {fileID: 9107334640704287545, guid: 5262b603f86127a4282c8e19ac74f3ca, type: 3}
   info: 
+  _itemSprites:
+    Name: DarkKnightShield
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.DarkKnightShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Basic/DarkKnightShield.png
+    Sprite: {fileID: 21300000, guid: 92d7af5cbdc946e0a65a2afc4e378500, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 92d7af5cbdc946e0a65a2afc4e378500, type: 3}
+    Multiple: 1
+    Hash: 75db99711468d78bf277fabadfb0d6ac
+    Tags: []
   modifiers: []

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: BoneClub
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 1f05f7d282a343489ba374a0bba09a51, type: 3}
+  _prefab: {fileID: 2161942775972615165, guid: 12bbd1767bd3188418fdc662efa6a099, type: 3}
   info: 
+  _itemSprites:
+    Name: BoneClub
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.BoneClub
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Hammer/BoneClub.png
+    Sprite: {fileID: 21300000, guid: e051df69b23f46a0bf6b176faa220d5a, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: e051df69b23f46a0bf6b176faa220d5a, type: 3}
+    Multiple: 1
+    Hash: 7c4dce12ca9158071958d6072fe62652
+    Tags: []
   modifiers: []

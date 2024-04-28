@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: BaseballOutfit
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 008c5abf7634c2b47965ba281527b184, type: 3}
+  _prefab: {fileID: 7656098184451706094, guid: 7b79fc8156fadba4e9ebff0a5ceff5dd, type: 3}
   info: 
+  _itemSprites:
+    Name: BaseballOutfit
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.BaseballOutfit
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/BaseballOutfit.png
+    Sprite: {fileID: 21300004, guid: 12c54dd0df88f984d94d770d0040e04b, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 12c54dd0df88f984d94d770d0040e04b, type: 3}
+    - {fileID: 21300002, guid: 12c54dd0df88f984d94d770d0040e04b, type: 3}
+    - {fileID: 21300022, guid: 12c54dd0df88f984d94d770d0040e04b, type: 3}
+    - {fileID: 21300010, guid: 12c54dd0df88f984d94d770d0040e04b, type: 3}
+    - {fileID: 21300008, guid: 12c54dd0df88f984d94d770d0040e04b, type: 3}
+    - {fileID: 21300016, guid: 12c54dd0df88f984d94d770d0040e04b, type: 3}
+    - {fileID: 21300018, guid: 12c54dd0df88f984d94d770d0040e04b, type: 3}
+    - {fileID: 21300012, guid: 12c54dd0df88f984d94d770d0040e04b, type: 3}
+    - {fileID: 21300006, guid: 12c54dd0df88f984d94d770d0040e04b, type: 3}
+    - {fileID: 21300014, guid: 12c54dd0df88f984d94d770d0040e04b, type: 3}
+    - {fileID: 21300020, guid: 12c54dd0df88f984d94d770d0040e04b, type: 3}
+    - {fileID: 21300000, guid: 12c54dd0df88f984d94d770d0040e04b, type: 3}
+    Multiple: 1
+    Hash: c5dfc7c5f89fefb3f4947031151ab0b8
+    Tags: []
   modifiers: []

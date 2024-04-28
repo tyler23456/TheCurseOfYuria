@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: AdvancedKnightShield
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: f5e9ce0bd8794d86bf866e81d9e18123, type: 3}
+  _prefab: {fileID: 7717393258586538534, guid: dd9ab9d7b9f3e4e4fa67fd29ebaf5c52, type: 3}
   info: 
+  _itemSprites:
+    Name: AdvancedKnightShield
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.AdvancedKnightShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Basic/AdvancedKnightShield.png
+    Sprite: {fileID: 21300000, guid: bba993a77b604458aa7796e2b5724fad, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: bba993a77b604458aa7796e2b5724fad, type: 3}
+    Multiple: 1
+    Hash: 55f4a5e4f089583657d42b547f435a3c
+    Tags: []
   modifiers: []

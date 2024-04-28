@@ -13,8 +13,32 @@ MonoBehaviour:
   m_Name: HalberdierArmor [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 635c93a6f3ed402e872920e987043b02, type: 3}
+  _prefab: {fileID: 2550320213345639541, guid: f94c6292ee2879b4b94f5c5dde0f16d8, type: 3}
   info: 
+  _itemSprites:
+    Name: HalberdierArmor [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.HalberdierArmor [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/HalberdierArmor
+      [Paint].png
+    Sprite: {fileID: 21300004, guid: 2df502bcc200440bb7aa8cca6a5c1d2c, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 2df502bcc200440bb7aa8cca6a5c1d2c, type: 3}
+    - {fileID: 21300002, guid: 2df502bcc200440bb7aa8cca6a5c1d2c, type: 3}
+    - {fileID: 21300022, guid: 2df502bcc200440bb7aa8cca6a5c1d2c, type: 3}
+    - {fileID: 21300010, guid: 2df502bcc200440bb7aa8cca6a5c1d2c, type: 3}
+    - {fileID: 21300008, guid: 2df502bcc200440bb7aa8cca6a5c1d2c, type: 3}
+    - {fileID: 21300016, guid: 2df502bcc200440bb7aa8cca6a5c1d2c, type: 3}
+    - {fileID: 21300018, guid: 2df502bcc200440bb7aa8cca6a5c1d2c, type: 3}
+    - {fileID: 21300012, guid: 2df502bcc200440bb7aa8cca6a5c1d2c, type: 3}
+    - {fileID: 21300006, guid: 2df502bcc200440bb7aa8cca6a5c1d2c, type: 3}
+    - {fileID: 21300014, guid: 2df502bcc200440bb7aa8cca6a5c1d2c, type: 3}
+    - {fileID: 21300020, guid: 2df502bcc200440bb7aa8cca6a5c1d2c, type: 3}
+    - {fileID: 21300000, guid: 2df502bcc200440bb7aa8cca6a5c1d2c, type: 3}
+    Multiple: 1
+    Hash: 3df8a618ff6ad1b502cb822e389ed759
+    Tags:
+    - Paint
   modifiers: []

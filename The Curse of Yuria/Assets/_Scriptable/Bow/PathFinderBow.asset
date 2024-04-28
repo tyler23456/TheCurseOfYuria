@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: PathFinderBow
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 98c3009295b1410082ef375ab1a278c2, type: 3}
+  _prefab: {fileID: 3895556131246075356, guid: b6d2180a40851274b8178384b3c84be6, type: 3}
   info: 
+  _itemSprites:
+    Name: PathFinderBow
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Bow.PathFinderBow
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Bow/Basic/PathFinderBow.png
+    Sprite: {fileID: 21300004, guid: e96349edb6ae4596a7e3c76e2932c4e3, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: e96349edb6ae4596a7e3c76e2932c4e3, type: 3}
+    - {fileID: 21300002, guid: e96349edb6ae4596a7e3c76e2932c4e3, type: 3}
+    - {fileID: 21300000, guid: e96349edb6ae4596a7e3c76e2932c4e3, type: 3}
+    Multiple: 1
+    Hash: f93ff5988625ae653a182c252a71a834
+    Tags: []
   modifiers: []

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: LibrarianGlasses
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: dd7eea3e515f4d1dae1fe325a033f9d1, type: 3}
+  _prefab: {fileID: 8575822392759032749, guid: 377a6e7b93e3b494f8a9dd42664884c8, type: 3}
   info: 
+  _itemSprites:
+    Name: LibrarianGlasses
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Glasses.LibrarianGlasses
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Glasses/Basic/LibrarianGlasses.png
+    Sprite: {fileID: 21300000, guid: 9df6a0ee6c3f4f288e262bdc3c4078ed, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 9df6a0ee6c3f4f288e262bdc3c4078ed, type: 3}
+    Multiple: 1
+    Hash: ff7b58e527e014920ae2162713f9ca9a
+    Tags: []
   modifiers: []

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: RoyalGoldenRing
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: aeb84632fe6f5fc47ab6d55c7bd762d4, type: 3}
+  _prefab: {fileID: 4156155545045554504, guid: c45863925c62e1b4693f0a959c9c63b9, type: 3}
   info: 
   power: 0
   cost: 0

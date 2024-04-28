@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: RustyKey
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 6b53d246984a8e644b09505b188f325e, type: 3}
+  _prefab: {fileID: 5955320656257920855, guid: d08e89469cf9e9444a2b5063c4a3863b, type: 3}
   info: 
   power: 0
   cost: 0

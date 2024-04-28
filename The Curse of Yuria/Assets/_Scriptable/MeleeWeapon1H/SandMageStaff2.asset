@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SandMageStaff2
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: baca42219048411d9e5d3aefff213879, type: 3}
+  _prefab: {fileID: 6768310735807891465, guid: 95fdbeff75d57da4eb64d05b7c80aaeb, type: 3}
   info: 
+  _itemSprites:
+    Name: SandMageStaff2
+    Collection: SandLords
+    Edition: Plugins
+    Id: Plugins.SandLords.MeleeWeapon1H.SandMageStaff2
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/SandLords/Staff/SandMageStaff2.png
+    Sprite: {fileID: 21300000, guid: f36cdd116e564956bf129d3a31511eae, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: f36cdd116e564956bf129d3a31511eae, type: 3}
+    Multiple: 1
+    Hash: 206272d72cfeadfdce07f0efd7846e5d
+    Tags: []
   modifiers: []

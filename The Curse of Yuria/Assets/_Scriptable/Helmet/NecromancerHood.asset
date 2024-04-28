@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: NecromancerHood
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 9e86d540363442feb6d4b36e8f7a1a12, type: 3}
+  _prefab: {fileID: 5173569585384191741, guid: 4b9a92d140e30434489d0a729189fe39, type: 3}
   info: 
+  _itemSprites:
+    Name: NecromancerHood
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.NecromancerHood
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/NecromancerHood.png
+    Sprite: {fileID: 21300000, guid: f7ee104beaa449779fe23fc4d49131e7, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: f7ee104beaa449779fe23fc4d49131e7, type: 3}
+    Multiple: 1
+    Hash: 7e48d32f97e7b9dfefc6c7601ebfca17
+    Tags: []
   modifiers: []

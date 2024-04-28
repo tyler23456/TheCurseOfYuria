@@ -13,8 +13,32 @@ MonoBehaviour:
   m_Name: IronPlateArmor [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 7e2e81a16cdc45aa9a81bfc3f7580d6c, type: 3}
+  _prefab: {fileID: 2863144353533650702, guid: 0af3be887fcf5054c82586f0ddff3758, type: 3}
   info: 
+  _itemSprites:
+    Name: IronPlateArmor [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.IronPlateArmor [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/IronPlateArmor
+      [Paint].png
+    Sprite: {fileID: 21300004, guid: b20f220786ca414e964539c7d2e7a5da, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: b20f220786ca414e964539c7d2e7a5da, type: 3}
+    - {fileID: 21300002, guid: b20f220786ca414e964539c7d2e7a5da, type: 3}
+    - {fileID: 21300022, guid: b20f220786ca414e964539c7d2e7a5da, type: 3}
+    - {fileID: 21300010, guid: b20f220786ca414e964539c7d2e7a5da, type: 3}
+    - {fileID: 21300008, guid: b20f220786ca414e964539c7d2e7a5da, type: 3}
+    - {fileID: 21300016, guid: b20f220786ca414e964539c7d2e7a5da, type: 3}
+    - {fileID: 21300018, guid: b20f220786ca414e964539c7d2e7a5da, type: 3}
+    - {fileID: 21300012, guid: b20f220786ca414e964539c7d2e7a5da, type: 3}
+    - {fileID: 21300006, guid: b20f220786ca414e964539c7d2e7a5da, type: 3}
+    - {fileID: 21300014, guid: b20f220786ca414e964539c7d2e7a5da, type: 3}
+    - {fileID: 21300020, guid: b20f220786ca414e964539c7d2e7a5da, type: 3}
+    - {fileID: 21300000, guid: b20f220786ca414e964539c7d2e7a5da, type: 3}
+    Multiple: 1
+    Hash: 00b5450ca167fb23fbd8630c760a2644
+    Tags:
+    - Paint
   modifiers: []

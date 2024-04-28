@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: LeatherLightArmor
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 6fa65d80587c48f7ab7140b2fe0ab53b, type: 3}
+  _prefab: {fileID: 7450322419762305658, guid: 0a78bad2734175045839b7fc080ca7a6, type: 3}
   info: 
+  _itemSprites:
+    Name: LeatherLightArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.LeatherLightArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/LeatherLightArmor.png
+    Sprite: {fileID: 21300024, guid: 42aaec58eb8e414ba95c163402c61156, type: 3}
+    Sprites:
+    - {fileID: 21300024, guid: 42aaec58eb8e414ba95c163402c61156, type: 3}
+    - {fileID: 21300022, guid: 42aaec58eb8e414ba95c163402c61156, type: 3}
+    - {fileID: 21300040, guid: 42aaec58eb8e414ba95c163402c61156, type: 3}
+    - {fileID: 21300028, guid: 42aaec58eb8e414ba95c163402c61156, type: 3}
+    - {fileID: 21300026, guid: 42aaec58eb8e414ba95c163402c61156, type: 3}
+    - {fileID: 21300034, guid: 42aaec58eb8e414ba95c163402c61156, type: 3}
+    - {fileID: 21300036, guid: 42aaec58eb8e414ba95c163402c61156, type: 3}
+    - {fileID: 21300030, guid: 42aaec58eb8e414ba95c163402c61156, type: 3}
+    - {fileID: 21300006, guid: 42aaec58eb8e414ba95c163402c61156, type: 3}
+    - {fileID: 21300032, guid: 42aaec58eb8e414ba95c163402c61156, type: 3}
+    - {fileID: 21300038, guid: 42aaec58eb8e414ba95c163402c61156, type: 3}
+    - {fileID: 21300000, guid: 42aaec58eb8e414ba95c163402c61156, type: 3}
+    Multiple: 1
+    Hash: eb99778be471d1d7370f4a100d0d371d
+    Tags: []
   modifiers: []

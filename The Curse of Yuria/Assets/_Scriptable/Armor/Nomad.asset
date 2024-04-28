@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: Nomad
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 78b76c13b6e44bc4b75beaa32c888949, type: 3}
+  _prefab: {fileID: 4252235859583362957, guid: b09a05a265d9a244093e3ee07cc78dad, type: 3}
   info: 
+  _itemSprites:
+    Name: Nomad
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.Nomad
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/Nomad.png
+    Sprite: {fileID: 21300024, guid: 5386198a12174463a593824a168e7f79, type: 3}
+    Sprites:
+    - {fileID: 21300024, guid: 5386198a12174463a593824a168e7f79, type: 3}
+    - {fileID: 21300022, guid: 5386198a12174463a593824a168e7f79, type: 3}
+    - {fileID: 21300040, guid: 5386198a12174463a593824a168e7f79, type: 3}
+    - {fileID: 21300028, guid: 5386198a12174463a593824a168e7f79, type: 3}
+    - {fileID: 21300026, guid: 5386198a12174463a593824a168e7f79, type: 3}
+    - {fileID: 21300034, guid: 5386198a12174463a593824a168e7f79, type: 3}
+    - {fileID: 21300036, guid: 5386198a12174463a593824a168e7f79, type: 3}
+    - {fileID: 21300030, guid: 5386198a12174463a593824a168e7f79, type: 3}
+    - {fileID: 21300006, guid: 5386198a12174463a593824a168e7f79, type: 3}
+    - {fileID: 21300032, guid: 5386198a12174463a593824a168e7f79, type: 3}
+    - {fileID: 21300038, guid: 5386198a12174463a593824a168e7f79, type: 3}
+    - {fileID: 21300000, guid: 5386198a12174463a593824a168e7f79, type: 3}
+    Multiple: 1
+    Hash: dd600536aa7e77a18c8359dd6d02c004
+    Tags: []
   modifiers: []

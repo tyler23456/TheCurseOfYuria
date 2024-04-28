@@ -6,6 +6,7 @@ using HeroEditor.Common.Enums;
 using HeroEditor.Common.Data;
 using System;
 using HeroEditor.Common;
+using System.Linq;
 
 namespace TCOY.DontDestroyOnLoad
 {
@@ -196,12 +197,27 @@ namespace TCOY.DontDestroyOnLoad
         {
             asset = (IItem)AssetDatabase.LoadAssetAtPath(assetsRootPath + path + ".asset", typeof(IItem));
 
-            asset.SetIcon(icon);
+            if (asset is Equipment && CompareItemSprite(((Equipment)asset).itemSprite, itemSprites[icon.name]) && asset.icon == icon && asset.prefab == prefab)
+                return;
+            else if (asset is not Equipment && asset.icon == icon && asset.prefab == prefab)
+                return;
+
+            asset.icon = icon;
 
             if (asset is Equipment)
-                ((Equipment)asset).SetItemSprite(itemSprites[icon.name]);
+                ((Equipment)asset).itemSprite = itemSprites[icon.name];
+           
+            asset.prefab = prefab;
 
-            asset.SetPrefab(prefab);
+            EditorUtility.SetDirty((ScriptableObject)asset);
+            AssetDatabase.SaveAssetIfDirty((ScriptableObject)asset);
+        }
+
+        bool CompareItemSprite(ItemSprite a, ItemSprite b)
+        {
+            return a.Hash == b.Hash && a.Id == b.Id && a.Multiple == b.Multiple && a.Name == b.Name && a.Path == b.Path
+                && a.Sprite == b.Sprite && a.Sprites.SequenceEqual(b.Sprites) && a.Tags.SequenceEqual(b.Tags) && a.Collection == b.Collection
+                && a.Edition == b.Edition;
         }
     }
 }

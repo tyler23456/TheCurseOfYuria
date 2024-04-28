@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: SpeedDown
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 11e754ce546262d4fa07fcbe48e9fe85, type: 3}
+  _prefab: {fileID: 4633226161141027335, guid: 3aa53cd83e1b67e478305333a53c4627, type: 3}
   info: 
   power: 0
   cost: 0

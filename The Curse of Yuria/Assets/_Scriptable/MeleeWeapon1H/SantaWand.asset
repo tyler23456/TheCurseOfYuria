@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SantaWand
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 92a15baa788642918647b44e8340dcfb, type: 3}
+  _prefab: {fileID: 2433159245366843082, guid: 539631feaf1fd6148908eba8396cf79f, type: 3}
   info: 
+  _itemSprites:
+    Name: SantaWand
+    Collection: Christmas
+    Edition: Plugins
+    Id: Plugins.Christmas.MeleeWeapon1H.SantaWand
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Christmas/Wand/SantaWand.png
+    Sprite: {fileID: 21300000, guid: 23093e02bba14391aa6594bbbf240a9f, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 23093e02bba14391aa6594bbbf240a9f, type: 3}
+    Multiple: 1
+    Hash: 517b1f44b6ebcc772928359eaae516ab
+    Tags: []
   modifiers: []

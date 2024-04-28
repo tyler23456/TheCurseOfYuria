@@ -13,8 +13,32 @@ MonoBehaviour:
   m_Name: IronArmor [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 31523a83c13e43fc8103f4738cb16856, type: 3}
+  _prefab: {fileID: 4866088344940989802, guid: 55a510b497f7e914cb1f06929ea99c60, type: 3}
   info: 
+  _itemSprites:
+    Name: IronArmor [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.IronArmor [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/IronArmor
+      [Paint].png
+    Sprite: {fileID: 21300024, guid: cf5c2edea41a456cb61fb6fa08a3cd84, type: 3}
+    Sprites:
+    - {fileID: 21300024, guid: cf5c2edea41a456cb61fb6fa08a3cd84, type: 3}
+    - {fileID: 21300022, guid: cf5c2edea41a456cb61fb6fa08a3cd84, type: 3}
+    - {fileID: 21300040, guid: cf5c2edea41a456cb61fb6fa08a3cd84, type: 3}
+    - {fileID: 21300028, guid: cf5c2edea41a456cb61fb6fa08a3cd84, type: 3}
+    - {fileID: 21300026, guid: cf5c2edea41a456cb61fb6fa08a3cd84, type: 3}
+    - {fileID: 21300034, guid: cf5c2edea41a456cb61fb6fa08a3cd84, type: 3}
+    - {fileID: 21300036, guid: cf5c2edea41a456cb61fb6fa08a3cd84, type: 3}
+    - {fileID: 21300030, guid: cf5c2edea41a456cb61fb6fa08a3cd84, type: 3}
+    - {fileID: 21300006, guid: cf5c2edea41a456cb61fb6fa08a3cd84, type: 3}
+    - {fileID: 21300032, guid: cf5c2edea41a456cb61fb6fa08a3cd84, type: 3}
+    - {fileID: 21300038, guid: cf5c2edea41a456cb61fb6fa08a3cd84, type: 3}
+    - {fileID: 21300000, guid: cf5c2edea41a456cb61fb6fa08a3cd84, type: 3}
+    Multiple: 1
+    Hash: dc59456ca88f59804d66158ab3d95d0e
+    Tags:
+    - Paint
   modifiers: []

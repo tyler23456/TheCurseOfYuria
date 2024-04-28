@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: LightSkip
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: ec3cbe83901946d4ca8fa99b2c49d00e, type: 3}
+  _prefab: {fileID: 2827743283664039157, guid: 2841cd5e6d4cbe942879fe0bf096b829, type: 3}
   info: 
   power: 0
   cost: 0

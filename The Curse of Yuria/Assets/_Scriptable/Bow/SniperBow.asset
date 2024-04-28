@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: SniperBow
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: e0b1b788f6874c678ae9424203b6686a, type: 3}
+  _prefab: {fileID: 6481083411106892522, guid: ed58ca1a1dab5ad409e944bca10521d9, type: 3}
   info: 
+  _itemSprites:
+    Name: SniperBow
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Bow.SniperBow
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Bow/Basic/SniperBow.png
+    Sprite: {fileID: 21300004, guid: b825e05d38ff411aa9551bbd290cbdd0, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: b825e05d38ff411aa9551bbd290cbdd0, type: 3}
+    - {fileID: 21300002, guid: b825e05d38ff411aa9551bbd290cbdd0, type: 3}
+    - {fileID: 21300000, guid: b825e05d38ff411aa9551bbd290cbdd0, type: 3}
+    Multiple: 1
+    Hash: e9c25b0ee0ffaa41ae3ff1513cebd72f
+    Tags: []
   modifiers: []

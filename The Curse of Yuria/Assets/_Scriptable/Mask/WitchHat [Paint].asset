@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: WitchHat [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 51ae5c40f67e41b285dd6c002a2c0c83, type: 3}
+  _prefab: {fileID: 2313860902051819527, guid: ede82f1a6582d3a48a1e5df96b143d86, type: 3}
   info: 
+  _itemSprites:
+    Name: WitchHat [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.WitchHat [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/WitchHat
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 71fb40c093af42ccabaab39d723d3cdd, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 71fb40c093af42ccabaab39d723d3cdd, type: 3}
+    Multiple: 1
+    Hash: e26eb6fdd080dd60450f57105f30fe0e
+    Tags:
+    - Paint
   modifiers: []

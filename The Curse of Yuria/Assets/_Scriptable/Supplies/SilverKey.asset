@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: SilverKey
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 7ffa3445fd3a4484fb28da45830a85e4, type: 3}
+  _prefab: {fileID: 4081349927523813492, guid: 87c842d047882e241975127b1b7004ce, type: 3}
   info: 
   power: 0
   cost: 0

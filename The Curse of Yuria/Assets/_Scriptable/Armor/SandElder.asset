@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: SandElder
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 22a95a9e73614e63bf77927d2e30b011, type: 3}
+  _prefab: {fileID: 1279635428013423301, guid: 538dcd621f3544944a08c667d5b18de2, type: 3}
   info: 
+  _itemSprites:
+    Name: SandElder
+    Collection: SandLords
+    Edition: Plugins
+    Id: Plugins.SandLords.Armor.SandElder
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/SandLords/SandElder.png
+    Sprite: {fileID: 21300004, guid: 93fc67acf6414b0d946cda4979ba0731, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 93fc67acf6414b0d946cda4979ba0731, type: 3}
+    - {fileID: 21300002, guid: 93fc67acf6414b0d946cda4979ba0731, type: 3}
+    - {fileID: 21300022, guid: 93fc67acf6414b0d946cda4979ba0731, type: 3}
+    - {fileID: 21300010, guid: 93fc67acf6414b0d946cda4979ba0731, type: 3}
+    - {fileID: 21300008, guid: 93fc67acf6414b0d946cda4979ba0731, type: 3}
+    - {fileID: 21300016, guid: 93fc67acf6414b0d946cda4979ba0731, type: 3}
+    - {fileID: 21300018, guid: 93fc67acf6414b0d946cda4979ba0731, type: 3}
+    - {fileID: 21300012, guid: 93fc67acf6414b0d946cda4979ba0731, type: 3}
+    - {fileID: 21300006, guid: 93fc67acf6414b0d946cda4979ba0731, type: 3}
+    - {fileID: 21300014, guid: 93fc67acf6414b0d946cda4979ba0731, type: 3}
+    - {fileID: 21300020, guid: 93fc67acf6414b0d946cda4979ba0731, type: 3}
+    - {fileID: 21300000, guid: 93fc67acf6414b0d946cda4979ba0731, type: 3}
+    Multiple: 1
+    Hash: dd97144cec93dcd4951cd28e0b6eab26
+    Tags: []
   modifiers: []

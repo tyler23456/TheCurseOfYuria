@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Schnapps
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 55cf78c79ec120347a8c747e39e5c25d, type: 3}
+  _prefab: {fileID: 5108115992682875897, guid: 8b1ff92467bba4f428236548cc16bbe0, type: 3}
   info: 
   power: 0
   cost: 0

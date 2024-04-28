@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SandWarriorHalberd
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 0b2660f983174f69a1c3d8236e54cc21, type: 3}
+  _prefab: {fileID: 2984729112325010718, guid: 127b8e671f5b78c4db358ab081e94209, type: 3}
   info: 
+  _itemSprites:
+    Name: SandWarriorHalberd
+    Collection: Thrones
+    Edition: Plugins
+    Id: Plugins.Thrones.MeleeWeapon2H.SandWarriorHalberd
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon2H/Thrones/Axe/SandWarriorHalberd.png
+    Sprite: {fileID: 21300000, guid: 478641a812c34a928fd4a859c2160316, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 478641a812c34a928fd4a859c2160316, type: 3}
+    Multiple: 1
+    Hash: 8a245fdb5606f32c268eabbd93ebf48e
+    Tags: []
   modifiers: []

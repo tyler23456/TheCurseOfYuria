@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: DefenseUp
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: a1ff81019cf9bfc4e929dc36385e2546, type: 3}
+  _prefab: {fileID: 199871674555329517, guid: 35d84a58a885e3341b164d7981146491, type: 3}
   info: 
   power: 0
   cost: 0

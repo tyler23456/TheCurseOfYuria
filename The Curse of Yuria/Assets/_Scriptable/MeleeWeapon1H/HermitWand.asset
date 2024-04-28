@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: HermitWand
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 4436f21a291b4fe096fe7d0e85096849, type: 3}
+  _prefab: {fileID: 764249643842146764, guid: 91fc3980894647c43b0b8a916db1b242, type: 3}
   info: 
+  _itemSprites:
+    Name: HermitWand
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.HermitWand
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Wand/HermitWand.png
+    Sprite: {fileID: 21300000, guid: 718ed1f62d9e46ab907c15d207e555a8, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 718ed1f62d9e46ab907c15d207e555a8, type: 3}
+    Multiple: 1
+    Hash: 0b00dc0da8e0d83f7565a119368eb275
+    Tags: []
   modifiers: []

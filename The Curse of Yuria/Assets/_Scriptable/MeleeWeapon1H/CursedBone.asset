@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: CursedBone
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 12d8629efdde477984c2e8f68d4b8b78, type: 3}
+  _prefab: {fileID: 1947820084783307186, guid: 120ef33acea4fc049ae63e4584587c2d, type: 3}
   info: 
+  _itemSprites:
+    Name: CursedBone
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.CursedBone
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Wand/CursedBone.png
+    Sprite: {fileID: 21300000, guid: e13115c876144b1f8083aec9c7c6fb7e, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: e13115c876144b1f8083aec9c7c6fb7e, type: 3}
+    Multiple: 1
+    Hash: 82f631c8975bbd84b114fa9147632fc6
+    Tags: []
   modifiers: []

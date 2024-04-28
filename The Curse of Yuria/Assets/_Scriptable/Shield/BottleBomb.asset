@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: BottleBomb
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 2407cf50288a49918562d3d88bec1a8f, type: 3}
+  _prefab: {fileID: 5817383522703694405, guid: 95ac4205a861a7b429258debdf19411a, type: 3}
   info: 
+  _itemSprites:
+    Name: BottleBomb
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.BottleBomb
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Basic/BottleBomb.png
+    Sprite: {fileID: 21300000, guid: e030cc9af9694e2aaa7086ebab500672, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: e030cc9af9694e2aaa7086ebab500672, type: 3}
+    Multiple: 1
+    Hash: 82b6d3ae1177758050342b67d52879e2
+    Tags: []
   modifiers: []

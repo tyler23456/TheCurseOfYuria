@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: DarkMountain
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: e70a46d59b4c499e8a19a7967f22ad2f, type: 3}
+  _prefab: {fileID: 5726663015433802910, guid: 307e152ea4c84c342b489f534d064ed7, type: 3}
   info: 
+  _itemSprites:
+    Name: DarkMountain
+    Collection: Thrones
+    Edition: Plugins
+    Id: Plugins.Thrones.Armor.DarkMountain
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Thrones/DarkMountain.png
+    Sprite: {fileID: 21300004, guid: ed9b00020b5a46fe93ad770635031509, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: ed9b00020b5a46fe93ad770635031509, type: 3}
+    - {fileID: 21300002, guid: ed9b00020b5a46fe93ad770635031509, type: 3}
+    - {fileID: 21300022, guid: ed9b00020b5a46fe93ad770635031509, type: 3}
+    - {fileID: 21300010, guid: ed9b00020b5a46fe93ad770635031509, type: 3}
+    - {fileID: 21300008, guid: ed9b00020b5a46fe93ad770635031509, type: 3}
+    - {fileID: 21300016, guid: ed9b00020b5a46fe93ad770635031509, type: 3}
+    - {fileID: 21300018, guid: ed9b00020b5a46fe93ad770635031509, type: 3}
+    - {fileID: 21300012, guid: ed9b00020b5a46fe93ad770635031509, type: 3}
+    - {fileID: 21300006, guid: ed9b00020b5a46fe93ad770635031509, type: 3}
+    - {fileID: 21300014, guid: ed9b00020b5a46fe93ad770635031509, type: 3}
+    - {fileID: 21300020, guid: ed9b00020b5a46fe93ad770635031509, type: 3}
+    - {fileID: 21300000, guid: ed9b00020b5a46fe93ad770635031509, type: 3}
+    Multiple: 1
+    Hash: 9c328249b4dd23de27abf1002bf22da1
+    Tags: []
   modifiers: []

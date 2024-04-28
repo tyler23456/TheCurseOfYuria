@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: TwoHandedVikingSword2 [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 25d0b2a6d8f442e99d5f8bf07b3f309e, type: 3}
+  _prefab: {fileID: 2707630644485648347, guid: e7aab1f054854c5478b270b596c8a8f6, type: 3}
   info: 
+  _itemSprites:
+    Name: TwoHandedVikingSword2 [Paint]
+    Collection: Vikings
+    Edition: Plugins
+    Id: Plugins.Vikings.MeleeWeapon2H.TwoHandedVikingSword2 [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon2H/Vikings/Sword/TwoHandedVikingSword2
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 2dc31a35e02c4f22996f64cd837d46d3, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 2dc31a35e02c4f22996f64cd837d46d3, type: 3}
+    Multiple: 1
+    Hash: 9915690314225d4a0e1a6789b31053d0
+    Tags:
+    - Paint
   modifiers: []

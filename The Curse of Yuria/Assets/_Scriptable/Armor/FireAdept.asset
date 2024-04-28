@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: FireAdept
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: caec4831c1764d7cb8d1d3a488d2997c, type: 3}
+  _prefab: {fileID: 7699769319914343721, guid: 3aa68fb338bd4fd4198782063e858fb4, type: 3}
   info: 
+  _itemSprites:
+    Name: FireAdept
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.FireAdept
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/FireAdept.png
+    Sprite: {fileID: 21300004, guid: 87e779430997436a9d2662c887646fdf, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 87e779430997436a9d2662c887646fdf, type: 3}
+    - {fileID: 21300002, guid: 87e779430997436a9d2662c887646fdf, type: 3}
+    - {fileID: 21300022, guid: 87e779430997436a9d2662c887646fdf, type: 3}
+    - {fileID: 21300010, guid: 87e779430997436a9d2662c887646fdf, type: 3}
+    - {fileID: 21300008, guid: 87e779430997436a9d2662c887646fdf, type: 3}
+    - {fileID: 21300016, guid: 87e779430997436a9d2662c887646fdf, type: 3}
+    - {fileID: 21300018, guid: 87e779430997436a9d2662c887646fdf, type: 3}
+    - {fileID: 21300012, guid: 87e779430997436a9d2662c887646fdf, type: 3}
+    - {fileID: 21300006, guid: 87e779430997436a9d2662c887646fdf, type: 3}
+    - {fileID: 21300014, guid: 87e779430997436a9d2662c887646fdf, type: 3}
+    - {fileID: 21300020, guid: 87e779430997436a9d2662c887646fdf, type: 3}
+    - {fileID: 21300000, guid: 87e779430997436a9d2662c887646fdf, type: 3}
+    Multiple: 1
+    Hash: a99c0a8249b4bcf0085f46232a3da4e2
+    Tags: []
   modifiers: []

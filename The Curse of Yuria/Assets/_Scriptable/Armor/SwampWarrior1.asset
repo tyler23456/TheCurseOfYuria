@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: SwampWarrior1
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 9bbe9680288e4f76bf8f7a211fd42f9a, type: 3}
+  _prefab: {fileID: 8674362815998972257, guid: b1e1e537c3c6c49489f40608d46d0b99, type: 3}
   info: 
+  _itemSprites:
+    Name: SwampWarrior1
+    Collection: SwampLords
+    Edition: Plugins
+    Id: Plugins.SwampLords.Armor.SwampWarrior1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/SwampLords/SwampWarrior1.png
+    Sprite: {fileID: 21300004, guid: 2327b8533b514288acadbb186f0905a9, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 2327b8533b514288acadbb186f0905a9, type: 3}
+    - {fileID: 21300002, guid: 2327b8533b514288acadbb186f0905a9, type: 3}
+    - {fileID: 21300022, guid: 2327b8533b514288acadbb186f0905a9, type: 3}
+    - {fileID: 21300010, guid: 2327b8533b514288acadbb186f0905a9, type: 3}
+    - {fileID: 21300008, guid: 2327b8533b514288acadbb186f0905a9, type: 3}
+    - {fileID: 21300016, guid: 2327b8533b514288acadbb186f0905a9, type: 3}
+    - {fileID: 21300018, guid: 2327b8533b514288acadbb186f0905a9, type: 3}
+    - {fileID: 21300012, guid: 2327b8533b514288acadbb186f0905a9, type: 3}
+    - {fileID: 21300006, guid: 2327b8533b514288acadbb186f0905a9, type: 3}
+    - {fileID: 21300014, guid: 2327b8533b514288acadbb186f0905a9, type: 3}
+    - {fileID: 21300020, guid: 2327b8533b514288acadbb186f0905a9, type: 3}
+    - {fileID: 21300000, guid: 2327b8533b514288acadbb186f0905a9, type: 3}
+    Multiple: 1
+    Hash: e0216bb1ed86aeff622efc14cc4da84a
+    Tags: []
   modifiers: []

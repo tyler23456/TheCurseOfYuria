@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SwampWarriorSpear
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 70492a1b6c5c4d76b202e9d2d93a76b2, type: 3}
+  _prefab: {fileID: 997283209505330658, guid: 5847c45f4fd467e468325f941962f672, type: 3}
   info: 
+  _itemSprites:
+    Name: SwampWarriorSpear
+    Collection: SwampLords
+    Edition: Plugins
+    Id: Plugins.SwampLords.MeleeWeapon1H.SwampWarriorSpear
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/SwampLords/Spear/SwampWarriorSpear.png
+    Sprite: {fileID: 21300000, guid: ec614a0f23004a3abaf8cab74cbc0b4e, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: ec614a0f23004a3abaf8cab74cbc0b4e, type: 3}
+    Multiple: 1
+    Hash: 6e7249f0d4fc0f06cdc5fbe69b0f1280
+    Tags: []
   modifiers: []

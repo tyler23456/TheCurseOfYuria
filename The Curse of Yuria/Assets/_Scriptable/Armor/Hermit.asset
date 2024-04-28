@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: Hermit
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: beb535662fc9412d80c082c49168f073, type: 3}
+  _prefab: {fileID: 6446793473753919144, guid: 596c80e8d250fcf41a4331c3e8447d00, type: 3}
   info: 
+  _itemSprites:
+    Name: Hermit
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.Hermit
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/Hermit.png
+    Sprite: {fileID: 21300004, guid: 41ad2c1d10e74e6eae919687457ae41c, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 41ad2c1d10e74e6eae919687457ae41c, type: 3}
+    - {fileID: 21300002, guid: 41ad2c1d10e74e6eae919687457ae41c, type: 3}
+    - {fileID: 21300022, guid: 41ad2c1d10e74e6eae919687457ae41c, type: 3}
+    - {fileID: 21300010, guid: 41ad2c1d10e74e6eae919687457ae41c, type: 3}
+    - {fileID: 21300008, guid: 41ad2c1d10e74e6eae919687457ae41c, type: 3}
+    - {fileID: 21300016, guid: 41ad2c1d10e74e6eae919687457ae41c, type: 3}
+    - {fileID: 21300018, guid: 41ad2c1d10e74e6eae919687457ae41c, type: 3}
+    - {fileID: 21300012, guid: 41ad2c1d10e74e6eae919687457ae41c, type: 3}
+    - {fileID: 21300006, guid: 41ad2c1d10e74e6eae919687457ae41c, type: 3}
+    - {fileID: 21300014, guid: 41ad2c1d10e74e6eae919687457ae41c, type: 3}
+    - {fileID: 21300020, guid: 41ad2c1d10e74e6eae919687457ae41c, type: 3}
+    - {fileID: 21300000, guid: 41ad2c1d10e74e6eae919687457ae41c, type: 3}
+    Multiple: 1
+    Hash: 3827b4619826b125be6f8975b210eade
+    Tags: []
   modifiers: []

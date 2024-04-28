@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: ClothHeadband
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 425bffcc6dd3685468f879132ccef482, type: 3}
+  _prefab: {fileID: 8069950487706081741, guid: 4c8a8ead197dcc24ab61f054f52649b8, type: 3}
   info: 
+  _itemSprites:
+    Name: ClothHeadband
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.ClothHeadband
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/ClothHeadband.png
+    Sprite: {fileID: 21300000, guid: 331f9191ea7d5824eab5bfc3690e3dd2, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 331f9191ea7d5824eab5bfc3690e3dd2, type: 3}
+    Multiple: 1
+    Hash: 3555eec9440cb6129f830ffeec27b25c
+    Tags: []
   modifiers: []

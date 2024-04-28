@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: VisorKnightHelm [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 84cfe5dbffe44475896dab785248e543, type: 3}
+  _prefab: {fileID: 8149140050331070546, guid: c2e923eca8d2aea43bd0925f42f522a5, type: 3}
   info: 
+  _itemSprites:
+    Name: VisorKnightHelm [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.VisorKnightHelm [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/VisorKnightHelm
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 19f4eb233a98eec4dbe759399768af9b, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 19f4eb233a98eec4dbe759399768af9b, type: 3}
+    Multiple: 1
+    Hash: eb80ca824911ce0f8d4a9441ffe5cbfc
+    Tags:
+    - Paint
   modifiers: []

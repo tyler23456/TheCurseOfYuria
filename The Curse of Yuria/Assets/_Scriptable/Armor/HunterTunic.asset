@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: HunterTunic
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: d0cda7245eea4bd18fa15e27002e3833, type: 3}
+  _prefab: {fileID: 4589108609858704852, guid: 918527762ecd0f34bb5b0d468641dbe9, type: 3}
   info: 
+  _itemSprites:
+    Name: HunterTunic
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.HunterTunic
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/HunterTunic.png
+    Sprite: {fileID: 21300024, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    Sprites:
+    - {fileID: 21300024, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300022, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300040, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300028, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300026, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300034, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300036, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300030, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300006, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300032, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300038, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300000, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    Multiple: 1
+    Hash: 770b16f16914289d1c7193075f63db34
+    Tags: []
   modifiers: []

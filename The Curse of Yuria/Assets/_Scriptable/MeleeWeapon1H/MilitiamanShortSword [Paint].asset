@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: MilitiamanShortSword [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 8e30e8b3dbf84c19b7c0b289d2163b3a, type: 3}
+  _prefab: {fileID: 4237288774779885014, guid: 198610a99cc8aa94b9757cba9c76082a, type: 3}
   info: 
+  _itemSprites:
+    Name: MilitiamanShortSword [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.MilitiamanShortSword [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Sword/MilitiamanShortSword
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 8c694485eb8b4690b9db20aa4a178b5e, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 8c694485eb8b4690b9db20aa4a178b5e, type: 3}
+    Multiple: 1
+    Hash: 72bf33755f4672acbf3269664b5059fd
+    Tags:
+    - Paint
   modifiers: []

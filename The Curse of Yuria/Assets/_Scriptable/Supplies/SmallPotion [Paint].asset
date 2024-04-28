@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: SmallPotion [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 7ae830bf277740a8852b2339619a11eb, type: 3}
+  _prefab: {fileID: 4335903774381488016, guid: 500ee60aa040dd143b4f973f61d28836, type: 3}
   info: 
   power: 0
   cost: 0

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: Stoccata
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 7c108fdcdd404282b79f7c4670ecf545, type: 3}
+  _prefab: {fileID: 629177784640671270, guid: 871f3fc06e0ed4c42a223fffaf598609, type: 3}
   info: 
+  _itemSprites:
+    Name: Stoccata
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.Stoccata
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Sword/Stoccata.png
+    Sprite: {fileID: 21300000, guid: dd74bf51dc4a4cd3a43a32782f0749b3, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: dd74bf51dc4a4cd3a43a32782f0749b3, type: 3}
+    Multiple: 1
+    Hash: f787452259b96ba5ea885965162bded8
+    Tags: []
   modifiers: []

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Life
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: d5c1aeea65b2ca14dacc155e942e0052, type: 3}
+  _prefab: {fileID: 8044003589049232595, guid: f51ffff9087e1fc4c8d92ebbcc217b9b, type: 3}
   info: 
   power: 0
   cost: 0

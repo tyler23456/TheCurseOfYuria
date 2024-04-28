@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: AuraDown
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 6ef1cf7c07b995d4dbb68b8123111998, type: 3}
+  _prefab: {fileID: 615057267023510465, guid: 2f6c9dc31347b934eaf606efad2b667c, type: 3}
   info: 
   power: 0
   cost: 0

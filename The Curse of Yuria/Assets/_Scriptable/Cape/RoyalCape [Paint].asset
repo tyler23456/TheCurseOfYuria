@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: RoyalCape [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 039434f09d384ff3b29fd4f698db2aea, type: 3}
+  _prefab: {fileID: 37553274272417093, guid: cb6741c9c64018341b0a9b0a1edb90e9, type: 3}
   info: 
+  _itemSprites:
+    Name: RoyalCape [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Cape.RoyalCape [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Cape/Basic/RoyalCape
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 72d1bf775a7c4a46be2abf99c9c051dc, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 72d1bf775a7c4a46be2abf99c9c051dc, type: 3}
+    Multiple: 1
+    Hash: 22a28e54c1c4692e3aa5cf6dad477e75
+    Tags:
+    - Paint
   modifiers: []

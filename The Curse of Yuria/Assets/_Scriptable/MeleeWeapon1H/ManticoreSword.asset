@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: ManticoreSword
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: a2077d01747d4b88aef082ffe4b9ccbf, type: 3}
+  _prefab: {fileID: 4134293260023836595, guid: 6390f108072f65a4b9e7e90adc138b26, type: 3}
   info: 
+  _itemSprites:
+    Name: ManticoreSword
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.ManticoreSword
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Sword/ManticoreSword.png
+    Sprite: {fileID: 21300000, guid: 9e6df519424345b6bd7783cdc9fbb5ee, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 9e6df519424345b6bd7783cdc9fbb5ee, type: 3}
+    Multiple: 1
+    Hash: ecf4585647ab7f247a0186059efc5a6f
+    Tags: []
   modifiers: []

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: Halberd
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 61faf67af00b46399f47038a993afe4e, type: 3}
+  _prefab: {fileID: 2590867316161515722, guid: be0068c7c9452ef439d9f4d0f1d3c70e, type: 3}
   info: 
+  _itemSprites:
+    Name: Halberd
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon2H.Halberd
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon2H/Basic/Spear/Halberd.png
+    Sprite: {fileID: 21300000, guid: 8133f8e8340643368b1e573dcfaac67d, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 8133f8e8340643368b1e573dcfaac67d, type: 3}
+    Multiple: 1
+    Hash: 3026f64d659655ce561b1bc982beaf7d
+    Tags: []
   modifiers: []

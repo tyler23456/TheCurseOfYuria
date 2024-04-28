@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: BlacksmithHammer
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 56b2fc9888be3334eb708894af1f45ec, type: 3}
+  _prefab: {fileID: 7950856841409829006, guid: 7a53de936ebd3e048855792d27cd451d, type: 3}
   info: 
+  _itemSprites:
+    Name: BlacksmithHammer
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.BlacksmithHammer
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Hammer/BlacksmithHammer.png
+    Sprite: {fileID: 21300000, guid: 41e2a912485c30845b8d2ee227beb975, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 41e2a912485c30845b8d2ee227beb975, type: 3}
+    Multiple: 1
+    Hash: e72401c6e5c17afdaced4a75f65f6583
+    Tags: []
   modifiers: []

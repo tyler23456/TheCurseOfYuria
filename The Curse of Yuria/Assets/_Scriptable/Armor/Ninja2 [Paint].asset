@@ -13,8 +13,32 @@ MonoBehaviour:
   m_Name: Ninja2 [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 2b9b3773a8294b4a9d3aa4cb4dfaf806, type: 3}
+  _prefab: {fileID: 6630895523830212574, guid: afacec994336f974386393595dd09532, type: 3}
   info: 
+  _itemSprites:
+    Name: Ninja2 [Paint]
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.Armor.Ninja2 [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Samurai/Ninja2
+      [Paint].png
+    Sprite: {fileID: 21300004, guid: 757bc77008d7439097dc306ece797f0a, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 757bc77008d7439097dc306ece797f0a, type: 3}
+    - {fileID: 21300002, guid: 757bc77008d7439097dc306ece797f0a, type: 3}
+    - {fileID: 21300022, guid: 757bc77008d7439097dc306ece797f0a, type: 3}
+    - {fileID: 21300010, guid: 757bc77008d7439097dc306ece797f0a, type: 3}
+    - {fileID: 21300008, guid: 757bc77008d7439097dc306ece797f0a, type: 3}
+    - {fileID: 21300016, guid: 757bc77008d7439097dc306ece797f0a, type: 3}
+    - {fileID: 21300018, guid: 757bc77008d7439097dc306ece797f0a, type: 3}
+    - {fileID: 21300012, guid: 757bc77008d7439097dc306ece797f0a, type: 3}
+    - {fileID: 21300006, guid: 757bc77008d7439097dc306ece797f0a, type: 3}
+    - {fileID: 21300014, guid: 757bc77008d7439097dc306ece797f0a, type: 3}
+    - {fileID: 21300020, guid: 757bc77008d7439097dc306ece797f0a, type: 3}
+    - {fileID: 21300000, guid: 757bc77008d7439097dc306ece797f0a, type: 3}
+    Multiple: 1
+    Hash: 42a7592e1496becc3391bee730ae3d63
+    Tags:
+    - Paint
   modifiers: []

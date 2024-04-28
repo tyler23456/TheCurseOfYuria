@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: GrandmaCape [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 43e86ae7c0a64edc9b00adc04340f261, type: 3}
+  _prefab: {fileID: 4210992177384684500, guid: 678307a3b90501740a74d213fb14b2b6, type: 3}
   info: 
+  _itemSprites:
+    Name: GrandmaCape [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Cape.GrandmaCape [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Cape/Basic/GrandmaCape
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 3e97a1107fea3d14c982ad6902843dab, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 3e97a1107fea3d14c982ad6902843dab, type: 3}
+    Multiple: 1
+    Hash: 7006a5701a1588d9401ebf0fe8b478ea
+    Tags:
+    - Paint
   modifiers: []

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: WaterAdeptWand1
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 1c8f9255255e4f39b30b0954f2d3f458, type: 3}
+  _prefab: {fileID: 8098217014723938559, guid: 0b272c9675f19ff49808489e3aa17f3c, type: 3}
   info: 
+  _itemSprites:
+    Name: WaterAdeptWand1
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.WaterAdeptWand1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Wand/WaterAdeptWand1.png
+    Sprite: {fileID: 21300000, guid: a5f7652597404d75bf4797c118811005, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: a5f7652597404d75bf4797c118811005, type: 3}
+    Multiple: 1
+    Hash: 62c06225226f9ff43c3dd4a24315e65c
+    Tags: []
   modifiers: []

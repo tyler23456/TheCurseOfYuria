@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: SandShooterBow2
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 4f213316a9814ed998c8ddfa7b5ccbab, type: 3}
+  _prefab: {fileID: 4148130698826092724, guid: 0566e4ea2f4dac046a8da0dd15093889, type: 3}
   info: 
+  _itemSprites:
+    Name: SandShooterBow2
+    Collection: SandLords
+    Edition: Plugins
+    Id: Plugins.SandLords.Bow.SandShooterBow2
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Bow/SandLords/SandShooterBow2.png
+    Sprite: {fileID: 21300004, guid: fcf94f9d9824499094c3b4b76849386c, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: fcf94f9d9824499094c3b4b76849386c, type: 3}
+    - {fileID: 21300002, guid: fcf94f9d9824499094c3b4b76849386c, type: 3}
+    - {fileID: 21300000, guid: fcf94f9d9824499094c3b4b76849386c, type: 3}
+    Multiple: 1
+    Hash: 188dd827e408973c4aa8be401c891c5a
+    Tags: []
   modifiers: []

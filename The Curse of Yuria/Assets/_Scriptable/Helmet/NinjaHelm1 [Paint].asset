@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: NinjaHelm1 [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: c44501937a7d4ca988e67f75812066f1, type: 3}
+  _prefab: {fileID: 68249894046483586, guid: 1adfb2b4319365845831e61106d39c2e, type: 3}
   info: 
+  _itemSprites:
+    Name: NinjaHelm1 [Paint]
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.Helmet.NinjaHelm1 [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Samurai/NinjaHelm1
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 23927b63f7e24423b494d1018ba4d7ca, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 23927b63f7e24423b494d1018ba4d7ca, type: 3}
+    Multiple: 1
+    Hash: 77bb93375299f8b3bcb7606f3a83df67
+    Tags:
+    - Paint
   modifiers: []

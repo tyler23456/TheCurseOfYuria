@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: Hunter
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 21ab0b0676da458290547a6e259c412b, type: 3}
+  _prefab: {fileID: 730635441491695705, guid: 51dedfd0f89c06d47890337e2878ddbb, type: 3}
   info: 
+  _itemSprites:
+    Name: Hunter
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.Hunter
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/Hunter.png
+    Sprite: {fileID: 21300004, guid: 826dd529b47a488b922eb5ed3c044fce, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 826dd529b47a488b922eb5ed3c044fce, type: 3}
+    - {fileID: 21300002, guid: 826dd529b47a488b922eb5ed3c044fce, type: 3}
+    - {fileID: 21300022, guid: 826dd529b47a488b922eb5ed3c044fce, type: 3}
+    - {fileID: 21300010, guid: 826dd529b47a488b922eb5ed3c044fce, type: 3}
+    - {fileID: 21300008, guid: 826dd529b47a488b922eb5ed3c044fce, type: 3}
+    - {fileID: 21300016, guid: 826dd529b47a488b922eb5ed3c044fce, type: 3}
+    - {fileID: 21300018, guid: 826dd529b47a488b922eb5ed3c044fce, type: 3}
+    - {fileID: 21300012, guid: 826dd529b47a488b922eb5ed3c044fce, type: 3}
+    - {fileID: 21300006, guid: 826dd529b47a488b922eb5ed3c044fce, type: 3}
+    - {fileID: 21300014, guid: 826dd529b47a488b922eb5ed3c044fce, type: 3}
+    - {fileID: 21300020, guid: 826dd529b47a488b922eb5ed3c044fce, type: 3}
+    - {fileID: 21300000, guid: 826dd529b47a488b922eb5ed3c044fce, type: 3}
+    Multiple: 1
+    Hash: d598fcc4013ae8af0f8b4422e75657b5
+    Tags: []
   modifiers: []

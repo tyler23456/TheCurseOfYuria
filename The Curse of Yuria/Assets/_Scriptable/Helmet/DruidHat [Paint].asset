@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: DruidHat [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: d799cb67d5a44982a09110150893d434, type: 3}
+  _prefab: {fileID: 4360288559863062137, guid: ae4de8b4c2e8f3448bb28cdb565495f9, type: 3}
   info: 
+  _itemSprites:
+    Name: DruidHat [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.DruidHat [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/DruidHat
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 072dffc32d1e46b888d676d09d150715, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 072dffc32d1e46b888d676d09d150715, type: 3}
+    Multiple: 1
+    Hash: 6485661eb7a290804253908288dd9485
+    Tags:
+    - Paint
   modifiers: []

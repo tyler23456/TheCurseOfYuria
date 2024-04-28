@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SpikedShield
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 868bb38d26324adaa9fbde041bfdd609, type: 3}
+  _prefab: {fileID: 6849649116346100209, guid: b3c6af9328e119a46895c7721da80bc3, type: 3}
   info: 
+  _itemSprites:
+    Name: SpikedShield
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.SpikedShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Basic/SpikedShield.png
+    Sprite: {fileID: 21300000, guid: 2fb2826fb6fd4c95ab5a3e214d8a5885, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 2fb2826fb6fd4c95ab5a3e214d8a5885, type: 3}
+    Multiple: 1
+    Hash: 2ff6a8cd331cb245a67b798d0cf92b07
+    Tags: []
   modifiers: []

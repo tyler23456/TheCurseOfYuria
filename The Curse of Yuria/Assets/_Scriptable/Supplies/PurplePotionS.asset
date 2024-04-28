@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: PurplePotionS
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 270f2f60745f6484881fac1a5e557415, type: 3}
+  _prefab: {fileID: 504148567802243914, guid: 7f412d64af71b9c47aefba439577872a, type: 3}
   info: 
   power: 0
   cost: 0

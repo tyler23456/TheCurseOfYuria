@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: HorseLordSickle
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: d65ad2ab5f7f4f99acad898e87010ba3, type: 3}
+  _prefab: {fileID: 1632518453749537522, guid: 19c50c6231ac8394b9481104b6f79420, type: 3}
   info: 
+  _itemSprites:
+    Name: HorseLordSickle
+    Collection: Thrones
+    Edition: Plugins
+    Id: Plugins.Thrones.MeleeWeapon1H.HorseLordSickle
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Thrones/Sword/HorseLordSickle.png
+    Sprite: {fileID: 21300000, guid: ff918eb3754f4468b0e71762e0037e84, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: ff918eb3754f4468b0e71762e0037e84, type: 3}
+    Multiple: 1
+    Hash: e93ae6d6867b51a7f162b0c362731958
+    Tags: []
   modifiers: []

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: OldHeavyShield
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 0417a931cb3848c38f973cb9a626632c, type: 3}
+  _prefab: {fileID: 8152406110414886204, guid: d949830ef9b3982488359fd1d882bbff, type: 3}
   info: 
+  _itemSprites:
+    Name: OldHeavyShield
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.OldHeavyShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Basic/OldHeavyShield.png
+    Sprite: {fileID: 21300000, guid: e69b33f5b7274a908f9415371e4ffe0f, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: e69b33f5b7274a908f9415371e4ffe0f, type: 3}
+    Multiple: 1
+    Hash: 7d1e6df425341fa39f6e1358596c15e2
+    Tags: []
   modifiers: []

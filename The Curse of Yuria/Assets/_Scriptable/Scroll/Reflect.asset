@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Reflect
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 4270d7c4cfd23f94ea3e105ca7b43c46, type: 3}
+  _prefab: {fileID: 1757811342361426471, guid: 68de130f763cd1b42a9832cafc317d3b, type: 3}
   info: 
   power: 0
   cost: 0

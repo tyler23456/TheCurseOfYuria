@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SpearmanHelm2
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 130cee3b88094678a145c69138dd262b, type: 3}
+  _prefab: {fileID: 334054369439631320, guid: f155918fdb8df0348a7503b3be7a9782, type: 3}
   info: 
+  _itemSprites:
+    Name: SpearmanHelm2
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.SpearmanHelm2
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/SpearmanHelm2.png
+    Sprite: {fileID: 21300000, guid: 412a9ab73abc4de5be06c56777d3ffe5, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 412a9ab73abc4de5be06c56777d3ffe5, type: 3}
+    Multiple: 1
+    Hash: 0ad47935ac80aa17b8aceeef013385e7
+    Tags: []
   modifiers: []

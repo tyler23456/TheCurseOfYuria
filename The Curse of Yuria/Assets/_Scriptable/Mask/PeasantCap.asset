@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: PeasantCap
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 9de1ca647f5e465cb844835ea78eb6fe, type: 3}
+  _prefab: {fileID: 8652069338855088189, guid: b0b5eaa90ae99f648932ca41713649b1, type: 3}
   info: 
+  _itemSprites:
+    Name: PeasantCap
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.PeasantCap
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/PeasantCap.png
+    Sprite: {fileID: 21300000, guid: 9004f8e2ae67469cae6726c6310dfcfc, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 9004f8e2ae67469cae6726c6310dfcfc, type: 3}
+    Multiple: 1
+    Hash: f4c03e8d5a4d2d6e0f432d65dd06dd60
+    Tags: []
   modifiers: []

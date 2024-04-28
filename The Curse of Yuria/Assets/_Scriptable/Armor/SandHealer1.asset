@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: SandHealer1
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 851dc56c9a254e768ef1ed68f6a6514b, type: 3}
+  _prefab: {fileID: 7965952900503144806, guid: 5fc5f0bd5c34feb4eb9359bb75619b9b, type: 3}
   info: 
+  _itemSprites:
+    Name: SandHealer1
+    Collection: SandLords
+    Edition: Plugins
+    Id: Plugins.SandLords.Armor.SandHealer1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/SandLords/SandHealer1.png
+    Sprite: {fileID: 21300004, guid: 5f371b03af8e461798345e78db1ecaca, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 5f371b03af8e461798345e78db1ecaca, type: 3}
+    - {fileID: 21300002, guid: 5f371b03af8e461798345e78db1ecaca, type: 3}
+    - {fileID: 21300022, guid: 5f371b03af8e461798345e78db1ecaca, type: 3}
+    - {fileID: 21300010, guid: 5f371b03af8e461798345e78db1ecaca, type: 3}
+    - {fileID: 21300008, guid: 5f371b03af8e461798345e78db1ecaca, type: 3}
+    - {fileID: 21300016, guid: 5f371b03af8e461798345e78db1ecaca, type: 3}
+    - {fileID: 21300018, guid: 5f371b03af8e461798345e78db1ecaca, type: 3}
+    - {fileID: 21300012, guid: 5f371b03af8e461798345e78db1ecaca, type: 3}
+    - {fileID: 21300006, guid: 5f371b03af8e461798345e78db1ecaca, type: 3}
+    - {fileID: 21300014, guid: 5f371b03af8e461798345e78db1ecaca, type: 3}
+    - {fileID: 21300020, guid: 5f371b03af8e461798345e78db1ecaca, type: 3}
+    - {fileID: 21300000, guid: 5f371b03af8e461798345e78db1ecaca, type: 3}
+    Multiple: 1
+    Hash: 7864a9b82a0073be0f583f5ee31160c0
+    Tags: []
   modifiers: []

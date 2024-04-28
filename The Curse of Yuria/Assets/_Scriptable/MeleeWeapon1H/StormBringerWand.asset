@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: StormBringerWand
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: fa3cfcf176b74a08b02238c4a339da91, type: 3}
+  _prefab: {fileID: 3683120613016785779, guid: d0a260f2542694747859e6296a1da0bd, type: 3}
   info: 
+  _itemSprites:
+    Name: StormBringerWand
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.StormBringerWand
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Wand/StormBringerWand.png
+    Sprite: {fileID: 21300000, guid: a6e7f653de26416d879dbabea19792ff, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: a6e7f653de26416d879dbabea19792ff, type: 3}
+    Multiple: 1
+    Hash: 820e666e50fc0c486296d6bd83e58e57
+    Tags: []
   modifiers: []

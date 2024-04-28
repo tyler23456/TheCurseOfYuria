@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: LandsknechtArmor
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: c5c95c831de544b8b5b47bf01d0413ac, type: 3}
+  _prefab: {fileID: 577246565276637477, guid: 01b58108c8f6a6c42a102ebc036041d2, type: 3}
   info: 
+  _itemSprites:
+    Name: LandsknechtArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.LandsknechtArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/LandsknechtArmor.png
+    Sprite: {fileID: 21300004, guid: 5525657893e04c3d9e458604b52020a8, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 5525657893e04c3d9e458604b52020a8, type: 3}
+    - {fileID: 21300002, guid: 5525657893e04c3d9e458604b52020a8, type: 3}
+    - {fileID: 21300022, guid: 5525657893e04c3d9e458604b52020a8, type: 3}
+    - {fileID: 21300010, guid: 5525657893e04c3d9e458604b52020a8, type: 3}
+    - {fileID: 21300008, guid: 5525657893e04c3d9e458604b52020a8, type: 3}
+    - {fileID: 21300016, guid: 5525657893e04c3d9e458604b52020a8, type: 3}
+    - {fileID: 21300018, guid: 5525657893e04c3d9e458604b52020a8, type: 3}
+    - {fileID: 21300012, guid: 5525657893e04c3d9e458604b52020a8, type: 3}
+    - {fileID: 21300006, guid: 5525657893e04c3d9e458604b52020a8, type: 3}
+    - {fileID: 21300014, guid: 5525657893e04c3d9e458604b52020a8, type: 3}
+    - {fileID: 21300020, guid: 5525657893e04c3d9e458604b52020a8, type: 3}
+    - {fileID: 21300000, guid: 5525657893e04c3d9e458604b52020a8, type: 3}
+    Multiple: 1
+    Hash: 8c93773caf7c65781ded8002386580d6
+    Tags: []
   modifiers: []

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: VikingSword1
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 039cfb9dab1c455db2ad9b464b6fdcfa, type: 3}
+  _prefab: {fileID: 5068319463724206347, guid: 33a212eaed1e9844785928b8779cc32d, type: 3}
   info: 
+  _itemSprites:
+    Name: VikingSword1
+    Collection: Vikings
+    Edition: Plugins
+    Id: Plugins.Vikings.MeleeWeapon1H.VikingSword1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Vikings/Sword/VikingSword1.png
+    Sprite: {fileID: 21300000, guid: 33af6b6cf56a446d8c10d3c25fa5fc55, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 33af6b6cf56a446d8c10d3c25fa5fc55, type: 3}
+    Multiple: 1
+    Hash: 69caf09b7c81754e05b4cc151dae4207
+    Tags: []
   modifiers: []

@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: SteelHelm [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 88fbaca5a024482ca9f20030c35b9d24, type: 3}
+  _prefab: {fileID: 8888856934949025561, guid: 524d6e607957172449afd076f5c3afe5, type: 3}
   info: 
+  _itemSprites:
+    Name: SteelHelm [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.SteelHelm [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/SteelHelm
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: ecbf6e5e91ce4a928da232e93322a7ce, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: ecbf6e5e91ce4a928da232e93322a7ce, type: 3}
+    Multiple: 1
+    Hash: 6e226a20679219552a3449edf96b7dff
+    Tags:
+    - Paint
   modifiers: []

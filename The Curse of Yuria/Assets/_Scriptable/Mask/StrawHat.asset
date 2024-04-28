@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: StrawHat
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: e9471fbbe03846f79aece692e9d23b24, type: 3}
+  _prefab: {fileID: 877462294780022034, guid: b7cba3ccaa98cc44f93bb98ddaed6f2d, type: 3}
   info: 
+  _itemSprites:
+    Name: StrawHat
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.StrawHat
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/StrawHat.png
+    Sprite: {fileID: 21300000, guid: 3ae7fdcd03714185a227f9e7ea7632fc, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 3ae7fdcd03714185a227f9e7ea7632fc, type: 3}
+    Multiple: 1
+    Hash: e730dca35afda2869032b40863b44973
+    Tags: []
   modifiers: []

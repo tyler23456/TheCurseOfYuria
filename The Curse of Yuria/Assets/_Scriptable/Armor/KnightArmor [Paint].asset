@@ -13,8 +13,32 @@ MonoBehaviour:
   m_Name: KnightArmor [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 741e791e66564ab89fbcff918cf8fb01, type: 3}
+  _prefab: {fileID: 1819716317743586837, guid: 6b2321df0c9a119458eacfdbb7fd5718, type: 3}
   info: 
+  _itemSprites:
+    Name: KnightArmor [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.KnightArmor [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/KnightArmor
+      [Paint].png
+    Sprite: {fileID: 21300004, guid: b3bafd4458b7421bbe35abc033b629a8, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: b3bafd4458b7421bbe35abc033b629a8, type: 3}
+    - {fileID: 21300002, guid: b3bafd4458b7421bbe35abc033b629a8, type: 3}
+    - {fileID: 21300022, guid: b3bafd4458b7421bbe35abc033b629a8, type: 3}
+    - {fileID: 21300010, guid: b3bafd4458b7421bbe35abc033b629a8, type: 3}
+    - {fileID: 21300008, guid: b3bafd4458b7421bbe35abc033b629a8, type: 3}
+    - {fileID: 21300016, guid: b3bafd4458b7421bbe35abc033b629a8, type: 3}
+    - {fileID: 21300018, guid: b3bafd4458b7421bbe35abc033b629a8, type: 3}
+    - {fileID: 21300012, guid: b3bafd4458b7421bbe35abc033b629a8, type: 3}
+    - {fileID: 21300006, guid: b3bafd4458b7421bbe35abc033b629a8, type: 3}
+    - {fileID: 21300014, guid: b3bafd4458b7421bbe35abc033b629a8, type: 3}
+    - {fileID: 21300020, guid: b3bafd4458b7421bbe35abc033b629a8, type: 3}
+    - {fileID: 21300000, guid: b3bafd4458b7421bbe35abc033b629a8, type: 3}
+    Multiple: 1
+    Hash: 2b604584ab91b70e15e569c827920d45
+    Tags:
+    - Paint
   modifiers: []

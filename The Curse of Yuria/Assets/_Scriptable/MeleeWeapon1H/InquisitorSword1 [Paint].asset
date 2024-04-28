@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: InquisitorSword1 [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: b060041ab1a647ea838157165469ce4b, type: 3}
+  _prefab: {fileID: 5360152201496531361, guid: b84b719c02146bd4a8392b8e7e8a5453, type: 3}
   info: 
+  _itemSprites:
+    Name: InquisitorSword1 [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.InquisitorSword1 [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Sword/InquisitorSword1
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 118b1d16027f41f09b499cf5207aabb8, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 118b1d16027f41f09b499cf5207aabb8, type: 3}
+    Multiple: 1
+    Hash: 8824bb26621abd980a14dce5003e7d5d
+    Tags:
+    - Paint
   modifiers: []

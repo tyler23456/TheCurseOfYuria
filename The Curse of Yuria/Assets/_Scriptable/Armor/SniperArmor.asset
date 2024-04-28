@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: SniperArmor
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 2a744b62914d4c07bf23761ba9f5e097, type: 3}
+  _prefab: {fileID: 510188673832144637, guid: da19d8b500ff7994487f285fceadb8a7, type: 3}
   info: 
+  _itemSprites:
+    Name: SniperArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.SniperArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/SniperArmor.png
+    Sprite: {fileID: 21300004, guid: effd8bf5631747c3bd3bc8fe548997b7, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: effd8bf5631747c3bd3bc8fe548997b7, type: 3}
+    - {fileID: 21300002, guid: effd8bf5631747c3bd3bc8fe548997b7, type: 3}
+    - {fileID: 21300022, guid: effd8bf5631747c3bd3bc8fe548997b7, type: 3}
+    - {fileID: 21300010, guid: effd8bf5631747c3bd3bc8fe548997b7, type: 3}
+    - {fileID: 21300008, guid: effd8bf5631747c3bd3bc8fe548997b7, type: 3}
+    - {fileID: 21300016, guid: effd8bf5631747c3bd3bc8fe548997b7, type: 3}
+    - {fileID: 21300018, guid: effd8bf5631747c3bd3bc8fe548997b7, type: 3}
+    - {fileID: 21300012, guid: effd8bf5631747c3bd3bc8fe548997b7, type: 3}
+    - {fileID: 21300006, guid: effd8bf5631747c3bd3bc8fe548997b7, type: 3}
+    - {fileID: 21300014, guid: effd8bf5631747c3bd3bc8fe548997b7, type: 3}
+    - {fileID: 21300020, guid: effd8bf5631747c3bd3bc8fe548997b7, type: 3}
+    - {fileID: 21300000, guid: effd8bf5631747c3bd3bc8fe548997b7, type: 3}
+    Multiple: 1
+    Hash: cbd939e1f6c01c1c5a90a315605b0c42
+    Tags: []
   modifiers: []

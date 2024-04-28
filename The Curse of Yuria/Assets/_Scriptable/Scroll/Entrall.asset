@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Entrall
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 8dbe939084fb5b94a961bf669b2bb2b8, type: 3}
+  _prefab: {fileID: 7382639441010665109, guid: 1ce1a4ed07532aa479dfcbc316ecdd81, type: 3}
   info: 
   power: 0
   cost: 0

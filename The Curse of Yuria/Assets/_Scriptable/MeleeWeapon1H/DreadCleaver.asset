@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: DreadCleaver
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 0bec77219a42437ab1f80d85136204b3, type: 3}
+  _prefab: {fileID: 1978943424299095396, guid: 4e7fd61d742220d4d98352345d1b2560, type: 3}
   info: 
+  _itemSprites:
+    Name: DreadCleaver
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.DreadCleaver
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Axe/DreadCleaver.png
+    Sprite: {fileID: 21300000, guid: e932559ac7b64fad826a8395a949b5fb, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: e932559ac7b64fad826a8395a949b5fb, type: 3}
+    Multiple: 1
+    Hash: 0a720e266353b8b0eb628a919dcc957c
+    Tags: []
   modifiers: []

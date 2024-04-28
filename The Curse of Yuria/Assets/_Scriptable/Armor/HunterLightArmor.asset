@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: HunterLightArmor
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: f7f535ee07364b2ea91650d0e900e309, type: 3}
+  _prefab: {fileID: 9142415580724123528, guid: 1617053edc1f7e544b62efdc83c6fdb3, type: 3}
   info: 
+  _itemSprites:
+    Name: HunterLightArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.HunterLightArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/HunterLightArmor.png
+    Sprite: {fileID: 21300024, guid: c160da3cdabb4baa9db49e93577b5af8, type: 3}
+    Sprites:
+    - {fileID: 21300024, guid: c160da3cdabb4baa9db49e93577b5af8, type: 3}
+    - {fileID: 21300022, guid: c160da3cdabb4baa9db49e93577b5af8, type: 3}
+    - {fileID: 21300040, guid: c160da3cdabb4baa9db49e93577b5af8, type: 3}
+    - {fileID: 21300028, guid: c160da3cdabb4baa9db49e93577b5af8, type: 3}
+    - {fileID: 21300026, guid: c160da3cdabb4baa9db49e93577b5af8, type: 3}
+    - {fileID: 21300034, guid: c160da3cdabb4baa9db49e93577b5af8, type: 3}
+    - {fileID: 21300036, guid: c160da3cdabb4baa9db49e93577b5af8, type: 3}
+    - {fileID: 21300030, guid: c160da3cdabb4baa9db49e93577b5af8, type: 3}
+    - {fileID: 21300006, guid: c160da3cdabb4baa9db49e93577b5af8, type: 3}
+    - {fileID: 21300032, guid: c160da3cdabb4baa9db49e93577b5af8, type: 3}
+    - {fileID: 21300038, guid: c160da3cdabb4baa9db49e93577b5af8, type: 3}
+    - {fileID: 21300000, guid: c160da3cdabb4baa9db49e93577b5af8, type: 3}
+    Multiple: 1
+    Hash: 71ffc4d73713d9db784eee78663febcc
+    Tags: []
   modifiers: []

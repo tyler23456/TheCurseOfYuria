@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Vinegar
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 82e1a3b108ffc184ba25495e0b19f911, type: 3}
+  _prefab: {fileID: 4197340156395094816, guid: ee3fb5f7d8f02e049b20bb7f7ad32941, type: 3}
   info: 
   power: 0
   cost: 0

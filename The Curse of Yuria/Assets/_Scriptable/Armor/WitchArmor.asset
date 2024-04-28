@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: WitchArmor
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: b0ea08df79004c15824833bf42061464, type: 3}
+  _prefab: {fileID: 1194143185304278493, guid: c122c56218432e44f8c8e35e0bab6511, type: 3}
   info: 
+  _itemSprites:
+    Name: WitchArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.WitchArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/WitchArmor.png
+    Sprite: {fileID: 21300004, guid: 69993d83131148f58e0639e40a037d4c, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 69993d83131148f58e0639e40a037d4c, type: 3}
+    - {fileID: 21300002, guid: 69993d83131148f58e0639e40a037d4c, type: 3}
+    - {fileID: 21300022, guid: 69993d83131148f58e0639e40a037d4c, type: 3}
+    - {fileID: 21300010, guid: 69993d83131148f58e0639e40a037d4c, type: 3}
+    - {fileID: 21300008, guid: 69993d83131148f58e0639e40a037d4c, type: 3}
+    - {fileID: 21300016, guid: 69993d83131148f58e0639e40a037d4c, type: 3}
+    - {fileID: 21300018, guid: 69993d83131148f58e0639e40a037d4c, type: 3}
+    - {fileID: 21300012, guid: 69993d83131148f58e0639e40a037d4c, type: 3}
+    - {fileID: 21300006, guid: 69993d83131148f58e0639e40a037d4c, type: 3}
+    - {fileID: 21300014, guid: 69993d83131148f58e0639e40a037d4c, type: 3}
+    - {fileID: 21300020, guid: 69993d83131148f58e0639e40a037d4c, type: 3}
+    - {fileID: 21300000, guid: 69993d83131148f58e0639e40a037d4c, type: 3}
+    Multiple: 1
+    Hash: d108fa35c989a8c9a6d38231fceb7295
+    Tags: []
   modifiers: []

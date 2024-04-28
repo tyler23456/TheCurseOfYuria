@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: MinerHelmet
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: a925128142e3c8c40a0ac422322d65d8, type: 3}
+  _prefab: {fileID: 3221646799467399565, guid: c195e7c06aa79cf4294500c0c5519467, type: 3}
   info: 
+  _itemSprites:
+    Name: MinerHelmet
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.MinerHelmet
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/MinerHelmet.png
+    Sprite: {fileID: 21300000, guid: c942631a33e8db34d95faf1f48a7e027, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: c942631a33e8db34d95faf1f48a7e027, type: 3}
+    Multiple: 1
+    Hash: c71432976fb827d7e412584cde644e66
+    Tags: []
   modifiers: []

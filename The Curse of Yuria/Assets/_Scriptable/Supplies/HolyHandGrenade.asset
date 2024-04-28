@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: HolyHandGrenade
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 7f0cfcccc210f9a4b943f2db195da31a, type: 3}
+  _prefab: {fileID: 2921235301646165928, guid: bbe68bd6d6f45a348b3de7a65e973989, type: 3}
   info: 
   power: 0
   cost: 0

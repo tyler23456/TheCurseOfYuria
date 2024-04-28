@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: KiteShield
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 19e346d81fda44bda460ed41a6c3d057, type: 3}
+  _prefab: {fileID: 6422185865823587135, guid: ca4669cc417195f4bac081101110e021, type: 3}
   info: 
+  _itemSprites:
+    Name: KiteShield
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.KiteShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Basic/KiteShield.png
+    Sprite: {fileID: 21300000, guid: a4667648a5e649c991f54f2c3bdec34b, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: a4667648a5e649c991f54f2c3bdec34b, type: 3}
+    Multiple: 1
+    Hash: e422abe2589b54853f55530e1d25cb48
+    Tags: []
   modifiers: []

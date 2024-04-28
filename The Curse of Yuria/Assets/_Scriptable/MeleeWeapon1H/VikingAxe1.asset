@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: VikingAxe1
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 6c8251b6fd2e4beeae3f5a112ca05f5a, type: 3}
+  _prefab: {fileID: 2851923730932165285, guid: 3805da0b41792db4c88ec8dab5a9285d, type: 3}
   info: 
+  _itemSprites:
+    Name: VikingAxe1
+    Collection: Vikings
+    Edition: Plugins
+    Id: Plugins.Vikings.MeleeWeapon1H.VikingAxe1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Vikings/Axe/VikingAxe1.png
+    Sprite: {fileID: 21300000, guid: 55b3868dcd1b4681afbea80bc6cc7f21, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 55b3868dcd1b4681afbea80bc6cc7f21, type: 3}
+    Multiple: 1
+    Hash: 75699d2b022acdee3ba0e2a54e7ee30f
+    Tags: []
   modifiers: []

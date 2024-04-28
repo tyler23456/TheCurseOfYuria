@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: LuckDown
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 13fde7176c5536c4cbd0bb00bfacbfdd, type: 3}
+  _prefab: {fileID: 2546888893638529153, guid: e9e49a0976bbe3642b0901ba5880ebe1, type: 3}
   info: 
   power: 0
   cost: 0

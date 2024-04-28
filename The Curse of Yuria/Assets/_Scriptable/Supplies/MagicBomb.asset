@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: MagicBomb
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 48d0aae3cdde411581b98e08f6a54f82, type: 3}
+  _prefab: {fileID: 7640485972133246911, guid: d21aab69db4e12344bbf87e64ee9f5e9, type: 3}
   info: 
   power: 0
   cost: 0

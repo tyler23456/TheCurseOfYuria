@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: MagicBronzeRing
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 778916b2b207b47468cc67feb978b1ed, type: 3}
+  _prefab: {fileID: 4561088710411845099, guid: 76e3c53d032c9264690c5062a30d69f5, type: 3}
   info: 
   power: 0
   cost: 0

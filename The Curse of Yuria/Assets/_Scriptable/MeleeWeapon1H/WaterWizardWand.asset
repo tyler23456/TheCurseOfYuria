@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: WaterWizardWand
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: d23bc351d7f8499dbc836ef596fe2bb2, type: 3}
+  _prefab: {fileID: 1104140855701408449, guid: 89a629644e0016f46baceb01a75d5cd9, type: 3}
   info: 
+  _itemSprites:
+    Name: WaterWizardWand
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.WaterWizardWand
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Wand/WaterWizardWand.png
+    Sprite: {fileID: 21300000, guid: e102f0ae754645349a0ed77db90a7f2c, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: e102f0ae754645349a0ed77db90a7f2c, type: 3}
+    Multiple: 1
+    Hash: ea9d8d6f539b69ea092966625a6a610d
+    Tags: []
   modifiers: []

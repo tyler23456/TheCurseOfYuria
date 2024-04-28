@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: FireWarriorShield
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 3a9634b61b804eee86f5384633cbe069, type: 3}
+  _prefab: {fileID: 4490380260399499109, guid: a3ce196d2b8f9ac4ba852173fbbcdc54, type: 3}
   info: 
+  _itemSprites:
+    Name: FireWarriorShield
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.FireWarriorShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Basic/FireWarriorShield.png
+    Sprite: {fileID: 21300000, guid: 03052a7d809e47688f3bdef4c3c379bc, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 03052a7d809e47688f3bdef4c3c379bc, type: 3}
+    Multiple: 1
+    Hash: ffcc872c73a584e483187a69c4eb454e
+    Tags: []
   modifiers: []

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: ExpBookA
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: b481eee4dc20f974f886630d76be3a66, type: 3}
+  _prefab: {fileID: 8073696421706821123, guid: 5c80e0580acfb794dac14a752833ce3e, type: 3}
   info: 
   bookPrefab: {fileID: 0}
   pagesText: []

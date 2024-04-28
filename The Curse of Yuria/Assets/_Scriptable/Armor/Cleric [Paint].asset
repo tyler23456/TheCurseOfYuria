@@ -13,8 +13,32 @@ MonoBehaviour:
   m_Name: Cleric [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 0578ff2509eb47c7a86d27bc1e546ae8, type: 3}
+  _prefab: {fileID: 4842183899682955387, guid: 177b6e4601a40df42abb1a7c02073290, type: 3}
   info: 
+  _itemSprites:
+    Name: Cleric [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.Cleric [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/Cleric
+      [Paint].png
+    Sprite: {fileID: 21300004, guid: e2940dad8faa493aad3d9ac9c364111d, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: e2940dad8faa493aad3d9ac9c364111d, type: 3}
+    - {fileID: 21300002, guid: e2940dad8faa493aad3d9ac9c364111d, type: 3}
+    - {fileID: 21300022, guid: e2940dad8faa493aad3d9ac9c364111d, type: 3}
+    - {fileID: 21300010, guid: e2940dad8faa493aad3d9ac9c364111d, type: 3}
+    - {fileID: 21300008, guid: e2940dad8faa493aad3d9ac9c364111d, type: 3}
+    - {fileID: 21300016, guid: e2940dad8faa493aad3d9ac9c364111d, type: 3}
+    - {fileID: 21300018, guid: e2940dad8faa493aad3d9ac9c364111d, type: 3}
+    - {fileID: 21300012, guid: e2940dad8faa493aad3d9ac9c364111d, type: 3}
+    - {fileID: 21300006, guid: e2940dad8faa493aad3d9ac9c364111d, type: 3}
+    - {fileID: 21300014, guid: e2940dad8faa493aad3d9ac9c364111d, type: 3}
+    - {fileID: 21300020, guid: e2940dad8faa493aad3d9ac9c364111d, type: 3}
+    - {fileID: 21300000, guid: e2940dad8faa493aad3d9ac9c364111d, type: 3}
+    Multiple: 1
+    Hash: e34ca8815bc59d4c3ec45ba15b04fea0
+    Tags:
+    - Paint
   modifiers: []

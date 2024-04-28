@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: FarmerClothes
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 17fe4660aed04f408fcc860fbfe16abb, type: 3}
+  _prefab: {fileID: 93812717868251656, guid: cdd840e5ac915bf4997f53a48c37be86, type: 3}
   info: 
+  _itemSprites:
+    Name: FarmerClothes
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.FarmerClothes
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/FarmerClothes.png
+    Sprite: {fileID: 21300024, guid: dda5b2f6248a41f4ad33a5fe210c331c, type: 3}
+    Sprites:
+    - {fileID: 21300024, guid: dda5b2f6248a41f4ad33a5fe210c331c, type: 3}
+    - {fileID: 21300022, guid: dda5b2f6248a41f4ad33a5fe210c331c, type: 3}
+    - {fileID: 21300040, guid: dda5b2f6248a41f4ad33a5fe210c331c, type: 3}
+    - {fileID: 21300028, guid: dda5b2f6248a41f4ad33a5fe210c331c, type: 3}
+    - {fileID: 21300026, guid: dda5b2f6248a41f4ad33a5fe210c331c, type: 3}
+    - {fileID: 21300034, guid: dda5b2f6248a41f4ad33a5fe210c331c, type: 3}
+    - {fileID: 21300036, guid: dda5b2f6248a41f4ad33a5fe210c331c, type: 3}
+    - {fileID: 21300030, guid: dda5b2f6248a41f4ad33a5fe210c331c, type: 3}
+    - {fileID: 21300006, guid: dda5b2f6248a41f4ad33a5fe210c331c, type: 3}
+    - {fileID: 21300032, guid: dda5b2f6248a41f4ad33a5fe210c331c, type: 3}
+    - {fileID: 21300038, guid: dda5b2f6248a41f4ad33a5fe210c331c, type: 3}
+    - {fileID: 21300000, guid: dda5b2f6248a41f4ad33a5fe210c331c, type: 3}
+    Multiple: 1
+    Hash: cd247eb6949d406fa64b86e68adb7b85
+    Tags: []
   modifiers: []

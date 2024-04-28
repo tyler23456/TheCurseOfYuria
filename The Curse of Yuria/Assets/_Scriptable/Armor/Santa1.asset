@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: Santa1
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: d17cd3294cf940928131e5a3d90db80b, type: 3}
+  _prefab: {fileID: 6834454272725026176, guid: 2dd4e4c348fb10a459dc4b6ad043da2b, type: 3}
   info: 
+  _itemSprites:
+    Name: Santa1
+    Collection: Christmas
+    Edition: Plugins
+    Id: Plugins.Christmas.Armor.Santa1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Christmas/Santa1.png
+    Sprite: {fileID: 21300004, guid: 347f6a5966f9489b9766001a0541081b, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 347f6a5966f9489b9766001a0541081b, type: 3}
+    - {fileID: 21300002, guid: 347f6a5966f9489b9766001a0541081b, type: 3}
+    - {fileID: 21300022, guid: 347f6a5966f9489b9766001a0541081b, type: 3}
+    - {fileID: 21300010, guid: 347f6a5966f9489b9766001a0541081b, type: 3}
+    - {fileID: 21300008, guid: 347f6a5966f9489b9766001a0541081b, type: 3}
+    - {fileID: 21300016, guid: 347f6a5966f9489b9766001a0541081b, type: 3}
+    - {fileID: 21300018, guid: 347f6a5966f9489b9766001a0541081b, type: 3}
+    - {fileID: 21300012, guid: 347f6a5966f9489b9766001a0541081b, type: 3}
+    - {fileID: 21300006, guid: 347f6a5966f9489b9766001a0541081b, type: 3}
+    - {fileID: 21300014, guid: 347f6a5966f9489b9766001a0541081b, type: 3}
+    - {fileID: 21300020, guid: 347f6a5966f9489b9766001a0541081b, type: 3}
+    - {fileID: 21300000, guid: 347f6a5966f9489b9766001a0541081b, type: 3}
+    Multiple: 1
+    Hash: 67d0efc32c9707c6a4b9e442003c747e
+    Tags: []
   modifiers: []

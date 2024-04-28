@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: RangerArmor
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 064876d69caf4375a4170bac42d359fc, type: 3}
+  _prefab: {fileID: 1288605798043930496, guid: 853f731dcbfaf6b4585e2bde24628992, type: 3}
   info: 
+  _itemSprites:
+    Name: RangerArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.RangerArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/RangerArmor.png
+    Sprite: {fileID: 21300004, guid: 75c24c8e56a24bb0a9a2e1aef5b2e0b4, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 75c24c8e56a24bb0a9a2e1aef5b2e0b4, type: 3}
+    - {fileID: 21300002, guid: 75c24c8e56a24bb0a9a2e1aef5b2e0b4, type: 3}
+    - {fileID: 21300022, guid: 75c24c8e56a24bb0a9a2e1aef5b2e0b4, type: 3}
+    - {fileID: 21300010, guid: 75c24c8e56a24bb0a9a2e1aef5b2e0b4, type: 3}
+    - {fileID: 21300008, guid: 75c24c8e56a24bb0a9a2e1aef5b2e0b4, type: 3}
+    - {fileID: 21300016, guid: 75c24c8e56a24bb0a9a2e1aef5b2e0b4, type: 3}
+    - {fileID: 21300018, guid: 75c24c8e56a24bb0a9a2e1aef5b2e0b4, type: 3}
+    - {fileID: 21300012, guid: 75c24c8e56a24bb0a9a2e1aef5b2e0b4, type: 3}
+    - {fileID: 21300006, guid: 75c24c8e56a24bb0a9a2e1aef5b2e0b4, type: 3}
+    - {fileID: 21300014, guid: 75c24c8e56a24bb0a9a2e1aef5b2e0b4, type: 3}
+    - {fileID: 21300020, guid: 75c24c8e56a24bb0a9a2e1aef5b2e0b4, type: 3}
+    - {fileID: 21300000, guid: 75c24c8e56a24bb0a9a2e1aef5b2e0b4, type: 3}
+    Multiple: 1
+    Hash: 56fcde25b7fa0763886384989630f142
+    Tags: []
   modifiers: []

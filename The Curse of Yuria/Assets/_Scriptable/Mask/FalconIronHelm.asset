@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: FalconIronHelm
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: ced213e1637f47188f9665b88f36379a, type: 3}
+  _prefab: {fileID: 8439080713917185698, guid: aaec990b51bf309439c21e5fed2a0e48, type: 3}
   info: 
+  _itemSprites:
+    Name: FalconIronHelm
+    Collection: Knights
+    Edition: Plugins
+    Id: Plugins.Knights.Helmet.FalconIronHelm
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Knights/FalconIronHelm.png
+    Sprite: {fileID: 21300000, guid: e2c7aad499524a02a84651eca0a9914f, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: e2c7aad499524a02a84651eca0a9914f, type: 3}
+    Multiple: 1
+    Hash: 75359c824db0d2b66a8f6ff9145eeafd
+    Tags: []
   modifiers: []

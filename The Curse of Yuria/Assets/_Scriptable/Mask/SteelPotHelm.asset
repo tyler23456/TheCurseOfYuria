@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SteelPotHelm
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: a1a0ccce026247a69fd4237e0eaccf8c, type: 3}
+  _prefab: {fileID: 3082610166844062913, guid: 05f2d709a68a719499ba1f3fdc4b7aac, type: 3}
   info: 
+  _itemSprites:
+    Name: SteelPotHelm
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.SteelPotHelm
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/SteelPotHelm.png
+    Sprite: {fileID: 21300000, guid: 1f6c8d5fd9864281aa802309c75a4276, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 1f6c8d5fd9864281aa802309c75a4276, type: 3}
+    Multiple: 1
+    Hash: af9219259b8d6b162bcd17b6c33346f6
+    Tags: []
   modifiers: []

@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: ShortDagger [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 1fa2fe10b9bf47f0a8beafcb9c72bd2b, type: 3}
+  _prefab: {fileID: 4074159037780102526, guid: f34ff22a360d25e4fa37b5762bbd98a3, type: 3}
   info: 
+  _itemSprites:
+    Name: ShortDagger [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.ShortDagger [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Dagger/ShortDagger
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: e061f265eea44a029ad8748579d9b7b4, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: e061f265eea44a029ad8748579d9b7b4, type: 3}
+    Multiple: 1
+    Hash: a5eb70d63d1ff131e07d9a8f66ad94de
+    Tags:
+    - Paint
   modifiers: []

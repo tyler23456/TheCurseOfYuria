@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: GoldenKey
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 9e109e30dedd4db4799d99dad8daa2d0, type: 3}
+  _prefab: {fileID: 5750844549580457837, guid: 12ac762dd36f507468ab5743d2e30c41, type: 3}
   info: 
   power: 0
   cost: 0

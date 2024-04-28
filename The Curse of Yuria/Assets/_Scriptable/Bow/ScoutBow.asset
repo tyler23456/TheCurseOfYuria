@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: ScoutBow
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 4e3c478bd618439b89b8dfe9c3a2b1a7, type: 3}
+  _prefab: {fileID: 4757921086234478335, guid: 1a6ea51ad52c52c4c823548c2085e49b, type: 3}
   info: 
+  _itemSprites:
+    Name: ScoutBow
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Bow.ScoutBow
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Bow/Basic/ScoutBow.png
+    Sprite: {fileID: 21300004, guid: 56f354e5b3454cbabe18cb73bdd84939, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 56f354e5b3454cbabe18cb73bdd84939, type: 3}
+    - {fileID: 21300002, guid: 56f354e5b3454cbabe18cb73bdd84939, type: 3}
+    - {fileID: 21300000, guid: 56f354e5b3454cbabe18cb73bdd84939, type: 3}
+    Multiple: 1
+    Hash: 88108b2a2fa362fa21c68d53a7f4e32c
+    Tags: []
   modifiers: []

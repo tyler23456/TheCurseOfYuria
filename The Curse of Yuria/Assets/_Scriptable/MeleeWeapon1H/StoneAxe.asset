@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: StoneAxe
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: b97f55088e1546239a22b044ebe9ec4f, type: 3}
+  _prefab: {fileID: 8002788181038234214, guid: e478f72d8f284024b8e827b7c4c2bab9, type: 3}
   info: 
+  _itemSprites:
+    Name: StoneAxe
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.StoneAxe
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Axe/StoneAxe.png
+    Sprite: {fileID: 21300000, guid: 2951cf4c527b4f7eb7204ebaf53ae687, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 2951cf4c527b4f7eb7204ebaf53ae687, type: 3}
+    Multiple: 1
+    Hash: a53c8e8522100b957dbcdbed86422b98
+    Tags: []
   modifiers: []

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: ShamanHelm
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: fb9c2b42a3ed41e19dd64c0cefcbc310, type: 3}
+  _prefab: {fileID: 5160205324053854073, guid: d0d80458864b5864f9f74ff6b5397467, type: 3}
   info: 
+  _itemSprites:
+    Name: ShamanHelm
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.ShamanHelm
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/ShamanHelm.png
+    Sprite: {fileID: 21300000, guid: 1a321f5f0546417b90359a69835c6beb, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 1a321f5f0546417b90359a69835c6beb, type: 3}
+    Multiple: 1
+    Hash: 50ce4aef06e9d078dcec292d5c33f301
+    Tags: []
   modifiers: []

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Lamp
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: e82f7c3d80c8ece47b66d68438fa6970, type: 3}
+  _prefab: {fileID: 5172175906969398687, guid: 6fdef8e7461ab2e4b883b67b53a252cc, type: 3}
   info: 
   power: 0
   cost: 0

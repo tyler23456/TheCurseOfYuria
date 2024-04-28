@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: OldPoleaxe
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: b17c4f492d9647d38ec06391acd52baa, type: 3}
+  _prefab: {fileID: 4291475847217590475, guid: 89167bf63c098a54daca5bdc00adb9b9, type: 3}
   info: 
+  _itemSprites:
+    Name: OldPoleaxe
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon2H.OldPoleaxe
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon2H/Basic/Axe/OldPoleaxe.png
+    Sprite: {fileID: 21300000, guid: d4b5e6a8861a4e75a64585fd7f9ec77b, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: d4b5e6a8861a4e75a64585fd7f9ec77b, type: 3}
+    Multiple: 1
+    Hash: 5ee27ca05ddbf06b94f17243b8801657
+    Tags: []
   modifiers: []

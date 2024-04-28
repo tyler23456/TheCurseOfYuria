@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SamuraiHelm2
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: c0492cf6a51f46d4a2c52af9e1c09532, type: 3}
+  _prefab: {fileID: 7088524431721180639, guid: f90680acec68ae641afa68240891f0d6, type: 3}
   info: 
+  _itemSprites:
+    Name: SamuraiHelm2
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.Helmet.SamuraiHelm2
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Samurai/SamuraiHelm2.png
+    Sprite: {fileID: 21300000, guid: 5be1ba62025b484f9daf2634d95068da, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 5be1ba62025b484f9daf2634d95068da, type: 3}
+    Multiple: 1
+    Hash: a1375632ce72c0644b74ebd9d29ab2cd
+    Tags: []
   modifiers: []

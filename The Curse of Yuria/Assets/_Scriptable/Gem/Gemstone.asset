@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Gemstone
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 004db6a59b18a15499a11400f887b5e0, type: 3}
+  _prefab: {fileID: 1677875990745145567, guid: 7bcc7e572745c3a4691b2a20dd86f8a6, type: 3}
   info: 
   value: 0

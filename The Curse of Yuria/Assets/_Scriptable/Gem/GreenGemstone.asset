@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: GreenGemstone
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: bb784d498a88ddb4b9603d99767c4cf6, type: 3}
+  _prefab: {fileID: 7586099316616638104, guid: e27cada45be0d7d4ca93e5f19d631abc, type: 3}
   info: 
   value: 0

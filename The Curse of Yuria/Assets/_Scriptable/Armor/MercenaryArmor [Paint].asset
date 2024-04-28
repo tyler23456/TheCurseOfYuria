@@ -13,8 +13,32 @@ MonoBehaviour:
   m_Name: MercenaryArmor [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 2777179335d74458b0ce82c175276135, type: 3}
+  _prefab: {fileID: 7096622693647557849, guid: 28ae34fd01f243d418502c50f15e4806, type: 3}
   info: 
+  _itemSprites:
+    Name: MercenaryArmor [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.MercenaryArmor [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/MercenaryArmor
+      [Paint].png
+    Sprite: {fileID: 21300004, guid: 8f68e34668404651a94c69505661ee2b, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 8f68e34668404651a94c69505661ee2b, type: 3}
+    - {fileID: 21300002, guid: 8f68e34668404651a94c69505661ee2b, type: 3}
+    - {fileID: 21300022, guid: 8f68e34668404651a94c69505661ee2b, type: 3}
+    - {fileID: 21300010, guid: 8f68e34668404651a94c69505661ee2b, type: 3}
+    - {fileID: 21300008, guid: 8f68e34668404651a94c69505661ee2b, type: 3}
+    - {fileID: 21300016, guid: 8f68e34668404651a94c69505661ee2b, type: 3}
+    - {fileID: 21300018, guid: 8f68e34668404651a94c69505661ee2b, type: 3}
+    - {fileID: 21300012, guid: 8f68e34668404651a94c69505661ee2b, type: 3}
+    - {fileID: 21300006, guid: 8f68e34668404651a94c69505661ee2b, type: 3}
+    - {fileID: 21300014, guid: 8f68e34668404651a94c69505661ee2b, type: 3}
+    - {fileID: 21300020, guid: 8f68e34668404651a94c69505661ee2b, type: 3}
+    - {fileID: 21300000, guid: 8f68e34668404651a94c69505661ee2b, type: 3}
+    Multiple: 1
+    Hash: 251608ddfdb02a3968379b95c1bad511
+    Tags:
+    - Paint
   modifiers: []

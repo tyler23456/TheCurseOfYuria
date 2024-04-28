@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: BishopWand
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 45c2936f1fca4b9b9d92f6553fed087b, type: 3}
+  _prefab: {fileID: 7932901198507539953, guid: c4bde07dc81375c4384c3ae6a5d1ccad, type: 3}
   info: 
+  _itemSprites:
+    Name: BishopWand
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.BishopWand
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Wand/BishopWand.png
+    Sprite: {fileID: 21300000, guid: 583013116c024ddcab950a37c9602fb0, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 583013116c024ddcab950a37c9602fb0, type: 3}
+    Multiple: 1
+    Hash: 057b2b674131ff6df78b99d9105929b9
+    Tags: []
   modifiers: []

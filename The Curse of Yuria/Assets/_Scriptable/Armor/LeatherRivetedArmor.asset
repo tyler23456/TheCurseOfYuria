@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: LeatherRivetedArmor
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: dbc28927d21f4241b19cd000a059fda7, type: 3}
+  _prefab: {fileID: 9214288183105860006, guid: 4dbc91feb007cc34f8c7f64704ce3838, type: 3}
   info: 
+  _itemSprites:
+    Name: LeatherRivetedArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.LeatherRivetedArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/LeatherRivetedArmor.png
+    Sprite: {fileID: 21300024, guid: 3cb9a870c32d41c582dacebc6a0c6d39, type: 3}
+    Sprites:
+    - {fileID: 21300024, guid: 3cb9a870c32d41c582dacebc6a0c6d39, type: 3}
+    - {fileID: 21300022, guid: 3cb9a870c32d41c582dacebc6a0c6d39, type: 3}
+    - {fileID: 21300040, guid: 3cb9a870c32d41c582dacebc6a0c6d39, type: 3}
+    - {fileID: 21300028, guid: 3cb9a870c32d41c582dacebc6a0c6d39, type: 3}
+    - {fileID: 21300026, guid: 3cb9a870c32d41c582dacebc6a0c6d39, type: 3}
+    - {fileID: 21300034, guid: 3cb9a870c32d41c582dacebc6a0c6d39, type: 3}
+    - {fileID: 21300036, guid: 3cb9a870c32d41c582dacebc6a0c6d39, type: 3}
+    - {fileID: 21300030, guid: 3cb9a870c32d41c582dacebc6a0c6d39, type: 3}
+    - {fileID: 21300006, guid: 3cb9a870c32d41c582dacebc6a0c6d39, type: 3}
+    - {fileID: 21300032, guid: 3cb9a870c32d41c582dacebc6a0c6d39, type: 3}
+    - {fileID: 21300038, guid: 3cb9a870c32d41c582dacebc6a0c6d39, type: 3}
+    - {fileID: 21300000, guid: 3cb9a870c32d41c582dacebc6a0c6d39, type: 3}
+    Multiple: 1
+    Hash: 8a67bf16a3d43f3cee6733e74ae115d0
+    Tags: []
   modifiers: []

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: TwoHandedVikingAxe1
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 8e5d890cf4bc460486d7350a9e11eba4, type: 3}
+  _prefab: {fileID: 5871641102469170267, guid: c620a4e1bb50c8343b602b05ad8ef689, type: 3}
   info: 
+  _itemSprites:
+    Name: TwoHandedVikingAxe1
+    Collection: Vikings
+    Edition: Plugins
+    Id: Plugins.Vikings.MeleeWeapon2H.TwoHandedVikingAxe1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon2H/Vikings/Axe/TwoHandedVikingAxe1.png
+    Sprite: {fileID: 21300000, guid: 3bb03c0575ec403ea317da270e87770e, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 3bb03c0575ec403ea317da270e87770e, type: 3}
+    Multiple: 1
+    Hash: 2ec5ab71ce0751dcf77a2f2079e4126f
+    Tags: []
   modifiers: []

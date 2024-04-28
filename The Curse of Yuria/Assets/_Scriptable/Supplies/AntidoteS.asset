@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: AntidoteS
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: c40f23ec5066d6d418ce187a05817d13, type: 3}
+  _prefab: {fileID: 3985551892650203301, guid: b05652781f2dfee408323675e4a13647, type: 3}
   info: 
   power: 0
   cost: 0

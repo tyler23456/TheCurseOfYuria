@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SteelPickaxe
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 55bbc2b93e18f00449cd5f111efebd28, type: 3}
+  _prefab: {fileID: 3067159315330710527, guid: c831eb3e54be3854585aeaf83828833a, type: 3}
   info: 
+  _itemSprites:
+    Name: SteelPickaxe
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon2H.SteelPickaxe
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon2H/Basic/Axe/SteelPickaxe.png
+    Sprite: {fileID: 21300000, guid: 17c05ced933f1ff4db9b1335c4d09c38, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 17c05ced933f1ff4db9b1335c4d09c38, type: 3}
+    Multiple: 1
+    Hash: c19d857f5ffe9327d83b2c594e39c683
+    Tags: []
   modifiers: []

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: NecromancerShield
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 9b05b74813894561b84c69518dfbf847, type: 3}
+  _prefab: {fileID: 6937643476842315780, guid: 674ac94c3f07f4f48a9e995410a3341b, type: 3}
   info: 
+  _itemSprites:
+    Name: NecromancerShield
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.NecromancerShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Basic/NecromancerShield.png
+    Sprite: {fileID: 21300000, guid: d73ca97fda6a467788d2e8ff83932921, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: d73ca97fda6a467788d2e8ff83932921, type: 3}
+    Multiple: 1
+    Hash: 2377d0be28e286fee63465a3cde30fa2
+    Tags: []
   modifiers: []

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: BaboonMask
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: c14f1db91eac2ce42ae01c587d066655, type: 3}
+  _prefab: {fileID: 3146939157173451066, guid: 5336e27b9bb92cf4f83723208d2e4fbc, type: 3}
   info: 
+  _itemSprites:
+    Name: BaboonMask
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.BaboonMask
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/BaboonMask.png
+    Sprite: {fileID: 21300000, guid: ecd32af213640904c9624248a80a20ad, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: ecd32af213640904c9624248a80a20ad, type: 3}
+    Multiple: 1
+    Hash: 91a4d670aeb5bb2961651d0177235287
+    Tags: []
   modifiers: []

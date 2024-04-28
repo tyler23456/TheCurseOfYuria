@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: HeavyHelm [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 1ce803e08eb649b5bcc12217e0f7cca2, type: 3}
+  _prefab: {fileID: 4109863976826699339, guid: f471ff756b51eb34191dcfd21d96a486, type: 3}
   info: 
+  _itemSprites:
+    Name: HeavyHelm [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.HeavyHelm [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/HeavyHelm
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 6d1465613935433c8b440cb89ef8c3dc, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 6d1465613935433c8b440cb89ef8c3dc, type: 3}
+    Multiple: 1
+    Hash: e5789dcf7656155d5adf63df061e2298
+    Tags:
+    - Paint
   modifiers: []

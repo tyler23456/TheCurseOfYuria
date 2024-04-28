@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SamuraiShield2
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 4676681f46de4a2d9bc7baeea8bdd66b, type: 3}
+  _prefab: {fileID: 1475731504449490745, guid: af15307037c6f024fac0ed4f798a07fc, type: 3}
   info: 
+  _itemSprites:
+    Name: SamuraiShield2
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.Shield.SamuraiShield2
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Samurai/SamuraiShield2.png
+    Sprite: {fileID: 21300000, guid: eb2ae2b2c7d44e72849f2c3bd86fdbab, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: eb2ae2b2c7d44e72849f2c3bd86fdbab, type: 3}
+    Multiple: 1
+    Hash: 3c791bb58e13adb20a346e5345f4eef1
+    Tags: []
   modifiers: []

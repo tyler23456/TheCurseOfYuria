@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Feather
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 21300000, guid: 8a4481e2634beca41bacf36cabb0ecd4, type: 3}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 8a4481e2634beca41bacf36cabb0ecd4, type: 3}
+  _prefab: {fileID: 7464020749272608164, guid: ad6d6f2611595504fafc65887db33dcd, type: 3}
   info: 
   bookPrefab: {fileID: 0}
   pagesText: []

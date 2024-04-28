@@ -13,8 +13,32 @@ MonoBehaviour:
   m_Name: EliteGuardArmor [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 4b9a5c9073e6492283e282555a9af06d, type: 3}
+  _prefab: {fileID: 5591785054042243372, guid: e446b2bf5f798d0458bd5f6842aff0dc, type: 3}
   info: 
+  _itemSprites:
+    Name: EliteGuardArmor [Paint]
+    Collection: Knights
+    Edition: Plugins
+    Id: Plugins.Knights.Armor.EliteGuardArmor [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Knights/EliteGuardArmor
+      [Paint].png
+    Sprite: {fileID: 21300024, guid: c23cb85b4f2d400ba25fac244dc589b3, type: 3}
+    Sprites:
+    - {fileID: 21300024, guid: c23cb85b4f2d400ba25fac244dc589b3, type: 3}
+    - {fileID: 21300022, guid: c23cb85b4f2d400ba25fac244dc589b3, type: 3}
+    - {fileID: 21300040, guid: c23cb85b4f2d400ba25fac244dc589b3, type: 3}
+    - {fileID: 21300028, guid: c23cb85b4f2d400ba25fac244dc589b3, type: 3}
+    - {fileID: 21300026, guid: c23cb85b4f2d400ba25fac244dc589b3, type: 3}
+    - {fileID: 21300034, guid: c23cb85b4f2d400ba25fac244dc589b3, type: 3}
+    - {fileID: 21300036, guid: c23cb85b4f2d400ba25fac244dc589b3, type: 3}
+    - {fileID: 21300030, guid: c23cb85b4f2d400ba25fac244dc589b3, type: 3}
+    - {fileID: 21300006, guid: c23cb85b4f2d400ba25fac244dc589b3, type: 3}
+    - {fileID: 21300032, guid: c23cb85b4f2d400ba25fac244dc589b3, type: 3}
+    - {fileID: 21300038, guid: c23cb85b4f2d400ba25fac244dc589b3, type: 3}
+    - {fileID: 21300000, guid: c23cb85b4f2d400ba25fac244dc589b3, type: 3}
+    Multiple: 1
+    Hash: 7920db55d1d96355285b4c7e6a31f3ad
+    Tags:
+    - Paint
   modifiers: []

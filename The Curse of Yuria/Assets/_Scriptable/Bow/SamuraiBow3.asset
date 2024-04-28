@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: SamuraiBow3
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 4348ac9d00d248efad3dd36636243ea3, type: 3}
+  _prefab: {fileID: 8005744490170390116, guid: cd0862f42897d004baf664c902e2341b, type: 3}
   info: 
+  _itemSprites:
+    Name: SamuraiBow3
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.Bow.SamuraiBow3
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Bow/Samurai/SamuraiBow3.png
+    Sprite: {fileID: 21300004, guid: 2d84bce006a541afaefbb7ef67065faf, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 2d84bce006a541afaefbb7ef67065faf, type: 3}
+    - {fileID: 21300002, guid: 2d84bce006a541afaefbb7ef67065faf, type: 3}
+    - {fileID: 21300000, guid: 2d84bce006a541afaefbb7ef67065faf, type: 3}
+    Multiple: 1
+    Hash: 35e83ac81bc849745d6a1608868f2088
+    Tags: []
   modifiers: []

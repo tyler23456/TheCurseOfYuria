@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: LittleLionSword [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 05324b45a7dd4102a3832c4f345fba11, type: 3}
+  _prefab: {fileID: 8134311619847143921, guid: 1af06ee23f41171409cab2ed5c85c97a, type: 3}
   info: 
+  _itemSprites:
+    Name: LittleLionSword [Paint]
+    Collection: Thrones
+    Edition: Plugins
+    Id: Plugins.Thrones.MeleeWeapon1H.LittleLionSword [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Thrones/Sword/LittleLionSword
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: c2d6a4dd5cfe40b8b7718cbd3966b28f, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: c2d6a4dd5cfe40b8b7718cbd3966b28f, type: 3}
+    Multiple: 1
+    Hash: a09e2fd26c4bd597f807d7694b9908a6
+    Tags:
+    - Paint
   modifiers: []

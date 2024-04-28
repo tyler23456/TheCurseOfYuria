@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: ElderStaff
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: df14cbe6c499433989b445816e3a91cd, type: 3}
+  _prefab: {fileID: 4071433571791909183, guid: 0f5b9bcfa4a3a6a42a3e4df6c9e61b18, type: 3}
   info: 
+  _itemSprites:
+    Name: ElderStaff
+    Collection: SwampLords
+    Edition: Plugins
+    Id: Plugins.SwampLords.MeleeWeapon1H.ElderStaff
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/SwampLords/Staff/ElderStaff.png
+    Sprite: {fileID: 21300000, guid: cf147a92a61b4418a3d262d5088c229c, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: cf147a92a61b4418a3d262d5088c229c, type: 3}
+    Multiple: 1
+    Hash: 651cd39da1a67c09c00427ab379e01aa
+    Tags: []
   modifiers: []

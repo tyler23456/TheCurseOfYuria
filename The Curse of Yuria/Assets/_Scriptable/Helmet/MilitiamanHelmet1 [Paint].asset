@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: MilitiamanHelmet1 [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 90953516f3ca46d98daf5faff17d774c, type: 3}
+  _prefab: {fileID: 2161330287063358063, guid: 4328649a15195314482da5a05ec3fb41, type: 3}
   info: 
+  _itemSprites:
+    Name: MilitiamanHelmet1 [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.MilitiamanHelmet1 [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/MilitiamanHelmet1
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 4c345e2764204f13a7a601a0df480641, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 4c345e2764204f13a7a601a0df480641, type: 3}
+    Multiple: 1
+    Hash: 709e3e5161f2912a47b566e372fcf655
+    Tags:
+    - Paint
   modifiers: []

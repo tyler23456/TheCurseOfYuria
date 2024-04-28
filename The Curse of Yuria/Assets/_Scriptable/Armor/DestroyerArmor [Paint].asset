@@ -13,8 +13,32 @@ MonoBehaviour:
   m_Name: DestroyerArmor [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: dbd003e899d54ca3b1486d49205d729c, type: 3}
+  _prefab: {fileID: 1073731804974024152, guid: 6ef36178ddd42cc40b212329d33d91cd, type: 3}
   info: 
+  _itemSprites:
+    Name: DestroyerArmor [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.DestroyerArmor [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/DestroyerArmor
+      [Paint].png
+    Sprite: {fileID: 21300004, guid: 67abd79503df442fab38eecf27d1e179, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 67abd79503df442fab38eecf27d1e179, type: 3}
+    - {fileID: 21300002, guid: 67abd79503df442fab38eecf27d1e179, type: 3}
+    - {fileID: 21300022, guid: 67abd79503df442fab38eecf27d1e179, type: 3}
+    - {fileID: 21300010, guid: 67abd79503df442fab38eecf27d1e179, type: 3}
+    - {fileID: 21300008, guid: 67abd79503df442fab38eecf27d1e179, type: 3}
+    - {fileID: 21300016, guid: 67abd79503df442fab38eecf27d1e179, type: 3}
+    - {fileID: 21300018, guid: 67abd79503df442fab38eecf27d1e179, type: 3}
+    - {fileID: 21300012, guid: 67abd79503df442fab38eecf27d1e179, type: 3}
+    - {fileID: 21300006, guid: 67abd79503df442fab38eecf27d1e179, type: 3}
+    - {fileID: 21300014, guid: 67abd79503df442fab38eecf27d1e179, type: 3}
+    - {fileID: 21300020, guid: 67abd79503df442fab38eecf27d1e179, type: 3}
+    - {fileID: 21300000, guid: 67abd79503df442fab38eecf27d1e179, type: 3}
+    Multiple: 1
+    Hash: d6c46a8a7482230c992a24c8396a73b0
+    Tags:
+    - Paint
   modifiers: []

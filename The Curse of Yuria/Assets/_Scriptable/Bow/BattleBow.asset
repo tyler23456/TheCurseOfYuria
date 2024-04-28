@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: BattleBow
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
-  info: 
+  _icon: {fileID: 21300000, guid: 0a7a56d01206448e856955e7144a23f4, type: 3}
+  _prefab: {fileID: 392960955480531849, guid: 42c72969fe4edd244935fc9721a7e37e, type: 3}
+  info: A bow specifically designed for battle skirmishes.
+  _itemSprites:
+    Name: BattleBow
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Bow.BattleBow
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Bow/Basic/BattleBow.png
+    Sprite: {fileID: 21300004, guid: aeac6c28b23047bd96ee7f9c5ce008cf, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: aeac6c28b23047bd96ee7f9c5ce008cf, type: 3}
+    - {fileID: 21300002, guid: aeac6c28b23047bd96ee7f9c5ce008cf, type: 3}
+    - {fileID: 21300000, guid: aeac6c28b23047bd96ee7f9c5ce008cf, type: 3}
+    Multiple: 1
+    Hash: dc59997f375c6356ba347be3dfe1760c
+    Tags: []
   modifiers: []

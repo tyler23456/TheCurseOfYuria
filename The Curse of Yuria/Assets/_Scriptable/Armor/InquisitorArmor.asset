@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: InquisitorArmor
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 108da7d48f7c4a5d81e158077e9d6bff, type: 3}
+  _prefab: {fileID: 6978699839353576375, guid: 0d8a8731be287724987c30b21380f5f9, type: 3}
   info: 
+  _itemSprites:
+    Name: InquisitorArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.InquisitorArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/InquisitorArmor.png
+    Sprite: {fileID: 21300004, guid: 5179cf311bb14474aad70b2f3fe9c918, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 5179cf311bb14474aad70b2f3fe9c918, type: 3}
+    - {fileID: 21300002, guid: 5179cf311bb14474aad70b2f3fe9c918, type: 3}
+    - {fileID: 21300022, guid: 5179cf311bb14474aad70b2f3fe9c918, type: 3}
+    - {fileID: 21300010, guid: 5179cf311bb14474aad70b2f3fe9c918, type: 3}
+    - {fileID: 21300008, guid: 5179cf311bb14474aad70b2f3fe9c918, type: 3}
+    - {fileID: 21300016, guid: 5179cf311bb14474aad70b2f3fe9c918, type: 3}
+    - {fileID: 21300018, guid: 5179cf311bb14474aad70b2f3fe9c918, type: 3}
+    - {fileID: 21300012, guid: 5179cf311bb14474aad70b2f3fe9c918, type: 3}
+    - {fileID: 21300006, guid: 5179cf311bb14474aad70b2f3fe9c918, type: 3}
+    - {fileID: 21300014, guid: 5179cf311bb14474aad70b2f3fe9c918, type: 3}
+    - {fileID: 21300020, guid: 5179cf311bb14474aad70b2f3fe9c918, type: 3}
+    - {fileID: 21300000, guid: 5179cf311bb14474aad70b2f3fe9c918, type: 3}
+    Multiple: 1
+    Hash: e67bb5703161369227d83c40a75ce637
+    Tags: []
   modifiers: []

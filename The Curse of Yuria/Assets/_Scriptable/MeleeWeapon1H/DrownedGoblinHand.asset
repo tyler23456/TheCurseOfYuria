@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: DrownedGoblinHand
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 462e0b89d66f450ab20493e184ed2a52, type: 3}
+  _prefab: {fileID: 4599732580700502241, guid: 35c1660e5c88efd4b859f0089cf6d201, type: 3}
   info: 
+  _itemSprites:
+    Name: DrownedGoblinHand
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.DrownedGoblinHand
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Wand/DrownedGoblinHand.png
+    Sprite: {fileID: 21300000, guid: 556c460d46fe42c782fbabc7bf324c9a, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 556c460d46fe42c782fbabc7bf324c9a, type: 3}
+    Multiple: 1
+    Hash: 4d0b6eaa57ab30a856a4b5a9f5e8927d
+    Tags: []
   modifiers: []

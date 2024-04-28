@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: DarkSword
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 2a7ea29e1c2446849a2152b53ebb00d5, type: 3}
+  _prefab: {fileID: 9156892164661078537, guid: 9e284fc2042bae443a3bb8e1227bfec3, type: 3}
   info: 
+  _itemSprites:
+    Name: DarkSword
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.MeleeWeapon2H.DarkSword
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon2H/Samurai/Sword/DarkSword.png
+    Sprite: {fileID: 21300000, guid: 98b2fe560258482da0208340fe263db6, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 98b2fe560258482da0208340fe263db6, type: 3}
+    Multiple: 1
+    Hash: baa16614279448c4e485365d7886027e
+    Tags: []
   modifiers: []

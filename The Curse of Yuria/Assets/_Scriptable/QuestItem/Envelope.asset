@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Envelope
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: a5f2a4015797a0240bbf7dfb17145625, type: 3}
+  _prefab: {fileID: 3307426742395925484, guid: 283a3c1cbcba45142aeb73610bec9c38, type: 3}
   info: 
   bookPrefab: {fileID: 0}
   pagesText: []

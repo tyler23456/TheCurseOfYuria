@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: YellowGemstone
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 8f939215d699e164d9c73a912eee027a, type: 3}
+  _prefab: {fileID: 352341140292407000, guid: 34a8f5f6b4538ef41a9d28cce475a1b5, type: 3}
   info: 
   value: 0

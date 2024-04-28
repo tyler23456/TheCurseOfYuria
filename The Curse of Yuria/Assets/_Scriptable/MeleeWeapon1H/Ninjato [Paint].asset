@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: Ninjato [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: a4c2cf3331c143b399438f966b7b1178, type: 3}
+  _prefab: {fileID: 5147060130805485591, guid: 03a60923331fff141933e4082223c934, type: 3}
   info: 
+  _itemSprites:
+    Name: Ninjato [Paint]
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.MeleeWeapon1H.Ninjato [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Samurai/Sword/Ninjato
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: f99a132074e041f2aacd6fb3230dd735, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: f99a132074e041f2aacd6fb3230dd735, type: 3}
+    Multiple: 1
+    Hash: b8a35f2cf0e746b1bf159a5fd4a247f9
+    Tags:
+    - Paint
   modifiers: []

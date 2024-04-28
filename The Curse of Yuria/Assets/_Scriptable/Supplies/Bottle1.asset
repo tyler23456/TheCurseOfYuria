@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Bottle1
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 206d692147b45cf4b963ac225be28883, type: 3}
+  _prefab: {fileID: 720432844133904586, guid: 2180f40d507d35c4c81b74759cc4f117, type: 3}
   info: 
   power: 0
   cost: 0

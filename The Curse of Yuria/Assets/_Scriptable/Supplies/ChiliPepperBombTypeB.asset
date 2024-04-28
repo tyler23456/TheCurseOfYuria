@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: ChiliPepperBombTypeB
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 856c04d5c25a1874bb924ff5dda44f4b, type: 3}
+  _prefab: {fileID: 5947404148720495180, guid: f312ca1f2e958b34ca8dca857937bbda, type: 3}
   info: 
   power: 0
   cost: 0

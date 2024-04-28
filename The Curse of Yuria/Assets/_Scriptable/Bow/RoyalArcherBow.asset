@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: RoyalArcherBow
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 4354a88e0217422eafadd81a99a1040e, type: 3}
+  _prefab: {fileID: 5351069158858293495, guid: 42853456a3793ff4fa6070d9a25f70ee, type: 3}
   info: 
+  _itemSprites:
+    Name: RoyalArcherBow
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Bow.RoyalArcherBow
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Bow/Basic/RoyalArcherBow.png
+    Sprite: {fileID: 21300004, guid: 8c31d7147e174fefa7e205f6f20cd0ea, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 8c31d7147e174fefa7e205f6f20cd0ea, type: 3}
+    - {fileID: 21300002, guid: 8c31d7147e174fefa7e205f6f20cd0ea, type: 3}
+    - {fileID: 21300000, guid: 8c31d7147e174fefa7e205f6f20cd0ea, type: 3}
+    Multiple: 1
+    Hash: 51d717141d3ddc22c003bf9e004d75ec
+    Tags: []
   modifiers: []

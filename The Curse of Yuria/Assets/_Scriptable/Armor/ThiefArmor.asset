@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: ThiefArmor
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: e3fdab8ad1d24869ad41e66102c1a0dc, type: 3}
+  _prefab: {fileID: 3075420031957977123, guid: 38353c9e74146bd44a69e597cd4645de, type: 3}
   info: 
+  _itemSprites:
+    Name: ThiefArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.ThiefArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/ThiefArmor.png
+    Sprite: {fileID: 21300004, guid: c9ffe4a63dfd41ba8d41390083b1aaab, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: c9ffe4a63dfd41ba8d41390083b1aaab, type: 3}
+    - {fileID: 21300002, guid: c9ffe4a63dfd41ba8d41390083b1aaab, type: 3}
+    - {fileID: 21300022, guid: c9ffe4a63dfd41ba8d41390083b1aaab, type: 3}
+    - {fileID: 21300010, guid: c9ffe4a63dfd41ba8d41390083b1aaab, type: 3}
+    - {fileID: 21300008, guid: c9ffe4a63dfd41ba8d41390083b1aaab, type: 3}
+    - {fileID: 21300016, guid: c9ffe4a63dfd41ba8d41390083b1aaab, type: 3}
+    - {fileID: 21300018, guid: c9ffe4a63dfd41ba8d41390083b1aaab, type: 3}
+    - {fileID: 21300012, guid: c9ffe4a63dfd41ba8d41390083b1aaab, type: 3}
+    - {fileID: 21300006, guid: c9ffe4a63dfd41ba8d41390083b1aaab, type: 3}
+    - {fileID: 21300014, guid: c9ffe4a63dfd41ba8d41390083b1aaab, type: 3}
+    - {fileID: 21300020, guid: c9ffe4a63dfd41ba8d41390083b1aaab, type: 3}
+    - {fileID: 21300000, guid: c9ffe4a63dfd41ba8d41390083b1aaab, type: 3}
+    Multiple: 1
+    Hash: 4ee5bd74c326071fa1a4a06de2913b24
+    Tags: []
   modifiers: []

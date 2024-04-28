@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: WoodenMace
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: c0bfe3f8935949728d7f317c20e7e238, type: 3}
+  _prefab: {fileID: 2657108492173028762, guid: 583371213d4e48b47aefd7f81f84c017, type: 3}
   info: 
+  _itemSprites:
+    Name: WoodenMace
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.WoodenMace
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Hammer/WoodenMace.png
+    Sprite: {fileID: 21300000, guid: 614a247009bd47c19734474f8937b555, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 614a247009bd47c19734474f8937b555, type: 3}
+    Multiple: 1
+    Hash: 029069702e4102a9e2517a5892743de9
+    Tags: []
   modifiers: []

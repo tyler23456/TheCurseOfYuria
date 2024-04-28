@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Poison
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 193706529b846104ca13b03bbf949a58, type: 3}
+  _prefab: {fileID: 8738927137143145921, guid: 74331b16f4205bf4d97a79a7c772fd41, type: 3}
   info: 
   power: 0
   cost: 0

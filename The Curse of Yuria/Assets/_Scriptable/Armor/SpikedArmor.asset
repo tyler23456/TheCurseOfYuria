@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: SpikedArmor
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 61c26b4d6f6b4a819d8ab02193fd24f7, type: 3}
+  _prefab: {fileID: 3582501906238474566, guid: f86595be3610c334095c629989863a04, type: 3}
   info: 
+  _itemSprites:
+    Name: SpikedArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.SpikedArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/SpikedArmor.png
+    Sprite: {fileID: 21300024, guid: 72a72ad359994da5bfd7f67a1348256c, type: 3}
+    Sprites:
+    - {fileID: 21300024, guid: 72a72ad359994da5bfd7f67a1348256c, type: 3}
+    - {fileID: 21300022, guid: 72a72ad359994da5bfd7f67a1348256c, type: 3}
+    - {fileID: 21300040, guid: 72a72ad359994da5bfd7f67a1348256c, type: 3}
+    - {fileID: 21300028, guid: 72a72ad359994da5bfd7f67a1348256c, type: 3}
+    - {fileID: 21300026, guid: 72a72ad359994da5bfd7f67a1348256c, type: 3}
+    - {fileID: 21300034, guid: 72a72ad359994da5bfd7f67a1348256c, type: 3}
+    - {fileID: 21300036, guid: 72a72ad359994da5bfd7f67a1348256c, type: 3}
+    - {fileID: 21300030, guid: 72a72ad359994da5bfd7f67a1348256c, type: 3}
+    - {fileID: 21300006, guid: 72a72ad359994da5bfd7f67a1348256c, type: 3}
+    - {fileID: 21300032, guid: 72a72ad359994da5bfd7f67a1348256c, type: 3}
+    - {fileID: 21300038, guid: 72a72ad359994da5bfd7f67a1348256c, type: 3}
+    - {fileID: 21300000, guid: 72a72ad359994da5bfd7f67a1348256c, type: 3}
+    Multiple: 1
+    Hash: 07c2d3fa2f68b17dc253a57392061b04
+    Tags: []
   modifiers: []

@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: HalberdierHelm [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 82694d7451004dc7b1342018c6234e95, type: 3}
+  _prefab: {fileID: 6191612258707920795, guid: 5901b3ca029932d42be1ee6bb353af9e, type: 3}
   info: 
+  _itemSprites:
+    Name: HalberdierHelm [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.HalberdierHelm [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/HalberdierHelm
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: ebf6ec8c96aa40b592548021e3f8747a, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: ebf6ec8c96aa40b592548021e3f8747a, type: 3}
+    Multiple: 1
+    Hash: d04a52426648b5c8c411a3cf7dda7bfd
+    Tags:
+    - Paint
   modifiers: []

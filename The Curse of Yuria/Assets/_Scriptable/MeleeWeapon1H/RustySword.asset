@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: RustySword
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: ca95a726b76e42bea3d3b186e4063a39, type: 3}
+  _prefab: {fileID: 1556939494552973847, guid: 26b1843453f6c4544836e7528aaf3de2, type: 3}
   info: 
+  _itemSprites:
+    Name: RustySword
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.RustySword
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Sword/RustySword.png
+    Sprite: {fileID: 21300000, guid: bdfc040725dc484d85ac394de628eb55, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: bdfc040725dc484d85ac394de628eb55, type: 3}
+    Multiple: 1
+    Hash: 7c3a0c50a6f0b57e804450ae6676f443
+    Tags: []
   modifiers: []

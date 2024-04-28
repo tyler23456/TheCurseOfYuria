@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: LargePotion [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 62ad0c5e1af91b6479533f3f072b182b, type: 3}
+  _prefab: {fileID: 8220565345694981633, guid: 707e53e2b8cd9364bb44f8ef5e47f67d, type: 3}
   info: 
   power: 0
   cost: 0

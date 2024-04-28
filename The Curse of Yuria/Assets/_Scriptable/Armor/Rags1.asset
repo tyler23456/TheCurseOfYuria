@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: Rags1
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 2a11d5c9f7fb4286bd52e9b3f415aeb9, type: 3}
+  _prefab: {fileID: 2046469471389109006, guid: d0e889b9474f41d45add01dde7c4f306, type: 3}
   info: 
+  _itemSprites:
+    Name: Rags1
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.Rags1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/Rags1.png
+    Sprite: {fileID: 21300004, guid: 8a0b47fa86dc4538a289a672f407e6bf, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 8a0b47fa86dc4538a289a672f407e6bf, type: 3}
+    - {fileID: 21300002, guid: 8a0b47fa86dc4538a289a672f407e6bf, type: 3}
+    - {fileID: 21300022, guid: 8a0b47fa86dc4538a289a672f407e6bf, type: 3}
+    - {fileID: 21300010, guid: 8a0b47fa86dc4538a289a672f407e6bf, type: 3}
+    - {fileID: 21300008, guid: 8a0b47fa86dc4538a289a672f407e6bf, type: 3}
+    - {fileID: 21300016, guid: 8a0b47fa86dc4538a289a672f407e6bf, type: 3}
+    - {fileID: 21300018, guid: 8a0b47fa86dc4538a289a672f407e6bf, type: 3}
+    - {fileID: 21300012, guid: 8a0b47fa86dc4538a289a672f407e6bf, type: 3}
+    - {fileID: 21300006, guid: 8a0b47fa86dc4538a289a672f407e6bf, type: 3}
+    - {fileID: 21300014, guid: 8a0b47fa86dc4538a289a672f407e6bf, type: 3}
+    - {fileID: 21300020, guid: 8a0b47fa86dc4538a289a672f407e6bf, type: 3}
+    - {fileID: 21300000, guid: 8a0b47fa86dc4538a289a672f407e6bf, type: 3}
+    Multiple: 1
+    Hash: 84a482f727bdf8267a1e89ca35bf1066
+    Tags: []
   modifiers: []

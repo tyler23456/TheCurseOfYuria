@@ -13,8 +13,32 @@ MonoBehaviour:
   m_Name: GguardsmenArmor [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 6c571be031d1457dbd0f025740b80c3f, type: 3}
+  _prefab: {fileID: 2756153036434387526, guid: 048f42cf199ed324b853ec863ce5b12e, type: 3}
   info: 
+  _itemSprites:
+    Name: GguardsmenArmor [Paint]
+    Collection: Knights
+    Edition: Plugins
+    Id: Plugins.Knights.Armor.GguardsmenArmor [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Knights/GguardsmenArmor
+      [Paint].png
+    Sprite: {fileID: 21300004, guid: 787f05aceccb4d71b576b54d6286bb01, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 787f05aceccb4d71b576b54d6286bb01, type: 3}
+    - {fileID: 21300002, guid: 787f05aceccb4d71b576b54d6286bb01, type: 3}
+    - {fileID: 21300022, guid: 787f05aceccb4d71b576b54d6286bb01, type: 3}
+    - {fileID: 21300010, guid: 787f05aceccb4d71b576b54d6286bb01, type: 3}
+    - {fileID: 21300008, guid: 787f05aceccb4d71b576b54d6286bb01, type: 3}
+    - {fileID: 21300016, guid: 787f05aceccb4d71b576b54d6286bb01, type: 3}
+    - {fileID: 21300018, guid: 787f05aceccb4d71b576b54d6286bb01, type: 3}
+    - {fileID: 21300012, guid: 787f05aceccb4d71b576b54d6286bb01, type: 3}
+    - {fileID: 21300006, guid: 787f05aceccb4d71b576b54d6286bb01, type: 3}
+    - {fileID: 21300014, guid: 787f05aceccb4d71b576b54d6286bb01, type: 3}
+    - {fileID: 21300020, guid: 787f05aceccb4d71b576b54d6286bb01, type: 3}
+    - {fileID: 21300000, guid: 787f05aceccb4d71b576b54d6286bb01, type: 3}
+    Multiple: 1
+    Hash: 3320c45404b33c22392cef8b94c25e66
+    Tags:
+    - Paint
   modifiers: []

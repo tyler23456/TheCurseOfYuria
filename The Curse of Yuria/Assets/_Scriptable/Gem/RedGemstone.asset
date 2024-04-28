@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: RedGemstone
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 1b5d09c05870c5f4e9d75b8ff9a9f95b, type: 3}
+  _prefab: {fileID: 6872628150310172374, guid: ae25d21cc4535084799ced44255b8aa1, type: 3}
   info: 
   value: 0

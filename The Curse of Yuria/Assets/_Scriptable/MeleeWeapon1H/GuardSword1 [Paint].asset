@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: GuardSword1 [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 782426af1623467289aa5eb7d7460c52, type: 3}
+  _prefab: {fileID: 2322057775017123968, guid: 260fcb68a80af8b439002168ad28ff49, type: 3}
   info: 
+  _itemSprites:
+    Name: GuardSword1 [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.GuardSword1 [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Sword/GuardSword1
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 379ce8798b424200bc55b35d9fc60d1e, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 379ce8798b424200bc55b35d9fc60d1e, type: 3}
+    Multiple: 1
+    Hash: 71b47b915dda801c8c84d0ae23f255f6
+    Tags:
+    - Paint
   modifiers: []

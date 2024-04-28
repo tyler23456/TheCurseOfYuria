@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: BronzeEyeRing
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: f700e7aa8b88ecc4299049cb90a48ecb, type: 3}
+  _prefab: {fileID: 6940311753872854026, guid: 4d3d0507875808944bc6501335cdd470, type: 3}
   info: 
   power: 0
   cost: 0

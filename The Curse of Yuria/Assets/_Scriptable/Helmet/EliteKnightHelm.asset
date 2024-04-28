@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: EliteKnightHelm
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 5ed83b6582ff4228ae921e7a95427446, type: 3}
+  _prefab: {fileID: 1190759945095349969, guid: 02149b5861b06a04aa4b8525219662cb, type: 3}
   info: 
+  _itemSprites:
+    Name: EliteKnightHelm
+    Collection: Knights
+    Edition: Plugins
+    Id: Plugins.Knights.Helmet.EliteKnightHelm
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Knights/EliteKnightHelm.png
+    Sprite: {fileID: 21300000, guid: ce91a72a2d5e426f955171d390afaab7, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: ce91a72a2d5e426f955171d390afaab7, type: 3}
+    Multiple: 1
+    Hash: 897b093c1be7555f2299e6fa2334343a
+    Tags: []
   modifiers: []

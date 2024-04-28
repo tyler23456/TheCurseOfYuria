@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: KnightHelm [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 32d3f6a2636e4376acd6c984878ce29a, type: 3}
+  _prefab: {fileID: 2892824265645891792, guid: 21cfb031e8f691048a07cbeef23e39ca, type: 3}
   info: 
+  _itemSprites:
+    Name: KnightHelm [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.KnightHelm [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/KnightHelm
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 66ce6282a2b24280a9f53a86eff81f39, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 66ce6282a2b24280a9f53a86eff81f39, type: 3}
+    Multiple: 1
+    Hash: 92ce83371f5d7db07a3e0b11571f236a
+    Tags:
+    - Paint
   modifiers: []

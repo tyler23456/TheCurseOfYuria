@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: BlacksmithHeadband
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 55e5c0dcdd0765d46b403d7daf68dd33, type: 3}
+  _prefab: {fileID: 5772590501708432162, guid: 821c85bac45e58245b661a1c1a2eb7e7, type: 3}
   info: 
+  _itemSprites:
+    Name: BlacksmithHeadband
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.BlacksmithHeadband
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/BlacksmithHeadband.png
+    Sprite: {fileID: 21300000, guid: c7a7ed4755292f54f9defb580a4c1c05, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: c7a7ed4755292f54f9defb580a4c1c05, type: 3}
+    Multiple: 1
+    Hash: bc49c2864536b289a7a78667ecbdb285
+    Tags: []
   modifiers: []

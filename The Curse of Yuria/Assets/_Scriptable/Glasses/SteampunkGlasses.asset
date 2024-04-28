@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SteampunkGlasses
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 9325d3fa3e66445f9f5c9f98263fddd7, type: 3}
+  _prefab: {fileID: 5915672294152584130, guid: 939527990dd7bcf40bf7a93d97842fe3, type: 3}
   info: 
+  _itemSprites:
+    Name: SteampunkGlasses
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Glasses.SteampunkGlasses
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Glasses/Basic/SteampunkGlasses.png
+    Sprite: {fileID: 21300000, guid: f3ddf5afe92540ddb1216398fd2c3b3c, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: f3ddf5afe92540ddb1216398fd2c3b3c, type: 3}
+    Multiple: 1
+    Hash: f38ef9dec1fd3ce28206649c1e3141b9
+    Tags: []
   modifiers: []

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Coin
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: d65de7a303ad457bad3d2c781849cf1c, type: 3}
+  _prefab: {fileID: 608903263770200932, guid: b3863f675e75dba4e8447ab25c24d2e4, type: 3}
   info: 
   power: 0
   cost: 0

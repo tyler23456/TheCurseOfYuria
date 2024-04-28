@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: SamuraiLight1
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 57c38c8effbe439b98544a81bb128022, type: 3}
+  _prefab: {fileID: 4491605798211632801, guid: 31fb719a66562104786557737671d32e, type: 3}
   info: 
+  _itemSprites:
+    Name: SamuraiLight1
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.Armor.SamuraiLight1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Samurai/SamuraiLight1.png
+    Sprite: {fileID: 21300004, guid: 660f0722fc8040c3bc60c6ecbda39117, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 660f0722fc8040c3bc60c6ecbda39117, type: 3}
+    - {fileID: 21300002, guid: 660f0722fc8040c3bc60c6ecbda39117, type: 3}
+    - {fileID: 21300022, guid: 660f0722fc8040c3bc60c6ecbda39117, type: 3}
+    - {fileID: 21300010, guid: 660f0722fc8040c3bc60c6ecbda39117, type: 3}
+    - {fileID: 21300008, guid: 660f0722fc8040c3bc60c6ecbda39117, type: 3}
+    - {fileID: 21300016, guid: 660f0722fc8040c3bc60c6ecbda39117, type: 3}
+    - {fileID: 21300018, guid: 660f0722fc8040c3bc60c6ecbda39117, type: 3}
+    - {fileID: 21300012, guid: 660f0722fc8040c3bc60c6ecbda39117, type: 3}
+    - {fileID: 21300006, guid: 660f0722fc8040c3bc60c6ecbda39117, type: 3}
+    - {fileID: 21300014, guid: 660f0722fc8040c3bc60c6ecbda39117, type: 3}
+    - {fileID: 21300020, guid: 660f0722fc8040c3bc60c6ecbda39117, type: 3}
+    - {fileID: 21300000, guid: 660f0722fc8040c3bc60c6ecbda39117, type: 3}
+    Multiple: 1
+    Hash: cc6998ecc3505e4e2cc337cfe73dd11b
+    Tags: []
   modifiers: []

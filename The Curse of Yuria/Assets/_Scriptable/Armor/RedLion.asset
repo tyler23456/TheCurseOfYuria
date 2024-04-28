@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: RedLion
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 00ab5247a57047a194bdc32a8476288c, type: 3}
+  _prefab: {fileID: 8731025756161605550, guid: e19a89b38abf15a4fb26381654af918f, type: 3}
   info: 
+  _itemSprites:
+    Name: RedLion
+    Collection: Thrones
+    Edition: Plugins
+    Id: Plugins.Thrones.Armor.RedLion
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Thrones/RedLion.png
+    Sprite: {fileID: 21300004, guid: 4cfb305e2652433ca6b8a8ec59d6608f, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 4cfb305e2652433ca6b8a8ec59d6608f, type: 3}
+    - {fileID: 21300002, guid: 4cfb305e2652433ca6b8a8ec59d6608f, type: 3}
+    - {fileID: 21300022, guid: 4cfb305e2652433ca6b8a8ec59d6608f, type: 3}
+    - {fileID: 21300010, guid: 4cfb305e2652433ca6b8a8ec59d6608f, type: 3}
+    - {fileID: 21300008, guid: 4cfb305e2652433ca6b8a8ec59d6608f, type: 3}
+    - {fileID: 21300016, guid: 4cfb305e2652433ca6b8a8ec59d6608f, type: 3}
+    - {fileID: 21300018, guid: 4cfb305e2652433ca6b8a8ec59d6608f, type: 3}
+    - {fileID: 21300012, guid: 4cfb305e2652433ca6b8a8ec59d6608f, type: 3}
+    - {fileID: 21300006, guid: 4cfb305e2652433ca6b8a8ec59d6608f, type: 3}
+    - {fileID: 21300014, guid: 4cfb305e2652433ca6b8a8ec59d6608f, type: 3}
+    - {fileID: 21300020, guid: 4cfb305e2652433ca6b8a8ec59d6608f, type: 3}
+    - {fileID: 21300000, guid: 4cfb305e2652433ca6b8a8ec59d6608f, type: 3}
+    Multiple: 1
+    Hash: 3c49f5a23b376818729d3d2a8bd76238
+    Tags: []
   modifiers: []

@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: HeroicCape [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 9bca5209c7d44d54a12144baf3919e15, type: 3}
+  _prefab: {fileID: 4507682721252015712, guid: 083ca0a6861d6e846a3a66f4739b6437, type: 3}
   info: 
+  _itemSprites:
+    Name: HeroicCape [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Cape.HeroicCape [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Cape/Basic/HeroicCape
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 418edb5b34a9b4544a01dbf9b8357b15, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 418edb5b34a9b4544a01dbf9b8357b15, type: 3}
+    Multiple: 1
+    Hash: 0c7b986b60dbd8f3e12e6cd4571d54bf
+    Tags:
+    - Paint
   modifiers: []

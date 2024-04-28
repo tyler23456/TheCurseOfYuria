@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SandWarriorHelm2
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: cd57100940f74250b907be9e3b3356a9, type: 3}
+  _prefab: {fileID: 8272734913955880157, guid: 1f24a23afc477334fa6b17cd31cc1b48, type: 3}
   info: 
+  _itemSprites:
+    Name: SandWarriorHelm2
+    Collection: SandLords
+    Edition: Plugins
+    Id: Plugins.SandLords.Helmet.SandWarriorHelm2
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/SandLords/SandWarriorHelm2.png
+    Sprite: {fileID: 21300000, guid: d113fae98fa44684b07c6774939abcc4, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: d113fae98fa44684b07c6774939abcc4, type: 3}
+    Multiple: 1
+    Hash: a257c8fd4cb8f35135c871a8f7f159af
+    Tags: []
   modifiers: []

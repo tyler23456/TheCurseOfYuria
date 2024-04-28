@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: GuardHelm [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: dc68c1f9d18f44eabbd089ced9ad8b0d, type: 3}
+  _prefab: {fileID: 952885471679508140, guid: a799087c229e6c149bf4db7d5f29ab56, type: 3}
   info: 
+  _itemSprites:
+    Name: GuardHelm [Paint]
+    Collection: Knights
+    Edition: Plugins
+    Id: Plugins.Knights.Helmet.GuardHelm [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Knights/GuardHelm
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: c08c70ad06094b1d9d4d9fe6ae8bcc92, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: c08c70ad06094b1d9d4d9fe6ae8bcc92, type: 3}
+    Multiple: 1
+    Hash: f651fa0cc2da1cb4b50b5faed0ffb3ab
+    Tags:
+    - Paint
   modifiers: []

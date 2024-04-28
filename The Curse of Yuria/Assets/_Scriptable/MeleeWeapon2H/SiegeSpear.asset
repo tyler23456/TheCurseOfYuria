@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SiegeSpear
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 648c39b0958f412bb30556be91413c8a, type: 3}
+  _prefab: {fileID: 4009716147536274155, guid: 32545165ac62f4b41b2d4d97035fdc1b, type: 3}
   info: 
+  _itemSprites:
+    Name: SiegeSpear
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon2H.SiegeSpear
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon2H/Basic/Spear/SiegeSpear.png
+    Sprite: {fileID: 21300000, guid: 58c1351c43b24dca8ececdf056c84dc3, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 58c1351c43b24dca8ececdf056c84dc3, type: 3}
+    Multiple: 1
+    Hash: 28d9dce5f0d1c9f9f4f5a091bc420d3c
+    Tags: []
   modifiers: []

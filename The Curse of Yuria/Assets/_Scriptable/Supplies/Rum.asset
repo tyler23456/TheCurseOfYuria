@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Rum
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 9d27573a5c2bb2d4585ecb2a1efb4206, type: 3}
+  _prefab: {fileID: 4614080684438838781, guid: c7c557c4ebc60b546aae647c03cbaa07, type: 3}
   info: 
   power: 0
   cost: 0

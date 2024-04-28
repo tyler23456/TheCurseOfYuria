@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: GoldenEarring
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 2eba67707c014e6db7559f818184a84a, type: 3}
+  _prefab: {fileID: 1733338148950765911, guid: 098fac4875e3a864483bd5349cf7843a, type: 3}
   info: 
+  _itemSprites:
+    Name: GoldenEarring
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Earrings.GoldenEarring
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Earrings/Basic/GoldenEarring.png
+    Sprite: {fileID: 21300000, guid: 78a0aff6387e4f54b39a082bea7def85, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 78a0aff6387e4f54b39a082bea7def85, type: 3}
+    Multiple: 1
+    Hash: 9cdec992bb457144b732369797ad9579
+    Tags: []
   modifiers: []

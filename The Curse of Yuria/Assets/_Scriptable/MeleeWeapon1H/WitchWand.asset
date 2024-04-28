@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: WitchWand
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 98cc71e83df84749a0cfb43dbe4fc0c1, type: 3}
+  _prefab: {fileID: 6193909787551534366, guid: 8fd85abe1a3cfcb40b53131b3254c694, type: 3}
   info: 
+  _itemSprites:
+    Name: WitchWand
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.WitchWand
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Wand/WitchWand.png
+    Sprite: {fileID: 21300000, guid: b52e06d01b114ad6aa6a464809484ce4, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: b52e06d01b114ad6aa6a464809484ce4, type: 3}
+    Multiple: 1
+    Hash: 41f123eec8fb6cd1cb2dce18b2eca6b9
+    Tags: []
   modifiers: []

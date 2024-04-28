@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Gems
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: ad30c836fc63c8f47befd3804c03b042, type: 3}
+  _prefab: {fileID: 5658430519402868329, guid: 225ac66e918331d4c81f851f9f39807c, type: 3}
   info: 
   power: 0
   cost: 0

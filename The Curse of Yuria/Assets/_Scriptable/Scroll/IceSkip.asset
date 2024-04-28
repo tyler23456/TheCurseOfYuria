@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: IceSkip
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 9acd70ced60ef694ca2b9d6e1996bb76, type: 3}
+  _prefab: {fileID: 1605037156860920784, guid: cfb5f3d58fff0be49b2da9c536bcbf95, type: 3}
   info: 
   power: 0
   cost: 0

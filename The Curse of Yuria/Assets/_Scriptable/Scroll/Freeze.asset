@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Freeze
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 138c5427eb3473e43b62a3d784452129, type: 3}
+  _prefab: {fileID: 2990558730688909979, guid: d321db8ecbbb7284f851553d688c4db8, type: 3}
   info: 
   power: 0
   cost: 0

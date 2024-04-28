@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: NinjaShield
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: c6535bf550f24b61bd819c767185184b, type: 3}
+  _prefab: {fileID: 982520060729044351, guid: e7b4f7693b7995d4cac7dc2a468c2d78, type: 3}
   info: 
+  _itemSprites:
+    Name: NinjaShield
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.Shield.NinjaShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Samurai/NinjaShield.png
+    Sprite: {fileID: 21300000, guid: 28a7aeca74dd4218baff57c444e6547b, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 28a7aeca74dd4218baff57c444e6547b, type: 3}
+    Multiple: 1
+    Hash: 3962d02496c474777a8f06436864fa84
+    Tags: []
   modifiers: []

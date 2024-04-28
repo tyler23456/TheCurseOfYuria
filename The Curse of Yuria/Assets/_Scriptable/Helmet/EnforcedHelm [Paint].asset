@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: EnforcedHelm [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 0573634d0f2c4845ba2218c156430455, type: 3}
+  _prefab: {fileID: 7240784316402918118, guid: 428058f5d75ec294287c32d21033e408, type: 3}
   info: 
+  _itemSprites:
+    Name: EnforcedHelm [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.EnforcedHelm [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/EnforcedHelm
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: ddf250c1f05c491595c6a0d2caf6a4a6, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: ddf250c1f05c491595c6a0d2caf6a4a6, type: 3}
+    Multiple: 1
+    Hash: 9f4af550d7063a663c272f3fd2519b83
+    Tags:
+    - Paint
   modifiers: []

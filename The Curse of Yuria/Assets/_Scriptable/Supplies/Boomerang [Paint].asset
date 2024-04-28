@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Boomerang [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 5132225ecbc4419db57fc766e699d868, type: 3}
+  _prefab: {fileID: 3359801764587992964, guid: a4eaba4045ad71546a2e353b2212bfcf, type: 3}
   info: 
   power: 0
   cost: 0

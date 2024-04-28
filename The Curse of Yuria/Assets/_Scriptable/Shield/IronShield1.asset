@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: IronShield1
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: d92b6f638f7b494a97f3b9e57232ebf0, type: 3}
+  _prefab: {fileID: 433478385322517957, guid: 87d23d7290e8f9848a13a47adb329751, type: 3}
   info: 
+  _itemSprites:
+    Name: IronShield1
+    Collection: Vikings
+    Edition: Plugins
+    Id: Plugins.Vikings.Shield.IronShield1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Vikings/IronShield1.png
+    Sprite: {fileID: 21300000, guid: fb658fb9d7aa444ebac9f27cb729f9d9, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: fb658fb9d7aa444ebac9f27cb729f9d9, type: 3}
+    Multiple: 1
+    Hash: e606b5c35db3d3427b895e5621bb6c6a
+    Tags: []
   modifiers: []

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: MagicWandTypeB
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 958f7351e4164b1468eb17602b0abc8e, type: 3}
+  _prefab: {fileID: 7213520612109467025, guid: 63b8ff37ccd8f20499c6e9607d471dbd, type: 3}
   info: 
+  _itemSprites:
+    Name: MagicWandTypeB
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.MagicWandTypeB
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Wand/MagicWandTypeB.png
+    Sprite: {fileID: 21300000, guid: 0bdd274e10b35784a84396fe5e35e5a2, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 0bdd274e10b35784a84396fe5e35e5a2, type: 3}
+    Multiple: 1
+    Hash: a3ed4504d55180a55e0196dd701b2a52
+    Tags: []
   modifiers: []

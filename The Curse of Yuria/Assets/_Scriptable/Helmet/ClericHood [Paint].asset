@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: ClericHood [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: d1542c7f8d6249c3b8b4d819f2ab1601, type: 3}
+  _prefab: {fileID: 1531017886040310940, guid: a2be26b9e35553943b7fe63f540ce117, type: 3}
   info: 
+  _itemSprites:
+    Name: ClericHood [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.ClericHood [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/ClericHood
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 7e6eea251b124d66a36fc5ca996bd7c0, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 7e6eea251b124d66a36fc5ca996bd7c0, type: 3}
+    Multiple: 1
+    Hash: 8252512ac503871153f89b46d914a9ab
+    Tags:
+    - Paint
   modifiers: []

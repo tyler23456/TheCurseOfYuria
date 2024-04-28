@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: GladiatorHelm1
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 3c3581f1a8614a78868c3d34fa721ffd, type: 3}
+  _prefab: {fileID: 1282771211864092071, guid: 3f53bda2cbe901549b67e8b4de922cdb, type: 3}
   info: 
+  _itemSprites:
+    Name: GladiatorHelm1
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.GladiatorHelm1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/GladiatorHelm1.png
+    Sprite: {fileID: 21300000, guid: a6512583741d47718ae0c545e31cb918, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: a6512583741d47718ae0c545e31cb918, type: 3}
+    Multiple: 1
+    Hash: 835e9554357d2814e1078dcba0791cac
+    Tags: []
   modifiers: []

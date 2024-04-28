@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: GreyKnight
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 65666644c8924888a14f9c0eb0f0b964, type: 3}
+  _prefab: {fileID: 8562288565872922647, guid: 50831bc1db5946442b786665617f1ab6, type: 3}
   info: 
+  _itemSprites:
+    Name: GreyKnight
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.GreyKnight
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/GreyKnight.png
+    Sprite: {fileID: 21300024, guid: 7422abb165af4602b658874648677266, type: 3}
+    Sprites:
+    - {fileID: 21300024, guid: 7422abb165af4602b658874648677266, type: 3}
+    - {fileID: 21300022, guid: 7422abb165af4602b658874648677266, type: 3}
+    - {fileID: 21300040, guid: 7422abb165af4602b658874648677266, type: 3}
+    - {fileID: 21300028, guid: 7422abb165af4602b658874648677266, type: 3}
+    - {fileID: 21300026, guid: 7422abb165af4602b658874648677266, type: 3}
+    - {fileID: 21300034, guid: 7422abb165af4602b658874648677266, type: 3}
+    - {fileID: 21300036, guid: 7422abb165af4602b658874648677266, type: 3}
+    - {fileID: 21300030, guid: 7422abb165af4602b658874648677266, type: 3}
+    - {fileID: 21300006, guid: 7422abb165af4602b658874648677266, type: 3}
+    - {fileID: 21300032, guid: 7422abb165af4602b658874648677266, type: 3}
+    - {fileID: 21300038, guid: 7422abb165af4602b658874648677266, type: 3}
+    - {fileID: 21300000, guid: 7422abb165af4602b658874648677266, type: 3}
+    Multiple: 1
+    Hash: e7a07aed98c17ce15001358585543bad
+    Tags: []
   modifiers: []

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Hamburger
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 8219b58aeb7f4ecd99f7e8f69d79117a, type: 3}
+  _prefab: {fileID: 2598590384662413318, guid: 47c4acbd516ad8044b7285d4f15636ab, type: 3}
   info: 
   power: 0
   cost: 0

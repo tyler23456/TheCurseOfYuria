@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: AdvancedGladiatorShield
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 9048d57223744be5a0643fcc2da4f7de, type: 3}
+  _prefab: {fileID: 1556887886165566756, guid: 0e6633fee4eab9742a04c1baaa890f8d, type: 3}
   info: 
+  _itemSprites:
+    Name: AdvancedGladiatorShield
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.AdvancedGladiatorShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Basic/AdvancedGladiatorShield.png
+    Sprite: {fileID: 21300000, guid: 76cdb673e26446eca7290d7f8e9d0701, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 76cdb673e26446eca7290d7f8e9d0701, type: 3}
+    Multiple: 1
+    Hash: 9ace79e4bf1e1e6cb9bcfb7bc093b34a
+    Tags: []
   modifiers: []

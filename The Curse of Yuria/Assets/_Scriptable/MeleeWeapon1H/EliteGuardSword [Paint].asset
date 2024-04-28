@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: EliteGuardSword [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 9a940daf436d41458577fdb0c688df68, type: 3}
+  _prefab: {fileID: 6097699796296078471, guid: 658861c35b959b34c8c07348d0dc1cf7, type: 3}
   info: 
+  _itemSprites:
+    Name: EliteGuardSword [Paint]
+    Collection: Knights
+    Edition: Plugins
+    Id: Plugins.Knights.MeleeWeapon1H.EliteGuardSword [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Knights/Sword/EliteGuardSword
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 9438f1b0fc104da5acd6b95595863543, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 9438f1b0fc104da5acd6b95595863543, type: 3}
+    Multiple: 1
+    Hash: 638db0412c477178095d9c9eecdc0d65
+    Tags:
+    - Paint
   modifiers: []

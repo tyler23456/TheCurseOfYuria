@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: BasicIronShield
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 4082d5629b0349a0acd7ef04001d84ab, type: 3}
+  _prefab: {fileID: 7204663832879632405, guid: ce3e45b64b23ca84cbdfbbb570c9b8e0, type: 3}
   info: 
+  _itemSprites:
+    Name: BasicIronShield
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.BasicIronShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Basic/BasicIronShield.png
+    Sprite: {fileID: 21300000, guid: b228310177414d2c88bff8c9499988f1, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: b228310177414d2c88bff8c9499988f1, type: 3}
+    Multiple: 1
+    Hash: 06fa51548e362dc64978bfedd2b527c8
+    Tags: []
   modifiers: []

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Shatter
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 108208d3ddf5c7b419768f98a4fcb951, type: 3}
+  _prefab: {fileID: 1001643657613014023, guid: 1e9fa02907c0c9e45842877983588917, type: 3}
   info: 
   power: 0
   cost: 0

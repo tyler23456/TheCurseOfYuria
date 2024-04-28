@@ -13,8 +13,32 @@ MonoBehaviour:
   m_Name: CataphractArmor [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 3f0f2e3492354847b269fb550db647b8, type: 3}
+  _prefab: {fileID: 7077717110094744825, guid: 1c5ebb35c75535345ad6ea99213b08c5, type: 3}
   info: 
+  _itemSprites:
+    Name: CataphractArmor [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.CataphractArmor [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/CataphractArmor
+      [Paint].png
+    Sprite: {fileID: 21300004, guid: 51c4eae62b5c47ab9044d448c538a5bc, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 51c4eae62b5c47ab9044d448c538a5bc, type: 3}
+    - {fileID: 21300002, guid: 51c4eae62b5c47ab9044d448c538a5bc, type: 3}
+    - {fileID: 21300022, guid: 51c4eae62b5c47ab9044d448c538a5bc, type: 3}
+    - {fileID: 21300010, guid: 51c4eae62b5c47ab9044d448c538a5bc, type: 3}
+    - {fileID: 21300008, guid: 51c4eae62b5c47ab9044d448c538a5bc, type: 3}
+    - {fileID: 21300016, guid: 51c4eae62b5c47ab9044d448c538a5bc, type: 3}
+    - {fileID: 21300018, guid: 51c4eae62b5c47ab9044d448c538a5bc, type: 3}
+    - {fileID: 21300012, guid: 51c4eae62b5c47ab9044d448c538a5bc, type: 3}
+    - {fileID: 21300006, guid: 51c4eae62b5c47ab9044d448c538a5bc, type: 3}
+    - {fileID: 21300014, guid: 51c4eae62b5c47ab9044d448c538a5bc, type: 3}
+    - {fileID: 21300020, guid: 51c4eae62b5c47ab9044d448c538a5bc, type: 3}
+    - {fileID: 21300000, guid: 51c4eae62b5c47ab9044d448c538a5bc, type: 3}
+    Multiple: 1
+    Hash: e4f1df8463499ef3a7f48ef909bfc5bb
+    Tags:
+    - Paint
   modifiers: []

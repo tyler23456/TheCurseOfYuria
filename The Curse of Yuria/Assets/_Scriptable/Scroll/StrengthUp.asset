@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: StrengthUp
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: a140d4113f6e2ae4fb14e174ca7723c8, type: 3}
+  _prefab: {fileID: 3713968581163491103, guid: e87a55291a94f9648b49f4ddef5d9984, type: 3}
   info: 
   power: 0
   cost: 0

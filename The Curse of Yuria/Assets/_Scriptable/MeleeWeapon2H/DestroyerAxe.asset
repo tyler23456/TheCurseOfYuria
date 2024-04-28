@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: DestroyerAxe
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 55d569d710604ed986cf8b54f1f5c36a, type: 3}
+  _prefab: {fileID: 1528180496547020879, guid: 667b4d55396167e4e8cba0b41af46357, type: 3}
   info: 
+  _itemSprites:
+    Name: DestroyerAxe
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon2H.DestroyerAxe
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon2H/Basic/Axe/DestroyerAxe.png
+    Sprite: {fileID: 21300000, guid: b52c24470d28447bac172dc67671b37c, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: b52c24470d28447bac172dc67671b37c, type: 3}
+    Multiple: 1
+    Hash: 89477c375d9d6c6864a51b4ad9e0110d
+    Tags: []
   modifiers: []

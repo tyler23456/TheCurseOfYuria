@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: DwellerWand
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 8a1e88e7e6d84136aa61fe24c84bf130, type: 3}
+  _prefab: {fileID: 5713426824550245889, guid: 24ea2b1f01abdfb4f90d6412e0312808, type: 3}
   info: 
+  _itemSprites:
+    Name: DwellerWand
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.DwellerWand
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Wand/DwellerWand.png
+    Sprite: {fileID: 21300000, guid: 192964b10f7d486bae9bef56a8a35208, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 192964b10f7d486bae9bef56a8a35208, type: 3}
+    Multiple: 1
+    Hash: fb8893953e670a54c7d254de58954efd
+    Tags: []
   modifiers: []

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: GuardShield
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 977604879b384844976ceee7b952f8ed, type: 3}
+  _prefab: {fileID: 457132377345722514, guid: 58e807c6c1f45a044917539130deabb6, type: 3}
   info: 
+  _itemSprites:
+    Name: GuardShield
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.GuardShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Basic/GuardShield.png
+    Sprite: {fileID: 21300000, guid: bc84fa9d185b47ceba4507bae52fee7e, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: bc84fa9d185b47ceba4507bae52fee7e, type: 3}
+    Multiple: 1
+    Hash: 177410a5e3be4b5b34fda7bc2be21e29
+    Tags: []
   modifiers: []

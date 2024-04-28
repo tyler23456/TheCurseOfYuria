@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Heal
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 22605ee15077abd4eb0a6af87093b47c, type: 3}
+  _prefab: {fileID: 2639203640496204149, guid: 551277417d36eee4db73461ea73869fe, type: 3}
   info: 
   power: 0
   cost: 0

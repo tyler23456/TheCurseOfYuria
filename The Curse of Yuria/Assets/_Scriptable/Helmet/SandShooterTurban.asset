@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: SandShooterTurban
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 7777c6f70dcd4fc0a7252e78e6d544a9, type: 3}
+  _prefab: {fileID: 3468207436709955396, guid: 21ff2a1f4ef691243b5fb399e956fe1a, type: 3}
   info: 
+  _itemSprites:
+    Name: SandShooterTurban
+    Collection: SandLords
+    Edition: Plugins
+    Id: Plugins.SandLords.Helmet.SandShooterTurban
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/SandLords/SandShooterTurban.png
+    Sprite: {fileID: 21300000, guid: 64db7735559f45f081d6e7f591d82c69, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 64db7735559f45f081d6e7f591d82c69, type: 3}
+    Multiple: 1
+    Hash: b25a739dc9cac99a76f20364a50e6e56
+    Tags: []
   modifiers: []

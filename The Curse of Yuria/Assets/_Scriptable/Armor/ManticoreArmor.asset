@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: ManticoreArmor
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 51a01e8a71b44df48c7a5265b5c82d37, type: 3}
+  _prefab: {fileID: 1716105759736788707, guid: 6a20688ea15c7854c8c072b51cd5730f, type: 3}
   info: 
+  _itemSprites:
+    Name: ManticoreArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.ManticoreArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/ManticoreArmor.png
+    Sprite: {fileID: 21300004, guid: e069ec1bdabc4915a0d3a67ce657c4ba, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: e069ec1bdabc4915a0d3a67ce657c4ba, type: 3}
+    - {fileID: 21300002, guid: e069ec1bdabc4915a0d3a67ce657c4ba, type: 3}
+    - {fileID: 21300022, guid: e069ec1bdabc4915a0d3a67ce657c4ba, type: 3}
+    - {fileID: 21300010, guid: e069ec1bdabc4915a0d3a67ce657c4ba, type: 3}
+    - {fileID: 21300008, guid: e069ec1bdabc4915a0d3a67ce657c4ba, type: 3}
+    - {fileID: 21300016, guid: e069ec1bdabc4915a0d3a67ce657c4ba, type: 3}
+    - {fileID: 21300018, guid: e069ec1bdabc4915a0d3a67ce657c4ba, type: 3}
+    - {fileID: 21300012, guid: e069ec1bdabc4915a0d3a67ce657c4ba, type: 3}
+    - {fileID: 21300006, guid: e069ec1bdabc4915a0d3a67ce657c4ba, type: 3}
+    - {fileID: 21300014, guid: e069ec1bdabc4915a0d3a67ce657c4ba, type: 3}
+    - {fileID: 21300020, guid: e069ec1bdabc4915a0d3a67ce657c4ba, type: 3}
+    - {fileID: 21300000, guid: e069ec1bdabc4915a0d3a67ce657c4ba, type: 3}
+    Multiple: 1
+    Hash: 22c21ed25abc572b32e59ea8899fc678
+    Tags: []
   modifiers: []

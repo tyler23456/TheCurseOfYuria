@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Ice
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 2904ff416b073ae4b90056c2afd01b31, type: 3}
+  _prefab: {fileID: 6149916313971821242, guid: 7a547b95a29d2af429a9425d5dfe4feb, type: 3}
   info: 
   power: 0
   cost: 0

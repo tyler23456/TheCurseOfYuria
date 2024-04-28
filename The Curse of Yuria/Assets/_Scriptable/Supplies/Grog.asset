@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Grog
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 04e1a9808eb24f47b4807abc23c75915, type: 3}
+  _prefab: {fileID: 7043081342302213153, guid: 451076f09bc5b1b48957836e28944d6b, type: 3}
   info: 
   power: 0
   cost: 0

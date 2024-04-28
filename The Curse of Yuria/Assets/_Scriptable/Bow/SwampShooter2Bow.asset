@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: SwampShooter2Bow
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 3de38179241e45bdb00ebcaabe06aa88, type: 3}
+  _prefab: {fileID: 939255856107551855, guid: 495c503dae8043043b507203cafb5786, type: 3}
   info: 
+  _itemSprites:
+    Name: SwampShooter2Bow
+    Collection: SwampLords
+    Edition: Plugins
+    Id: Plugins.SwampLords.Bow.SwampShooter2Bow
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Bow/SwampLords/SwampShooter2Bow.png
+    Sprite: {fileID: 21300004, guid: f6015356ac1146c5b2aa09ae17a7140b, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: f6015356ac1146c5b2aa09ae17a7140b, type: 3}
+    - {fileID: 21300002, guid: f6015356ac1146c5b2aa09ae17a7140b, type: 3}
+    - {fileID: 21300000, guid: f6015356ac1146c5b2aa09ae17a7140b, type: 3}
+    Multiple: 1
+    Hash: 7b2578b281c2bedaa2bdaad696787fb7
+    Tags: []
   modifiers: []

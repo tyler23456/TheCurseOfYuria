@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: AutoReplenish
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 3f04c52b262f57949b6ffe45f4ad6a53, type: 3}
+  _prefab: {fileID: 4987106430323052793, guid: 9a39d99550ad2f141a7575f4802eff96, type: 3}
   info: 
   power: 0
   cost: 0

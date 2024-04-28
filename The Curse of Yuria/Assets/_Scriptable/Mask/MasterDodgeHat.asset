@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: MasterDodgeHat
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 6df36ed8f65242cd9784cb69375ece6c, type: 3}
+  _prefab: {fileID: 1070149779879028230, guid: 04bbdec72158b414c8d0abfee71f5927, type: 3}
   info: 
+  _itemSprites:
+    Name: MasterDodgeHat
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.MasterDodgeHat
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/MasterDodgeHat.png
+    Sprite: {fileID: 21300000, guid: 6a1316916ed047dead42e0105e203c45, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 6a1316916ed047dead42e0105e203c45, type: 3}
+    Multiple: 1
+    Hash: 883458afd852e959663f413f7e3cb7e8
+    Tags: []
   modifiers: []

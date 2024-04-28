@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Paralyze
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 4534db6667d3b754c8eef891eff1dd95, type: 3}
+  _prefab: {fileID: 5842118495265803460, guid: 20e9a9e2f68389342bdb5d485446a752, type: 3}
   info: 
   power: 0
   cost: 0

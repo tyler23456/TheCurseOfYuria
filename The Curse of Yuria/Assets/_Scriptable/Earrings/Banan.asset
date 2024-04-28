@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: Banan
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 40a3474602294f51980db6aa690741c8, type: 3}
+  _prefab: {fileID: 4048119691985122218, guid: 8f32f24bd2eb8bf488b93022a6d09139, type: 3}
   info: 
+  _itemSprites:
+    Name: Banan
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Earrings.Banan
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Earrings/Basic/Banan.png
+    Sprite: {fileID: 21300000, guid: 54d4102e9c154fd0ac884dc95ceb93ca, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 54d4102e9c154fd0ac884dc95ceb93ca, type: 3}
+    Multiple: 1
+    Hash: cd68029e59d6809b10b13f427f3f37bc
+    Tags: []
   modifiers: []

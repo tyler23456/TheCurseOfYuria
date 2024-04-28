@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: BerserkArmor
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 8468f4f10db844369891b926b6d2d612, type: 3}
+  _prefab: {fileID: 6678547116578576854, guid: 4211631f42c951a4bb1e0d0c4c24f6a0, type: 3}
   info: 
+  _itemSprites:
+    Name: BerserkArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.BerserkArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/BerserkArmor.png
+    Sprite: {fileID: 21300004, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300002, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300022, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300010, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300008, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300016, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300018, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300012, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300006, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300014, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300020, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300000, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    Multiple: 1
+    Hash: 33ceb31eb167a69247014b570809920e
+    Tags: []
   modifiers: []

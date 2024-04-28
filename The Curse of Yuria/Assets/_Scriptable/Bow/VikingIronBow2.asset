@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: VikingIronBow2
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: b74c8211acfd46aebe8a00699afa9045, type: 3}
+  _prefab: {fileID: 9051164167651435095, guid: a747e4fde64b2a34e8f274ac70e69098, type: 3}
   info: 
+  _itemSprites:
+    Name: VikingIronBow2
+    Collection: Vikings
+    Edition: Plugins
+    Id: Plugins.Vikings.Bow.VikingIronBow2
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Bow/Vikings/VikingIronBow2.png
+    Sprite: {fileID: 21300004, guid: 6f8e574283af4bc99cfa29c082767351, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 6f8e574283af4bc99cfa29c082767351, type: 3}
+    - {fileID: 21300002, guid: 6f8e574283af4bc99cfa29c082767351, type: 3}
+    - {fileID: 21300000, guid: 6f8e574283af4bc99cfa29c082767351, type: 3}
+    Multiple: 1
+    Hash: 89c58e77e9acdcabcf5fb28d59804ef6
+    Tags: []
   modifiers: []

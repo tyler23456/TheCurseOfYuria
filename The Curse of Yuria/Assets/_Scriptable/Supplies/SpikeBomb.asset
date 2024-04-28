@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: SpikeBomb
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: ea2079d7752ea1c4098b3edad8658ac8, type: 3}
+  _prefab: {fileID: 4492632256306755589, guid: 1142ac3b1029c2f4fb98c9d0f224d8b7, type: 3}
   info: 
   power: 0
   cost: 0

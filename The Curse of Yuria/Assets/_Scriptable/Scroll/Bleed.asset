@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Bleed
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 98455e175bf45844da992096ba5038f8, type: 3}
+  _prefab: {fileID: 4798806050064747668, guid: 2d0fd395e056d7744bb96ba01ac68701, type: 3}
   info: 
   power: 0
   cost: 0

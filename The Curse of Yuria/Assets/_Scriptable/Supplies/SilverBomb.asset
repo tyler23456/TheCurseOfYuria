@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: SilverBomb
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 0473149c85540c747a199cd06ef66d4e, type: 3}
+  _prefab: {fileID: 4461194256350819004, guid: 4a47b11d95fe5a945a0f96688e362f14, type: 3}
   info: 
   power: 0
   cost: 0

@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: CataphractHelm [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: c2d226e4aa0a4dac834b3b076b56c4aa, type: 3}
+  _prefab: {fileID: 9012554648984346019, guid: 80b96d28ffbf83c48a37b4ef591e0a2e, type: 3}
   info: 
+  _itemSprites:
+    Name: CataphractHelm [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.CataphractHelm [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/CataphractHelm
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: f5682c7a42e646d6b672dfdfc22dabb2, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: f5682c7a42e646d6b672dfdfc22dabb2, type: 3}
+    Multiple: 1
+    Hash: 5ceaa003727ae2e342f8de9213aa6d36
+    Tags:
+    - Paint
   modifiers: []

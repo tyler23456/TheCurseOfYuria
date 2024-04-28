@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: DecoratedSilverRing
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: eafb90b8a9273e247b68681e67860578, type: 3}
+  _prefab: {fileID: 8388211600192344265, guid: ccaec7525fcd4d943a30d2363728f220, type: 3}
   info: 
   power: 0
   cost: 0

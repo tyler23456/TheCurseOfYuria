@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: RedLionShield
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: bf8a2bd620194acbb7d99e1ac0afa607, type: 3}
+  _prefab: {fileID: 119275695492379948, guid: 5d97eab005c66c34fa5d78681ec8d68e, type: 3}
   info: 
+  _itemSprites:
+    Name: RedLionShield
+    Collection: Thrones
+    Edition: Plugins
+    Id: Plugins.Thrones.Shield.RedLionShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Thrones/RedLionShield.png
+    Sprite: {fileID: 21300000, guid: a02d406e0a9f406db93e31eb1f7b852e, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: a02d406e0a9f406db93e31eb1f7b852e, type: 3}
+    Multiple: 1
+    Hash: 13db8c67b2c81859df3bca5b9a508c73
+    Tags: []
   modifiers: []

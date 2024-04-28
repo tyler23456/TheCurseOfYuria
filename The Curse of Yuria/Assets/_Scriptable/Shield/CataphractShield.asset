@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: CataphractShield
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 09dcab952f044a5682b45f62457bb963, type: 3}
+  _prefab: {fileID: 8725579151819093765, guid: cb72e1077e99b714a8cacbd3a8b3121d, type: 3}
   info: 
+  _itemSprites:
+    Name: CataphractShield
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.CataphractShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Basic/CataphractShield.png
+    Sprite: {fileID: 21300000, guid: 17c4cc40224b4fc1ac33189f9f9d03c9, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 17c4cc40224b4fc1ac33189f9f9d03c9, type: 3}
+    Multiple: 1
+    Hash: c901ce541b54640e20741ecaea31f898
+    Tags: []
   modifiers: []

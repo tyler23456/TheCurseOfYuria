@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: FalconLightArmor
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 66e1337a85a646dc84e8bbd4a69a0530, type: 3}
+  _prefab: {fileID: 4172974734900247009, guid: b9426319e6adcff47aa609e72478c5c8, type: 3}
   info: 
+  _itemSprites:
+    Name: FalconLightArmor
+    Collection: Knights
+    Edition: Plugins
+    Id: Plugins.Knights.Armor.FalconLightArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Knights/FalconLightArmor.png
+    Sprite: {fileID: 21300024, guid: 11116adc2a3544bf8a7d1b5964f21975, type: 3}
+    Sprites:
+    - {fileID: 21300024, guid: 11116adc2a3544bf8a7d1b5964f21975, type: 3}
+    - {fileID: 21300022, guid: 11116adc2a3544bf8a7d1b5964f21975, type: 3}
+    - {fileID: 21300040, guid: 11116adc2a3544bf8a7d1b5964f21975, type: 3}
+    - {fileID: 21300028, guid: 11116adc2a3544bf8a7d1b5964f21975, type: 3}
+    - {fileID: 21300026, guid: 11116adc2a3544bf8a7d1b5964f21975, type: 3}
+    - {fileID: 21300034, guid: 11116adc2a3544bf8a7d1b5964f21975, type: 3}
+    - {fileID: 21300036, guid: 11116adc2a3544bf8a7d1b5964f21975, type: 3}
+    - {fileID: 21300030, guid: 11116adc2a3544bf8a7d1b5964f21975, type: 3}
+    - {fileID: 21300006, guid: 11116adc2a3544bf8a7d1b5964f21975, type: 3}
+    - {fileID: 21300032, guid: 11116adc2a3544bf8a7d1b5964f21975, type: 3}
+    - {fileID: 21300038, guid: 11116adc2a3544bf8a7d1b5964f21975, type: 3}
+    - {fileID: 21300000, guid: 11116adc2a3544bf8a7d1b5964f21975, type: 3}
+    Multiple: 1
+    Hash: 32293d1a92da7a93b821bc5845eec338
+    Tags: []
   modifiers: []

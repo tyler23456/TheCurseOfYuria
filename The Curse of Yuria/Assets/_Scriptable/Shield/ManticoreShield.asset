@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: ManticoreShield
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 58cce7db553d4e4eb33687309ef3ba0a, type: 3}
+  _prefab: {fileID: 1857494796768959627, guid: 9b82233eae3730e4887ce44912b54336, type: 3}
   info: 
+  _itemSprites:
+    Name: ManticoreShield
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.ManticoreShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Shield/Basic/ManticoreShield.png
+    Sprite: {fileID: 21300000, guid: ff620e6fba0d4abcbfd7653a7aef7da5, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: ff620e6fba0d4abcbfd7653a7aef7da5, type: 3}
+    Multiple: 1
+    Hash: a2b4a6b40231f51e88711114f4cc7f9d
+    Tags: []
   modifiers: []

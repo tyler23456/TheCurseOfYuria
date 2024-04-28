@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: Bilbo
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 14eec712621d4e658db0568af21abe21, type: 3}
+  _prefab: {fileID: 5068872013888464739, guid: b012fefac023a7b479760d7468908e68, type: 3}
   info: 
+  _itemSprites:
+    Name: Bilbo
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.Bilbo
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Sword/Bilbo.png
+    Sprite: {fileID: 21300000, guid: fb390528d9684d4f920a0e830b81a606, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: fb390528d9684d4f920a0e830b81a606, type: 3}
+    Multiple: 1
+    Hash: 62fed58390843642c879e5db31ee0be8
+    Tags: []
   modifiers: []

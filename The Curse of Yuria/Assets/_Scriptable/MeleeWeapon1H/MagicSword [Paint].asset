@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: MagicSword [Paint]
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 42af8dcd4f6047e38a9f2a40239a7791, type: 3}
+  _prefab: {fileID: 2331379644217275189, guid: 38d9fd036b0d0f64fb979e381bcc6222, type: 3}
   info: 
+  _itemSprites:
+    Name: MagicSword [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.MagicSword [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Sword/MagicSword
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 2edcf2c6a70d4112a722ef201e8fff41, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 2edcf2c6a70d4112a722ef201e8fff41, type: 3}
+    Multiple: 1
+    Hash: eba25a090e372017d5ddb837163c512f
+    Tags:
+    - Paint
   modifiers: []

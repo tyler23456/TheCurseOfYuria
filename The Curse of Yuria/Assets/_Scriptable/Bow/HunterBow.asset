@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: HunterBow
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 188ee285adf84448b307a36f963d5760, type: 3}
+  _prefab: {fileID: 8285527424498006569, guid: 9b75d6f016b5f3547a964041a57c3e75, type: 3}
   info: 
+  _itemSprites:
+    Name: HunterBow
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Bow.HunterBow
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Sprites/Equipment/Bow/Basic/HunterBow.png
+    Sprite: {fileID: 21300004, guid: 506987369b8146e09eb67a09c9b4e7f4, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 506987369b8146e09eb67a09c9b4e7f4, type: 3}
+    - {fileID: 21300002, guid: 506987369b8146e09eb67a09c9b4e7f4, type: 3}
+    - {fileID: 21300000, guid: 506987369b8146e09eb67a09c9b4e7f4, type: 3}
+    Multiple: 1
+    Hash: 9bae3cafe1e7c3a4b8f51eff92965a69
+    Tags: []
   modifiers: []

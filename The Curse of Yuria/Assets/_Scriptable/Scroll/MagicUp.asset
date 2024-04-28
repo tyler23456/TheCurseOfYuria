@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: MagicUp
   m_EditorClassIdentifier: 
   guid: 0
-  icon: {fileID: 0}
-  sprites: []
-  prefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: aa7a7fca004bcc64aa7f473381cb250b, type: 3}
+  _prefab: {fileID: 3994353508821131331, guid: f0155b471aa5e6c45967008427d1baf2, type: 3}
   info: 
   power: 0
   cost: 0
