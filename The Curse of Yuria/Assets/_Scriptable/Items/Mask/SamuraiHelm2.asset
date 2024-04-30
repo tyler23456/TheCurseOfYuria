@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: SamuraiHelm2
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: c0492cf6a51f46d4a2c52af9e1c09532, type: 3}
+  _prefab: {fileID: 242034419202913276, guid: fb63838ef05137a4e92e4cdf8a3831db, type: 3}
+  info: 
+  _itemSprites:
+    Name: SamuraiHelm2
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.Helmet.SamuraiHelm2
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Helmet/Samurai/SamuraiHelm2.png
+    Sprite: {fileID: 21300000, guid: 5be1ba62025b484f9daf2634d95068da, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 5be1ba62025b484f9daf2634d95068da, type: 3}
+    Multiple: 1
+    Hash: a1375632ce72c0644b74ebd9d29ab2cd
+    Tags: []
+  modifiers: []

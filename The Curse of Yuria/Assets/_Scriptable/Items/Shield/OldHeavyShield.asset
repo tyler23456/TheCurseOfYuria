@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: OldHeavyShield
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 0417a931cb3848c38f973cb9a626632c, type: 3}
+  _prefab: {fileID: 477538669009141387, guid: 3621710f5af237d4688b8017daa7e8ea, type: 3}
+  info: 
+  _itemSprites:
+    Name: OldHeavyShield
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.OldHeavyShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Shield/Basic/OldHeavyShield.png
+    Sprite: {fileID: 21300000, guid: e69b33f5b7274a908f9415371e4ffe0f, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: e69b33f5b7274a908f9415371e4ffe0f, type: 3}
+    Multiple: 1
+    Hash: 7d1e6df425341fa39f6e1358596c15e2
+    Tags: []
+  modifiers: []

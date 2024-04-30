@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: PeasantClothing
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 77e3edd942ac488fbdeff10dd17063a3, type: 3}
+  _prefab: {fileID: 2103583846001749605, guid: 099af54b03a9c9149a0bda2a7cc2c9d3, type: 3}
+  info: 
+  _itemSprites:
+    Name: PeasantClothing
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.PeasantClothing
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Armor/Basic/PeasantClothing.png
+    Sprite: {fileID: 21300024, guid: 968f66442528470cabafd5508554ca5e, type: 3}
+    Sprites:
+    - {fileID: 21300024, guid: 968f66442528470cabafd5508554ca5e, type: 3}
+    - {fileID: 21300022, guid: 968f66442528470cabafd5508554ca5e, type: 3}
+    - {fileID: 21300040, guid: 968f66442528470cabafd5508554ca5e, type: 3}
+    - {fileID: 21300028, guid: 968f66442528470cabafd5508554ca5e, type: 3}
+    - {fileID: 21300026, guid: 968f66442528470cabafd5508554ca5e, type: 3}
+    - {fileID: 21300034, guid: 968f66442528470cabafd5508554ca5e, type: 3}
+    - {fileID: 21300036, guid: 968f66442528470cabafd5508554ca5e, type: 3}
+    - {fileID: 21300030, guid: 968f66442528470cabafd5508554ca5e, type: 3}
+    - {fileID: 21300006, guid: 968f66442528470cabafd5508554ca5e, type: 3}
+    - {fileID: 21300032, guid: 968f66442528470cabafd5508554ca5e, type: 3}
+    - {fileID: 21300038, guid: 968f66442528470cabafd5508554ca5e, type: 3}
+    - {fileID: 21300000, guid: 968f66442528470cabafd5508554ca5e, type: 3}
+    Multiple: 1
+    Hash: 5b867977cdf7c0105c20f19e6b8d376e
+    Tags: []
+  modifiers: []

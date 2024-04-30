@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: BronzeDagger
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 60c33c713b264fbca299955b76a871f4, type: 3}
+  _prefab: {fileID: 4045074827382438865, guid: 89e68fc0204d42547b67d753f18a62fb, type: 3}
+  info: 
+  _itemSprites:
+    Name: BronzeDagger
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.BronzeDagger
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/MeleeWeapon1H/Basic/Dagger/BronzeDagger.png
+    Sprite: {fileID: 21300000, guid: 4f8bc5e32cf7447ea188efec390e9fc4, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 4f8bc5e32cf7447ea188efec390e9fc4, type: 3}
+    Multiple: 1
+    Hash: c29b4f49c72b4d3febbfe0ac3a415136
+    Tags: []
+  modifiers: []

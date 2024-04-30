@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: SantaWand
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 92a15baa788642918647b44e8340dcfb, type: 3}
+  _prefab: {fileID: 7481358478970177279, guid: 5d603a505572e8540ab4faacf9d1aaa1, type: 3}
+  info: 
+  _itemSprites:
+    Name: SantaWand
+    Collection: Christmas
+    Edition: Plugins
+    Id: Plugins.Christmas.MeleeWeapon1H.SantaWand
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/MeleeWeapon1H/Christmas/Wand/SantaWand.png
+    Sprite: {fileID: 21300000, guid: 23093e02bba14391aa6594bbbf240a9f, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 23093e02bba14391aa6594bbbf240a9f, type: 3}
+    Multiple: 1
+    Hash: 517b1f44b6ebcc772928359eaae516ab
+    Tags: []
+  modifiers: []

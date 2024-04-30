@@ -4,40 +4,21 @@ using UnityEngine;
 
 namespace TCOY.Actors
 {
+    [System.Serializable]
     public class Position : IPosition
     {
-        [SerializeField] bool isActive = false;
         [SerializeField] Rigidbody2D rigidBody2D;
-
-        Vector2 velocity = Vector2.zero;
-
-        public bool GetIsActive()
-        {
-            return isActive;
-        }
-
-        public void SetIsActive(bool isActive)
-        {
-            this.isActive = isActive;
-        }
 
         public void Set(Vector2 position)
         {
-            velocity = -rigidBody2D.velocity + position;
+            rigidBody2D.Sleep();
+            rigidBody2D.transform.position = position;
+            rigidBody2D.WakeUp();
         }
 
-        public void Add(float offsetX)
+        public void Add(Vector2 offset, ForceMode2D forceMode2D)
         {
-            velocity += new Vector2(offsetX, 0f);
-        }
-
-        public void Update()
-        {
-            if (!isActive)
-                return;
-
-            rigidBody2D.velocity = velocity;
-            velocity = Vector2.zero;
+            rigidBody2D.AddForce(offset, forceMode2D);
         }
     }
 }

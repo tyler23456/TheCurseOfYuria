@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: ThiefHelm
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 7643728afde3432ebab8b4bf29b29432, type: 3}
+  _prefab: {fileID: 6173348330711939803, guid: ea996629e94436e4d98de921a3c6a856, type: 3}
+  info: 
+  _itemSprites:
+    Name: ThiefHelm [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.ThiefHelm [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Helmet/Basic/ThiefHelm
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 75525ee8bb3843d1817463d96b3b8580, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 75525ee8bb3843d1817463d96b3b8580, type: 3}
+    Multiple: 1
+    Hash: 1227f27029662fe8519681c9fea267ce
+    Tags:
+    - Paint
+  modifiers: []

@@ -32,10 +32,10 @@ namespace TCOY.Actors
         void MakeADecision()
         {
             string skill = combinedSkills.Peek();
-            ISkill.Type skillType = factory.GetAbilityPrefab(skill).getType;
+            IItem.Type skillType = factory.GetItem(skill).getType;
             IActor target = null;
 
-            if (skillType == ISkill.Type.Damage)
+            if (skillType == IItem.Type.Damage)
             {
                 target = global.getParty[Random.Range(0, global.getParty.Count)];
             }
@@ -44,8 +44,9 @@ namespace TCOY.Actors
                 target = this;
             }
 
-            //need to decide a target;
-            global.commandQueue.Enqueue((this, combinedSkills.Peek(), target));
+            Command newCommand = new Command(this, factory.GetItem(combinedSkills.Peek()), new IActor[] { target });
+            global.commandQueue.Enqueue(newCommand);
+            combinedSkills.Enqueue(combinedSkills.Dequeue());
         }
     }
 }

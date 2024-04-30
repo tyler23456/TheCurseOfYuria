@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: TwoHandedVikingSword3
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 61810f2683444653a4c5892f8a6cd067, type: 3}
+  _prefab: {fileID: 4901728563142235779, guid: 2e04ac5162fd63945b075f2ed7ecdf8b, type: 3}
+  info: 
+  _itemSprites:
+    Name: TwoHandedVikingSword3 [Paint]
+    Collection: Vikings
+    Edition: Plugins
+    Id: Plugins.Vikings.MeleeWeapon2H.TwoHandedVikingSword3 [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/MeleeWeapon2H/Vikings/Sword/TwoHandedVikingSword3
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: f4aa25e64d3e42fd83ea8446340680cf, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: f4aa25e64d3e42fd83ea8446340680cf, type: 3}
+    Multiple: 1
+    Hash: f201687694a9ae54c7bf07a83a385be8
+    Tags:
+    - Paint
+  modifiers: []

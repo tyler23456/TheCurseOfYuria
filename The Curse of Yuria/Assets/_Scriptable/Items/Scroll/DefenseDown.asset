@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
+  m_Name: DefenseDown
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 6f83f5010b12c69478df0d75e7a14bb4, type: 3}
+  _prefab: {fileID: 2672134717716503582, guid: 0f6f9921a5b6ab9409be2cdf1cc9ebf1, type: 3}
+  info: 
+  power: 0
+  cost: 0
+  duration: Infinity
+  group: 0
+  type: 0
+  element: 0
+  particleSystem: {fileID: 0}
+  effects: []

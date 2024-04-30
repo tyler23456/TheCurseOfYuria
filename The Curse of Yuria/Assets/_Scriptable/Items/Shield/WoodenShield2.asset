@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: WoodenShield2
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: bf30a22ef12740f487baf350ffb71040, type: 3}
+  _prefab: {fileID: 6428853147635024794, guid: 7320039327445f24aaa703aa92329354, type: 3}
+  info: 
+  _itemSprites:
+    Name: WoodenShield2
+    Collection: Vikings
+    Edition: Plugins
+    Id: Plugins.Vikings.Shield.WoodenShield2
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Shield/Vikings/WoodenShield2.png
+    Sprite: {fileID: 21300000, guid: d734c4306ece46d6ada76e5e6da9acfa, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: d734c4306ece46d6ada76e5e6da9acfa, type: 3}
+    Multiple: 1
+    Hash: 05415dfb2a2aaccda929de5c87c71124
+    Tags: []
+  modifiers: []

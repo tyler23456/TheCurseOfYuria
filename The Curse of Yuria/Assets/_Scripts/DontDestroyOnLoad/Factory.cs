@@ -13,52 +13,21 @@ namespace TCOY.DontDestroyOnLoad
     public class Factory : MonoBehaviour, IFactory
     {
         [SerializeField] AssetLabelReference itemsReference;
-        [SerializeField] AssetLabelReference particleSystemReference;
-        [SerializeField] AssetLabelReference abilitiesReference;
 
-        Dictionary<string, ItemIcon> icons = new Dictionary<string, ItemIcon>();
-        Dictionary<string, Sprite> itemPrefabs = new Dictionary<string, Sprite>();     
-        Dictionary<string, GameObject> particleSystemPrefabs = new Dictionary<string, GameObject>();
-        Dictionary<string, ISkill> abilityPrefabs = new Dictionary<string, ISkill>();
+        Dictionary<string, IItem> items = new Dictionary<string, IItem>();     
+
 
         private void Awake()
         {
-
-
-            Addressables.LoadAssetsAsync<Sprite>(itemsReference, (i) =>
+            Addressables.LoadAssetsAsync<IItem>(itemsReference, (i) =>
             {
-                itemPrefabs.Add(i.name, i);
-            }).WaitForCompletion();
-
-            Addressables.LoadAssetsAsync<GameObject>(particleSystemReference, (i) =>
-            {
-                particleSystemPrefabs.Add(i.name, i);
-            }).WaitForCompletion();
-
-            Addressables.LoadAssetsAsync<GameObject>(abilitiesReference, (i) =>
-            {
-                abilityPrefabs.Add(i.name, i.GetComponent<ISkill>());
+                items.Add(i.itemName, i);
             }).WaitForCompletion();
         }
 
-        public ItemIcon GetIcon(string name)
+        public IItem GetItem(string name)
         {
-            return icons[name];
-        }
-
-        public Sprite GetItemPrefab(string name)
-        {
-            return itemPrefabs[name];
-        }
-
-        public GameObject GetParticleSystemPrefab(string name)
-        {
-            return particleSystemPrefabs[name];
-        }
-
-        public ISkill GetAbilityPrefab(string name)
-        {
-            return abilityPrefabs[name];
+            return items[name];
         }
     }
 }

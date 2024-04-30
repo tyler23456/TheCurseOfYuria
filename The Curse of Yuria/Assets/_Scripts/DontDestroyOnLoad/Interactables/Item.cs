@@ -5,7 +5,7 @@ using HeroEditor.Common.Enums;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class Item : InteractableBase, IInteractable
+    public class Item : InteractableBase
     {
         protected new void Start()
         {
@@ -17,7 +17,9 @@ namespace TCOY.DontDestroyOnLoad
         
         public override void Interact(IPlayer player)
         {
-            global.GetInventoryOf(name).Add(name, 1);
+            IItem.Category type = factory.GetItem(name).getCategory;
+
+            global.inventories[type].Add(name, 1);
             gameObject.SetActive(false);
             global.getCompletedIds.Add(getID, 1);
         }

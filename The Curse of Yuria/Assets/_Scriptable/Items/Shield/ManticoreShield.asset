@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: ManticoreShield
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 58cce7db553d4e4eb33687309ef3ba0a, type: 3}
+  _prefab: {fileID: 7526756544939675211, guid: f83f469f63666d847acc9c63036c4024, type: 3}
+  info: 
+  _itemSprites:
+    Name: ManticoreShield
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.ManticoreShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Shield/Basic/ManticoreShield.png
+    Sprite: {fileID: 21300000, guid: ff620e6fba0d4abcbfd7653a7aef7da5, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: ff620e6fba0d4abcbfd7653a7aef7da5, type: 3}
+    Multiple: 1
+    Hash: a2b4a6b40231f51e88711114f4cc7f9d
+    Tags: []
+  modifiers: []

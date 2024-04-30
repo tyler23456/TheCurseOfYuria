@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: SamuraiElderSword
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: c3715341b8fe42ebb4937130f2a24cb2, type: 3}
+  _prefab: {fileID: 4817030064884403628, guid: c90a19b4e09591544939f8d85d058fd4, type: 3}
+  info: 
+  _itemSprites:
+    Name: SamuraiElderSword
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.MeleeWeapon2H.SamuraiElderSword
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/MeleeWeapon2H/Samurai/Sword/SamuraiElderSword.png
+    Sprite: {fileID: 21300000, guid: 81d33869508747698c545a5a0efce405, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 81d33869508747698c545a5a0efce405, type: 3}
+    Multiple: 1
+    Hash: 85ccfc0cb55a37ea58b478e2fd957d4d
+    Tags: []
+  modifiers: []

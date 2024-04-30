@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: ShamanMask
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 7ecfda154b4446ce8cf07516a8def0b4, type: 3}
+  _prefab: {fileID: 1896197854897698233, guid: 04842451abf7eee4dbd48fb32dae069d, type: 3}
+  info: 
+  _itemSprites:
+    Name: ShamanMask [FullHair]
+    Collection: SwampLords
+    Edition: Plugins
+    Id: Plugins.SwampLords.Helmet.ShamanMask [FullHair]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Helmet/SwampLords/ShamanMask
+      [FullHair].png
+    Sprite: {fileID: 21300000, guid: 52163ef8576943f79672de12704aba19, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 52163ef8576943f79672de12704aba19, type: 3}
+    Multiple: 1
+    Hash: 6434f1a6f5b60166886a79375e396fe8
+    Tags:
+    - FullHair
+  modifiers: []

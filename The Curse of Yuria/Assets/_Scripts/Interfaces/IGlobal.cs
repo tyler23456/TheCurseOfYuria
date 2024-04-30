@@ -9,24 +9,12 @@ public interface IGlobal
     Camera getCamera { get; }
 
     Queue<IPlayer.Names> aTBGuageFilledQueue { get; set; }
-    Queue<(IActor user, string command, IActor target)> commandQueue { get; set; }
+    Queue<ICommand> commandQueue { get; }
 
-    IInventory getHelmets { get; }
-    IInventory getEarrings { get; }
-    IInventory getGlasses { get; }
-    IInventory getMasks { get; }
-    IInventory getMeleeWeapons1H { get; }
-    IInventory getMeleeWeapons2H { get;}
-    IInventory getCapes { get; }
-    IInventory getArmor { get; }
-    IInventory getShields { get; }
-    IInventory getBows { get; }
-    IInventory getSupplies { get; }
-    IInventory getQuestItems { get; }
+    Dictionary<IItem.Category, Inventory> inventories { get; }
+
     IInventory getCompletedQuests { get; }
     IInventory getCompletedIds { get; }
-
-    IInventory GetInventoryOf(string itemName);
 
     Coroutine StartCoroutine(IEnumerator routine);
 }

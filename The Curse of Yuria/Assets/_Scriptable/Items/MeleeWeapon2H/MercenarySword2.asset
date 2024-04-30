@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: MercenarySword2
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 62674547513f49daab7a46c0d0de7a67, type: 3}
+  _prefab: {fileID: 8835485539838676448, guid: 7b1b10d473be2304db74472b1f13644c, type: 3}
+  info: 
+  _itemSprites:
+    Name: MercenarySword2 [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon2H.MercenarySword2 [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/MeleeWeapon2H/Basic/Sword/MercenarySword2
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 764dbfa4c66047e6bc2c958286c9543d, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 764dbfa4c66047e6bc2c958286c9543d, type: 3}
+    Multiple: 1
+    Hash: 3aad300d070c53d7bc4fa725e1ad79a1
+    Tags:
+    - Paint
+  modifiers: []

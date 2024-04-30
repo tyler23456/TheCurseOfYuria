@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: IronPickaxe
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: c30c7eea5efd9644b80ae5cf52c0ce09, type: 3}
+  _prefab: {fileID: 446820860489106973, guid: 0228e22a3b00b814189f3aa25bfd9549, type: 3}
+  info: 
+  _itemSprites:
+    Name: IronPickaxe
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon2H.IronPickaxe
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/MeleeWeapon2H/Basic/Axe/IronPickaxe.png
+    Sprite: {fileID: 21300000, guid: 2f56b80d401778a40bdbb2e3c789ec6c, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 2f56b80d401778a40bdbb2e3c789ec6c, type: 3}
+    Multiple: 1
+    Hash: ac4528fba173fd490fb6ce7671ab4cc9
+    Tags: []
+  modifiers: []

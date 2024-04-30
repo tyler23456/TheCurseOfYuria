@@ -7,29 +7,18 @@ namespace TCOY.Actors
 {
     public class PlayerControls : MonoBehaviour, IPlayerControls
     {
-        [SerializeField] new Transform camera;
-        [SerializeField] Animator animator;
-        [SerializeField] Rigidbody2D rigidBody;
-        [SerializeField] float speed = 5f;
-        [SerializeField] float jumpForce = 2f;
-
-        [SerializeField] JumpEvent jumpEvent;
-
-        [SerializeField] Assets.HeroEditor.Common.Scripts.CharacterScripts.Character character;
-        [SerializeField] List<Sprite> sprites;
-
-        Vector2 velocity;
-
+        float speed = 1f;
+        Actor actor;
+        Vector2 velocity = Vector2.zero;
+        
         void Start()
         {
-            character.Armor.Clear();
-            character.Armor.AddRange(sprites);
+            actor = GetComponent<Actor>();     
         }
         
         void Update()
         {
-            animator.SetInteger("State", 0);
-            Vector2 tempVelocity = Vector3.zero;
+            actor.getAnimator.Stand();
 
             if (Input.GetKey(KeyCode.A))
             {
@@ -37,13 +26,13 @@ namespace TCOY.Actors
 
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
-                    animator.SetInteger("State", 2);
-                    tempVelocity = Vector2.left * speed * 2f;
+                    actor.getAnimator.Run();
+                    velocity += Vector2.left * speed * 2f;
                 }                  
                 else
                 {
-                    animator.SetInteger("State", 1);
-                    tempVelocity = Vector2.left * speed;
+                    actor.getAnimator.Walk();
+                    velocity += Vector2.left * speed;
                 }    
             }
             else if (Input.GetKey(KeyCode.D))
@@ -52,36 +41,27 @@ namespace TCOY.Actors
 
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
-                    animator.SetInteger("State", 2);
-                    tempVelocity = Vector2.right * speed * 2f;
+                    actor.getAnimator.Run();
+                    velocity += Vector2.right * speed * 2f;
                 }
                 else
                 {
-                    animator.SetInteger("State", 1);
-                    tempVelocity = Vector2.right * speed;
+                    actor.getAnimator.Walk();
+                    velocity += Vector2.right * speed;
                 }
             }
-
+            
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                //animator.SetInteger("State", 3);
-                jumpEvent.Start();
+                //actor.getAnimator.Jump();
+                velocity += Vector2.up * 100;
             }
-
-            jumpEvent.Update();
-
-            velocity = (tempVelocity + jumpEvent.getJumpVelocity);
-
-
-
-
-
         }
 
-        public void FixedUpdate()
+        void FixedUpdate()
         {
-            rigidBody.velocity = velocity;
-            camera.transform.position = Vector3.Lerp(camera.transform.position, transform.position + new Vector3(0f, 0f, -1f), 0.3f);
+            actor.getPosition.Add(velocity, ForceMode2D.Impulse);
+            velocity = Vector3.zero;
         }
     }
 }

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: VikingSword3
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: c9774a23b84e43a0b5865ee7a1ad654c, type: 3}
+  _prefab: {fileID: 2304985294238840153, guid: 460f2a264fb10c644ad0253af5fe8b01, type: 3}
+  info: 
+  _itemSprites:
+    Name: VikingSword3 [Paint]
+    Collection: Vikings
+    Edition: Plugins
+    Id: Plugins.Vikings.MeleeWeapon1H.VikingSword3 [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/MeleeWeapon1H/Vikings/Sword/VikingSword3
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 16c0ddcfd3b642fb8d9ceddfb6d857c6, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 16c0ddcfd3b642fb8d9ceddfb6d857c6, type: 3}
+    Multiple: 1
+    Hash: 3825aa909ff43b47608290b0cada081d
+    Tags:
+    - Paint
+  modifiers: []

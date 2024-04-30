@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: IronShield1
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: d92b6f638f7b494a97f3b9e57232ebf0, type: 3}
+  _prefab: {fileID: 1269196652349300712, guid: cb9229decacb01743a53eac35845fd6e, type: 3}
+  info: 
+  _itemSprites:
+    Name: IronShield1
+    Collection: Vikings
+    Edition: Plugins
+    Id: Plugins.Vikings.Shield.IronShield1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Shield/Vikings/IronShield1.png
+    Sprite: {fileID: 21300000, guid: fb658fb9d7aa444ebac9f27cb729f9d9, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: fb658fb9d7aa444ebac9f27cb729f9d9, type: 3}
+    Multiple: 1
+    Hash: e606b5c35db3d3427b895e5621bb6c6a
+    Tags: []
+  modifiers: []

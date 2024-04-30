@@ -10,25 +10,25 @@ namespace TCOY.Actors
     [System.Serializable]
     public class Stats : IStats
     {
-        [SerializeField] int maxHP;
-        [SerializeField] int maxMP;
-        [SerializeField] int strength;
-        [SerializeField] int magic;
-        [SerializeField] int defense;
-        [SerializeField] int aura;
-        [SerializeField] int speed;
-        [SerializeField] int luck;
+        [SerializeField] int maxHP = 100;
+        [SerializeField] int maxMP = 50;
+        [SerializeField] int strength = 5;
+        [SerializeField] int magic = 5;
+        [SerializeField] int defense = 5;
+        [SerializeField] int aura = 5;
+        [SerializeField] int speed = 5;
+        [SerializeField] int luck = 5;
 
-        [SerializeField] int poison;
-        [SerializeField] int sleep;
-        [SerializeField] int confuse;
-        [SerializeField] int paralyze;
-        [SerializeField] int fire;
-        [SerializeField] int ice;
-        [SerializeField] int thunder;
-        [SerializeField] int water;
-        [SerializeField] int light;
-        [SerializeField] int dark;
+        [SerializeField] int poison = 0;
+        [SerializeField] int sleep = 0;
+        [SerializeField] int confuse = 0;
+        [SerializeField] int paralyze = 0;
+        [SerializeField] int fire = 0;
+        [SerializeField] int ice = 0;
+        [SerializeField] int thunder = 0;
+        [SerializeField] int water = 0;
+        [SerializeField] int light = 0;
+        [SerializeField] int dark = 0;
 
         int[] attributes;
         int[] weaknesses;
@@ -48,7 +48,7 @@ namespace TCOY.Actors
             return attributes[(int)attribute];
         }
 
-        public int GetWeakness(ISkill.Element type)
+        public int GetWeakness(IItem.Element type)
         {
             return weaknesses[(int)type];
         }
@@ -71,39 +71,39 @@ namespace TCOY.Actors
             attributes[(int)IStats.Attributes.MP] -= cost;
         }
 
-        public bool ApplySkillCalculation(int power, IStats user, ISkill.Group group, ISkill.Type type, ISkill.Element element)
+        public bool ApplySkillCalculation(int power, IStats user, IItem.Group group, IItem.Type type, IItem.Element element)
         {
-            if (type == ISkill.Type.Damage)
-                if (group >= ISkill.Group.Magic)
+            if (type == IItem.Type.Damage)
+                if (group >= IItem.Group.Magic)
                 {
                     int defense = GetAttribute(IStats.Attributes.Aura) + GetWeakness(element);
                     int total = (user.GetAttribute(IStats.Attributes.Magic) + power) * (100 / (100 + defense));
                     onApplyDamage.Invoke(total);
                 }
-                else if (group >= ISkill.Group.Melee)
+                else if (group >= IItem.Group.Melee)
                 {
                     int defense = GetAttribute(IStats.Attributes.Defense) + GetWeakness(element);
                     int total = (user.GetAttribute(IStats.Attributes.Strength) + power) * (100 / (100 + defense));
                     onApplyDamage.Invoke(total);
                 }
-                else if (group >= ISkill.Group.None)
+                else if (group >= IItem.Group.None)
                 {
                     int defense = GetWeakness(element);
                     int total = power * (100 / (100 + defense));
                     onApplyDamage.Invoke(total);
                 }
-            else if (type == ISkill.Type.Recovery)
-                    if (group >= ISkill.Group.Magic)
+            else if (type == IItem.Type.Recovery)
+                    if (group >= IItem.Group.Magic)
                     {
                         int total = user.GetAttribute(IStats.Attributes.Magic) + power;
                         onApplyDamage.Invoke(total);
                     }
-                    else if (group >= ISkill.Group.Melee)
+                    else if (group >= IItem.Group.Melee)
                     {
                         int total = user.GetAttribute(IStats.Attributes.Strength) + power;
                         onApplyDamage.Invoke(total);
                     }
-                    else if (group >= ISkill.Group.None)
+                    else if (group >= IItem.Group.None)
                     {
                         int total = power;
                         onApplyDamage.Invoke(total);

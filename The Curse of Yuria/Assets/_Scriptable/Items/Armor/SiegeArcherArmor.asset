@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: SiegeArcherArmor
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 2ef345c817ea4344ab7a0d02dca11559, type: 3}
+  _prefab: {fileID: 592111156174314368, guid: 39820f87b7dc24946bb5ba9a5823b496, type: 3}
+  info: 
+  _itemSprites:
+    Name: SiegeArcherArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.SiegeArcherArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Armor/Basic/SiegeArcherArmor.png
+    Sprite: {fileID: 21300004, guid: b379ee751d4d4fa7871f3af4c10ffe3f, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: b379ee751d4d4fa7871f3af4c10ffe3f, type: 3}
+    - {fileID: 21300002, guid: b379ee751d4d4fa7871f3af4c10ffe3f, type: 3}
+    - {fileID: 21300022, guid: b379ee751d4d4fa7871f3af4c10ffe3f, type: 3}
+    - {fileID: 21300010, guid: b379ee751d4d4fa7871f3af4c10ffe3f, type: 3}
+    - {fileID: 21300008, guid: b379ee751d4d4fa7871f3af4c10ffe3f, type: 3}
+    - {fileID: 21300016, guid: b379ee751d4d4fa7871f3af4c10ffe3f, type: 3}
+    - {fileID: 21300018, guid: b379ee751d4d4fa7871f3af4c10ffe3f, type: 3}
+    - {fileID: 21300012, guid: b379ee751d4d4fa7871f3af4c10ffe3f, type: 3}
+    - {fileID: 21300006, guid: b379ee751d4d4fa7871f3af4c10ffe3f, type: 3}
+    - {fileID: 21300014, guid: b379ee751d4d4fa7871f3af4c10ffe3f, type: 3}
+    - {fileID: 21300020, guid: b379ee751d4d4fa7871f3af4c10ffe3f, type: 3}
+    - {fileID: 21300000, guid: b379ee751d4d4fa7871f3af4c10ffe3f, type: 3}
+    Multiple: 1
+    Hash: d95e95f7de0c853de5136aaa46201312
+    Tags: []
+  modifiers: []

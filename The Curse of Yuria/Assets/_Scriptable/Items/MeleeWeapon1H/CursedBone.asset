@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: CursedBone
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 12d8629efdde477984c2e8f68d4b8b78, type: 3}
+  _prefab: {fileID: 5689615719021995584, guid: 0a33946e39971f9429f7c5799451c91c, type: 3}
+  info: 
+  _itemSprites:
+    Name: CursedBone
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.CursedBone
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/MeleeWeapon1H/Basic/Wand/CursedBone.png
+    Sprite: {fileID: 21300000, guid: e13115c876144b1f8083aec9c7c6fb7e, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: e13115c876144b1f8083aec9c7c6fb7e, type: 3}
+    Multiple: 1
+    Hash: 82f631c8975bbd84b114fa9147632fc6
+    Tags: []
+  modifiers: []

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: HunterTunic
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: d0cda7245eea4bd18fa15e27002e3833, type: 3}
+  _prefab: {fileID: 1257964466415807940, guid: d003918a61541244bb68d1fb2d9e76c0, type: 3}
+  info: 
+  _itemSprites:
+    Name: HunterTunic
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.HunterTunic
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Armor/Basic/HunterTunic.png
+    Sprite: {fileID: 21300024, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    Sprites:
+    - {fileID: 21300024, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300022, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300040, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300028, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300026, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300034, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300036, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300030, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300006, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300032, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300038, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    - {fileID: 21300000, guid: 2e35d75ddd88457997b6ae4ea43b5e7b, type: 3}
+    Multiple: 1
+    Hash: 770b16f16914289d1c7193075f63db34
+    Tags: []
+  modifiers: []

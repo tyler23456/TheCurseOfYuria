@@ -51,7 +51,7 @@ namespace TCOY.DontDestroyOnLoad
                 RectTransform rectTransform = (RectTransform)icon.transform;
                 rectTransform.anchoredPosition = new Vector2(origin.x + row * windowSize.x, origin.y + column * windowSize.y);
                 //need to set the image
-                icon.image.sprite = factory.GetIcon(inventory.GetName(i)).Sprite;
+                icon.image.sprite = factory.GetItem(inventory.GetName(i)).icon;
 
                 row++;
                 if (row >= maxRows)

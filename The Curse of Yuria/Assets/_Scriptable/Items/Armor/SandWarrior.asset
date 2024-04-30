@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: SandWarrior
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: dc8f3d9f76e9445ea266490125f87eea, type: 3}
+  _prefab: {fileID: 725181018858196108, guid: 5dcb7495bb53d8b44b63c800c0a91917, type: 3}
+  info: 
+  _itemSprites:
+    Name: SandWarrior
+    Collection: Thrones
+    Edition: Plugins
+    Id: Plugins.Thrones.Armor.SandWarrior
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Armor/Thrones/SandWarrior.png
+    Sprite: {fileID: 21300004, guid: 5e4ec50a3e66460486974cb2b3c3362c, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 5e4ec50a3e66460486974cb2b3c3362c, type: 3}
+    - {fileID: 21300002, guid: 5e4ec50a3e66460486974cb2b3c3362c, type: 3}
+    - {fileID: 21300022, guid: 5e4ec50a3e66460486974cb2b3c3362c, type: 3}
+    - {fileID: 21300010, guid: 5e4ec50a3e66460486974cb2b3c3362c, type: 3}
+    - {fileID: 21300008, guid: 5e4ec50a3e66460486974cb2b3c3362c, type: 3}
+    - {fileID: 21300016, guid: 5e4ec50a3e66460486974cb2b3c3362c, type: 3}
+    - {fileID: 21300018, guid: 5e4ec50a3e66460486974cb2b3c3362c, type: 3}
+    - {fileID: 21300012, guid: 5e4ec50a3e66460486974cb2b3c3362c, type: 3}
+    - {fileID: 21300006, guid: 5e4ec50a3e66460486974cb2b3c3362c, type: 3}
+    - {fileID: 21300014, guid: 5e4ec50a3e66460486974cb2b3c3362c, type: 3}
+    - {fileID: 21300020, guid: 5e4ec50a3e66460486974cb2b3c3362c, type: 3}
+    - {fileID: 21300000, guid: 5e4ec50a3e66460486974cb2b3c3362c, type: 3}
+    Multiple: 1
+    Hash: b7a62c2736ce8fc99e0e02f96c0e642c
+    Tags: []
+  modifiers: []

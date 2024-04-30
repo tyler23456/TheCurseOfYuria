@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: MagicSword
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 42af8dcd4f6047e38a9f2a40239a7791, type: 3}
+  _prefab: {fileID: 1379208128367988393, guid: 28479fb2f2b051f4faf52f06bd0558bb, type: 3}
+  info: 
+  _itemSprites:
+    Name: MagicSword [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.MagicSword [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/MeleeWeapon1H/Basic/Sword/MagicSword
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 2edcf2c6a70d4112a722ef201e8fff41, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 2edcf2c6a70d4112a722ef201e8fff41, type: 3}
+    Multiple: 1
+    Hash: eba25a090e372017d5ddb837163c512f
+    Tags:
+    - Paint
+  modifiers: []

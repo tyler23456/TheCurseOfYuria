@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: HalberdierHelm
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 82694d7451004dc7b1342018c6234e95, type: 3}
+  _prefab: {fileID: 580687261566843633, guid: b5a52ac86663e9d429a8f43a6e1b60e6, type: 3}
+  info: 
+  _itemSprites:
+    Name: HalberdierHelm [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.HalberdierHelm [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Helmet/Basic/HalberdierHelm
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: ebf6ec8c96aa40b592548021e3f8747a, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: ebf6ec8c96aa40b592548021e3f8747a, type: 3}
+    Multiple: 1
+    Hash: d04a52426648b5c8c411a3cf7dda7bfd
+    Tags:
+    - Paint
+  modifiers: []

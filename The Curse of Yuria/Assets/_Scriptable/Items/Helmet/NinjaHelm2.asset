@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: NinjaHelm2
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 427da4a3809343b59422852152dd1386, type: 3}
+  _prefab: {fileID: 1497069279107934429, guid: 7b51d0c633d198748babacc89a998c6c, type: 3}
+  info: 
+  _itemSprites:
+    Name: NinjaHelm2 [Paint]
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.Helmet.NinjaHelm2 [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Helmet/Samurai/NinjaHelm2
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 61e4d2946bd14fba8bf2feff8321bae1, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 61e4d2946bd14fba8bf2feff8321bae1, type: 3}
+    Multiple: 1
+    Hash: 916d3cbc4ff747312fd501e74a60c283
+    Tags:
+    - Paint
+  modifiers: []

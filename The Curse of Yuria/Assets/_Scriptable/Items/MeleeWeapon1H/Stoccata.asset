@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: Stoccata
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 7c108fdcdd404282b79f7c4670ecf545, type: 3}
+  _prefab: {fileID: 4963008193313751394, guid: ffdd6aa60c4cede47b5dfe09ba57b9bb, type: 3}
+  info: 
+  _itemSprites:
+    Name: Stoccata
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.Stoccata
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/MeleeWeapon1H/Basic/Sword/Stoccata.png
+    Sprite: {fileID: 21300000, guid: dd74bf51dc4a4cd3a43a32782f0749b3, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: dd74bf51dc4a4cd3a43a32782f0749b3, type: 3}
+    Multiple: 1
+    Hash: f787452259b96ba5ea885965162bded8
+    Tags: []
+  modifiers: []

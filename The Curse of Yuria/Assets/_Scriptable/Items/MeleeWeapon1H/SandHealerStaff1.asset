@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: SandHealerStaff1
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 228ceb8a8ed447c78ffaa62c62d3a503, type: 3}
+  _prefab: {fileID: 4371510865572253983, guid: a67f57802ebe245408508c77660e5221, type: 3}
+  info: 
+  _itemSprites:
+    Name: SandHealerStaff1
+    Collection: SandLords
+    Edition: Plugins
+    Id: Plugins.SandLords.MeleeWeapon1H.SandHealerStaff1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/MeleeWeapon1H/SandLords/Staff/SandHealerStaff1.png
+    Sprite: {fileID: 21300000, guid: be3fd373ecc5457786684779ebb2dd11, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: be3fd373ecc5457786684779ebb2dd11, type: 3}
+    Multiple: 1
+    Hash: 9add7f1b90910b21c1cf675e5c938f77
+    Tags: []
+  modifiers: []

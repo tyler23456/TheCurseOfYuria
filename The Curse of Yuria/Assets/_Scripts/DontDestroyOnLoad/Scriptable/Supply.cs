@@ -9,7 +9,7 @@ namespace TCOY.DontDestroyOnLoad
         public override void Use(IActor user, IActor[] targets)
         {
             IGlobal global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-            global.getSupplies.Remove(icon.name);
+            global.inventories[IItem.Category.supplies].Remove(icon.name);
             global.StartCoroutine(performAnimation(user, targets));
         }
     }

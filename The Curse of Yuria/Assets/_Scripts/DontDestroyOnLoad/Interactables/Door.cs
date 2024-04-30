@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class Door : InteractableBase, IInteractable
+    public class Door : InteractableBase
     {
         [SerializeField] int sceneID;
         [SerializeField] Vector2 destination;
@@ -26,7 +26,7 @@ namespace TCOY.DontDestroyOnLoad
 
         public override void Interact(IPlayer player)
         {
-            if (!RequiredItems.TrueForAll(i => global.getQuestItems.Contains(i)))
+            if (!RequiredItems.TrueForAll(i => global.inventories[IItem.Category.questItems].Contains(i)))
             {
                 ShowLockedPrompt();
                 return;

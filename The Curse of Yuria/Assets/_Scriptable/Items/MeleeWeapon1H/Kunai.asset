@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: Kunai
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 7833313b22034a92bd72138bbbf076c0, type: 3}
+  _prefab: {fileID: 2514101670535571181, guid: 348f3347a6675b6428a1734fb8c65973, type: 3}
+  info: 
+  _itemSprites:
+    Name: Kunai
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.MeleeWeapon1H.Kunai
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/MeleeWeapon1H/Samurai/Sword/Kunai.png
+    Sprite: {fileID: 21300000, guid: f537707ea78244dab611bc06a8b05ef6, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: f537707ea78244dab611bc06a8b05ef6, type: 3}
+    Multiple: 1
+    Hash: b5d10bf54c1247f403392ef42a2da497
+    Tags: []
+  modifiers: []

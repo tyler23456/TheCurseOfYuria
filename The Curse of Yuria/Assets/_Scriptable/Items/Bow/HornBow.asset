@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: HornBow
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 94b5fd3027014f5aa9cf58d118e35b9f, type: 3}
+  _prefab: {fileID: 6006070565229678273, guid: 63e9201f816f3d24c9a3d537786ae42a, type: 3}
+  info: 
+  _itemSprites:
+    Name: HornBow
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Bow.HornBow
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Bow/Basic/HornBow.png
+    Sprite: {fileID: 21300004, guid: 94c3302e90764fbf875bb44558e8dc3a, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 94c3302e90764fbf875bb44558e8dc3a, type: 3}
+    - {fileID: 21300002, guid: 94c3302e90764fbf875bb44558e8dc3a, type: 3}
+    - {fileID: 21300000, guid: 94c3302e90764fbf875bb44558e8dc3a, type: 3}
+    Multiple: 1
+    Hash: 9d4121dc81ab0e88223d31b35bb1f0bb
+    Tags: []
+  modifiers: []

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: NorthWarden
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: d21c998692934136928d613d27c90704, type: 3}
+  _prefab: {fileID: 3824828912516492640, guid: a62d26239c434d94c83eccf9e4e7af99, type: 3}
+  info: 
+  _itemSprites:
+    Name: NorthWarden
+    Collection: Thrones
+    Edition: Plugins
+    Id: Plugins.Thrones.Armor.NorthWarden
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Armor/Thrones/NorthWarden.png
+    Sprite: {fileID: 21300004, guid: 9c4a8a66f9ca4925bea512cc4ca12c24, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 9c4a8a66f9ca4925bea512cc4ca12c24, type: 3}
+    - {fileID: 21300002, guid: 9c4a8a66f9ca4925bea512cc4ca12c24, type: 3}
+    - {fileID: 21300022, guid: 9c4a8a66f9ca4925bea512cc4ca12c24, type: 3}
+    - {fileID: 21300010, guid: 9c4a8a66f9ca4925bea512cc4ca12c24, type: 3}
+    - {fileID: 21300008, guid: 9c4a8a66f9ca4925bea512cc4ca12c24, type: 3}
+    - {fileID: 21300016, guid: 9c4a8a66f9ca4925bea512cc4ca12c24, type: 3}
+    - {fileID: 21300018, guid: 9c4a8a66f9ca4925bea512cc4ca12c24, type: 3}
+    - {fileID: 21300012, guid: 9c4a8a66f9ca4925bea512cc4ca12c24, type: 3}
+    - {fileID: 21300006, guid: 9c4a8a66f9ca4925bea512cc4ca12c24, type: 3}
+    - {fileID: 21300014, guid: 9c4a8a66f9ca4925bea512cc4ca12c24, type: 3}
+    - {fileID: 21300020, guid: 9c4a8a66f9ca4925bea512cc4ca12c24, type: 3}
+    - {fileID: 21300000, guid: 9c4a8a66f9ca4925bea512cc4ca12c24, type: 3}
+    Multiple: 1
+    Hash: 59bf61d0b26d69de67a700fd3371744a
+    Tags: []
+  modifiers: []

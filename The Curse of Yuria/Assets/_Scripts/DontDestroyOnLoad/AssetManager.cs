@@ -35,7 +35,7 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] string gemPath = "Gem/";
         [SerializeField] string questItemPath = "QuestItem/";
 
-        [SerializeField] string assetsRootPath = "Assets/_Scriptable/";
+        [SerializeField] string assetsRootPath = "Assets/_Scriptable/Items/";
         [SerializeField] string prefabsRootPath = "Assets/User/Prefabs/Items/";
 
         [SerializeField] bool refresh;
@@ -67,9 +67,6 @@ namespace TCOY.DontDestroyOnLoad
 
             factory = GetComponent<IFactory>();
 
-            if (removeAllWithNoMatchingIcon)
-                RemoveAllWithNoMatchingIcon();
-
             if (!createAllWithNoMatchingIcon)
                 return;
 
@@ -90,59 +87,47 @@ namespace TCOY.DontDestroyOnLoad
 
 
             foreach (Sprite icon in helmets)
-                RefreshItemCategory(icon, helmetsPath + icon.name, ScriptableObject.CreateInstance<Equipment>());
+                RefreshItemCategory(icon, helmetsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipment>());
 
             foreach (Sprite icon in earrings)
-                RefreshItemCategory(icon, earringsPath + icon.name, ScriptableObject.CreateInstance<Equipment>());
+                RefreshItemCategory(icon, earringsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipment>());
 
             foreach (Sprite icon in glasses)
-                RefreshItemCategory(icon, glassesPath + icon.name, ScriptableObject.CreateInstance<Equipment>());
+                RefreshItemCategory(icon, glassesPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipment>());
 
             foreach (Sprite icon in masks)
-                RefreshItemCategory(icon, masksPath + icon.name, ScriptableObject.CreateInstance<Equipment>());
+                RefreshItemCategory(icon, masksPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipment>());
 
             foreach (Sprite icon in meleeWeapon1H)
-                RefreshItemCategory(icon, meleeWeapon1HPath + icon.name, ScriptableObject.CreateInstance<Equipment>());
+                RefreshItemCategory(icon, meleeWeapon1HPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipment>());
 
             foreach (Sprite icon in meleeWeapon2H)
-                RefreshItemCategory(icon, meleeWeapon2HPath + icon.name, ScriptableObject.CreateInstance<Equipment>());
+                RefreshItemCategory(icon, meleeWeapon2HPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipment>());
 
             foreach (Sprite icon in capes)
-                RefreshItemCategory(icon, capesPath + icon.name, ScriptableObject.CreateInstance<Equipment>());
+                RefreshItemCategory(icon, capesPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipment>());
 
             foreach (Sprite icon in armor)
-                RefreshItemCategory(icon, armorPath + icon.name, ScriptableObject.CreateInstance<Equipment>());
+                RefreshItemCategory(icon, armorPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipment>());
 
             foreach (Sprite icon in shields)
-                RefreshItemCategory(icon, shieldsPath + icon.name, ScriptableObject.CreateInstance<Equipment>());
+                RefreshItemCategory(icon, shieldsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipment>());
 
             foreach (Sprite icon in bows)
-                RefreshItemCategory(icon, bowsPath + icon.name, ScriptableObject.CreateInstance<Equipment>());
+                RefreshItemCategory(icon, bowsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipment>());
 
             foreach (Sprite icon in scrolls)
-                RefreshItemCategory(icon, scrollsPath + icon.name, ScriptableObject.CreateInstance<Scroll>());
+                RefreshItemCategory(icon, scrollsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Scroll>());
 
             foreach (Sprite icon in supplies)
-                RefreshItemCategory(icon, suppliesPath + icon.name, ScriptableObject.CreateInstance<Supply>());
+                RefreshItemCategory(icon, suppliesPath + FilterName(icon.name), ScriptableObject.CreateInstance<Supply>());
 
             foreach (Sprite icon in gems)
-                RefreshItemCategory(icon, gemPath + icon.name, ScriptableObject.CreateInstance<Gem>());
+                RefreshItemCategory(icon, gemPath + FilterName(icon.name), ScriptableObject.CreateInstance<Gem>());
 
             foreach (Sprite icon in questItems)
-                RefreshItemCategory(icon, questItemPath + icon.name, ScriptableObject.CreateInstance<QuestItem>());
+                RefreshItemCategory(icon, questItemPath + FilterName(icon.name), ScriptableObject.CreateInstance<QuestItem>());
         }
-
-        void RemoveAllWithNoMatchingIcon()
-        {
-            /*objArray = AssetDatabase.LoadAllAssetsAtPath(prefabsRootPath + path + ".prefab");
-            objArray = AssetDatabase.LoadAllAssetsAtPath(prefabsRootPath + path + ".prefab");
-
-            foreach (Object obj in objArray)
-            {
-                
-            }*/
-        }
-
         
         void RefreshItemCategory(Sprite icon, string path, IItem scriptableObject)
         {
@@ -162,7 +147,7 @@ namespace TCOY.DontDestroyOnLoad
 
         GameObject CreateOrReplacePrefab(Sprite icon, string path)
         {
-            obj = new GameObject(icon.name);
+            obj = new GameObject(FilterName(icon.name));
             obj.AddComponent<BoxCollider2D>().isTrigger = true;
             obj.AddComponent<Item>();
             renderer = obj.AddComponent<SpriteRenderer>();
@@ -180,12 +165,17 @@ namespace TCOY.DontDestroyOnLoad
             item = prefab.GetComponent<Item>();
             renderer = prefab.GetComponent<SpriteRenderer>();
 
-            if (collider != null && collider.isTrigger == true && item != null && renderer != null && renderer.sprite == icon && renderer.sharedMaterial == material)
+            if (collider != null 
+                && collider.isTrigger == true 
+                && item != null 
+                && renderer != null 
+                && renderer.sprite == icon 
+                && renderer.sharedMaterial == material 
+                && CompareNames(icon.name, prefab.name))
                 return;
 
             CreateOrReplacePrefab(icon, path);
         }
-
 
         void CreateScriptableObject(Sprite icon, GameObject prefab, IItem scriptableObject, string path)
         {
@@ -197,17 +187,26 @@ namespace TCOY.DontDestroyOnLoad
         {
             asset = (IItem)AssetDatabase.LoadAssetAtPath(assetsRootPath + path + ".asset", typeof(IItem));
 
-            if (asset is Equipment && CompareItemSprite(((Equipment)asset).itemSprite, itemSprites[icon.name]) && asset.icon == icon && asset.prefab == prefab)
+            if (asset is Equipment 
+                && CompareItemSprite(((Equipment)asset).itemSprite, itemSprites[icon.name]) 
+                && asset.icon == icon 
+                && asset.prefab == prefab 
+                && CompareNames(icon.name, asset.itemName))
                 return;
-            else if (asset is not Equipment && asset.icon == icon && asset.prefab == prefab)
+            else if (asset is not Equipment 
+                && asset.icon == icon 
+                && asset.prefab == prefab 
+                && CompareNames(icon.name, asset.itemName))
                 return;
 
-            asset.icon = icon;
+            ((ItemBase)asset).itemName = FilterName(icon.name);
+
+            ((ItemBase)asset).icon = icon;
 
             if (asset is Equipment)
                 ((Equipment)asset).itemSprite = itemSprites[icon.name];
            
-            asset.prefab = prefab;
+            ((ItemBase)asset).prefab = prefab;
 
             EditorUtility.SetDirty((ScriptableObject)asset);
             AssetDatabase.SaveAssetIfDirty((ScriptableObject)asset);
@@ -215,9 +214,26 @@ namespace TCOY.DontDestroyOnLoad
 
         bool CompareItemSprite(ItemSprite a, ItemSprite b)
         {
-            return a.Hash == b.Hash && a.Id == b.Id && a.Multiple == b.Multiple && a.Name == b.Name && a.Path == b.Path
-                && a.Sprite == b.Sprite && a.Sprites.SequenceEqual(b.Sprites) && a.Tags.SequenceEqual(b.Tags) && a.Collection == b.Collection
+            return a.Hash == b.Hash 
+                && a.Id == b.Id 
+                && a.Multiple == b.Multiple 
+                && a.Name == b.Name 
+                && a.Path == b.Path
+                && a.Sprite == b.Sprite 
+                && a.Sprites.SequenceEqual(b.Sprites) 
+                && a.Tags.SequenceEqual(b.Tags) 
+                && a.Collection == b.Collection
                 && a.Edition == b.Edition;
+        }
+
+        bool CompareNames(string a, string b)
+        {
+            return FilterName(a) == b;
+        }
+
+        string FilterName(string a)
+        {     
+            return a.Replace(" [Paint]", "").Replace(" [FullHair]", "");
         }
     }
 }

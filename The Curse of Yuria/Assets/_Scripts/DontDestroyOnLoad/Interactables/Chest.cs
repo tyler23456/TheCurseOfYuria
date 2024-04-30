@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class Chest : InteractableBase, IInteractable
+    public class Chest : InteractableBase
     {
         [SerializeField] List<Item> items;
         [SerializeField] Sprite OpenChest;
@@ -25,7 +25,7 @@ namespace TCOY.DontDestroyOnLoad
 
         public override void Interact(IPlayer player)
         {
-            if (!RequiredItems.TrueForAll(i => global.getQuestItems.Contains(i)))
+            if (!RequiredItems.TrueForAll(i => global.inventories[IItem.Category.questItems].Contains(i)))
             {
                 ShowLockedPrompt();
                 return;

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: DruidArmor
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 32d01399bad24c1398c08181a063808f, type: 3}
+  _prefab: {fileID: 4443351935145413811, guid: 3e7ebcd2023b98c449bfa6f991e38032, type: 3}
+  info: 
+  _itemSprites:
+    Name: DruidArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.DruidArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Armor/Basic/DruidArmor.png
+    Sprite: {fileID: 21300004, guid: a2e6e704fdc04e419a9937d8f3ca7888, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: a2e6e704fdc04e419a9937d8f3ca7888, type: 3}
+    - {fileID: 21300002, guid: a2e6e704fdc04e419a9937d8f3ca7888, type: 3}
+    - {fileID: 21300022, guid: a2e6e704fdc04e419a9937d8f3ca7888, type: 3}
+    - {fileID: 21300010, guid: a2e6e704fdc04e419a9937d8f3ca7888, type: 3}
+    - {fileID: 21300008, guid: a2e6e704fdc04e419a9937d8f3ca7888, type: 3}
+    - {fileID: 21300016, guid: a2e6e704fdc04e419a9937d8f3ca7888, type: 3}
+    - {fileID: 21300018, guid: a2e6e704fdc04e419a9937d8f3ca7888, type: 3}
+    - {fileID: 21300012, guid: a2e6e704fdc04e419a9937d8f3ca7888, type: 3}
+    - {fileID: 21300006, guid: a2e6e704fdc04e419a9937d8f3ca7888, type: 3}
+    - {fileID: 21300014, guid: a2e6e704fdc04e419a9937d8f3ca7888, type: 3}
+    - {fileID: 21300020, guid: a2e6e704fdc04e419a9937d8f3ca7888, type: 3}
+    - {fileID: 21300000, guid: a2e6e704fdc04e419a9937d8f3ca7888, type: 3}
+    Multiple: 1
+    Hash: 61fc790e310b56ede603099feb6d10af
+    Tags: []
+  modifiers: []

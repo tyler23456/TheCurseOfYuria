@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: SharpHelm
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: d3874278a43e40c585879a9f5e9ab078, type: 3}
+  _prefab: {fileID: 7608419990198725689, guid: 9b91b812a0fc1414fa94bd9161b3b590, type: 3}
+  info: 
+  _itemSprites:
+    Name: SharpHelm [Paint]
+    Collection: Knights
+    Edition: Plugins
+    Id: Plugins.Knights.Helmet.SharpHelm [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Helmet/Knights/SharpHelm
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 388d34b31f6f43a49e4ec8d2e25f83b7, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 388d34b31f6f43a49e4ec8d2e25f83b7, type: 3}
+    Multiple: 1
+    Hash: 59d7b0a5f4452138ebf157e49f8d1765
+    Tags:
+    - Paint
+  modifiers: []

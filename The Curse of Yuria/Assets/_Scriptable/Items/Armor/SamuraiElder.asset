@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: SamuraiElder
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: d72003eba2294a4abf352c2f988cb5e1, type: 3}
+  _prefab: {fileID: 2578320816537833089, guid: 31526c173a31f974c9bd67a44212f65e, type: 3}
+  info: 
+  _itemSprites:
+    Name: SamuraiElder
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.Armor.SamuraiElder
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Armor/Samurai/SamuraiElder.png
+    Sprite: {fileID: 21300004, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300002, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300022, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300010, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300008, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300016, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300018, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300012, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300006, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300014, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300020, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    - {fileID: 21300000, guid: a8b98fb45fe04fca87655fbf76a34c1b, type: 3}
+    Multiple: 1
+    Hash: 4bd47f4b7f8ecd70f300f83681200cb9
+    Tags: []
+  modifiers: []

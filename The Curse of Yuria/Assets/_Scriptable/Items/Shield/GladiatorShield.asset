@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: GladiatorShield
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: be5c308edb014c398e7284c7dfabe92d, type: 3}
+  _prefab: {fileID: 8855447708599550285, guid: fb4a6c9d6dc0e904dadb49921c20261d, type: 3}
+  info: 
+  _itemSprites:
+    Name: GladiatorShield
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.GladiatorShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Shield/Basic/GladiatorShield.png
+    Sprite: {fileID: 21300000, guid: a0a142e6bc3843139a3769f866fcabe3, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: a0a142e6bc3843139a3769f866fcabe3, type: 3}
+    Multiple: 1
+    Hash: 318fec041d8c73e37bc1003dc2d349b9
+    Tags: []
+  modifiers: []

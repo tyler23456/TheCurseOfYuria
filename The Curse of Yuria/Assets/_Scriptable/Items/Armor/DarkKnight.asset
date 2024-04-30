@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: DarkKnight
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 59bc4a26f72541e49c317554c122ce30, type: 3}
+  _prefab: {fileID: 6584881540098363610, guid: a2c36aa26272a1b4d840bce7c5d8b3a3, type: 3}
+  info: 
+  _itemSprites:
+    Name: DarkKnight
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.DarkKnight
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Armor/Basic/DarkKnight.png
+    Sprite: {fileID: 21300024, guid: 78b90fe68bd447ed86c5a49db914e176, type: 3}
+    Sprites:
+    - {fileID: 21300024, guid: 78b90fe68bd447ed86c5a49db914e176, type: 3}
+    - {fileID: 21300022, guid: 78b90fe68bd447ed86c5a49db914e176, type: 3}
+    - {fileID: 21300040, guid: 78b90fe68bd447ed86c5a49db914e176, type: 3}
+    - {fileID: 21300028, guid: 78b90fe68bd447ed86c5a49db914e176, type: 3}
+    - {fileID: 21300026, guid: 78b90fe68bd447ed86c5a49db914e176, type: 3}
+    - {fileID: 21300034, guid: 78b90fe68bd447ed86c5a49db914e176, type: 3}
+    - {fileID: 21300036, guid: 78b90fe68bd447ed86c5a49db914e176, type: 3}
+    - {fileID: 21300030, guid: 78b90fe68bd447ed86c5a49db914e176, type: 3}
+    - {fileID: 21300006, guid: 78b90fe68bd447ed86c5a49db914e176, type: 3}
+    - {fileID: 21300032, guid: 78b90fe68bd447ed86c5a49db914e176, type: 3}
+    - {fileID: 21300038, guid: 78b90fe68bd447ed86c5a49db914e176, type: 3}
+    - {fileID: 21300000, guid: 78b90fe68bd447ed86c5a49db914e176, type: 3}
+    Multiple: 1
+    Hash: 32c80b4928efb9deea96639aa546f5fe
+    Tags: []
+  modifiers: []

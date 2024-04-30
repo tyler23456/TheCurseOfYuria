@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: SandElderTurban
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 7dab708a349246ee95c90cfd8bdf1d67, type: 3}
+  _prefab: {fileID: 2042458228284792551, guid: 7892bbe243d7aad4894704e221811101, type: 3}
+  info: 
+  _itemSprites:
+    Name: SandElderTurban
+    Collection: SandLords
+    Edition: Plugins
+    Id: Plugins.SandLords.Helmet.SandElderTurban
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Helmet/SandLords/SandElderTurban.png
+    Sprite: {fileID: 21300000, guid: 88e2fce8f4b34018a429f4797bac3351, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 88e2fce8f4b34018a429f4797bac3351, type: 3}
+    Multiple: 1
+    Hash: fa918b9f3ca629789b0a934ca08127dd
+    Tags: []
+  modifiers: []

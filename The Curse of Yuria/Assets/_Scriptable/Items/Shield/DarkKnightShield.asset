@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: DarkKnightShield
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: e0601474fae4450ea712dfbc9c430922, type: 3}
+  _prefab: {fileID: 5221505270808907669, guid: c56fe0072a71e794aa5a9584d23eaa1d, type: 3}
+  info: 
+  _itemSprites:
+    Name: DarkKnightShield
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Shield.DarkKnightShield
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Shield/Basic/DarkKnightShield.png
+    Sprite: {fileID: 21300000, guid: 92d7af5cbdc946e0a65a2afc4e378500, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 92d7af5cbdc946e0a65a2afc4e378500, type: 3}
+    Multiple: 1
+    Hash: 75db99711468d78bf277fabadfb0d6ac
+    Tags: []
+  modifiers: []

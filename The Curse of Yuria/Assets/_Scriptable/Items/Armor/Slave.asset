@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: Slave
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 4c63e58440514d0a8d602440a3045828, type: 3}
+  _prefab: {fileID: 5466565375751135884, guid: b63635d74651ac044863d60503e671d6, type: 3}
+  info: 
+  _itemSprites:
+    Name: Slave
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.Slave
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Armor/Basic/Slave.png
+    Sprite: {fileID: 21300004, guid: d58e9296f99e46aa91d0f9e2935315b5, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: d58e9296f99e46aa91d0f9e2935315b5, type: 3}
+    - {fileID: 21300002, guid: d58e9296f99e46aa91d0f9e2935315b5, type: 3}
+    - {fileID: 21300022, guid: d58e9296f99e46aa91d0f9e2935315b5, type: 3}
+    - {fileID: 21300010, guid: d58e9296f99e46aa91d0f9e2935315b5, type: 3}
+    - {fileID: 21300008, guid: d58e9296f99e46aa91d0f9e2935315b5, type: 3}
+    - {fileID: 21300016, guid: d58e9296f99e46aa91d0f9e2935315b5, type: 3}
+    - {fileID: 21300018, guid: d58e9296f99e46aa91d0f9e2935315b5, type: 3}
+    - {fileID: 21300012, guid: d58e9296f99e46aa91d0f9e2935315b5, type: 3}
+    - {fileID: 21300006, guid: d58e9296f99e46aa91d0f9e2935315b5, type: 3}
+    - {fileID: 21300014, guid: d58e9296f99e46aa91d0f9e2935315b5, type: 3}
+    - {fileID: 21300020, guid: d58e9296f99e46aa91d0f9e2935315b5, type: 3}
+    - {fileID: 21300000, guid: d58e9296f99e46aa91d0f9e2935315b5, type: 3}
+    Multiple: 1
+    Hash: 3b5ab1f89f9f551fc9967d9120281d3e
+    Tags: []
+  modifiers: []

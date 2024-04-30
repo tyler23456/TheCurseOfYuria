@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: IceWizardWand
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: f28c3c2d8ec44f64b30caf8613505fca, type: 3}
+  _prefab: {fileID: 2088684626160698239, guid: aa78c704ed8453a4bbd36c3876a14a94, type: 3}
+  info: 
+  _itemSprites:
+    Name: IceWizardWand
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.IceWizardWand
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/MeleeWeapon1H/Basic/Wand/IceWizardWand.png
+    Sprite: {fileID: 21300000, guid: 7a74b19d6ed9457780572bff3471ad13, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 7a74b19d6ed9457780572bff3471ad13, type: 3}
+    Multiple: 1
+    Hash: b071d0e657480568c5a3831ef2d1d796
+    Tags: []
+  modifiers: []

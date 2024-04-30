@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: SlaveSword
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 180aab0bbe4645e4b8720b34ac97fb66, type: 3}
+  _prefab: {fileID: 5789357838862411252, guid: 584d6c128e5a3b64abfaca86dadb3988, type: 3}
+  info: 
+  _itemSprites:
+    Name: SlaveSword [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.SlaveSword [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/MeleeWeapon1H/Basic/Sword/SlaveSword
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: efea22a315ff41f7badcc36e1b33aac4, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: efea22a315ff41f7badcc36e1b33aac4, type: 3}
+    Multiple: 1
+    Hash: ef2ae2cff2821a4d1f0d6a727a38c143
+    Tags:
+    - Paint
+  modifiers: []

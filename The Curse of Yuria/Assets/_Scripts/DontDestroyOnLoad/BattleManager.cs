@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TCOY.BattleSystem
 {
-    public class BattleManager : MonoBehaviour, IBattleManager
+    public class BattleManager : MonoBehaviour
     {
         IGlobal global;
         IFactory factory;
@@ -28,12 +28,9 @@ namespace TCOY.BattleSystem
 
         void RunNextCommand()
         {
-            (IActor user, string skill, IActor target) command = global.commandQueue.Dequeue();
+            ICommand command = global.commandQueue.Dequeue();
 
-            ISkill skillPrefab = factory.GetAbilityPrefab(command.skill);
-            GameObject skillObj = Instantiate(skillPrefab.getGameObject, command.target.getGameObject.transform);
-            ISkill skill = skillObj.GetComponent<ISkill>();
-            skill.SetUser(command.user);
+            command.item.Use(command.user, command.targets);
             isRunning = false;
         }
 

@@ -22,74 +22,52 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] List<IPlayer> party;
         [SerializeField] List<IActor> actors;
 
-        Inventory helmets { get; }
-        Inventory earrings { get; }
-        Inventory glasses { get; }
-        Inventory masks { get; }
-        Inventory meleeWeapons1H { get; }
-        Inventory meleeWeapons2H { get; }
-        Inventory capes { get; }
-        Inventory armor { get; }
-        Inventory shields { get; }
-        Inventory bows { get; }
-        Inventory supplies { get; }
-        Inventory questItems { get; }
-        Inventory completedQuests { get; }
-        Inventory completedIds { get; }
+        Inventory helmets;
+        Inventory earrings;
+        Inventory glasses;
+        Inventory masks;
+        Inventory meleeWeapons1H;
+        Inventory meleeWeapons2H;
+        Inventory capes;
+        Inventory armor;
+        Inventory shields;
+        Inventory bows;
+        Inventory scrolls;
+        Inventory supplies;
+        Inventory questItems;
+        Inventory completedQuests;
+        Inventory completedIds;
+
+        public List<IPlayer> getParty => party;
+        public List<IActor> getActors => actors;
+        public Camera getCamera => mainCamera;
+
+        public Dictionary<IItem.Category, Inventory> inventories { get; private set; } = new Dictionary<IItem.Category, Inventory>();
 
         public Queue<IPlayer.Names> aTBGuageFilledQueue { get; set; } = new Queue<IPlayer.Names>();
-        public Queue<(IActor user, string command, IActor target)> commandQueue { get; set; }
+        public Queue<ICommand> commandQueue { get; set; } = new Queue<ICommand>();
 
-        public Camera getCamera => mainCamera;
-        List<IPlayer> IGlobal.getParty => party;
-        List<IActor> IGlobal.getActors => actors;
-        IInventory IGlobal.getHelmets => helmets;
-        IInventory IGlobal.getEarrings => earrings;
-        IInventory IGlobal.getGlasses => glasses;
-        IInventory IGlobal.getMasks => masks;
-        IInventory IGlobal.getMeleeWeapons1H => meleeWeapons1H;
-        IInventory IGlobal.getMeleeWeapons2H => meleeWeapons2H;
-        IInventory IGlobal.getCapes => capes;
-        IInventory IGlobal.getArmor => armor;
-        IInventory IGlobal.getShields => shields;
-        IInventory IGlobal.getBows => bows;
-        IInventory IGlobal.getSupplies => supplies;
-        IInventory IGlobal.getQuestItems => questItems;
         IInventory IGlobal.getCompletedQuests => completedQuests;
         IInventory IGlobal.getCompletedIds => completedIds;
 
         public void Awake()
-        {
+        { 
             factory = GetComponent<IFactory>();
-        }
 
-        public IInventory GetInventoryOf(string itemName)
-        {
+            inventories.Add(IItem.Category.helmets, helmets);
+            inventories.Add(IItem.Category.earrings, earrings);
+            inventories.Add(IItem.Category.glasses, glasses);
+            inventories.Add(IItem.Category.masks, masks);
+            inventories.Add(IItem.Category.meleeWeapons1H, meleeWeapons1H);
+            inventories.Add(IItem.Category.meleeWeapons2H, meleeWeapons2H);
+            inventories.Add(IItem.Category.capes, capes);
+            inventories.Add(IItem.Category.armor, armor);
+            inventories.Add(IItem.Category.shields, shields);
+            inventories.Add(IItem.Category.bows, bows);
+            inventories.Add(IItem.Category.supplies, supplies);
+            inventories.Add(IItem.Category.scrolls, scrolls);
+            inventories.Add(IItem.Category.questItems, questItems);
 
-            string partString = "";
-
-            switch (partString)
-            {
-                case "Helmet":
-                    return helmets;
-                case "Earrings":
-                    return earrings;
-                case "Glasses":
-                    return glasses;
-                case "MeleeWeapon1H":
-                    return meleeWeapons1H;
-                case "MeleeWeapon2H":
-                    return meleeWeapons2H;
-                case "Cape":
-                    return capes;
-                case "Armor":
-                    return armor;
-                case "Shield":
-                    return shields;
-                case "Bow":
-                    return bows;
-            }
-            return null;
         }
     }
 }

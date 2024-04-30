@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: SamuraiHeavy1
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 3a02b321668b4f52bd14a91306172213, type: 3}
+  _prefab: {fileID: 5281169342173866496, guid: 4a70b4d6611cd794ba73fa5037e4746e, type: 3}
+  info: 
+  _itemSprites:
+    Name: SamuraiHeavy1
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.Armor.SamuraiHeavy1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Armor/Samurai/SamuraiHeavy1.png
+    Sprite: {fileID: 21300004, guid: fa0a3972c10b479cb9b130218fedcd77, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: fa0a3972c10b479cb9b130218fedcd77, type: 3}
+    - {fileID: 21300002, guid: fa0a3972c10b479cb9b130218fedcd77, type: 3}
+    - {fileID: 21300022, guid: fa0a3972c10b479cb9b130218fedcd77, type: 3}
+    - {fileID: 21300010, guid: fa0a3972c10b479cb9b130218fedcd77, type: 3}
+    - {fileID: 21300008, guid: fa0a3972c10b479cb9b130218fedcd77, type: 3}
+    - {fileID: 21300016, guid: fa0a3972c10b479cb9b130218fedcd77, type: 3}
+    - {fileID: 21300018, guid: fa0a3972c10b479cb9b130218fedcd77, type: 3}
+    - {fileID: 21300012, guid: fa0a3972c10b479cb9b130218fedcd77, type: 3}
+    - {fileID: 21300006, guid: fa0a3972c10b479cb9b130218fedcd77, type: 3}
+    - {fileID: 21300014, guid: fa0a3972c10b479cb9b130218fedcd77, type: 3}
+    - {fileID: 21300020, guid: fa0a3972c10b479cb9b130218fedcd77, type: 3}
+    - {fileID: 21300000, guid: fa0a3972c10b479cb9b130218fedcd77, type: 3}
+    Multiple: 1
+    Hash: f79ad7fa0ad06f817ccf5b238369deeb
+    Tags: []
+  modifiers: []

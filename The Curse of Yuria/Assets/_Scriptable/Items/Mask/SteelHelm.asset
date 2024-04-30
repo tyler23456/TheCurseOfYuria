@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: SteelHelm
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 88fbaca5a024482ca9f20030c35b9d24, type: 3}
+  _prefab: {fileID: 7538425384506545829, guid: b5f21ddbf42fab041a4fec7f7429ecf8, type: 3}
+  info: 
+  _itemSprites:
+    Name: SteelHelm [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.SteelHelm [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Helmet/Basic/SteelHelm
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: ecbf6e5e91ce4a928da232e93322a7ce, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: ecbf6e5e91ce4a928da232e93322a7ce, type: 3}
+    Multiple: 1
+    Hash: 6e226a20679219552a3449edf96b7dff
+    Tags:
+    - Paint
+  modifiers: []

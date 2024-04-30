@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: VikingRoughArmor3
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 0827e7186a0845609f34c0a550bf5176, type: 3}
+  _prefab: {fileID: 6820871809393323007, guid: b6710f84e0b32ce43b3a921f18075db6, type: 3}
+  info: 
+  _itemSprites:
+    Name: VikingRoughArmor3 [Paint]
+    Collection: Vikings
+    Edition: Plugins
+    Id: Plugins.Vikings.Armor.VikingRoughArmor3 [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Armor/Vikings/VikingRoughArmor3
+      [Paint].png
+    Sprite: {fileID: 21300004, guid: bb25b4cde9b74a2d98341e9301362fc1, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: bb25b4cde9b74a2d98341e9301362fc1, type: 3}
+    - {fileID: 21300002, guid: bb25b4cde9b74a2d98341e9301362fc1, type: 3}
+    - {fileID: 21300022, guid: bb25b4cde9b74a2d98341e9301362fc1, type: 3}
+    - {fileID: 21300010, guid: bb25b4cde9b74a2d98341e9301362fc1, type: 3}
+    - {fileID: 21300008, guid: bb25b4cde9b74a2d98341e9301362fc1, type: 3}
+    - {fileID: 21300016, guid: bb25b4cde9b74a2d98341e9301362fc1, type: 3}
+    - {fileID: 21300018, guid: bb25b4cde9b74a2d98341e9301362fc1, type: 3}
+    - {fileID: 21300012, guid: bb25b4cde9b74a2d98341e9301362fc1, type: 3}
+    - {fileID: 21300006, guid: bb25b4cde9b74a2d98341e9301362fc1, type: 3}
+    - {fileID: 21300014, guid: bb25b4cde9b74a2d98341e9301362fc1, type: 3}
+    - {fileID: 21300020, guid: bb25b4cde9b74a2d98341e9301362fc1, type: 3}
+    - {fileID: 21300000, guid: bb25b4cde9b74a2d98341e9301362fc1, type: 3}
+    Multiple: 1
+    Hash: 13bd3b9754bcf96d897ce52312709684
+    Tags:
+    - Paint
+  modifiers: []

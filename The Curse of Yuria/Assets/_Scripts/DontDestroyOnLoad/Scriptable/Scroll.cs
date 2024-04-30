@@ -6,24 +6,7 @@ namespace TCOY.DontDestroyOnLoad
 {
     public class Scroll : ItemBase, IItem
     {
-        [SerializeField] protected int power;
-        [SerializeField] protected int cost;
-        [SerializeField] protected float duration = float.PositiveInfinity;
-        [SerializeField] protected ISkill.Group group = ISkill.Group.None;
-        [SerializeField] protected ISkill.Type type = ISkill.Type.None;
-        [SerializeField] protected ISkill.Element element = ISkill.Element.None;
-        [SerializeField] protected ParticleSystem particleSystem;
-        [SerializeField] List<GameObject> effects;
-
-        public int getPower => power;
-        public int getCost => cost;
-        public float getDuration => duration;
-        public ISkill.Group getGroup => group;
-        public ISkill.Type getType => type;
-        public ISkill.Element getElement => element;
         
-
-        public string getIdentifiers => name + '|' + group.ToString() + '|' + type.ToString() + '|' + element.ToString();
 
         public override void Use(IActor user, IActor[] targets)
         {     

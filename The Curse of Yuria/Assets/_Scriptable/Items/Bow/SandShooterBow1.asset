@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: SandShooterBow1
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: eb057e7e6aae4cb199f12d961df61897, type: 3}
+  _prefab: {fileID: 8350721862606933931, guid: da62eaa2c5a5fa74aa97d0ebe872a607, type: 3}
+  info: 
+  _itemSprites:
+    Name: SandShooterBow1
+    Collection: SandLords
+    Edition: Plugins
+    Id: Plugins.SandLords.Bow.SandShooterBow1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Bow/SandLords/SandShooterBow1.png
+    Sprite: {fileID: 21300004, guid: 633bd4f9801b447090e13494b5c1db34, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 633bd4f9801b447090e13494b5c1db34, type: 3}
+    - {fileID: 21300002, guid: 633bd4f9801b447090e13494b5c1db34, type: 3}
+    - {fileID: 21300000, guid: 633bd4f9801b447090e13494b5c1db34, type: 3}
+    Multiple: 1
+    Hash: aab36713d4115bf84692841d0ce95d61
+    Tags: []
+  modifiers: []

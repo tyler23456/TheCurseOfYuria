@@ -9,8 +9,8 @@ namespace TCOY.Actors
     {
         protected IGlobal global;
         protected IFactory factory;
-        protected IBattleManager battleManager;
 
+        [SerializeField] protected Camera camera;
         [SerializeField] protected new Collider2D collider2D;
         [SerializeField] protected Position position;
         [SerializeField] protected Climber climber;
@@ -18,7 +18,6 @@ namespace TCOY.Actors
         [SerializeField] protected Stats stats;
         [SerializeField] protected ATBGuage aTBGuage;
         [SerializeField] protected GroundChecker groundChecker;
-        [SerializeField] protected JumpEvent jumpEvent;
         [SerializeField] protected Character character;
         [SerializeField] protected Equipment equipment;
         [SerializeField] protected string attack;
@@ -47,17 +46,24 @@ namespace TCOY.Actors
             GameObject obj = GameObject.Find("/DontDestroyOnLoad");
             global = obj.GetComponent<IGlobal>();
             factory = obj.GetComponent<IFactory>();
-            battleManager = obj.GetComponent<IBattleManager>();
+        }
+
+        protected void FixedUpdate()
+        {
         }
 
         protected void Update()
         {
-            position.Update();
             climber.Update();
             rotation.Update();
             aTBGuage.Update();
             groundChecker.Update();
-            jumpEvent.Update();
+        }
+
+        protected void LateUpdate()
+        {
+            if (camera != null)
+                camera.transform.position = Vector3.Lerp(camera.transform.position, transform.position + new Vector3(0f, 0f, -1f), 0.3f);
         }
     }
 }

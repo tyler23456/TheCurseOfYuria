@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: Wanderer
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 8407c65b8e084e5aa4ed0665be61b9e7, type: 3}
+  _prefab: {fileID: 9153682454372177410, guid: f35c017b9d7f5ee419f53fc90361b398, type: 3}
+  info: 
+  _itemSprites:
+    Name: Wanderer
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.Wanderer
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Armor/Basic/Wanderer.png
+    Sprite: {fileID: 21300024, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    Sprites:
+    - {fileID: 21300024, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300022, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300040, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300028, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300026, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300034, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300036, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300030, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300006, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300032, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300038, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    - {fileID: 21300000, guid: d5efc8a2e1664eb48f299a2cb949ad74, type: 3}
+    Multiple: 1
+    Hash: 9bb0a899f7c4ee9fe644ef407fcfcefd
+    Tags: []
+  modifiers: []

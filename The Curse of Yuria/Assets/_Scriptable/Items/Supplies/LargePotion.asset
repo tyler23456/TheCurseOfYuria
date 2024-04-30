@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d5ed929cc05de4e9ff4057e86f7043, type: 3}
+  m_Name: LargePotion
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 62ad0c5e1af91b6479533f3f072b182b, type: 3}
+  _prefab: {fileID: 7856319573519686717, guid: 733a062bdca74ca4f989498e4f28a08f, type: 3}
+  info: 
+  power: 0
+  cost: 0
+  duration: Infinity
+  group: 0
+  type: 0
+  element: 0
+  particleSystem: {fileID: 0}
+  effects: []

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public interface IReactor
 {
-    string getTrigger { get; }
-    string getReaction { get; }
+    enum Target { trigger, user, allie, enemy }
+
+    string getTrigger { get; } //should be written as a command
+    string getReaction { get; } //should be written as another command
 }

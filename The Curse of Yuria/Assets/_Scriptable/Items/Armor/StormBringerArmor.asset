@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: StormBringerArmor
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 194c5db9dcb5421295e8daddcd313cb3, type: 3}
+  _prefab: {fileID: 6757358492656164057, guid: ee8258a85aaf49e47836f90e929f9e9d, type: 3}
+  info: 
+  _itemSprites:
+    Name: StormBringerArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.StormBringerArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Armor/Basic/StormBringerArmor.png
+    Sprite: {fileID: 21300004, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300002, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300022, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300010, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300008, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300016, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300018, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300012, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300006, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300014, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300020, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    - {fileID: 21300000, guid: 798b5ba98d5d41be97f631013c082ba7, type: 3}
+    Multiple: 1
+    Hash: 68507f1d8428cf3130e6e8ce702d9ceb
+    Tags: []
+  modifiers: []

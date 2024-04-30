@@ -52,7 +52,7 @@ namespace TCOY.Canvas
         {
             inventoryUI.isVertical = true;
             inventoryUI.OnClick = (commandName) => OnSelectCommand(commandName);
-            inventoryUI.inventory = global.getSupplies;
+            inventoryUI.inventory = global.inventories[IItem.Category.supplies];
             inventoryUI.buttonParent = root;
             inventoryUI.Show();
         }
@@ -85,7 +85,7 @@ namespace TCOY.Canvas
 
         public void OnSelectTarget(IActor target)
         {
-            global.commandQueue.Enqueue((global.getParty[currentPartyMember], commandName, target));
+            //global.commandQueue.Enqueue((global.getParty[currentPartyMember], (ISkill)factory.GetItem(commandName), targets));
         }
     }
 }

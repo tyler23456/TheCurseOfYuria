@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: DarkStoneHammer
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 59119730400a446ca4f1298b8de89993, type: 3}
+  _prefab: {fileID: 3109006546082711399, guid: 9dd89b31c25a04c4fa411d99dc0a7230, type: 3}
+  info: 
+  _itemSprites:
+    Name: DarkStoneHammer
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.MeleeWeapon1H.DarkStoneHammer
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/MeleeWeapon1H/Basic/Hammer/DarkStoneHammer.png
+    Sprite: {fileID: 21300000, guid: 6df95040fcc349598deb098045cfe51b, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 6df95040fcc349598deb098045cfe51b, type: 3}
+    Multiple: 1
+    Hash: ce3265afaf2443b626e7a1e1e1fd019e
+    Tags: []
+  modifiers: []

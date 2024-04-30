@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: SamuraiSword3
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: fecec50cb2b74f959e9634179928911f, type: 3}
+  _prefab: {fileID: 4208906069454533801, guid: e00563023b0e6254484c73ccb18687ef, type: 3}
+  info: 
+  _itemSprites:
+    Name: SamuraiSword3 [Paint]
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.MeleeWeapon2H.SamuraiSword3 [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/MeleeWeapon2H/Samurai/Sword/SamuraiSword3
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 9d1e1e6ef5c74d11957490a1f427141d, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 9d1e1e6ef5c74d11957490a1f427141d, type: 3}
+    Multiple: 1
+    Hash: 5ab257bd5384167efa176811345f2388
+    Tags:
+    - Paint
+  modifiers: []

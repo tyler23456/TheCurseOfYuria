@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: FreeFolk
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 00a01aed9918448487e1e7e8c6dcbc3b, type: 3}
+  _prefab: {fileID: 7733878497739386790, guid: d3b312fab66037941af317b9d57963cd, type: 3}
+  info: 
+  _itemSprites:
+    Name: FreeFolk [Paint]
+    Collection: Thrones
+    Edition: Plugins
+    Id: Plugins.Thrones.Armor.FreeFolk [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Armor/Thrones/FreeFolk
+      [Paint].png
+    Sprite: {fileID: 21300004, guid: 0d37368cc9cf414e8e355d08efda7c0f, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 0d37368cc9cf414e8e355d08efda7c0f, type: 3}
+    - {fileID: 21300002, guid: 0d37368cc9cf414e8e355d08efda7c0f, type: 3}
+    - {fileID: 21300022, guid: 0d37368cc9cf414e8e355d08efda7c0f, type: 3}
+    - {fileID: 21300010, guid: 0d37368cc9cf414e8e355d08efda7c0f, type: 3}
+    - {fileID: 21300008, guid: 0d37368cc9cf414e8e355d08efda7c0f, type: 3}
+    - {fileID: 21300016, guid: 0d37368cc9cf414e8e355d08efda7c0f, type: 3}
+    - {fileID: 21300018, guid: 0d37368cc9cf414e8e355d08efda7c0f, type: 3}
+    - {fileID: 21300012, guid: 0d37368cc9cf414e8e355d08efda7c0f, type: 3}
+    - {fileID: 21300006, guid: 0d37368cc9cf414e8e355d08efda7c0f, type: 3}
+    - {fileID: 21300014, guid: 0d37368cc9cf414e8e355d08efda7c0f, type: 3}
+    - {fileID: 21300020, guid: 0d37368cc9cf414e8e355d08efda7c0f, type: 3}
+    - {fileID: 21300000, guid: 0d37368cc9cf414e8e355d08efda7c0f, type: 3}
+    Multiple: 1
+    Hash: 1ae5d664c076278c34a62a74ba4e8f8b
+    Tags:
+    - Paint
+  modifiers: []

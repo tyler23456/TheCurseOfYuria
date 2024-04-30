@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: SamuraiLight3
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 7cd5fc228dd4495ab738d5cd7cda339c, type: 3}
+  _prefab: {fileID: 8935094248773092380, guid: 22b0d922739b8554f87b5f3fef55baf0, type: 3}
+  info: 
+  _itemSprites:
+    Name: SamuraiLight3
+    Collection: Samurai
+    Edition: Plugins
+    Id: Plugins.Samurai.Armor.SamuraiLight3
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Armor/Samurai/SamuraiLight3.png
+    Sprite: {fileID: 21300004, guid: 10fed484c625484cbd935647d7b2440f, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 10fed484c625484cbd935647d7b2440f, type: 3}
+    - {fileID: 21300002, guid: 10fed484c625484cbd935647d7b2440f, type: 3}
+    - {fileID: 21300022, guid: 10fed484c625484cbd935647d7b2440f, type: 3}
+    - {fileID: 21300010, guid: 10fed484c625484cbd935647d7b2440f, type: 3}
+    - {fileID: 21300008, guid: 10fed484c625484cbd935647d7b2440f, type: 3}
+    - {fileID: 21300016, guid: 10fed484c625484cbd935647d7b2440f, type: 3}
+    - {fileID: 21300018, guid: 10fed484c625484cbd935647d7b2440f, type: 3}
+    - {fileID: 21300012, guid: 10fed484c625484cbd935647d7b2440f, type: 3}
+    - {fileID: 21300006, guid: 10fed484c625484cbd935647d7b2440f, type: 3}
+    - {fileID: 21300014, guid: 10fed484c625484cbd935647d7b2440f, type: 3}
+    - {fileID: 21300020, guid: 10fed484c625484cbd935647d7b2440f, type: 3}
+    - {fileID: 21300000, guid: 10fed484c625484cbd935647d7b2440f, type: 3}
+    Multiple: 1
+    Hash: 579f40a197c0e84ed69927f7f4bb0c07
+    Tags: []
+  modifiers: []

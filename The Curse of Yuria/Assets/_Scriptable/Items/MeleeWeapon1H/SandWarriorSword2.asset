@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: SandWarriorSword2
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 7f55a0b8d84547d2897b835be32fa0ff, type: 3}
+  _prefab: {fileID: 4642336068738827865, guid: 3eb31a3da5bd09340801ecf62c426d46, type: 3}
+  info: 
+  _itemSprites:
+    Name: SandWarriorSword2
+    Collection: SandLords
+    Edition: Plugins
+    Id: Plugins.SandLords.MeleeWeapon1H.SandWarriorSword2
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/MeleeWeapon1H/SandLords/Sword/SandWarriorSword2.png
+    Sprite: {fileID: 21300000, guid: 4f549fc2b7ae4555a7e96dc3cc23466b, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 4f549fc2b7ae4555a7e96dc3cc23466b, type: 3}
+    Multiple: 1
+    Hash: 90581938d4e2908f60b23a209e78d1e3
+    Tags: []
+  modifiers: []

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: CataphractHelm
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: c2d226e4aa0a4dac834b3b076b56c4aa, type: 3}
+  _prefab: {fileID: 4545471166421197686, guid: 4a2043b48a6e7204ab142c5fbdb35a1b, type: 3}
+  info: 
+  _itemSprites:
+    Name: CataphractHelm [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.CataphractHelm [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Helmet/Basic/CataphractHelm
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: f5682c7a42e646d6b672dfdfc22dabb2, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: f5682c7a42e646d6b672dfdfc22dabb2, type: 3}
+    Multiple: 1
+    Hash: 5ceaa003727ae2e342f8de9213aa6d36
+    Tags:
+    - Paint
+  modifiers: []

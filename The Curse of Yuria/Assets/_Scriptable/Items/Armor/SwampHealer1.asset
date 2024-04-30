@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: SwampHealer1
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: c8f4d49988c94423b10739e2efb0eb2b, type: 3}
+  _prefab: {fileID: 4609321473504313764, guid: 82b8cec941f568448ac853cf793919dc, type: 3}
+  info: 
+  _itemSprites:
+    Name: SwampHealer1
+    Collection: SwampLords
+    Edition: Plugins
+    Id: Plugins.SwampLords.Armor.SwampHealer1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Armor/SwampLords/SwampHealer1.png
+    Sprite: {fileID: 21300004, guid: f7d248cf83f74369ae64d14fa82c47c5, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: f7d248cf83f74369ae64d14fa82c47c5, type: 3}
+    - {fileID: 21300002, guid: f7d248cf83f74369ae64d14fa82c47c5, type: 3}
+    - {fileID: 21300022, guid: f7d248cf83f74369ae64d14fa82c47c5, type: 3}
+    - {fileID: 21300010, guid: f7d248cf83f74369ae64d14fa82c47c5, type: 3}
+    - {fileID: 21300008, guid: f7d248cf83f74369ae64d14fa82c47c5, type: 3}
+    - {fileID: 21300016, guid: f7d248cf83f74369ae64d14fa82c47c5, type: 3}
+    - {fileID: 21300018, guid: f7d248cf83f74369ae64d14fa82c47c5, type: 3}
+    - {fileID: 21300012, guid: f7d248cf83f74369ae64d14fa82c47c5, type: 3}
+    - {fileID: 21300006, guid: f7d248cf83f74369ae64d14fa82c47c5, type: 3}
+    - {fileID: 21300014, guid: f7d248cf83f74369ae64d14fa82c47c5, type: 3}
+    - {fileID: 21300020, guid: f7d248cf83f74369ae64d14fa82c47c5, type: 3}
+    - {fileID: 21300000, guid: f7d248cf83f74369ae64d14fa82c47c5, type: 3}
+    Multiple: 1
+    Hash: 634d6109a964dbfa4fdb3e7b68845679
+    Tags: []
+  modifiers: []

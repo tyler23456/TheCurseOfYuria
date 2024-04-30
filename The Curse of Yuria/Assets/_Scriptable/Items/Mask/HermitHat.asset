@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: HermitHat
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 0ec7106d9fa84de9a25c337c5127046a, type: 3}
+  _prefab: {fileID: 614775398626269036, guid: eef625023c70caa4594b5dd1c4903d74, type: 3}
+  info: 
+  _itemSprites:
+    Name: HermitHat
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.HermitHat
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Helmet/Basic/HermitHat.png
+    Sprite: {fileID: 21300000, guid: 089a56d03f0a49ceb05e2d4aa6c8824b, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 089a56d03f0a49ceb05e2d4aa6c8824b, type: 3}
+    Multiple: 1
+    Hash: 2a9640240c7cf4e9aa4ef6997ef87ec1
+    Tags: []
+  modifiers: []

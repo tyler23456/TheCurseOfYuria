@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: VikingIronHelm1
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: ba82daf899164608aa1854c3e6b2e8dc, type: 3}
+  _prefab: {fileID: 787482950659580653, guid: 89fc95cd0752ec14d805b6f1fcddbd04, type: 3}
+  info: 
+  _itemSprites:
+    Name: VikingIronHelm1
+    Collection: Vikings
+    Edition: Plugins
+    Id: Plugins.Vikings.Helmet.VikingIronHelm1
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Helmet/Vikings/VikingIronHelm1.png
+    Sprite: {fileID: 21300000, guid: a4c9a72e3804467cac561625effb9ff0, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: a4c9a72e3804467cac561625effb9ff0, type: 3}
+    Multiple: 1
+    Hash: eaae61d621a3012290e544858af0d9aa
+    Tags: []
+  modifiers: []

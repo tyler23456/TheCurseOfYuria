@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Name: WitchHunterHat
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: e64eedcb6d49476c88d831965d9ad94c, type: 3}
+  _prefab: {fileID: 2975340739694136513, guid: 0eed1b2506d19f147937d70f996df206, type: 3}
+  info: 
+  _itemSprites:
+    Name: WitchHunterHat [Paint]
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Helmet.WitchHunterHat [Paint]
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Helmet/Basic/WitchHunterHat
+      [Paint].png
+    Sprite: {fileID: 21300000, guid: 291a590d37964a228d317f82f7b158ae, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 291a590d37964a228d317f82f7b158ae, type: 3}
+    Multiple: 1
+    Hash: 03e124eae51561f77e8f393a7a22b511
+    Tags:
+    - Paint
+  modifiers: []
