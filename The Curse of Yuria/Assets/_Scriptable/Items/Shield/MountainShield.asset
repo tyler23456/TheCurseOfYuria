@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 5e642a87a6ce456a9c7607958fc3b0ba, type: 3}
   _prefab: {fileID: 8106346623374680560, guid: 158e71d3dcb03ba4f84ea48e098cddc4, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: MountainShield
     Collection: Thrones
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 9de1882ca7aae06cb177d5015a1beec5
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 4436f21a291b4fe096fe7d0e85096849, type: 3}
   _prefab: {fileID: 2390425535216504017, guid: 86b062a7dbf5758498e0a09abb2dfe0f, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: HermitWand
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 0b00dc0da8e0d83f7565a119368eb275
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

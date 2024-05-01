@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: f9bc4a85170c457caaa8e583c3beee2e, type: 3}
   _prefab: {fileID: 322227047525076213, guid: 46cbaf3546efac74981e7e18e77245cc, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: ChampionArmor
     Collection: Basic
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 4e50fdff04da001fb28a64e3e1e6253d
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

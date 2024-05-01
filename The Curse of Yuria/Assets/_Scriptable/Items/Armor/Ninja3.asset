@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 21c5a84a6bc14443b210094cd7a0a8a1, type: 3}
   _prefab: {fileID: 8119275369408568623, guid: 7c2f48c42638f6a45ac41f252f74b7c1, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: Ninja3
     Collection: Samurai
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: d4dba4ca19990ff5ae19caebf5f6362c
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

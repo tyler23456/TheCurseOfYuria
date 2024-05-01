@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 412e755934834965b045d531da84d4df, type: 3}
   _prefab: {fileID: 7996435378536035379, guid: a52e2e5d8a2f6ad4dad944e9c1b2990c, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: ClericWand1
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 49cc18e8a392edb4da66ed68e43fe5ee
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

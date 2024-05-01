@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 3d6e288d88204fc19bdf087ff04d4269, type: 3}
   _prefab: {fileID: 2463148709202707518, guid: 3662d09232175a34b995b519d0d818dc, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SmallAxe
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 830b3ed1818a9bdfb95f6e258e45e8f3
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

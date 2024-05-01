@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 03e43b958a614c9392d32fbbd6921e8e, type: 3}
   _prefab: {fileID: 5901317639603087067, guid: ebca18f5569ec7b47a1c83cf4a23243f, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: WarlockArmor
     Collection: Basic
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 9718569208352d8d6758f1afdf8e0c5f
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

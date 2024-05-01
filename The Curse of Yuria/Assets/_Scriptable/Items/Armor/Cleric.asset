@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 0578ff2509eb47c7a86d27bc1e546ae8, type: 3}
   _prefab: {fileID: 5705845637134093675, guid: c3ba004087c620e4e8e68d7660af585e, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: Cleric [Paint]
     Collection: Basic
     Edition: Plugins
@@ -42,3 +51,5 @@ MonoBehaviour:
     Tags:
     - Paint
   modifiers: []
+  counters: []
+  interrupts: []

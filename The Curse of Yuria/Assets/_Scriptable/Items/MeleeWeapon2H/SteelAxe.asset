@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 0c043a300b8b4f24a004485660678ba9, type: 3}
   _prefab: {fileID: 8073730257295744222, guid: 06351cc4e112dc447ae3f8443cde698e, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SteelAxe
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: bedbd8a8801e69d2f9c0fca5f60fbc61
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

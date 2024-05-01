@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 4082d5629b0349a0acd7ef04001d84ab, type: 3}
   _prefab: {fileID: 2078275559155351475, guid: 2129942102fcc5d4caeb629919ec7457, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: BasicIronShield
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 06fa51548e362dc64978bfedd2b527c8
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

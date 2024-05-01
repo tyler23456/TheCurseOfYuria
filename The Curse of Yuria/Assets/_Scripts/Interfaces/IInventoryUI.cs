@@ -6,6 +6,7 @@ using System;
 public interface IInventoryUI
 {
     public bool isVertical { get; set; }
+    public Vector2Int origin { get; set; }
     public Vector2Int padding { get; set; }
     public Vector2Int windowSize { get; set; }
     public Action<string> OnClick { get; set; }

@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: a07ed882156846ef95cc39df6b6a3dbb, type: 3}
-  _prefab: {fileID: 3352322303746003462, guid: cc136d1e4dd3b23409a83fd80d444f97, type: 3}
+  _prefab: {fileID: 623816381622620683, guid: cc136d1e4dd3b23409a83fd80d444f97, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: BishopHat [FullHair]
     Collection: Basic
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Tags:
     - FullHair
   modifiers: []
+  counters: []
+  interrupts: []

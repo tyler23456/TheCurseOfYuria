@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: cb23dca86fef4828b74cb76fcd91cbb7, type: 3}
   _prefab: {fileID: 5437281724448671247, guid: d7ea73a9ed7c3ed45a8825dc4529260b, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: RangerBow
     Collection: Basic
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Hash: fec8599c4998b1399df9bd67ee7ef74c
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

@@ -8,12 +8,9 @@ namespace TCOY.DontDestroyOnLoad
 {
     public class Equipment : ItemBase, IItem
     {
-        [SerializeField] protected ItemSprite _itemSprites;
-        [SerializeField] protected List<Modifier> modifiers;
-        [SerializeField] protected List<Reactor> counters; //Reactor System
-        [SerializeField] protected List<Reactor> interrupts;
+        
 
-        public ItemSprite itemSprite { get { return _itemSprites; } set { _itemSprites = value; } }
+        public ItemSprite itemSprite { get { return base.itemSprite; } set { base.itemSprite = value; } }
 
         public override void Use(IActor user, IActor[] targets)
         {
@@ -52,23 +49,6 @@ namespace TCOY.DontDestroyOnLoad
                 target.interrupts.Remove(interrupt);
         }
 
-        [System.Serializable]
-        public class Modifier : IModifier
-        {
-            [SerializeField] IStats.Attributes attribute;
-            [SerializeField] int offset;
-
-            public IStats.Attributes getAttribute => attribute;
-            public int getOffset => offset;
-        }
-
-        public class Reactor : IReactor
-        {
-            [SerializeField] string trigger;
-            [SerializeField] string reaction;
-
-            public string getTrigger => trigger;
-            public string getReaction => reaction;
-        }
+        
     }
 }

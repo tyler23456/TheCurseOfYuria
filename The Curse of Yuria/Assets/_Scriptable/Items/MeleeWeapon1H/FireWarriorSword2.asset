@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 2f8ec8ce200241258eca650638beb0e7, type: 3}
   _prefab: {fileID: 6550339102750950776, guid: 5ef88499946675840bbaf40f948a3a7e, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: FireWarriorSword2
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 48fb3f43e32b14c035bac6e658ebcc48
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

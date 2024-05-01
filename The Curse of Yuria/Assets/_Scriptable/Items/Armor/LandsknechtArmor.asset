@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: c5c95c831de544b8b5b47bf01d0413ac, type: 3}
   _prefab: {fileID: 5555744997153382734, guid: 55d0bb5e049780b4f8a5e975c3e4f8f9, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: LandsknechtArmor
     Collection: Basic
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 8c93773caf7c65781ded8002386580d6
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

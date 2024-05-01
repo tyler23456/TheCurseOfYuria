@@ -13,8 +13,17 @@ MonoBehaviour:
   m_Name: GoldenRing
   m_EditorClassIdentifier: 
   guid: 0
-  _icon: {fileID: 21300000, guid: 62b470b9fe17b4145bd96a96aa6af02d, type: 3}
-  _prefab: {fileID: 7782862461384024269, guid: 7488710c508e4924aba5b554b6256d8e, type: 3}
+  _icon: {fileID: 21300000, guid: d40457c086dff8f44b449cbf1d85fb9d, type: 3}
+  _prefab: {fileID: 6718140121764924573, guid: 7488710c508e4924aba5b554b6256d8e, type: 3}
+  category: 0
   info: 
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
   bookPrefab: {fileID: 0}
   pagesText: []

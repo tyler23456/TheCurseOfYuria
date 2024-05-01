@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: ec1de562147d461cbdebd0bc7292bc8d, type: 3}
-  _prefab: {fileID: 2919052178566116513, guid: 8595d7db95bb888478a2fc037751da0a, type: 3}
+  _prefab: {fileID: 3630322272553319225, guid: 8595d7db95bb888478a2fc037751da0a, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: DarkMountainHelm [Paint]
     Collection: Thrones
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Tags:
     - Paint
   modifiers: []
+  counters: []
+  interrupts: []

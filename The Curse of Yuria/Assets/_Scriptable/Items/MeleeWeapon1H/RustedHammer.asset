@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 5049a4374025182459f50030cb81aec0, type: 3}
   _prefab: {fileID: 973815869492627037, guid: b0fdd509a7451b9409a265a1fc529359, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: RustedHammer
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: c7a5c6e4df48b3e4827d96307b85b24f
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

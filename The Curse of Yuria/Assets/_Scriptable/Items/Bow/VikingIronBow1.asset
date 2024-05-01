@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 3a2e0c1a80be4bcc842cd74917baede3, type: 3}
   _prefab: {fileID: 490773477091279163, guid: 73393bedc479e4c4c9812acb17e00090, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: VikingIronBow1
     Collection: Vikings
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Hash: 0e0d6c4d59448b8b52fc5dfcd5e4f5d6
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

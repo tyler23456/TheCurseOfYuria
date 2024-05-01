@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 63009158d6784465b7d0e5802a9166be, type: 3}
-  _prefab: {fileID: 7294376179713779299, guid: ede5636740d047a4394b5be1aca5c3ee, type: 3}
+  _prefab: {fileID: 5045952388968065959, guid: ede5636740d047a4394b5be1aca5c3ee, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: HunterHelm [Paint]
     Collection: Basic
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Tags:
     - Paint
   modifiers: []
+  counters: []
+  interrupts: []

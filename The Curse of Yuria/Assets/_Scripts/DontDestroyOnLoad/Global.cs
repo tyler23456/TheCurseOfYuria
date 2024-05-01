@@ -22,21 +22,21 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] List<IPlayer> party;
         [SerializeField] List<IActor> actors;
 
-        Inventory helmets;
-        Inventory earrings;
-        Inventory glasses;
-        Inventory masks;
-        Inventory meleeWeapons1H;
-        Inventory meleeWeapons2H;
-        Inventory capes;
-        Inventory armor;
-        Inventory shields;
-        Inventory bows;
-        Inventory scrolls;
-        Inventory supplies;
-        Inventory questItems;
-        Inventory completedQuests;
-        Inventory completedIds;
+        Inventory helmets = new Inventory();
+        Inventory earrings = new Inventory();
+        Inventory glasses = new Inventory();
+        Inventory masks = new Inventory();
+        Inventory meleeWeapons1H = new Inventory();
+        Inventory meleeWeapons2H = new Inventory();
+        Inventory capes = new Inventory();
+        Inventory armor = new Inventory();
+        Inventory shields = new Inventory();
+        Inventory bows = new Inventory();
+        Inventory scrolls = new Inventory();
+        Inventory supplies = new Inventory();
+        Inventory questItems = new Inventory();
+        Inventory completedQuests = new Inventory();
+        Inventory completedIds = new Inventory();
 
         public List<IPlayer> getParty => party;
         public List<IActor> getActors => actors;
@@ -49,6 +49,13 @@ namespace TCOY.DontDestroyOnLoad
 
         IInventory IGlobal.getCompletedQuests => completedQuests;
         IInventory IGlobal.getCompletedIds => completedIds;
+
+        public RectTransform getTitleScreenDisplay => titleScreenDisplay;
+        public RectTransform getPromptDisplay => promptDisplay;
+        public RectTransform getEquipmentDisplay => equipmentDisplay;
+        public RectTransform getCommandDisplay => commandDisplay;
+        public RectTransform getOptionsDisplay => optionsDisplay;
+        public RectTransform getGameOverDisplay => gameOverDisplay;
 
         public void Awake()
         { 

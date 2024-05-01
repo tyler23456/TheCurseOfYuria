@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: f576a6ea6f0b4510a73005774e67c28b, type: 3}
   _prefab: {fileID: 242938531254798193, guid: a303f63672016eb46b573a41a78b367e, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SteelTowerShield
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 547f049ee0db030c81fd93269bd43cdc
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

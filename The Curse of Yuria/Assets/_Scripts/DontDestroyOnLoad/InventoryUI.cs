@@ -13,6 +13,7 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] Button buttonPrefab;
 
         public bool isVertical { get; set; } = false;
+        public Vector2Int origin { get; set; } = new Vector2Int();
         public Vector2Int padding { get; set; } = new Vector2Int(5, 5);
         public Vector2Int windowSize { get; set; } = Vector2Int.zero;
         public Action<string> OnClick { get; set; } = (info) => { };
@@ -51,7 +52,8 @@ namespace TCOY.DontDestroyOnLoad
                 RectTransform rectTransform = (RectTransform)icon.transform;
                 rectTransform.anchoredPosition = new Vector2(origin.x + row * windowSize.x, origin.y + column * windowSize.y);
                 //need to set the image
-                icon.image.sprite = factory.GetItem(inventory.GetName(i)).icon;
+                icon.transform.GetChild(0).GetComponent<Image>().sprite = factory.GetItem(inventory.GetName(i)).icon;
+                //icon.image.sprite = factory.GetItem(inventory.GetName(i)).icon;
 
                 row++;
                 if (row >= maxRows)
@@ -64,19 +66,18 @@ namespace TCOY.DontDestroyOnLoad
 
         public void DisplayHorizonally()
         {
-            Vector2 origin = ((RectTransform)buttonPrefab.transform).anchoredPosition;
             int maxColumns = (int)(windowSize.x / (((RectTransform)buttonPrefab.transform).sizeDelta.x + padding.x));
             int row = 0;
             int column = 0;
 
             for (int i = 0; i < inventory.count; i++)
             {
-                Button button = Instantiate(buttonPrefab);
-                button.onClick.AddListener(() => { OnClick(inventory.GetName(i)); });
-                RectTransform rectTransform = (RectTransform)button.transform;
+                icon = Instantiate(buttonPrefab);
+                icon.onClick.AddListener(() => { OnClick(inventory.GetName(i)); });
+                RectTransform rectTransform = (RectTransform)icon.transform;
                 rectTransform.anchoredPosition = new Vector2(origin.x + row * windowSize.x, origin.y + column * windowSize.y);
                 //need to set the image
-
+                icon.transform.GetChild(0).GetComponent<Image>().sprite = factory.GetItem(inventory.GetName(i)).icon;
                 column++;
                 if (column >= maxColumns)
                 {

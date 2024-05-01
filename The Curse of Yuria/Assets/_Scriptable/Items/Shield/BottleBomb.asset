@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 2407cf50288a49918562d3d88bec1a8f, type: 3}
   _prefab: {fileID: 4901522065372237160, guid: e5b6f5affd395774e8cd8f21cee8c55e, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: BottleBomb
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 82b6d3ae1177758050342b67d52879e2
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

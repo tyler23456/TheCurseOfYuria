@@ -16,5 +16,12 @@ public interface IGlobal
     IInventory getCompletedQuests { get; }
     IInventory getCompletedIds { get; }
 
+    RectTransform getTitleScreenDisplay { get; }
+    RectTransform getPromptDisplay { get; }
+    RectTransform getEquipmentDisplay { get; }
+    RectTransform getCommandDisplay { get; }
+    RectTransform getOptionsDisplay { get; }
+    RectTransform getGameOverDisplay { get; }
+
     Coroutine StartCoroutine(IEnumerator routine);
 }

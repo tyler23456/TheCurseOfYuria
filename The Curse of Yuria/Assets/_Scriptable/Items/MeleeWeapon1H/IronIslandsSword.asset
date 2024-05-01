@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: c47da954629e4c86ae58df06ace2a1a3, type: 3}
   _prefab: {fileID: 1303918196146946098, guid: 873dfa397737b4d46a9e205235115f18, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: IronIslandsSword [Paint]
     Collection: Thrones
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Tags:
     - Paint
   modifiers: []
+  counters: []
+  interrupts: []

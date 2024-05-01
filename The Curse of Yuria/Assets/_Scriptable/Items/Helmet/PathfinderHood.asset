@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 8c7a6b521ddf44809d0f8f7b9bb475ce, type: 3}
-  _prefab: {fileID: 3709655035692772153, guid: d97c67b562dd7e043b6a4005ff7c22df, type: 3}
+  _prefab: {fileID: 2572020648472601723, guid: d97c67b562dd7e043b6a4005ff7c22df, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: PathfinderHood
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 442b8f376450903ad5617845813bf9c5
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

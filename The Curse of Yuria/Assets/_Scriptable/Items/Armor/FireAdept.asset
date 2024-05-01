@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: caec4831c1764d7cb8d1d3a488d2997c, type: 3}
   _prefab: {fileID: 2349773878166882985, guid: 7a73deaff1a376d43bdbde6d7434104a, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: FireAdept
     Collection: Basic
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: a99c0a8249b4bcf0085f46232a3da4e2
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

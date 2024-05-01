@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: d61449cf7e5d48d3b22186f8d7aa9a82, type: 3}
   _prefab: {fileID: 2475649427544312746, guid: ec9523fae1007834cb00f3bbd9cba312, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: MarauderArmor [Paint]
     Collection: Basic
     Edition: Plugins
@@ -42,3 +51,5 @@ MonoBehaviour:
     Tags:
     - Paint
   modifiers: []
+  counters: []
+  interrupts: []

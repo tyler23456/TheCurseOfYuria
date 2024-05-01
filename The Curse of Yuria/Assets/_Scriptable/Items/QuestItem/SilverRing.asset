@@ -13,8 +13,17 @@ MonoBehaviour:
   m_Name: SilverRing
   m_EditorClassIdentifier: 
   guid: 0
-  _icon: {fileID: 21300000, guid: ad126a47b12322c4d9147c412cd02522, type: 3}
-  _prefab: {fileID: 903834062227009441, guid: 474ec60e24bee564ea941eaa3d7e33a8, type: 3}
+  _icon: {fileID: 21300000, guid: a817e0919c4d3db42871be2ca379fd4b, type: 3}
+  _prefab: {fileID: 3227811887067572070, guid: 474ec60e24bee564ea941eaa3d7e33a8, type: 3}
+  category: 0
   info: 
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
   bookPrefab: {fileID: 0}
   pagesText: []

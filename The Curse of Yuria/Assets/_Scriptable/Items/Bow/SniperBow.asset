@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: e0b1b788f6874c678ae9424203b6686a, type: 3}
   _prefab: {fileID: 4687927001368830039, guid: eb2d3f4fdf281664589f96a4e0401b0a, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SniperBow
     Collection: Basic
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Hash: e9c25b0ee0ffaa41ae3ff1513cebd72f
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

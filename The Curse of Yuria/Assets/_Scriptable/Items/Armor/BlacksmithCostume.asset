@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 1ebff2f7a6dc1d54a960b928f1b0277f, type: 3}
   _prefab: {fileID: 7114571893055286688, guid: 2df07a4836d9f8246bfb957554b95303, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: BlacksmithCostume
     Collection: Basic
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 779c6bcc4f8d2d2ac461acb55b5f51bf
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

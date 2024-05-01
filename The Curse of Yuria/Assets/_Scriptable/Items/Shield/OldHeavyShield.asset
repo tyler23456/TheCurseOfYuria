@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 0417a931cb3848c38f973cb9a626632c, type: 3}
   _prefab: {fileID: 477538669009141387, guid: 3621710f5af237d4688b8017daa7e8ea, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: OldHeavyShield
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 7d1e6df425341fa39f6e1358596c15e2
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

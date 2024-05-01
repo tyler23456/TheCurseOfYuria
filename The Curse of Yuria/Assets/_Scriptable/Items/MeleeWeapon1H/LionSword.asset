@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 4f4e1e2b2daa44faad4bb1a96e156982, type: 3}
   _prefab: {fileID: 382431188839499756, guid: 0afd717e5182a5f4f9f8137fe2d81529, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: LionSword [Paint]
     Collection: Thrones
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Tags:
     - Paint
   modifiers: []
+  counters: []
+  interrupts: []

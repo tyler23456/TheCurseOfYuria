@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 40a3474602294f51980db6aa690741c8, type: 3}
   _prefab: {fileID: 2259042124769243409, guid: f4d74f3a8d5c41f4ba00f13acb623f94, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: Banan
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: cd68029e59d6809b10b13f427f3f37bc
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

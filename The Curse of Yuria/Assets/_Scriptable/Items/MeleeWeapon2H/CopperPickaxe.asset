@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: abb280dadab44db4eb5b9b49a406841b, type: 3}
   _prefab: {fileID: 1663264198350046807, guid: 2b13ef80ad509f949bb0ae7f60433dde, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: CopperPickaxe
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 674f68fc3eaa83bef3212e50e8a39a0a
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

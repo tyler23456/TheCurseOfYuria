@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: d17cd3294cf940928131e5a3d90db80b, type: 3}
   _prefab: {fileID: 3646055679570456911, guid: a5c23abed9ad5c04796f8c2504733c0a, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: Santa1
     Collection: Christmas
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 67d0efc32c9707c6a4b9e442003c747e
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

@@ -14,7 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: d4775dfc123f48c4f8996e3e93022b1c, type: 3}
-  _prefab: {fileID: 4743561214200329330, guid: b75349183ee933a44b3182552310e1cc, type: 3}
+  _prefab: {fileID: 6486002293187568946, guid: b75349183ee933a44b3182552310e1cc, type: 3}
+  category: 0
   info: 
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
   bookPrefab: {fileID: 0}
   pagesText: []

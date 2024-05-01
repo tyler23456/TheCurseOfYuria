@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: c3715341b8fe42ebb4937130f2a24cb2, type: 3}
   _prefab: {fileID: 4817030064884403628, guid: c90a19b4e09591544939f8d85d058fd4, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SamuraiElderSword
     Collection: Samurai
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 85ccfc0cb55a37ea58b478e2fd957d4d
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

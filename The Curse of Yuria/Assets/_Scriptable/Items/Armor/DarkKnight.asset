@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 59bc4a26f72541e49c317554c122ce30, type: 3}
   _prefab: {fileID: 6584881540098363610, guid: a2c36aa26272a1b4d840bce7c5d8b3a3, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: DarkKnight
     Collection: Basic
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 32c80b4928efb9deea96639aa546f5fe
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

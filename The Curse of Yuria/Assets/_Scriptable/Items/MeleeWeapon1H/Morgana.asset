@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 7508800971514e45bff6d0b36acb0d63, type: 3}
   _prefab: {fileID: 612083891974434156, guid: 159160dc3fb0b564194de08a9480d024, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: Morgana
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 192600d87ce90fb3d6ca6d8bc466de0b
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

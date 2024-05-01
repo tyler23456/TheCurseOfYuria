@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 94b5fd3027014f5aa9cf58d118e35b9f, type: 3}
   _prefab: {fileID: 6006070565229678273, guid: 63e9201f816f3d24c9a3d537786ae42a, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: HornBow
     Collection: Basic
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Hash: 9d4121dc81ab0e88223d31b35bb1f0bb
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

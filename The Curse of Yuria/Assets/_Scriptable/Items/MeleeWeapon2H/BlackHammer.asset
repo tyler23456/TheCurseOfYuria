@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 0ba4e9c6707c485390d44beeb1b2b2e3, type: 3}
   _prefab: {fileID: 6615333111862480398, guid: c43b6cb6523539b4daec5fef17308aba, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: BlackHammer
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: dde9e2410a1b87995d91d474f0c444c9
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

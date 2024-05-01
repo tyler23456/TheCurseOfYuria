@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 6678809b6d9249458bfaa9261a6b2199, type: 3}
   _prefab: {fileID: 4070709902877942487, guid: d7cefedb528415c4cbadf68aa79e6dff, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: VikingShortBow
     Collection: Vikings
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Hash: ac7856da72207a3ec29a82a352297bbc
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

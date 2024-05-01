@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 1ce803e08eb649b5bcc12217e0f7cca2, type: 3}
-  _prefab: {fileID: 2715961692501298298, guid: 3de39d55539d55f449b1f06ae4318bed, type: 3}
+  _prefab: {fileID: 202124166319833196, guid: 3de39d55539d55f449b1f06ae4318bed, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: HeavyHelm [Paint]
     Collection: Basic
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Tags:
     - Paint
   modifiers: []
+  counters: []
+  interrupts: []

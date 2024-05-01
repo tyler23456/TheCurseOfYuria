@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: f4825239442744c6a39c1eb8b135eb97, type: 3}
-  _prefab: {fileID: 1077966734089991876, guid: f570fe302197f5c48bf49276638fd187, type: 3}
+  _prefab: {fileID: 3374254439464597008, guid: f570fe302197f5c48bf49276638fd187, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SantaHelperHat3
     Collection: Christmas
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 455a837310c0fa390bf8877fef1e12a9
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

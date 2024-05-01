@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: ace69a3503c4405bb1801aed44530a7f, type: 3}
   _prefab: {fileID: 1280682688942529788, guid: da71e911952c6124a857180baabcfc7b, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SwampElder
     Collection: SwampLords
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 01b2b21806d543c646aa5a1e028664ca
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

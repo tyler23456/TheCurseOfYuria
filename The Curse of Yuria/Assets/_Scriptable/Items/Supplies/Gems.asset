@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: ad30c836fc63c8f47befd3804c03b042, type: 3}
-  _prefab: {fileID: 8259297929191944324, guid: e9b080792ea7cea428b7161a1156174c, type: 3}
+  _prefab: {fileID: 2039672394301473622, guid: e9b080792ea7cea428b7161a1156174c, type: 3}
+  category: 0
   info: 
-  power: 0
-  cost: 0
-  duration: Infinity
   group: 0
   type: 0
   element: 0
-  particleSystem: {fileID: 0}
+  power: 0
+  cost: 0
+  duration: Infinity
   effects: []
+  particleSystem: {fileID: 0}

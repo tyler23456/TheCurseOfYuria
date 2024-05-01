@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: e7e64a7a97a44f3eb2032ff3b1540c33, type: 3}
   _prefab: {fileID: 5158621353370068530, guid: d6bc3e0094fe2a948953fb6d3a73f9b8, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: VikingLightArmor2
     Collection: Vikings
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 2c92be5e506c6a9bb056f7070f64b1af
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

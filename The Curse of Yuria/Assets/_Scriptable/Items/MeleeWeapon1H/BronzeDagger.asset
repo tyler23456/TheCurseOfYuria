@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 60c33c713b264fbca299955b76a871f4, type: 3}
   _prefab: {fileID: 4045074827382438865, guid: 89e68fc0204d42547b67d753f18a62fb, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: BronzeDagger
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: c29b4f49c72b4d3febbfe0ac3a415136
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

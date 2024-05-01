@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 4ebb7f3d9ea54825b8d98fa3ae2c468e, type: 3}
   _prefab: {fileID: 1721854733142343992, guid: 383a79a11bcfaa940a97f52fc0beeb95, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: GuardArmor [Paint]
     Collection: Basic
     Edition: Plugins
@@ -42,3 +51,5 @@ MonoBehaviour:
     Tags:
     - Paint
   modifiers: []
+  counters: []
+  interrupts: []

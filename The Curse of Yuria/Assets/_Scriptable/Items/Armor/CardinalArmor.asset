@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 91eec7f45e6746e295e5adf139a50418, type: 3}
   _prefab: {fileID: 2258537968278357787, guid: 0506c0cc559e4004ba5c96e81ccac4b5, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: CardinalArmor
     Collection: Basic
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 2214c316b9475a520ce526f017cef1a0
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

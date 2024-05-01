@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 039cfb9dab1c455db2ad9b464b6fdcfa, type: 3}
   _prefab: {fileID: 4270250021017285980, guid: 810e4aef2bf9dc945a4ad580d69f6b48, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: VikingSword1
     Collection: Vikings
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 69caf09b7c81754e05b4cc151dae4207
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

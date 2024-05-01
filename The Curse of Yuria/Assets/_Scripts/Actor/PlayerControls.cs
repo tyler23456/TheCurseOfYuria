@@ -7,13 +7,16 @@ namespace TCOY.Actors
 {
     public class PlayerControls : MonoBehaviour, IPlayerControls
     {
+        IGlobal global;
+
         float speed = 1f;
         Actor actor;
         Vector2 velocity = Vector2.zero;
         
         void Start()
         {
-            actor = GetComponent<Actor>();     
+            actor = GetComponent<Actor>();
+            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
         }
         
         void Update()
@@ -55,6 +58,11 @@ namespace TCOY.Actors
             {
                 //actor.getAnimator.Jump();
                 velocity += Vector2.up * 100;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                global.getEquipmentDisplay.gameObject.SetActive(!global.getEquipmentDisplay.gameObject.activeSelf);
             }
         }
 

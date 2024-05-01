@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: c9c95dfcc7578d04393bbed6af5f9532, type: 3}
   _prefab: {fileID: 874416735198942907, guid: 84e038a5574d3f549bfdde0b6fd0d797, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: NinjaOutfit
     Collection: Basic
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 44e5ed2eaa1008c1eb496dfadee27a75
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

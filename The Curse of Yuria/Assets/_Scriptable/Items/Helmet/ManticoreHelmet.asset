@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 65915a6a1abf46b6a145a3c41a6fe82a, type: 3}
-  _prefab: {fileID: 2903912961156374264, guid: efec5193dd7906d48b99ee7c3dd865d7, type: 3}
+  _prefab: {fileID: 1587656392744819535, guid: efec5193dd7906d48b99ee7c3dd865d7, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: ManticoreHelmet
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 49c9d4dc980189f3f16ea4b899a291ac
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

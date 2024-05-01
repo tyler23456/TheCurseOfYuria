@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 54c6ed8ca12e475b9aa2ed2459c8979f, type: 3}
   _prefab: {fileID: 7028292046023678302, guid: 3cfc557d42d3d9f43ae2b84cf1d4f9f9, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: CardinalBook
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: bd3e3237651be6726b19fb0d72105906
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

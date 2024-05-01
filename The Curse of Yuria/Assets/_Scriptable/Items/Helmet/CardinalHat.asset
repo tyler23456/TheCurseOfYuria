@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 34a9cbd5b27041d2b592e8626f3b6d99, type: 3}
-  _prefab: {fileID: 6296770362034666445, guid: 42782de795f2c4a40b50f66a30234518, type: 3}
+  _prefab: {fileID: 2807200520474541788, guid: 42782de795f2c4a40b50f66a30234518, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: CardinalHat [Paint]
     Collection: Basic
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Tags:
     - Paint
   modifiers: []
+  counters: []
+  interrupts: []

@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 3a9634b61b804eee86f5384633cbe069, type: 3}
   _prefab: {fileID: 1465341890673854465, guid: 927cfcd4e066c6f48ac8472895406f78, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: FireWarriorShield
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: ffcc872c73a584e483187a69c4eb454e
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

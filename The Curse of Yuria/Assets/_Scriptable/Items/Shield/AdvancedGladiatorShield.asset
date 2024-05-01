@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 9048d57223744be5a0643fcc2da4f7de, type: 3}
   _prefab: {fileID: 5280897675333706743, guid: ab37c96de5cde9342a9823e9a19ea35a, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: AdvancedGladiatorShield
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 9ace79e4bf1e1e6cb9bcfb7bc093b34a
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

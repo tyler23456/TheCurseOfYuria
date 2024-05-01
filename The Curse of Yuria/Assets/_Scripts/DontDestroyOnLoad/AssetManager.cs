@@ -44,7 +44,7 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] bool refreshPrefabs = false;
 
         GameObject prefab;
-        IItem asset;
+        ItemBase asset;
         GameObject obj;
 
         new BoxCollider2D collider;
@@ -73,7 +73,7 @@ namespace TCOY.DontDestroyOnLoad
             Sprite[] helmets = Resources.LoadAll<Sprite>(iconsRootPath + helmetsPath);
             Sprite[] earrings = Resources.LoadAll<Sprite>(iconsRootPath + earringsPath);
             Sprite[] glasses = Resources.LoadAll<Sprite>(iconsRootPath + glassesPath);
-            Sprite[] masks = Resources.LoadAll<Sprite>(iconsRootPath + helmetsPath);
+            Sprite[] masks = Resources.LoadAll<Sprite>(iconsRootPath + masksPath);
             Sprite[] meleeWeapon1H = Resources.LoadAll<Sprite>(iconsRootPath + meleeWeapon1HPath);
             Sprite[] meleeWeapon2H = Resources.LoadAll<Sprite>(iconsRootPath + meleeWeapon2HPath);
             Sprite[] capes = Resources.LoadAll<Sprite>(iconsRootPath + capesPath);
@@ -129,10 +129,10 @@ namespace TCOY.DontDestroyOnLoad
                 RefreshItemCategory(icon, questItemPath + FilterName(icon.name), ScriptableObject.CreateInstance<QuestItem>());
         }
         
-        void RefreshItemCategory(Sprite icon, string path, IItem scriptableObject)
+        void RefreshItemCategory(Sprite icon, string path, ItemBase scriptableObject)
         {
             prefab = (GameObject)AssetDatabase.LoadAssetAtPath(prefabsRootPath + path + ".prefab", typeof(GameObject));
-            asset = (IItem)AssetDatabase.LoadAssetAtPath(assetsRootPath + path + ".asset", typeof(IItem));
+            asset = (ItemBase)AssetDatabase.LoadAssetAtPath(assetsRootPath + path + ".asset", typeof(ItemBase));
 
             if (prefab == null)
                 prefab = CreateOrReplacePrefab(icon, path);
@@ -177,39 +177,29 @@ namespace TCOY.DontDestroyOnLoad
             CreateOrReplacePrefab(icon, path);
         }
 
-        void CreateScriptableObject(Sprite icon, GameObject prefab, IItem scriptableObject, string path)
+        void CreateScriptableObject(Sprite icon, GameObject prefab, ItemBase scriptableObject, string path)
         {
-            AssetDatabase.CreateAsset((ItemBase)scriptableObject, assetsRootPath + path + ".asset");
+            AssetDatabase.CreateAsset(scriptableObject, assetsRootPath + path + ".asset");
             RefreshScriptableObject(icon, prefab, path);
         }
 
         void RefreshScriptableObject(Sprite icon, GameObject prefab, string path)
         {
-            asset = (IItem)AssetDatabase.LoadAssetAtPath(assetsRootPath + path + ".asset", typeof(IItem));
+            asset = (ItemBase)AssetDatabase.LoadAssetAtPath(assetsRootPath + path + ".asset", typeof(ItemBase));
 
-            if (asset is Equipment 
-                && CompareItemSprite(((Equipment)asset).itemSprite, itemSprites[icon.name]) 
-                && asset.icon == icon 
-                && asset.prefab == prefab 
-                && CompareNames(icon.name, asset.itemName))
-                return;
-            else if (asset is not Equipment 
+            if (CompareItemSprite(asset.itemSprite, itemSprites[icon.name]) 
                 && asset.icon == icon 
                 && asset.prefab == prefab 
                 && CompareNames(icon.name, asset.itemName))
                 return;
 
-            ((ItemBase)asset).itemName = FilterName(icon.name);
+            asset.itemName = FilterName(icon.name);
+            asset.icon = icon;
+            asset.itemSprite = itemSprites[icon.name];
+            asset.prefab = prefab;
 
-            ((ItemBase)asset).icon = icon;
-
-            if (asset is Equipment)
-                ((Equipment)asset).itemSprite = itemSprites[icon.name];
-           
-            ((ItemBase)asset).prefab = prefab;
-
-            EditorUtility.SetDirty((ScriptableObject)asset);
-            AssetDatabase.SaveAssetIfDirty((ScriptableObject)asset);
+            EditorUtility.SetDirty(asset);
+            AssetDatabase.SaveAssetIfDirty(asset);
         }
 
         bool CompareItemSprite(ItemSprite a, ItemSprite b)

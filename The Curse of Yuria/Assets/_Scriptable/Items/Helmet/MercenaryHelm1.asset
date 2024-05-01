@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 9073d5029ae840b8b430595230dc658c, type: 3}
-  _prefab: {fileID: 4198022787776456151, guid: 704cfe420dcc00147aaadad5e9f84ebe, type: 3}
+  _prefab: {fileID: 608434000188595916, guid: 704cfe420dcc00147aaadad5e9f84ebe, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: MercenaryHelm1 [Paint]
     Collection: Basic
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Tags:
     - Paint
   modifiers: []
+  counters: []
+  interrupts: []

@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 751ca05076224dd58e47369a4ef7150b, type: 3}
   _prefab: {fileID: 6674955163816908608, guid: 55ad6e2b87383914ea24d0bd0fc99717, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: FamilySword
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: e161153b5c15604d8ba1c25151e24d6e
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

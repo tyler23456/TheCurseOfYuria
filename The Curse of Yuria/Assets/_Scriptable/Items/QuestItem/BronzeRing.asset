@@ -13,8 +13,17 @@ MonoBehaviour:
   m_Name: BronzeRing
   m_EditorClassIdentifier: 
   guid: 0
-  _icon: {fileID: 21300000, guid: 063cc73b4a84bb945b3ff0f85d14a024, type: 3}
-  _prefab: {fileID: 5070596793193199845, guid: 9562c39b96720f5408877fb192ae6c35, type: 3}
+  _icon: {fileID: 21300000, guid: de421919e958abc429ecdf553068dd4b, type: 3}
+  _prefab: {fileID: 1784734394009058819, guid: 9562c39b96720f5408877fb192ae6c35, type: 3}
+  category: 0
   info: 
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
   bookPrefab: {fileID: 0}
   pagesText: []

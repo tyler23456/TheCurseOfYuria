@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: ca95a726b76e42bea3d3b186e4063a39, type: 3}
   _prefab: {fileID: 2093642041407452432, guid: cfed36cbd310cb649a8b0cbcf14f29e8, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: RustySword
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 7c3a0c50a6f0b57e804450ae6676f443
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

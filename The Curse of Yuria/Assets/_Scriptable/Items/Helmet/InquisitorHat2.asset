@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 9da0c48595b34ac08e8c4d36aedcb609, type: 3}
-  _prefab: {fileID: 6245913566877530402, guid: 7ef23dfc04b40bd4eba6f9ed9873facd, type: 3}
+  _prefab: {fileID: 5258488685097864899, guid: 7ef23dfc04b40bd4eba6f9ed9873facd, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: InquisitorHat2 [Paint]
     Collection: Basic
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Tags:
     - Paint
   modifiers: []
+  counters: []
+  interrupts: []

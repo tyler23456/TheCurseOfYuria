@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 46c0f79390024475b9ecd247d06aaebe, type: 3}
   _prefab: {fileID: 7240732115189601925, guid: 73297783736c79145bb5af80ba48e134, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SunriseSword
     Collection: Samurai
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 092cfd9f94d4b4b64a27a08854527565
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: c8f4d49988c94423b10739e2efb0eb2b, type: 3}
   _prefab: {fileID: 4609321473504313764, guid: 82b8cec941f568448ac853cf793919dc, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SwampHealer1
     Collection: SwampLords
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 634d6109a964dbfa4fdb3e7b68845679
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

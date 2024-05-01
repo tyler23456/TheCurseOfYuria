@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: d2b811902de62ac49bcb62c7912162f0, type: 3}
   _prefab: {fileID: 3219653487119205059, guid: 53001fd02684c9c4eb76f8f7fde9586f, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: BrassPickaxe
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 1ac5b12b3b9434fecead76c4bbafe0eb
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

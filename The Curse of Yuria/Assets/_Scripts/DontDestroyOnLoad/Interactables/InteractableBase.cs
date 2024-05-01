@@ -45,14 +45,14 @@ namespace TCOY.DontDestroyOnLoad
         }
 
 
-        protected void OnTriggerStay(Collider other)
-        {
-            IPlayerControls playerControls = other.GetComponent<IPlayerControls>();
+        private void OnTriggerStay2D(Collider2D collision)
+        {   
+            IPlayerControls playerControls = collision.GetComponent<IPlayerControls>();
 
             if (playerControls == null)
                 return;
 
-            IPlayer player = other.GetComponent<IPlayer>();
+            IPlayer player = collision.GetComponent<IPlayer>();
 
             Interact(player);         
         }

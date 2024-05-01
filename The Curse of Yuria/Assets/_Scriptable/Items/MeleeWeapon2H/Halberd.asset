@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 61faf67af00b46399f47038a993afe4e, type: 3}
   _prefab: {fileID: 3791313884222199482, guid: f34b809c8c54c444489eab08d6f25596, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: Halberd
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 3026f64d659655ce561b1bc982beaf7d
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

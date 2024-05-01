@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: e0601474fae4450ea712dfbc9c430922, type: 3}
   _prefab: {fileID: 5221505270808907669, guid: c56fe0072a71e794aa5a9584d23eaa1d, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: DarkKnightShield
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 75db99711468d78bf277fabadfb0d6ac
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

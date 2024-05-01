@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: c14f1db91eac2ce42ae01c587d066655, type: 3}
-  _prefab: {fileID: 6088728758931528702, guid: 70f80115fa05aaf45afee83111463d61, type: 3}
+  _prefab: {fileID: 4870070604860936055, guid: 70f80115fa05aaf45afee83111463d61, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: BaboonMask
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 91a4d670aeb5bb2961651d0177235287
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

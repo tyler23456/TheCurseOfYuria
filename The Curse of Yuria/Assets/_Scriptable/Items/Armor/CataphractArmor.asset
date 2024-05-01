@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 3f0f2e3492354847b269fb550db647b8, type: 3}
   _prefab: {fileID: 5953453584949039667, guid: 71b80438b8fc8994289076c368b1712c, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: CataphractArmor [Paint]
     Collection: Basic
     Edition: Plugins
@@ -42,3 +51,5 @@ MonoBehaviour:
     Tags:
     - Paint
   modifiers: []
+  counters: []
+  interrupts: []

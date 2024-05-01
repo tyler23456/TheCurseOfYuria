@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 39ad0d79f5004df082ce6347d8809bbb, type: 3}
   _prefab: {fileID: 4425308604716294213, guid: 8f62b2dd3464fb44ab079e35ea378366, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: Ninja1 [Paint]
     Collection: Samurai
     Edition: Plugins
@@ -42,3 +51,5 @@ MonoBehaviour:
     Tags:
     - Paint
   modifiers: []
+  counters: []
+  interrupts: []

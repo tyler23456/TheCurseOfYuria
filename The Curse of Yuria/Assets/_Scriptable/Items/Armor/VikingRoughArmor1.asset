@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 6cf55dcf790b4b839fd4aa04c72854c0, type: 3}
   _prefab: {fileID: 7102127320041021596, guid: 47bd31117837ab1408b9b2bac44b96a2, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: VikingRoughArmor1
     Collection: Vikings
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: a877fd80efbbbbbbc7cdf302f5e41806
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

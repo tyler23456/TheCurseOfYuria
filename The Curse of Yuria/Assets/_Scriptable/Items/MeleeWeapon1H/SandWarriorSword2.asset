@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 7f55a0b8d84547d2897b835be32fa0ff, type: 3}
   _prefab: {fileID: 4642336068738827865, guid: 3eb31a3da5bd09340801ecf62c426d46, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SandWarriorSword2
     Collection: SandLords
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 90581938d4e2908f60b23a209e78d1e3
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

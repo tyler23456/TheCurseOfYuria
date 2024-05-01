@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 6d497dfb476245f9b4910a2186d51888, type: 3}
-  _prefab: {fileID: 8307698653463114160, guid: 5f57e7876103edd41b297d799d5f6603, type: 3}
+  _prefab: {fileID: 2388744421984254240, guid: 5f57e7876103edd41b297d799d5f6603, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: BerserkHelm
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 7de31a7131d8ff1f78f5b9009e6a7434
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

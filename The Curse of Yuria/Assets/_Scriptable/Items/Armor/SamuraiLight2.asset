@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 1b7ed8d163554ade896fa620c609877b, type: 3}
   _prefab: {fileID: 5106697050932681179, guid: 91c183ebecea8c74d95f3e528c7f99ec, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SamuraiLight2
     Collection: Samurai
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 8446dd259de1668a9d22010f2ffe831a
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

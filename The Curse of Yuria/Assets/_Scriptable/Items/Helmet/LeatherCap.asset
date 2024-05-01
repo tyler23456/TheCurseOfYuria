@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: a9cf8e008c264adebcb54901036955f9, type: 3}
-  _prefab: {fileID: 4666988095798614477, guid: 8bdf2144eb873324b80bf32ebb5d52b5, type: 3}
+  _prefab: {fileID: 6577070498463232227, guid: 8bdf2144eb873324b80bf32ebb5d52b5, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: LeatherCap
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: b8b744c5bd0d0342c976f6b57e965175
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

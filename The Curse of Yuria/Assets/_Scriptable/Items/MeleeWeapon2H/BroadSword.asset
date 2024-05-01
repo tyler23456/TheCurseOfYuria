@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: bd9750af371e4e88816d9a74c8dac726, type: 3}
   _prefab: {fileID: 8374032162811086423, guid: e15d1498280a2c4448764e2071cd3d39, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: BroadSword
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 6f9ddba4409beccfbc85fe0f15a4123c
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

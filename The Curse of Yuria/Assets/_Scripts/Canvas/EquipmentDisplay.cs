@@ -45,7 +45,7 @@ namespace TCOY.Canvas
         EquipmentPart currentPart = EquipmentPart.Helmet;
         int partyMemberIndex = 0;
 
-        void Start()
+        void OnEnable()
         {
             inventoryUI = GameObject.Find("/DontDestroyOnLoad").GetComponent<IInventoryUI>();
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
@@ -68,6 +68,7 @@ namespace TCOY.Canvas
         public void OnClickEquipmentPartTab(EquipmentPart part, IInventory inventory)
         {
             currentPart = part;
+            inventoryUI.origin = new Vector2Int(182, 110);
             inventoryUI.isVertical = false;
             inventoryUI.OnClick = (itemName) => OnEquip(itemName);;
             inventoryUI.inventory = inventory;

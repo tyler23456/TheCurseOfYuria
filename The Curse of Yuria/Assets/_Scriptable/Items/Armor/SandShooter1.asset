@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 5d3180c70db04db59e8173c70c3941fe, type: 3}
   _prefab: {fileID: 5246084585542123852, guid: 875d370cca692a841a3c6d58735d044f, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SandShooter1
     Collection: SandLords
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 5d2b4cb5f5286af5244856fdba755ed0
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 26a2ae4dd2684505989f80b1e1df20ed, type: 3}
   _prefab: {fileID: 8470442572354274525, guid: 2bdf034f9db5535469c85619695d9877, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: WarHammer
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 0d84aa5aa20303af6ef144543f2385fc
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

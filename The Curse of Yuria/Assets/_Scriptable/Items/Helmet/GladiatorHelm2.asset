@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 9b059f40c85c490c968f2abf81d7ae38, type: 3}
-  _prefab: {fileID: 5987776004462753079, guid: 264245316bcfc34468f3b897ea8aad17, type: 3}
+  _prefab: {fileID: 3212595622202631995, guid: 264245316bcfc34468f3b897ea8aad17, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: GladiatorHelm2
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: d2585fa465ad9cc77ab6179fe5c48202
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

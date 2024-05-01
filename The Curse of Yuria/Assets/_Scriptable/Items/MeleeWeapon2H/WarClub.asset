@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 2609212b75624099b89d4a6b05a7b0ea, type: 3}
   _prefab: {fileID: 4304041104875646843, guid: b353fa2b5cf2ec64195f711562e14779, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: WarClub
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 7270f69f3d92ed080ff4a2271135149c
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

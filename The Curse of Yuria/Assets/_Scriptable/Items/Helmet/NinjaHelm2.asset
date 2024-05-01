@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 427da4a3809343b59422852152dd1386, type: 3}
-  _prefab: {fileID: 1497069279107934429, guid: 7b51d0c633d198748babacc89a998c6c, type: 3}
+  _prefab: {fileID: 1808883918192828412, guid: 7b51d0c633d198748babacc89a998c6c, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: NinjaHelm2 [Paint]
     Collection: Samurai
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Tags:
     - Paint
   modifiers: []
+  counters: []
+  interrupts: []

@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 674186cb43e64d9fb6f99fa3d50ad57b, type: 3}
   _prefab: {fileID: 1377894935450636476, guid: 64fe54616c781364b897e4032f4db53e, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: WarriorShield
     Collection: Knights
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 2d0cfaf2ed2698eb2b349440a5ea6d40
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

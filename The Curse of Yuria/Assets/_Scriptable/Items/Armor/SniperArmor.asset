@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 2a744b62914d4c07bf23761ba9f5e097, type: 3}
   _prefab: {fileID: 6069094034579860171, guid: 276c4993a65fc1749882c50985e9e1c4, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SniperArmor
     Collection: Basic
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: cbd939e1f6c01c1c5a90a315605b0c42
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

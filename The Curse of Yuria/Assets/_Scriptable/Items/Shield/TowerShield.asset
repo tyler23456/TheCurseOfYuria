@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: f2d8f44124b14fa7a9ac831f01c227d6, type: 3}
   _prefab: {fileID: 7951489155358444351, guid: 5ee5cc8b3bf87ab49849fdca8557a600, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: TowerShield
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 0df3821cb5b5e0e4c5eb2f8678aed7b4
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

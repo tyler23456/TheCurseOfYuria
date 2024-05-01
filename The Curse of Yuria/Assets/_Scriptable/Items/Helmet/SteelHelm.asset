@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 88fbaca5a024482ca9f20030c35b9d24, type: 3}
-  _prefab: {fileID: 8471101564700253444, guid: 58d5429960a38a946879903b6a9692fc, type: 3}
+  _prefab: {fileID: 675543410228321808, guid: 58d5429960a38a946879903b6a9692fc, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SteelHelm [Paint]
     Collection: Basic
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Tags:
     - Paint
   modifiers: []
+  counters: []
+  interrupts: []

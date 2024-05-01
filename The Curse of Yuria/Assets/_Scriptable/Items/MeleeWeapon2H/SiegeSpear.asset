@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 648c39b0958f412bb30556be91413c8a, type: 3}
   _prefab: {fileID: 6949301805165507632, guid: 6697305193866fe408ff954460050f89, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SiegeSpear
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 28d9dce5f0d1c9f9f4f5a091bc420d3c
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

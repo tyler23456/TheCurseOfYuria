@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 02396aeda45e44b896dfb738a27aa7f8, type: 3}
-  _prefab: {fileID: 4116817441122214081, guid: e3f5d80de5f9ae740938fd3c8e2f41f3, type: 3}
+  _prefab: {fileID: 6919300958016830726, guid: e3f5d80de5f9ae740938fd3c8e2f41f3, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: RangerHat [Paint]
     Collection: Basic
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Tags:
     - Paint
   modifiers: []
+  counters: []
+  interrupts: []

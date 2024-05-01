@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 1da571abaafe4a19afda70e25fb12a70, type: 3}
   _prefab: {fileID: 162623685861003297, guid: 4a11f5c6aa313d843b918d5a381821ff, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: MalformedStaff
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: b77b6345d07adf684d4aef8f5b56d335
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

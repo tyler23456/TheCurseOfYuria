@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: e70a46d59b4c499e8a19a7967f22ad2f, type: 3}
   _prefab: {fileID: 4334896994322406810, guid: ba49d1322757aee40abd07e80c6b36d3, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: DarkMountain
     Collection: Thrones
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 9c328249b4dd23de27abf1002bf22da1
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

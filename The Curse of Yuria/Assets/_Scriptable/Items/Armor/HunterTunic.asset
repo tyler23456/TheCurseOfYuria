@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: d0cda7245eea4bd18fa15e27002e3833, type: 3}
   _prefab: {fileID: 1257964466415807940, guid: d003918a61541244bb68d1fb2d9e76c0, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: HunterTunic
     Collection: Basic
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 770b16f16914289d1c7193075f63db34
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

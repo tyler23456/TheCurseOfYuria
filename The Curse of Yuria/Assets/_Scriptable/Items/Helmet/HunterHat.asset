@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: a0113f27a651482f9fffcf762e9a2d15, type: 3}
-  _prefab: {fileID: 8092356899912117703, guid: 3710c4c6abc3de24e85f308b92b74c38, type: 3}
+  _prefab: {fileID: 6868204249352838599, guid: 3710c4c6abc3de24e85f308b92b74c38, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: HunterHat
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 61c8e1fa402ee3f8d6c7f8e31017147a
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

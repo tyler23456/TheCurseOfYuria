@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: bf8a2bd620194acbb7d99e1ac0afa607, type: 3}
   _prefab: {fileID: 1029502960659772658, guid: 0aa0d6a87f236964bb0fd64d694c9825, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: RedLionShield
     Collection: Thrones
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 13db8c67b2c81859df3bca5b9a508c73
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 9325d3fa3e66445f9f5c9f98263fddd7, type: 3}
   _prefab: {fileID: 5940628726944677928, guid: 6ac7c49e712a85941b985b257120f272, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SteampunkGlasses
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: f38ef9dec1fd3ce28206649c1e3141b9
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

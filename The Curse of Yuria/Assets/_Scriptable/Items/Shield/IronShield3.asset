@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: f4196aebd2a046c09e6c02036270220a, type: 3}
   _prefab: {fileID: 2344295618974028891, guid: 3f64980fbfb11b148b8bb20d5e039f3b, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: IronShield3
     Collection: Vikings
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 83efd4beb60a15057eb4bd58601837d7
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

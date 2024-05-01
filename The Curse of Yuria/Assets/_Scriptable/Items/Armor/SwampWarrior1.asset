@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 9bbe9680288e4f76bf8f7a211fd42f9a, type: 3}
   _prefab: {fileID: 6671797067162851551, guid: 4e25d2142760f5b408accbe93e30910f, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SwampWarrior1
     Collection: SwampLords
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: e0216bb1ed86aeff622efc14cc4da84a
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

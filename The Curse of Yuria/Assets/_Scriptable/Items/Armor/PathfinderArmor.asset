@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: efb2b7f216da46a98239858f1edc3aac, type: 3}
   _prefab: {fileID: 2876911286590713584, guid: be44fc98c1290f24793bbbef3a93161c, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: PathfinderArmor
     Collection: Basic
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: c6984af62ab9f1de4f70c496a97453fe
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

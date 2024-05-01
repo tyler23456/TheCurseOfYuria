@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 79c21cc3b49cc4e409d51c881f5313d3, type: 3}
   _prefab: {fileID: 6571339902291764306, guid: dcc573073dc42aa4bbc1d59c44796032, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: BaseballBat
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 72159e219c59279f9c4fbe861a7270f5
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

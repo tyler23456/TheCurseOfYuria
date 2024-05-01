@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: a925128142e3c8c40a0ac422322d65d8, type: 3}
-  _prefab: {fileID: 7057989314864795884, guid: 9becb27a79031804b92ad63d098ae883, type: 3}
+  _prefab: {fileID: 4508852281230625875, guid: 9becb27a79031804b92ad63d098ae883, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: MinerHelmet
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: c71432976fb827d7e412584cde644e66
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

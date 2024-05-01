@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 9ef026a967034be380c05b7b1374c129, type: 3}
   _prefab: {fileID: 940551070339140227, guid: 37426cc3499f73f41b945b3da5cb3aaf, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SamuraiShield3
     Collection: Samurai
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 7b6381469fdd7ee7d5bf0c1d85796f62
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

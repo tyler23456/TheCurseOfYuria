@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 32d01399bad24c1398c08181a063808f, type: 3}
   _prefab: {fileID: 4443351935145413811, guid: 3e7ebcd2023b98c449bfa6f991e38032, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: DruidArmor
     Collection: Basic
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 61fc790e310b56ede603099feb6d10af
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

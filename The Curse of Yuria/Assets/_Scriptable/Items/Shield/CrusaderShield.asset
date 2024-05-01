@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: d0f634c44ad540969f94c1df75ee8b43, type: 3}
   _prefab: {fileID: 3254058673456637816, guid: 1f4022b2c7c06a446bae892bbfc038c0, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: CrusaderShield
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 3a1a80f9d25de7ad90d80eace9ea8ca4
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 4e8cf30bb29b4ff696896b002af85365, type: 3}
   _prefab: {fileID: 4839383350270550135, guid: e7c7cfa91a1cc3a4f80c4c7e2a80bc1e, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SwampMage1Staff
     Collection: SwampLords
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 20d6a2cc9bc41ddb2ee14c7ea11a1472
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 78e1abd8312442e9b73dfa9ae0c4c272, type: 3}
   _prefab: {fileID: 2597248924449223347, guid: 3ecb68ca4bcefe946a8f327505e99dcd, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: Smallsword
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 4aa64a0a50b47566826a440c21549b76
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

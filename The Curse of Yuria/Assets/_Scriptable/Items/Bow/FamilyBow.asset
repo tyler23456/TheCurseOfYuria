@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: b1e0ffffc9d843d69aba8653c97b6437, type: 3}
   _prefab: {fileID: 5598070569254215472, guid: f0db7f4786647824d8e22b22937b2770, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: FamilyBow
     Collection: Basic
     Edition: Plugins
@@ -31,3 +40,7 @@ MonoBehaviour:
     Hash: f2eba965cd985654d98907deaed75ac7
     Tags: []
   modifiers: []
+  counters:
+  - trigger: 
+    reaction: 
+  interrupts: []

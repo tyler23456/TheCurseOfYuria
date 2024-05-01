@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 1a91a70f91f548148c6558d7fc7e6e5b, type: 3}
-  _prefab: {fileID: 2695938578803868692, guid: 61413c180e0bc9644a3b3b6c0651dcdf, type: 3}
+  _prefab: {fileID: 9024443032412953126, guid: 61413c180e0bc9644a3b3b6c0651dcdf, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SnperHood
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: c69fa0292dd5dd8c58de3ee25fa4e292
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

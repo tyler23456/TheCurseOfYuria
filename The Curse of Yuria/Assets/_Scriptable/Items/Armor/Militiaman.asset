@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 7fe0e1c5cfbb4ba284a2ea2f49e96dc1, type: 3}
   _prefab: {fileID: 6184776713874421830, guid: a700ee67907f4444680052fac875a37d, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: Militiaman
     Collection: Basic
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 4202bb8d9cad78a19d30f0b9704d9379
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: e3fdab8ad1d24869ad41e66102c1a0dc, type: 3}
   _prefab: {fileID: 1587523276967180186, guid: 767e8807187367642ae6c0ea89bd694a, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: ThiefArmor
     Collection: Basic
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 4ee5bd74c326071fa1a4a06de2913b24
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

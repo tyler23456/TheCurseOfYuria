@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: f573dca593f04a9cb65d6649e881714c, type: 3}
-  _prefab: {fileID: 3138360110863898970, guid: acd48203adbba484f9e2d0fd4094e5e9, type: 3}
+  _prefab: {fileID: 5839328685117855018, guid: acd48203adbba484f9e2d0fd4094e5e9, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SwampLordMask1 [FullHair]
     Collection: SwampLords
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Tags:
     - FullHair
   modifiers: []
+  counters: []
+  interrupts: []

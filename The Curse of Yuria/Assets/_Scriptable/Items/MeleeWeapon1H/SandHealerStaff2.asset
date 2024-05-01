@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 16a018269f99407f94c5978bfa4d0cf7, type: 3}
   _prefab: {fileID: 6097729707094284112, guid: 37084fd748ff9a74d86fd8e26582476c, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: SandHealerStaff2
     Collection: SandLords
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 4175645eb7c457d12e8e5adabd614d7e
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

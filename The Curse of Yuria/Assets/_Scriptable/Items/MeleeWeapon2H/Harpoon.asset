@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: cbaca37046cf4d6a87dd6074627c37f8, type: 3}
   _prefab: {fileID: 5539288023713763928, guid: 72c40f0607af1e146afce67e00d4fb3b, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: Harpoon
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: 4190e967246c53822b3ed2615a8ee091
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

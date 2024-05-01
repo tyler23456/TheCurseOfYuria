@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 0fd9b4b950f3427fafb314ae4a987713, type: 3}
-  _prefab: {fileID: 8304197760521610693, guid: 90f6103575069cd46a6579f2171756d0, type: 3}
+  _prefab: {fileID: 479692947520549754, guid: 90f6103575069cd46a6579f2171756d0, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: ShamanMask3 [FullHair]
     Collection: SwampLords
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Tags:
     - FullHair
   modifiers: []
+  counters: []
+  interrupts: []

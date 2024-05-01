@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 98f60d0228e147c8a0a44d89ae5e3c5a, type: 3}
-  _prefab: {fileID: 215406592927178807, guid: f2892026da07918438c534041830fbd5, type: 3}
+  _prefab: {fileID: 3790236705364838318, guid: f2892026da07918438c534041830fbd5, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: DeserterBandage [FullHair]
     Collection: Basic
     Edition: Plugins
@@ -31,3 +40,5 @@ MonoBehaviour:
     Tags:
     - FullHair
   modifiers: []
+  counters: []
+  interrupts: []

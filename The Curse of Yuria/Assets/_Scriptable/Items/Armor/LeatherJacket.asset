@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: b27c46f376644c1eb2ce7625f28dd8d3, type: 3}
   _prefab: {fileID: 4049291460073526665, guid: c6b49677e360a844494b627cfd528fe4, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: LeatherJacket
     Collection: Basic
     Edition: Plugins
@@ -40,3 +49,5 @@ MonoBehaviour:
     Hash: 9ef2574e193c0747600cb54667303cfb
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

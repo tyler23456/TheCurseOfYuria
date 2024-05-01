@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 0456f1ac712740ccbee0557093075d52, type: 3}
-  _prefab: {fileID: 7301368224498493354, guid: 220252bcd12300e47baf442de12e7535, type: 3}
+  _prefab: {fileID: 5668276830457848502, guid: 220252bcd12300e47baf442de12e7535, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: HalfmoonHat
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: a76ec3a43216adf8713f95d33462f0d6
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []

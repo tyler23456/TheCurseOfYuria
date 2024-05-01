@@ -15,8 +15,17 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 11a90d1d1aaf432a8376ad703c11ea05, type: 3}
   _prefab: {fileID: 3069349470341703255, guid: e8e8bb81398f3f14188330389051950c, type: 3}
+  category: 0
   info: 
-  _itemSprites:
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
     Name: WarlockWand
     Collection: Basic
     Edition: Plugins
@@ -29,3 +38,5 @@ MonoBehaviour:
     Hash: a195636ea2ecf3ef107ff4ad9e674025
     Tags: []
   modifiers: []
+  counters: []
+  interrupts: []
