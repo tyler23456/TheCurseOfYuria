@@ -20,6 +20,7 @@ public interface IItem
         bows,
         scrolls,
         supplies,
+        gems,
         questItems,
     }
     enum Group { None, Melee, Ranged, Magic }
@@ -30,7 +31,7 @@ public interface IItem
     string itemName { get; }
     Sprite icon { get; }
     GameObject prefab { get; }
-    Category getCategory { get; }
+    Category category { get; }
     string getInfo { get; }
 
     Group getGroup { get; }

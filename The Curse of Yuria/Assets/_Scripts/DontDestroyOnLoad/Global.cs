@@ -19,8 +19,9 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] RectTransform gameOverDisplay;
         
         [SerializeField] Camera mainCamera;
-        [SerializeField] List<IPlayer> party;
-        [SerializeField] List<IActor> actors;
+
+        List<IPlayer> party = new List<IPlayer>();
+        List<IActor> actors = new List<IActor>();
 
         Inventory helmets = new Inventory();
         Inventory earrings = new Inventory();
@@ -60,6 +61,8 @@ namespace TCOY.DontDestroyOnLoad
         public void Awake()
         { 
             factory = GetComponent<IFactory>();
+
+            party.Add(GameObject.Find("/DontDestroyOnLoad/Player").GetComponent<IPlayer>());
 
             inventories.Add(IItem.Category.helmets, helmets);
             inventories.Add(IItem.Category.earrings, earrings);

@@ -12,7 +12,7 @@ namespace TCOY.DontDestroyOnLoad
 
         [SerializeField] protected Sprite _icon;
         [SerializeField] protected GameObject _prefab;
-        [SerializeField] protected IItem.Category category;
+        [SerializeField] protected IItem.Category _category;
         [SerializeField] [TextArea(3, 10)] protected string info;
 
         [SerializeField] protected IItem.Group group = IItem.Group.None;
@@ -33,7 +33,7 @@ namespace TCOY.DontDestroyOnLoad
         public string itemName { get { return name; } set { name = value; } }
         public Sprite icon { get { return _icon; } set { _icon = value; } }
         public GameObject prefab { get { return _prefab; } set { _prefab = value; } }
-        public IItem.Category getCategory => category;
+        public IItem.Category category { get { return _category; } set { _category = value; } }
         public string getInfo => info;
 
         public IItem.Group getGroup => group;

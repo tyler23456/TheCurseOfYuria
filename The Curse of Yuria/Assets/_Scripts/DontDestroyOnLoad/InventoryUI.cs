@@ -9,19 +9,14 @@ namespace TCOY.DontDestroyOnLoad
     public class InventoryUI : MonoBehaviour, IInventoryUI
     {
         IFactory factory;
-
+  
         [SerializeField] Button buttonPrefab;
 
-        public bool isVertical { get; set; } = false;
-        public Vector2Int origin { get; set; } = new Vector2Int();
-        public Vector2Int padding { get; set; } = new Vector2Int(5, 5);
-        public Vector2Int windowSize { get; set; } = Vector2Int.zero;
+        public RectTransform grid { get; set; } = null;
         public Action<string> OnClick { get; set; } = (info) => { };
-        public RectTransform buttonParent { get; set; } = null;
         public IInventory inventory { get; set; } = null;
 
-        public List<Button> icons { get; set; } = new List<Button>();
-        Button icon = null;
+        Button button = null;
 
         public void Start()
         {
@@ -30,61 +25,35 @@ namespace TCOY.DontDestroyOnLoad
 
         public void Show()
         {
-            if (isVertical)
-                DisplayVertically();
-            else
-                DisplayHorizonally();           
+            Display();        
         }
 
-        public void DisplayVertically()
+        void Display()
         {
-            Vector2 origin = ((RectTransform)buttonPrefab.transform).anchoredPosition;
-            int maxRows = (int)(windowSize.y / (((RectTransform)buttonPrefab.transform).sizeDelta.y + padding.y));
-            int row = 0;
-            int column = 0;
-
-            icons.Clear();
+            EmptyDisplay();
 
             for (int i = 0; i < inventory.count; i++)
-            {
-                icon = Instantiate(buttonPrefab);
-                icon.onClick.AddListener(() => { OnClick(inventory.GetName(i)); });
-                RectTransform rectTransform = (RectTransform)icon.transform;
-                rectTransform.anchoredPosition = new Vector2(origin.x + row * windowSize.x, origin.y + column * windowSize.y);
-                //need to set the image
-                icon.transform.GetChild(0).GetComponent<Image>().sprite = factory.GetItem(inventory.GetName(i)).icon;
-                //icon.image.sprite = factory.GetItem(inventory.GetName(i)).icon;
+            {   
+                int index = i;
+                button = Instantiate(buttonPrefab, grid);
+                button.onClick.RemoveAllListeners();
+                button.onClick.AddListener(() => 
+                { 
+                    OnClick(inventory.GetName(index));
+                });
+                button.transform.GetChild(1).GetComponent<Image>().sprite = factory.GetItem(inventory.GetName(i)).icon;
+                button.transform.GetChild(2).GetComponent<Text>().text = inventory.GetCount(i).ToString();
 
-                row++;
-                if (row >= maxRows)
-                {
-                    row = 0;
-                    column++;
-                }
             }
         }
 
-        public void DisplayHorizonally()
+        public void EmptyDisplay()
         {
-            int maxColumns = (int)(windowSize.x / (((RectTransform)buttonPrefab.transform).sizeDelta.x + padding.x));
-            int row = 0;
-            int column = 0;
+            if (grid == null)
+                return;
 
-            for (int i = 0; i < inventory.count; i++)
-            {
-                icon = Instantiate(buttonPrefab);
-                icon.onClick.AddListener(() => { OnClick(inventory.GetName(i)); });
-                RectTransform rectTransform = (RectTransform)icon.transform;
-                rectTransform.anchoredPosition = new Vector2(origin.x + row * windowSize.x, origin.y + column * windowSize.y);
-                //need to set the image
-                icon.transform.GetChild(0).GetComponent<Image>().sprite = factory.GetItem(inventory.GetName(i)).icon;
-                column++;
-                if (column >= maxColumns)
-                {
-                    column = 0;
-                    row++;
-                }                
-            }
+            foreach (RectTransform child in grid)
+                Destroy(child.gameObject);
         }
 
 

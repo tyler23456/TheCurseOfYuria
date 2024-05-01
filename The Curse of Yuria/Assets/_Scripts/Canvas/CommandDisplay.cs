@@ -13,6 +13,7 @@ namespace TCOY.Canvas
 
         RectTransform root;
 
+        [SerializeField] RectTransform grid;
         [SerializeField] Button attackTab;
         [SerializeField] Button magicTab;
         [SerializeField] Button itemTab;
@@ -41,19 +42,17 @@ namespace TCOY.Canvas
 
         public void OnClickMagic()
         {
-            inventoryUI.isVertical = true;
             inventoryUI.OnClick = (commandName) => OnSelectCommand(commandName);
             inventoryUI.inventory = global.getParty[currentPartyMember].getMagic;
-            inventoryUI.buttonParent = root;
+            inventoryUI.grid = grid;
             inventoryUI.Show();
         }
 
         public void OnClickItems()
         {
-            inventoryUI.isVertical = true;
             inventoryUI.OnClick = (commandName) => OnSelectCommand(commandName);
             inventoryUI.inventory = global.inventories[IItem.Category.supplies];
-            inventoryUI.buttonParent = root;
+            inventoryUI.grid = grid;
             inventoryUI.Show();
         }
 

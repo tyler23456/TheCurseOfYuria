@@ -46,6 +46,8 @@ namespace TCOY.Actors
             GameObject obj = GameObject.Find("/DontDestroyOnLoad");
             global = obj.GetComponent<IGlobal>();
             factory = obj.GetComponent<IFactory>();
+
+            equipment.Start(factory);
         }
 
         protected void FixedUpdate()

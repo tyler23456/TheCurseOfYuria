@@ -17,9 +17,9 @@ namespace TCOY.DontDestroyOnLoad
         
         public override void Interact(IPlayer player)
         {
-            IItem.Category type = factory.GetItem(name).getCategory;
+            IItem.Category type = factory.GetItem(name).category;
 
-            global.inventories[type].Add(name, 1);
+            global.inventories[type].Add(name, 60); //--------------------------------------
             gameObject.SetActive(false);
             global.getCompletedIds.Add(getID, 1);
         }

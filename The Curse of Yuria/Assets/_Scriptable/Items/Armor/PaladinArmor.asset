@@ -15,7 +15,7 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: a8679d4e2cbd4ae39cb670a1b213bc10, type: 3}
   _prefab: {fileID: 4600784167862442470, guid: 8eaa772c198db4446a88fc6ac113b457, type: 3}
-  category: 0
+  _category: 7
   info: 
   group: 0
   type: 0

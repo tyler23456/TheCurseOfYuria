@@ -8,8 +8,6 @@ namespace TCOY.DontDestroyOnLoad
 {
     public class Equipment : ItemBase, IItem
     {
-        
-
         public ItemSprite itemSprite { get { return base.itemSprite; } set { base.itemSprite = value; } }
 
         public override void Use(IActor user, IActor[] targets)
@@ -48,7 +46,5 @@ namespace TCOY.DontDestroyOnLoad
             foreach (Reactor interrupt in interrupts)
                 target.interrupts.Remove(interrupt);
         }
-
-        
     }
 }

@@ -20,34 +20,35 @@ namespace TCOY.Actors
 
         public void Start(IFactory factory)
         {
-            factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
-            parts = new string[19] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", };
+            this.factory = factory;
+            parts = new string[10] { "", "", "", "", "", "", "", "", "", "" };
         }
 
-        public string GetPart(EquipmentPart part)
+        public string GetPart(IItem.Category part)
         {
             return parts[(int)part];
         }
 
-        public void Equip(EquipmentPart part, string itemName)
+        public void Equip(IItem.Category part, string itemName)
         {
-            if ((int)part >= 7 && (int)part <= 10)
+            /*if ((int)part >= 7 && (int)part <= 10)
             {
                 parts[7] = "";
                 parts[8] = "";
                 parts[9] = "";
                 parts[10] = "";
-                /*character.UnEquip(EquipmentPart.MeleeWeapon1H);
+                character.UnEquip(EquipmentPart.MeleeWeapon1H);
                 character.UnEquip(EquipmentPart.MeleeWeapon2H);
-                character.UnEquip(EquipmentPart.Bow);*/
-            }
+                character.UnEquip(EquipmentPart.Bow);
+            }*/
             parts[(int)part] = itemName;
-            character.Equip(null, part);
+            character.Equip(factory.GetItem(itemName).itemSprite, IEquipment.partConverter[part]);
         }
 
-        public void Unequip(EquipmentPart part)
+        public void Unequip(IItem.Category part)
         {
-            character.UnEquip(part);
+            parts[(int)part] = "";
+            character.UnEquip(IEquipment.partConverter[part]);
         }
 
         public bool Contains(string name)
