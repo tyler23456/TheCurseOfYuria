@@ -61,8 +61,8 @@ namespace TCOY.Actors
 
         public void ResetAll()
         {
-            attributes = new int[] { 0, maxHP, 0, maxMP, 0, strength, defense, aura, speed, luck };
-            weaknesses = new int[] { 0, fire, ice, thunder, water, light, dark };
+            attributes = new int[9] { maxHP, maxHP, maxMP, maxMP, strength, defense, aura, speed, luck };
+            weaknesses = new int[7] { 0, fire, ice, thunder, water, light, dark };
             onStatsChanged.Invoke(attributes);
         }
 
@@ -110,6 +110,11 @@ namespace TCOY.Actors
                     }
 
             return false; //this will test whether an effect takes place
+        }
+
+        public int[] GetAttributes()
+        {
+            return attributes.ToArray();
         }
     }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: c2d3ff617fbb42c3a588fc7c49787ce1, type: 3}
   _prefab: {fileID: 1302459728351914197, guid: 57ce1ebec47ac71419976a5006d0ff72, type: 3}
-  category: 0
+  _category: 0
   info: 
   group: 0
   type: 0
@@ -37,6 +37,10 @@ MonoBehaviour:
     Multiple: 1
     Hash: f16ccf8fe4426613f86506f8c4ab0ba3
     Tags: []
-  modifiers: []
+  modifiers:
+  - attribute: 4
+    offset: 4
+  - attribute: 7
+    offset: 7
   counters: []
   interrupts: []

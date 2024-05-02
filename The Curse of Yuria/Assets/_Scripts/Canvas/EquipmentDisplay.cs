@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using HeroEditor.Common.Enums;
+using HeroEditor.Common.Data;
+using System.Linq;
 
 namespace TCOY.Canvas
 {
@@ -32,6 +34,7 @@ namespace TCOY.Canvas
         [SerializeField] Text partyMemberName;
         [SerializeField] Text partyMemberStats;
         [SerializeField] Text partyMemberValues;
+        [SerializeField] Text partyMemberIncreases;
 
         [SerializeField] Image helmetSlot;
         [SerializeField] Image earringSlot;
@@ -55,6 +58,8 @@ namespace TCOY.Canvas
 
         IItem.Category currentPart = IItem.Category.helmets;
         int partyMemberIndex = 0;
+
+        Modifier modifier;
 
         void OnEnable()
         {
@@ -85,58 +90,96 @@ namespace TCOY.Canvas
             inventoryUI.OnClick = (itemName) =>
             {
                 OnEquip(itemName);
-            };           
+            };
+            inventoryUI.onPointerEnter = (itemName) => OnPointerEnter(itemName);
+            inventoryUI.onPointerExit = (itemName) => OnPointerExit(itemName);
             inventoryUI.Show();
         }
 
         public void OnEquip(string itemName)
         {
             IEquipment equipment = global.getParty[partyMemberIndex].getEquipment;
+            IItem item = factory.GetItem(itemName);
+            IStats stats = global.getParty[partyMemberIndex].getStats;
 
             if (equipment.GetPart(currentPart) == "")
-            {              
+            {   
                 global.inventories[currentPart].Remove(itemName);
                 equipment.Equip(currentPart, itemName);
+
+                List<Modifier> modifiers = item.getModifiers;
+                foreach (Modifier modifier in modifiers)
+                    stats.OffsetAttribute(modifier.getAttribute, modifier.getOffset);
             }
             else if (equipment.GetPart(currentPart) == itemName)
             {               
                 global.inventories[currentPart].Add(itemName);
                 equipment.Unequip(currentPart);
+
+                List<Modifier> modifiers = item.getModifiers;
+                foreach (Modifier modifier in modifiers)
+                    stats.OffsetAttribute(modifier.getAttribute, -modifier.getOffset);
             }
             else
             {
+                List<Modifier> previousModifiers = factory.GetItem(equipment.GetPart(currentPart)).getModifiers;
+                foreach (Modifier modifier in previousModifiers)
+                    stats.OffsetAttribute(modifier.getAttribute, -modifier.getOffset);
+
                 global.inventories[currentPart].Add(equipment.GetPart(currentPart));
                 global.inventories[currentPart].Remove(itemName);
                 equipment.Equip(currentPart, itemName);
+
+                List<Modifier> modifiers = item.getModifiers;
+                foreach (Modifier modifier in modifiers)
+                    stats.OffsetAttribute(modifier.getAttribute, modifier.getOffset);
             }
 
             RefreshPartyMember();
             OnClickEquipmentPartTab(currentPart, inventoryUI.inventory);
         }
 
-        public void OnHover(string itemName)
+        public void OnPointerEnter(string itemName)
         {
-            IEquipment equipment = global.getParty[partyMemberIndex].getEquipment;
+            IItem item = factory.GetItem(itemName);
 
-            if (equipment.GetPart(currentPart) == "")
-            {
-                global.inventories[currentPart].Remove(itemName);
-                equipment.Equip(currentPart, itemName);
-            }
-            else if (equipment.GetPart(currentPart) == itemName)
-            {
-                global.inventories[currentPart].Add(itemName);
-                equipment.Unequip(currentPart);
-            }
-            else
-            {
-                global.inventories[currentPart].Add(equipment.GetPart(currentPart));
-                global.inventories[currentPart].Remove(itemName);
-                equipment.Equip(currentPart, itemName);
-            }
+            this.itemName.text = itemName;
+            this.itemInfo.text = item.getInfo;
+            partyMemberIncreases.text = "";
 
-            RefreshPartyMember();
-            OnClickEquipmentPartTab(currentPart, inventoryUI.inventory);
+            int length = global.getParty[partyMemberIndex].getStats.GetAttributes().Length;
+
+            List<Modifier> modifiers = item.getModifiers;
+
+            if (modifiers.Count == 0)
+                return;
+
+            for (int i = 0; i < length; i++)
+            {
+                modifier = modifiers.FirstOrDefault(e => e.getAttribute == (IStats.Attributes)i);
+
+                if (modifier == null)
+                {
+                    partyMemberIncreases.text += "<color=#555555ff>" + "0\n" + "</color>";
+                }             
+                else if (modifier.getOffset >= 0)
+                {
+                    partyMemberIncreases.text += "<color=#00ff00ff>" + "+ " + modifier.getOffset.ToString() + "\n" + "</color>";
+                }
+                else
+                {
+                    partyMemberIncreases.text += "<color=#ff0000ff>" + "" + modifier.getOffset.ToString() + "\n" + "</color>";
+                }
+            }
+        }
+
+        public void OnPointerExit(string itemName)
+        {
+            IItem item = factory.GetItem(itemName);
+
+            this.itemName.text = "";
+            itemInfo.text = "";
+            partyMemberIncreases.text = "";
         }
 
         public void RefreshPartyMember()
@@ -187,6 +230,17 @@ namespace TCOY.Canvas
                 bowsSlot.sprite = factory.GetItem(equipment.GetPart(IItem.Category.bows)).icon;
             else
                 bowsSlot.sprite = bowsSprite;
+
+            partyMemberName.text = global.getParty[partyMemberIndex].getGameObject.name;
+            partyMemberStats.text = "";
+            partyMemberValues.text = "";
+
+            int[] stats = global.getParty[partyMemberIndex].getStats.GetAttributes();
+            for (int i = 0; i < stats.Length; i++)
+            {
+                partyMemberStats.text += ((IStats.Attributes)i).ToString() + "\n";
+                partyMemberValues.text += stats[i].ToString() + "\n";
+            }
         }
 
         public void Update()

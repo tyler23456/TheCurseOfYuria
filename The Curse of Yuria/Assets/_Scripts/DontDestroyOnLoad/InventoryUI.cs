@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-namespace TCOY.DontDestroyOnLoad
+namespace TCOY.Canvas
 {
     public class InventoryUI : MonoBehaviour, IInventoryUI
     {
@@ -14,9 +15,12 @@ namespace TCOY.DontDestroyOnLoad
 
         public RectTransform grid { get; set; } = null;
         public Action<string> OnClick { get; set; } = (info) => { };
+        public Action<string> onPointerEnter { get; set; } = (info) => { };
+        public Action<string> onPointerExit { get; set; } = (info) => { };
         public IInventory inventory { get; set; } = null;
 
         Button button = null;
+        PointerHover pointerHover = null;
 
         public void Start()
         {
@@ -41,6 +45,9 @@ namespace TCOY.DontDestroyOnLoad
                 { 
                     OnClick(inventory.GetName(index));
                 });
+                pointerHover = button.GetComponent<PointerHover>();
+                pointerHover.OnPointerEnter = () => onPointerEnter.Invoke(inventory.GetName(index));
+                pointerHover.OnPointerExit = () => onPointerExit.Invoke(inventory.GetName(index));
                 button.transform.GetChild(1).GetComponent<Image>().sprite = factory.GetItem(inventory.GetName(i)).icon;
                 button.transform.GetChild(2).GetComponent<Text>().text = inventory.GetCount(i).ToString();
 

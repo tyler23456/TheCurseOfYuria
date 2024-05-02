@@ -23,6 +23,7 @@ public interface IItem
         gems,
         questItems,
     }
+
     enum Group { None, Melee, Ranged, Magic }
     enum Type { None, Damage, Recovery }
     enum Element { None, Fire, Ice, Thunder, Light, Dark, Poison, Sleep, Enthrall, Paralyze, Bleed, Burn, Freeze, Shock, Stun }

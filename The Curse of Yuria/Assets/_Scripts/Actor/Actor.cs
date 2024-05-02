@@ -48,6 +48,7 @@ namespace TCOY.Actors
             factory = obj.GetComponent<IFactory>();
 
             equipment.Start(factory);
+            stats.Initialize();
         }
 
         protected void FixedUpdate()
