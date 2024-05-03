@@ -16,7 +16,8 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: ddf75fc975a6411f895930f10ef4c22d, type: 3}
   _prefab: {fileID: 5093374163248771150, guid: e9eddf39c83cc3144833b481e3fc079d, type: 3}
   _category: 0
-  info: 
+  info: Each agile hat wear is imbued with magic to help the wearer move more quickly
+    than normal.
   group: 0
   type: 0
   element: 0

@@ -11,6 +11,8 @@ namespace TCOY.DontDestroyOnLoad
     {
         IFactory factory;
 
+        [SerializeField] AudioSource audioSource;
+
         [SerializeField] RectTransform titleScreenDisplay;
         [SerializeField] RectTransform promptDisplay;
         [SerializeField] RectTransform equipmentDisplay;
@@ -47,6 +49,8 @@ namespace TCOY.DontDestroyOnLoad
 
         public Queue<IPlayer.Names> aTBGuageFilledQueue { get; set; } = new Queue<IPlayer.Names>();
         public Queue<ICommand> commandQueue { get; set; } = new Queue<ICommand>();
+
+        AudioSource IGlobal.getAudioSource => audioSource; 
 
         IInventory IGlobal.getCompletedQuests => completedQuests;
         IInventory IGlobal.getCompletedIds => completedIds;

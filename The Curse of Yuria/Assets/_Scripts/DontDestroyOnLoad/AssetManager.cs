@@ -153,6 +153,7 @@ namespace TCOY.DontDestroyOnLoad
             renderer = obj.AddComponent<SpriteRenderer>();
             renderer.sprite = icon;
             renderer.sharedMaterial = material;
+            renderer.sortingOrder = 200;
 
             GameObject prefab = PrefabUtility.SaveAsPrefabAssetAndConnect(obj, prefabsRootPath + path + ".prefab", InteractionMode.UserAction);
             DestroyImmediate(obj);
@@ -165,12 +166,13 @@ namespace TCOY.DontDestroyOnLoad
             item = prefab.GetComponent<Item>();
             renderer = prefab.GetComponent<SpriteRenderer>();
 
-            if (collider != null 
-                && collider.isTrigger == true 
-                && item != null 
-                && renderer != null 
-                && renderer.sprite == icon 
-                && renderer.sharedMaterial == material 
+            if (collider != null
+                && collider.isTrigger == true
+                && item != null
+                && renderer != null
+                && renderer.sprite == icon
+                && renderer.sharedMaterial == material
+                && renderer.sortingOrder == 200
                 && CompareNames(icon.name, prefab.name))
                 return;
 

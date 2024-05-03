@@ -13,6 +13,8 @@ public interface IGlobal
 
     Dictionary<IItem.Category, Inventory> inventories { get; }
 
+    AudioSource getAudioSource { get; }
+
     IInventory getCompletedQuests { get; }
     IInventory getCompletedIds { get; }
 
@@ -22,6 +24,6 @@ public interface IGlobal
     RectTransform getCommandDisplay { get; }
     RectTransform getOptionsDisplay { get; }
     RectTransform getGameOverDisplay { get; }
-
+    
     Coroutine StartCoroutine(IEnumerator routine);
 }
