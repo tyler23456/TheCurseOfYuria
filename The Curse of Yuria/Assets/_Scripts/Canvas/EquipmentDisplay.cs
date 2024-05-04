@@ -10,9 +10,10 @@ namespace TCOY.Canvas
 {
     public class EquipmentDisplay : MonoBehaviour
     {
-        IInventoryUI inventoryUI;
         IGlobal global;
         IFactory factory;
+
+        [SerializeField] Button buttonPrefab;
 
         [SerializeField] AudioClip open;
         [SerializeField] AudioClip close;
@@ -24,7 +25,6 @@ namespace TCOY.Canvas
         [SerializeField] Camera detailedActorViewCamera;
 
         [SerializeField] RectTransform grid;
-        [SerializeField] RectTransform root;
 
         [SerializeField] Button helmetsTab;
         [SerializeField] Button earringsTab;
@@ -69,7 +69,7 @@ namespace TCOY.Canvas
         IItem.Category currentPart = IItem.Category.helmets;
         int partyMemberIndex = 0;
 
-        IActor actor;
+        IActor partyMember;
 
         IEquipment equipment; 
         IStats stats;
@@ -85,12 +85,15 @@ namespace TCOY.Canvas
         int oldModifierValue = 0;
         int newModifierValue = 0;
         int modifierValue = 0;
+
+        InventoryUI globalInventoryUI;
         
         void OnEnable()
         {
-            inventoryUI = GameObject.Find("/DontDestroyOnLoad").GetComponent<IInventoryUI>();
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
             factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
+
+            globalInventoryUI = new InventoryUI(factory);
 
             helmetsTab.onClick.AddListener(() => { RefreshEquipmentPart(IItem.Category.helmets, global.inventories[IItem.Category.helmets]); global.getAudioSource.PlayOneShot(cycleEquipmentParts); });
             earringsTab.onClick.AddListener(() => { RefreshEquipmentPart(IItem.Category.earrings, global.inventories[IItem.Category.earrings]); global.getAudioSource.PlayOneShot(cycleEquipmentParts); });
@@ -117,23 +120,24 @@ namespace TCOY.Canvas
         public void RefreshEquipmentPart(IItem.Category part, IInventory inventory)
         {
             currentPart = part;
-            inventoryUI.grid = grid;
-            inventoryUI.inventory = inventory;         
-            inventoryUI.OnClick = (itemName) => OnEquip(itemName);
-            inventoryUI.onPointerEnter = (itemName) => OnPointerEnter(itemName);
-            inventoryUI.onPointerExit = (itemName) => OnPointerExit(itemName);
-            inventoryUI.Show();
+            globalInventoryUI.grid = grid;
+            globalInventoryUI.buttonPrefab = buttonPrefab;
+            globalInventoryUI.inventory = inventory;
+            globalInventoryUI.OnClick = (itemName) => OnEquip(itemName);
+            globalInventoryUI.onPointerEnter = (itemName) => OnPointerEnter(itemName);
+            globalInventoryUI.onPointerExit = (itemName) => OnPointerExit(itemName);
+            globalInventoryUI.Display();
         }
         public void RefreshPartyMember()
         {
-            actor = global.getParty[partyMemberIndex];
+            partyMember = global.getParty[partyMemberIndex];
 
             //move Detailed Actor View Camera to the new character
             detailedActorViewCamera.cullingMask = LayerMask.GetMask("Actor" + (partyMemberIndex + 1).ToString());
             //---------------------------------------------------
 
-            equipment = actor.getEquipment;
-            stats = actor.getStats;
+            equipment = partyMember.getEquipment;
+            stats = partyMember.getStats;
 
             if (equipment.GetPart(IItem.Category.helmets) != "")
                 helmetSlot.sprite = factory.GetItem(equipment.GetPart(IItem.Category.helmets)).icon;
@@ -220,7 +224,7 @@ namespace TCOY.Canvas
             }
 
             RefreshPartyMember();
-            RefreshEquipmentPart(currentPart, inventoryUI.inventory);
+            RefreshEquipmentPart(currentPart, globalInventoryUI.inventory);
         }
 
         public void RemoveModifiers()
@@ -307,7 +311,7 @@ namespace TCOY.Canvas
             }
 
             //move Detailed Actor View Camera to the new character
-            detailedActorViewCamera.transform.position = actor.getGameObject.transform.position + new Vector3(0f, 1f, -2.5f);
+            detailedActorViewCamera.transform.position = partyMember.getGameObject.transform.position + new Vector3(0f, 1f, -2.5f);
             //---------------------------------------------------
         }
     }

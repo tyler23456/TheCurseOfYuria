@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Linq;
 
+[System.Serializable]
 public class Inventory : IInventory
 {
     List<string> names = new List<string>();

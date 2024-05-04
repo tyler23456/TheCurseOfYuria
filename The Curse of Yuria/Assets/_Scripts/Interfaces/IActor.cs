@@ -9,10 +9,10 @@ public interface IActor
     IPosition getPosition { get; }
     IRotation getRotation { get; }
     IStats getStats { get; }
+    IATBGuage getATBGuage { get; }
     List<IReactor> counters { get; }
     List<IReactor> interrupts { get; }
     IEquipment getEquipment { get;}
-    IInventory getMagic { get; }
-    IInventory getTechniques { get; }
+    IInventory getSkills { get; }
     IAnimator getAnimator { get; }
 }

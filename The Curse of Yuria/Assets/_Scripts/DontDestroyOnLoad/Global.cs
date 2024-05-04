@@ -4,6 +4,7 @@ using UnityEngine;
 using HeroEditor.Common.Data;
 using HeroEditor.Common.Enums;
 using UnityEngine.UI;
+using FirstGearGames.SmoothCameraShaker;
 
 namespace TCOY.DontDestroyOnLoad
 {
@@ -11,11 +12,14 @@ namespace TCOY.DontDestroyOnLoad
     {
         IFactory factory;
 
+        [SerializeField] ShakeData shakeData;
         [SerializeField] AudioSource audioSource;
 
+        [SerializeField] RectTransform canvas;
         [SerializeField] RectTransform titleScreenDisplay;
         [SerializeField] RectTransform promptDisplay;
         [SerializeField] RectTransform equipmentDisplay;
+        [SerializeField] RectTransform scrollDisplay;
         [SerializeField] RectTransform commandDisplay;
         [SerializeField] RectTransform optionsDisplay;
         [SerializeField] RectTransform gameOverDisplay;
@@ -47,17 +51,20 @@ namespace TCOY.DontDestroyOnLoad
 
         public Dictionary<IItem.Category, Inventory> inventories { get; private set; } = new Dictionary<IItem.Category, Inventory>();
 
-        public Queue<IPlayer.Names> aTBGuageFilledQueue { get; set; } = new Queue<IPlayer.Names>();
+        public Queue<IActor> aTBGuageFilledQueue { get; set; } = new Queue<IActor>();
         public Queue<ICommand> commandQueue { get; set; } = new Queue<ICommand>();
 
+        ShakeData IGlobal.getShakeData => shakeData;
         AudioSource IGlobal.getAudioSource => audioSource; 
 
         IInventory IGlobal.getCompletedQuests => completedQuests;
         IInventory IGlobal.getCompletedIds => completedIds;
 
+        public RectTransform getCanvas => canvas;
         public RectTransform getTitleScreenDisplay => titleScreenDisplay;
         public RectTransform getPromptDisplay => promptDisplay;
         public RectTransform getEquipmentDisplay => equipmentDisplay;
+        public RectTransform getScrollDisplay => scrollDisplay;
         public RectTransform getCommandDisplay => commandDisplay;
         public RectTransform getOptionsDisplay => optionsDisplay;
         public RectTransform getGameOverDisplay => gameOverDisplay;

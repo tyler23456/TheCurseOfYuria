@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
+  m_Name: Fire
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 86f0741e2f6b3d34faefc81c8aa06ead, type: 3}
+  _prefab: {fileID: 5963739093106098168, guid: 585797fb8afa9b14f88e951dc410e732, type: 3}
+  _category: 10
+  info: 
+  group: 3
+  type: 1
+  element: 1
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 3716787501423605696, guid: d40d075809b5a3f4ab6151c684aed3f3, type: 3}
+  _itemSprite:
+    Name: Fire
+    Collection: Supplies
+    Edition: Plugins
+    Id: Plugins.Supplies.Supplies.Fire
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Supplies/Scroll/Fire.png
+    Sprite: {fileID: 21300000, guid: ba56cf7d3c2c7874d96914568d75b688, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: ba56cf7d3c2c7874d96914568d75b688, type: 3}
+    Multiple: 1
+    Hash: 73b1b850d84fd1ef1a3536726865aa99
+    Tags: []
+  modifiers: []
+  counters: []
+  interrupts: []

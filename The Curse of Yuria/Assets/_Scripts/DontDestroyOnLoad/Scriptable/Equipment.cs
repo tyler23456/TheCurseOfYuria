@@ -8,43 +8,40 @@ namespace TCOY.DontDestroyOnLoad
 {
     public class Equipment : ItemBase, IItem
     {
-        public ItemSprite itemSprite { get { return base.itemSprite; } set { base.itemSprite = value; } }
-
         public override void Use(IActor user, IActor[] targets)
         {
-            if (targets == null || targets.Length == 0 || targets[0] == null)
+            if (targets == null || targets.Length == 0)
                 return;
 
-            IActor target = targets[0];
-
-            if (target.getEquipment.Contains(name))
-                Unequip(target);
-            else
-                Equip(target);
+            IGlobal global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
+            global.StartCoroutine(performAnimation(user, targets));
         }
 
-        void Equip(IActor target)
+        protected virtual IEnumerator performAnimation(IActor user, IActor[] targets)
         {
-            foreach (Modifier modifier in modifiers)
-                target.getStats.OffsetAttribute(modifier.getAttribute, modifier.getOffset);
+            user.getAnimator.Attack();
 
-            foreach (Reactor counter in counters)
-                target.counters.Add(counter);
+            yield return new WaitForSeconds(0.5f);
 
-            foreach (Reactor interrupt in interrupts)
-                target.interrupts.Add(interrupt);
+            foreach (IActor target in targets)
+                yield return PerformEffect(user, target);  //may need to start a new coroutine for this? 
         }
 
-        void Unequip(IActor target)
+        protected virtual IEnumerator PerformEffect(IActor user, IActor target)
         {
-            foreach (Modifier modifier in modifiers)
-                target.getStats.OffsetAttribute(modifier.getAttribute, -modifier.getOffset);
+            target.getStats.ApplySkillCalculation(power, user.getStats, group, type, element);
+            Debug.Log("Calculation Applied");
+            yield return null;
+        }
 
-            foreach (Reactor counter in counters)
-                target.counters.Remove(counter);
+        public override void Equip(IActor target)
+        {
+            base.Equip(target);
+        }
 
-            foreach (Reactor interrupt in interrupts)
-                target.interrupts.Remove(interrupt);
+        public override void Unequip(IActor target)
+        {
+            base.Unequip(target);
         }
     }
 }

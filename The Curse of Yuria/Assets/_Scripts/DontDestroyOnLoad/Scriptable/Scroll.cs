@@ -17,8 +17,8 @@ namespace TCOY.DontDestroyOnLoad
 
         protected virtual IEnumerator performAnimation(IActor user, IActor[] targets)
         {
-            while (user.getAnimator.isPerformingCommand)
-                yield return new WaitForEndOfFrame();
+
+            yield return new WaitForSeconds(0.5f);
 
             foreach (IActor target in targets)
                 yield return PerformEffect(user, target);  //may need to start a new coroutine for this? 

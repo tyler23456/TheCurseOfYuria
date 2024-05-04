@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d5ed929cc05de4e9ff4057e86f7043, type: 3}
+  m_Name: Bottle2
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: d660f7e25c88e0c4b84b9fa3a2144564, type: 3}
+  _prefab: {fileID: 2443507119918232264, guid: 5fa8c49149dbaf14ab0abe12ba4564a1, type: 3}
+  _category: 11
+  info: 
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
+    Name: Bottle2
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Supplies.Bottle2
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Supplies/Basic/Potions/Bottle2.png
+    Sprite: {fileID: 21300000, guid: abd994a527ad60349b770cc8845648a7, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: abd994a527ad60349b770cc8845648a7, type: 3}
+    Multiple: 1
+    Hash: 670df8f291f81df38ff5b49022adcc92
+    Tags: []
+  modifiers: []
+  counters: []
+  interrupts: []

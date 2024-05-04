@@ -54,5 +54,29 @@ namespace TCOY.DontDestroyOnLoad
         {
             
         }
+
+        public virtual void Equip(IActor target)
+        {
+            foreach (Modifier modifier in modifiers)
+                target.getStats.OffsetAttribute(modifier.getAttribute, modifier.getOffset);
+
+            foreach (Reactor counter in counters)
+                target.counters.Add(counter);
+
+            foreach (Reactor interrupt in interrupts)
+                target.interrupts.Add(interrupt);
+        }
+
+        public virtual void Unequip(IActor target)
+        {
+            foreach (Modifier modifier in modifiers)
+                target.getStats.OffsetAttribute(modifier.getAttribute, -modifier.getOffset);
+
+            foreach (Reactor counter in counters)
+                target.counters.Remove(counter);
+
+            foreach (Reactor interrupt in interrupts)
+                target.interrupts.Remove(interrupt);
+        }
     }
 }

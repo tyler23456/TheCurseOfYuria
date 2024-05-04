@@ -64,6 +64,16 @@ namespace TCOY.Actors
             {
                 global.getEquipmentDisplay.gameObject.SetActive(!global.getEquipmentDisplay.gameObject.activeSelf);
             }
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                global.getScrollDisplay.gameObject.SetActive(!global.getScrollDisplay.gameObject.activeSelf);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Mouse0) && global.aTBGuageFilledQueue.Count > 0)
+            {
+                global.getCommandDisplay.gameObject.SetActive(true);
+            }
         }
 
         void FixedUpdate()

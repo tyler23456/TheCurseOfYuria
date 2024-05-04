@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d5ed929cc05de4e9ff4057e86f7043, type: 3}
+  m_Name: RedPotionS
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 10f133c6c7d356b48a874aae3d85c6aa, type: 3}
+  _prefab: {fileID: 1512124924737893593, guid: d44ba84d85186aa4da7d8d0ba7a96987, type: 3}
+  _category: 11
+  info: 
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
+    Name: RedPotionS
+    Collection: Supplies
+    Edition: Plugins
+    Id: Plugins.Supplies.Supplies.RedPotionS
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Supplies/Basic/RedPotionS.png
+    Sprite: {fileID: 21300000, guid: bf083512f7578d74a9c67c1d086ca497, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: bf083512f7578d74a9c67c1d086ca497, type: 3}
+    Multiple: 1
+    Hash: 9b4c842fa4b86e8a62f717bee545fef3
+    Tags: []
+  modifiers: []
+  counters: []
+  interrupts: []

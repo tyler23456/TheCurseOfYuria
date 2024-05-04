@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
+  m_Name: Deflect
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 44d965f01a19546459f1604daf904950, type: 3}
+  _prefab: {fileID: 4496648333311565105, guid: 8b42d719046d80f4181a95e7390998a4, type: 3}
+  _category: 10
+  info: 
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
+    Name: Deflect
+    Collection: Supplies
+    Edition: Plugins
+    Id: Plugins.Supplies.Supplies.Deflect
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Supplies/Scroll/Deflect.png
+    Sprite: {fileID: 21300000, guid: a73f5756660380e4fa9c863a83d20208, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: a73f5756660380e4fa9c863a83d20208, type: 3}
+    Multiple: 1
+    Hash: ed5272d4617fe9461f7774f78621861a
+    Tags: []
+  modifiers: []
+  counters: []
+  interrupts: []

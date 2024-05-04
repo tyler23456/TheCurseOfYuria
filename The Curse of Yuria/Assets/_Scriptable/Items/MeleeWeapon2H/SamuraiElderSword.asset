@@ -17,10 +17,10 @@ MonoBehaviour:
   _prefab: {fileID: 4817030064884403628, guid: c90a19b4e09591544939f8d85d058fd4, type: 3}
   _category: 5
   info: 
-  group: 0
-  type: 0
+  group: 1
+  type: 1
   element: 0
-  power: 0
+  power: 2
   cost: 0
   duration: Infinity
   effects: []

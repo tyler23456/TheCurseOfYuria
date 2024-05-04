@@ -7,53 +7,71 @@ namespace TCOY.Canvas
 {
     public class CommandDisplay : MonoBehaviour
     {
-        IInventoryUI inventoryUI;
         IGlobal global;
         IFactory factory;
 
-        RectTransform root;
-
+        [SerializeField] Button buttonPrefab;
         [SerializeField] RectTransform grid;
         [SerializeField] Button attackTab;
         [SerializeField] Button magicTab;
         [SerializeField] Button itemTab;
 
-        int currentPartyMember = 0;
+        IActor currentPartyMember;
         string commandName = "None";
         IActor target = null;
 
-        void Start()
+        InventoryUI skillInventoryUI;
+        InventoryUI itemInventoryUI;
+
+        void OnEnable()
         {
-            inventoryUI = GameObject.Find("/DontDestroyOnLoad").GetComponent<IInventoryUI>();
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
             factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
 
-            currentPartyMember = (int)global.aTBGuageFilledQueue.Dequeue();
+            skillInventoryUI = new InventoryUI(factory);
+            itemInventoryUI = new InventoryUI(factory);
+
+            currentPartyMember = global.aTBGuageFilledQueue.Dequeue();
 
             attackTab.onClick.AddListener(() => OnClickAttack());
-            magicTab.onClick.AddListener(() => OnClickMagic());
+            magicTab.onClick.AddListener(() => OnClickSkill());
             attackTab.onClick.AddListener(() => OnClickItems());
         }
 
         public void OnClickAttack()
         {
-            OnSelectCommand("Attack");
+            string weapon = currentPartyMember.getEquipment.GetPart(IItem.Category.meleeWeapons2H); //need to get current weapon
+            OnSelectCommand(weapon);
         }
 
-        public void OnClickMagic()
+        public void OnClickSkill()
         {
-            inventoryUI.OnClick = (commandName) => OnSelectCommand(commandName);
-            inventoryUI.inventory = global.getParty[currentPartyMember].getMagic;
-            inventoryUI.grid = grid;
-            inventoryUI.Show();
+            /*globalInventoryUI.grid = grid;
+            globalInventoryUI.buttonPrefab = buttonPrefab;
+            globalInventoryUI.inventory = inventory;
+            globalInventoryUI.OnClick = (itemName) => OnEquip(itemName);
+            globalInventoryUI.onPointerEnter = (itemName) => OnPointerEnter(itemName);
+            globalInventoryUI.onPointerExit = (itemName) => OnPointerExit(itemName);
+            globalInventoryUI.Display();*/
+
+            skillInventoryUI.grid = grid;
+            skillInventoryUI.buttonPrefab = buttonPrefab;
+            skillInventoryUI.OnClick = (commandName) => OnSelectCommand(commandName);
+            skillInventoryUI.inventory = currentPartyMember.getSkills;
+            skillInventoryUI.onPointerEnter = (itemName) => { };
+            skillInventoryUI.onPointerExit = (itemName) => { };
+            skillInventoryUI.Display();
         }
 
         public void OnClickItems()
         {
-            inventoryUI.OnClick = (commandName) => OnSelectCommand(commandName);
-            inventoryUI.inventory = global.inventories[IItem.Category.supplies];
-            inventoryUI.grid = grid;
-            inventoryUI.Show();
+            itemInventoryUI.grid = grid;
+            itemInventoryUI.buttonPrefab = buttonPrefab;
+            itemInventoryUI.OnClick = (commandName) => OnSelectCommand(commandName);
+            itemInventoryUI.inventory = global.inventories[IItem.Category.supplies];
+            itemInventoryUI.onPointerEnter = (itemName) => { };
+            itemInventoryUI.onPointerExit = (itemName) => { };
+            itemInventoryUI.Display();
         }
 
         public void Update()
@@ -63,6 +81,9 @@ namespace TCOY.Canvas
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+
+            if (hit.transform == null)
+                return;
 
             target = hit.transform.GetComponent<IActor>();
 
@@ -84,7 +105,10 @@ namespace TCOY.Canvas
 
         public void OnSelectTarget(IActor target)
         {
-            //global.commandQueue.Enqueue((global.getParty[currentPartyMember], (ISkill)factory.GetItem(commandName), targets));
+            Command command = new Command(currentPartyMember, factory.GetItem(commandName), new IActor[] { target });
+            global.commandQueue.Enqueue(command);
+            currentPartyMember.getATBGuage.Reset();
+            gameObject.SetActive(false);
         }
     }
 }

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d5ed929cc05de4e9ff4057e86f7043, type: 3}
+  m_Name: Cider
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 0aad1ee6a045e9b468d3f500902cfd16, type: 3}
+  _prefab: {fileID: 159062207693028338, guid: 83a41f5b8ab867c409f15c1e4de0d748, type: 3}
+  _category: 11
+  info: 
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
+    Name: Cider
+    Collection: Supplies
+    Edition: Plugins
+    Id: Plugins.Supplies.Supplies.Cider
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Supplies/Basic/Cider.png
+    Sprite: {fileID: 21300000, guid: b3bca7f31413348418e3d6cdd2b0c5f1, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: b3bca7f31413348418e3d6cdd2b0c5f1, type: 3}
+    Multiple: 1
+    Hash: 1a253f50c25aa52111e94518e6787455
+    Tags: []
+  modifiers: []
+  counters: []
+  interrupts: []

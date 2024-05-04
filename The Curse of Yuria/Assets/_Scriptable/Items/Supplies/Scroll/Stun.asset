@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
+  m_Name: Stun
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: be23a024083a6064db2068b7b231a6a5, type: 3}
+  _prefab: {fileID: 5330627925567244512, guid: 4a476ca6364307a4cbe385c1e34d176a, type: 3}
+  _category: 10
+  info: 
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
+    Name: Stun
+    Collection: Supplies
+    Edition: Plugins
+    Id: Plugins.Supplies.Supplies.Stun
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Supplies/Scroll/Stun.png
+    Sprite: {fileID: 21300000, guid: 3fe83290e2df83f4ebd1de03361ff4bf, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 3fe83290e2df83f4ebd1de03361ff4bf, type: 3}
+    Multiple: 1
+    Hash: d65cff6b7720473755273ad676b84379
+    Tags: []
+  modifiers: []
+  counters: []
+  interrupts: []

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
+  m_Name: Oblivion
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 1b329abf2fa3a6948952070f1195996e, type: 3}
+  _prefab: {fileID: 8234862281163233384, guid: 6c5da2fe859924944815b1dc4079544a, type: 3}
+  _category: 10
+  info: 
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
+    Name: Oblivion
+    Collection: Supplies
+    Edition: Plugins
+    Id: Plugins.Supplies.Supplies.Oblivion
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Supplies/Scroll/Oblivion.png
+    Sprite: {fileID: 21300000, guid: be459467f3d558d4bba4e5820c4de52b, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: be459467f3d558d4bba4e5820c4de52b, type: 3}
+    Multiple: 1
+    Hash: 3a78b069c4cee40f9514520938256b8e
+    Tags: []
+  modifiers: []
+  counters: []
+  interrupts: []

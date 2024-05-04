@@ -15,10 +15,7 @@ namespace TCOY.Actors
 
             combinedSkills.Enqueue(attack);
 
-            foreach (string skill in magic.GetNames())
-                combinedSkills.Enqueue(skill);
-
-            foreach (string skill in techniques.GetNames())
+            foreach (string skill in skills.GetNames())
                 combinedSkills.Enqueue(skill);
 
             aTBGuage.OnATBGuageFilled += MakeADecision;

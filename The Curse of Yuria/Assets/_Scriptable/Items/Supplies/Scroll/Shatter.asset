@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
+  m_Name: Shatter
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 108208d3ddf5c7b419768f98a4fcb951, type: 3}
+  _prefab: {fileID: 1031989834673634693, guid: baa09a078e7f150459da3c9ec5a834ac, type: 3}
+  _category: 10
+  info: 
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
+    Name: Shatter
+    Collection: Supplies
+    Edition: Plugins
+    Id: Plugins.Supplies.Supplies.Shatter
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Supplies/Scroll/Shatter.png
+    Sprite: {fileID: 21300000, guid: 239188563e330fb43a1fabf5fde9e7c2, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 239188563e330fb43a1fabf5fde9e7c2, type: 3}
+    Multiple: 1
+    Hash: 3a78b069c4cee40f9514520938256b8e
+    Tags: []
+  modifiers: []
+  counters: []
+  interrupts: []

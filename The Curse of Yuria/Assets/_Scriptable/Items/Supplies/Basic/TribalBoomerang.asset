@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d5ed929cc05de4e9ff4057e86f7043, type: 3}
+  m_Name: TribalBoomerang
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 8a3d4cc86a744212b21b9b8bba63dce0, type: 3}
+  _prefab: {fileID: 5742552994065151235, guid: f4d759a7cd7da804cb0222cff7fb99bb, type: 3}
+  _category: 11
+  info: 
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
+    Name: TribalBoomerang
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Supplies.TribalBoomerang
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Supplies/Basic/Throwing/TribalBoomerang.png
+    Sprite: {fileID: 21300000, guid: a20da608536d433da2e6fc2fb6fb383c, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: a20da608536d433da2e6fc2fb6fb383c, type: 3}
+    Multiple: 1
+    Hash: d101f06218ea2a268ce6068fd023711f
+    Tags: []
+  modifiers: []
+  counters: []
+  interrupts: []

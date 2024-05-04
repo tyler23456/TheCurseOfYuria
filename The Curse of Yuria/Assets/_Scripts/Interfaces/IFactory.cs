@@ -8,5 +8,7 @@ using Assets.HeroEditor.Common.Scripts.Data;
 
 public interface IFactory
 {
+    GameObject getDamageTextPrefab { get; }
+    GameObject getRecoveryTextPrefab { get; }
     IItem GetItem(string name);
 }

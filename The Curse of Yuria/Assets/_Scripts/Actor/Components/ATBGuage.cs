@@ -8,10 +8,10 @@ namespace TCOY.Actors
     [System.Serializable]
     public class ATBGuage : IATBGuage
     {
-        [SerializeField] float maximumValue = 100f;
+        float maximumValue = 5f;
 
         float accumulator = 0f;
-        float speed = 0.01f;
+        float speed = 1f;
         bool isFull = false;
 
         public Action OnATBGuageFilled { get; set; } = () => { };

@@ -14,8 +14,13 @@ namespace TCOY.DontDestroyOnLoad
     {
         [SerializeField] AssetLabelReference itemsReference;
 
-        Dictionary<string, IItem> items = new Dictionary<string, IItem>();     
+        [SerializeField] GameObject damageTextPrefab;
+        [SerializeField] GameObject recoveryTextPrefab;
 
+        Dictionary<string, IItem> items = new Dictionary<string, IItem>();
+
+        public GameObject getDamageTextPrefab => damageTextPrefab;
+        public GameObject getRecoveryTextPrefab => recoveryTextPrefab;
 
         private void Awake()
         {

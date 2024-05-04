@@ -30,10 +30,10 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] string armorPath = "Armor/";
         [SerializeField] string shieldsPath = "Shield/";
         [SerializeField] string bowsPath = "Bow/";
-        [SerializeField] string scrollsPath = "Scroll/";
-        [SerializeField] string suppliesPath = "Supplies/";
-        [SerializeField] string gemPath = "Gem/";
-        [SerializeField] string questItemPath = "QuestItem/";
+        [SerializeField] string scrollsPath = "Supplies/Scroll/";
+        [SerializeField] string suppliesPath = "Supplies/Basic/";
+        [SerializeField] string gemPath = "Supplies/Gem/";
+        [SerializeField] string questItemPath = "Supplies/QuestItem/";
 
         [SerializeField] string assetsRootPath = "Assets/_Scriptable/Items/";
         [SerializeField] string prefabsRootPath = "Assets/User/Prefabs/Items/";
@@ -62,8 +62,14 @@ namespace TCOY.DontDestroyOnLoad
 
             SpriteCollection spriteCollection = Resources.Load<SpriteCollection>("SpriteCollection");
             foreach (ItemSprite itemSprite in spriteCollection.GetAllSprites())
+            {
                 if (!itemSprites.ContainsKey(itemSprite.Name))
                     itemSprites.Add(itemSprite.Name, itemSprite);
+                Debug.Log(itemSprite.Name);
+            }
+                
+
+           
 
             factory = GetComponent<IFactory>();
 

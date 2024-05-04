@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d5ed929cc05de4e9ff4057e86f7043, type: 3}
+  m_Name: Axeorang
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 95f71a804bf7423098150a8ffac9f64b, type: 3}
+  _prefab: {fileID: 3572497480577639322, guid: 850f25f7896f7aa45bf07b31c4c9fc66, type: 3}
+  _category: 11
+  info: 
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
+    Name: Axeorang
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Supplies.Axeorang
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Supplies/Basic/Throwing/Axeorang.png
+    Sprite: {fileID: 21300000, guid: c6934874301d472f8a4d9ab63497e637, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: c6934874301d472f8a4d9ab63497e637, type: 3}
+    Multiple: 1
+    Hash: 1470ebfc12de5ab2991ac68edeb8e37a
+    Tags: []
+  modifiers: []
+  counters: []
+  interrupts: []

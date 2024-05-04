@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee8d1e273a1894d4796be00aa0062422, type: 3}
+  m_Name: PurpleGemstone
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 64f66db4954223a488f6eb38aea1cfbf, type: 3}
+  _prefab: {fileID: 1635773849662206248, guid: 1b4ce3c71a4716e4d8f9ee785c6c589b, type: 3}
+  _category: 12
+  info: 
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
+    Name: PurpleGemstone
+    Collection: Supplies
+    Edition: Plugins
+    Id: Plugins.Supplies.Supplies.PurpleGemstone
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Supplies/Gem/PurpleGemstone.png
+    Sprite: {fileID: 21300000, guid: b9de2aee94642f84caeaa28c345569d7, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: b9de2aee94642f84caeaa28c345569d7, type: 3}
+    Multiple: 1
+    Hash: b99df06bee1af494d5e6be8708785025
+    Tags: []
+  modifiers: []
+  counters: []
+  interrupts: []
+  value: 0

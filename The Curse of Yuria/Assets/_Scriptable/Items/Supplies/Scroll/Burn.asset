@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
+  m_Name: Burn
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 72590ece6dc17ea4fbb0af4ab36cb9b0, type: 3}
+  _prefab: {fileID: 2874365154872781413, guid: 47b3984aa6191cf4fb10ba14496a31d2, type: 3}
+  _category: 10
+  info: 
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
+    Name: Burn
+    Collection: Supplies
+    Edition: Plugins
+    Id: Plugins.Supplies.Supplies.Burn
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Supplies/Scroll/Burn.png
+    Sprite: {fileID: 21300000, guid: 3bbd35a637b3c294caead3539babcfcb, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 3bbd35a637b3c294caead3539babcfcb, type: 3}
+    Multiple: 1
+    Hash: d65cff6b7720473755273ad676b84379
+    Tags: []
+  modifiers: []
+  counters: []
+  interrupts: []

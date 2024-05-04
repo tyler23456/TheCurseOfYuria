@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d5ed929cc05de4e9ff4057e86f7043, type: 3}
+  m_Name: ChiliPepperBombTypeB
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 856c04d5c25a1874bb924ff5dda44f4b, type: 3}
+  _prefab: {fileID: 5167768558167949850, guid: 1285fcfe43a71244eac02e04fdbf4d1b, type: 3}
+  _category: 11
+  info: 
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
+    Name: ChiliPepperBombTypeB
+    Collection: Supplies
+    Edition: Plugins
+    Id: Plugins.Supplies.Supplies.ChiliPepperBombTypeB
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Supplies/Basic/ChiliPepperBombTypeB.png
+    Sprite: {fileID: 21300000, guid: be81e29593c8c1f49a1cf96a0b0193be, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: be81e29593c8c1f49a1cf96a0b0193be, type: 3}
+    Multiple: 1
+    Hash: 17e9949331a915b8771dafc017694986
+    Tags: []
+  modifiers: []
+  counters: []
+  interrupts: []

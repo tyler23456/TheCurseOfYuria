@@ -76,37 +76,43 @@ namespace TCOY.Actors
             if (type == IItem.Type.Damage)
                 if (group >= IItem.Group.Magic)
                 {
-                    int defense = GetAttribute(IStats.Attributes.Aura) + GetWeakness(element);
-                    int total = (user.GetAttribute(IStats.Attributes.Magic) + power) * (100 / (100 + defense));
-                    onApplyDamage.Invoke(total);
+                    float defense = GetAttribute(IStats.Attributes.Aura) + GetWeakness(element);
+                    float total = (user.GetAttribute(IStats.Attributes.Magic) + power) * (100f / (100f + defense));
+                    total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
+                    onApplyDamage.Invoke((int)total);
                 }
                 else if (group >= IItem.Group.Melee)
                 {
-                    int defense = GetAttribute(IStats.Attributes.Defense) + GetWeakness(element);
-                    int total = (user.GetAttribute(IStats.Attributes.Strength) + power) * (100 / (100 + defense));
-                    onApplyDamage.Invoke(total);
+                    float defense = GetAttribute(IStats.Attributes.Defense) + GetWeakness(element);
+                    float total = (user.GetAttribute(IStats.Attributes.Strength) + power) * (100f / (100f + defense));
+                    total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
+                    onApplyDamage.Invoke((int)total);
                 }
                 else if (group >= IItem.Group.None)
                 {
-                    int defense = GetWeakness(element);
-                    int total = power * (100 / (100 + defense));
-                    onApplyDamage.Invoke(total);
+                    float defense = GetWeakness(element);
+                    float total = power * (100f / (100f + defense));
+                    total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
+                    onApplyDamage.Invoke((int)total);
                 }
             else if (type == IItem.Type.Recovery)
                     if (group >= IItem.Group.Magic)
                     {
-                        int total = user.GetAttribute(IStats.Attributes.Magic) + power;
-                        onApplyDamage.Invoke(total);
+                        float total = user.GetAttribute(IStats.Attributes.Magic) + power;
+                        total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
+                        onApplyDamage.Invoke((int)total);
                     }
                     else if (group >= IItem.Group.Melee)
                     {
-                        int total = user.GetAttribute(IStats.Attributes.Strength) + power;
-                        onApplyDamage.Invoke(total);
+                        float total = user.GetAttribute(IStats.Attributes.Strength) + power;
+                        total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
+                        onApplyDamage.Invoke((int)total);
                     }
                     else if (group >= IItem.Group.None)
                     {
-                        int total = power;
-                        onApplyDamage.Invoke(total);
+                        float total = power;
+                        total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
+                        onApplyDamage.Invoke((int)total);
                     }
 
             return false; //this will test whether an effect takes place

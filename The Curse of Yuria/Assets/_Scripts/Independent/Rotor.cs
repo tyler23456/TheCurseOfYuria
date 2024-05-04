@@ -9,7 +9,6 @@ namespace TCOY.Independent
         [SerializeField] Transform transformToRotate;
         [SerializeField] float speed = 50f;
 
-        // Update is called once per frame
         void Update()
         {
             Vector3 eulerAngles = transformToRotate.eulerAngles;

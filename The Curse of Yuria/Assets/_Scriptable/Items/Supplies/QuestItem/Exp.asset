@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd81c45a38e25a48ac8944c5fbaa306, type: 3}
+  m_Name: Exp
+  m_EditorClassIdentifier: 
+  guid: 0
+  _icon: {fileID: 21300000, guid: 224009c713aa3a14796630f495828882, type: 3}
+  _prefab: {fileID: 8710744709028378694, guid: 4410b7471973466439dee6a0614834dc, type: 3}
+  _category: 13
+  info: 
+  group: 0
+  type: 0
+  element: 0
+  power: 0
+  cost: 0
+  duration: Infinity
+  effects: []
+  particleSystem: {fileID: 0}
+  _itemSprite:
+    Name: Exp
+    Collection: Supplies
+    Edition: Plugins
+    Id: Plugins.Supplies.Supplies.Exp
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Supplies/QuestItem/Exp.png
+    Sprite: {fileID: 21300000, guid: 668533fba26c67f42ad03ab9c12828e2, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 668533fba26c67f42ad03ab9c12828e2, type: 3}
+    Multiple: 1
+    Hash: c2711458679449e0cfb510a5b139e88d
+    Tags: []
+  modifiers: []
+  counters: []
+  interrupts: []
+  bookPrefab: {fileID: 0}
+  pagesText: []
