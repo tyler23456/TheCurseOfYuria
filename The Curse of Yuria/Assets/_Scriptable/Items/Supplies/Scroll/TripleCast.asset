@@ -17,11 +17,11 @@ MonoBehaviour:
   _prefab: {fileID: 5187160551957499666, guid: 3214e9c071eecf84e87039e28688ae61, type: 3}
   _category: 10
   info: 
-  group: 0
+  group: 3
   type: 0
   element: 0
-  power: 0
-  cost: 0
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
   particleSystem: {fileID: 0}

@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 5051951359959997430, guid: 9690c229704cff946ae7805024cfff4e, type: 3}
   _category: 10
   info: 
-  group: 0
+  group: 3
   type: 0
   element: 0
-  power: 0
-  cost: 0
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 81308183512584115, guid: 6bdaae237c6e1904eb852f9104c0f4a0, type: 3}
   _itemSprite:
     Name: DefenseDown
     Collection: Supplies

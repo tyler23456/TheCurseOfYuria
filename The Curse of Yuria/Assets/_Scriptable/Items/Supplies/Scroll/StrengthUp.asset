@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 6485738990065336197, guid: aab417906b0b5334bb889aeb871b184d, type: 3}
   _category: 10
   info: 
-  group: 0
+  group: 3
   type: 0
   element: 0
-  power: 0
-  cost: 0
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 2733247010544334551, guid: 367a2daf4ddf9644d9f21b1dd6943a99, type: 3}
   _itemSprite:
     Name: StrengthUp
     Collection: Supplies

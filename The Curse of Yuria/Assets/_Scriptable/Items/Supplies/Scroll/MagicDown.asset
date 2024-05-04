@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 4458038851349192921, guid: e7e11543b1cc99f4d8a1aded57c6dc5b, type: 3}
   _category: 10
   info: 
-  group: 0
+  group: 3
   type: 0
   element: 0
-  power: 0
-  cost: 0
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 4737892327257956861, guid: 9e7a4d14f3d163849ae37d1db2ee8fc9, type: 3}
   _itemSprite:
     Name: MagicDown
     Collection: Supplies

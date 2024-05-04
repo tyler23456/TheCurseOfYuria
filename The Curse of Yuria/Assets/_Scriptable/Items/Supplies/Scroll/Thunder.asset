@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 1450113278548713622, guid: f31db9cbafc023c4185299c64fb0550c, type: 3}
   _category: 10
   info: 
-  group: 0
-  type: 0
-  element: 0
-  power: 0
-  cost: 0
+  group: 3
+  type: 1
+  element: 3
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 3950214905299764854, guid: 14edab54bc882fd4a9866554d6bedc2b, type: 3}
   _itemSprite:
     Name: Thunder
     Collection: Supplies

@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 7276168454807695507, guid: bd0b89e8ed096c7478aa7a0b79cb5300, type: 3}
   _category: 10
   info: 
-  group: 0
-  type: 0
-  element: 0
-  power: 0
-  cost: 0
+  group: 3
+  type: 1
+  element: 6
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 2118910425838060974, guid: dc3c3ff8e0da4ab45a70c1961bcfa4de, type: 3}
   _itemSprite:
     Name: Poison
     Collection: Supplies

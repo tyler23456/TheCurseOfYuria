@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 4941467914418971237, guid: f2891096619a7b34290b562a37db19e7, type: 3}
   _category: 10
   info: 
-  group: 0
-  type: 0
-  element: 0
-  power: 0
-  cost: 0
+  group: 3
+  type: 1
+  element: 12
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 8811997313417184112, guid: 0edd1d14a2b57054290773590f8925fd, type: 3}
   _itemSprite:
     Name: Freeze
     Collection: Supplies

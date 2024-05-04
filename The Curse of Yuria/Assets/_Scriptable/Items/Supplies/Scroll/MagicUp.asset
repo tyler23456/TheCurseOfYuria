@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 1312593735394833879, guid: d39de906be6b71343b23181aa1de5601, type: 3}
   _category: 10
   info: 
-  group: 0
+  group: 3
   type: 0
   element: 0
-  power: 0
-  cost: 0
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 4737892327257956861, guid: 780bee809545d824fbcfd09325198469, type: 3}
   _itemSprite:
     Name: MagicUp
     Collection: Supplies

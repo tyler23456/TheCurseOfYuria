@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 7562924454466102626, guid: 0f594f3fb0a3044468b719b31955fe4e, type: 3}
   _category: 10
   info: 
-  group: 0
-  type: 0
-  element: 0
-  power: 0
-  cost: 0
+  group: 3
+  type: 1
+  element: 8
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 3189163135992822113, guid: 2678f3b8c148f8a418a86721ce7a2a5a, type: 3}
   _itemSprite:
     Name: Entrall
     Collection: Supplies

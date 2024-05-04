@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 531575024381700716, guid: 37522396708f043498fbd82d81185af3, type: 3}
   _category: 10
   info: 
-  group: 0
+  group: 3
   type: 0
   element: 0
-  power: 0
-  cost: 0
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 5062031598457638996, guid: 74fbb2289ec26ed45998de131bee7c85, type: 3}
   _itemSprite:
     Name: SpeedUp
     Collection: Supplies

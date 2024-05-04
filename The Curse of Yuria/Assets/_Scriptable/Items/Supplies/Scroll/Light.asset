@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 2610082016232162564, guid: 6c93533ec9f6c9f4a8137583ef12edc9, type: 3}
   _category: 10
   info: 
-  group: 0
-  type: 0
-  element: 0
-  power: 0
-  cost: 0
+  group: 3
+  type: 1
+  element: 4
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 335701130982456758, guid: 6f35ccbeb00794040ac4b65146c8fd7e, type: 3}
   _itemSprite:
     Name: Light
     Collection: Supplies

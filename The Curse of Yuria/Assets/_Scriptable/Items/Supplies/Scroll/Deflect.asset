@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 4496648333311565105, guid: 8b42d719046d80f4181a95e7390998a4, type: 3}
   _category: 10
   info: 
-  group: 0
+  group: 3
   type: 0
   element: 0
-  power: 0
-  cost: 0
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 7266867321039263995, guid: 197837610ab09804594be3ad30794045, type: 3}
   _itemSprite:
     Name: Deflect
     Collection: Supplies

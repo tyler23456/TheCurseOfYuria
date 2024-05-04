@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 4470057768886680284, guid: 895672f7d8fe241489390546bfe42445, type: 3}
   _category: 10
   info: 
-  group: 0
+  group: 3
   type: 0
-  element: 0
-  power: 0
-  cost: 0
+  element: 3
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 1558332597376287028, guid: b008dbe8f7ce860479fa0230a196b8a5, type: 3}
   _itemSprite:
     Name: ThunderSkip
     Collection: Supplies

@@ -62,7 +62,7 @@ namespace TCOY.Actors
         public void ResetAll()
         {
             attributes = new int[9] { maxHP, maxHP, maxMP, maxMP, strength, defense, aura, speed, luck };
-            weaknesses = new int[7] { 0, fire, ice, thunder, water, light, dark };
+            weaknesses = new int[20] { 0, fire, ice, thunder, water, light, dark, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //need to show effects eventually
             onStatsChanged.Invoke(attributes);
         }
 

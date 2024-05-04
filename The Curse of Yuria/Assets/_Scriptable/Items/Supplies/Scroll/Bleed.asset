@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 4882153036037090627, guid: 17ecb0c97285f9d4f8622218308a96a0, type: 3}
   _category: 10
   info: 
-  group: 0
-  type: 0
-  element: 0
-  power: 0
-  cost: 0
+  group: 3
+  type: 1
+  element: 10
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 7456154535381058474, guid: fa44a5ec2daa07a4693befa3b58e6d9a, type: 3}
   _itemSprite:
     Name: Bleed
     Collection: Supplies

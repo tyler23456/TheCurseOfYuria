@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 8992042964393397318, guid: c0429ec6759ec1e489ecc75e6812e337, type: 3}
   _category: 10
   info: 
-  group: 0
+  group: 3
   type: 0
   element: 0
-  power: 0
-  cost: 0
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 5122536290671613066, guid: 4775691bccf8d654f928ce74469b3e29, type: 3}
   _itemSprite:
     Name: Nullify
     Collection: Supplies

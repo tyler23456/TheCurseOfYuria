@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 675289427784953522, guid: 990445859a30c514c8e71a66a95ce160, type: 3}
   _category: 10
   info: 
-  group: 0
+  group: 3
   type: 0
   element: 0
-  power: 0
-  cost: 0
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 5062031598457638996, guid: 15cfd6b4f77a5e744b5ecb5c134debdf, type: 3}
   _itemSprite:
     Name: LuckDown
     Collection: Supplies

@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 5894347274215507081, guid: 530603c7d1d4f5d4eabc9dd1b725b84c, type: 3}
   _category: 10
   info: 
-  group: 0
+  group: 3
   type: 0
-  element: 0
-  power: 0
-  cost: 0
+  element: 2
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 1558332597376287028, guid: 694f688f736a1714b88638892163e988, type: 3}
   _itemSprite:
     Name: IceSkip
     Collection: Supplies

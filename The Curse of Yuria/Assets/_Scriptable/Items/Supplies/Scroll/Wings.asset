@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 5824968459478756223, guid: 4f5cb23f02de9d248a6bcf9eacd49a22, type: 3}
   _category: 10
   info: 
-  group: 0
+  group: 3
   type: 0
   element: 0
-  power: 0
-  cost: 0
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 1369319421381884555, guid: c47a2bd41922f7a41bc6a9acb7dd1e0c, type: 3}
   _itemSprite:
     Name: Wings
     Collection: Supplies

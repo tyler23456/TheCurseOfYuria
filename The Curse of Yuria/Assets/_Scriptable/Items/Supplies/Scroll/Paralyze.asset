@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 8196160977919613476, guid: 1afb5de8a9824974ca878e486a7ce16a, type: 3}
   _category: 10
   info: 
-  group: 0
-  type: 0
-  element: 0
-  power: 0
-  cost: 0
+  group: 3
+  type: 1
+  element: 9
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 6846817570176300725, guid: f540104585cd8a84b88c69d063e7750f, type: 3}
   _itemSprite:
     Name: Paralyze
     Collection: Supplies

@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 19123322445026166, guid: 25a0b51d5f181e34aab52d28705b9ad9, type: 3}
   _category: 10
   info: 
-  group: 0
+  group: 3
   type: 0
   element: 0
-  power: 0
-  cost: 0
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 5062031598457638996, guid: 6f6968d7cd641514f9b0941f74d5a89b, type: 3}
   _itemSprite:
     Name: AuraDown
     Collection: Supplies

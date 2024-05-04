@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 8234862281163233384, guid: 6c5da2fe859924944815b1dc4079544a, type: 3}
   _category: 10
   info: 
-  group: 0
-  type: 0
+  group: 3
+  type: 1
   element: 0
-  power: 0
-  cost: 0
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 7864439438791569329, guid: 76df43a3a89f6854491700452bd0ec66, type: 3}
   _itemSprite:
     Name: Oblivion
     Collection: Supplies

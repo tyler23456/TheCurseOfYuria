@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 4360129316074292530, guid: 84d9a0245149ca6498e90e41bc577381, type: 3}
   _category: 10
   info: 
-  group: 0
+  group: 3
   type: 0
-  element: 0
-  power: 0
-  cost: 0
+  element: 4
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 1558332597376287028, guid: 03080405acdda464088b2f5fe0ddfd0f, type: 3}
   _itemSprite:
     Name: LightSkip
     Collection: Supplies

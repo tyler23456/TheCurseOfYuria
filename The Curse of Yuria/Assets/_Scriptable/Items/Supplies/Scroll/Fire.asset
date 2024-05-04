@@ -20,8 +20,8 @@ MonoBehaviour:
   group: 3
   type: 1
   element: 1
-  power: 0
-  cost: 0
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
   particleSystem: {fileID: 3716787501423605696, guid: d40d075809b5a3f4ab6151c684aed3f3, type: 3}

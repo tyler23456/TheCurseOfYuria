@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 8199937575306893073, guid: 54bde1ef531a5414e952d8b66b85af56, type: 3}
   _category: 10
   info: 
-  group: 0
-  type: 0
-  element: 0
-  power: 0
-  cost: 0
+  group: 3
+  type: 1
+  element: 5
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 2748146283442478975, guid: 1f26d3f51db44c24dac866a2ff5be7c7, type: 3}
   _itemSprite:
     Name: Dark
     Collection: Supplies

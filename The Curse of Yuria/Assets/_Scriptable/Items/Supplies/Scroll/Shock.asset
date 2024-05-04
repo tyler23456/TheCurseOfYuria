@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 7603236896305238775, guid: ea9660dac9bb36c43a3cf9a2adbe6b29, type: 3}
   _category: 10
   info: 
-  group: 0
-  type: 0
-  element: 0
-  power: 0
-  cost: 0
+  group: 3
+  type: 1
+  element: 13
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 5370980921516771429, guid: d7021c92e85cc7b449d603423b05a611, type: 3}
   _itemSprite:
     Name: Shock
     Collection: Supplies

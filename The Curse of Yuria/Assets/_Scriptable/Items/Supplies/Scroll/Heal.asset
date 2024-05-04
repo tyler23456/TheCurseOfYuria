@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 8573181003680105835, guid: 50a6ad332aecded46885bf81ec2015fc, type: 3}
   _category: 10
   info: 
-  group: 0
+  group: 3
   type: 0
   element: 0
-  power: 0
-  cost: 0
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 8733514384126542105, guid: d5385a495279fb84da81c92962e72428, type: 3}
   _itemSprite:
     Name: Heal
     Collection: Supplies

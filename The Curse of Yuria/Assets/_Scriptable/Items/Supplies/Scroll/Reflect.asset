@@ -17,14 +17,14 @@ MonoBehaviour:
   _prefab: {fileID: 8925556305272304442, guid: fb84adad8b91b214fa823570c49b89c3, type: 3}
   _category: 10
   info: 
-  group: 0
+  group: 3
   type: 0
   element: 0
-  power: 0
-  cost: 0
+  power: 2
+  cost: 2
   duration: Infinity
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 6661093504666543188, guid: 2f6b4a8a112597d489704c32c210a5e4, type: 3}
   _itemSprite:
     Name: Reflect
     Collection: Supplies
