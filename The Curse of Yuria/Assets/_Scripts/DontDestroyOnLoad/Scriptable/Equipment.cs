@@ -69,6 +69,13 @@ namespace TCOY.DontDestroyOnLoad
                     target.getAnimator.SetWeaponType(3);
                     break;
 
+                case IItem.Category.shields:
+                    removedItems = target.getEquipment.RemoveWhere(i =>
+                    factory.GetItem(i).category == IItem.Category.meleeWeapons2H ||
+                    factory.GetItem(i).category == IItem.Category.shields ||
+                    factory.GetItem(i).category == IItem.Category.bows);
+                    break;
+
                 default:
                     removedItems = target.getEquipment.RemoveWhere(i =>
                     factory.GetItem(i).category == category);

@@ -6,7 +6,7 @@ using System;
 
 namespace TCOY.Canvas
 {
-    public class PointerHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class PointerHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
         public Action onPointerEnter = () => { };
         public Action onPointerExit = () => { };
@@ -17,9 +17,10 @@ namespace TCOY.Canvas
 
         }
 
-        void Update()
+        void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+
+            if (eventData.button == PointerEventData.InputButton.Right)
                 onPointerRightClick.Invoke();
         }
 
