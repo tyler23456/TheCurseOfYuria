@@ -6,6 +6,19 @@ using HeroEditor.Common.Data;
 
 public interface IItem
 {
+    static Dictionary<Category, EquipmentPart> partConverter = new Dictionary<Category, EquipmentPart>()
+    {
+        { Category.helmets, EquipmentPart.Helmet },
+        { Category.earrings, EquipmentPart.Earrings},
+        { Category.glasses, EquipmentPart.Glasses },
+        { Category.meleeWeapons1H, EquipmentPart.MeleeWeapon1H },
+        { Category.meleeWeapons2H, EquipmentPart.MeleeWeapon2H },
+        { Category.capes, EquipmentPart.Cape},
+        { Category.armor, EquipmentPart.Armor },
+        { Category.shields, EquipmentPart.Shield},
+        { Category.bows, EquipmentPart.Bow}
+    };
+
     public enum Category
     {
         helmets,
@@ -48,4 +61,6 @@ public interface IItem
     public List<Reactor> getInterrupts { get; }
 
     void Use(IActor user, IActor[] targets);
+    void Equip(IActor target);
+    void Unequip(IActor target);
 }

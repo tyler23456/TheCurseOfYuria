@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using System;
 
 namespace TCOY.Canvas
 {
@@ -50,6 +51,8 @@ namespace TCOY.Canvas
         InventoryUI partyMemberInventoryUI;
         InventoryUI globalInventoryUI;
 
+        Action commandDisplayRefresh;
+
         void OnEnable()
         {      
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
@@ -61,6 +64,8 @@ namespace TCOY.Canvas
             partyMemberIndex = 0;
             RefreshInventorySkills();
             RefreshPartyMember();
+
+            commandDisplayRefresh = global.getCommandDisplay.GetComponent<CommandDisplay>().Refresh;
 
             global.getAudioSource.PlayOneShot(open);
         }
@@ -125,6 +130,7 @@ namespace TCOY.Canvas
 
             RefreshPartyMember();
             RefreshInventorySkills();
+            commandDisplayRefresh();
         }
 
         public void OnRemoveSkill(string itemName)
@@ -139,7 +145,7 @@ namespace TCOY.Canvas
 
             RefreshPartyMember();
             RefreshInventorySkills();
-            
+            commandDisplayRefresh();
         }
 
         public void RemoveModifiers(IItem skill)

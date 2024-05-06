@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace TCOY.Canvas
 {
-    public class ExitMenu : MonoBehaviour
+    public class ControlsDisplay : MonoBehaviour
     {
         
+
         void Start()
         {
 

@@ -11,4 +11,5 @@ public interface IFactory
     GameObject getDamageTextPrefab { get; }
     GameObject getRecoveryTextPrefab { get; }
     IItem GetItem(string name);
+    bool HasItem(string name);
 }

@@ -23,6 +23,11 @@ namespace TCOY.Canvas
         InventoryUI skillInventoryUI;
         InventoryUI itemInventoryUI;
 
+        public enum State { attack, skill, item }
+        State currentState = State.attack;
+
+        public State getState => currentState;
+
         void OnEnable()
         {
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
@@ -35,17 +40,45 @@ namespace TCOY.Canvas
 
             attackTab.onClick.AddListener(() => OnClickAttack());
             magicTab.onClick.AddListener(() => OnClickSkill());
-            attackTab.onClick.AddListener(() => OnClickItems());
+            itemTab.onClick.AddListener(() => OnClickItems());
+
+            OnClickAttack();
+        }
+
+        public void Refresh()
+        {
+            switch (currentState)
+            {
+                case State.attack:
+                    OnClickAttack();
+                    break;
+                case State.skill:
+                    OnClickSkill();
+                    break;
+                case State.item:
+                    OnClickItems();
+                    break;
+            }
         }
 
         public void OnClickAttack()
         {
-            string weapon = currentPartyMember.getEquipment.GetPart(IItem.Category.meleeWeapons2H); //need to get current weapon
+            currentState = State.attack;
+
+            string weapon = currentPartyMember.getEquipment.Find(i => 
+            factory.GetItem(i).category == IItem.Category.meleeWeapons1H ||
+            factory.GetItem(i).category == IItem.Category.meleeWeapons2H ||
+            factory.GetItem(i).category == IItem.Category.bows);
+
+            if (weapon == null)
+                return;
+            
             OnSelectCommand(weapon);
         }
 
         public void OnClickSkill()
         {
+            currentState = State.skill;
             /*globalInventoryUI.grid = grid;
             globalInventoryUI.buttonPrefab = buttonPrefab;
             globalInventoryUI.inventory = inventory;
@@ -65,6 +98,7 @@ namespace TCOY.Canvas
 
         public void OnClickItems()
         {
+            currentState = State.item;
             itemInventoryUI.grid = grid;
             itemInventoryUI.buttonPrefab = buttonPrefab;
             itemInventoryUI.OnClick = (commandName) => OnSelectCommand(commandName);

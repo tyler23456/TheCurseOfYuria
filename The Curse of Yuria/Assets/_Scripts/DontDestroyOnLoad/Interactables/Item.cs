@@ -14,7 +14,7 @@ namespace TCOY.DontDestroyOnLoad
             if (global.getCompletedIds.Contains(getID))
                 gameObject.SetActive(false);
         }
-        
+
         public override void Interact(IPlayer player)
         {
             IItem.Category type = factory.GetItem(name).category;

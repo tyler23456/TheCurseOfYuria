@@ -17,8 +17,8 @@ MonoBehaviour:
   _prefab: {fileID: 2273385782032173500, guid: 3c6cf2280130da646acbbb00eeb6722e, type: 3}
   _category: 4
   info: 
-  group: 0
-  type: 0
+  group: 1
+  type: 1
   element: 0
   power: 0
   cost: 0

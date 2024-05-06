@@ -22,7 +22,7 @@ namespace TCOY.Actors
         [SerializeField] protected ATBGuage aTBGuage;
         [SerializeField] protected GroundChecker groundChecker;
         [SerializeField] protected Character character;
-        [SerializeField] protected Equipment equipment;
+        [SerializeField] protected Inventory equipment;
         [SerializeField] protected string attack;
         [SerializeField] protected Inventory skills;
         [SerializeField] protected UserAnimator animator;
@@ -35,7 +35,7 @@ namespace TCOY.Actors
         public IStats getStats => stats;
         public IATBGuage getATBGuage => aTBGuage;
         public Character getCharacter => character;
-        public IEquipment getEquipment => equipment;
+        public IInventory getEquipment => equipment;
         public string getAttack => attack;
         public IInventory getSkills => skills;
         public IAnimator getAnimator => animator;
@@ -49,7 +49,6 @@ namespace TCOY.Actors
             global = obj.GetComponent<IGlobal>();
             factory = obj.GetComponent<IFactory>();
 
-            equipment.Start(factory);
             stats.Initialize();
 
             stats.onApplyDamage = (damage) => animator.Hit();

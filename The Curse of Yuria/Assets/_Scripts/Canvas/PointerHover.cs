@@ -8,8 +8,9 @@ namespace TCOY.Canvas
 {
     public class PointerHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        public Action OnPointerEnter = () => { };
-        public Action OnPointerExit = () => { };
+        public Action onPointerEnter = () => { };
+        public Action onPointerExit = () => { };
+        public Action onPointerRightClick = () => { };
 
         void Start()
         {
@@ -18,17 +19,18 @@ namespace TCOY.Canvas
 
         void Update()
         {
-
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+                onPointerRightClick.Invoke();
         }
 
         void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
         {
-            OnPointerEnter.Invoke();
+            onPointerEnter.Invoke();
         }
 
         void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
         {
-            OnPointerExit.Invoke();
+            onPointerExit.Invoke();
         }
     }
 }

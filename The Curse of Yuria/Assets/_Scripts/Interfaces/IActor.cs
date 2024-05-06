@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 
 public interface IActor
 {
+    Character getCharacter { get; }
     Collider2D getCollider2D { get; }
     GameObject getGameObject { get; }
     IPosition getPosition { get; }
@@ -12,7 +14,7 @@ public interface IActor
     IATBGuage getATBGuage { get; }
     List<IReactor> counters { get; }
     List<IReactor> interrupts { get; }
-    IEquipment getEquipment { get;}
+    IInventory getEquipment { get;}
     IInventory getSkills { get; }
     IAnimator getAnimator { get; }
 }

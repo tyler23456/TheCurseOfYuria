@@ -8,7 +8,7 @@ namespace TCOY.DontDestroyOnLoad
     [RequireComponent(typeof(BoxCollider2D))]
     public abstract class InteractableBase : MonoBehaviour
     {
-        string id;
+        [SerializeField] protected string id = "None";
 
         GameObject obj;
         protected IGlobal global;
@@ -23,25 +23,20 @@ namespace TCOY.DontDestroyOnLoad
             global = obj.GetComponent<IGlobal>();
             factory = obj.GetComponent<IFactory>();
             cutscene = obj.GetComponent<ICutscene>();
+        }
 
-            /*if (minimumCompletedQuests.TrueForAll(i => global.getCompletedQuests.Contains(i)) && minimumQuestItems.TrueForAll(i => global.getQuestItems.Contains(i)))
-                isUnlocked = true;
-
-            if (maximumCompletedQuests.TrueForAll(i => global.getCompletedQuests.Contains(i)) && maximumQuestItems.TrueForAll(i => global.getQuestItems.Contains(i)))
-                isUnlocked = false;
-
-            if (isUnlocked)
-                Unlock();*/
+        void OnValidate()
+        {
+            if (id == "None")
+                id = System.DateTime.Now.Ticks.ToString() + "|" + System.Guid.NewGuid().ToString();    
         }
 
         public virtual void Interact(IPlayer player)
         {
-            
         }
 
         public virtual void Use(IActor user, IActor[] targets)
         {
-
         }
 
 

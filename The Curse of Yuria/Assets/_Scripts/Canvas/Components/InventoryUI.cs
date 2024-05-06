@@ -40,11 +40,11 @@ namespace TCOY.Canvas
                     OnClick(inventory.GetName(index));
                 });
                 pointerHover = button.GetComponent<PointerHover>();
-                pointerHover.OnPointerEnter = () =>
+                pointerHover.onPointerEnter = () =>
                 {
                     onPointerEnter.Invoke(inventory.GetName(index));
                 };
-                pointerHover.OnPointerExit = () => onPointerExit.Invoke(inventory.GetName(index));
+                pointerHover.onPointerExit = () => onPointerExit.Invoke(inventory.GetName(index));
                 button.transform.GetChild(1).GetComponent<Image>().sprite = factory.GetItem(inventory.GetName(index)).icon;
                 button.transform.GetChild(2).GetComponent<Text>().text = inventory.GetCount(index).ToString();
 

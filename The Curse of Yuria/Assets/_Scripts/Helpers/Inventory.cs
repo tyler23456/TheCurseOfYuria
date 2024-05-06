@@ -63,13 +63,36 @@ public class Inventory : IInventory
         int index = names.IndexOf(name);
 
         if (index == -1 || counts[index] < count)
-        {
             return false;
-        }
         else
-        {
             return true;
+    }
+
+    public string Find(Func<string, bool> predicate)
+    {
+        foreach (string name in names)
+            if (predicate(name))
+                return name;
+        return null;
+    }
+
+    public List<string> RemoveWhere(Func<string, bool> predicate)
+    {
+        List<int> indexes = new List<int>();
+        List<string> results = new List<string>();
+
+        for (int i = 0; i < names.Count; i++)
+        {
+            if (predicate(names[i]))
+            {
+                indexes.Add(i);
+                results.Add(names[i]);
+                names.RemoveAt(i);
+                counts.RemoveAt(i);
+                i--;
+            }
         }
+        return results;
     }
 
     public string[] GetNames()

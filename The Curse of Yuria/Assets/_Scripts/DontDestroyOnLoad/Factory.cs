@@ -34,5 +34,10 @@ namespace TCOY.DontDestroyOnLoad
         {
             return items[name];
         }
+
+        public bool HasItem(string name)
+        {
+            return items.ContainsKey(name);
+        }
     }
 }

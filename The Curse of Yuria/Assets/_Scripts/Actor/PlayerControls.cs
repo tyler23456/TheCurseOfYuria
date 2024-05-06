@@ -60,6 +60,11 @@ namespace TCOY.Actors
                 velocity += Vector2.up * 100;
             }
 
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                global.getOptionsDisplay.gameObject.SetActive(!global.getOptionsDisplay.gameObject.activeSelf);
+            }
+
             if (Input.GetKeyDown(KeyCode.Tab))
             {
                 global.getEquipmentDisplay.gameObject.SetActive(!global.getEquipmentDisplay.gameObject.activeSelf);
