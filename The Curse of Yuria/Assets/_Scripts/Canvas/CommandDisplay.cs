@@ -36,11 +36,13 @@ namespace TCOY.Canvas
             skillInventoryUI = new InventoryUI(factory);
             itemInventoryUI = new InventoryUI(factory);
 
-            currentPartyMember = global.aTBGuageFilledQueue.Dequeue();
+            currentPartyMember = global.aTBGuageFilledQueue.Peek();
 
             attackTab.onClick.AddListener(() => OnClickAttack());
             magicTab.onClick.AddListener(() => OnClickSkill());
             itemTab.onClick.AddListener(() => OnClickItems());
+
+            commandName = "None";
 
             OnClickAttack();
         }
@@ -142,6 +144,7 @@ namespace TCOY.Canvas
             Command command = new Command(currentPartyMember, factory.GetItem(commandName), new IActor[] { target });
             global.commandQueue.Enqueue(command);
             currentPartyMember.getATBGuage.Reset();
+            global.aTBGuageFilledQueue.Dequeue();
             gameObject.SetActive(false);
         }
     }

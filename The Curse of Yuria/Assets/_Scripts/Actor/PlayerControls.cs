@@ -62,21 +62,33 @@ namespace TCOY.Actors
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                global.getEquipmentDisplay.gameObject.SetActive(false);
+                global.getScrollDisplay.gameObject.SetActive(false);
+                global.getCommandDisplay.gameObject.SetActive(false);
                 global.getOptionsDisplay.gameObject.SetActive(!global.getOptionsDisplay.gameObject.activeSelf);
-            }
-
-            if (Input.GetKeyDown(KeyCode.Tab))
-            {
-                global.getEquipmentDisplay.gameObject.SetActive(!global.getEquipmentDisplay.gameObject.activeSelf);
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
+                global.getOptionsDisplay.gameObject.SetActive(false);
+                global.getScrollDisplay.gameObject.SetActive(false);
+                global.getCommandDisplay.gameObject.SetActive(false);
+                global.getEquipmentDisplay.gameObject.SetActive(!global.getEquipmentDisplay.gameObject.activeSelf);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                global.getOptionsDisplay.gameObject.SetActive(false);
+                global.getEquipmentDisplay.gameObject.SetActive(false);
+                global.getCommandDisplay.gameObject.SetActive(false);
                 global.getScrollDisplay.gameObject.SetActive(!global.getScrollDisplay.gameObject.activeSelf);
             }
 
-            if (Input.GetKeyDown(KeyCode.Mouse0) && global.aTBGuageFilledQueue.Count > 0)
+            if (Input.GetKeyDown(KeyCode.Tab) && global.aTBGuageFilledQueue.Count > 0)
             {
+                global.getEquipmentDisplay.gameObject.SetActive(false);
+                global.getScrollDisplay.gameObject.SetActive(false);
+                global.getOptionsDisplay.gameObject.SetActive(false);
                 global.getCommandDisplay.gameObject.SetActive(true);
             }
         }

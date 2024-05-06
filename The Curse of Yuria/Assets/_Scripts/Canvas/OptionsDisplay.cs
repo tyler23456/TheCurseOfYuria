@@ -10,11 +10,13 @@ namespace TCOY.Canvas
         [SerializeField] Button graphicsTab;
         [SerializeField] Button SettingsTab;
         [SerializeField] Button controlsTab;
+        [SerializeField] Button saveTab;
         [SerializeField] Button quitTab;
 
         [SerializeField] RectTransform graphicsDisplay;
         [SerializeField] RectTransform settingsDisplay;
         [SerializeField] RectTransform controlsDisplay;
+        [SerializeField] RectTransform saveDisplay;
         [SerializeField] RectTransform quitDisplay;  
 
         void Start()
