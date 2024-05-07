@@ -6,11 +6,17 @@ namespace TCOY.Canvas
 {
     public class ControlsDisplay : MonoBehaviour
     {
-        
+        IGlobal global;
+        IFactory factory;
+
+        [SerializeField] RectTransform grid;
+
+        InventoryUI inventory;
 
         void Start()
         {
-
+            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
+            factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
         }
     }
 }

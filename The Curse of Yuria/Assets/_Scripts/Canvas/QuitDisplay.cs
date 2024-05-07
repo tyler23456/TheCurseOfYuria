@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuitDisplay : MonoBehaviour
+namespace TCOY.Canvas
 {
-    // Start is called before the first frame update
-    void Start()
+    public class QuitDisplay : MonoBehaviour
     {
-        
-    }
+        IGlobal global;
+        IFactory factory;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [SerializeField] RectTransform grid;
+
+        InventoryUI inventory;
+
+
+        void Start()
+        {
+            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
+            factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
+        }
+
     }
 }

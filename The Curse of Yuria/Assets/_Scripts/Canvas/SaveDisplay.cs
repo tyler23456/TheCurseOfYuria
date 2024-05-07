@@ -4,29 +4,72 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using System;
 
 namespace TCOY.Canvas
 {
     public class SaveDisplay : MonoBehaviour
     {
-        
+        IGlobal global;
+        IFactory factory;
+
+        [SerializeField] RectTransform grid;
+
+        InventoryUI inventory;
 
         void Start()
         {
-
+            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
+            factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
         }
 
-        void OnSave()
+        void OnNewSave()
         {
+            SaveData data = new SaveData();
+            data.Save(global);
+            string json = JsonUtility.ToJson(data);
+            string fileName = SceneManager.GetActiveScene().name + " /" + DateTime.Now + " /" + global.inventories[IItem.Category.questItems].count.ToString() + " questItems" + " :";
+            string fullPath = Application.streamingAssetsPath + Path.AltDirectorySeparatorChar + fileName;
+            int i = 0;
+            while (true)
+            {
+                if (!File.Exists(fullPath + i.ToString()))
+                    break;
 
+                i++;
+            }
+            using (StreamWriter writer = new StreamWriter(fullPath + i.ToString()))
+                writer.Write(json); //need to save scene and position
         }
 
-        void OnLoad()
+        void OnOverwrite(string fileName)
         {
-            
+            SaveData data = new SaveData();
+            data.Save(global);
+            string json = JsonUtility.ToJson(data);
+            string fullPath = Application.streamingAssetsPath + Path.AltDirectorySeparatorChar + fileName;
+            using (StreamWriter writer = new StreamWriter(fullPath))
+                writer.Write(json); //need to save scene and position
         }
 
-        class InventoryData
+        void OnLoad(string fileName)
+        {
+            string json = string.Empty;
+
+            if (!File.Exists(Application.streamingAssetsPath + Path.AltDirectorySeparatorChar + fileName))
+                return;
+
+            using (StreamReader reader = new StreamReader(Application.streamingAssetsPath + Path.AltDirectorySeparatorChar + fileName))
+                json = reader.ReadToEnd();
+
+            SaveData saveData = JsonUtility.FromJson<SaveData>(json);
+            saveData.Load(global);
+
+            ISceneLoader sceneLoader = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISceneLoader>();
+            sceneLoader.Load(0, Vector2.zero); //need to load scene and position
+        }
+        
+        class SaveData
         {
             public string[] helmetNames;
             public int[] helmetCounts;
