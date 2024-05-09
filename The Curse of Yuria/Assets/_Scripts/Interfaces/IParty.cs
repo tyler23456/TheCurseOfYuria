@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IParty
 {
-    void AddMember(IPlayer member);
-    IPlayer GetMember(string memberName);
+    void AddMember(IPartyMember member);
+    IPartyMember GetMember(string memberName);
 }

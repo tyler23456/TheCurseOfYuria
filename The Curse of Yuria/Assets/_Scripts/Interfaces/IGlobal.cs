@@ -5,7 +5,7 @@ using FirstGearGames.SmoothCameraShaker;
 
 public interface IGlobal
 {
-    List<IPlayer> getParty { get; }
+    GameObject getPartyRoot { get; }
     List<IActor> getActors { get; }
     Camera getCamera { get; }
 
@@ -28,6 +28,10 @@ public interface IGlobal
     RectTransform getCommandDisplay { get; }
     RectTransform getOptionsDisplay { get; }
     RectTransform getGameOverDisplay { get; }
-    
+
+    int getPartyMemberCount { get; }
+    IPartyMember GetPartyMember(int i);
+
+
     Coroutine StartCoroutine(IEnumerator routine);
 }

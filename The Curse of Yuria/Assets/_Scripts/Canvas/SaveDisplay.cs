@@ -5,72 +5,142 @@ using System.IO;
 using UnityEngine.SceneManagement;
 using System.Linq;
 using System;
+using UnityEngine.UI;
 
 namespace TCOY.Canvas
 {
     public class SaveDisplay : MonoBehaviour
     {
+        enum State { NewSave, Overwrite, Load }
+
         IGlobal global;
         IFactory factory;
 
+        [SerializeField] GameObject partyMemberPrefab;
+
+        [SerializeField] Button buttonPrefab; 
         [SerializeField] RectTransform grid;
+        [SerializeField] Text heading;
+        [SerializeField] Text description;
 
-        InventoryUI inventory;
+        [SerializeField] Button newSaveButton;
+        [SerializeField] Button overwriteButton;
+        [SerializeField] Button loadButton;
 
-        void Start()
+
+        Button button;
+        State state = State.NewSave;
+
+        void OnEnable()
         {
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
             factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
+
+            newSaveButton.onClick.AddListener(OnNewSave);
+            overwriteButton.onClick.AddListener(OnOverwriteSettingSet);
+            loadButton.onClick.AddListener(OnLoadSettingSet);
+
+            heading.text = "Save a new file";
+            description.text = "";
+            RefreshFiles();
+        }
+
+        void RefreshFiles()
+        {
+            if (grid == null)
+                return;
+
+            foreach (RectTransform child in grid)
+                GameObject.Destroy(child.gameObject);
+
+            DirectoryInfo info = new DirectoryInfo(Application.persistentDataPath + Path.AltDirectorySeparatorChar);
+            FileInfo[] fileInfos = info.GetFiles();
+            
+
+            foreach (FileInfo fileInfo in fileInfos)
+            {
+                button = GameObject.Instantiate(buttonPrefab, grid);
+                button.onClick.RemoveAllListeners();
+                button.onClick.AddListener(() =>
+                {
+                    switch (state)
+                    {
+                        case State.Overwrite:
+                            OnOverwrite(fileInfo.Name);
+                            break;
+                        case State.Load:
+                            OnLoad(fileInfo.Name);
+                            break;
+                    }                  
+                });
+                button.transform.GetChild(0).GetComponent<Text>().text = fileInfo.Name.Split('.')[0];
+            }
+        }
+
+        void OnOverwriteSettingSet()
+        {
+            state = State.Overwrite;
+            heading.text = "Overwrite a save file";
+        }
+
+        void OnLoadSettingSet()
+        {
+            state = State.Load;
+            heading.text = "Load a save file";
         }
 
         void OnNewSave()
         {
-            SaveData data = new SaveData();
-            data.Save(global);
-            string json = JsonUtility.ToJson(data);
-            string fileName = SceneManager.GetActiveScene().name + " /" + DateTime.Now + " /" + global.inventories[IItem.Category.questItems].count.ToString() + " questItems" + " :";
-            string fullPath = Application.streamingAssetsPath + Path.AltDirectorySeparatorChar + fileName;
+            SaveData saveData = new SaveData();
+            saveData.Save(global, factory);
+            string json = JsonUtility.ToJson(saveData);
+            string fileName = SceneManager.GetActiveScene().name + " " + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + " " + global.inventories[IItem.Category.questItems].count.ToString() + " questItems" + " ";
+            string fullPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + fileName;
             int i = 0;
             while (true)
             {
-                if (!File.Exists(fullPath + i.ToString()))
+                if (!File.Exists(fullPath + i.ToString() + ".json"))
                     break;
 
                 i++;
             }
-            using (StreamWriter writer = new StreamWriter(fullPath + i.ToString()))
-                writer.Write(json); //need to save scene and position
+            File.WriteAllText(fullPath + i.ToString() + ".json", json);
+            RefreshFiles();
         }
 
         void OnOverwrite(string fileName)
         {
-            SaveData data = new SaveData();
-            data.Save(global);
-            string json = JsonUtility.ToJson(data);
-            string fullPath = Application.streamingAssetsPath + Path.AltDirectorySeparatorChar + fileName;
-            using (StreamWriter writer = new StreamWriter(fullPath))
-                writer.Write(json); //need to save scene and position
+            SaveData saveData = new SaveData();
+            saveData.Save(global, factory);
+            string json = JsonUtility.ToJson(saveData);
+            string fullPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + fileName;
+
+            File.WriteAllText(fullPath + ".json", json); //need to save scene and position
+            RefreshFiles();
         }
 
         void OnLoad(string fileName)
         {
             string json = string.Empty;
 
-            if (!File.Exists(Application.streamingAssetsPath + Path.AltDirectorySeparatorChar + fileName))
+            if (!File.Exists(Application.persistentDataPath + Path.AltDirectorySeparatorChar + fileName))
                 return;
 
-            using (StreamReader reader = new StreamReader(Application.streamingAssetsPath + Path.AltDirectorySeparatorChar + fileName))
-                json = reader.ReadToEnd();
-
+            json = File.ReadAllText(Application.persistentDataPath + Path.AltDirectorySeparatorChar + fileName);
             SaveData saveData = JsonUtility.FromJson<SaveData>(json);
-            saveData.Load(global);
+            saveData.Load(global, factory);
 
             ISceneLoader sceneLoader = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISceneLoader>();
-            sceneLoader.Load(0, Vector2.zero); //need to load scene and position
+            sceneLoader.Load(saveData.level, new Vector2(saveData.position[0], saveData.position[1]), saveData.eulerAnglesZ); 
         }
         
         class SaveData
         {
+            public int level;
+
+            public float[] position;
+            public float eulerAnglesZ;
+
             public string[] helmetNames;
             public int[] helmetCounts;
 
@@ -116,10 +186,12 @@ namespace TCOY.Canvas
             public string[] completedIDNames;
             public int[] completedIDCounts;
 
-            List<PartyMemberData> partyMemberDatas;
+            public List<PartyMemberData> partyMemberDatas;
 
-            public void Save(IGlobal global)
+            public void Save(IGlobal global, IFactory factory)
             {
+                level = SceneManager.GetActiveScene().buildIndex;              
+
                 helmetNames = global.inventories[IItem.Category.helmets].GetNames();
                 helmetCounts = global.inventories[IItem.Category.helmets].GetCounts();
 
@@ -167,15 +239,18 @@ namespace TCOY.Canvas
 
                 PartyMemberData partyMemberData = new PartyMemberData();
                 partyMemberDatas = new List<PartyMemberData>();
-                for (int i = 0; i < global.getParty.Count; i++)
+                for (int i = 0; i < global.getPartyMemberCount; i++)
                 {
                     partyMemberData = new PartyMemberData();
-                    partyMemberData.Save(global.getParty[i]);
+                    partyMemberData.Save(global.GetPartyMember(i));
                     partyMemberDatas.Add(partyMemberData);
                 }
+
+                position = new float[] { global.getPartyRoot.transform.GetChild(0).position.x, global.getPartyRoot.transform.GetChild(0).position.y };
+                eulerAnglesZ = global.getPartyRoot.transform.GetChild(0).eulerAngles.z;
             }
 
-            public void Load(IGlobal global)
+            public void Load(IGlobal global, IFactory factory)
             {
                 global.inventories[IItem.Category.helmets].SetNames(helmetNames);
                 global.inventories[IItem.Category.helmets].SetCounts(helmetCounts);
@@ -222,19 +297,22 @@ namespace TCOY.Canvas
                 global.getCompletedIds.SetNames(completedIDNames);
                 global.getCompletedIds.SetCounts(completedIDCounts);
 
+                foreach (Transform partyMember in global.getPartyRoot.transform)
+                    partyMember.gameObject.SetActive(false);
 
-                PartyMemberData partyMemberData = new PartyMemberData();
-                partyMemberDatas = new List<PartyMemberData>();
-                for (int i = 0; i < global.getParty.Count; i++)
+                int i = 0;
+                foreach (PartyMemberData partyMemberData in partyMemberDatas)
                 {
-                    partyMemberData = new PartyMemberData();
-                    partyMemberData.Save(global.getParty[i]);
-                    partyMemberDatas.Add(partyMemberData);
+                    Transform partyMember = global.getPartyRoot.transform.Find(partyMemberData.name);
+                    partyMember.SetSiblingIndex(i);
+                    partyMemberData.Load(partyMember.GetComponent<IPartyMember>(), factory);
+                    i++;
                 }
             }
         }
 
-        class PartyMemberData
+        [System.Serializable]
+        public class PartyMemberData
         {
             public string name;
             public string[] equipmentNames;
@@ -242,20 +320,32 @@ namespace TCOY.Canvas
             public string[] skillNames;
             public int[] skillCounts;
 
-            public void Save(IPlayer player)
+            public void Save(IPartyMember player)
             {
                 name = player.getGameObject.name;
+
                 equipmentNames = player.getEquipment.GetNames();
                 equipmentCounts = player.getEquipment.GetCounts();
                 skillNames = player.getSkills.GetNames();
                 skillCounts = player.getSkills.GetCounts();
             }
 
-            public void Load()
+            public void Load(IPartyMember player, IFactory factory)
             {
+                player.getGameObject.name = name;
 
+                foreach (string name in player.getEquipment.GetNames())
+                    factory.GetItem(name).Unequip(player);
+
+                foreach (string name in player.getSkills.GetNames())
+                    factory.GetItem(name).Unequip(player);
+
+                foreach (string name in equipmentNames)
+                    factory.GetItem(name).Equip(player);
+
+                foreach (string name in skillNames)
+                    factory.GetItem(name).Equip(player);
             }
         }
-
     }
 }

@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shock : MonoBehaviour
+namespace TCOY.StatusEffects
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Shock : StatusEffectBase
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void Activate(IActor target, float duration)
+        {
+
+        }
     }
 }

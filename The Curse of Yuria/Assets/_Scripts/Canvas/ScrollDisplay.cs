@@ -51,8 +51,6 @@ namespace TCOY.Canvas
         InventoryUI partyMemberInventoryUI;
         InventoryUI globalInventoryUI;
 
-        Action commandDisplayRefresh;
-
         void OnEnable()
         {      
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
@@ -64,8 +62,6 @@ namespace TCOY.Canvas
             partyMemberIndex = 0;
             RefreshInventorySkills();
             RefreshPartyMember();
-
-            commandDisplayRefresh = global.getCommandDisplay.GetComponent<CommandDisplay>().Refresh;
 
             global.getAudioSource.PlayOneShot(open);
         }
@@ -88,7 +84,7 @@ namespace TCOY.Canvas
 
         public void RefreshPartyMember()
         {
-            partyMember = global.getParty[partyMemberIndex];
+            partyMember = global.GetPartyMember(partyMemberIndex);
             detailedActorViewCamera.cullingMask = LayerMask.GetMask("Actor" + (partyMemberIndex + 1).ToString());
 
             skills = partyMember.getSkills;
@@ -96,7 +92,7 @@ namespace TCOY.Canvas
 
             //show party member stuff
 
-            partyMemberName.text = global.getParty[partyMemberIndex].getGameObject.name;
+            partyMemberName.text = global.getPartyRoot.transform.GetChild(partyMemberIndex).name;
             partyMemberStats.text = "";
             partyMemberValues.text = "";
 
@@ -122,44 +118,24 @@ namespace TCOY.Canvas
 
             newSkill = factory.GetItem(itemName);
 
-            //do stuff
             global.inventories[IItem.Category.scrolls].Remove(itemName);
-            skills.Add(itemName);
-            
-            AddModifiers(newSkill);          
+
+            newSkill.Equip(partyMember);
 
             RefreshPartyMember();
             RefreshInventorySkills();
-            commandDisplayRefresh();
         }
 
         public void OnRemoveSkill(string itemName)
         {
             newSkill = factory.GetItem(itemName);
 
-            //do stuff
-            skills.Remove(itemName);
             global.inventories[IItem.Category.scrolls].Add(itemName);
 
-            RemoveModifiers(newSkill);
+            newSkill.Unequip(partyMember);
 
             RefreshPartyMember();
             RefreshInventorySkills();
-            commandDisplayRefresh();
-        }
-
-        public void RemoveModifiers(IItem skill)
-        {
-            List<Modifier> previousModifiers = skill.getModifiers;
-            foreach (Modifier modifier in previousModifiers)
-                stats.OffsetAttribute(modifier.getAttribute, -modifier.getOffset);
-        }
-
-        public void AddModifiers(IItem skill)
-        {
-            List<Modifier> modifiers = skill.getModifiers;
-            foreach (Modifier modifier in modifiers)
-                stats.OffsetAttribute(modifier.getAttribute, modifier.getOffset);
         }
 
         public void OnPointerEnterInventoryIcon(string itemName)
@@ -176,7 +152,7 @@ namespace TCOY.Canvas
 
             newModifiers = newSkill.getModifiers;
 
-            int length = global.getParty[partyMemberIndex].getStats.GetAttributes().Length;
+            int length = global.GetPartyMember(partyMemberIndex).getStats.GetAttributes().Length;
 
             for (int i = 0; i < length; i++)
             {
@@ -210,7 +186,7 @@ namespace TCOY.Canvas
 
             newModifiers = newSkill.getModifiers;
 
-            int length = global.getParty[partyMemberIndex].getStats.GetAttributes().Length;
+            int length = global.GetPartyMember(partyMemberIndex).getStats.GetAttributes().Length;
 
             for (int i = 0; i < length; i++)
             {
@@ -243,14 +219,14 @@ namespace TCOY.Canvas
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 partyMemberIndex--;
-                partyMemberIndex = Mathf.Clamp(partyMemberIndex, 0, global.getParty.Count - 1);
+                partyMemberIndex = Mathf.Clamp(partyMemberIndex, 0, global.getPartyMemberCount - 1);
                 global.getAudioSource.PlayOneShot(cyclePartyMembers);
                 RefreshPartyMember();
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
                 partyMemberIndex++;
-                partyMemberIndex = Mathf.Clamp(partyMemberIndex, 0, global.getParty.Count - 1);
+                partyMemberIndex = Mathf.Clamp(partyMemberIndex, 0, global.getPartyMemberCount - 1);
                 global.getAudioSource.PlayOneShot(cyclePartyMembers);
                 RefreshPartyMember();
             }

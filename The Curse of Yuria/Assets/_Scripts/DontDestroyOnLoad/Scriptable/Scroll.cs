@@ -35,6 +35,22 @@ namespace TCOY.DontDestroyOnLoad
             target.getStats.ApplySkillCalculation(power, user.getStats, group, type, element);
         }
 
+        public override void Equip(IActor target)
+        {
+            base.Equip(target);
+
+            if (target.getSkills.Contains(itemName))
+                return;
+
+            target.getSkills.Add(itemName);
+        }
+
+        public override void Unequip(IActor target)
+        {
+            base.Unequip(target);
+            target.getSkills.Remove(itemName);
+        }
+
 
     }
 }

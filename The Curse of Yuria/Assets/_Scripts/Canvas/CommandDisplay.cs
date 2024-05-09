@@ -47,22 +47,6 @@ namespace TCOY.Canvas
             OnClickAttack();
         }
 
-        public void Refresh()
-        {
-            switch (currentState)
-            {
-                case State.attack:
-                    OnClickAttack();
-                    break;
-                case State.skill:
-                    OnClickSkill();
-                    break;
-                case State.item:
-                    OnClickItems();
-                    break;
-            }
-        }
-
         public void OnClickAttack()
         {
             currentState = State.attack;

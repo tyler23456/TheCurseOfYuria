@@ -24,6 +24,7 @@ namespace TCOY.Canvas
             graphicsTab.onClick.AddListener(OnClickGraphicsTab);
             SettingsTab.onClick.AddListener(OnClickSettingsTab);
             controlsTab.onClick.AddListener(OnClickControlsTab);
+            saveTab.onClick.AddListener(OnClickSaveTab);
             quitTab.onClick.AddListener(OnClickQuitTab);
             OnClickGraphicsTab();
 
@@ -34,6 +35,7 @@ namespace TCOY.Canvas
             graphicsDisplay.gameObject.SetActive(false);
             settingsDisplay.gameObject.SetActive(false);
             controlsDisplay.gameObject.SetActive(false);
+            saveDisplay.gameObject.SetActive(false);
             quitDisplay.gameObject.SetActive(false);
         }
 
@@ -53,6 +55,12 @@ namespace TCOY.Canvas
         {
             ResetTabDisplays();
             controlsDisplay.gameObject.SetActive(true);
+        }
+
+        void OnClickSaveTab()
+        {
+            ResetTabDisplays();
+            saveDisplay.gameObject.SetActive(true);
         }
 
         void OnClickQuitTab()

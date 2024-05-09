@@ -23,7 +23,7 @@ namespace TCOY.DontDestroyOnLoad
                 ShowOpenChestSprite();
         }
 
-        public override void Interact(IPlayer player)
+        public override void Interact(IPartyMember player)
         {
             if (!RequiredItems.TrueForAll(i => global.inventories[IItem.Category.questItems].Contains(i)))
             {

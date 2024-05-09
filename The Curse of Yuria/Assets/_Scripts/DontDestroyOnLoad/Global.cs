@@ -25,8 +25,8 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] RectTransform gameOverDisplay;
         
         [SerializeField] Camera mainCamera;
+        [SerializeField] GameObject partyRoot;
 
-        List<IPlayer> party = new List<IPlayer>();
         List<IActor> actors = new List<IActor>();
 
         Inventory helmets = new Inventory();
@@ -45,7 +45,7 @@ namespace TCOY.DontDestroyOnLoad
         Inventory completedQuests = new Inventory();
         Inventory completedIds = new Inventory();
 
-        public List<IPlayer> getParty => party;
+        public GameObject getPartyRoot => partyRoot;
         public List<IActor> getActors => actors;
         public Camera getCamera => mainCamera;
 
@@ -69,11 +69,11 @@ namespace TCOY.DontDestroyOnLoad
         public RectTransform getOptionsDisplay => optionsDisplay;
         public RectTransform getGameOverDisplay => gameOverDisplay;
 
+        public int getPartyMemberCount => partyRoot.transform.childCount;
+
         public void Awake()
         { 
             factory = GetComponent<IFactory>();
-
-            party.Add(GameObject.Find("/DontDestroyOnLoad/Player").GetComponent<IPlayer>());
 
             inventories.Add(IItem.Category.helmets, helmets);
             inventories.Add(IItem.Category.earrings, earrings);
@@ -89,6 +89,11 @@ namespace TCOY.DontDestroyOnLoad
             inventories.Add(IItem.Category.scrolls, scrolls);
             inventories.Add(IItem.Category.questItems, questItems);
 
+        }
+
+        public IPartyMember GetPartyMember(int i)
+        {
+            return partyRoot.transform.GetChild(i).GetComponent<IPartyMember>();
         }
     }
 }

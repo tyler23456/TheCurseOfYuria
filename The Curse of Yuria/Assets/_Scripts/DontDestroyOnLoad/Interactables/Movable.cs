@@ -6,7 +6,7 @@ namespace TCOY.DontDestroyOnLoad
 {
     public class Movable : InteractableBase
     {
-        public override void Interact(IPlayer player)
+        public override void Interact(IPartyMember player)
         {
            
         }

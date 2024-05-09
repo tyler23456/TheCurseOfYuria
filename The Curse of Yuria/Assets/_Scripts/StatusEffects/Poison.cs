@@ -4,8 +4,11 @@ using UnityEngine;
 
 namespace TCOY.StatusEffects
 {
-    public class Poison : StatusEffectsBase
+    public class Poison : StatusEffectBase
     {
+        public override void Activate(IActor target, float duration)
+        {
 
+        }
     }
 }

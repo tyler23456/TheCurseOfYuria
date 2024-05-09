@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface ISceneLoader
 {
-    void Load(int level, Vector2 newPosition);
-    void MoveParty(Vector2 newPosition);
+    void Load(int level, Vector2 position, float eulerAngleZ);
+    void MoveParty(Vector2 position, float eulerAngleZ);
 }

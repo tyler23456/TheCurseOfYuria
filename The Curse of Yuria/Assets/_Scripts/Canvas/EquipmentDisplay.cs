@@ -141,7 +141,7 @@ namespace TCOY.Canvas
 
         public void RefreshPartyMember()
         {
-            partyMember = global.getParty[partyMemberIndex];
+            partyMember = global.GetPartyMember(partyMemberIndex);
 
             detailedActorViewCamera.cullingMask = LayerMask.GetMask("Actor" + (partyMemberIndex + 1).ToString());
 
@@ -195,7 +195,7 @@ namespace TCOY.Canvas
                         break;
                 }
             }
-            partyMemberName.text = global.getParty[partyMemberIndex].getGameObject.name;
+            partyMemberName.text = partyMember.getGameObject.name;
             partyMemberStats.text = "";
             partyMemberValues.text = "";
 
@@ -214,12 +214,12 @@ namespace TCOY.Canvas
 
             currentItem = factory.GetItem(itemName);
 
-            global.inventories[currentPart].Add(itemName);
+            global.inventories[currentItem.category].Add(itemName);
             currentItem.Unequip(partyMember);
             global.getAudioSource.PlayOneShot(unequip);
 
             RefreshPartyMember();
-            RefreshEquipmentPart(currentPart, globalInventoryUI.inventory);
+            RefreshEquipmentPart(currentItem.category, global.inventories[currentItem.category]);
         }
 
         public void OnEquip(string itemName)
@@ -277,7 +277,7 @@ namespace TCOY.Canvas
             foreach (Reactor reactor in currentItem.getInterrupts)
                 this.itemInfo.text += "\n" + reactor.getTrigger + "|" + reactor.getReaction;
 
-            int length = global.getParty[partyMemberIndex].getStats.GetAttributes().Length;
+            int length = partyMember.getStats.GetAttributes().Length;
 
             for (int i = 0; i < length; i++)
             {
@@ -311,21 +311,21 @@ namespace TCOY.Canvas
             itemInfo.text = "";
             partyMemberIncreases.text = "";
             this.itemSprite.sprite = EmptySprite;
-        }    
+        }
 
         public void Update()
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 partyMemberIndex--;
-                partyMemberIndex = Mathf.Clamp(partyMemberIndex, 0, global.getParty.Count - 1);
+                partyMemberIndex = Mathf.Clamp(partyMemberIndex, 0, global.getPartyMemberCount - 1);
                 global.getAudioSource.PlayOneShot(cyclePartyMembers);
                 RefreshPartyMember();
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
                 partyMemberIndex++;
-                partyMemberIndex = Mathf.Clamp(partyMemberIndex, 0, global.getParty.Count - 1);
+                partyMemberIndex = Mathf.Clamp(partyMemberIndex, 0, global.getPartyMemberCount - 1);
                 global.getAudioSource.PlayOneShot(cyclePartyMembers);
                 RefreshPartyMember();
             }

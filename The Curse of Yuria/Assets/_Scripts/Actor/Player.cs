@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TCOY.Actors
 {
-    public class Player : Actor, IPlayer
+    public class Player : Actor, IPartyMember
     {
 
         new protected void Start()

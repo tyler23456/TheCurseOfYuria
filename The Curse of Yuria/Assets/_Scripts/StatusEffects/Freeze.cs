@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Freeze : MonoBehaviour
+namespace TCOY.StatusEffects
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Freeze : StatusEffectBase
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void Activate(IActor target, float duration)
+        {
+
+        }
     }
 }

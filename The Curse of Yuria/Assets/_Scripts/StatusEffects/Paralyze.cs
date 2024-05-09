@@ -4,16 +4,10 @@ using UnityEngine;
 
 namespace TCOY.StatusEffects
 {
-    public class Paralyze : MonoBehaviour
+    public class Paralyze : StatusEffectBase
     {
-        // Start is called before the first frame update
-        void Start()
-        {
 
-        }
-
-        // Update is called once per frame
-        void Update()
+        public override void Activate(IActor target, float duration)
         {
 
         }

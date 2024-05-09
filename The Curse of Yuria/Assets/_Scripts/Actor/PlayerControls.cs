@@ -89,7 +89,7 @@ namespace TCOY.Actors
                 global.getEquipmentDisplay.gameObject.SetActive(false);
                 global.getScrollDisplay.gameObject.SetActive(false);
                 global.getOptionsDisplay.gameObject.SetActive(false);
-                global.getCommandDisplay.gameObject.SetActive(true);
+                global.getCommandDisplay.gameObject.SetActive(!global.getCommandDisplay.gameObject.activeSelf);
             }
         }
 

@@ -34,7 +34,7 @@ namespace TCOY.Actors
 
             if (skillType == IItem.Type.Damage)
             {
-                target = global.getParty[Random.Range(0, global.getParty.Count)];
+                target = global.GetPartyMember(Random.Range(0, global.getPartyMemberCount));
             }
             else
             {

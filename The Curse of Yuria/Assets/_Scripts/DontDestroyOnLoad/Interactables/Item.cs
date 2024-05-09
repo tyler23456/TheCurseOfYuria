@@ -15,7 +15,7 @@ namespace TCOY.DontDestroyOnLoad
                 gameObject.SetActive(false);
         }
 
-        public override void Interact(IPlayer player)
+        public override void Interact(IPartyMember player)
         {
             IItem.Category type = factory.GetItem(name).category;
 
