@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Wings : StatusEffectBase
+[CreateAssetMenu(fileName = "NewWings", menuName = "StatusEffects/Wings")]
+public class Wings : StatusEffectBase, IStatusEffect
 {
-
     public override void Activate(IActor target, float duration)
     {
 

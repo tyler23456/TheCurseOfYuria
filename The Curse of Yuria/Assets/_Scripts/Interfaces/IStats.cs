@@ -9,7 +9,8 @@ public interface IStats
     int GetAttribute(Attribute attribute);
     void OffsetAttribute(IStats.Attribute attribute, int offset);
     void ResetAll();
-    void ApplyMagicCost(int cost);
+    void ApplySkillCost(int cost);
+    void ApplyCalculation(int power, IItem.Element element);
     bool ApplySkillCalculation(int power, IStats user, IItem.Group group, IItem.Type type, IItem.Element element);
     int[] GetAttributes();
 }

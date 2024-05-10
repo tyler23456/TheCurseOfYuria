@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProximityTargeter : TargeterBase
+[CreateAssetMenu(fileName = "NewDistanceTargeter", menuName = "Targeters/DistanceTargeter")]
+public class DistanceTargeter : TargeterBase
 {
     enum Distance { closest, farthest }
 

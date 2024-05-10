@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "NewStatusAttributeTargeter", menuName = "Targeters/StatusAttributeTargeter")]
 public class StatusAttributeTargeter : TargeterBase
 {
     enum State { lowest, highest }

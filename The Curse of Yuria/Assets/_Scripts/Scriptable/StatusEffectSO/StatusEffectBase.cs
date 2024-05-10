@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 public abstract class StatusEffectBase : ScriptableObject
@@ -10,7 +11,7 @@ public abstract class StatusEffectBase : ScriptableObject
 
     public abstract void Activate(IActor target, float duration);
 
-    protected void AddEffect<T>(IActor target) where T : StatusEffectComponentBase
+    protected void AddEffect<T>(IActor target) where T : StatusManipulatorBase
     {
         GameObject obj = new GameObject(icon.name);
         obj.transform.parent = target.getGameObject.transform;
@@ -22,28 +23,56 @@ public abstract class StatusEffectBase : ScriptableObject
         target.getGameObject.AddComponent<T>();
     }
 
-    protected class StatusEffectComponentBase : MonoBehaviour, IStatusEffect
+    protected class StatusManipulatorBase : MonoBehaviour
     {
-        public float duration { get; set; } = float.PositiveInfinity;
+        public float effectDuration { get; set; } = float.PositiveInfinity;
+        public float tickDuration { get; set; } = float.PositiveInfinity;
 
-        float startTime = 0f;
+        public Action OnStart { get; set; } = () => { };
+        public Action OnUpdate { get; set; } = () => { };
+        public Action OnFixedUpdate { get; set; } = () => { };
+        public Action OnTickUpdate { get; set; } = () => { };
+        public Action OnStop { get; set; } = () => { };
+
+        float effectStartTime = 0f;
+        float tickStartTime = 0f; 
 
         protected virtual void Start()
         {
-            startTime = Time.time;
+            effectStartTime = Time.time;
+            tickStartTime = Time.time;
+            OnStart.Invoke();
         }
 
         protected virtual void Update()
         {
-            if (Time.time < startTime + duration)
-                return;
+            OnUpdate.Invoke();
 
-            Destroy(this);
+            if (Time.time > tickStartTime + tickDuration)
+            {
+                tickStartTime = Time.time;
+                OnTickUpdate.Invoke();
+            }
+
+            if (Time.time > effectStartTime + effectDuration)
+            {
+                Destroy(this);
+            }        
+        }
+
+        protected virtual void FixedUpdate()
+        {
+            OnFixedUpdate.Invoke();
         }
 
         protected virtual void OnDestroy()
         {
-
+            OnStop.Invoke();
         }
     }
+
+    protected class StatusEffect : StatusManipulatorBase, IStatusEffect { }
+    protected class StatusAilment : StatusManipulatorBase, IStatusAilment { }
+    protected class KnockOut : StatusManipulatorBase, IKockOut { }
+
 }

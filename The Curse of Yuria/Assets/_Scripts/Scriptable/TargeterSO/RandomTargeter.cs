@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "NewRandomTargeter", menuName = "Targeters/RandomTargeter")]
 public class RandomTargeter : TargeterBase
 {
     public override List<IActor> GetTargets(Vector2 position)

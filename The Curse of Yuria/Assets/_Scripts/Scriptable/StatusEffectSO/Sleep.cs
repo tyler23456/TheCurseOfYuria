@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sleep : StatusEffectBase
+[CreateAssetMenu(fileName = "NewSleep", menuName = "StatusEffects/Sleep")]
+public class Sleep : StatusEffectBase, IStatusAilment
 {
     public override void Activate(IActor target, float duration)
     {

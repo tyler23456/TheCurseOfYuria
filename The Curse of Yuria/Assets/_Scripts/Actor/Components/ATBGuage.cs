@@ -15,6 +15,7 @@ namespace TCOY.Actors
         bool isFull = false;
 
         public Action OnATBGuageFilled { get; set; } = () => { };
+        public bool isActive { get; set; } = true;
 
         public void Initialize(Dictionary<string, int> statsDictionary)
         {
@@ -34,6 +35,9 @@ namespace TCOY.Actors
 
         public void Update()
         {
+            if (!isActive)
+                return;
+
             accumulator += Time.deltaTime * speed;
 
             if (accumulator < maximumValue || isFull)

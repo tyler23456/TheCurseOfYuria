@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IATBGuage
+public class Reflect : MonoBehaviour
 {
-    void Reset();
-    bool isActive { get; set; }
+    
 }

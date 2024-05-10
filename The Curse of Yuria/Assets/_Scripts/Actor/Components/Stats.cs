@@ -56,7 +56,7 @@ namespace TCOY.Actors
         public void OffsetAttribute(IStats.Attribute attribute, int offset)
         {
             attributes[(int)attribute] += offset;
-            onStatsChanged.Invoke(attributes);          
+            onStatsChanged.Invoke(attributes);
         }
 
         public void ResetAll()
@@ -66,9 +66,16 @@ namespace TCOY.Actors
             onStatsChanged.Invoke(attributes);
         }
 
-        public void ApplyMagicCost(int cost)
+        public void ApplySkillCost(int cost)
         {
             attributes[(int)IStats.Attribute.MP] -= cost;
+        }
+
+        public void ApplyCalculation(int power, IItem.Element element)
+        {
+            float defense = GetWeakness(element);
+            float total = power * (100f / (100f + defense));
+            onApplyDamage.Invoke((int)total);
         }
 
         public bool ApplySkillCalculation(int power, IStats user, IItem.Group group, IItem.Type type, IItem.Element element)
@@ -95,7 +102,7 @@ namespace TCOY.Actors
                     total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
                     onApplyDamage.Invoke((int)total);
                 }
-            else if (type == IItem.Type.Recovery)
+                else if (type == IItem.Type.Recovery)
                     if (group >= IItem.Group.Magic)
                     {
                         float total = user.GetAttribute(IStats.Attribute.Magic) + power;
