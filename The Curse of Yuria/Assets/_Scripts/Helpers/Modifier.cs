@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class Modifier : IModifier
 {
-    [SerializeField] IStats.Attributes attribute;
+    [SerializeField] IStats.Attribute attribute;
     [SerializeField] int offset;
 
-    public IStats.Attributes getAttribute => attribute;
+    public IStats.Attribute getAttribute => attribute;
     public int getOffset => offset;
 }

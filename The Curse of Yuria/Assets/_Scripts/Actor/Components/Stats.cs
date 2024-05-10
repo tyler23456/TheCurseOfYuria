@@ -43,7 +43,7 @@ namespace TCOY.Actors
             ResetAll();
         }
 
-        public int GetAttribute(IStats.Attributes attribute)
+        public int GetAttribute(IStats.Attribute attribute)
         {
             return attributes[(int)attribute];
         }
@@ -53,7 +53,7 @@ namespace TCOY.Actors
             return weaknesses[(int)type];
         }
 
-        public void OffsetAttribute(IStats.Attributes attribute, int offset)
+        public void OffsetAttribute(IStats.Attribute attribute, int offset)
         {
             attributes[(int)attribute] += offset;
             onStatsChanged.Invoke(attributes);          
@@ -68,7 +68,7 @@ namespace TCOY.Actors
 
         public void ApplyMagicCost(int cost)
         {
-            attributes[(int)IStats.Attributes.MP] -= cost;
+            attributes[(int)IStats.Attribute.MP] -= cost;
         }
 
         public bool ApplySkillCalculation(int power, IStats user, IItem.Group group, IItem.Type type, IItem.Element element)
@@ -76,15 +76,15 @@ namespace TCOY.Actors
             if (type == IItem.Type.Damage)
                 if (group >= IItem.Group.Magic)
                 {
-                    float defense = GetAttribute(IStats.Attributes.Aura) + GetWeakness(element);
-                    float total = (user.GetAttribute(IStats.Attributes.Magic) + power) * (100f / (100f + defense));
+                    float defense = GetAttribute(IStats.Attribute.Aura) + GetWeakness(element);
+                    float total = (user.GetAttribute(IStats.Attribute.Magic) + power) * (100f / (100f + defense));
                     total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
                     onApplyDamage.Invoke((int)total);
                 }
                 else if (group >= IItem.Group.Melee)
                 {
-                    float defense = GetAttribute(IStats.Attributes.Defense) + GetWeakness(element);
-                    float total = (user.GetAttribute(IStats.Attributes.Strength) + power) * (100f / (100f + defense));
+                    float defense = GetAttribute(IStats.Attribute.Defense) + GetWeakness(element);
+                    float total = (user.GetAttribute(IStats.Attribute.Strength) + power) * (100f / (100f + defense));
                     total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
                     onApplyDamage.Invoke((int)total);
                 }
@@ -98,13 +98,13 @@ namespace TCOY.Actors
             else if (type == IItem.Type.Recovery)
                     if (group >= IItem.Group.Magic)
                     {
-                        float total = user.GetAttribute(IStats.Attributes.Magic) + power;
+                        float total = user.GetAttribute(IStats.Attribute.Magic) + power;
                         total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
                         onApplyDamage.Invoke((int)total);
                     }
                     else if (group >= IItem.Group.Melee)
                     {
-                        float total = user.GetAttribute(IStats.Attributes.Strength) + power;
+                        float total = user.GetAttribute(IStats.Attribute.Strength) + power;
                         total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
                         onApplyDamage.Invoke((int)total);
                     }

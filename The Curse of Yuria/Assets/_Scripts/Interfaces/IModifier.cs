@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IModifier
 {
-    IStats.Attributes getAttribute { get; }
+    IStats.Attribute getAttribute { get; }
     int getOffset { get; }
 }

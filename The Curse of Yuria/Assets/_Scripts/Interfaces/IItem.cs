@@ -39,7 +39,7 @@ public interface IItem
 
     enum Group { None, Melee, Ranged, Magic }
     enum Type { None, Damage, Recovery }
-    enum Element { None, Fire, Ice, Thunder, Light, Dark, Poison, Sleep, Enthrall, Paralyze, Bleed, Burn, Freeze, Shock, Stun }
+    enum Element { Fire, Ice, Thunder, Light, Dark, None}
 
     ulong getGuid { get; }
     string itemName { get; }

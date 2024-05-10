@@ -11,7 +11,6 @@ namespace TCOY.Actors
         protected IGlobal global;
         protected IFactory factory;
 
-        
         [SerializeField] protected Camera camera;
         [SerializeField] protected SpriteRenderer[] spriteRenderers;
         [SerializeField] protected new Collider2D collider2D;

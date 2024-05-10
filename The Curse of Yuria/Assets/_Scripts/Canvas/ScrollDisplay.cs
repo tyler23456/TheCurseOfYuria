@@ -99,7 +99,7 @@ namespace TCOY.Canvas
             int[] statValues = stats.GetAttributes();
             for (int i = 0; i < statValues.Length; i++)
             {
-                partyMemberStats.text += ((IStats.Attributes)i).ToString() + "\n";
+                partyMemberStats.text += ((IStats.Attribute)i).ToString() + "\n";
                 partyMemberValues.text += statValues[i].ToString() + "\n";
             }
 
@@ -156,7 +156,7 @@ namespace TCOY.Canvas
 
             for (int i = 0; i < length; i++)
             {
-                newModifier = newModifiers.FirstOrDefault(e => e.getAttribute == (IStats.Attributes)i);
+                newModifier = newModifiers.FirstOrDefault(e => e.getAttribute == (IStats.Attribute)i);
 
                 if (newModifier == null)
                     modifierValue = 0;
@@ -190,7 +190,7 @@ namespace TCOY.Canvas
 
             for (int i = 0; i < length; i++)
             {
-                newModifier = newModifiers.FirstOrDefault(e => e.getAttribute == (IStats.Attributes)i);
+                newModifier = newModifiers.FirstOrDefault(e => e.getAttribute == (IStats.Attribute)i);
 
                 if (newModifier == null)
                     modifierValue = 0;
