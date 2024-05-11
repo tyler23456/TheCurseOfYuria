@@ -11,7 +11,7 @@ public abstract class StatusEffectBase : ScriptableObject
 
     public abstract void Activate(IActor target, float duration);
 
-    protected void AddEffect<T>(IActor target) where T : StatusManipulatorBase
+    protected void AddEffect<T>(IActor target) where T : EffectBase
     {
         GameObject obj = new GameObject(icon.name);
         obj.transform.parent = target.getGameObject.transform;
@@ -23,7 +23,7 @@ public abstract class StatusEffectBase : ScriptableObject
         target.getGameObject.AddComponent<T>();
     }
 
-    protected class StatusManipulatorBase : MonoBehaviour
+    protected class EffectBase : MonoBehaviour
     {
         public float effectDuration { get; set; } = float.PositiveInfinity;
         public float tickDuration { get; set; } = float.PositiveInfinity;
@@ -71,8 +71,8 @@ public abstract class StatusEffectBase : ScriptableObject
         }
     }
 
-    protected class StatusEffect : StatusManipulatorBase, IStatusEffect { }
-    protected class StatusAilment : StatusManipulatorBase, IStatusAilment { }
-    protected class KnockOut : StatusManipulatorBase, IKockOut { }
+    protected class StatusEffect : EffectBase, IStatusEffect { }
+    protected class StatusAilment : EffectBase, IStatusAilment { }
+    protected class KnockOut : EffectBase, IKockOut { }
 
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewBuffDebuff", menuName = "StatusEffects/BuffDebuff")]
-public class BuffDebuff : StatusEffectBase, IStatusEffect
+public class Modification : StatusEffectBase, IStatusEffect
 {
     [SerializeField] IStats.Attribute attribute;
     [SerializeField] int value;

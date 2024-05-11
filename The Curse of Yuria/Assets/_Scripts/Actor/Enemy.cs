@@ -42,7 +42,7 @@ namespace TCOY.Actors
             }
 
             Command newCommand = new Command(this, factory.GetItem(combinedSkills.Peek()), new IActor[] { target });
-            global.commandQueue.Enqueue(newCommand);
+            global.pendingCommands.Enqueue(newCommand);
             combinedSkills.Enqueue(combinedSkills.Dequeue());
         }
     }

@@ -41,6 +41,7 @@ namespace TCOY.Actors
 
         public List<IReactor> counters { get; private set; } = new List<IReactor>();
         public List<IReactor> interrupts { get; private set; } = new List<IReactor>();
+        public List<StatusEffectBase> statusEffects { get; private set; } = new List<StatusEffectBase>();
 
         protected void Start()
         {

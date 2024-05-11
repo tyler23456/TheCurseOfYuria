@@ -52,7 +52,9 @@ namespace TCOY.DontDestroyOnLoad
         public Dictionary<IItem.Category, Inventory> inventories { get; private set; } = new Dictionary<IItem.Category, Inventory>();
 
         public Queue<IActor> aTBGuageFilledQueue { get; set; } = new Queue<IActor>();
-        public Queue<ICommand> commandQueue { get; set; } = new Queue<ICommand>();
+        public Queue<ICommand> pendingCommands { get; set; } = new Queue<ICommand>();
+        public Stack<ICommand> successfulCommands { get; set; } = new Stack<ICommand>();
+
 
         ShakeData IGlobal.getShakeData => shakeData;
         AudioSource IGlobal.getAudioSource => audioSource; 

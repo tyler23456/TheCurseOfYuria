@@ -19,7 +19,7 @@ namespace TCOY.BattleSystem
 
         void Update()
         {
-            if (global.commandQueue.Count == 0 || isRunning)
+            if (global.pendingCommands.Count == 0 || isRunning)
                 return;
 
             isRunning = true;
@@ -28,7 +28,7 @@ namespace TCOY.BattleSystem
 
         void RunNextCommand()
         {
-            ICommand command = global.commandQueue.Dequeue();
+            ICommand command = global.pendingCommands.Dequeue();
 
             command.item.Use(command.user, command.targets);
             isRunning = false;

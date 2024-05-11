@@ -10,7 +10,7 @@ public interface IGlobal
     Camera getCamera { get; }
 
     Queue<IActor> aTBGuageFilledQueue { get; set; }
-    Queue<ICommand> commandQueue { get; }
+    Queue<ICommand> pendingCommands { get; }
 
     Dictionary<IItem.Category, Inventory> inventories { get; }
 

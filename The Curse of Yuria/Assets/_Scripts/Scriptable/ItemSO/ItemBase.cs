@@ -55,6 +55,11 @@ public abstract class ItemBase : ScriptableObject
 
     }
 
+    public virtual void Use(IActor[] targets)
+    {
+
+    }
+
     public virtual void Equip(IActor target)
     {
         foreach (Modifier modifier in modifiers)

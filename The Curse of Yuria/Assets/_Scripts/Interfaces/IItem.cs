@@ -61,6 +61,7 @@ public interface IItem
     public List<Reactor> getInterrupts { get; }
 
     void Use(IActor user, IActor[] targets);
+    void Use(IActor[] targets);
     void Equip(IActor target);
     void Unequip(IActor target);
 }

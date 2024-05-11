@@ -5,13 +5,19 @@ using UnityEngine;
 
 public class Scroll : ItemBase, IItem
 {
-
-
     public override void Use(IActor user, IActor[] targets)
     {
         IGlobal global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
         user.getAnimator.Cast();
         global.StartCoroutine(performAnimation(user, targets));
+    }
+
+    public override void Use(IActor[] targets)
+    {
+        IGlobal global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
+
+        foreach (IActor target in targets)
+            global.StartCoroutine(PerformEffect(target));
     }
 
     protected virtual IEnumerator performAnimation(IActor user, IActor[] targets)
@@ -32,6 +38,17 @@ public class Scroll : ItemBase, IItem
             yield return new WaitForEndOfFrame();
 
         target.getStats.ApplySkillCalculation(power, user.getStats, group, type, element);
+    }
+
+    protected virtual IEnumerator PerformEffect(IActor target)
+    {
+        ParticleSystem particleSystem = GameObject.Instantiate(this.particleSystem.gameObject, target.getGameObject.transform).GetComponent<ParticleSystem>();
+        Destroy(particleSystem.gameObject, particleSystem.main.duration);
+
+        while (particleSystem != null)
+            yield return new WaitForEndOfFrame();
+
+        target.getStats.ApplyCalculation(power, element);
     }
 
     public override void Equip(IActor target)
