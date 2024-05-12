@@ -25,6 +25,7 @@ namespace TCOY.Actors
         [SerializeField] protected string attack;
         [SerializeField] protected Inventory skills;
         [SerializeField] protected UserAnimator animator;
+        [SerializeField] protected StatusEffects statusEffects;
 
         public Collider2D getCollider2D => collider2D;
         public GameObject getGameObject => gameObject;
@@ -38,10 +39,10 @@ namespace TCOY.Actors
         public string getAttack => attack;
         public IInventory getSkills => skills;
         public IAnimator getAnimator => animator;
+        public IStatusEffects getStatusEffects => statusEffects;
 
         public List<IReactor> counters { get; private set; } = new List<IReactor>();
         public List<IReactor> interrupts { get; private set; } = new List<IReactor>();
-        public List<StatusEffectBase> statusEffects { get; private set; } = new List<StatusEffectBase>();
 
         protected void Start()
         {
@@ -65,10 +66,15 @@ namespace TCOY.Actors
             stats.onApplyDamage += (damage) => global.StartCoroutine(HitAnimation());
 
             spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+
+            statusEffects.onAdd = (name) => { };
+            statusEffects.onUpdate = (name) => { };
+            statusEffects.onRemove = (name) => { };
         }
 
         protected void FixedUpdate()
         {
+
         }
 
         protected void Update()

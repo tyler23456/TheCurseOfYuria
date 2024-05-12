@@ -13,11 +13,13 @@ namespace TCOY.DontDestroyOnLoad
     public class Factory : MonoBehaviour, IFactory
     {
         [SerializeField] AssetLabelReference itemsReference;
+        [SerializeField] AssetLabelReference statusEffectsReference;
 
         [SerializeField] GameObject damageTextPrefab;
         [SerializeField] GameObject recoveryTextPrefab;
 
         Dictionary<string, IItem> items = new Dictionary<string, IItem>();
+        Dictionary<string, IStatusEffect> statusEffects = new Dictionary<string, IStatusEffect>();
 
         public GameObject getDamageTextPrefab => damageTextPrefab;
         public GameObject getRecoveryTextPrefab => recoveryTextPrefab;
@@ -27,6 +29,11 @@ namespace TCOY.DontDestroyOnLoad
             Addressables.LoadAssetsAsync<IItem>(itemsReference, (i) =>
             {
                 items.Add(i.itemName, i);
+            }).WaitForCompletion();
+
+            Addressables.LoadAssetsAsync<IStatusEffect>(statusEffectsReference, (i) =>
+            {
+                statusEffects.Add(i.name, i);
             }).WaitForCompletion();
         }
 
@@ -38,6 +45,11 @@ namespace TCOY.DontDestroyOnLoad
         public bool HasItem(string name)
         {
             return items.ContainsKey(name);
+        }
+
+        public IStatusEffect GetStatusEffect(string name)
+        {
+            return statusEffects[name];
         }
     }
 }

@@ -9,7 +9,9 @@ namespace TCOY.Actors
     {
         [SerializeField] Rigidbody2D rigidBody2D;
 
-        public bool isActive { get; set; } = true;
+        int activity = 0;
+
+        public bool isActive => activity == 0;
 
         public void Set(Vector2 position)
         {
@@ -37,6 +39,19 @@ namespace TCOY.Actors
                 return;
 
 
+        }
+
+        public void Activate()
+        {
+            activity++;
+
+            if (activity > 0)
+                activity = 0;
+        }
+
+        public void Deactivate()
+        {
+            activity--;
         }
     }
 }

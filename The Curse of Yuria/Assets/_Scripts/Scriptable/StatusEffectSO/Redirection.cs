@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Redirection : StatusEffectBase
+public class Redirection : StatusEffectBase, IStatusEffect
 {
     enum Type { Deflection, Reflection }
 
@@ -10,16 +10,6 @@ public class Redirection : StatusEffectBase
 
     public override void Activate(IActor target, float duration)
     {
-        switch (type)
-        {
-            case Type.Deflection:
-                target.getGameObject.AddComponent<Deflection>();
-                break;
-            case Type.Reflection:
-                target.getGameObject.AddComponent<Reflection>();
-                break;
-        }
+        base.Activate(target, duration);
     }
-    protected class Deflection : EffectBase, IDeflection, IStatusEffect { }
-    protected class Reflection : EffectBase, IReflection,  IStatusEffect { }
 }

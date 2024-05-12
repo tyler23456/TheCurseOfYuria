@@ -13,9 +13,10 @@ namespace TCOY.Actors
         float accumulator = 0f;
         float speed = 1f;
         bool isFull = false;
+        int activity = 0;
 
         public Action OnATBGuageFilled { get; set; } = () => { };
-        public bool isActive { get; set; } = true;
+        public bool isActive => activity == 0;
 
         public void Initialize(Dictionary<string, int> statsDictionary)
         {
@@ -45,6 +46,19 @@ namespace TCOY.Actors
 
             isFull = true;
             OnATBGuageFilled.Invoke();
+        }
+
+        public void Activate()
+        {
+            activity++;
+
+            if (activity > 0)
+                activity = 0;
+        }
+
+        public void Deactivate()
+        {
+            activity--;
         }
     }
 }

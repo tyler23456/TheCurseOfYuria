@@ -3,31 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewImmobility", menuName = "StatusEffects/Immobility")]
-public class Deactivation : StatusEffectBase, IStatusAilment
+public class Deactivation : StatusEffectBase, IStatusEffect
 {
+    [SerializeField] bool disableMovement = false;
     [SerializeField] bool disableATBGauge = false;
-    [SerializeField] float minimumDuration = 30f;
-    [SerializeField] float maximumDuration = 30f;
+    [SerializeField] float minimumDuration = 0f;
+    [SerializeField] float maximumDuration = 0f;
 
-    public override void Activate(IActor target, float duration)
+    //we need to figure out a way to ensure deactivation effect duration is loaded properly after saving and loading.
+    public override void Activate(IActor target, float accumulator = 0f)
     {
-        StatusEffect statusEffect = target.getGameObject.AddComponent<StatusEffect>();
-        statusEffect.effectDuration = Random.Range(minimumDuration, maximumDuration);
-        statusEffect.OnStart = () => target.getPosition.isActive = false;
-        statusEffect.OnStop = () => target.getPosition.isActive = true;
-
-        if (!disableATBGauge)
-            return;
-
-        statusEffect.OnStart += () => target.getATBGuage.isActive = false;
-        statusEffect.OnStop += () => target.getATBGuage.isActive = true;
-
-        /*statusEffect.OnStart = () => target.getATBGuage.isActive = false;
-        statusEffect.OnStart += () => target.getAnimator.KO();
-
-        statusEffect.OnStop = () => target.getATBGuage.isActive = true;
-        statusEffect.OnStop += () => target.getAnimator.Stand();*/
+        base.Activate(target, Random.Range(minimumDuration, maximumDuration));
     }
 
-    protected class KnockedOutEffect : EffectBase, IKockOut { }
+    public override void OnAdd(IActor target)
+    {
+        base.OnAdd(target);
+
+        if (disableMovement)
+            target.getPosition.Deactivate();
+
+        if (disableATBGauge)
+            target.getATBGuage.Deactivate();
+    }
+
+
+    public override void OnRemove(IActor target)
+    {
+        base.OnRemove(target);
+
+        if (disableMovement)
+            target.getPosition.Deactivate();
+
+        if (disableATBGauge)
+            target.getATBGuage.Deactivate();
+    }
 }

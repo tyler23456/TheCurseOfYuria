@@ -17,5 +17,6 @@ public interface IActor
     IInventory getEquipment { get;}
     IInventory getSkills { get; }
     IAnimator getAnimator { get; }
-    List<StatusEffectBase> statusEffects { get; }
+    IStatusEffects getStatusEffects { get; }
+    Coroutine StartCoroutine(IEnumerator routine);
 }
