@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewImmobility", menuName = "StatusEffects/Immobility")]
+[CreateAssetMenu(fileName = "NewDeactivation", menuName = "StatusEffects/Deactivation")]
 public class Deactivation : StatusEffectBase, IStatusEffect
 {
     [SerializeField] bool disableMovement = false;

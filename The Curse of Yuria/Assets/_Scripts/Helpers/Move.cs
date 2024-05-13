@@ -11,5 +11,5 @@ public class Move
     [SerializeField] TargeterBase target;
 
     public Scroll getskill => skill;
-    public TargeterBase getTarget => target;
+    public TargeterBase getTargeter => target;
 }

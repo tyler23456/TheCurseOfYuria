@@ -13,10 +13,11 @@ public abstract class TargeterBase : ScriptableObject
     protected static Collider2D[] colliders { get; private set; } = new Collider2D[10];
     protected static List<IActor> targets { get; private set; } = new List<IActor>();
 
+    static IActor target = null;
 
     [SerializeField] Party party;
 
-    public virtual List<IActor> GetTargets(Vector2 position)
+    public virtual List<IActor> CalculateTargets(Vector2 position)
     {
         switch (party)
         {
@@ -31,11 +32,16 @@ public abstract class TargeterBase : ScriptableObject
                 break;
         }
 
-        colliderCount = Physics2D.OverlapCircleNonAlloc(position, targetCheckDistance, colliders, layerMask);
+        colliderCount = Physics2D.OverlapCircleNonAlloc(position, targetCheckDistance, colliders, ~layerMask);
 
         targets.Clear();
         for (int i = 0; i < colliderCount; i++)
         {
+            target = colliders[i].GetComponent<IActor>();
+
+            if (target == null)
+                continue;
+
             targets.Add(colliders[i].GetComponent<IActor>());
         }
 

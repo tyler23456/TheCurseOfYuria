@@ -10,9 +10,9 @@ public class StatusEffectsTargeter : TargeterBase
     
     [SerializeField] List<StatusEffectBase> statusEffects;
 
-    public override List<IActor> GetTargets(Vector2 position)
+    public override List<IActor> CalculateTargets(Vector2 position)
     {
-        base.GetTargets(position);
+        base.CalculateTargets(position);
 
         List<IActor> results = null;
 

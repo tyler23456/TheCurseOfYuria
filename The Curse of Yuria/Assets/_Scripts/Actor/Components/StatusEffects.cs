@@ -5,6 +5,7 @@ using System;
 
 namespace TCOY.Actors
 {
+    [System.Serializable]
     public class StatusEffects : IStatusEffects
     {
         IFactory factory;

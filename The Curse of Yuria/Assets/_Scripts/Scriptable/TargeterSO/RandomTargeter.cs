@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewRandomTargeter", menuName = "Targeters/RandomTargeter")]
 public class RandomTargeter : TargeterBase
 {
-    public override List<IActor> GetTargets(Vector2 position)
+    public override List<IActor> CalculateTargets(Vector2 position)
     {
-        base.GetTargets(position);
+        base.CalculateTargets(position);
 
         int index = Random.Range(0, targets.Count);
 

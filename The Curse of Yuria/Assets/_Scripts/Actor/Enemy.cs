@@ -6,44 +6,38 @@ namespace TCOY.Actors
 {
     public class Enemy : Actor, IEnemy
     {
-        Queue<string> combinedSkills = new Queue<string>();
+        [SerializeField] List<Move> moves;
 
 
         protected new void Start()
         {
             base.Start();
 
-            combinedSkills.Enqueue(attack);
-
-            foreach (string skill in skills.GetNames())
-                combinedSkills.Enqueue(skill);
-
-            aTBGuage.OnATBGuageFilled += MakeADecision;
+            aTBGuage.OnATBGuageFilled = MakeADecision;
         }
 
         protected new void Update()
         {
             base.Update();
+
+            
+
         }
 
         void MakeADecision()
         {
-            string skill = combinedSkills.Peek();
-            IItem.Type skillType = factory.GetItem(skill).getType;
-            IActor target = null;
+            List<IActor> targets = moves[0].getTargeter.CalculateTargets(transform.position);
 
-            if (skillType == IItem.Type.Damage)
+            if (targets == null)
             {
-                target = global.GetPartyMember(Random.Range(0, global.getPartyMemberCount));
-            }
-            else
-            {
-                target = this;
+                aTBGuage.Reset();
+                return;
             }
 
-            Command newCommand = new Command(this, factory.GetItem(combinedSkills.Peek()), new IActor[] { target });
-            global.pendingCommands.Enqueue(newCommand);
-            combinedSkills.Enqueue(combinedSkills.Dequeue());
+
+            global.pendingCommands.Enqueue(new Command(this, moves[0].getskill, targets.ToArray()));
+
+            aTBGuage.Reset();
         }
     }
 }

@@ -10,9 +10,9 @@ public class StatusAttributeTargeter : TargeterBase
     [SerializeField] State state;
     [SerializeField] IStats.Attribute attribute;
 
-    public override List<IActor> GetTargets(Vector2 position)
+    public override List<IActor> CalculateTargets(Vector2 position)
     {
-        base.GetTargets(position);
+        base.CalculateTargets(position);
 
         int value = state == State.lowest? int.MaxValue : int.MinValue;
         IActor result = null;

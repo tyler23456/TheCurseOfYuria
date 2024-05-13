@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "NewTriggeration", menuName = "StatusEffects/Triggeration")]
 public class Triggeration : StatusEffectBase, IStatusEffect
 {
     [SerializeField] List<StatusEffectBase> triggers;

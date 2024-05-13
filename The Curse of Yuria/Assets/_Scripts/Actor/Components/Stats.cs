@@ -76,6 +76,7 @@ namespace TCOY.Actors
             float defense = GetWeakness(element);
             float total = power * (100f / (100f + defense));
             onApplyDamage.Invoke((int)total);
+            CheckForZeroHealth();
         }
 
         public bool ApplySkillCalculation(int power, IStats user, IItem.Group group, IItem.Type type, IItem.Element element)
@@ -122,7 +123,14 @@ namespace TCOY.Actors
                         onApplyDamage.Invoke((int)total);
                     }
 
+            CheckForZeroHealth();
             return false; //this will test whether an effect takes place
+        }
+
+        public void CheckForZeroHealth()
+        {
+            if (attributes[(int)IStats.Attribute.HP] < 0)
+                onZeroHealth.Invoke();
         }
 
         public int[] GetAttributes()

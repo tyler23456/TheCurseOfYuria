@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace TCOY.BattleSystem
 {
@@ -8,8 +9,12 @@ namespace TCOY.BattleSystem
     {
         IGlobal global;
         IFactory factory;
+
+        [SerializeField] List<StatusEffectBase> gameOverStatusEffects;
+
         public bool isRunning { get; set; } = false;
 
+        bool isGameOver = false;
 
         void Start()
         {
@@ -19,6 +24,29 @@ namespace TCOY.BattleSystem
 
         void Update()
         {
+            if (isGameOver)
+                return;
+
+            int partyMemberCount = Mathf.Clamp(3, 0, global.getPartyMemberCount);
+
+            bool AreAllFrontLinePartyMembersPermanentlyInnactive = true;
+            for (int i = 0; i < partyMemberCount; i++)
+            {
+                if (gameOverStatusEffects.All(statusEffect => !global.GetPartyMember(i).getStatusEffects.Contains(statusEffect.name)))
+                {
+                    AreAllFrontLinePartyMembersPermanentlyInnactive = false;
+                    break;
+                }
+            }
+
+            if (AreAllFrontLinePartyMembersPermanentlyInnactive)
+            {
+                isGameOver = true;
+                Time.timeScale = 0f;
+                global.getGameOverDisplay.gameObject.SetActive(true);
+                return;
+            }    
+
             if (global.pendingCommands.Count == 0 || isRunning)
                 return;
 

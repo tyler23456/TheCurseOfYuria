@@ -12,8 +12,7 @@ namespace TCOY.Actors
             base.Start();
 
             aTBGuage.OnATBGuageFilled = () => global.aTBGuageFilledQueue.Enqueue(this);
-            aTBGuage.OnATBGuageFilled += () => Debug.Log("Filled");
-            
+            aTBGuage.OnATBGuageFilled += () => Debug.Log("Filled");  
         }
 
         new protected void Update()

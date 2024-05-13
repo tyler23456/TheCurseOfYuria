@@ -5,6 +5,7 @@ using HeroEditor.Common.Data;
 using HeroEditor.Common.Enums;
 using UnityEngine.UI;
 using FirstGearGames.SmoothCameraShaker;
+using TMPro;
 
 namespace TCOY.DontDestroyOnLoad
 {
@@ -18,6 +19,8 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] RectTransform canvas;
         [SerializeField] RectTransform titleScreenDisplay;
         [SerializeField] RectTransform promptDisplay;
+        [SerializeField] Image promptDisplayImage;
+        [SerializeField] TMP_Text promptDisplayText;
         [SerializeField] RectTransform equipmentDisplay;
         [SerializeField] RectTransform scrollDisplay;
         [SerializeField] RectTransform commandDisplay;
@@ -65,6 +68,10 @@ namespace TCOY.DontDestroyOnLoad
         public RectTransform getCanvas => canvas;
         public RectTransform getTitleScreenDisplay => titleScreenDisplay;
         public RectTransform getPromptDisplay => promptDisplay;
+
+        public Image getPromptDisplayImage => promptDisplayImage;
+        public TMP_Text getPromptDisplayText => promptDisplayText;
+
         public RectTransform getEquipmentDisplay => equipmentDisplay;
         public RectTransform getScrollDisplay => scrollDisplay;
         public RectTransform getCommandDisplay => commandDisplay;
@@ -90,7 +97,6 @@ namespace TCOY.DontDestroyOnLoad
             inventories.Add(IItem.Category.supplies, supplies);
             inventories.Add(IItem.Category.scrolls, scrolls);
             inventories.Add(IItem.Category.questItems, questItems);
-
         }
 
         public IPartyMember GetPartyMember(int i)

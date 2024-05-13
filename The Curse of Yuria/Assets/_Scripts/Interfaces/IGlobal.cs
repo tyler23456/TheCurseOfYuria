@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FirstGearGames.SmoothCameraShaker;
+using UnityEngine.UI;
+using TMPro;
 
 public interface IGlobal
 {
@@ -23,6 +25,8 @@ public interface IGlobal
     RectTransform getCanvas { get; }
     RectTransform getTitleScreenDisplay { get; }
     RectTransform getPromptDisplay { get; }
+    Image getPromptDisplayImage { get; }
+    TMP_Text getPromptDisplayText { get; }
     RectTransform getEquipmentDisplay { get; }
     RectTransform getScrollDisplay { get; }
     RectTransform getCommandDisplay { get; }

@@ -5,11 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewPartyTargeter", menuName = "Targeters/PartyTargeter")]
 public class PartyTargeter : TargeterBase
 {
-    public override List<IActor> GetTargets(Vector2 position)
+    public override List<IActor> CalculateTargets(Vector2 position)
     {
-        base.GetTargets(position);
-
-
+        base.CalculateTargets(position);
 
         return targets;
     }

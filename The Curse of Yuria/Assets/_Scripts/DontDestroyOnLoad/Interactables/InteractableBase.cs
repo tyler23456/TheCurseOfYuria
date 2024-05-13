@@ -49,7 +49,7 @@ namespace TCOY.DontDestroyOnLoad
 
             IPartyMember player = collision.GetComponent<IPartyMember>();
 
-            Interact(player);         
+            Interact(player);
         }
     }
 }

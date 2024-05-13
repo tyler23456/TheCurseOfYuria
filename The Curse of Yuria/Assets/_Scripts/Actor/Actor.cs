@@ -64,9 +64,11 @@ namespace TCOY.Actors
             };
             stats.onApplyDamage += (damage) => CameraShakerHandler.Shake(global.getShakeData);
             stats.onApplyDamage += (damage) => global.StartCoroutine(HitAnimation());
+            stats.onZeroHealth = () => factory.GetStatusEffect("KnockedOut").Activate(this);
 
             spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
+            statusEffects.Initialize(factory);
             statusEffects.onAdd = (name) => { };
             statusEffects.onUpdate = (name) => { };
             statusEffects.onRemove = (name) => { };
