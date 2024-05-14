@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66139cc92762fc48af6aa505ca7d78e, type: 3}
+  m_Name: AutoLife
+  m_EditorClassIdentifier: 
+  icon: {fileID: -214298916, guid: 080cb6d98b00c2645b2c41df5f69bc78, type: 3}
+  visualEffect: {fileID: 2020990484930409885, guid: aa2fce678c8c3094d97c31716ad037a1, type: 3}
+  duration: 240
+  triggers:
+  - {fileID: 11400000, guid: a1731249df62122449371e32cb119535, type: 2}
+  skill: {fileID: 11400000, guid: 4507a6e645bd51e4ca226ab28f6861c0, type: 2}

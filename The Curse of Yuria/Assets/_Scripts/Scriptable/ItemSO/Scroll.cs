@@ -7,6 +7,11 @@ public class Scroll : ItemBase, IItem
 {
     public override void Use(IActor user, IActor[] targets)
     {
+        if (user.getStats.GetAttribute(IStats.Attribute.MP) - cost < 0)
+            return; //might need a display message letting the player know the user does not have enough mp
+
+        user.getStats.OffsetAttribute(IStats.Attribute.MP, -cost);
+
         IGlobal global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
         user.getAnimator.Cast();
         global.StartCoroutine(performAnimation(user, targets));
@@ -38,6 +43,7 @@ public class Scroll : ItemBase, IItem
             yield return new WaitForEndOfFrame();
 
         target.getStats.ApplySkillCalculation(power, user.getStats, group, type, element);
+        ApplyStatusEffect(target);
     }
 
     protected virtual IEnumerator PerformEffect(IActor target)

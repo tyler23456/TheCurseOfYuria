@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbbb37d0baf83a144bbcc6a04b8ba33d, type: 3}
+  m_Name: Rereplenish
+  m_EditorClassIdentifier: 
+  icon: {fileID: -651057808, guid: 080cb6d98b00c2645b2c41df5f69bc78, type: 3}
+  visualEffect: {fileID: 2020990484930409885, guid: aa2fce678c8c3094d97c31716ad037a1, type: 3}
+  duration: 240
+  action: {fileID: 11400000, guid: 77e2139db9a3e994983450754b0f72a8, type: 2}
+  power: 10
+  tickDuration: 10

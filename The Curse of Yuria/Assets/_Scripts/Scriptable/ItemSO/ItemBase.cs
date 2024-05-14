@@ -60,6 +60,12 @@ public abstract class ItemBase : ScriptableObject
 
     }
 
+    public virtual void ApplyStatusEffect(IActor target)
+    {
+        foreach (StatusEffectBase statusEffect in statusEffects)
+            statusEffect.Activate(target);
+    }
+
     public virtual void Equip(IActor target)
     {
         foreach (Modifier modifier in modifiers)

@@ -19,7 +19,7 @@ MonoBehaviour:
   info: 
   group: 3
   type: 1
-  element: 10
+  element: 5
   power: 2
   cost: 2
   duration: Infinity
@@ -37,6 +37,8 @@ MonoBehaviour:
     Multiple: 1
     Hash: d65cff6b7720473755273ad676b84379
     Tags: []
+  statusEffects:
+  - {fileID: 11400000, guid: 38288d72b3e7b14499f8dfd955516120, type: 2}
   modifiers: []
   counters: []
   interrupts: []

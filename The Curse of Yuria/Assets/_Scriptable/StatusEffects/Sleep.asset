@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49754b070bd90cc40ac1ef673c32542b, type: 3}
   m_Name: Sleep
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1812906440, guid: 080cb6d98b00c2645b2c41df5f69bc78, type: 3}
   visualEffect: {fileID: 0}
   duration: 30
   disableMovement: 1

@@ -19,6 +19,9 @@ public abstract class StatusEffectBase : ScriptableObject, IStatusEffect
 
     public virtual void OnAdd(IActor target)
     {
+        if (icon == null)
+            return;
+
         GameObject obj = new GameObject(icon.name);
         obj.transform.parent = target.getGameObject.transform;
         SpriteRenderer spriteRenderer = obj.AddComponent<SpriteRenderer>();
@@ -30,6 +33,9 @@ public abstract class StatusEffectBase : ScriptableObject, IStatusEffect
 
     public virtual void OnRemove(IActor target)
     {
-        Destroy(target.getGameObject.transform.Find(icon.name));
+        if (icon == null)
+            return;
+
+        Destroy(target.getGameObject.transform.Find(icon.name).gameObject);
     }
 }

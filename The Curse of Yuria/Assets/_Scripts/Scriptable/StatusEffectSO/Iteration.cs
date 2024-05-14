@@ -16,7 +16,7 @@ public class Iteration : StatusEffectBase, IStatusEffect
         base.Activate(target, accumulator);
         target.StartCoroutine(enumerator(target));
     }
-
+            
     public IEnumerator enumerator(IActor target)
     {
         while (target.getStatusEffects.Contains(name))

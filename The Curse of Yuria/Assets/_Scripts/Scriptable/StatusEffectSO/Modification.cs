@@ -11,7 +11,7 @@ public class Modification : StatusEffectBase, IStatusEffect
     public override void OnAdd(IActor target)
     {
         base.OnAdd(target);
-
+        Destroy(Instantiate(visualEffect, target.getGameObject.transform), 3);
         target.getStats.OffsetAttribute(attribute, value);
     }
 

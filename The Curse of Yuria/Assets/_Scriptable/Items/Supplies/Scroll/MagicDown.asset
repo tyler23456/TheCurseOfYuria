@@ -37,6 +37,8 @@ MonoBehaviour:
     Multiple: 1
     Hash: 9149e99914501e1b939bee993bb1ef97
     Tags: []
+  statusEffects:
+  - {fileID: 11400000, guid: 15c8b2bdac96a2646b2e767119af6b61, type: 2}
   modifiers: []
   counters: []
   interrupts: []

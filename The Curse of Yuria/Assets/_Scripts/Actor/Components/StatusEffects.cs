@@ -82,7 +82,7 @@ namespace TCOY.Actors
             foreach (string name in names)
                 onUpdate.Invoke(name);
 
-            for (int i = names.Count; i > -1; i--)
+            for (int i = names.Count - 1; i > -1; i--)
             {
                 accumulators[i] += Time.deltaTime;
 

@@ -69,9 +69,9 @@ namespace TCOY.Actors
             spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
             statusEffects.Initialize(factory);
-            statusEffects.onAdd = (name) => { };
+            statusEffects.onAdd = (name) => factory.GetStatusEffect(name).OnAdd(this);
             statusEffects.onUpdate = (name) => { };
-            statusEffects.onRemove = (name) => { };
+            statusEffects.onRemove = (name) => factory.GetStatusEffect(name).OnRemove(this);
         }
 
         protected void FixedUpdate()
@@ -85,6 +85,7 @@ namespace TCOY.Actors
             rotation.Update();
             aTBGuage.Update();
             groundChecker.Update();
+            statusEffects.Update();
         }
 
         protected void LateUpdate()
