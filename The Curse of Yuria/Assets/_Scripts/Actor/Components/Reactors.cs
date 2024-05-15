@@ -6,7 +6,7 @@ namespace TCOY.Actors
 {
     public class Reactors
     {
-        public List<IReactor> counters { get; private set; } = new List<IReactor>();
-        public List<IReactor> interrupts { get; private set; } = new List<IReactor>();
+        public List<Reactor> counters { get; private set; } = new List<Reactor>();
+        public List<Reactor> interrupts { get; private set; } = new List<Reactor>();
     }
 }

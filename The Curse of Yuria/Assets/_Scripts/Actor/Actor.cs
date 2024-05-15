@@ -41,8 +41,8 @@ namespace TCOY.Actors
         public IAnimator getAnimator => animator;
         public IStatusEffects getStatusEffects => statusEffects;
 
-        public List<IReactor> counters { get; private set; } = new List<IReactor>();
-        public List<IReactor> interrupts { get; private set; } = new List<IReactor>();
+        public List<Reactor> counters { get; private set; } = new List<Reactor>();
+        public List<Reactor> interrupts { get; private set; } = new List<Reactor>();
 
         protected void Start()
         {
@@ -64,7 +64,7 @@ namespace TCOY.Actors
             };
             stats.onApplyDamage += (damage) => CameraShakerHandler.Shake(global.getShakeData);
             stats.onApplyDamage += (damage) => global.StartCoroutine(HitAnimation());
-            stats.onZeroHealth = () => factory.GetStatusEffect("KnockedOut").Activate(this);
+            stats.onZeroHealth = () => factory.GetStatusEffect("KnockOut").Activate(this);
 
             spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
@@ -96,12 +96,12 @@ namespace TCOY.Actors
 
         protected IEnumerator HitAnimation()
         {
-            float accumulator = Time.time;
-            while(Time.time < accumulator + 0.5f)
+            float accumulator = Time.unscaledTime;
+            while(Time.unscaledTime < accumulator + 0.5f)
             {
                 foreach (SpriteRenderer spriteRenderer in spriteRenderers)
                     spriteRenderer.enabled = !spriteRenderer.enabled;
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSecondsRealtime(0.05f);
             }
             foreach (SpriteRenderer spriteRenderer in spriteRenderers)
                 spriteRenderer.enabled = true;

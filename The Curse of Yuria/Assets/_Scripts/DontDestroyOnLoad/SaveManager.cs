@@ -26,6 +26,7 @@ public class SaveManager : MonoBehaviour, ISaveManager
         string fileName = SceneManager.GetActiveScene().name + " " + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + " " + global.inventories[IItem.Category.questItems].count.ToString() + " questItems" + " ";
         string fullPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + fileName;
         int i = 0;
+        Debug.Log(Application.persistentDataPath);
         while (true)
         {
             if (!File.Exists(fullPath + i.ToString() + ".json"))

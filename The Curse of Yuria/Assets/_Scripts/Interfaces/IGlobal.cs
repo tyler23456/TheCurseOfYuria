@@ -38,4 +38,5 @@ public interface IGlobal
 
 
     Coroutine StartCoroutine(IEnumerator routine);
+    void CloseAllDisplays();
 }

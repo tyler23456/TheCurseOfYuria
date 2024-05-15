@@ -9,7 +9,7 @@ using System;
 
 namespace TCOY.Canvas
 {
-    public class GameOverScreen : MonoBehaviour
+    public class GameOverDisplay : MonoBehaviour
     {
         ISaveManager saveManager;
         ISceneLoader sceneLoader;
@@ -31,14 +31,20 @@ namespace TCOY.Canvas
             saveManager = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISaveManager>();
             sceneLoader = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISceneLoader>();
             load.onClick.AddListener(RefreshFiles);
-            mainMenu.onClick.AddListener(() => sceneLoader.Load(2, Vector2.zero, 0f));
+            mainMenu.onClick.AddListener(() => { sceneLoader.Load(2, Vector2.zero, 0f); gameObject.SetActive(false); });
             quit.onClick.AddListener(Application.Quit);
         }
 
         void OnEnable()
         {
+            Time.timeScale = 0f;
             animator.SetTrigger("Activate");
             rightPanel.gameObject.SetActive(false);
+        }
+
+        private void OnDisable()
+        {
+            Time.timeScale = 1f;
         }
 
         void RefreshFiles()
@@ -61,7 +67,8 @@ namespace TCOY.Canvas
                 button.onClick.RemoveAllListeners();
                 button.onClick.AddListener(() =>
                 {
-                    saveManager.OnLoad(fileInfo.Name);     
+                    saveManager.OnLoad(fileInfo.Name);
+                    gameObject.SetActive(false);
                 });
                 button.transform.GetChild(0).GetComponent<Text>().text = fileInfo.Name.Split('.')[0];
             }

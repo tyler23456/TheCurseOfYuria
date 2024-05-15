@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/User/Scenes/Initializer.unity
     guid: 0e631b4033564084586dabcf0f640fbd
   - enabled: 1
-    path: Assets/User/Scenes/TitleScreen.unity
+    path: Assets/User/Scenes/MainMenu.unity
     guid: 35612f933818fcf44be04b4630d01a8b
   - enabled: 1
     path: Assets/User/Scenes/Lunn.unity

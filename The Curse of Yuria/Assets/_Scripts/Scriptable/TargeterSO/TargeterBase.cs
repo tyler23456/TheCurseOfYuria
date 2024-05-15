@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class TargeterBase : ScriptableObject
 {
-    enum Party { Allie, Enemy, Both }
+    public enum Party { Allie, Enemy, Both }
 
     static LayerMask layerMask; 
     static float targetCheckDistance = 20f;

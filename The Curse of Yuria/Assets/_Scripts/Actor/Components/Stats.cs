@@ -19,14 +19,9 @@ namespace TCOY.Actors
         [SerializeField] int speed = 5;
         [SerializeField] int luck = 5;
 
-        [SerializeField] int poison = 0;
-        [SerializeField] int sleep = 0;
-        [SerializeField] int confuse = 0;
-        [SerializeField] int paralyze = 0;
         [SerializeField] int fire = 0;
         [SerializeField] int ice = 0;
         [SerializeField] int thunder = 0;
-        [SerializeField] int water = 0;
         [SerializeField] int light = 0;
         [SerializeField] int dark = 0;
 
@@ -61,8 +56,8 @@ namespace TCOY.Actors
 
         public void ResetAll()
         {
-            attributes = new int[9] { maxHP, maxHP, maxMP, maxMP, strength, defense, aura, speed, luck };
-            weaknesses = new int[20] { 0, fire, ice, thunder, water, light, dark, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //need to show effects eventually
+            attributes = new int[10] { maxHP, maxHP, maxMP, maxMP, strength, defense, magic, aura, speed, luck };
+            weaknesses = new int[6] { fire, ice, thunder, light, dark, 0 }; //need to show effects eventually
             onStatsChanged.Invoke(attributes);
         }
 
@@ -75,6 +70,7 @@ namespace TCOY.Actors
         {
             float defense = GetWeakness(element);
             float total = power * (100f / (100f + defense));
+            attributes[(int)IStats.Attribute.HP] -= (int)total;
             onApplyDamage.Invoke((int)total);
             CheckForZeroHealth();
         }
@@ -87,6 +83,7 @@ namespace TCOY.Actors
                     float defense = GetAttribute(IStats.Attribute.Aura) + GetWeakness(element);
                     float total = (user.GetAttribute(IStats.Attribute.Magic) + power) * (100f / (100f + defense));
                     total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
+                    attributes[(int)IStats.Attribute.HP] -= (int)total;
                     onApplyDamage.Invoke((int)total);
                 }
                 else if (group >= IItem.Group.Melee)
@@ -94,6 +91,7 @@ namespace TCOY.Actors
                     float defense = GetAttribute(IStats.Attribute.Defense) + GetWeakness(element);
                     float total = (user.GetAttribute(IStats.Attribute.Strength) + power) * (100f / (100f + defense));
                     total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
+                    attributes[(int)IStats.Attribute.HP] -= (int)total;
                     onApplyDamage.Invoke((int)total);
                 }
                 else if (group >= IItem.Group.None)
@@ -101,6 +99,7 @@ namespace TCOY.Actors
                     float defense = GetWeakness(element);
                     float total = power * (100f / (100f + defense));
                     total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
+                    attributes[(int)IStats.Attribute.HP] -= (int)total;
                     onApplyDamage.Invoke((int)total);
                 }
                 else if (type == IItem.Type.Recovery)
@@ -108,19 +107,22 @@ namespace TCOY.Actors
                     {
                         float total = user.GetAttribute(IStats.Attribute.Magic) + power;
                         total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
-                        onApplyDamage.Invoke((int)total);
+                        attributes[(int)IStats.Attribute.HP] += (int)total;
+                        onApplyRecovery.Invoke((int)total);
                     }
                     else if (group >= IItem.Group.Melee)
                     {
                         float total = user.GetAttribute(IStats.Attribute.Strength) + power;
                         total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
-                        onApplyDamage.Invoke((int)total);
+                        attributes[(int)IStats.Attribute.HP] += (int)total;
+                        onApplyRecovery.Invoke((int)total);
                     }
                     else if (group >= IItem.Group.None)
                     {
                         float total = power;
                         total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
-                        onApplyDamage.Invoke((int)total);
+                        attributes[(int)IStats.Attribute.HP] += (int)total;
+                        onApplyRecovery.Invoke((int)total);
                     }
 
             CheckForZeroHealth();
@@ -129,7 +131,7 @@ namespace TCOY.Actors
 
         public void CheckForZeroHealth()
         {
-            if (attributes[(int)IStats.Attribute.HP] < 0)
+            if (attributes[(int)IStats.Attribute.HP] < 1)
                 onZeroHealth.Invoke();
         }
 

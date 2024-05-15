@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc9db0393c66f1a46b7c194262855abb, type: 3}
+  m_Name: AilmentEnemyTargeter 1
+  m_EditorClassIdentifier: 
+  party: 1
+  statusEffects:
+  - {fileID: 11400000, guid: f8cac8eef1e9b1741aa7a3ff955a24ee, type: 2}
+  - {fileID: 11400000, guid: ae77481f8ee6b884ab328cb287dd14e0, type: 2}
+  - {fileID: 11400000, guid: 8b0826c5e0b7bfc4c9ab3d4e447d2878, type: 2}
+  - {fileID: 11400000, guid: 61dea5dbd52f2044198734224c6bcac7, type: 2}
+  - {fileID: 11400000, guid: 38288d72b3e7b14499f8dfd955516120, type: 2}
+  - {fileID: 11400000, guid: 2c943905b5818e74983d52f2c15d8d00, type: 2}
+  - {fileID: 11400000, guid: 928bafba0e9e72649b1ae4d868bb052a, type: 2}
+  - {fileID: 11400000, guid: 38d6dd2d5fcd1ba468331a4a743bc351, type: 2}

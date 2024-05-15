@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49754b070bd90cc40ac1ef673c32542b, type: 3}
+  m_Script: {fileID: 11500000, guid: e6f80c40c27bfff44b48800627c27e98, type: 3}
   m_Name: KnockOut
   m_EditorClassIdentifier: 
   icon: {fileID: 0}

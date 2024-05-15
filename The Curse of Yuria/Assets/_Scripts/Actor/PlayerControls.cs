@@ -21,6 +21,9 @@ namespace TCOY.Actors
         
         void Update()
         {
+            if (Time.timeScale < 0.1f)
+                return;
+
             actor.getAnimator.Stand();
 
             if (Input.GetKey(KeyCode.A))

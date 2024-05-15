@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Reactor : IReactor
+public class Reactor
 {
-    [SerializeField] string trigger;
-    [SerializeField] string reaction;
+    [SerializeField] Scroll action;
+    [SerializeField] TargeterBase.Party party;
+    [SerializeField] Scroll reaction;
+    [SerializeField] TargeterBase target;
 
-    public string getTrigger => trigger;
-    public string getReaction => reaction;
+    public Scroll getAction => action;
+    public TargeterBase.Party getParty => party;
+    public Scroll getReaction => reaction;
+    public TargeterBase getTarget => target;
+
 }

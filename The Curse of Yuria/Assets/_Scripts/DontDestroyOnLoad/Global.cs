@@ -103,5 +103,18 @@ namespace TCOY.DontDestroyOnLoad
         {
             return partyRoot.transform.GetChild(i).GetComponent<IPartyMember>();
         }
+
+        public void CloseAllDisplays()
+        {
+            titleScreenDisplay.gameObject.SetActive(false);
+            promptDisplay.gameObject.SetActive(false);
+            equipmentDisplay.gameObject.SetActive(false);
+            scrollDisplay.gameObject.SetActive(false);
+            commandDisplay.gameObject.SetActive(false);
+            optionsDisplay.gameObject.SetActive(false);
+            gameOverDisplay.gameObject.SetActive(false);
+        }
+
+
     }
 }

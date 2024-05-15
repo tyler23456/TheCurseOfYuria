@@ -269,13 +269,13 @@ namespace TCOY.Canvas
                 this.itemInfo.text += "\n\nCounters:";
 
             foreach (Reactor reactor in currentItem.getCounters)
-                this.itemInfo.text += "\n" + reactor.getTrigger + "|" + reactor.getReaction;
+                this.itemInfo.text += "\n" + reactor.getAction.ToString() + "|" + reactor.getParty.ToString() + "|" + reactor.getReaction.ToString() + "|" + reactor.getTarget.ToString();
 
             if (currentItem.getCounters.Count > 0)
                 this.itemInfo.text += "\n\nInterrupts:";
 
             foreach (Reactor reactor in currentItem.getInterrupts)
-                this.itemInfo.text += "\n" + reactor.getTrigger + "|" + reactor.getReaction;
+                this.itemInfo.text += "\n" + reactor.getAction.ToString() + "|" + reactor.getParty.ToString() + "|" + reactor.getReaction.ToString() + "|" + reactor.getTarget.ToString();
 
             int length = partyMember.getStats.GetAttributes().Length;
 

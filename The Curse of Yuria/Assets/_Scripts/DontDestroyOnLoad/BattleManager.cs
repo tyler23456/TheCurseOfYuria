@@ -20,6 +20,7 @@ namespace TCOY.BattleSystem
         {
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
             factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
+            isGameOver = false;
         }
 
         void Update()
@@ -42,10 +43,10 @@ namespace TCOY.BattleSystem
             if (AreAllFrontLinePartyMembersPermanentlyInnactive)
             {
                 isGameOver = true;
-                Time.timeScale = 0f;
+                global.CloseAllDisplays();
                 global.getGameOverDisplay.gameObject.SetActive(true);
                 return;
-            }    
+            }
 
             if (global.pendingCommands.Count == 0 || isRunning)
                 return;

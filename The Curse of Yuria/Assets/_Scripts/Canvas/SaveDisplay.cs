@@ -32,7 +32,7 @@ namespace TCOY.Canvas
         {
             saveManager = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISaveManager>();
 
-            newSaveButton.onClick.AddListener(saveManager.OnNewSave);
+            newSaveButton.onClick.AddListener(() => { saveManager.OnNewSave(); RefreshFiles(); });
             overwriteButton.onClick.AddListener(OnOverwriteSettingSet);
             loadButton.onClick.AddListener(OnLoadSettingSet);
 
@@ -63,11 +63,12 @@ namespace TCOY.Canvas
                     {
                         case ISaveManager.State.Overwrite:
                             saveManager.OnOverwrite(fileInfo.Name);
+                            RefreshFiles();
                             break;
                         case ISaveManager.State.Load:
                             saveManager.OnLoad(fileInfo.Name);
                             break;
-                    }                  
+                    }
                 });
                 button.transform.GetChild(0).GetComponent<Text>().text = fileInfo.Name.Split('.')[0];
             }
