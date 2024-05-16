@@ -12,7 +12,7 @@ namespace TCOY.Canvas
     public class GameOverDisplay : MonoBehaviour
     {
         ISaveManager saveManager;
-        IGlobal global;
+        ISceneLoader sceneLoader;
 
         [SerializeField] Button buttonPrefab;
         [SerializeField] RectTransform rightPanel;
@@ -26,31 +26,26 @@ namespace TCOY.Canvas
 
         Button button;
 
-        void OnEnable()
+        void Start()
         {
             saveManager = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISaveManager>();
-            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-
+            sceneLoader = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISceneLoader>();
             load.onClick.AddListener(RefreshFiles);
-            mainMenu.onClick.AddListener(LoadMainMenu);
+            mainMenu.onClick.AddListener(() => { sceneLoader.Load(2, Vector2.zero, 0f); gameObject.SetActive(false); });
             quit.onClick.AddListener(Application.Quit);
+        }
 
-            IGlobal.gameState = IGlobal.GameState.Stopped;
+        void OnEnable()
+        {
+            Time.timeScale = 0f;
             animator.SetTrigger("Activate");
             rightPanel.gameObject.SetActive(false);
         }
 
         private void OnDisable()
         {
-            IGlobal.gameState = IGlobal.GameState.Playing;
+            Time.timeScale = 1f;
         }
-
-        void LoadMainMenu()
-        {
-            global.sceneIDToLoad = 2;
-            global.scenePositionToStart = Vector2.zero;
-            global.ToggleDisplay(IGlobal.Display.LoadingDisplay);
-        }   
 
         void RefreshFiles()
         {
@@ -70,7 +65,11 @@ namespace TCOY.Canvas
             {
                 button = Instantiate(buttonPrefab, grid);
                 button.onClick.RemoveAllListeners();
-                button.onClick.AddListener(() => saveManager.OnLoad(fileInfo.Name));
+                button.onClick.AddListener(() =>
+                {
+                    saveManager.OnLoad(fileInfo.Name);
+                    gameObject.SetActive(false);
+                });
                 button.transform.GetChild(0).GetComponent<Text>().text = fileInfo.Name.Split('.')[0];
             }
         }

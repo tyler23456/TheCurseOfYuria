@@ -19,7 +19,7 @@ namespace TCOY.Canvas
         [SerializeField] RectTransform saveDisplay;
         [SerializeField] RectTransform quitDisplay;  
 
-        private void OnEnable()
+        void Start()
         {
             graphicsTab.onClick.AddListener(OnClickGraphicsTab);
             SettingsTab.onClick.AddListener(OnClickSettingsTab);
@@ -27,12 +27,7 @@ namespace TCOY.Canvas
             saveTab.onClick.AddListener(OnClickSaveTab);
             quitTab.onClick.AddListener(OnClickQuitTab);
             OnClickGraphicsTab();
-            IGlobal.gameState = IGlobal.GameState.Paused;
-        }
 
-        private void OnDisable()
-        {
-            IGlobal.gameState = IGlobal.GameState.Playing;
         }
 
         void ResetTabDisplays()

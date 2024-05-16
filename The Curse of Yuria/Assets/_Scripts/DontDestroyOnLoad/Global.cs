@@ -6,7 +6,6 @@ using HeroEditor.Common.Enums;
 using UnityEngine.UI;
 using FirstGearGames.SmoothCameraShaker;
 using TMPro;
-using System.Linq;
 
 namespace TCOY.DontDestroyOnLoad
 {
@@ -18,9 +17,10 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] AudioSource audioSource;
 
         [SerializeField] RectTransform canvas;
-        [SerializeField] RectTransform mainMenuDisplay;
-        [SerializeField] RectTransform loadingDisplay;
+        [SerializeField] RectTransform titleScreenDisplay;
         [SerializeField] RectTransform promptDisplay;
+        [SerializeField] Image promptDisplayImage;
+        [SerializeField] TMP_Text promptDisplayText;
         [SerializeField] RectTransform equipmentDisplay;
         [SerializeField] RectTransform scrollDisplay;
         [SerializeField] RectTransform commandDisplay;
@@ -48,20 +48,15 @@ namespace TCOY.DontDestroyOnLoad
         Inventory completedQuests = new Inventory();
         Inventory completedIds = new Inventory();
 
-        Dictionary<IGlobal.Display, RectTransform> displays = new Dictionary<IGlobal.Display, RectTransform>();
-
         public GameObject getPartyRoot => partyRoot;
         public List<IActor> getActors => actors;
         public Camera getCamera => mainCamera;
 
         public Dictionary<IItem.Category, Inventory> inventories { get; private set; } = new Dictionary<IItem.Category, Inventory>();
-        
 
         public Queue<IActor> aTBGuageFilledQueue { get; set; } = new Queue<IActor>();
         public Queue<ICommand> pendingCommands { get; set; } = new Queue<ICommand>();
         public Stack<ICommand> successfulCommands { get; set; } = new Stack<ICommand>();
-
-        public Queue<string> promptQueue { get; set; } = new Queue<string>();
 
 
         ShakeData IGlobal.getShakeData => shakeData;
@@ -70,15 +65,20 @@ namespace TCOY.DontDestroyOnLoad
         IInventory IGlobal.getCompletedQuests => completedQuests;
         IInventory IGlobal.getCompletedIds => completedIds;
 
-        IGlobal.GameState gameState = IGlobal.GameState.Stopped;
-
         public RectTransform getCanvas => canvas;
+        public RectTransform getTitleScreenDisplay => titleScreenDisplay;
+        public RectTransform getPromptDisplay => promptDisplay;
+
+        public Image getPromptDisplayImage => promptDisplayImage;
+        public TMP_Text getPromptDisplayText => promptDisplayText;
+
+        public RectTransform getEquipmentDisplay => equipmentDisplay;
+        public RectTransform getScrollDisplay => scrollDisplay;
+        public RectTransform getCommandDisplay => commandDisplay;
+        public RectTransform getOptionsDisplay => optionsDisplay;
+        public RectTransform getGameOverDisplay => gameOverDisplay;
 
         public int getPartyMemberCount => partyRoot.transform.childCount;
-
-        public int sceneIDToLoad { get; set; } = 0;
-        public Vector2 scenePositionToStart { get; set; } = Vector2.zero;
-        public float sceneEulerAngleZToStart { get; set; } = 0;
 
         public void Awake()
         { 
@@ -97,58 +97,24 @@ namespace TCOY.DontDestroyOnLoad
             inventories.Add(IItem.Category.supplies, supplies);
             inventories.Add(IItem.Category.scrolls, scrolls);
             inventories.Add(IItem.Category.questItems, questItems);
-
-            displays.Add(IGlobal.Display.MainMenuDisplay, mainMenuDisplay);
-            displays.Add(IGlobal.Display.LoadingDisplay, loadingDisplay);
-            displays.Add(IGlobal.Display.PromptDisplay, promptDisplay);
-            displays.Add(IGlobal.Display.EquipmentDisplay, equipmentDisplay);
-            displays.Add(IGlobal.Display.ScrollDisplay, scrollDisplay);
-            displays.Add(IGlobal.Display.CommandDisplay, commandDisplay);
-            displays.Add(IGlobal.Display.OptionsDisplay, optionsDisplay);
-            displays.Add(IGlobal.Display.GameOverDisplay, gameOverDisplay);
-        }
-
-        public void LateUpdate()
-        {
-            if (IGlobal.gameState == gameState)
-                return;
-
-            gameState = IGlobal.gameState;
-
-            switch (gameState)
-            {
-                case IGlobal.GameState.Playing:
-                    Cursor.visible = false;
-                    Cursor.lockState = CursorLockMode.Locked;
-                    Time.timeScale = 1f;
-                    break;
-                case IGlobal.GameState.Paused:
-                case IGlobal.GameState.Stopped:
-                    Cursor.visible = true;
-                    Cursor.lockState = CursorLockMode.None;
-                    Time.timeScale = 0f;
-                    break;
-            }
-        }
-
-        public void ToggleDisplay(IGlobal.Display display)
-        {
-            if (displays[display].gameObject.activeSelf == true)
-            {
-                displays[display].gameObject.SetActive(false);
-            }             
-            else
-            {
-                foreach (RectTransform t in canvas)
-                    t.gameObject.SetActive(false);
-
-                displays[display].gameObject.SetActive(true);
-            }
         }
 
         public IPartyMember GetPartyMember(int i)
         {
             return partyRoot.transform.GetChild(i).GetComponent<IPartyMember>();
         }
+
+        public void CloseAllDisplays()
+        {
+            titleScreenDisplay.gameObject.SetActive(false);
+            promptDisplay.gameObject.SetActive(false);
+            equipmentDisplay.gameObject.SetActive(false);
+            scrollDisplay.gameObject.SetActive(false);
+            commandDisplay.gameObject.SetActive(false);
+            optionsDisplay.gameObject.SetActive(false);
+            gameOverDisplay.gameObject.SetActive(false);
+        }
+
+
     }
 }

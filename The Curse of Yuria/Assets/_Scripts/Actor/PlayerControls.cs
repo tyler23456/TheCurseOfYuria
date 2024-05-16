@@ -21,22 +21,7 @@ namespace TCOY.Actors
         
         void Update()
         {
-            if (IGlobal.gameState == IGlobal.GameState.Stopped)
-                return;
-
-            if (Input.GetKeyDown(KeyCode.Escape))
-                global.ToggleDisplay(IGlobal.Display.OptionsDisplay);
-
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-                global.ToggleDisplay(IGlobal.Display.EquipmentDisplay);
-
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-                global.ToggleDisplay(IGlobal.Display.ScrollDisplay);
-
-            if (Input.GetKeyDown(KeyCode.Tab) && global.aTBGuageFilledQueue.Count > 0)
-                global.ToggleDisplay(IGlobal.Display.CommandDisplay);
-
-            if (IGlobal.gameState == IGlobal.GameState.Paused)
+            if (Time.timeScale < 0.1f)
                 return;
 
             actor.getAnimator.Stand();
@@ -73,7 +58,42 @@ namespace TCOY.Actors
             }
             
             if (Input.GetKeyDown(KeyCode.Space))
-                velocity += Vector2.up * 100;  
+            {
+                //actor.getAnimator.Jump();
+                velocity += Vector2.up * 100;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                global.getEquipmentDisplay.gameObject.SetActive(false);
+                global.getScrollDisplay.gameObject.SetActive(false);
+                global.getCommandDisplay.gameObject.SetActive(false);
+                global.getOptionsDisplay.gameObject.SetActive(!global.getOptionsDisplay.gameObject.activeSelf);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                global.getOptionsDisplay.gameObject.SetActive(false);
+                global.getScrollDisplay.gameObject.SetActive(false);
+                global.getCommandDisplay.gameObject.SetActive(false);
+                global.getEquipmentDisplay.gameObject.SetActive(!global.getEquipmentDisplay.gameObject.activeSelf);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                global.getOptionsDisplay.gameObject.SetActive(false);
+                global.getEquipmentDisplay.gameObject.SetActive(false);
+                global.getCommandDisplay.gameObject.SetActive(false);
+                global.getScrollDisplay.gameObject.SetActive(!global.getScrollDisplay.gameObject.activeSelf);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Tab) && global.aTBGuageFilledQueue.Count > 0)
+            {
+                global.getEquipmentDisplay.gameObject.SetActive(false);
+                global.getScrollDisplay.gameObject.SetActive(false);
+                global.getOptionsDisplay.gameObject.SetActive(false);
+                global.getCommandDisplay.gameObject.SetActive(!global.getCommandDisplay.gameObject.activeSelf);
+            }
         }
 
         void FixedUpdate()
