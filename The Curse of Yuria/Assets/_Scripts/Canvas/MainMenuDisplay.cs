@@ -12,7 +12,7 @@ namespace TCOY.Canvas
     public class MainMenuDisplay : MonoBehaviour
     {
         ISaveManager saveManager;
-        ISceneLoader sceneLoader;
+        IGlobal global;
 
         [SerializeField] Button buttonPrefab;
         [SerializeField] RectTransform rightPanel;
@@ -24,17 +24,29 @@ namespace TCOY.Canvas
 
         Button button;
 
-        void Start()
+        void OnEnable()
         {
             saveManager = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISaveManager>();
-            sceneLoader = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISceneLoader>();
+            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
             //literally has to empty everything of the player and give default values
-            newGame.onClick.AddListener(() => { gameObject.SetActive(false); });
+            newGame.onClick.AddListener(StartNewGame);
             load.onClick.AddListener(RefreshFiles);
             quit.onClick.AddListener(Application.Quit);
 
             rightPanel.gameObject.SetActive(false);
             //optional animation here
+
+            IGlobal.gameState = IGlobal.GameState.Stopped;
+        }
+
+        private void OnDisable()
+        {
+            IGlobal.gameState = IGlobal.GameState.Playing;
+        }
+
+        void StartNewGame()
+        {
+
         }
 
         void RefreshFiles()
@@ -55,11 +67,7 @@ namespace TCOY.Canvas
             {
                 button = Instantiate(buttonPrefab, grid);
                 button.onClick.RemoveAllListeners();
-                button.onClick.AddListener(() =>
-                {
-                    saveManager.OnLoad(fileInfo.Name);
-                    gameObject.SetActive(false);
-                });
+                button.onClick.AddListener(() => saveManager.OnLoad(fileInfo.Name));
                 button.transform.GetChild(0).GetComponent<Text>().text = fileInfo.Name.Split('.')[0];
             }
         }

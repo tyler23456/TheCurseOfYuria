@@ -11,16 +11,15 @@ namespace TCOY.Canvas
         public void Start()
         {
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-            global.CloseAllDisplays();
-            global.getTitleScreenDisplay.gameObject.SetActive(true);
-            GameObject.Find("/DontDestroyOnLoad/AllieRoot").SetActive(false);
+
+            global.ToggleDisplay(IGlobal.Display.MainMenuDisplay);
+            //GameObject.Find("/DontDestroyOnLoad/AllieRoot").SetActive(false);
             
         }
 
         public void OnDestroy()
         {
-            global.getTitleScreenDisplay.gameObject.SetActive(false);
-            GameObject.Find("/DontDestroyOnLoad/AllieRoot").SetActive(true);
+            //GameObject.Find("/DontDestroyOnLoad/AllieRoot").SetActive(true);
         }
     }
 }

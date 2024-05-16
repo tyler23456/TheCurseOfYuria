@@ -15,8 +15,11 @@ namespace TCOY.DontDestroyOnLoad
 
             hasLoaded = true;
 
-            ISceneLoader sceneLoader = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISceneLoader>();
-            sceneLoader.Load(3, Vector2.zero, 0f);
+            IGlobal global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
+            global.sceneIDToLoad = 3;
+            global.scenePositionToStart = Vector2.zero;
+            global.sceneEulerAngleZToStart = 0;
+            global.ToggleDisplay(IGlobal.Display.LoadingDisplay);
         }
     }
 }

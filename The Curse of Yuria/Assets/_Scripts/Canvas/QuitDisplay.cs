@@ -14,7 +14,7 @@ namespace TCOY.Canvas
         InventoryUI inventory;
 
 
-        void Start()
+        void OnEnable()
         {
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
             factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();

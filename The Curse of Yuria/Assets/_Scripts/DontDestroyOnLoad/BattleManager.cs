@@ -14,18 +14,15 @@ namespace TCOY.BattleSystem
 
         public bool isRunning { get; set; } = false;
 
-        bool isGameOver = false;
-
         void Start()
         {
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
             factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
-            isGameOver = false;
         }
 
         void Update()
         {
-            if (isGameOver)
+            if (IGlobal.gameState != IGlobal.GameState.Playing)
                 return;
 
             int partyMemberCount = Mathf.Clamp(3, 0, global.getPartyMemberCount);
@@ -42,9 +39,7 @@ namespace TCOY.BattleSystem
 
             if (AreAllFrontLinePartyMembersPermanentlyInnactive)
             {
-                isGameOver = true;
-                global.CloseAllDisplays();
-                global.getGameOverDisplay.gameObject.SetActive(true);
+                global.ToggleDisplay(IGlobal.Display.GameOverDisplay);
                 return;
             }
 

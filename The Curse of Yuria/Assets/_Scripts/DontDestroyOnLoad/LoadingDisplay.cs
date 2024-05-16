@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class SceneLoader : MonoBehaviour, ISceneLoader
+    public class LoadingDisplay : MonoBehaviour
     {
         IGlobal global;
 
@@ -14,14 +14,16 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] Slider progressBar; 
         [SerializeField] float fadeTime = 2f;
 
-        void Start()
+        private void OnEnable()
         {
-            global = GetComponent<IGlobal>();
+            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
+            IGlobal.gameState = IGlobal.GameState.Stopped;
+            global.StartCoroutine(CoroutineLoad());
         }
 
-        public void Load(int level, Vector2 position, float eulerAngleZ)
+        private void OnDisable()
         {
-            global.StartCoroutine(CoroutineLoad(level, position, eulerAngleZ));
+            IGlobal.gameState = IGlobal.GameState.Playing;
         }
 
         IEnumerator FadeScreenColorAlphaTo(float targetValue)
@@ -37,9 +39,9 @@ namespace TCOY.DontDestroyOnLoad
             }
         }
 
-        IEnumerator CoroutineLoad(int level, Vector2 position, float eulerAngleZ)
+        IEnumerator CoroutineLoad()
         {
-            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(level);
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(global.sceneIDToLoad);
             float progress = 0f;
 
             SceneLoaderImage.gameObject.SetActive(true);
@@ -52,12 +54,12 @@ namespace TCOY.DontDestroyOnLoad
                 yield return null;
             }
 
-            MoveParty(position, eulerAngleZ);
+            MoveParty(global.scenePositionToStart, global.sceneEulerAngleZToStart);
 
             progressBar.gameObject.SetActive(false);
             FadeScreenColorAlphaTo(0f);
             SceneLoaderImage.gameObject.SetActive(false);
-
+            gameObject.SetActive(false);
             //loading screen fade out;
         }
 

@@ -8,7 +8,7 @@ public class Prompt : ActionBase, IAction
 {
     [Range(3, 10)] [SerializeField] string text;
 
-    public override IEnumerator Activate(IGlobal global, IFactory factory, List<IActor> actors)
+    /*public override IEnumerator Activate(IGlobal global, IFactory factory, List<IActor> actors)
     {
         base.Activate(global, factory, actors);
 
@@ -31,5 +31,5 @@ public class Prompt : ActionBase, IAction
             }
 
         global.getPromptDisplay.gameObject.SetActive(false);
-    }
+    }*/
 }

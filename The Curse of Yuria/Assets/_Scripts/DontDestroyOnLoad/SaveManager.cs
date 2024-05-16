@@ -58,8 +58,10 @@ public class SaveManager : MonoBehaviour, ISaveManager
         SaveData saveData = JsonUtility.FromJson<SaveData>(json);
         saveData.Load(global, factory);
 
-        ISceneLoader sceneLoader = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISceneLoader>();
-        sceneLoader.Load(saveData.level, new Vector2(saveData.position[0], saveData.position[1]), saveData.eulerAnglesZ);
+        global.sceneIDToLoad = saveData.level;
+        global.scenePositionToStart = new Vector2(saveData.position[0], saveData.position[1]);
+        global.sceneEulerAngleZToStart = 0;
+        global.ToggleDisplay(IGlobal.Display.LoadingDisplay);
     }
 
     class SaveData

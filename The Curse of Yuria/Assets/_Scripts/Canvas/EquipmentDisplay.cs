@@ -120,11 +120,14 @@ namespace TCOY.Canvas
             RefreshPartyMember();
 
             global.getAudioSource.PlayOneShot(open);
+
+            IGlobal.gameState = IGlobal.GameState.Paused;
         }
 
         private void OnDisable()
         {
             global.getAudioSource.PlayOneShot(close);
+            IGlobal.gameState = IGlobal.GameState.Playing;
         }
 
         public void RefreshEquipmentPart(IItem.Category part, IInventory inventory)
