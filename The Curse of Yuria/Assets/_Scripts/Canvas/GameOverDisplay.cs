@@ -12,7 +12,7 @@ namespace TCOY.Canvas
     public class GameOverDisplay : MonoBehaviour
     {
         ISaveManager saveManager;
-        ISceneLoader sceneLoader;
+        IGlobal global;
 
         [SerializeField] Button buttonPrefab;
         [SerializeField] RectTransform rightPanel;
@@ -26,26 +26,31 @@ namespace TCOY.Canvas
 
         Button button;
 
-        void Start()
-        {
-            saveManager = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISaveManager>();
-            sceneLoader = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISceneLoader>();
-            load.onClick.AddListener(RefreshFiles);
-            mainMenu.onClick.AddListener(() => { sceneLoader.Load(2, Vector2.zero, 0f); gameObject.SetActive(false); });
-            quit.onClick.AddListener(Application.Quit);
-        }
-
         void OnEnable()
         {
-            Time.timeScale = 0f;
+            saveManager = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISaveManager>();
+            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
+
+            load.onClick.AddListener(RefreshFiles);
+            mainMenu.onClick.AddListener(LoadMainMenu);
+            quit.onClick.AddListener(Application.Quit);
+
+            IGlobal.gameState = IGlobal.GameState.Stopped;
             animator.SetTrigger("Activate");
             rightPanel.gameObject.SetActive(false);
         }
 
         private void OnDisable()
         {
-            Time.timeScale = 1f;
+            IGlobal.gameState = IGlobal.GameState.Playing;
         }
+
+        void LoadMainMenu()
+        {
+            global.sceneIDToLoad = 2;
+            global.scenePositionToStart = Vector2.zero;
+            global.ToggleDisplay(IGlobal.Display.LoadingDisplay);
+        }   
 
         void RefreshFiles()
         {
@@ -65,11 +70,7 @@ namespace TCOY.Canvas
             {
                 button = Instantiate(buttonPrefab, grid);
                 button.onClick.RemoveAllListeners();
-                button.onClick.AddListener(() =>
-                {
-                    saveManager.OnLoad(fileInfo.Name);
-                    gameObject.SetActive(false);
-                });
+                button.onClick.AddListener(() => saveManager.OnLoad(fileInfo.Name));
                 button.transform.GetChild(0).GetComponent<Text>().text = fileInfo.Name.Split('.')[0];
             }
         }

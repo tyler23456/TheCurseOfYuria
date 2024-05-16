@@ -45,6 +45,13 @@ namespace TCOY.Canvas
             commandName = "None";
 
             OnClickAttack();
+
+            IGlobal.gameState = IGlobal.GameState.Paused;
+        }
+
+        private void OnDisable()
+        {
+            IGlobal.gameState = IGlobal.GameState.Playing;
         }
 
         public void OnClickAttack()

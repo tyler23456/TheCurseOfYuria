@@ -7,6 +7,26 @@ using TMPro;
 
 public interface IGlobal
 {
+    enum Display
+    {
+        MainMenuDisplay,
+        LoadingDisplay,
+        PromptDisplay,
+        EquipmentDisplay,
+        ScrollDisplay,
+        CommandDisplay,
+        OptionsDisplay,
+        GameOverDisplay
+    }
+
+    enum GameState { Playing, Paused, Stopped }
+
+    static GameState gameState = GameState.Stopped;
+
+    int sceneIDToLoad { get; set; }
+    Vector2 scenePositionToStart { get; set; }
+    float sceneEulerAngleZToStart { get; set; }
+
     GameObject getPartyRoot { get; }
     List<IActor> getActors { get; }
     Camera getCamera { get; }
@@ -15,6 +35,7 @@ public interface IGlobal
     Queue<ICommand> pendingCommands { get; }
 
     Dictionary<IItem.Category, Inventory> inventories { get; }
+    RectTransform getCanvas { get; }
 
     ShakeData getShakeData { get; }
     AudioSource getAudioSource { get; }
@@ -22,21 +43,9 @@ public interface IGlobal
     IInventory getCompletedQuests { get; }
     IInventory getCompletedIds { get; }
 
-    RectTransform getCanvas { get; }
-    RectTransform getTitleScreenDisplay { get; }
-    RectTransform getPromptDisplay { get; }
-    Image getPromptDisplayImage { get; }
-    TMP_Text getPromptDisplayText { get; }
-    RectTransform getEquipmentDisplay { get; }
-    RectTransform getScrollDisplay { get; }
-    RectTransform getCommandDisplay { get; }
-    RectTransform getOptionsDisplay { get; }
-    RectTransform getGameOverDisplay { get; }
-
     int getPartyMemberCount { get; }
     IPartyMember GetPartyMember(int i);
-
+    void ToggleDisplay(Display display);
 
     Coroutine StartCoroutine(IEnumerator routine);
-    void CloseAllDisplays();
 }
