@@ -150,5 +150,18 @@ namespace TCOY.DontDestroyOnLoad
         {
             return partyRoot.transform.GetChild(i).GetComponent<IPartyMember>();
         }
+
+        public void ClearAllInventories()
+        {
+            foreach (KeyValuePair<IItem.Category, Inventory> inventory in inventories)
+                inventory.Value.Clear();
+        }
+
+        public void DestroyAllPartyMembers()
+        {
+            for (int n = getPartyRoot.transform.childCount - 1; n > -1; n--)
+                Destroy(getPartyRoot.transform.GetChild(n).gameObject);
+        }
+
     }
 }

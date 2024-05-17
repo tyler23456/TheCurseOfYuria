@@ -16,6 +16,11 @@ namespace TCOY.Actors
         public float interpolation { get; set; } = 1f;
         Vector2 eulerAngles = Vector2.zero;
 
+        public Rotation(GameObject obj)
+        {
+            this.transform = obj.GetComponent<Transform>();
+        }
+
         public void Update()
         {
             InterpolateRotation();

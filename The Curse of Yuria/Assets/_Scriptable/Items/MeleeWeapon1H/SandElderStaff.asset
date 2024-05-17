@@ -19,7 +19,7 @@ MonoBehaviour:
   info: 
   group: 1
   type: 1
-  element: 0
+  element: 5
   power: 0
   cost: 0
   duration: Infinity
@@ -37,6 +37,7 @@ MonoBehaviour:
     Multiple: 1
     Hash: 3fbd6feb150ec0c53abec950fd3bdc8d
     Tags: []
+  statusEffectProbabilities: []
   modifiers: []
   counters: []
   interrupts: []

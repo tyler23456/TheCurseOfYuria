@@ -29,7 +29,7 @@ public class Equipable : ItemBase, IItem
     protected virtual IEnumerator PerformEffect(IActor user, IActor target)
     {
         target.getStats.ApplySkillCalculation(power, user.getStats, group, type, element);
-        ApplyStatusEffect(target);
+        CheckStatusEffects(target);
         yield return null;
     }
 

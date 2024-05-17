@@ -4,25 +4,29 @@ using UnityEngine;
 
 namespace TCOY.Actors
 {
-    [System.Serializable]
     public class Position : IPosition
     {
-        [SerializeField] Rigidbody2D rigidBody2D;
+        [SerializeField] Rigidbody2D rigidbody2D;
 
         int activity = 0;
 
         public bool isActive => activity == 0;
 
+        public Position(GameObject obj)
+        {
+            this.rigidbody2D = obj.GetComponent<Rigidbody2D>();
+        }
+
         public void Set(Vector2 position)
         {
-            rigidBody2D.Sleep();
-            rigidBody2D.transform.position = position;
-            rigidBody2D.WakeUp();
+            rigidbody2D.Sleep();
+            rigidbody2D.transform.position = position;
+            rigidbody2D.WakeUp();
         }
 
         public void Add(Vector2 offset, ForceMode2D forceMode2D)
         {
-            rigidBody2D.AddForce(offset, forceMode2D);
+            rigidbody2D.AddForce(offset, forceMode2D);
         }
 
         public void FixedUpdate()

@@ -5,7 +5,6 @@ using System;
 
 namespace TCOY.Actors
 {
-    [System.Serializable]
     public class StatusEffects : IStatusEffects
     {
         IFactory factory;
@@ -19,7 +18,7 @@ namespace TCOY.Actors
         public Action<string> onRemove { get; set; } = (name) => { };
         public Action<string> onUpdate { get; set; } = (name) => { };
 
-        public void Initialize(IFactory factory)
+        public StatusEffects(IFactory factory)
         {
             this.factory = factory;
         }
@@ -111,8 +110,15 @@ namespace TCOY.Actors
 
         public void RemoveAll()
         {
-            for (int i = names.Count; i > -1; i--)
+            for (int i = names.Count - 1; i > -1; i--)
                 RemoveAt(i);         
+        }
+
+        public void RemoveWhere(Func<string, bool> predicate)
+        {
+            for (int i = names.Count - 1; i > -1; i--)
+                if (predicate.Invoke(names[i]))
+                    RemoveAt(i);
         }
     }
 }

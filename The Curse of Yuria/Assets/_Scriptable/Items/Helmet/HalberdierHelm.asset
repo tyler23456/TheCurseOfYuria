@@ -15,11 +15,11 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 82694d7451004dc7b1342018c6234e95, type: 3}
   _prefab: {fileID: 7849982881143113348, guid: b5a52ac86663e9d429a8f43a6e1b60e6, type: 3}
-  category: 0
+  _category: 0
   info: 
   group: 0
   type: 0
-  element: 0
+  element: 5
   power: 0
   cost: 0
   duration: Infinity
@@ -39,6 +39,9 @@ MonoBehaviour:
     Hash: d04a52426648b5c8c411a3cf7dda7bfd
     Tags:
     - Paint
-  modifiers: []
+  statusEffectProbabilities: []
+  modifiers:
+  - attribute: 4
+    offset: 20
   counters: []
   interrupts: []

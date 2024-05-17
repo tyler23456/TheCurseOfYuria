@@ -7,6 +7,8 @@ public class KnockOut : Deactivation, IStatusEffect
 {
     public override void OnAdd(IActor target)
     {
+        target.getStatusEffects.RemoveWhere(e => e != name);
+
         base.OnAdd(target);
 
         target.getAnimator.KO();

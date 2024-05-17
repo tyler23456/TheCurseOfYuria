@@ -13,4 +13,5 @@ public interface IFactory
     IItem GetItem(string name);
     bool HasItem(string name);
     IStatusEffect GetStatusEffect(string name);
+    GameObject GetPartyMember(string partyMemberName);
 }

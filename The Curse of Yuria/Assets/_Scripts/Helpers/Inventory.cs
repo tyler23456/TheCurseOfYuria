@@ -116,4 +116,10 @@ public class Inventory : IInventory
         this.counts.Clear();
         this.counts.AddRange(counts);
     }
+
+    public void Clear()
+    {
+        this.names.Clear();
+        this.counts.Clear();
+    }
 }

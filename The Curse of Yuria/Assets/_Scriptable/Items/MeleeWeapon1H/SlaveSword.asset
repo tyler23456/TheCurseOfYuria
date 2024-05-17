@@ -19,7 +19,7 @@ MonoBehaviour:
   info: 
   group: 1
   type: 1
-  element: 0
+  element: 5
   power: 0
   cost: 0
   duration: Infinity
@@ -39,6 +39,7 @@ MonoBehaviour:
     Hash: ef2ae2cff2821a4d1f0d6a727a38c143
     Tags:
     - Paint
+  statusEffectProbabilities: []
   modifiers: []
   counters: []
   interrupts: []

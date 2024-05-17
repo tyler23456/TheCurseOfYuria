@@ -20,7 +20,7 @@ MonoBehaviour:
     his equipment to help against magical foes in battle.
   group: 0
   type: 0
-  element: 0
+  element: 5
   power: 0
   cost: 0
   duration: Infinity
@@ -38,10 +38,9 @@ MonoBehaviour:
     Multiple: 1
     Hash: f16ccf8fe4426613f86506f8c4ab0ba3
     Tags: []
+  statusEffectProbabilities: []
   modifiers:
   - attribute: 4
-    offset: 4
-  - attribute: 7
-    offset: 7
+    offset: 20
   counters: []
   interrupts: []

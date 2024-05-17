@@ -14,12 +14,14 @@ namespace TCOY.DontDestroyOnLoad
     {
         [SerializeField] AssetLabelReference itemsReference;
         [SerializeField] AssetLabelReference statusEffectsReference;
+        [SerializeField] AssetLabelReference partyMemberReference;
 
         [SerializeField] GameObject damageTextPrefab;
         [SerializeField] GameObject recoveryTextPrefab;
 
         Dictionary<string, IItem> items = new Dictionary<string, IItem>();
         Dictionary<string, IStatusEffect> statusEffects = new Dictionary<string, IStatusEffect>();
+        Dictionary<string, GameObject> partyMembers = new Dictionary<string, GameObject>();
 
         public GameObject getDamageTextPrefab => damageTextPrefab;
         public GameObject getRecoveryTextPrefab => recoveryTextPrefab;
@@ -34,6 +36,11 @@ namespace TCOY.DontDestroyOnLoad
             Addressables.LoadAssetsAsync<IStatusEffect>(statusEffectsReference, (i) =>
             {
                 statusEffects.Add(i.name, i);
+            }).WaitForCompletion();
+
+            Addressables.LoadAssetsAsync<GameObject>(partyMemberReference, (i) =>
+            {
+                partyMembers.Add(i.name, i);
             }).WaitForCompletion();
         }
 
@@ -50,6 +57,11 @@ namespace TCOY.DontDestroyOnLoad
         public IStatusEffect GetStatusEffect(string name)
         {
             return statusEffects[name];
+        }
+
+        public GameObject GetPartyMember(string partyMemberName)
+        {
+            return partyMembers[partyMemberName];
         }
     }
 }

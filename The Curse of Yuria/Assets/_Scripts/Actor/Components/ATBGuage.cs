@@ -5,7 +5,6 @@ using System;
 
 namespace TCOY.Actors
 {
-    [System.Serializable]
     public class ATBGuage : IATBGuage
     {
         float maximumValue = 5f;

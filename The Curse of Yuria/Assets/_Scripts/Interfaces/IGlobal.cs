@@ -46,6 +46,8 @@ public interface IGlobal
     int getPartyMemberCount { get; }
     IPartyMember GetPartyMember(int i);
     void ToggleDisplay(Display display);
+    void ClearAllInventories();
+    void DestroyAllPartyMembers();
 
     Coroutine StartCoroutine(IEnumerator routine);
 }

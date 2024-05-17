@@ -11,6 +11,7 @@ public abstract class StatusEffectBase : ScriptableObject, IStatusEffect
     [SerializeField] protected float duration;
 
     public float getDuration => duration;
+    public GameObject getVisualEffect => visualEffect;
 
     public virtual void Activate(IActor target, float accumulator = 0f)
     {

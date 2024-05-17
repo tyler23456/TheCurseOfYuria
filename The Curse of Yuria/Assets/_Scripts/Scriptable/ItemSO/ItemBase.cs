@@ -23,7 +23,7 @@ public abstract class ItemBase : ScriptableObject
     [SerializeField] protected ParticleSystem particleSystem;
 
     [SerializeField] protected ItemSprite _itemSprite;
-    [SerializeField] protected List<StatusEffectBase> statusEffects;
+    [SerializeField] protected List<StatusEffectProbability> statusEffectProbabilities;
     [SerializeField] protected List<Modifier> modifiers;
     [SerializeField] protected List<Reactor> counters; 
     [SerializeField] protected List<Reactor> interrupts;
@@ -45,7 +45,7 @@ public abstract class ItemBase : ScriptableObject
     public string getIdentifiers => name + '|' + group.ToString() + '|' + type.ToString() + '|' + element.ToString();
 
     public ItemSprite itemSprite { get { return _itemSprite; } set { _itemSprite = value; } }
-    public List<StatusEffectBase> getStatusEffects => statusEffects;
+    public List<StatusEffectProbability> getStatusEffects => statusEffectProbabilities;
     public List<Modifier> getModifiers => modifiers;
     public List<Reactor> getCounters => counters;
     public List<Reactor> getInterrupts => interrupts;
@@ -60,10 +60,19 @@ public abstract class ItemBase : ScriptableObject
 
     }
 
-    public virtual void ApplyStatusEffect(IActor target)
+    public virtual void CheckStatusEffects(IActor target)
     {
-        foreach (StatusEffectBase statusEffect in statusEffects)
-            statusEffect.Activate(target);
+        foreach (StatusEffectProbability statusEffectProbability in statusEffectProbabilities)
+            if (Random.Range(0f, 1f) > statusEffectProbability.getProbability)
+                ApplyStatusEffect(target, statusEffectProbability.getStatusEffect);
+    }
+
+    public virtual void ApplyStatusEffect(IActor target, StatusEffectBase statusEffect)
+    {
+        if (statusEffect.getVisualEffect != null)
+            Destroy(Instantiate(statusEffect.getVisualEffect, target.getGameObject.transform), 5f);
+
+        statusEffect.Activate(target);
     }
 
     public virtual void Equip(IActor target)

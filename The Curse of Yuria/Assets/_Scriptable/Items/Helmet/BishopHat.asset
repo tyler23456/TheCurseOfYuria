@@ -15,11 +15,11 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: a07ed882156846ef95cc39df6b6a3dbb, type: 3}
   _prefab: {fileID: 623816381622620683, guid: cc136d1e4dd3b23409a83fd80d444f97, type: 3}
-  category: 0
+  _category: 0
   info: 
   group: 0
   type: 0
-  element: 0
+  element: 5
   power: 0
   cost: 0
   duration: Infinity
@@ -39,6 +39,9 @@ MonoBehaviour:
     Hash: a5ff7dfeb8cb1ba1bba92b969cd0184d
     Tags:
     - FullHair
-  modifiers: []
+  statusEffectProbabilities: []
+  modifiers:
+  - attribute: 4
+    offset: 20
   counters: []
   interrupts: []

@@ -15,5 +15,5 @@ MonoBehaviour:
   icon: {fileID: 0}
   visualEffect: {fileID: 8866663590276712616, guid: 925b413cceacf5d469f3df51786e097a, type: 3}
   duration: 60
-  attribute: 7
+  attribute: 5
   value: 10

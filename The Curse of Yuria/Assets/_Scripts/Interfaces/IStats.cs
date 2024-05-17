@@ -4,10 +4,14 @@ using UnityEngine;
 
 public interface IStats
 {
-    enum Attribute { MaxHP, HP, MaxMP, MP, Strength, Defense, Magic, Aura, Speed, Luck }
+    enum Attribute { MaxHP, MaxMP, Strength, Defense, Magic, Aura, Speed, Luck }
+
+    int HP { get; set; }
+    int MP { get; set; }
 
     int GetAttribute(Attribute attribute);
     void OffsetAttribute(IStats.Attribute attribute, int offset);
+    void SetAttribute(IStats.Attribute attribute, int value);
     void ResetAll();
     void ApplySkillCost(int cost);
     void ApplyCalculation(int power, IItem.Element element);

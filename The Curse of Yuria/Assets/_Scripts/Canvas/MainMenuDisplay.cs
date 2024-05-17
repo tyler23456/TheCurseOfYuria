@@ -28,7 +28,6 @@ namespace TCOY.Canvas
         {
             saveManager = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISaveManager>();
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-            //literally has to empty everything of the player and give default values
             newGame.onClick.AddListener(StartNewGame);
             load.onClick.AddListener(RefreshFiles);
             quit.onClick.AddListener(Application.Quit);
@@ -46,7 +45,7 @@ namespace TCOY.Canvas
 
         void StartNewGame()
         {
-
+            saveManager.OnNewGame();
         }
 
         void RefreshFiles()

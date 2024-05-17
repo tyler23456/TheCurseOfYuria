@@ -7,14 +7,14 @@ namespace TCOY.Actors
     [System.Serializable]
     public class GroundChecker
     {
-        [SerializeField] Animator animator;
+        Animator animator;
 
         bool isGrounded;
         bool isFalling;
 
-        public void Initialize()
+        public GroundChecker(GameObject obj)
         {
-
+            animator = obj.transform.GetChild(0).GetComponent<Animator>();
         }
 
         public void Update()

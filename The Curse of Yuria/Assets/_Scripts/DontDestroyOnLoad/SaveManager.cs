@@ -17,6 +17,19 @@ public class SaveManager : MonoBehaviour, ISaveManager
         global = GetComponent<IGlobal>();
     }
 
+    public void OnNewGame()
+    {
+        global.ClearAllInventories();
+        global.DestroyAllPartyMembers();
+
+        GameObject partyMember = Instantiate(factory.GetPartyMember("River"), global.getPartyRoot.transform);
+        partyMember.transform.SetSiblingIndex(0);
+
+        global.sceneIDToLoad = 3;
+        global.scenePositionToStart = new Vector2(0, 0);
+        global.sceneEulerAngleZToStart = 0;
+        global.ToggleDisplay(IGlobal.Display.LoadingDisplay);
+    }
 
     public void OnNewSave()
     {
@@ -227,14 +240,13 @@ public class SaveManager : MonoBehaviour, ISaveManager
             global.getCompletedIds.SetNames(completedIDNames);
             global.getCompletedIds.SetCounts(completedIDCounts);
 
-            foreach (Transform partyMember in global.getPartyRoot.transform)
-                partyMember.gameObject.SetActive(false);
+            global.DestroyAllPartyMembers();
 
             int i = 0;
             foreach (PartyMemberData partyMemberData in partyMemberDatas)
             {
-                Transform partyMember = global.getPartyRoot.transform.Find(partyMemberData.name);
-                partyMember.SetSiblingIndex(i);
+                GameObject partyMember = Instantiate(factory.GetPartyMember(partyMemberData.name), global.getPartyRoot.transform);
+                partyMember.transform.SetSiblingIndex(i);
                 partyMemberData.Load(partyMember.GetComponent<IPartyMember>(), factory);
                 i++;
             }
@@ -245,36 +257,58 @@ public class SaveManager : MonoBehaviour, ISaveManager
     public class PartyMemberData
     {
         public string name;
+        public int HP;
+        public int MP;
         public string[] equipmentNames;
         public int[] equipmentCounts;
         public string[] skillNames;
         public int[] skillCounts;
+        public string[] statusEffectNames;
+        public float[] statusEffectAccumulators;
 
-        public void Save(IPartyMember player)
+        public void Save(IPartyMember partyMember)
         {
-            name = player.getGameObject.name;
+            name = partyMember.getGameObject.name;
 
-            equipmentNames = player.getEquipment.GetNames();
-            equipmentCounts = player.getEquipment.GetCounts();
-            skillNames = player.getSkills.GetNames();
-            skillCounts = player.getSkills.GetCounts();
+            HP = partyMember.getStats.HP;
+            MP = partyMember.getStats.MP;
+
+            equipmentNames = partyMember.getEquipment.GetNames();
+            equipmentCounts = partyMember.getEquipment.GetCounts();
+            skillNames = partyMember.getSkills.GetNames();
+            skillCounts = partyMember.getSkills.GetCounts();
+            statusEffectNames = partyMember.getStatusEffects.GetNames();
+            statusEffectAccumulators = partyMember.getStatusEffects.GetAccumulators();
         }
 
-        public void Load(IPartyMember player, IFactory factory)
+        public void Load(IPartyMember partyMember, IFactory factory)
         {
-            player.getGameObject.name = name;
+            partyMember.Initialize();
 
-            foreach (string name in player.getEquipment.GetNames())
-                factory.GetItem(name).Unequip(player);
+            partyMember.getGameObject.name = name;
 
-            foreach (string name in player.getSkills.GetNames())
-                factory.GetItem(name).Unequip(player);
+            partyMember.getStats.HP = HP;
+            partyMember.getStats.MP = MP;
+
+            foreach (string name in partyMember.getEquipment.GetNames())
+                factory.GetItem(name).Unequip(partyMember);
+
+            foreach (string name in partyMember.getSkills.GetNames())
+                factory.GetItem(name).Unequip(partyMember);
 
             foreach (string name in equipmentNames)
-                factory.GetItem(name).Equip(player);
+                factory.GetItem(name).Equip(partyMember);
 
             foreach (string name in skillNames)
-                factory.GetItem(name).Equip(player);
+                factory.GetItem(name).Equip(partyMember);
+
+            foreach (string name in statusEffectNames)
+                factory.GetItem(name).Equip(partyMember);
+
+            foreach (string name in skillNames)
+                factory.GetItem(name).Equip(partyMember);
+
+            partyMember.getStatusEffects.SetNamesAndAccumulators(statusEffectNames, statusEffectAccumulators);
         }
     }
 }

@@ -19,7 +19,7 @@ MonoBehaviour:
   info: 
   group: 1
   type: 1
-  element: 0
+  element: 5
   power: 0
   cost: 0
   duration: Infinity
@@ -37,10 +37,15 @@ MonoBehaviour:
     Multiple: 1
     Hash: 61eb24259d7c580b64e8da69c7f33656
     Tags: []
+  statusEffectProbabilities: []
   modifiers: []
   counters:
-  - trigger: Attack_Self
-    reaction: Heal_Self
+  - action: {fileID: 0}
+    party: 0
+    reaction: {fileID: 0}
+    target: {fileID: 0}
   interrupts:
-  - trigger: Attack_Self
-    reaction: Heal_Self
+  - action: {fileID: 0}
+    party: 0
+    reaction: {fileID: 0}
+    target: {fileID: 0}

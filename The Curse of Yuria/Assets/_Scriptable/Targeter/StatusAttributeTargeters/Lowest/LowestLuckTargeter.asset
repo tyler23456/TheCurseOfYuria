@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   party: 2
   state: 0
-  attribute: 9
+  attribute: 7

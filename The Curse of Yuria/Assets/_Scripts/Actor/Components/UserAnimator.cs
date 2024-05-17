@@ -11,6 +11,11 @@ namespace TCOY.Actors
 
         public bool isPerformingCommand => animator.GetBool("Action");
 
+        public UserAnimator(GameObject obj)
+        {
+            animator = obj.transform.GetChild(0).GetComponent<Animator>();
+        }
+
         void SetActionToTrue()
         {
             animator.SetBool("Action", true);
@@ -66,7 +71,7 @@ namespace TCOY.Actors
         public void Attack()
         {
             SetActionToTrue();
-            animator.SetTrigger("Attack");
+            animator.SetTrigger("Slash");
         }
 
         public void Cast()

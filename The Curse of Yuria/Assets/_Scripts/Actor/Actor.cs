@@ -6,37 +6,36 @@ using FirstGearGames.SmoothCameraShaker;
 
 namespace TCOY.Actors
 {
+    [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
     public class Actor : MonoBehaviour, IActor
     {
         protected IGlobal global;
         protected IFactory factory;
 
-        [SerializeField] protected Camera camera;
-        [SerializeField] protected SpriteRenderer[] spriteRenderers;
-        [SerializeField] protected new Collider2D collider2D;
-        [SerializeField] protected Position position;
-        [SerializeField] protected Climber climber;
-        [SerializeField] protected Rotation rotation;
+        [SerializeField] List<ItemBase> defaultItems;
         [SerializeField] protected Stats stats;
-        [SerializeField] protected ATBGuage aTBGuage;
-        [SerializeField] protected GroundChecker groundChecker;
-        [SerializeField] protected Character character;
-        [SerializeField] protected Inventory equipment;
-        [SerializeField] protected string attack;
-        [SerializeField] protected Inventory skills;
-        [SerializeField] protected UserAnimator animator;
-        [SerializeField] protected StatusEffects statusEffects;
+
+        protected Character character;
+        protected new Camera camera;
+        protected new Collider2D collider2D;
+        protected SpriteRenderer[] spriteRenderers;
+        protected Position position;
+        protected Rotation rotation;
+        protected ATBGuage aTBGuage;
+        protected GroundChecker groundChecker;
+        protected Inventory equipment;
+        protected Inventory skills;
+        protected UserAnimator animator;
+        protected StatusEffects statusEffects;
 
         public Collider2D getCollider2D => collider2D;
         public GameObject getGameObject => gameObject;
         public IPosition getPosition => position;
-        public IClimber getClimber => climber;
         public IRotation getRotation => rotation;
         public IStats getStats => stats;
         public IATBGuage getATBGuage => aTBGuage;
         public Character getCharacter => character;
         public IInventory getEquipment => equipment;
-        public string getAttack => attack;
         public IInventory getSkills => skills;
         public IAnimator getAnimator => animator;
         public IStatusEffects getStatusEffects => statusEffects;
@@ -44,17 +43,46 @@ namespace TCOY.Actors
         public List<Reactor> counters { get; private set; } = new List<Reactor>();
         public List<Reactor> interrupts { get; private set; } = new List<Reactor>();
 
+        bool hasInitialized = false;
+
         protected void Start()
         {
+            Initialize();
+        }
+
+        public void Initialize()
+        {
+            if (hasInitialized)
+                return;
+
+            hasInitialized = true;
+
             GameObject obj = GameObject.Find("/DontDestroyOnLoad");
             global = obj.GetComponent<IGlobal>();
             factory = obj.GetComponent<IFactory>();
 
-            stats.Initialize();
+            character = GetComponent<Character>();
+            camera = GameObject.Find("/DontDestroyOnLoad/Main Camera").GetComponent<Camera>();
+            collider2D = GetComponent<Collider2D>();
+            spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
+            position = new Position(gameObject);
+            rotation = new Rotation(gameObject);
+            aTBGuage = new ATBGuage();
+            groundChecker = new GroundChecker(gameObject);
+            equipment = new Inventory();
+            skills = new Inventory();
+            animator = new UserAnimator(gameObject);
+
+            statusEffects = new StatusEffects(factory);
+            statusEffects.onAdd = (name) => factory.GetStatusEffect(name).OnAdd(this);
+            statusEffects.onUpdate = (name) => { };
+            statusEffects.onRemove = (name) => factory.GetStatusEffect(name).OnRemove(this);
+
+            stats.Initialize();
             stats.onApplyDamage = (damage) => animator.Hit();
             stats.onApplyDamage += (damage) => { }; //play a hit soundFX
-            stats.onApplyDamage += (damage) => 
+            stats.onApplyDamage += (damage) =>
             {
                 Vector3 position = transform.position + Vector3.up * 0.5f;
                 position = global.getCamera.WorldToScreenPoint(position);
@@ -66,22 +94,12 @@ namespace TCOY.Actors
             stats.onApplyDamage += (damage) => global.StartCoroutine(HitAnimation());
             stats.onZeroHealth = () => factory.GetStatusEffect("KnockOut").Activate(this);
 
-            spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
-
-            statusEffects.Initialize(factory);
-            statusEffects.onAdd = (name) => factory.GetStatusEffect(name).OnAdd(this);
-            statusEffects.onUpdate = (name) => { };
-            statusEffects.onRemove = (name) => factory.GetStatusEffect(name).OnRemove(this);
-        }
-
-        protected void FixedUpdate()
-        {
-
+            foreach (ItemBase item in defaultItems)
+                factory.GetItem(item.name).Equip(this);
         }
 
         protected void Update()
         {
-            climber.Update();
             rotation.Update();
             aTBGuage.Update();
             groundChecker.Update();

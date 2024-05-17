@@ -11,12 +11,12 @@ public class Iteration : StatusEffectBase, IStatusEffect
     [SerializeField] int power = 2;
     [SerializeField] float tickDuration = 5f;
 
-    public override void Activate(IActor target, float accumulator = 0f)
+    public override void OnAdd(IActor target)
     {
-        base.Activate(target, accumulator);
+        base.OnAdd(target);
         target.StartCoroutine(enumerator(target));
     }
-            
+
     public IEnumerator enumerator(IActor target)
     {
         while (target.getStatusEffects.Contains(name))

@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StepSFX : MonoBehaviour
+namespace TCOY.Actors
 {
-    // Start is called before the first frame update
-    void Start()
+    public class StepSFX
     {
-        
-    }
+        [SerializeField] Transform transform;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void Initialize(GameObject obj)
+        {
+            transform = obj.GetComponent<Transform>();
+        }
+
+        public void Update()
+        {
+
+        }
     }
 }
