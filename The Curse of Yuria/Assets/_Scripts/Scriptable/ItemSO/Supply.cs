@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class Supply : Scroll, IItem
 {
-    public override void Use(IActor user, IActor[] targets)
+    public override IEnumerator Use(IActor user, IActor[] targets)
     {
-        IGlobal global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-
-        if (!global.inventories[IItem.Category.supplies].Contains(name))
-            return;
+        global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
 
         global.inventories[IItem.Category.supplies].Remove(name);
 
-        global.inventories[IItem.Category.supplies].Remove(icon.name);
-        global.StartCoroutine(performAnimation(user, targets));
+        user.getAnimator.UseSupply();
+
+        foreach (IActor target in targets)
+            user.StartCoroutine(performAnimation(user, target));
+
+        yield return null;
     }
 
-    public override void Use(IActor[] targets)
+    public override IEnumerator Use(IActor target)
     {
-        IGlobal global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-        global.inventories[IItem.Category.supplies].Remove(icon.name);
-        foreach (IActor target in targets)
-            global.StartCoroutine(PerformEffect(target));
+        global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
+
+        global.inventories[IItem.Category.supplies].Remove(name);
+
+        target.StartCoroutine(PerformEffect(target));
+
+        yield return null;
     }
 }

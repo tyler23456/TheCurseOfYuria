@@ -16,15 +16,15 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] AssetLabelReference statusEffectsReference;
         [SerializeField] AssetLabelReference partyMemberReference;
 
-        [SerializeField] GameObject damageTextPrefab;
-        [SerializeField] GameObject recoveryTextPrefab;
+        [SerializeField] GameObject damagePopupPrefab;
+        [SerializeField] GameObject recoveryPopupPrefab;
 
         Dictionary<string, IItem> items = new Dictionary<string, IItem>();
         Dictionary<string, IStatusEffect> statusEffects = new Dictionary<string, IStatusEffect>();
         Dictionary<string, GameObject> partyMembers = new Dictionary<string, GameObject>();
 
-        public GameObject getDamageTextPrefab => damageTextPrefab;
-        public GameObject getRecoveryTextPrefab => recoveryTextPrefab;
+        public GameObject getDamagePopupPrefab => damagePopupPrefab;
+        public GameObject getRecoveryPopupPrefab => recoveryPopupPrefab;
 
         private void Awake()
         {

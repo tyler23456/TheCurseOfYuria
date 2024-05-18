@@ -96,7 +96,7 @@ namespace TCOY.Canvas
 
             //show party member stuff
 
-            partyMemberName.text = global.getPartyRoot.transform.GetChild(partyMemberIndex).name;
+            partyMemberName.text = global.getAllieRoot.GetChild(partyMemberIndex).name;
             partyMemberStats.text = "";
             partyMemberValues.text = "";
 

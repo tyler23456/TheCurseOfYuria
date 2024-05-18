@@ -60,8 +60,8 @@ public interface IItem
     public List<Reactor> getCounters { get; }
     public List<Reactor> getInterrupts { get; }
 
-    void Use(IActor user, IActor[] targets);
-    void Use(IActor[] targets);
+    IEnumerator Use(IActor user, IActor[] targets);
+    IEnumerator Use(IActor target);
     void Equip(IActor target);
     void Unequip(IActor target);
 }

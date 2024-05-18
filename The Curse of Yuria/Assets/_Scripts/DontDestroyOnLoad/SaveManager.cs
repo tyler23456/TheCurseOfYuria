@@ -5,11 +5,14 @@ using System.IO;
 using UnityEngine.SceneManagement;
 using System.Linq;
 using System;
+using FirstGearGames.SmoothCameraShaker;
 
 public class SaveManager : MonoBehaviour, ISaveManager
 {
     IFactory factory;
     IGlobal global;
+
+    [SerializeField] CameraShaker mainCameraShaker;
 
     public void Start()
     {
@@ -19,11 +22,12 @@ public class SaveManager : MonoBehaviour, ISaveManager
 
     public void OnNewGame()
     {
-        global.ClearAllInventories();
-        global.DestroyAllPartyMembers();
+        ClearNonPersistentData();
 
-        GameObject partyMember = Instantiate(factory.GetPartyMember("River"), global.getPartyRoot.transform);
+        GameObject partyMember = Instantiate(factory.GetPartyMember("River"), global.getAllieRoot);
         partyMember.transform.SetSiblingIndex(0);
+
+        partyMember.GetComponent<IActor>().Initialize();
 
         global.sceneIDToLoad = 3;
         global.scenePositionToStart = new Vector2(0, 0);
@@ -58,7 +62,7 @@ public class SaveManager : MonoBehaviour, ISaveManager
         string fullPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + fileName;
 
         File.WriteAllText(fullPath + ".json", json); //need to save scene and position
-    }
+    }   
 
     public void OnLoad(string fileName)
     {
@@ -66,6 +70,8 @@ public class SaveManager : MonoBehaviour, ISaveManager
 
         if (!File.Exists(Application.persistentDataPath + Path.AltDirectorySeparatorChar + fileName))
             return;
+
+        ClearNonPersistentData();
 
         json = File.ReadAllText(Application.persistentDataPath + Path.AltDirectorySeparatorChar + fileName);
         SaveData saveData = JsonUtility.FromJson<SaveData>(json);
@@ -75,6 +81,17 @@ public class SaveManager : MonoBehaviour, ISaveManager
         global.scenePositionToStart = new Vector2(saveData.position[0], saveData.position[1]);
         global.sceneEulerAngleZToStart = 0;
         global.ToggleDisplay(IGlobal.Display.LoadingDisplay);
+    }
+
+    public void ClearNonPersistentData()
+    {
+        global.ClearAllInventories();
+        global.DestroyAllPartyMembers();
+        global.ClearAllPopups();
+
+        global.aTBGuageFilledQueue.Clear();
+        global.pendingCommands.Clear();
+        global.successfulSubcommands.Clear();
     }
 
     class SaveData
@@ -189,8 +206,8 @@ public class SaveManager : MonoBehaviour, ISaveManager
                 partyMemberDatas.Add(partyMemberData);
             }
 
-            position = new float[] { global.getPartyRoot.transform.GetChild(0).position.x, global.getPartyRoot.transform.GetChild(0).position.y };
-            eulerAnglesZ = global.getPartyRoot.transform.GetChild(0).eulerAngles.z;
+            position = new float[] { global.getAllieRoot.GetChild(0).position.x, global.getAllieRoot.GetChild(0).position.y };
+            eulerAnglesZ = global.getAllieRoot.GetChild(0).eulerAngles.z;
         }
 
         public void Load(IGlobal global, IFactory factory)
@@ -240,12 +257,10 @@ public class SaveManager : MonoBehaviour, ISaveManager
             global.getCompletedIds.SetNames(completedIDNames);
             global.getCompletedIds.SetCounts(completedIDCounts);
 
-            global.DestroyAllPartyMembers();
-
             int i = 0;
             foreach (PartyMemberData partyMemberData in partyMemberDatas)
             {
-                GameObject partyMember = Instantiate(factory.GetPartyMember(partyMemberData.name), global.getPartyRoot.transform);
+                GameObject partyMember = Instantiate(factory.GetPartyMember(partyMemberData.name), global.getAllieRoot);
                 partyMember.transform.SetSiblingIndex(i);
                 partyMemberData.Load(partyMember.GetComponent<IPartyMember>(), factory);
                 i++;

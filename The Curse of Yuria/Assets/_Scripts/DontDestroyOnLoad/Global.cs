@@ -28,7 +28,8 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] RectTransform gameOverDisplay;
         
         [SerializeField] Camera mainCamera;
-        [SerializeField] GameObject partyRoot;
+        [SerializeField] Transform allieRoot;
+        [SerializeField] Transform popupRoot;
 
         List<IActor> actors = new List<IActor>();
 
@@ -50,16 +51,15 @@ namespace TCOY.DontDestroyOnLoad
 
         Dictionary<IGlobal.Display, RectTransform> displays = new Dictionary<IGlobal.Display, RectTransform>();
 
-        public GameObject getPartyRoot => partyRoot;
+        public Transform getAllieRoot => allieRoot;
         public List<IActor> getActors => actors;
         public Camera getCamera => mainCamera;
 
         public Dictionary<IItem.Category, Inventory> inventories { get; private set; } = new Dictionary<IItem.Category, Inventory>();
         
-
         public Queue<IActor> aTBGuageFilledQueue { get; set; } = new Queue<IActor>();
-        public Queue<ICommand> pendingCommands { get; set; } = new Queue<ICommand>();
-        public Stack<ICommand> successfulCommands { get; set; } = new Stack<ICommand>();
+        public Queue<Command> pendingCommands { get; set; } = new Queue<Command>();
+        public List<Subcommand> successfulSubcommands { get; set; } = new List<Subcommand>();
 
         public Queue<string> promptQueue { get; set; } = new Queue<string>();
 
@@ -74,7 +74,7 @@ namespace TCOY.DontDestroyOnLoad
 
         public RectTransform getCanvas => canvas;
 
-        public int getPartyMemberCount => partyRoot.transform.childCount;
+        public int getPartyMemberCount => allieRoot.transform.childCount;
 
         public int sceneIDToLoad { get; set; } = 0;
         public Vector2 scenePositionToStart { get; set; } = Vector2.zero;
@@ -148,7 +148,7 @@ namespace TCOY.DontDestroyOnLoad
 
         public IPartyMember GetPartyMember(int i)
         {
-            return partyRoot.transform.GetChild(i).GetComponent<IPartyMember>();
+            return allieRoot.transform.GetChild(i).GetComponent<IPartyMember>();
         }
 
         public void ClearAllInventories()
@@ -159,8 +159,28 @@ namespace TCOY.DontDestroyOnLoad
 
         public void DestroyAllPartyMembers()
         {
-            for (int n = getPartyRoot.transform.childCount - 1; n > -1; n--)
-                Destroy(getPartyRoot.transform.GetChild(n).gameObject);
+            for (int n = getAllieRoot.childCount - 1; n > -1; n--)
+                Destroy(getAllieRoot.GetChild(n).gameObject);
+        }
+
+        public void AddDamagePopup(string damage, Vector3 position)
+        {
+            GameObject obj = Instantiate(factory.getDamagePopupPrefab, position, Quaternion.identity, popupRoot);
+            obj.transform.GetChild(0).GetComponent<TMP_Text>().text = damage;
+            Destroy(obj, 3f);
+        }
+
+        public void AddRecoveryPopup(string recovery, Vector3 position)
+        {
+            GameObject obj = Instantiate(factory.getRecoveryPopupPrefab, position, Quaternion.identity, popupRoot);
+            obj.transform.GetChild(0).GetComponent<TMP_Text>().text = recovery;
+            Destroy(obj, 3f);
+        }
+
+        public void ClearAllPopups()
+        {
+            for (int n = popupRoot.transform.childCount - 1; n > -1; n--)
+                Destroy(popupRoot.transform.GetChild(n).gameObject);
         }
 
     }

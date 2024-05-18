@@ -6,6 +6,8 @@ using HeroEditor.Common.Data;
 
 public abstract class ItemBase : ScriptableObject
 {
+    protected static IGlobal global;
+
     [SerializeField] [HideInInspector] protected ulong guid;
 
     [SerializeField] protected Sprite _icon;
@@ -50,14 +52,14 @@ public abstract class ItemBase : ScriptableObject
     public List<Reactor> getCounters => counters;
     public List<Reactor> getInterrupts => interrupts;
 
-    public virtual void Use(IActor user, IActor[] targets)
+    public virtual IEnumerator Use(IActor user, IActor[] targets)
     {
-
+        yield return null;
     }
 
-    public virtual void Use(IActor[] targets)
+    public virtual IEnumerator Use(IActor target)
     {
-
+        yield return null;
     }
 
     public virtual void CheckStatusEffects(IActor target)

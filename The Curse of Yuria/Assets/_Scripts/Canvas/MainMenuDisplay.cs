@@ -28,6 +28,11 @@ namespace TCOY.Canvas
         {
             saveManager = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISaveManager>();
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
+
+            newGame.onClick.RemoveAllListeners();
+            load.onClick.RemoveAllListeners();
+            quit.onClick.RemoveAllListeners();
+
             newGame.onClick.AddListener(StartNewGame);
             load.onClick.AddListener(RefreshFiles);
             quit.onClick.AddListener(Application.Quit);
@@ -38,7 +43,7 @@ namespace TCOY.Canvas
             IGlobal.gameState = IGlobal.GameState.Stopped;
         }
 
-        private void OnDisable()
+        void OnDisable()
         {
             IGlobal.gameState = IGlobal.GameState.Playing;
         }

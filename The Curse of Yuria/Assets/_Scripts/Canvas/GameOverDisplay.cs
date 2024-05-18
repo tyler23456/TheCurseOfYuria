@@ -31,6 +31,10 @@ namespace TCOY.Canvas
             saveManager = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISaveManager>();
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
 
+            load.onClick.RemoveAllListeners();
+            mainMenu.onClick.RemoveAllListeners();
+            quit.onClick.RemoveAllListeners();
+
             load.onClick.AddListener(RefreshFiles);
             mainMenu.onClick.AddListener(LoadMainMenu);
             quit.onClick.AddListener(Application.Quit);

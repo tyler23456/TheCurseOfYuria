@@ -21,7 +21,7 @@ public class Iteration : StatusEffectBase, IStatusEffect
     {
         while (target.getStatusEffects.Contains(name))
         {
-            action.Use(new IActor[] { target });
+            action.Use(target);
             yield return new WaitForSeconds(tickDuration);
         }   
     }

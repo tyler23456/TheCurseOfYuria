@@ -38,6 +38,10 @@ namespace TCOY.Canvas
 
             currentPartyMember = global.aTBGuageFilledQueue.Peek();
 
+            attackTab.onClick.RemoveAllListeners();
+            magicTab.onClick.RemoveAllListeners();
+            itemTab.onClick.RemoveAllListeners();
+
             attackTab.onClick.AddListener(() => OnClickAttack());
             magicTab.onClick.AddListener(() => OnClickSkill());
             itemTab.onClick.AddListener(() => OnClickItems());

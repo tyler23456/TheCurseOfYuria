@@ -82,17 +82,13 @@ namespace TCOY.Actors
             stats.Initialize();
             stats.onApplyDamage = (damage) => animator.Hit();
             stats.onApplyDamage += (damage) => { }; //play a hit soundFX
-            stats.onApplyDamage += (damage) =>
-            {
-                Vector3 position = transform.position + Vector3.up * 0.5f;
-                position = global.getCamera.WorldToScreenPoint(position);
-                GameObject obj = Instantiate(factory.getDamageTextPrefab, position, Quaternion.identity, global.getCanvas);
-                obj.transform.GetChild(0).GetComponent<TMPro.TMP_Text>().text = damage.ToString();
-                Destroy(obj, 2f);
-            };
+            stats.onApplyDamage += (damage) => global.AddDamagePopup(damage.ToString(), collider2D.bounds.center);
             stats.onApplyDamage += (damage) => CameraShakerHandler.Shake(global.getShakeData);
-            stats.onApplyDamage += (damage) => global.StartCoroutine(HitAnimation());
+            stats.onApplyDamage += (damage) => StartCoroutine(HitAnimation());
+
             stats.onZeroHealth = () => factory.GetStatusEffect("KnockOut").Activate(this);
+
+            stats.onApplyRecovery = (recovery) => global.AddRecoveryPopup(recovery.ToString(), collider2D.bounds.center);
 
             foreach (ItemBase item in defaultItems)
                 factory.GetItem(item.name).Equip(this);

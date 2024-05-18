@@ -21,6 +21,12 @@ namespace TCOY.Canvas
 
         private void OnEnable()
         {
+            graphicsTab.onClick.RemoveAllListeners();
+            SettingsTab.onClick.RemoveAllListeners();
+            controlsTab.onClick.RemoveAllListeners();
+            saveTab.onClick.RemoveAllListeners();
+            quitTab.onClick.RemoveAllListeners();
+
             graphicsTab.onClick.AddListener(OnClickGraphicsTab);
             SettingsTab.onClick.AddListener(OnClickSettingsTab);
             controlsTab.onClick.AddListener(OnClickControlsTab);

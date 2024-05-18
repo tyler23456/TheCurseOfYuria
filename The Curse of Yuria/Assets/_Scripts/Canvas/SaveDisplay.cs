@@ -32,6 +32,10 @@ namespace TCOY.Canvas
         {
             saveManager = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISaveManager>();
 
+            newSaveButton.onClick.RemoveAllListeners();
+            overwriteButton.onClick.RemoveAllListeners();
+            loadButton.onClick.RemoveAllListeners();
+
             newSaveButton.onClick.AddListener(() => { saveManager.OnNewSave(); RefreshFiles(); });
             overwriteButton.onClick.AddListener(OnOverwriteSettingSet);
             loadButton.onClick.AddListener(OnLoadSettingSet);

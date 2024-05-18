@@ -15,6 +15,6 @@ public interface IStats
     void ResetAll();
     void ApplySkillCost(int cost);
     void ApplyCalculation(int power, IItem.Element element);
-    bool ApplySkillCalculation(int power, IStats user, IItem.Group group, IItem.Type type, IItem.Element element);
+    bool ApplyCalculation(int power, IStats user, IItem.Group group, IItem.Type type, IItem.Element element);
     int[] GetAttributes();
 }

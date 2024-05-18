@@ -21,7 +21,7 @@ public class Triggeration : StatusEffectBase, IStatusEffect
             foreach (StatusEffectBase trigger in triggers)
                 if (target.getStatusEffects.Contains(trigger.name))
                 {
-                    skill.Use(new IActor[] { target });
+                    skill.Use(target);
                     target.getStatusEffects.Remove(name);
                 }
 

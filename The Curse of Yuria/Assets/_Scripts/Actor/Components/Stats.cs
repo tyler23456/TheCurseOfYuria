@@ -98,7 +98,7 @@ namespace TCOY.Actors
             CheckForZeroHealth();
         }
 
-        public bool ApplySkillCalculation(int power, IStats user, IItem.Group group, IItem.Type type, IItem.Element element)
+        public bool ApplyCalculation(int power, IStats user, IItem.Group group, IItem.Type type, IItem.Element element)
         {
             if (type == IItem.Type.Damage)
                 if (group >= IItem.Group.Magic)

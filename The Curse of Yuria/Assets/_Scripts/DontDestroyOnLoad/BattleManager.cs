@@ -8,16 +8,12 @@ namespace TCOY.BattleSystem
     public class BattleManager : MonoBehaviour
     {
         IGlobal global;
-        IFactory factory;
 
         [SerializeField] List<StatusEffectBase> gameOverStatusEffects;
-
-        public bool isRunning { get; set; } = false;
 
         void Start()
         {
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-            factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
         }
 
         void Update()
@@ -43,10 +39,9 @@ namespace TCOY.BattleSystem
                 return;
             }
 
-            if (global.pendingCommands.Count == 0 || isRunning)
+            if (global.pendingCommands.Count == 0)
                 return;
 
-            isRunning = true;
             RunNextCommand();
         }
 
@@ -54,8 +49,10 @@ namespace TCOY.BattleSystem
         {
             ICommand command = global.pendingCommands.Dequeue();
 
-            command.item.Use(command.user, command.targets);
-            isRunning = false;
+            if (command.user == null)
+                return;
+
+            command.user.StartCoroutine(command.item.Use(command.user, command.targets));
         }
 
     }

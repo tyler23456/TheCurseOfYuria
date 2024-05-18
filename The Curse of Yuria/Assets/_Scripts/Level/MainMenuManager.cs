@@ -11,15 +11,7 @@ namespace TCOY.Canvas
         public void Start()
         {
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-
-            global.ToggleDisplay(IGlobal.Display.MainMenuDisplay);
-            //GameObject.Find("/DontDestroyOnLoad/AllieRoot").SetActive(false);
-            
-        }
-
-        public void OnDestroy()
-        {
-            //GameObject.Find("/DontDestroyOnLoad/AllieRoot").SetActive(true);
+            global.ToggleDisplay(IGlobal.Display.MainMenuDisplay);           
         }
     }
 }

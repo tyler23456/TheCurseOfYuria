@@ -8,8 +8,8 @@ using Assets.HeroEditor.Common.Scripts.Data;
 
 public interface IFactory
 {
-    GameObject getDamageTextPrefab { get; }
-    GameObject getRecoveryTextPrefab { get; }
+    GameObject getDamagePopupPrefab { get; }
+    GameObject getRecoveryPopupPrefab { get; }
     IItem GetItem(string name);
     bool HasItem(string name);
     IStatusEffect GetStatusEffect(string name);

@@ -5,32 +5,32 @@ using UnityEngine;
 
 public class Scroll : ItemBase, IItem
 {
-    public override void Use(IActor user, IActor[] targets)
+    public override IEnumerator Use(IActor user, IActor[] targets)
     {
-        if (user.getStats.MP - cost < 0)
-            return; //might need a display message letting the player know the user does not have enough mp
+        global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
 
         user.getStats.MP -= cost;
-
-        IGlobal global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
         user.getAnimator.Cast();
-        global.StartCoroutine(performAnimation(user, targets));
-    }
-
-    public override void Use(IActor[] targets)
-    {
-        IGlobal global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
 
         foreach (IActor target in targets)
-            global.StartCoroutine(PerformEffect(target));
+            target.StartCoroutine(performAnimation(user, target));
+
+        yield return null;
     }
 
-    protected virtual IEnumerator performAnimation(IActor user, IActor[] targets)
+    public override IEnumerator Use(IActor target)
+    {
+        global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
+
+        target.StartCoroutine(PerformEffect(target));
+
+        yield return null;
+    }
+
+    protected virtual IEnumerator performAnimation(IActor user, IActor target)
     {
         yield return new WaitForSeconds(0.5f);
-
-        foreach (IActor target in targets)
-            yield return PerformEffect(user, target);  //may need to start a new coroutine for this? 
+        yield return PerformEffect(user, target);
     }
 
     protected virtual IEnumerator PerformEffect(IActor user, IActor target)
@@ -41,8 +41,12 @@ public class Scroll : ItemBase, IItem
         while (particleSystem != null)
             yield return new WaitForEndOfFrame();
 
-        target.getStats.ApplySkillCalculation(power, user.getStats, group, type, element);
+        if (user == null)
+            yield break;
+
+        target.getStats.ApplyCalculation(power, user.getStats, group, type, element);
         CheckStatusEffects(target);
+        global.successfulSubcommands.Add(new Subcommand(user, this, target));
     }
 
     protected virtual IEnumerator PerformEffect(IActor target)
@@ -52,6 +56,9 @@ public class Scroll : ItemBase, IItem
 
         while (particleSystem != null)
             yield return new WaitForEndOfFrame();
+
+        if (target == null)
+            yield break;
 
         target.getStats.ApplyCalculation(power, element);
     }

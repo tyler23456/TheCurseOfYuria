@@ -7,30 +7,32 @@ using HeroEditor.Common.Data;
 
 public class Equipable : ItemBase, IItem
 {
-    public override void Use(IActor user, IActor[] targets)
+    public override IEnumerator Use(IActor user, IActor[] targets)
     {
-        if (targets == null || targets.Length == 0)
-            return;
+        global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
 
-        IGlobal global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-        global.StartCoroutine(performAnimation(user, targets));
-    }
-
-    protected virtual IEnumerator performAnimation(IActor user, IActor[] targets)
-    {
         user.getAnimator.Attack();
 
-        yield return new WaitForSeconds(0.5f);
-
         foreach (IActor target in targets)
-            yield return PerformEffect(user, target);  //may need to start a new coroutine for this? 
+            target.StartCoroutine(performAnimation(user, target));
+
+        yield return null;
+    }
+
+    protected virtual IEnumerator performAnimation(IActor user, IActor target)
+    {
+        yield return new WaitForSeconds(0.5f);
+        yield return PerformEffect(user, target);  
     }
 
     protected virtual IEnumerator PerformEffect(IActor user, IActor target)
     {
-        target.getStats.ApplySkillCalculation(power, user.getStats, group, type, element);
+        if (user == null)
+            yield break;
+
+        target.getStats.ApplyCalculation(power, user.getStats, group, type, element);
         CheckStatusEffects(target);
-        yield return null;
+        global.successfulSubcommands.Add(new Subcommand(user, this, target));
     }
 
     public override void Equip(IActor target)

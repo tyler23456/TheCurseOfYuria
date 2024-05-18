@@ -12,7 +12,6 @@ namespace TCOY.DontDestroyOnLoad
 
         [SerializeField] Image SceneLoaderImage;
         [SerializeField] Slider progressBar; 
-        [SerializeField] float fadeTime = 2f;
 
         private void OnEnable()
         {
@@ -26,27 +25,10 @@ namespace TCOY.DontDestroyOnLoad
             IGlobal.gameState = IGlobal.GameState.Playing;
         }
 
-        IEnumerator FadeScreenColorAlphaTo(float targetValue)
-        {
-            float startTime = Time.time;
-            Color color;
-            while (Time.time < startTime + fadeTime)
-            {
-                color = SceneLoaderImage.color;
-                color.a = Mathf.Lerp(color.a, targetValue, 0.1f);
-                SceneLoaderImage.color = color;
-                yield return new WaitForEndOfFrame();
-            }
-        }
-
         IEnumerator CoroutineLoad()
         {
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(global.sceneIDToLoad);
             float progress = 0f;
-
-            SceneLoaderImage.gameObject.SetActive(true);
-            FadeScreenColorAlphaTo(1f);
-            progressBar.gameObject.SetActive(true);
 
             while (!asyncOperation.isDone)
             {
@@ -56,16 +38,12 @@ namespace TCOY.DontDestroyOnLoad
 
             MoveParty(global.scenePositionToStart, global.sceneEulerAngleZToStart);
 
-            progressBar.gameObject.SetActive(false);
-            FadeScreenColorAlphaTo(0f);
-            SceneLoaderImage.gameObject.SetActive(false);
             gameObject.SetActive(false);
-            //loading screen fade out;
         }
 
         public void MoveParty(Vector2 position, float eulerAngleZ)
         {
-            foreach (Transform partyMember in global.getPartyRoot.transform)
+            foreach (Transform partyMember in global.getAllieRoot)
             {
                 partyMember.gameObject.SetActive(false);
                 partyMember.gameObject.transform.position = new Vector3(position.x, position.y, 0f);

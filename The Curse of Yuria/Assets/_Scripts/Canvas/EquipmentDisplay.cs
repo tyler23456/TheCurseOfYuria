@@ -95,6 +95,16 @@ namespace TCOY.Canvas
 
             globalInventoryUI = new InventoryUI(factory);
 
+            helmetsTab.onClick.RemoveAllListeners();
+            earringsTab.onClick.RemoveAllListeners();
+            glassesTab.onClick.RemoveAllListeners();
+            meleeWeapons1HTab.onClick.RemoveAllListeners();
+            meleeWeapons2HTab.onClick.RemoveAllListeners();
+            capesTab.onClick.RemoveAllListeners();
+            armorTab.onClick.RemoveAllListeners();
+            shieldsTab.onClick.RemoveAllListeners();
+            bowsTab.onClick.RemoveAllListeners();
+
             helmetsTab.onClick.AddListener(() => { RefreshEquipmentPart(IItem.Category.helmets, global.inventories[IItem.Category.helmets]); global.getAudioSource.PlayOneShot(cycleEquipmentParts); });
             earringsTab.onClick.AddListener(() => { RefreshEquipmentPart(IItem.Category.earrings, global.inventories[IItem.Category.earrings]); global.getAudioSource.PlayOneShot(cycleEquipmentParts); });
             glassesTab.onClick.AddListener(() => { RefreshEquipmentPart(IItem.Category.glasses, global.inventories[IItem.Category.glasses]); global.getAudioSource.PlayOneShot(cycleEquipmentParts); });
