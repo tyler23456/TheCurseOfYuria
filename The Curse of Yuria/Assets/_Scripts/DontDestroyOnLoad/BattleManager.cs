@@ -9,51 +9,83 @@ namespace TCOY.BattleSystem
     {
         IGlobal global;
 
+        [SerializeField] TargeterBase enemyTargeter;
         [SerializeField] List<StatusEffectBase> gameOverStatusEffects;
 
         void Start()
         {
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
+            global.StartCoroutine(BattleSystemLoop());
         }
 
         void Update()
         {
-            if (IGlobal.gameState != IGlobal.GameState.Playing)
+            CheckForGameOver();
+        }
+
+        IEnumerator BattleSystemLoop()
+        {
+            while (true)
+            {
+                yield return new WaitForEndOfFrame();
+
+                RefreshNearbyEnemies();
+
+                CheckForCounters();
+
+                CheckForInterrupts();
+
+                if (global.pendingCommands.Count == 0)
+                    continue;
+
+                Command command = global.pendingCommands.First();
+                global.pendingCommands.RemoveFirst();
+
+                if (command.user == null)
+                    continue;
+
+                command.user.StartCoroutine(command.item.Use(command.user, command.targets));
+                yield return new WaitForSeconds(1f);
+            }
+        }
+
+        void CheckForCounters()
+        {
+            if (global.successfulCommands.Count == 0)
                 return;
 
-            int partyMemberCount = Mathf.Clamp(3, 0, global.getPartyMemberCount);
+            List<Command> counters = global.allies.CalculateCounters(global.successfulCommands.Last());
+            List<Command> counters2 = global.enemies.CalculateCounters(global.successfulCommands.Last());
+            counters.AddRange(counters2);
+            foreach (Command command in counters)
+                global.pendingCommands.AddLast(command);
+        }
 
-            bool AreAllFrontLinePartyMembersPermanentlyInnactive = true;
-            for (int i = 0; i < partyMemberCount; i++)
-            {
-                if (gameOverStatusEffects.All(statusEffect => !global.GetPartyMember(i).getStatusEffects.Contains(statusEffect.name)))
-                {
-                    AreAllFrontLinePartyMembersPermanentlyInnactive = false;
-                    break;
-                }
-            }
-
-            if (AreAllFrontLinePartyMembersPermanentlyInnactive)
-            {
-                global.ToggleDisplay(IGlobal.Display.GameOverDisplay);
-                return;
-            }
-
+        void CheckForInterrupts()
+        {
             if (global.pendingCommands.Count == 0)
                 return;
 
-            RunNextCommand();
+            List<Command> counters = global.allies.CalculateCounters(global.pendingCommands.First());
+            List<Command> counters2 = global.enemies.CalculateCounters(global.pendingCommands.First());
+            counters.AddRange(counters2);
+            foreach (Command command in counters)
+                global.pendingCommands.AddFirst(command);
         }
 
-        void RunNextCommand()
+        void RefreshNearbyEnemies()
         {
-            ICommand command = global.pendingCommands.Dequeue();
+            List<IActor> targets = enemyTargeter.CalculateTargets(global.allies.GetPositionAt(0));
+            global.enemies.Set(targets);
+        }
 
-            if (command.user == null)
+        void CheckForGameOver()
+        {
+            if (IGlobal.gameState != IGlobal.GameState.Playing)
                 return;
 
-            command.user.StartCoroutine(command.item.Use(command.user, command.targets));
+            if (global.allies.AllContainAnyOf(gameOverStatusEffects))
+                global.ToggleDisplay(IGlobal.Display.GameOverDisplay);
         }
-
     }
 }

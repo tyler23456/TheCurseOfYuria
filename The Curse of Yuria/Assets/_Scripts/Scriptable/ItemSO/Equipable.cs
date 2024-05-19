@@ -7,7 +7,7 @@ using HeroEditor.Common.Data;
 
 public class Equipable : ItemBase, IItem
 {
-    public override IEnumerator Use(IActor user, IActor[] targets)
+    public override IEnumerator Use(IActor user, List<IActor> targets)
     {
         global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
 
@@ -32,7 +32,6 @@ public class Equipable : ItemBase, IItem
 
         target.getStats.ApplyCalculation(power, user.getStats, group, type, element);
         CheckStatusEffects(target);
-        global.successfulSubcommands.Add(new Subcommand(user, this, target));
     }
 
     public override void Equip(IActor target)
@@ -86,7 +85,7 @@ public class Equipable : ItemBase, IItem
         foreach (string removedItem in removedItems)
             factory.GetItem(removedItem).Unequip(target);
 
-        target.getEquipment.Add(itemName);
+        target.getEquipment.Add(name);
         target.getCharacter.Equip(itemSprite, IItem.partConverter[category]);
     }
 
@@ -100,7 +99,7 @@ public class Equipable : ItemBase, IItem
         removedItems = target.getEquipment.RemoveWhere(i =>
                 factory.GetItem(i).category == category);
 
-        target.getEquipment.Remove(itemName);
+        target.getEquipment.Remove(name);
         target.getCharacter.UnEquip(IItem.partConverter[category]);
     }
 }

@@ -42,7 +42,7 @@ public interface IItem
     enum Element { Fire, Ice, Thunder, Light, Dark, None}
 
     ulong getGuid { get; }
-    string itemName { get; }
+    string name { get; }
     Sprite icon { get; }
     GameObject prefab { get; }
     Category category { get; }
@@ -60,7 +60,7 @@ public interface IItem
     public List<Reactor> getCounters { get; }
     public List<Reactor> getInterrupts { get; }
 
-    IEnumerator Use(IActor user, IActor[] targets);
+    IEnumerator Use(IActor user, List<IActor> targets);
     IEnumerator Use(IActor target);
     void Equip(IActor target);
     void Unequip(IActor target);

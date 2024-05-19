@@ -136,8 +136,8 @@ namespace TCOY.Canvas
 
         public void OnSelectTarget(IActor target)
         {
-            Command command = new Command(currentPartyMember, factory.GetItem(commandName), new IActor[] { target });
-            global.pendingCommands.Enqueue(command);
+            Command command = new Command(currentPartyMember, factory.GetItem(commandName), new List<IActor> { target });
+            global.pendingCommands.AddLast(command);
             currentPartyMember.getATBGuage.Reset();
             global.aTBGuageFilledQueue.Dequeue();
             gameObject.SetActive(false);

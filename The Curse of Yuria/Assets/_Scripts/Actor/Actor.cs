@@ -4,7 +4,7 @@ using UnityEngine;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 using FirstGearGames.SmoothCameraShaker;
 
-namespace TCOY.Actors
+namespace TCOY.UserActors
 {
     [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
     public class Actor : MonoBehaviour, IActor
@@ -12,6 +12,7 @@ namespace TCOY.Actors
         protected IGlobal global;
         protected IFactory factory;
 
+        [SerializeField] TargeterBase.Party party;
         [SerializeField] List<ItemBase> defaultItems;
         [SerializeField] protected Stats stats;
 
@@ -28,6 +29,7 @@ namespace TCOY.Actors
         protected UserAnimator animator;
         protected StatusEffects statusEffects;
 
+        public TargeterBase.Party getParty => party;
         public Collider2D getCollider2D => collider2D;
         public GameObject getGameObject => gameObject;
         public IPosition getPosition => position;

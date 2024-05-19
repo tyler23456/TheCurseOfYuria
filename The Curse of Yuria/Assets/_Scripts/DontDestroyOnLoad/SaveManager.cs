@@ -24,11 +24,10 @@ public class SaveManager : MonoBehaviour, ISaveManager
     {
         ClearNonPersistentData();
 
-        GameObject partyMember = Instantiate(factory.GetPartyMember("River"), global.getAllieRoot);
-        partyMember.transform.SetSiblingIndex(0);
-
-        partyMember.GetComponent<IActor>().Initialize();
-
+        IActor allie = Instantiate(factory.GetAllie("River")).GetComponent<IActor>();
+        allie.Initialize();
+        global.allies.Add(allie);
+        
         global.sceneIDToLoad = 3;
         global.scenePositionToStart = new Vector2(0, 0);
         global.sceneEulerAngleZToStart = 0;
@@ -85,13 +84,16 @@ public class SaveManager : MonoBehaviour, ISaveManager
 
     public void ClearNonPersistentData()
     {
+        global.StopAllCoroutines();
+
         global.ClearAllInventories();
-        global.DestroyAllPartyMembers();
+        global.allies.DestroyAndClear();
+        global.enemies.DestroyAndClear();
         global.ClearAllPopups();
 
         global.aTBGuageFilledQueue.Clear();
         global.pendingCommands.Clear();
-        global.successfulSubcommands.Clear();
+        global.successfulCommands.Clear();;
     }
 
     class SaveData
@@ -146,7 +148,7 @@ public class SaveManager : MonoBehaviour, ISaveManager
         public string[] completedIDNames;
         public int[] completedIDCounts;
 
-        public List<PartyMemberData> partyMemberDatas;
+        public List<AllieData> allieDatas;
 
         public void Save(IGlobal global, IFactory factory)
         {
@@ -197,17 +199,18 @@ public class SaveManager : MonoBehaviour, ISaveManager
             completedIDNames = global.getCompletedIds.GetNames();
             completedIDCounts = global.getCompletedIds.GetCounts();
 
-            PartyMemberData partyMemberData = new PartyMemberData();
-            partyMemberDatas = new List<PartyMemberData>();
-            for (int i = 0; i < global.getPartyMemberCount; i++)
+            AllieData allieData = new AllieData();
+            allieDatas = new List<AllieData>();
+            global.allies.ForEach(i =>
             {
-                partyMemberData = new PartyMemberData();
-                partyMemberData.Save(global.GetPartyMember(i));
-                partyMemberDatas.Add(partyMemberData);
-            }
+                allieData = new AllieData();
+                allieData.Save(i);
+                allieDatas.Add(allieData);
 
-            position = new float[] { global.getAllieRoot.GetChild(0).position.x, global.getAllieRoot.GetChild(0).position.y };
-            eulerAnglesZ = global.getAllieRoot.GetChild(0).eulerAngles.z;
+            });
+
+            position = new float[] { global.allies.GetPositionAt(0).x, global.allies.GetPositionAt(0).y };
+            eulerAnglesZ = global.allies.GetEulerAngleZAt(0);
         }
 
         public void Load(IGlobal global, IFactory factory)
@@ -257,19 +260,17 @@ public class SaveManager : MonoBehaviour, ISaveManager
             global.getCompletedIds.SetNames(completedIDNames);
             global.getCompletedIds.SetCounts(completedIDCounts);
 
-            int i = 0;
-            foreach (PartyMemberData partyMemberData in partyMemberDatas)
+            foreach (AllieData allieData in allieDatas)
             {
-                GameObject partyMember = Instantiate(factory.GetPartyMember(partyMemberData.name), global.getAllieRoot);
-                partyMember.transform.SetSiblingIndex(i);
-                partyMemberData.Load(partyMember.GetComponent<IPartyMember>(), factory);
-                i++;
+                IActor allie = Instantiate(factory.GetAllie(allieData.name)).GetComponent<IActor>();
+                global.allies.Add(allie);
+                allieData.Load(allie, factory);
             }
         }
     }
 
     [System.Serializable]
-    public class PartyMemberData
+    public class AllieData
     {
         public string name;
         public int HP;
@@ -281,7 +282,7 @@ public class SaveManager : MonoBehaviour, ISaveManager
         public string[] statusEffectNames;
         public float[] statusEffectAccumulators;
 
-        public void Save(IPartyMember partyMember)
+        public void Save(IActor partyMember)
         {
             name = partyMember.getGameObject.name;
 
@@ -296,34 +297,34 @@ public class SaveManager : MonoBehaviour, ISaveManager
             statusEffectAccumulators = partyMember.getStatusEffects.GetAccumulators();
         }
 
-        public void Load(IPartyMember partyMember, IFactory factory)
+        public void Load(IActor allie, IFactory factory)
         {
-            partyMember.Initialize();
+            allie.Initialize();
 
-            partyMember.getGameObject.name = name;
+            allie.getGameObject.name = name;
 
-            partyMember.getStats.HP = HP;
-            partyMember.getStats.MP = MP;
+            allie.getStats.HP = HP;
+            allie.getStats.MP = MP;
 
-            foreach (string name in partyMember.getEquipment.GetNames())
-                factory.GetItem(name).Unequip(partyMember);
+            foreach (string name in allie.getEquipment.GetNames())
+                factory.GetItem(name).Unequip(allie);
 
-            foreach (string name in partyMember.getSkills.GetNames())
-                factory.GetItem(name).Unequip(partyMember);
+            foreach (string name in allie.getSkills.GetNames())
+                factory.GetItem(name).Unequip(allie);
 
             foreach (string name in equipmentNames)
-                factory.GetItem(name).Equip(partyMember);
+                factory.GetItem(name).Equip(allie);
 
             foreach (string name in skillNames)
-                factory.GetItem(name).Equip(partyMember);
+                factory.GetItem(name).Equip(allie);
 
             foreach (string name in statusEffectNames)
-                factory.GetItem(name).Equip(partyMember);
+                factory.GetItem(name).Equip(allie);
 
             foreach (string name in skillNames)
-                factory.GetItem(name).Equip(partyMember);
+                factory.GetItem(name).Equip(allie);
 
-            partyMember.getStatusEffects.SetNamesAndAccumulators(statusEffectNames, statusEffectAccumulators);
+            allie.getStatusEffects.SetNamesAndAccumulators(statusEffectNames, statusEffectAccumulators);
         }
     }
 }

@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 using System.Collections.ObjectModel;
 
-namespace TCOY.Actors
+namespace TCOY.UserActors
 {
     [System.Serializable]
     public class Stats : IStats

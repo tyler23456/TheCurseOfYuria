@@ -14,10 +14,13 @@ public class StatusEffectsTargeter : TargeterBase
     {
         base.CalculateTargets(position);
 
-        List<IActor> results = null;
+        List<IActor> results = new List<IActor>();
 
         results = targets.FindAll(target => statusEffects.Any(statusEffect => target.getStatusEffects.Contains(statusEffect.name)));
-        
-        return results == null || results.Count == 0 ? null : new List<IActor> { results[Random.Range(0, results.Count)] };
+
+        if (results.Count > 0)
+            return new List<IActor> { results[Random.Range(0, results.Count)] };
+        else
+            return results;
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TCOY.Actors
+namespace TCOY.UserActors
 {
     [System.Serializable]
     public class UserAnimator : IAnimator

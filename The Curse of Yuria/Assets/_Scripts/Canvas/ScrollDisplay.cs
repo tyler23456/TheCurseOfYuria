@@ -36,9 +36,9 @@ namespace TCOY.Canvas
 
         [SerializeField] Sprite emptySprite;
 
-        int partyMemberIndex = 0;
+        int allieIndex = 0;
 
-        IActor partyMember;
+        IActor allie;
 
         IInventory skills;
         IStats stats;
@@ -59,7 +59,7 @@ namespace TCOY.Canvas
             partyMemberInventoryUI = new InventoryUI(factory);
             globalInventoryUI = new InventoryUI(factory);
 
-            partyMemberIndex = 0;
+            allieIndex = 0;
             RefreshInventorySkills();
             RefreshPartyMember();
 
@@ -88,15 +88,15 @@ namespace TCOY.Canvas
 
         public void RefreshPartyMember()
         {
-            partyMember = global.GetPartyMember(partyMemberIndex);
-            detailedActorViewCamera.cullingMask = LayerMask.GetMask("Actor" + (partyMemberIndex + 1).ToString());
+            allie = global.allies[allieIndex];
+            detailedActorViewCamera.cullingMask = LayerMask.GetMask("Actor" + (allieIndex + 1).ToString());
 
-            skills = partyMember.getSkills;
-            stats = partyMember.getStats;
+            skills = allie.getSkills;
+            stats = allie.getStats;
 
             //show party member stuff
 
-            partyMemberName.text = global.getAllieRoot.GetChild(partyMemberIndex).name;
+            partyMemberName.text = allie.getGameObject.name;
             partyMemberStats.text = "";
             partyMemberValues.text = "";
 
@@ -109,7 +109,7 @@ namespace TCOY.Canvas
 
             partyMemberInventoryUI.grid = partyMemberGrid;
             partyMemberInventoryUI.buttonPrefab = buttonPrefab;
-            partyMemberInventoryUI.inventory = partyMember.getSkills;
+            partyMemberInventoryUI.inventory = allie.getSkills;
             partyMemberInventoryUI.OnClick = (itemName) => OnRemoveSkill(itemName);
             partyMemberInventoryUI.onPointerEnter = (itemName) => OnPointerEnterPartyMemberSkillsIcon(itemName);
             partyMemberInventoryUI.onPointerExit = (itemName) => OnPointerExit(itemName);
@@ -124,7 +124,7 @@ namespace TCOY.Canvas
 
             global.inventories[IItem.Category.scrolls].Remove(itemName);
 
-            newSkill.Equip(partyMember);
+            newSkill.Equip(allie);
 
             RefreshPartyMember();
             RefreshInventorySkills();
@@ -136,7 +136,7 @@ namespace TCOY.Canvas
 
             global.inventories[IItem.Category.scrolls].Add(itemName);
 
-            newSkill.Unequip(partyMember);
+            newSkill.Unequip(allie);
 
             RefreshPartyMember();
             RefreshInventorySkills();
@@ -156,7 +156,7 @@ namespace TCOY.Canvas
 
             newModifiers = newSkill.getModifiers;
 
-            int length = global.GetPartyMember(partyMemberIndex).getStats.GetAttributes().Length;
+            int length = global.allies[allieIndex].getStats.GetAttributes().Length;
 
             for (int i = 0; i < length; i++)
             {
@@ -190,7 +190,7 @@ namespace TCOY.Canvas
 
             newModifiers = newSkill.getModifiers;
 
-            int length = global.GetPartyMember(partyMemberIndex).getStats.GetAttributes().Length;
+            int length = global.allies[allieIndex].getStats.GetAttributes().Length;
 
             for (int i = 0; i < length; i++)
             {
@@ -222,20 +222,20 @@ namespace TCOY.Canvas
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                partyMemberIndex--;
-                partyMemberIndex = Mathf.Clamp(partyMemberIndex, 0, global.getPartyMemberCount - 1);
+                allieIndex--;
+                allieIndex = Mathf.Clamp(allieIndex, 0, global.allies.count - 1);
                 global.getAudioSource.PlayOneShot(cyclePartyMembers);
                 RefreshPartyMember();
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
-                partyMemberIndex++;
-                partyMemberIndex = Mathf.Clamp(partyMemberIndex, 0, global.getPartyMemberCount - 1);
+                allieIndex++;
+                allieIndex = Mathf.Clamp(allieIndex, 0, global.allies.count - 1);
                 global.getAudioSource.PlayOneShot(cyclePartyMembers);
                 RefreshPartyMember();
             }
 
-            detailedActorViewCamera.transform.position = partyMember.getGameObject.transform.position + new Vector3(0f, 1f, -2.5f);
+            detailedActorViewCamera.transform.position = allie.getGameObject.transform.position + new Vector3(0f, 1f, -2.5f);
         }
     }
 }

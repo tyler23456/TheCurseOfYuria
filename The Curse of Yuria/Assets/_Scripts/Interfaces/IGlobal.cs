@@ -27,13 +27,13 @@ public interface IGlobal
     Vector2 scenePositionToStart { get; set; }
     float sceneEulerAngleZToStart { get; set; }
 
-    Transform getAllieRoot { get; }
-    List<IActor> getActors { get; }
     Camera getCamera { get; }
+    Actors allies { get; }
+    Actors enemies { get; }
 
     Queue<IActor> aTBGuageFilledQueue { get; }
-    Queue<Command> pendingCommands { get; }
-    List<Subcommand> successfulSubcommands { get; }
+    LinkedList<Command> pendingCommands { get; }
+    LinkedList<Command> successfulCommands { get; }
 
     Dictionary<IItem.Category, Inventory> inventories { get; }
     RectTransform getCanvas { get; }
@@ -44,14 +44,12 @@ public interface IGlobal
     IInventory getCompletedQuests { get; }
     IInventory getCompletedIds { get; }
 
-    int getPartyMemberCount { get; }
-    IPartyMember GetPartyMember(int i);
     void ToggleDisplay(Display display);
     void ClearAllInventories();
-    void DestroyAllPartyMembers();
     void AddDamagePopup(string damage, Vector3 position);
     void AddRecoveryPopup(string recovery, Vector3 position);
-    public void ClearAllPopups();
+    void ClearAllPopups();
 
     Coroutine StartCoroutine(IEnumerator routine);
+    void StopAllCoroutines();
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 
-namespace TCOY.Actors
+namespace TCOY.UserActors
 {
     public class PlayerControls : MonoBehaviour, IPlayerControls
     {

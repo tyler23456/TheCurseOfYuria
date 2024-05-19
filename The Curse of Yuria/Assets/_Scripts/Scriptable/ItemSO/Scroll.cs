@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Scroll : ItemBase, IItem
 {
-    public override IEnumerator Use(IActor user, IActor[] targets)
+    public override IEnumerator Use(IActor user, List<IActor> targets)
     {
         global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
 
@@ -46,7 +46,6 @@ public class Scroll : ItemBase, IItem
 
         target.getStats.ApplyCalculation(power, user.getStats, group, type, element);
         CheckStatusEffects(target);
-        global.successfulSubcommands.Add(new Subcommand(user, this, target));
     }
 
     protected virtual IEnumerator PerformEffect(IActor target)
@@ -67,16 +66,16 @@ public class Scroll : ItemBase, IItem
     {
         base.Equip(target);
 
-        if (target.getSkills.Contains(itemName))
+        if (target.getSkills.Contains(name))
             return;
 
-        target.getSkills.Add(itemName);
+        target.getSkills.Add(name);
     }
 
     public override void Unequip(IActor target)
     {
         base.Unequip(target);
-        target.getSkills.Remove(itemName);
+        target.getSkills.Remove(name);
     }
 
 

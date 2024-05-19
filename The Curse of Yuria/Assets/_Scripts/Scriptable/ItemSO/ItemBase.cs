@@ -31,7 +31,7 @@ public abstract class ItemBase : ScriptableObject
     [SerializeField] protected List<Reactor> interrupts;
 
     public ulong getGuid => guid;
-    public string itemName { get { return name; } set { name = value; } }
+    public new string name { get { return base.name; } set { base.name = value; } }
     public Sprite icon { get { return _icon; } set { _icon = value; } }
     public GameObject prefab { get { return _prefab; } set { _prefab = value; } }
     public IItem.Category category { get { return _category; } set { _category = value; } }
@@ -44,7 +44,7 @@ public abstract class ItemBase : ScriptableObject
     public int getCost => cost;
     public float getDuration => duration;
 
-    public string getIdentifiers => name + '|' + group.ToString() + '|' + type.ToString() + '|' + element.ToString();
+    public string getIdentifiers => base.name + '|' + group.ToString() + '|' + type.ToString() + '|' + element.ToString();
 
     public ItemSprite itemSprite { get { return _itemSprite; } set { _itemSprite = value; } }
     public List<StatusEffectProbability> getStatusEffects => statusEffectProbabilities;
@@ -52,7 +52,7 @@ public abstract class ItemBase : ScriptableObject
     public List<Reactor> getCounters => counters;
     public List<Reactor> getInterrupts => interrupts;
 
-    public virtual IEnumerator Use(IActor user, IActor[] targets)
+    public virtual IEnumerator Use(IActor user, List<IActor> targets)
     {
         yield return null;
     }

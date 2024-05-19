@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TCOY.Actors
+namespace TCOY.UserActors
 {
-    public class Player : Actor, IPartyMember
+    public class Player : Actor, IAllie
     {
 
         new protected void Start()

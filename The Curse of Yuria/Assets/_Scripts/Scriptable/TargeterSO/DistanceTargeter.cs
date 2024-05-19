@@ -27,6 +27,10 @@ public class DistanceTargeter : TargeterBase
             }
         }
 
-        return result == null? null : new List<IActor>() { result };
+        List<IActor> results = new List<IActor>();
+        if (result != null)
+            results.Add(result);
+
+        return results;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Supply : Scroll, IItem
 {
-    public override IEnumerator Use(IActor user, IActor[] targets)
+    public override IEnumerator Use(IActor user, List<IActor> targets)
     {
         global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
 

@@ -6,7 +6,9 @@ using System.Linq;
 [CreateAssetMenu(fileName = "NewPreviousTargeter", menuName = "Targeters/PreviousTargeter")]
 public class PreviousTargeter : TargeterBase
 {
-    [SerializeField] int previousUserCount = 1;
+    enum Type { user, targets }
+
+    [SerializeField] Type type;
     
     public override List<IActor> CalculateTargets(Vector2 position)
     {
@@ -16,11 +18,7 @@ public class PreviousTargeter : TargeterBase
 
         IGlobal global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
 
-        if (global.successfulSubcommands.Count < previousUserCount)
-            return null;
-
-        for (int i = previousUserCount - 1; i > -1; i++)
-            results.Add(global.successfulSubcommands[global.successfulSubcommands.Count - 1 - i].user);
+        
 
         return results;
     }

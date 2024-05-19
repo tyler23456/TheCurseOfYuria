@@ -29,9 +29,8 @@ namespace TCOY.DontDestroyOnLoad
         
         [SerializeField] Camera mainCamera;
         [SerializeField] Transform allieRoot;
+        [SerializeField] Transform enemyRoot;
         [SerializeField] Transform popupRoot;
-
-        List<IActor> actors = new List<IActor>();
 
         Inventory helmets = new Inventory();
         Inventory earrings = new Inventory();
@@ -51,16 +50,15 @@ namespace TCOY.DontDestroyOnLoad
 
         Dictionary<IGlobal.Display, RectTransform> displays = new Dictionary<IGlobal.Display, RectTransform>();
 
-        public Transform getAllieRoot => allieRoot;
-        public List<IActor> getActors => actors;
         public Camera getCamera => mainCamera;
+        public Actors allies { get; private set; } = new Actors();
+        public Actors enemies { get; private set; } = new Actors();
 
         public Dictionary<IItem.Category, Inventory> inventories { get; private set; } = new Dictionary<IItem.Category, Inventory>();
         
         public Queue<IActor> aTBGuageFilledQueue { get; set; } = new Queue<IActor>();
-        public Queue<Command> pendingCommands { get; set; } = new Queue<Command>();
-        public List<Subcommand> successfulSubcommands { get; set; } = new List<Subcommand>();
-
+        public LinkedList<Command> pendingCommands { get; set; } = new LinkedList<Command>();
+        public LinkedList<Command> successfulCommands { get; set; } = new LinkedList<Command>();
         public Queue<string> promptQueue { get; set; } = new Queue<string>();
 
 
@@ -74,14 +72,15 @@ namespace TCOY.DontDestroyOnLoad
 
         public RectTransform getCanvas => canvas;
 
-        public int getPartyMemberCount => allieRoot.transform.childCount;
-
         public int sceneIDToLoad { get; set; } = 0;
         public Vector2 scenePositionToStart { get; set; } = Vector2.zero;
         public float sceneEulerAngleZToStart { get; set; } = 0;
 
         public void Awake()
-        { 
+        {
+            IActor river = GameObject.Find("/DontDestroyOnLoad/AllieRoot/River").GetComponent<IActor>();
+            allies.Add(river);
+
             factory = GetComponent<IFactory>();
 
             inventories.Add(IItem.Category.helmets, helmets);
@@ -146,21 +145,10 @@ namespace TCOY.DontDestroyOnLoad
             }
         }
 
-        public IPartyMember GetPartyMember(int i)
-        {
-            return allieRoot.transform.GetChild(i).GetComponent<IPartyMember>();
-        }
-
         public void ClearAllInventories()
         {
             foreach (KeyValuePair<IItem.Category, Inventory> inventory in inventories)
                 inventory.Value.Clear();
-        }
-
-        public void DestroyAllPartyMembers()
-        {
-            for (int n = getAllieRoot.childCount - 1; n > -1; n--)
-                Destroy(getAllieRoot.GetChild(n).gameObject);
         }
 
         public void AddDamagePopup(string damage, Vector3 position)
@@ -182,6 +170,5 @@ namespace TCOY.DontDestroyOnLoad
             for (int n = popupRoot.transform.childCount - 1; n > -1; n--)
                 Destroy(popupRoot.transform.GetChild(n).gameObject);
         }
-
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TCOY.Actors
+namespace TCOY.UserActors
 {
     public class Enemy : Actor, IEnemy
     {
@@ -32,7 +32,7 @@ namespace TCOY.Actors
         {
             List<IActor> targets = movesQueue.Peek().getTargeter.CalculateTargets(transform.position);
 
-            if (targets == null)
+            if (targets.Count == 0)
             {
                 aTBGuage.Reset();
                 movesQueue.Enqueue(movesQueue.Dequeue());
@@ -40,7 +40,7 @@ namespace TCOY.Actors
             }
 
 
-            global.pendingCommands.Enqueue(new Command(this, movesQueue.Peek().getskill, targets.ToArray()));
+            global.pendingCommands.AddLast(new Command(this, movesQueue.Peek().getskill, targets));
 
             aTBGuage.Reset();
             movesQueue.Enqueue(movesQueue.Dequeue());

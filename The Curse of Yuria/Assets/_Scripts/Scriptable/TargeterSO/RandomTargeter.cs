@@ -11,6 +11,6 @@ public class RandomTargeter : TargeterBase
 
         int index = Random.Range(0, targets.Count);
 
-        return targets.Count == 0? null : new List<IActor> { targets[index] };
+        return targets.Count == 0? new List<IActor> { } : new List<IActor> { targets[index] };
     }
 }

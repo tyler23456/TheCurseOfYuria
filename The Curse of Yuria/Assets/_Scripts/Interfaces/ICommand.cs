@@ -6,5 +6,5 @@ public interface ICommand
 {
     IActor user { get; }
     IItem item { get; }
-    IActor[] targets { get; }
+    List<IActor> targets { get; }
 }

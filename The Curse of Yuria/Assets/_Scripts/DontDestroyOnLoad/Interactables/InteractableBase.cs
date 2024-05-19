@@ -31,7 +31,7 @@ namespace TCOY.DontDestroyOnLoad
                 id = System.DateTime.Now.Ticks.ToString() + "|" + System.Guid.NewGuid().ToString();    
         }
 
-        public virtual void Interact(IPartyMember player)
+        public virtual void Interact(IAllie player)
         {
         }
 
@@ -47,7 +47,7 @@ namespace TCOY.DontDestroyOnLoad
             if (playerControls == null)
                 return;
 
-            IPartyMember player = collision.GetComponent<IPartyMember>();
+            IAllie player = collision.GetComponent<IAllie>();
 
             Interact(player);
         }

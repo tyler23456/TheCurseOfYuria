@@ -198,11 +198,11 @@ namespace TCOY.DontDestroyOnLoad
             if (CompareItemSprite(asset.itemSprite, itemSprites[icon.name]) 
                 && asset.icon == icon 
                 && asset.prefab == prefab 
-                && CompareNames(icon.name, asset.itemName)
+                && CompareNames(icon.name, asset.name)
                 && asset.category == category)
                 return;
 
-            asset.itemName = FilterName(icon.name);
+            asset.name = FilterName(icon.name);
             asset.icon = icon;
             asset.itemSprite = itemSprites[icon.name];
             asset.prefab = prefab;

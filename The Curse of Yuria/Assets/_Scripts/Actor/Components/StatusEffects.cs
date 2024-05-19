@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace TCOY.Actors
+namespace TCOY.UserActors
 {
     public class StatusEffects : IStatusEffects
     {

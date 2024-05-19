@@ -30,7 +30,7 @@ namespace TCOY.DontDestroyOnLoad
         {
             Addressables.LoadAssetsAsync<IItem>(itemsReference, (i) =>
             {
-                items.Add(i.itemName, i);
+                items.Add(i.name, i);
             }).WaitForCompletion();
 
             Addressables.LoadAssetsAsync<IStatusEffect>(statusEffectsReference, (i) =>
@@ -59,7 +59,7 @@ namespace TCOY.DontDestroyOnLoad
             return statusEffects[name];
         }
 
-        public GameObject GetPartyMember(string partyMemberName)
+        public GameObject GetAllie(string partyMemberName)
         {
             return partyMembers[partyMemberName];
         }

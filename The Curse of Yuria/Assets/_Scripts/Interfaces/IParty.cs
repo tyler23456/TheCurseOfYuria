@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IParty
 {
-    void AddMember(IPartyMember member);
-    IPartyMember GetMember(string memberName);
+    void AddMember(IAllie member);
+    IAllie GetMember(string memberName);
 }

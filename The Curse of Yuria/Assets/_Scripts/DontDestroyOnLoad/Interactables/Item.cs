@@ -15,7 +15,7 @@ namespace TCOY.DontDestroyOnLoad
                 gameObject.SetActive(false);
         }
 
-        public override void Interact(IPartyMember player)
+        public override void Interact(IAllie player)
         {
             IItem.Category type = factory.GetItem(name).category;
 

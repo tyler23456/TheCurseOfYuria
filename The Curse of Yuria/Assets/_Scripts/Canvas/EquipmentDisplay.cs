@@ -67,7 +67,7 @@ namespace TCOY.Canvas
         [SerializeField] Sprite EmptySprite;
 
         IItem.Category currentPart = IItem.Category.helmets;
-        int partyMemberIndex = 0;
+        int allieIndex = 0;
 
         IActor partyMember;
 
@@ -125,7 +125,7 @@ namespace TCOY.Canvas
             shieldsTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => factory.GetItem(i).category == IItem.Category.shields)); };
             bowsTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => factory.GetItem(i).category == IItem.Category.bows)); };
 
-            partyMemberIndex = 0;
+            allieIndex = 0;
             RefreshEquipmentPart(IItem.Category.helmets, global.inventories[(int)IItem.Category.helmets]);
             RefreshPartyMember();
 
@@ -154,9 +154,9 @@ namespace TCOY.Canvas
 
         public void RefreshPartyMember()
         {
-            partyMember = global.GetPartyMember(partyMemberIndex);
+            partyMember = global.allies[allieIndex];
 
-            detailedActorViewCamera.cullingMask = LayerMask.GetMask("Actor" + (partyMemberIndex + 1).ToString());
+            detailedActorViewCamera.cullingMask = LayerMask.GetMask("Actor" + (allieIndex + 1).ToString());
 
             equipment = partyMember.getEquipment;
             stats = partyMember.getStats;
@@ -282,13 +282,13 @@ namespace TCOY.Canvas
                 this.itemInfo.text += "\n\nCounters:";
 
             foreach (Reactor reactor in currentItem.getCounters)
-                this.itemInfo.text += "\n" + reactor.getAction.ToString() + "|" + reactor.getParty.ToString() + "|" + reactor.getReaction.ToString() + "|" + reactor.getTarget.ToString();
+                this.itemInfo.text += "\n" + reactor.getItem.ToString() + "|" + reactor.getParty.ToString() + "|" + reactor.getReaction.ToString() + "|" + reactor.getTargeter.ToString();
 
             if (currentItem.getCounters.Count > 0)
                 this.itemInfo.text += "\n\nInterrupts:";
 
             foreach (Reactor reactor in currentItem.getInterrupts)
-                this.itemInfo.text += "\n" + reactor.getAction.ToString() + "|" + reactor.getParty.ToString() + "|" + reactor.getReaction.ToString() + "|" + reactor.getTarget.ToString();
+                this.itemInfo.text += "\n" + reactor.getItem.ToString() + "|" + reactor.getParty.ToString() + "|" + reactor.getReaction.ToString() + "|" + reactor.getTargeter.ToString();
 
             int length = partyMember.getStats.GetAttributes().Length;
 
@@ -330,15 +330,15 @@ namespace TCOY.Canvas
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                partyMemberIndex--;
-                partyMemberIndex = Mathf.Clamp(partyMemberIndex, 0, global.getPartyMemberCount - 1);
+                allieIndex--;
+                allieIndex = Mathf.Clamp(allieIndex, 0, global.allies.count - 1);
                 global.getAudioSource.PlayOneShot(cyclePartyMembers);
                 RefreshPartyMember();
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
-                partyMemberIndex++;
-                partyMemberIndex = Mathf.Clamp(partyMemberIndex, 0, global.getPartyMemberCount - 1);
+                allieIndex++;
+                allieIndex = Mathf.Clamp(allieIndex, 0, global.allies.count - 1);
                 global.getAudioSource.PlayOneShot(cyclePartyMembers);
                 RefreshPartyMember();
             }
