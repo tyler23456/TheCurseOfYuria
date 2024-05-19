@@ -12,7 +12,7 @@ namespace TCOY.BattleSystem
         [SerializeField] TargeterBase enemyTargeter;
         [SerializeField] List<StatusEffectBase> gameOverStatusEffects;
 
-        void Start()
+        public void Start()
         {
             global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
             global.StartCoroutine(BattleSystemLoop());
@@ -27,6 +27,9 @@ namespace TCOY.BattleSystem
         {
             while (true)
             {
+                if (IGlobal.gameState != IGlobal.GameState.Playing)
+                    yield return new WaitForEndOfFrame();
+
                 yield return new WaitForEndOfFrame();
 
                 RefreshNearbyEnemies();

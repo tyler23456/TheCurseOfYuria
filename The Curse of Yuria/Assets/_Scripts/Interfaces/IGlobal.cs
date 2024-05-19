@@ -11,7 +11,7 @@ public interface IGlobal
     {
         MainMenuDisplay,
         LoadingDisplay,
-        PromptDisplay,
+        CutsceneDisplay,
         EquipmentDisplay,
         ScrollDisplay,
         CommandDisplay,
@@ -34,6 +34,10 @@ public interface IGlobal
     Queue<IActor> aTBGuageFilledQueue { get; }
     LinkedList<Command> pendingCommands { get; }
     LinkedList<Command> successfulCommands { get; }
+    Queue<ActionBase> cutsceneActions { get; }
+
+    Image getPromptImage { get;}
+    TMP_Text getPromptText { get; }
 
     Dictionary<IItem.Category, Inventory> inventories { get; }
     RectTransform getCanvas { get; }

@@ -20,13 +20,16 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] RectTransform canvas;
         [SerializeField] RectTransform mainMenuDisplay;
         [SerializeField] RectTransform loadingDisplay;
-        [SerializeField] RectTransform promptDisplay;
+        [SerializeField] RectTransform cutsceneDisplay;
         [SerializeField] RectTransform equipmentDisplay;
         [SerializeField] RectTransform scrollDisplay;
         [SerializeField] RectTransform commandDisplay;
         [SerializeField] RectTransform optionsDisplay;
         [SerializeField] RectTransform gameOverDisplay;
-        
+
+        [SerializeField] Image promptImage;
+        [SerializeField] TMP_Text promptText;
+
         [SerializeField] Camera mainCamera;
         [SerializeField] Transform allieRoot;
         [SerializeField] Transform enemyRoot;
@@ -59,7 +62,10 @@ namespace TCOY.DontDestroyOnLoad
         public Queue<IActor> aTBGuageFilledQueue { get; set; } = new Queue<IActor>();
         public LinkedList<Command> pendingCommands { get; set; } = new LinkedList<Command>();
         public LinkedList<Command> successfulCommands { get; set; } = new LinkedList<Command>();
-        public Queue<string> promptQueue { get; set; } = new Queue<string>();
+        public Queue<ActionBase> cutsceneActions { get; set; } = new Queue<ActionBase>();
+
+        public Image getPromptImage => promptImage;
+        public TMP_Text getPromptText => promptText;
 
 
         ShakeData IGlobal.getShakeData => shakeData;
@@ -78,10 +84,9 @@ namespace TCOY.DontDestroyOnLoad
 
         public void Awake()
         {
-            IActor river = GameObject.Find("/DontDestroyOnLoad/AllieRoot/River").GetComponent<IActor>();
-            allies.Add(river);
-
             factory = GetComponent<IFactory>();
+
+            allies = new Actors(allieRoot);
 
             inventories.Add(IItem.Category.helmets, helmets);
             inventories.Add(IItem.Category.earrings, earrings);
@@ -99,12 +104,15 @@ namespace TCOY.DontDestroyOnLoad
 
             displays.Add(IGlobal.Display.MainMenuDisplay, mainMenuDisplay);
             displays.Add(IGlobal.Display.LoadingDisplay, loadingDisplay);
-            displays.Add(IGlobal.Display.PromptDisplay, promptDisplay);
+            displays.Add(IGlobal.Display.CutsceneDisplay, cutsceneDisplay);
             displays.Add(IGlobal.Display.EquipmentDisplay, equipmentDisplay);
             displays.Add(IGlobal.Display.ScrollDisplay, scrollDisplay);
             displays.Add(IGlobal.Display.CommandDisplay, commandDisplay);
             displays.Add(IGlobal.Display.OptionsDisplay, optionsDisplay);
             displays.Add(IGlobal.Display.GameOverDisplay, gameOverDisplay);
+
+            IActor river = GameObject.Find("/DontDestroyOnLoad/AllieRoot/River").GetComponent<IActor>();
+            allies.Add(river);
         }
 
         public void LateUpdate()

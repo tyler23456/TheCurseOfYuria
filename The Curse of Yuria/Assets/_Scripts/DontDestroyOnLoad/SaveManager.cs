@@ -25,6 +25,7 @@ public class SaveManager : MonoBehaviour, ISaveManager
         ClearNonPersistentData();
 
         IActor allie = Instantiate(factory.GetAllie("River")).GetComponent<IActor>();
+        allie.getGameObject.name = "River";
         allie.Initialize();
         global.allies.Add(allie);
         
@@ -84,8 +85,6 @@ public class SaveManager : MonoBehaviour, ISaveManager
 
     public void ClearNonPersistentData()
     {
-        global.StopAllCoroutines();
-
         global.ClearAllInventories();
         global.allies.DestroyAndClear();
         global.enemies.DestroyAndClear();
@@ -263,6 +262,7 @@ public class SaveManager : MonoBehaviour, ISaveManager
             foreach (AllieData allieData in allieDatas)
             {
                 IActor allie = Instantiate(factory.GetAllie(allieData.name)).GetComponent<IActor>();
+                allie.getGameObject.name = allieData.name;
                 global.allies.Add(allie);
                 allieData.Load(allie, factory);
             }

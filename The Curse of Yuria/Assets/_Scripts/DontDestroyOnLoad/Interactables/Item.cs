@@ -23,11 +23,5 @@ namespace TCOY.DontDestroyOnLoad
             gameObject.SetActive(false);
             global.getCompletedIds.Add(getID, 1);
         }
-
-        public override void Use(IActor user, IActor[] targets)
-        {
-            foreach (IActor target in targets)
-                Instantiate(gameObject, target.getGameObject.transform);
-        }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 
 public class Actors
 {
+    Transform parent;
     List<IActor> actors = new List<IActor>();
 
     public IActor this[int index]
@@ -16,6 +17,12 @@ public class Actors
     }
 
     public int count => actors.Count;
+
+    public Actors(Transform parent = null)
+    {
+        this.parent = parent;
+    }
+        
 
     public void Clear()
     {
@@ -46,20 +53,27 @@ public class Actors
     {
         foreach (IActor actor in actors)
             GameObject.Destroy(actor.getGameObject);
+
+        actors.Clear();
     }
 
     public void Set(List<IActor> actors)
     {
         this.actors = actors;
+
+        foreach (IActor actor in actors)
+            actor.getGameObject.transform.parent = parent;
     }
 
     public void Add(IActor actor)
     {
+        actor.getGameObject.transform.parent = parent;
         actors.Add(actor);
     }
 
     public void Insert(int index, IActor actor)
     {
+        actor.getGameObject.transform.parent = parent;
         actors.Insert(index, actor);
     }
 

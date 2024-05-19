@@ -33,7 +33,7 @@ namespace TCOY.DontDestroyOnLoad
             while (!asyncOperation.isDone)
             {
                 progress = asyncOperation.progress / 0.9f;
-                yield return null;
+                yield return new WaitForEndOfFrame();
             }
 
             global.allies.SetPosition(global.scenePositionToStart);

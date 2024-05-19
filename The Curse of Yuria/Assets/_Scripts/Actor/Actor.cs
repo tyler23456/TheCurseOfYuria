@@ -52,7 +52,7 @@ namespace TCOY.UserActors
             Initialize();
         }
 
-        public void Initialize()
+        public virtual void Initialize()
         {
             if (hasInitialized)
                 return;
@@ -64,7 +64,6 @@ namespace TCOY.UserActors
             factory = obj.GetComponent<IFactory>();
 
             character = GetComponent<Character>();
-            camera = GameObject.Find("/DontDestroyOnLoad/Main Camera").GetComponent<Camera>();
             collider2D = GetComponent<Collider2D>();
             spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
@@ -102,12 +101,6 @@ namespace TCOY.UserActors
             aTBGuage.Update();
             groundChecker.Update();
             statusEffects.Update();
-        }
-
-        protected void LateUpdate()
-        {
-            if (camera != null)
-                camera.transform.position = Vector3.Lerp(camera.transform.position, transform.position + new Vector3(0f, 0f, -1f), 0.3f);
         }
 
         protected IEnumerator HitAnimation()

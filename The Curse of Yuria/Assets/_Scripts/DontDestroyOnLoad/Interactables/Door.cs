@@ -8,17 +8,20 @@ namespace TCOY.DontDestroyOnLoad
     {
         [SerializeField] int sceneID;
         [SerializeField] Vector2 destination;
+        [SerializeField] float eulerAngleZ;
         [SerializeField] Sprite OpenDoor;
-        SpriteRenderer spriteRenderer;
+        [SerializeField] List<ItemBase> RequiredItems;
+        [SerializeField] Prompt onLockedPrompt;
 
-        [SerializeField] List<string> RequiredItems;
-        string onLockedInteractionPrompt = "This door is locked.  It needs a key to open";
+        Sprite closedDoor;
+        SpriteRenderer spriteRenderer;
 
         protected new void Start()
         {
             base.Start();
 
             spriteRenderer = GetComponent<SpriteRenderer>();
+            closedDoor = spriteRenderer.sprite;
 
             if (global.getCompletedIds.Contains(getID))
                 ShowOpenDoorSprite();
@@ -26,7 +29,7 @@ namespace TCOY.DontDestroyOnLoad
 
         public override void Interact(IAllie player)
         {
-            if (!RequiredItems.TrueForAll(i => global.inventories[IItem.Category.questItems].Contains(i)))
+            if (!RequiredItems.TrueForAll(i => global.inventories[IItem.Category.questItems].Contains(i.name)))
             {
                 ShowLockedPrompt();
                 return;
@@ -35,7 +38,10 @@ namespace TCOY.DontDestroyOnLoad
             ShowOpenDoorSprite();
             global.getCompletedIds.Add(getID, 1);
 
-            //door takes characters to another location or another scene
+            global.sceneIDToLoad = sceneID;
+            global.scenePositionToStart = destination;
+            global.sceneEulerAngleZToStart = eulerAngleZ;
+            global.ToggleDisplay(IGlobal.Display.LoadingDisplay);
         }
 
         public void ShowOpenDoorSprite()
@@ -45,12 +51,8 @@ namespace TCOY.DontDestroyOnLoad
 
         public void ShowLockedPrompt()
         {
-
-        }
-
-        public void MovePlayerToDestination()
-        {
-
+            global.cutsceneActions.Enqueue(onLockedPrompt);
+            global.ToggleDisplay(IGlobal.Display.CutsceneDisplay);
         }
     }
 }

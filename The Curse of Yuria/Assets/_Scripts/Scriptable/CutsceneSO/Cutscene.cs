@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dialogue : ScriptableObject
+[CreateAssetMenu(fileName = "_NewCutscene", menuName = "Dialogue/Cutscene")]
+public class Cutscene : ScriptableObject
 {
     IGlobal global;
     IFactory factory;

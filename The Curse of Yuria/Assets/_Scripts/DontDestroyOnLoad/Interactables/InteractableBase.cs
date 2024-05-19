@@ -35,11 +35,6 @@ namespace TCOY.DontDestroyOnLoad
         {
         }
 
-        public virtual void Use(IActor user, IActor[] targets)
-        {
-        }
-
-
         private void OnTriggerStay2D(Collider2D collision)
         {   
             IPlayerControls playerControls = collision.GetComponent<IPlayerControls>();
