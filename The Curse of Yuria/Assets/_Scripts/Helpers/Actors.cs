@@ -32,20 +32,20 @@ public class Actors
     public List<Command> CalculateCounters(Command command)
     {
         List<Command> results = new List<Command>();
-        foreach (IActor actor in actors)
-            foreach (Reactor reactor in actor.counters)            
-                if (command.user.getParty == reactor.getParty && command.item.name == reactor.getItem.name)
-                    results.Add(new Command(actor, reactor.getItem, reactor.getTargeter.CalculateTargets(actor.getGameObject.transform.position)));
+        foreach (IActor actor in actors.ToArray())
+            foreach (Reactor reactor in actor.getCounters)            
+                if (command.targets[0].getParty == reactor.getParty && command.item.name == reactor.getItem.name)
+                    results.Add(new Command(actor, reactor.getReaction, reactor.getTargeter.CalculateTargets(actor.getGameObject.transform.position)));
         return results;
     }
 
     public List<Command> CalculateInterrupts(Command command)
     {
         List<Command> results = new List<Command>();
-        foreach (IActor actor in actors)
-            foreach (Reactor reactor in actor.interrupts)
-                if (command.user.getParty == reactor.getParty && command.item.name == reactor.getItem.name)
-                    results.Add(new Command(actor, reactor.getItem, reactor.getTargeter.CalculateTargets(actor.getGameObject.transform.position)));
+        foreach (IActor actor in actors.ToArray())
+            foreach (Reactor reactor in actor.getInterrupts)
+                if (command.targets[0].getParty == reactor.getParty && command.item.name == reactor.getItem.name)
+                    results.Add(new Command(actor, reactor.getReaction, reactor.getTargeter.CalculateTargets(actor.getGameObject.transform.position)));
         return results;
     }
 

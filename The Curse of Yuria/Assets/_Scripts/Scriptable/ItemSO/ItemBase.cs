@@ -83,10 +83,10 @@ public abstract class ItemBase : ScriptableObject
             target.getStats.OffsetAttribute(modifier.getAttribute, modifier.getOffset);
 
         foreach (Reactor counter in counters)
-            target.counters.Add(counter);
+            target.getCounters.Add(counter);
 
         foreach (Reactor interrupt in interrupts)
-            target.interrupts.Add(interrupt);
+            target.getInterrupts.Add(interrupt);
     }
 
     public virtual void Unequip(IActor target)
@@ -95,9 +95,9 @@ public abstract class ItemBase : ScriptableObject
             target.getStats.OffsetAttribute(modifier.getAttribute, -modifier.getOffset);
 
         foreach (Reactor counter in counters)
-            target.counters.Remove(counter);
+            target.getCounters.Remove(counter);
 
         foreach (Reactor interrupt in interrupts)
-            target.interrupts.Remove(interrupt);
+            target.getInterrupts.Remove(interrupt);
     }
 }

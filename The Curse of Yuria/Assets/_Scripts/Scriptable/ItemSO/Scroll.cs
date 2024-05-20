@@ -38,7 +38,7 @@ public class Scroll : ItemBase, IItem
         ParticleSystem particleSystem = GameObject.Instantiate(this.particleSystem.gameObject, target.getGameObject.transform).GetComponent<ParticleSystem>();
         Destroy(particleSystem.gameObject, particleSystem.main.duration);
 
-        while (particleSystem != null)
+        while (particleSystem.time < particleSystem.main.duration / 10f)
             yield return new WaitForEndOfFrame();
 
         if (user == null)
@@ -53,7 +53,7 @@ public class Scroll : ItemBase, IItem
         ParticleSystem particleSystem = GameObject.Instantiate(this.particleSystem.gameObject, target.getGameObject.transform).GetComponent<ParticleSystem>();
         Destroy(particleSystem.gameObject, particleSystem.main.duration);
 
-        while (particleSystem != null)
+        while (particleSystem.time < particleSystem.main.duration / 10f)
             yield return new WaitForEndOfFrame();
 
         if (target == null)

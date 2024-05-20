@@ -15,6 +15,8 @@ namespace TCOY.UserActors
         [SerializeField] TargeterBase.Party party;
         [SerializeField] List<ItemBase> defaultItems;
         [SerializeField] protected Stats stats;
+        [SerializeField] List<Reactor> counters;
+        [SerializeField] List<Reactor> interrupts;
 
         protected Character character;
         protected new Camera camera;
@@ -42,8 +44,8 @@ namespace TCOY.UserActors
         public IAnimator getAnimator => animator;
         public IStatusEffects getStatusEffects => statusEffects;
 
-        public List<Reactor> counters { get; private set; } = new List<Reactor>();
-        public List<Reactor> interrupts { get; private set; } = new List<Reactor>();
+        public List<Reactor> getCounters => counters;
+        public List<Reactor> getInterrupts => interrupts;
 
         bool hasInitialized = false;
 

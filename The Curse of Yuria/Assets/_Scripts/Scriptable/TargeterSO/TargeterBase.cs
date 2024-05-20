@@ -22,17 +22,17 @@ public abstract class TargeterBase : ScriptableObject
         switch (party)
         {
             case Party.Allie:
-                layerMask = LayerMask.NameToLayer("Allie");
+                layerMask = LayerMask.GetMask("Allie");
                 break;
             case Party.Enemy:
-                layerMask = LayerMask.NameToLayer("Enemy");
+                layerMask = LayerMask.GetMask("Enemy");
                 break;
             case Party.Both:
-                layerMask = LayerMask.NameToLayer("Allie") | LayerMask.NameToLayer("Enemy");
+                layerMask = LayerMask.GetMask("Allie") | LayerMask.GetMask("Enemy");
                 break;
         }
 
-        colliderCount = Physics2D.OverlapCircleNonAlloc(position, targetCheckDistance, colliders, ~layerMask);
+        colliderCount = Physics2D.OverlapCircleNonAlloc(position, targetCheckDistance, colliders, layerMask);
 
         targets.Clear();
         for (int i = 0; i < colliderCount; i++)

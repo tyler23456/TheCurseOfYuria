@@ -39,7 +39,7 @@ namespace TCOY.BattleSystem
                 CheckForInterrupts();
 
                 if (global.pendingCommands.Count == 0)
-                    continue;
+                    continue;     
 
                 Command command = global.pendingCommands.First();
                 global.pendingCommands.RemoveFirst();
@@ -48,32 +48,45 @@ namespace TCOY.BattleSystem
                     continue;
 
                 command.user.StartCoroutine(command.item.Use(command.user, command.targets));
+                global.successfulCommands.AddLast(command);
                 yield return new WaitForSeconds(1f);
             }
         }
 
         void CheckForCounters()
         {
-            if (global.successfulCommands.Count == 0)
+            if (global.successfulCommands.Count == 0 || !global.successfulCommands.Last().isCounterable)
                 return;
 
             List<Command> counters = global.allies.CalculateCounters(global.successfulCommands.Last());
             List<Command> counters2 = global.enemies.CalculateCounters(global.successfulCommands.Last());
             counters.AddRange(counters2);
+
+            global.successfulCommands.Last().isCounterable = false; 
+
             foreach (Command command in counters)
+            {
+                command.isCounterable = false;
                 global.pendingCommands.AddLast(command);
+            }
         }
 
         void CheckForInterrupts()
         {
-            if (global.pendingCommands.Count == 0)
+            if (global.pendingCommands.Count == 0 || !global.pendingCommands.First().isInterruptable)
                 return;
 
-            List<Command> counters = global.allies.CalculateCounters(global.pendingCommands.First());
-            List<Command> counters2 = global.enemies.CalculateCounters(global.pendingCommands.First());
-            counters.AddRange(counters2);
-            foreach (Command command in counters)
+            List<Command> interrupts = global.allies.CalculateInterrupts(global.pendingCommands.First());
+            List<Command> interrupts2 = global.enemies.CalculateInterrupts(global.pendingCommands.First());
+            interrupts.AddRange(interrupts2);
+
+            global.pendingCommands.First().isInterruptable = false;
+
+            foreach (Command command in interrupts)
+            {
+                command.isInterruptable = false;
                 global.pendingCommands.AddFirst(command);
+            }
         }
 
         void RefreshNearbyEnemies()

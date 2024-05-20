@@ -14,8 +14,8 @@ public interface IActor
     IRotation getRotation { get; }
     IStats getStats { get; }
     IATBGuage getATBGuage { get; }
-    List<Reactor> counters { get; }
-    List<Reactor> interrupts { get; }
+    List<Reactor> getCounters { get; }
+    List<Reactor> getInterrupts { get; }
     IInventory getEquipment { get;}
     IInventory getSkills { get; }
     IAnimator getAnimator { get; }
