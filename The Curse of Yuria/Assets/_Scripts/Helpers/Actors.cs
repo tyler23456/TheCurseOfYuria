@@ -44,7 +44,7 @@ public class Actors
         List<Command> results = new List<Command>();
         foreach (IActor actor in actors.ToArray())
             foreach (Reactor reactor in actor.getInterrupts)
-                if (command.targets[0].getParty == reactor.getParty && command.item.name == reactor.getItem.name)
+                if (command.targets[0].getParty == reactor.getParty && command.item.name == reactor.getItem.name) //targets can be null....need to fix that
                     results.Add(new Command(actor, reactor.getReaction, reactor.getTargeter.CalculateTargets(actor.getGameObject.transform.position)));
         return results;
     }

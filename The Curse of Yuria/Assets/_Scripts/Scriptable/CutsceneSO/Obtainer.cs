@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewObtainer", menuName = "Dialogue/Obtainer")]
+[CreateAssetMenu(fileName = "NewObtainer", menuName = "Cutscene/Obtainer")]
 public class Obtainer : ActionBase, IAction
 {
     [SerializeField] List<ItemBase> items;

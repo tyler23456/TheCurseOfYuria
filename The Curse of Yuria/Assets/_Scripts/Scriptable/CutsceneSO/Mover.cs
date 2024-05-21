@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewMover", menuName = "Dialogue/Mover")]
+[CreateAssetMenu(fileName = "NewMover", menuName = "Cutscene/Mover")]
 public class Mover : ActionBase, IAction
 {
     [SerializeField] string actorName = "default";

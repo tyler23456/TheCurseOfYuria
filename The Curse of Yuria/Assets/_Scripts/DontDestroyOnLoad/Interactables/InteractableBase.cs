@@ -39,7 +39,7 @@ namespace TCOY.DontDestroyOnLoad
         {   
             IPlayerControls playerControls = collision.GetComponent<IPlayerControls>();
 
-            if (playerControls == null)
+            if (playerControls == null || !Input.GetKeyDown(KeyCode.Mouse0))
                 return;
 
             IAllie player = collision.GetComponent<IAllie>();

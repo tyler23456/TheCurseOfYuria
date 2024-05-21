@@ -26,17 +26,15 @@ namespace TCOY.Canvas
 
         void OnDisable()
         {
-            IGlobal.gameState = IGlobal.GameState.Stopped;
+            IGlobal.gameState = IGlobal.GameState.Playing;
         }
 
         public IEnumerator Activate(IGlobal global, IFactory factory, List<IActor> actors)
         {
-            foreach (ActionBase action in global.cutsceneActions)
-                yield return action.Activate(global, factory, actors);
+            while (global.cutsceneActions.Count > 0)
+                yield return global.cutsceneActions.Dequeue().Activate(global, factory, actors);
 
             gameObject.SetActive(false);
         }
-
-        
     }
 }

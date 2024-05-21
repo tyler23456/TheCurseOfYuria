@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
+  m_Name: TestPrompt
+  m_EditorClassIdentifier: 
+  text: Hi, this is a test to see if the dialogue is working properly.  What do you
+    think?  Do you think the dialogue system is working.  Ooops, I meant to say Cutscene
+    system because the developer decided to change its name.
