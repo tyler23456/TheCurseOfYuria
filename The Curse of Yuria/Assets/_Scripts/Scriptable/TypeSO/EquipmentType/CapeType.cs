@@ -6,5 +6,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Cape", menuName = "ItemType/Cape")]
 public class CapeType : ItemTypeBase, IType
 {
-    public override EquipmentPart part { get; protected set; } = EquipmentPart.Cape;
+    public override EquipmentPart part => EquipmentPart.Cape;
 }

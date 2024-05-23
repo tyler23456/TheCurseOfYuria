@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class QuestBase : ScriptableObject
 {
-    public new string name => base.name;
+
 }

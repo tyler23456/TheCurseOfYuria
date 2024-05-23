@@ -6,5 +6,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Shield", menuName = "ItemType/Shield")]
 public class ShieldType : ItemTypeBase, IType
 {
-    public override EquipmentPart part { get; protected set; } = EquipmentPart.Shield;
+    public override EquipmentPart part => EquipmentPart.Shield;
 }

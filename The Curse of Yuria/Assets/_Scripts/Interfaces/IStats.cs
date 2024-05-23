@@ -4,7 +4,10 @@ using UnityEngine;
 
 public interface IStats
 {
-    const float Sensitivity = 20f;
+    const float OffenseSensitivity = 10f;
+    const float DefenseSensitivity = 20f;
+    const float weaknessSensitivity = 20f;
+    const float powerMultiplier = 10f;
 
     enum Attribute { MaxHP, MaxMP, Strength, Defense, Magic, Aura, Speed, Luck }
 

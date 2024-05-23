@@ -6,5 +6,5 @@ using UnityEngine;
 
 public class ItemTypeBase : TypeBase
 {
-    public virtual EquipmentPart part { get; protected set; }
+    public virtual EquipmentPart part => EquipmentPart.Armor;
 }

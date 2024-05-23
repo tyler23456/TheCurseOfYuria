@@ -45,7 +45,7 @@ public class Scroll : ItemBase, IItem
             yield break;
 
         float accumulator = 0;
-        accumulator = _elementType.Calculate(user, target, accumulator);
+        accumulator = _elementType.Calculate(user, target, power * IStats.powerMultiplier);
         accumulator = _armType.Calculate(user, target, accumulator);
         accumulator = _calculationType.Calculate(user, target, accumulator);
 
@@ -64,7 +64,7 @@ public class Scroll : ItemBase, IItem
             yield break;
 
         float accumulator = 0;
-        accumulator = _elementType.Calculate(null, target, accumulator);
+        accumulator = _elementType.Calculate(null, target, power * IStats.powerMultiplier);
         accumulator = _calculationType.Calculate(null, target, accumulator);
     }
 

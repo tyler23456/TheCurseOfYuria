@@ -4,10 +4,13 @@ using UnityEngine;
 
 public abstract class ElementTypeBase : TypeBase
 {
-    public abstract int weaknessIndex { get; protected set; }
+    public virtual int weaknessIndex => 0;
 
     public override float Calculate(IActor user, IActor target, float accumulator)
     {
-        return accumulator * (20f / (20f + user.getStats.GetWeakness(weaknessIndex)));
+        int weakness = target.getStats.GetWeakness(weaknessIndex);
+        
+        return weakness >= 0? accumulator * (IStats.weaknessSensitivity / (IStats.weaknessSensitivity + weakness)) :
+                              accumulator * ((-weakness + IStats.weaknessSensitivity) / IStats.weaknessSensitivity);
     }
 }

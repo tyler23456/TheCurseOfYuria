@@ -6,5 +6,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Armor", menuName = "ItemType/Armor")]
 public class ArmorType : ItemTypeBase, IType
 {
-    public override EquipmentPart part { get; protected set; } = EquipmentPart.Armor;
+    public override EquipmentPart part => EquipmentPart.Armor;
 }

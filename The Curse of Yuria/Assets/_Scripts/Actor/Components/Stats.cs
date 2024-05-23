@@ -93,7 +93,7 @@ namespace TCOY.UserActors
         {
             int result = (int)(amount * UnityEngine.Random.Range(0.8f, 1.2f));
             HP -= result;
-            onApplyRecovery.Invoke(result);
+            onApplyDamage.Invoke(result);
             CheckForZeroHealth();
         }
 

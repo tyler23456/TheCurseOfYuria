@@ -6,5 +6,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Melee2H", menuName = "ItemType/Melee2H")]
 public class Melee2HType : ItemTypeBase, IType
 {
-    public override EquipmentPart part { get; protected set; } = EquipmentPart.MeleeWeapon2H;
+    public override EquipmentPart part => EquipmentPart.MeleeWeapon2H;
 }

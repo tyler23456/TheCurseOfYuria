@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Dark", menuName = "ElementType/Dark")]
 public class DarkType : ElementTypeBase
 {
-    public override int weaknessIndex { get; protected set; } = 4;
+    public override int weaknessIndex => 4;
 }

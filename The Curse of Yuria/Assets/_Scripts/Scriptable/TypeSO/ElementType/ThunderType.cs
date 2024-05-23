@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Thunder", menuName = "ElementType/Thunder")]
 public class ThunderType : ElementTypeBase
 {
-    public override int weaknessIndex { get; protected set; } = 2;
+    public override int weaknessIndex => 2;
 }

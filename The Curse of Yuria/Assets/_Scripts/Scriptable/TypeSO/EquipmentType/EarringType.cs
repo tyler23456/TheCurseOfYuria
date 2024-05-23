@@ -6,5 +6,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Earring", menuName = "ItemType/Earring")]
 public class EarringType : ItemTypeBase, IType
 {
-    public override EquipmentPart part { get; protected set; } = EquipmentPart.Earrings;
+    public override EquipmentPart part => EquipmentPart.Earrings;
 }

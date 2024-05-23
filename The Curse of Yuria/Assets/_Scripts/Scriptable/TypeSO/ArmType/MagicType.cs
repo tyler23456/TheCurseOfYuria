@@ -7,7 +7,7 @@ public class MagicType : ArmTypeBase
 {
     public override float Calculate(IActor user, IActor target, float accumulator)
     {
-        return accumulator * (IStats.Sensitivity / (IStats.Sensitivity + user.getStats.GetAttribute(IStats.Attribute.Magic))) 
-                           * (IStats.Sensitivity / (IStats.Sensitivity - target.getStats.GetAttribute(IStats.Attribute.Aura)));
+        return accumulator * ((user.getStats.GetAttribute(IStats.Attribute.Magic) + IStats.OffenseSensitivity) / (IStats.OffenseSensitivity)) 
+                           * (IStats.DefenseSensitivity / (IStats.DefenseSensitivity + target.getStats.GetAttribute(IStats.Attribute.Aura)));
     }
 }
