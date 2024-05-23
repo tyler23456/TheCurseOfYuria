@@ -209,6 +209,7 @@ namespace TCOY.DontDestroyOnLoad
                 && asset.icon == icon
                 && asset.prefab == prefab
                 && CompareNames(icon.name, asset.name)
+                && asset.itemType != null
                 && asset.itemType.name == itemType.name
                 && asset.armType != null
                 && asset.elementType != null

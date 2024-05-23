@@ -94,7 +94,11 @@ namespace TCOY.UserActors
             stats.onApplyRecovery = (recovery) => global.AddRecoveryPopup(recovery.ToString(), collider2D.bounds.center);
 
             foreach (ItemBase item in defaultItems)
+            {
+                Debug.Log(item.itemType.part.ToString());
                 factory.GetItem(item.name).Equip(this);
+            }
+                
         }
 
         protected void Update()

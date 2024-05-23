@@ -127,6 +127,7 @@ namespace TCOY.Canvas
             shieldsTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => factory.GetItem(i).itemType == factory.getShield)); };
             bowsTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => factory.GetItem(i).itemType == factory.getBow)); };
 
+            slots.Clear();
             slots.Add(factory.getHelmet, helmetSlot);
             slots.Add(factory.getEarring, earringSlot);
             slots.Add(factory.getGlasses, glassesSlot);

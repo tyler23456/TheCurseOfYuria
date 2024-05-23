@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public abstract class ItemTypeBase : TypeBase
+public class ItemTypeBase : TypeBase
 {
     public virtual EquipmentPart part { get; protected set; }
-
 }

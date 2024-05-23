@@ -53,11 +53,6 @@ public abstract class ItemBase : TypeBase
     public List<Reactor> getCounters => counters;
     public List<Reactor> getInterrupts => interrupts;
 
-    public void Awake()
-    {
-        IFactory factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
-    }
-
     public virtual IEnumerator Use(IActor user, List<IActor> targets)
     {
         yield return null;

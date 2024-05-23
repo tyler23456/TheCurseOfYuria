@@ -15,14 +15,14 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 21300000, guid: 4534db6667d3b754c8eef891eff1dd95, type: 3}
   _prefab: {fileID: 8196160977919613476, guid: 1afb5de8a9824974ca878e486a7ce16a, type: 3}
-  _category: 10
+  _equipmentType: {fileID: 11400000, guid: 989166b4b7e1b3a45b41dd36d0c3d7d5, type: 2}
   info: 
-  group: 3
-  type: 1
-  element: 5
+  _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
+  anyType: {fileID: 0}
   power: 2
   cost: 2
-  duration: Infinity
   effects: []
   particleSystem: {fileID: 6846817570176300725, guid: f540104585cd8a84b88c69d063e7750f, type: 3}
   _itemSprite:
@@ -37,8 +37,7 @@ MonoBehaviour:
     Multiple: 1
     Hash: fab74b9440a14077f3d67b3ffbb45ebd
     Tags: []
-  statusEffects:
-  - {fileID: 11400000, guid: 38d6dd2d5fcd1ba468331a4a743bc351, type: 2}
+  statusEffectProbabilities: []
   modifiers: []
   counters: []
   interrupts: []
