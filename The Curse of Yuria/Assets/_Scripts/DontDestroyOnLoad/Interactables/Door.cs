@@ -29,7 +29,7 @@ namespace TCOY.DontDestroyOnLoad
 
         public override void Interact(IAllie player)
         {
-            if (!RequiredItems.TrueForAll(i => global.inventories[IItem.Category.questItems].Contains(i.name)))
+            if (!RequiredItems.TrueForAll(i => global.inventories[factory.getQuestItem.name].Contains(i.name)))
             {
                 ShowLockedPrompt();
                 return;

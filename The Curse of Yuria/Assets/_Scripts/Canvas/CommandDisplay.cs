@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using HeroEditor.Common.Enums;
 
 namespace TCOY.Canvas
 {
@@ -63,9 +64,9 @@ namespace TCOY.Canvas
             currentState = State.attack;
 
             string weapon = currentPartyMember.getEquipment.Find(i => 
-            factory.GetItem(i).category == IItem.Category.meleeWeapons1H ||
-            factory.GetItem(i).category == IItem.Category.meleeWeapons2H ||
-            factory.GetItem(i).category == IItem.Category.bows);
+            factory.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon1H ||
+            factory.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon2H ||
+            factory.GetItem(i).itemType.part == EquipmentPart.Bow);
 
             if (weapon == null)
                 return;
@@ -99,7 +100,7 @@ namespace TCOY.Canvas
             itemInventoryUI.grid = grid;
             itemInventoryUI.buttonPrefab = buttonPrefab;
             itemInventoryUI.OnClick = (commandName) => OnSelectCommand(commandName);
-            itemInventoryUI.inventory = global.inventories[IItem.Category.supplies];
+            itemInventoryUI.inventory = global.inventories[factory.getBasic.name];
             itemInventoryUI.onPointerEnter = (itemName) => { };
             itemInventoryUI.onPointerExit = (itemName) => { };
             itemInventoryUI.Display();

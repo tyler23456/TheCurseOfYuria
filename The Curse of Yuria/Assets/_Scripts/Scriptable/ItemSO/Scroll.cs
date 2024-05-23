@@ -44,7 +44,11 @@ public class Scroll : ItemBase, IItem
         if (user == null)
             yield break;
 
-        target.getStats.ApplyCalculation(power, user.getStats, group, type, element);
+        float accumulator = 0;
+        accumulator = _elementType.Calculate(user, target, accumulator);
+        accumulator = _armType.Calculate(user, target, accumulator);
+        accumulator = _calculationType.Calculate(user, target, accumulator);
+
         CheckStatusEffects(target);
     }
 
@@ -59,7 +63,9 @@ public class Scroll : ItemBase, IItem
         if (target == null)
             yield break;
 
-        target.getStats.ApplyCalculation(power, element);
+        float accumulator = 0;
+        accumulator = _elementType.Calculate(null, target, accumulator);
+        accumulator = _calculationType.Calculate(null, target, accumulator);
     }
 
     public override void Equip(IActor target)

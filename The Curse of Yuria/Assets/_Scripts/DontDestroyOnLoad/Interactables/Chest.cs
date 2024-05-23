@@ -27,7 +27,7 @@ namespace TCOY.DontDestroyOnLoad
 
         public override void Interact(IAllie player)
         {
-            if (!RequiredItems.TrueForAll(i => global.inventories[IItem.Category.questItems].Contains(i.name)))
+            if (!RequiredItems.TrueForAll(i => global.inventories[factory.getQuestItem.name].Contains(i.name)))
             {
                 ShowLockedPrompt();
                 return;
@@ -37,7 +37,7 @@ namespace TCOY.DontDestroyOnLoad
                 return;
 
             foreach (ItemBase item in items)
-                global.inventories[item.category].Add(item.name);
+                global.inventories[item.itemType.name].Add(item.name);
 
             ShowOpenChestSprite();
             global.getCompletedIds.Add(getID, 1);

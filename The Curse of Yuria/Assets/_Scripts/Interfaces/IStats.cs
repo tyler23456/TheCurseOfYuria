@@ -4,17 +4,20 @@ using UnityEngine;
 
 public interface IStats
 {
+    const float Sensitivity = 20f;
+
     enum Attribute { MaxHP, MaxMP, Strength, Defense, Magic, Aura, Speed, Luck }
 
     int HP { get; set; }
     int MP { get; set; }
 
     int GetAttribute(Attribute attribute);
+    int GetWeakness(int index);
     void OffsetAttribute(IStats.Attribute attribute, int offset);
-    void SetAttribute(IStats.Attribute attribute, int value);
+    void OffsetWeakness(int index, int offset);
     void ResetAll();
-    void ApplySkillCost(int cost);
-    void ApplyCalculation(int power, IItem.Element element);
-    bool ApplyCalculation(int power, IStats user, IItem.Group group, IItem.Type type, IItem.Element element);
+    void ApplyCost(int cost);
+    void ApplyDamage(float amount);
+    void ApplyRecovery(float amount);
     int[] GetAttributes();
 }

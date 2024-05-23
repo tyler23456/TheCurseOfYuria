@@ -57,7 +57,7 @@ namespace TCOY.DontDestroyOnLoad
         public Actors allies { get; private set; } = new Actors();
         public Actors enemies { get; private set; } = new Actors();
 
-        public Dictionary<IItem.Category, Inventory> inventories { get; private set; } = new Dictionary<IItem.Category, Inventory>();
+        public Dictionary<string, Inventory> inventories { get; private set; } = new Dictionary<string, Inventory>();
         
         public Queue<IActor> aTBGuageFilledQueue { get; set; } = new Queue<IActor>();
         public LinkedList<Command> pendingCommands { get; set; } = new LinkedList<Command>();
@@ -66,7 +66,6 @@ namespace TCOY.DontDestroyOnLoad
 
         public Image getPromptImage => promptImage;
         public TMP_Text getPromptText => promptText;
-
 
         ShakeData IGlobal.getShakeData => shakeData;
         AudioSource IGlobal.getAudioSource => audioSource; 
@@ -88,19 +87,19 @@ namespace TCOY.DontDestroyOnLoad
 
             allies = new Actors(allieRoot);
 
-            inventories.Add(IItem.Category.helmets, helmets);
-            inventories.Add(IItem.Category.earrings, earrings);
-            inventories.Add(IItem.Category.glasses, glasses);
-            inventories.Add(IItem.Category.masks, masks);
-            inventories.Add(IItem.Category.meleeWeapons1H, meleeWeapons1H);
-            inventories.Add(IItem.Category.meleeWeapons2H, meleeWeapons2H);
-            inventories.Add(IItem.Category.capes, capes);
-            inventories.Add(IItem.Category.armor, armor);
-            inventories.Add(IItem.Category.shields, shields);
-            inventories.Add(IItem.Category.bows, bows);
-            inventories.Add(IItem.Category.supplies, supplies);
-            inventories.Add(IItem.Category.scrolls, scrolls);
-            inventories.Add(IItem.Category.questItems, questItems);
+            inventories.Add(factory.getHelmet.name, helmets);
+            inventories.Add(factory.getEarring.name, earrings);
+            inventories.Add(factory.getGlasses.name, glasses);
+            inventories.Add(factory.getMask.name, masks);
+            inventories.Add(factory.getMelee1H.name, meleeWeapons1H);
+            inventories.Add(factory.getMelee2H.name, meleeWeapons2H);
+            inventories.Add(factory.getCape.name, capes);
+            inventories.Add(factory.getArmor.name, armor);
+            inventories.Add(factory.getShield.name, shields);
+            inventories.Add(factory.getBow.name, bows);
+            inventories.Add(factory.getBasic.name, supplies);
+            inventories.Add(factory.getScroll.name, scrolls);
+            inventories.Add(factory.getQuestItem.name, questItems);
 
             displays.Add(IGlobal.Display.MainMenuDisplay, mainMenuDisplay);
             displays.Add(IGlobal.Display.LoadingDisplay, loadingDisplay);
@@ -155,7 +154,7 @@ namespace TCOY.DontDestroyOnLoad
 
         public void ClearAllInventories()
         {
-            foreach (KeyValuePair<IItem.Category, Inventory> inventory in inventories)
+            foreach (KeyValuePair<string, Inventory> inventory in inventories)
                 inventory.Value.Clear();
         }
 

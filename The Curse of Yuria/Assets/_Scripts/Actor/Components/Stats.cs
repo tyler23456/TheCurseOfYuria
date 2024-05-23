@@ -58,9 +58,9 @@ namespace TCOY.UserActors
             return attributes[(int)attribute];
         }
 
-        public int GetWeakness(IItem.Element type)
+        public int GetWeakness(int index)
         {
-            return weaknesses[(int)type];
+            return weaknesses[index];
         }
 
         public void OffsetAttribute(IStats.Attribute attribute, int offset)
@@ -69,9 +69,9 @@ namespace TCOY.UserActors
             onStatsChanged.Invoke(attributes);
         }
 
-        public void SetAttribute(IStats.Attribute attribute, int value)
+        public void OffsetWeakness(int index, int offset)
         {
-            attributes[(int)attribute] += value;
+            weaknesses[index] += offset;
             onStatsChanged.Invoke(attributes);
         }
 
@@ -80,76 +80,29 @@ namespace TCOY.UserActors
             HP = maxHP;
             MP = maxMP;
             attributes = new int[8] { maxHP, maxMP, strength, defense, magic, aura, speed, luck };
-            weaknesses = new int[6] { fire, ice, thunder, light, dark, 0 }; //need to show effects eventually
+            weaknesses = new int[5] { fire, ice, thunder, light, dark };
             onStatsChanged.Invoke(attributes);
         }
 
-        public void ApplySkillCost(int cost)
+        public void ApplyCost(int cost)
         {
             MP -= cost;
         }
 
-        public void ApplyCalculation(int power, IItem.Element element)
+        public void ApplyDamage(float amount)
         {
-            float defense = GetWeakness(element);
-            float total = power * (100f / (100f + defense));
-            HP -= (int)total;
-            onApplyDamage.Invoke((int)total);
+            int result = (int)(amount * UnityEngine.Random.Range(0.8f, 1.2f));
+            HP -= result;
+            onApplyRecovery.Invoke(result);
             CheckForZeroHealth();
         }
 
-        public bool ApplyCalculation(int power, IStats user, IItem.Group group, IItem.Type type, IItem.Element element)
+        public void ApplyRecovery(float amount)
         {
-            if (type == IItem.Type.Damage)
-                if (group >= IItem.Group.Magic)
-                {
-                    float defense = GetAttribute(IStats.Attribute.Aura) + GetWeakness(element);
-                    float total = (user.GetAttribute(IStats.Attribute.Magic) + power) * (100f / (100f + defense));
-                    total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
-                    HP -= (int)total;
-                    onApplyDamage.Invoke((int)total);
-                }
-                else if (group >= IItem.Group.Melee)
-                {
-                    float defense = GetAttribute(IStats.Attribute.Defense) + GetWeakness(element);
-                    float total = (user.GetAttribute(IStats.Attribute.Strength) + power) * (100f / (100f + defense));
-                    total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
-                    HP -= (int)total;
-                    onApplyDamage.Invoke((int)total);
-                }
-                else if (group >= IItem.Group.None)
-                {
-                    float defense = GetWeakness(element);
-                    float total = power * (100f / (100f + defense));
-                    total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
-                    HP -= (int)total;
-                    onApplyDamage.Invoke((int)total);
-                }
-                else if (type == IItem.Type.Recovery)
-                    if (group >= IItem.Group.Magic)
-                    {
-                        float total = user.GetAttribute(IStats.Attribute.Magic) + power;
-                        total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
-                        HP += (int)total;
-                        onApplyRecovery.Invoke((int)total);
-                    }
-                    else if (group >= IItem.Group.Melee)
-                    {
-                        float total = user.GetAttribute(IStats.Attribute.Strength) + power;
-                        total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
-                        HP += (int)total;
-                        onApplyRecovery.Invoke((int)total);
-                    }
-                    else if (group >= IItem.Group.None)
-                    {
-                        float total = power;
-                        total = UnityEngine.Random.Range(total * 0.8f, total * 1.2f);
-                        HP += (int)total;
-                        onApplyRecovery.Invoke((int)total);
-                    }
-
+            int result = (int)(amount * UnityEngine.Random.Range(0.8f, 1.2f));
+            HP += result;
+            onApplyRecovery.Invoke(result);
             CheckForZeroHealth();
-            return false; //this will test whether an effect takes place
         }
 
         public void CheckForZeroHealth()

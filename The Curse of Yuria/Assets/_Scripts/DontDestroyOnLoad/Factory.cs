@@ -12,6 +12,21 @@ namespace TCOY.DontDestroyOnLoad
 {
     public class Factory : MonoBehaviour, IFactory
     {
+        [SerializeField] HelmetType helmet;
+        [SerializeField] EarringType earring;
+        [SerializeField] GlassesType glasses;
+        [SerializeField] MaskType mask;
+        [SerializeField] Melee1HType melee1H;
+        [SerializeField] Melee2HType melee2H;
+        [SerializeField] CapeType cape;
+        [SerializeField] ArmorType armor;
+        [SerializeField] ShieldType shield;
+        [SerializeField] BowType bow;
+        [SerializeField] BasicType basic;
+        [SerializeField] ScrollType scroll;
+        [SerializeField] GemType gem;
+        [SerializeField] QuestItemType questItem;
+
         [SerializeField] AssetLabelReference itemsReference;
         [SerializeField] AssetLabelReference statusEffectsReference;
         [SerializeField] AssetLabelReference partyMemberReference;
@@ -22,6 +37,21 @@ namespace TCOY.DontDestroyOnLoad
         Dictionary<string, IItem> items = new Dictionary<string, IItem>();
         Dictionary<string, IStatusEffect> statusEffects = new Dictionary<string, IStatusEffect>();
         Dictionary<string, GameObject> partyMembers = new Dictionary<string, GameObject>();
+
+        public HelmetType getHelmet => helmet;
+        public EarringType getEarring => earring;
+        public GlassesType getGlasses => glasses;
+        public MaskType getMask => mask;
+        public Melee1HType getMelee1H => melee1H;
+        public Melee2HType getMelee2H => melee2H;
+        public CapeType getCape => cape;
+        public ArmorType getArmor => armor;
+        public ShieldType getShield => shield;
+        public BowType getBow => bow;
+        public BasicType getBasic => basic;
+        public ScrollType getScroll => scroll;
+        public GemType getGem => gem;
+        public QuestItemType getQuestItem => questItem;
 
         public GameObject getDamagePopupPrefab => damagePopupPrefab;
         public GameObject getRecoveryPopupPrefab => recoveryPopupPrefab;

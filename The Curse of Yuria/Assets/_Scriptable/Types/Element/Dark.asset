@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d7504cab8a4872489a413af01f3c583, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d107623569fac646a08753a6d06e616, type: 3}
   m_Name: Dark
   m_EditorClassIdentifier: 

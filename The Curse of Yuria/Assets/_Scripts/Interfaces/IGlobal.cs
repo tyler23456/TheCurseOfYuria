@@ -39,7 +39,7 @@ public interface IGlobal
     Image getPromptImage { get;}
     TMP_Text getPromptText { get; }
 
-    Dictionary<IItem.Category, Inventory> inventories { get; }
+    Dictionary<string, Inventory> inventories { get; }
     RectTransform getCanvas { get; }
 
     ShakeData getShakeData { get; }

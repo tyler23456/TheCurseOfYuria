@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed30f0b15de5cc84f89c534fd11687ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c146df91d6594240b8d57e469b1a7d3, type: 3}
   m_Name: Recovery
   m_EditorClassIdentifier: 

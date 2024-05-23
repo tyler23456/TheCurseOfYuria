@@ -17,6 +17,17 @@ namespace TCOY.DontDestroyOnLoad
 
         [SerializeField] Material material;
 
+        [SerializeField] NoArmType noArm;
+        [SerializeField] MeleeType melee;
+        [SerializeField] RangedType ranged;
+        [SerializeField] MagicType magic;
+        [SerializeField] SupplyType supply;
+
+        [SerializeField] NoElementType noElement;
+
+        [SerializeField] DamageType damage;
+        [SerializeField] NoCalculationType neutral;
+
         [SerializeField] string iconsRootPath = "Icons/Equipment/";
         [SerializeField] string spriteRootPath = "Sprites/Equipment/";
 
@@ -67,9 +78,7 @@ namespace TCOY.DontDestroyOnLoad
                     itemSprites.Add(itemSprite.Name, itemSprite);
                 Debug.Log(itemSprite.Name);
             }
-                
-
-           
+            
 
             factory = GetComponent<IFactory>();
 
@@ -93,49 +102,49 @@ namespace TCOY.DontDestroyOnLoad
 
 
             foreach (Sprite icon in helmets)
-                RefreshItemCategory(icon, helmetsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), IItem.Category.helmets);
+                RefreshItemCategory(icon, helmetsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getHelmet, noArm, noElement, neutral);
 
             foreach (Sprite icon in earrings)
-                RefreshItemCategory(icon, earringsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), IItem.Category.earrings);
+                RefreshItemCategory(icon, earringsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getEarring, noArm, noElement, neutral);
 
             foreach (Sprite icon in glasses)
-                RefreshItemCategory(icon, glassesPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), IItem.Category.glasses);
+                RefreshItemCategory(icon, glassesPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getGlasses, noArm, noElement, neutral);
 
             foreach (Sprite icon in masks)
-                RefreshItemCategory(icon, masksPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), IItem.Category.masks);
+                RefreshItemCategory(icon, masksPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getMask, noArm, noElement, neutral);
 
             foreach (Sprite icon in meleeWeapon1H)
-                RefreshItemCategory(icon, meleeWeapon1HPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), IItem.Category.meleeWeapons1H);
+                RefreshItemCategory(icon, meleeWeapon1HPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getMelee1H, melee, noElement, damage);
 
             foreach (Sprite icon in meleeWeapon2H)
-                RefreshItemCategory(icon, meleeWeapon2HPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), IItem.Category.meleeWeapons2H);
+                RefreshItemCategory(icon, meleeWeapon2HPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getMelee2H, melee, noElement, damage);
 
             foreach (Sprite icon in capes)
-                RefreshItemCategory(icon, capesPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), IItem.Category.capes);
+                RefreshItemCategory(icon, capesPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getCape, noArm, noElement, neutral);
 
             foreach (Sprite icon in armor)
-                RefreshItemCategory(icon, armorPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), IItem.Category.armor);
+                RefreshItemCategory(icon, armorPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getArmor, noArm, noElement, neutral);
 
             foreach (Sprite icon in shields)
-                RefreshItemCategory(icon, shieldsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), IItem.Category.shields);
+                RefreshItemCategory(icon, shieldsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getShield, noArm, noElement, neutral);
 
             foreach (Sprite icon in bows)
-                RefreshItemCategory(icon, bowsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), IItem.Category.bows);
+                RefreshItemCategory(icon, bowsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getBow, ranged, noElement, damage);
 
             foreach (Sprite icon in scrolls)
-                RefreshItemCategory(icon, scrollsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Scroll>(), IItem.Category.scrolls);
+                RefreshItemCategory(icon, scrollsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Scroll>(), factory.getScroll, magic, noElement, neutral);
 
             foreach (Sprite icon in supplies)
-                RefreshItemCategory(icon, suppliesPath + FilterName(icon.name), ScriptableObject.CreateInstance<Supply>(), IItem.Category.supplies);
+                RefreshItemCategory(icon, suppliesPath + FilterName(icon.name), ScriptableObject.CreateInstance<Supply>(), factory.getBasic, supply, noElement, neutral);
 
             foreach (Sprite icon in gems)
-                RefreshItemCategory(icon, gemPath + FilterName(icon.name), ScriptableObject.CreateInstance<Gem>(), IItem.Category.gems);
+                RefreshItemCategory(icon, gemPath + FilterName(icon.name), ScriptableObject.CreateInstance<Gem>(), factory.getGem, noArm, noElement, neutral);
 
             foreach (Sprite icon in questItems)
-                RefreshItemCategory(icon, questItemPath + FilterName(icon.name), ScriptableObject.CreateInstance<QuestItem>(), IItem.Category.questItems);
+                RefreshItemCategory(icon, questItemPath + FilterName(icon.name), ScriptableObject.CreateInstance<QuestItem>(), factory.getQuestItem, noArm, noElement, neutral);
         }
         
-        void RefreshItemCategory(Sprite icon, string path, ItemBase scriptableObject, IItem.Category category)
+        void RefreshItemCategory(Sprite icon, string path, ItemBase scriptableObject, ItemTypeBase itemType, ArmTypeBase armType, ElementTypeBase elementType, CalculationTypeBase calculationType)
         {
             prefab = (GameObject)AssetDatabase.LoadAssetAtPath(prefabsRootPath + path + ".prefab", typeof(GameObject));
             asset = (ItemBase)AssetDatabase.LoadAssetAtPath(assetsRootPath + path + ".asset", typeof(ItemBase));
@@ -146,9 +155,9 @@ namespace TCOY.DontDestroyOnLoad
                 RefreshPrefab(icon, prefab, path);
 
             if (asset == null)
-                CreateScriptableObject(icon, prefab, scriptableObject, path, category);
+                CreateScriptableObject(icon, prefab, scriptableObject, path, itemType, armType, elementType, calculationType);
             else
-                RefreshScriptableObject(icon, prefab, path, category);
+                RefreshScriptableObject(icon, prefab, path, itemType, armType, elementType, calculationType);
         }
 
         GameObject CreateOrReplacePrefab(Sprite icon, string path)
@@ -185,28 +194,35 @@ namespace TCOY.DontDestroyOnLoad
             CreateOrReplacePrefab(icon, path);
         }
 
-        void CreateScriptableObject(Sprite icon, GameObject prefab, ItemBase scriptableObject, string path, IItem.Category category)
+        void CreateScriptableObject(Sprite icon, GameObject prefab, ItemBase scriptableObject, string path, ItemTypeBase itemType, ArmTypeBase armType, ElementTypeBase elementType, CalculationTypeBase calculationType)
         {
             AssetDatabase.CreateAsset(scriptableObject, assetsRootPath + path + ".asset");
-            RefreshScriptableObject(icon, prefab, path, category);
+            RefreshScriptableObject(icon, prefab, path, itemType, armType, elementType, calculationType);
         }
 
-        void RefreshScriptableObject(Sprite icon, GameObject prefab, string path, IItem.Category category)
+        void RefreshScriptableObject(Sprite icon, GameObject prefab, string path, ItemTypeBase itemType, ArmTypeBase armType, ElementTypeBase elementType, CalculationTypeBase calculationType)
         {
             asset = (ItemBase)AssetDatabase.LoadAssetAtPath(assetsRootPath + path + ".asset", typeof(ItemBase));
 
-            if (CompareItemSprite(asset.itemSprite, itemSprites[icon.name]) 
-                && asset.icon == icon 
-                && asset.prefab == prefab 
+
+            if (CompareItemSprite(asset.itemSprite, itemSprites[icon.name])
+                && asset.icon == icon
+                && asset.prefab == prefab
                 && CompareNames(icon.name, asset.name)
-                && asset.category == category)
+                && asset.itemType.name == itemType.name
+                && asset.armType != null
+                && asset.elementType != null
+                && asset.calculationType != null)
                 return;
 
-            asset.name = FilterName(icon.name);
+            AssetDatabase.RenameAsset(assetsRootPath + path + ".asset", FilterName(icon.name));
             asset.icon = icon;
             asset.itemSprite = itemSprites[icon.name];
             asset.prefab = prefab;
-            asset.category = category;
+            asset.itemType = itemType;
+            asset.armType = armType;
+            asset.elementType = elementType;
+            asset.calculationType = calculationType;
 
             EditorUtility.SetDirty(asset);
             AssetDatabase.SaveAssetIfDirty(asset);

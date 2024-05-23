@@ -30,7 +30,11 @@ public class Equipable : ItemBase, IItem
         if (user == null)
             yield break;
 
-        target.getStats.ApplyCalculation(power, user.getStats, group, type, element);
+        float accumulator = 0;
+        accumulator = _elementType.Calculate(user, target, accumulator);
+        accumulator = _armType.Calculate(user, target, accumulator);
+        accumulator = _calculationType.Calculate(user, target, accumulator);
+
         CheckStatusEffects(target);
     }
 
@@ -41,44 +45,44 @@ public class Equipable : ItemBase, IItem
         IFactory factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
         List<string> removedItems = new List<string>();
 
-        switch (category)
+        switch (itemType.part)
         {
-            case IItem.Category.meleeWeapons1H:
+            case EquipmentPart.MeleeWeapon1H:
                 removedItems = target.getEquipment.RemoveWhere(i =>
-                factory.GetItem(i).category == IItem.Category.meleeWeapons1H ||
-                factory.GetItem(i).category == IItem.Category.meleeWeapons2H ||
-                factory.GetItem(i).category == IItem.Category.bows);
+                factory.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon1H ||
+                factory.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon2H ||
+                factory.GetItem(i).itemType.part == EquipmentPart.Bow);
                 target.getAnimator.SetWeaponType(0);
                 break;
 
-            case IItem.Category.meleeWeapons2H:
+            case EquipmentPart.MeleeWeapon2H:
                 removedItems = target.getEquipment.RemoveWhere(i =>
-                factory.GetItem(i).category == IItem.Category.meleeWeapons1H ||
-                factory.GetItem(i).category == IItem.Category.meleeWeapons2H ||
-                factory.GetItem(i).category == IItem.Category.shields ||
-                factory.GetItem(i).category == IItem.Category.bows);
+                factory.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon1H ||
+                factory.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon2H ||
+                factory.GetItem(i).itemType.part == EquipmentPart.Shield ||
+                factory.GetItem(i).itemType.part == EquipmentPart.Bow);
                 target.getAnimator.SetWeaponType(1);
                 break;
 
-            case IItem.Category.bows:
+            case EquipmentPart.Bow:
                 removedItems = target.getEquipment.RemoveWhere(i =>
-                factory.GetItem(i).category == IItem.Category.meleeWeapons1H ||
-                factory.GetItem(i).category == IItem.Category.meleeWeapons2H ||
-                factory.GetItem(i).category == IItem.Category.shields ||
-                factory.GetItem(i).category == IItem.Category.bows);
+                factory.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon1H ||
+                factory.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon2H ||
+                factory.GetItem(i).itemType.part == EquipmentPart.Shield ||
+                factory.GetItem(i).itemType.part == EquipmentPart.Bow);
                 target.getAnimator.SetWeaponType(3);
                 break;
 
-            case IItem.Category.shields:
+            case EquipmentPart.Shield:
                 removedItems = target.getEquipment.RemoveWhere(i =>
-                factory.GetItem(i).category == IItem.Category.meleeWeapons2H ||
-                factory.GetItem(i).category == IItem.Category.shields ||
-                factory.GetItem(i).category == IItem.Category.bows);
+                factory.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon2H ||
+                factory.GetItem(i).itemType.part == EquipmentPart.Shield ||
+                factory.GetItem(i).itemType.part == EquipmentPart.Bow);
                 break;
 
             default:
                 removedItems = target.getEquipment.RemoveWhere(i =>
-                factory.GetItem(i).category == category);
+                factory.GetItem(i).itemType == itemType);
                 break;
         }
 
@@ -86,7 +90,7 @@ public class Equipable : ItemBase, IItem
             factory.GetItem(removedItem).Unequip(target);
 
         target.getEquipment.Add(name);
-        target.getCharacter.Equip(itemSprite, IItem.partConverter[category]);
+        target.getCharacter.Equip(itemSprite, itemType.part);
     }
 
     public override void Unequip(IActor target)
@@ -97,9 +101,9 @@ public class Equipable : ItemBase, IItem
         List<string> removedItems = new List<string>();
 
         removedItems = target.getEquipment.RemoveWhere(i =>
-                factory.GetItem(i).category == category);
+                factory.GetItem(i).itemType == itemType);
 
         target.getEquipment.Remove(name);
-        target.getCharacter.UnEquip(IItem.partConverter[category]);
+        target.getCharacter.UnEquip(itemType.part);
     }
 }

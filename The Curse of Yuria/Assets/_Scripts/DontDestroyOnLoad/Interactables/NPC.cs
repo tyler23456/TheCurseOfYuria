@@ -19,7 +19,7 @@ namespace TCOY.DontDestroyOnLoad
             character = GetComponent<Character>();
 
             foreach (Equipable equipable in equipment)
-                character.Equip(equipable.itemSprite, IItem.partConverter[equipable.category]);
+                character.Equip(equipable.itemSprite, equipable.itemType.part);
         }
 
         public override void Interact(IAllie player)

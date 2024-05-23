@@ -79,7 +79,7 @@ namespace TCOY.Canvas
         {
             globalInventoryUI.grid = inventoryGrid;
             globalInventoryUI.buttonPrefab = buttonPrefab;
-            globalInventoryUI.inventory = global.inventories[IItem.Category.scrolls];
+            globalInventoryUI.inventory = global.inventories[factory.getScroll.name];
             globalInventoryUI.OnClick = (itemName) => OnAddSkill(itemName);
             globalInventoryUI.onPointerEnter = (itemName) => OnPointerEnterInventoryIcon(itemName);
             globalInventoryUI.onPointerExit = (itemName) => OnPointerExit(itemName);
@@ -122,7 +122,7 @@ namespace TCOY.Canvas
 
             newSkill = factory.GetItem(itemName);
 
-            global.inventories[IItem.Category.scrolls].Remove(itemName);
+            global.inventories[factory.getScroll.name].Remove(itemName);
 
             newSkill.Equip(allie);
 
@@ -134,7 +134,7 @@ namespace TCOY.Canvas
         {
             newSkill = factory.GetItem(itemName);
 
-            global.inventories[IItem.Category.scrolls].Add(itemName);
+            global.inventories[factory.getScroll.name].Add(itemName);
 
             newSkill.Unequip(allie);
 

@@ -40,7 +40,7 @@ public class SaveManager : MonoBehaviour, ISaveManager
         SaveData saveData = new SaveData();
         saveData.Save(global, factory);
         string json = JsonUtility.ToJson(saveData);
-        string fileName = SceneManager.GetActiveScene().name + " " + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + " " + global.inventories[IItem.Category.questItems].count.ToString() + " questItems" + " ";
+        string fileName = SceneManager.GetActiveScene().name + " " + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + " " + global.inventories[factory.getQuestItem.name].count.ToString() + " questItems" + " ";
         string fullPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + fileName;
         int i = 0;
         Debug.Log(Application.persistentDataPath);
@@ -153,44 +153,44 @@ public class SaveManager : MonoBehaviour, ISaveManager
         {
             level = SceneManager.GetActiveScene().buildIndex;
 
-            helmetNames = global.inventories[IItem.Category.helmets].GetNames();
-            helmetCounts = global.inventories[IItem.Category.helmets].GetCounts();
+            helmetNames = global.inventories[factory.getHelmet.name].GetNames();
+            helmetCounts = global.inventories[factory.getHelmet.name].GetCounts();
 
-            earringNames = global.inventories[IItem.Category.earrings].GetNames();
-            earringCounts = global.inventories[IItem.Category.earrings].GetCounts();
+            earringNames = global.inventories[factory.getHelmet.name].GetNames();
+            earringCounts = global.inventories[factory.getHelmet.name].GetCounts();
 
-            glassesNames = global.inventories[IItem.Category.glasses].GetNames();
-            glassesCounts = global.inventories[IItem.Category.glasses].GetCounts();
+            glassesNames = global.inventories[factory.getHelmet.name].GetNames();
+            glassesCounts = global.inventories[factory.getHelmet.name].GetCounts();
 
-            maskNames = global.inventories[IItem.Category.masks].GetNames();
-            maskCounts = global.inventories[IItem.Category.masks].GetCounts();
+            maskNames = global.inventories[factory.getHelmet.name].GetNames();
+            maskCounts = global.inventories[factory.getHelmet.name].GetCounts();
 
-            meleeWeapon1HNames = global.inventories[IItem.Category.meleeWeapons1H].GetNames();
-            meleeWeapon1HCounts = global.inventories[IItem.Category.meleeWeapons1H].GetCounts();
+            meleeWeapon1HNames = global.inventories[factory.getHelmet.name].GetNames();
+            meleeWeapon1HCounts = global.inventories[factory.getHelmet.name].GetCounts();
 
-            meleeWeapon2HNames = global.inventories[IItem.Category.meleeWeapons2H].GetNames();
-            meleeWeapon2HCounts = global.inventories[IItem.Category.meleeWeapons2H].GetCounts();
+            meleeWeapon2HNames = global.inventories[factory.getHelmet.name].GetNames();
+            meleeWeapon2HCounts = global.inventories[factory.getHelmet.name].GetCounts();
 
-            capeNames = global.inventories[IItem.Category.capes].GetNames();
-            capeCounts = global.inventories[IItem.Category.capes].GetCounts();
+            capeNames = global.inventories[factory.getHelmet.name].GetNames();
+            capeCounts = global.inventories[factory.getHelmet.name].GetCounts();
 
-            armorNames = global.inventories[IItem.Category.armor].GetNames();
-            armorCounts = global.inventories[IItem.Category.armor].GetCounts();
+            armorNames = global.inventories[factory.getHelmet.name].GetNames();
+            armorCounts = global.inventories[factory.getHelmet.name].GetCounts();
 
-            shieldNames = global.inventories[IItem.Category.shields].GetNames();
-            shieldCounts = global.inventories[IItem.Category.shields].GetCounts();
+            shieldNames = global.inventories[factory.getHelmet.name].GetNames();
+            shieldCounts = global.inventories[factory.getHelmet.name].GetCounts();
 
-            bowNames = global.inventories[IItem.Category.bows].GetNames();
-            bowCounts = global.inventories[IItem.Category.bows].GetCounts();
+            bowNames = global.inventories[factory.getHelmet.name].GetNames();
+            bowCounts = global.inventories[factory.getHelmet.name].GetCounts();
 
-            scrollNames = global.inventories[IItem.Category.scrolls].GetNames();
-            scrollCounts = global.inventories[IItem.Category.scrolls].GetCounts();
+            scrollNames = global.inventories[factory.getHelmet.name].GetNames();
+            scrollCounts = global.inventories[factory.getHelmet.name].GetCounts();
 
-            supplyNames = global.inventories[IItem.Category.supplies].GetNames();
-            supplyCounts = global.inventories[IItem.Category.supplies].GetCounts();
+            supplyNames = global.inventories[factory.getHelmet.name].GetNames();
+            supplyCounts = global.inventories[factory.getHelmet.name].GetCounts();
 
-            questItemNames = global.inventories[IItem.Category.questItems].GetNames();
-            questItemCounts = global.inventories[IItem.Category.questItems].GetCounts();
+            questItemNames = global.inventories[factory.getHelmet.name].GetNames();
+            questItemCounts = global.inventories[factory.getHelmet.name].GetCounts();
 
             completedQuestNames = global.getCompletedQuests.GetNames();
             completedQuestCounts = global.getCompletedQuests.GetCounts();
@@ -214,44 +214,44 @@ public class SaveManager : MonoBehaviour, ISaveManager
 
         public void Load(IGlobal global, IFactory factory)
         {
-            global.inventories[IItem.Category.helmets].SetNames(helmetNames);
-            global.inventories[IItem.Category.helmets].SetCounts(helmetCounts);
+            global.inventories[factory.getHelmet.name].SetNames(helmetNames);
+            global.inventories[factory.getHelmet.name].SetCounts(helmetCounts);
 
-            global.inventories[IItem.Category.earrings].SetNames(earringNames);
-            global.inventories[IItem.Category.earrings].SetCounts(earringCounts);
+            global.inventories[factory.getEarring.name].SetNames(earringNames);
+            global.inventories[factory.getEarring.name].SetCounts(earringCounts);
 
-            global.inventories[IItem.Category.glasses].SetNames(glassesNames);
-            global.inventories[IItem.Category.glasses].SetCounts(glassesCounts);
+            global.inventories[factory.getGlasses.name].SetNames(glassesNames);
+            global.inventories[factory.getGlasses.name].SetCounts(glassesCounts);
 
-            global.inventories[IItem.Category.masks].SetNames(maskNames);
-            global.inventories[IItem.Category.masks].SetCounts(maskCounts);
+            global.inventories[factory.getMask.name].SetNames(maskNames);
+            global.inventories[factory.getMask.name].SetCounts(maskCounts);
 
-            global.inventories[IItem.Category.meleeWeapons1H].SetNames(meleeWeapon1HNames);
-            global.inventories[IItem.Category.meleeWeapons1H].SetCounts(meleeWeapon1HCounts);
+            global.inventories[factory.getMelee1H.name].SetNames(meleeWeapon1HNames);
+            global.inventories[factory.getMelee1H.name].SetCounts(meleeWeapon1HCounts);
 
-            global.inventories[IItem.Category.meleeWeapons2H].SetNames(meleeWeapon2HNames);
-            global.inventories[IItem.Category.meleeWeapons2H].SetCounts(meleeWeapon2HCounts);
+            global.inventories[factory.getMelee2H.name].SetNames(meleeWeapon2HNames);
+            global.inventories[factory.getMelee2H.name].SetCounts(meleeWeapon2HCounts);
 
-            global.inventories[IItem.Category.capes].SetNames(capeNames);
-            global.inventories[IItem.Category.capes].SetCounts(capeCounts);
+            global.inventories[factory.getCape.name].SetNames(capeNames);
+            global.inventories[factory.getCape.name].SetCounts(capeCounts);
 
-            global.inventories[IItem.Category.armor].SetNames(armorNames);
-            global.inventories[IItem.Category.armor].SetCounts(armorCounts);
+            global.inventories[factory.getArmor.name].SetNames(armorNames);
+            global.inventories[factory.getArmor.name].SetCounts(armorCounts);
 
-            global.inventories[IItem.Category.shields].SetNames(shieldNames);
-            global.inventories[IItem.Category.shields].SetCounts(shieldCounts);
+            global.inventories[factory.getShield.name].SetNames(shieldNames);
+            global.inventories[factory.getShield.name].SetCounts(shieldCounts);
 
-            global.inventories[IItem.Category.bows].SetNames(bowNames);
-            global.inventories[IItem.Category.bows].SetCounts(bowCounts);
+            global.inventories[factory.getBow.name].SetNames(bowNames);
+            global.inventories[factory.getBow.name].SetCounts(bowCounts);
 
-            global.inventories[IItem.Category.scrolls].SetNames(scrollNames);
-            global.inventories[IItem.Category.scrolls].SetCounts(scrollCounts);
+            global.inventories[factory.getScroll.name].SetNames(scrollNames);
+            global.inventories[factory.getScroll.name].SetCounts(scrollCounts);
 
-            global.inventories[IItem.Category.supplies].SetNames(supplyNames);
-            global.inventories[IItem.Category.supplies].SetCounts(supplyCounts);
+            global.inventories[factory.getBasic.name].SetNames(supplyNames);
+            global.inventories[factory.getBasic.name].SetCounts(supplyCounts);
 
-            global.inventories[IItem.Category.questItems].SetNames(questItemNames);
-            global.inventories[IItem.Category.questItems].SetCounts(questItemCounts);
+            global.inventories[factory.getQuestItem.name].SetNames(questItemNames);
+            global.inventories[factory.getQuestItem.name].SetCounts(questItemCounts);
 
             global.getCompletedQuests.SetNames(completedQuestNames);
             global.getCompletedQuests.SetCounts(completedQuestCounts);

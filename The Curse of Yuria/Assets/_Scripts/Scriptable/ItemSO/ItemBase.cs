@@ -4,7 +4,7 @@ using UnityEngine;
 using HeroEditor.Common.Enums;
 using HeroEditor.Common.Data;
 
-public abstract class ItemBase : ScriptableObject
+public abstract class ItemBase : TypeBase
 {
     protected static IGlobal global;
 
@@ -12,15 +12,17 @@ public abstract class ItemBase : ScriptableObject
 
     [SerializeField] protected Sprite _icon;
     [SerializeField] protected GameObject _prefab;
-    [SerializeField] protected IItem.Category _category;
+    [SerializeField] protected ItemTypeBase _equipmentType;
     [SerializeField] [TextArea(3, 10)] protected string info;
 
-    [SerializeField] protected IItem.Group group = IItem.Group.None;
-    [SerializeField] protected IItem.Type type = IItem.Type.None;
-    [SerializeField] protected IItem.Element element = IItem.Element.None;
+    [SerializeField] protected ArmTypeBase _armType;
+    [SerializeField] protected ElementTypeBase _elementType;
+    [SerializeField] protected CalculationTypeBase _calculationType;
+
+    [SerializeField] protected TypeBase anyType;
     [SerializeField] protected int power;
     [SerializeField] protected int cost;
-    [SerializeField] protected float duration = float.PositiveInfinity;
+
     [SerializeField] List<GameObject> effects;
     [SerializeField] protected ParticleSystem particleSystem;
 
@@ -31,26 +33,30 @@ public abstract class ItemBase : ScriptableObject
     [SerializeField] protected List<Reactor> interrupts;
 
     public ulong getGuid => guid;
-    public new string name { get { return base.name; } set { base.name = value; } }
     public Sprite icon { get { return _icon; } set { _icon = value; } }
     public GameObject prefab { get { return _prefab; } set { _prefab = value; } }
-    public IItem.Category category { get { return _category; } set { _category = value; } }
+    public ItemTypeBase itemType { get { return _equipmentType; } set { _equipmentType = value; } }
     public string getInfo => info;
 
-    public IItem.Group getGroup => group;
-    public IItem.Type getType => type;
-    public IItem.Element getElement => element;
+    public ArmTypeBase armType { get { return _armType; } set { _armType = value; } }
+    public ElementTypeBase elementType { get { return _elementType; } set { _elementType = value; } }
+    public CalculationTypeBase calculationType { get { return _calculationType; } set { _calculationType = value; } }
+
     public int getPower => power;
     public int getCost => cost;
-    public float getDuration => duration;
 
-    public string getIdentifiers => base.name + '|' + group.ToString() + '|' + type.ToString() + '|' + element.ToString();
+    public string getIdentifiers => base.name + '|' + _armType.name + '|' + _calculationType.name + '|' + _elementType.name + '|' + anyType.name;
 
     public ItemSprite itemSprite { get { return _itemSprite; } set { _itemSprite = value; } }
     public List<StatusEffectProbability> getStatusEffects => statusEffectProbabilities;
     public List<Modifier> getModifiers => modifiers;
     public List<Reactor> getCounters => counters;
     public List<Reactor> getInterrupts => interrupts;
+
+    public void Awake()
+    {
+        IFactory factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
+    }
 
     public virtual IEnumerator Use(IActor user, List<IActor> targets)
     {

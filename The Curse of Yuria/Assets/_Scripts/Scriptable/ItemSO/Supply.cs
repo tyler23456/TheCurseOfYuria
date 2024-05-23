@@ -8,7 +8,7 @@ public class Supply : Scroll, IItem
     {
         global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
 
-        global.inventories[IItem.Category.supplies].Remove(name);
+        global.inventories[itemType.name].Remove(name);
 
         user.getAnimator.UseSupply();
 
@@ -22,7 +22,7 @@ public class Supply : Scroll, IItem
     {
         global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
 
-        global.inventories[IItem.Category.supplies].Remove(name);
+        global.inventories[itemType.name].Remove(name);
 
         target.StartCoroutine(PerformEffect(target));
 

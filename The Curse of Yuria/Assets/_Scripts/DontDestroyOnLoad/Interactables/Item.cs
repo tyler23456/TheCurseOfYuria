@@ -17,9 +17,9 @@ namespace TCOY.DontDestroyOnLoad
 
         public override void Interact(IAllie player)
         {
-            IItem.Category type = factory.GetItem(name).category;
+            ItemTypeBase type = factory.GetItem(name).itemType;
 
-            global.inventories[type].Add(name, 60); //--------------------------------------
+            global.inventories[type.name].Add(name, 60); //--------------------------------------
             gameObject.SetActive(false);
             global.getCompletedIds.Add(getID, 1);
         }
