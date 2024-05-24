@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 [CreateAssetMenu(fileName = "NewPrompt", menuName = "Cutscene/Prompt")]
 public class Prompt : ActionBase, IAction
@@ -15,14 +16,26 @@ public class Prompt : ActionBase, IAction
         TMP_Text text = global.getPromptText;
         text.text = this.text;
         text.maxVisibleCharacters = 0;
+        onStart.Invoke();
 
         while (text.maxVisibleCharacters < text.text.Length || !Input.GetKeyDown(KeyCode.Mouse0))
         {
+            onUpdate.Invoke();
             text.maxVisibleCharacters++;
             yield return null;
             
             if (Input.GetKeyDown(KeyCode.Mouse1))
-                text.maxVisibleCharacters = text.text.Length;
+                text.maxVisibleCharacters = text.text.Length - 1;
+
+            if (text.maxVisibleCharacters == text.text.Length - 1)
+                onStop.Invoke();
         }
+
+        onFinish.Invoke();
+
+        onStart = () => { };
+        onUpdate = () => { };
+        onStop = () => { };
+        onFinish = () => { };
     }
 }

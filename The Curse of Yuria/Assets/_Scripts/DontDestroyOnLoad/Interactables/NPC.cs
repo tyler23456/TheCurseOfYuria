@@ -11,18 +11,20 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] List<PromptBrancher> promptBranchers;
 
         Character character;
+        Animator animator;
 
         protected new void Start()
         {
             base.Start();
 
             character = GetComponent<Character>();
+            animator = transform.GetChild(0).GetComponent<Animator>();
 
             foreach (Equipable equipable in equipment)
                 character.Equip(equipable.itemSprite, equipable.itemType.part);
         }
 
-        public override void Interact(IAllie player)
+        public override void Interact(IActor player)
         {
             base.Interact(player);
 
@@ -39,6 +41,8 @@ namespace TCOY.DontDestroyOnLoad
 
             transform.eulerAngles = eulerAngles;
 
+            promptBranchers[0].getAction.onStart = () => animator.SetInteger("State", 8);
+            promptBranchers[0].getAction.onStop = () => animator.SetInteger("State", 0);
             global.cutsceneActions.Enqueue(promptBranchers[0].getAction);
             global.ToggleDisplay(IGlobal.Display.CutsceneDisplay);
         }

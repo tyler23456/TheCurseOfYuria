@@ -15,7 +15,7 @@ namespace TCOY.DontDestroyOnLoad
                 gameObject.SetActive(false);
         }
 
-        public override void Interact(IAllie player)
+        public override void Interact(IActor player)
         {
             ItemTypeBase type = factory.GetItem(name).itemType;
 

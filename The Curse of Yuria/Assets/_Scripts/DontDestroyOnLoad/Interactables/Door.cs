@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class Door : InteractableBase
+    public class Door : InteractableBase, IContainer
     {
         [SerializeField] int sceneID;
-        [SerializeField] Vector2 destination;
+        [SerializeField] Vector3 destination;
         [SerializeField] float eulerAngleZ;
         [SerializeField] Sprite OpenDoor;
         [SerializeField] List<ItemBase> RequiredItems;
@@ -21,13 +21,17 @@ namespace TCOY.DontDestroyOnLoad
             base.Start();
 
             spriteRenderer = GetComponent<SpriteRenderer>();
+
+            if (spriteRenderer == null)
+                return;
+
             closedDoor = spriteRenderer.sprite;
 
             if (global.getCompletedIds.Contains(getID))
                 ShowOpenDoorSprite();
         }
 
-        public override void Interact(IAllie player)
+        public override void Interact(IActor player)
         {
             if (!RequiredItems.TrueForAll(i => global.inventories[factory.getQuestItem.name].Contains(i.name)))
             {
@@ -46,6 +50,9 @@ namespace TCOY.DontDestroyOnLoad
 
         public void ShowOpenDoorSprite()
         {
+            if (OpenDoor == null)
+                return;
+
             spriteRenderer.sprite = OpenDoor;
         }
 

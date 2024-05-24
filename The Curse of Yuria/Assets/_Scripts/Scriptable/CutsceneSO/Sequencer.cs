@@ -24,6 +24,14 @@ public class Sequencer : ActionBase
     public override IEnumerator Activate(IGlobal global, IFactory factory, List<IActor> actors)
     {
         foreach (ActionBase action in actions)
+        {
+            action.onStart = onStart;
+            action.onUpdate = onUpdate;
+            action.onStop = onStop;
+            action.onFinish = onFinish;
+
             yield return action.Activate(global, factory, actors);
+        }
+            
     }
 }

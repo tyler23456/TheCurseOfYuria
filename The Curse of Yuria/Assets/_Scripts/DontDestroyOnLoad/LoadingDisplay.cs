@@ -36,8 +36,10 @@ namespace TCOY.DontDestroyOnLoad
                 yield return new WaitForEndOfFrame();
             }
 
+            global.getCamera.gameObject.SetActive(false);
             global.allies.SetPosition(global.scenePositionToStart);
             global.allies.SetEulerAngleZ(global.sceneEulerAngleZToStart);
+            global.getCamera.gameObject.SetActive(true);
             gameObject.SetActive(false);
         }
     }

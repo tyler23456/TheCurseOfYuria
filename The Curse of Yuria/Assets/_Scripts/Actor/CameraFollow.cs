@@ -8,9 +8,19 @@ namespace TCOY.UserActors
     {
         new Camera camera;
 
-        void Start()
+        void Awake()
         {
             camera = GameObject.Find("/DontDestroyOnLoad/Main Camera").GetComponent<Camera>();
+        }
+
+        void OnEnable()
+        {
+            camera.transform.position = transform.position + new Vector3(0f, 0f, -1f);
+        }
+
+        void OnDisable()
+        {
+            
         }
 
         void LateUpdate()

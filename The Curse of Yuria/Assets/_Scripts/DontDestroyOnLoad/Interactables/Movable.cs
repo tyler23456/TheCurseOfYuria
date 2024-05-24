@@ -6,7 +6,7 @@ namespace TCOY.DontDestroyOnLoad
 {
     public class Movable : InteractableBase
     {
-        public override void Interact(IAllie player)
+        public override void Interact(IActor player)
         {
            
         }
