@@ -36,11 +36,14 @@ namespace TCOY.DontDestroyOnLoad
                 yield return new WaitForEndOfFrame();
             }
 
+            GameObject obj = GameObject.Find("/DontDestroyOnLoad/Pathfinding").gameObject;
+            obj.SetActive(false);
             global.getCamera.gameObject.SetActive(false);
             global.allies.SetPosition(global.scenePositionToStart);
             global.allies.SetEulerAngleZ(global.sceneEulerAngleZToStart);
             global.getCamera.gameObject.SetActive(true);
             gameObject.SetActive(false);
+            obj.SetActive(true);
         }
     }
 }
