@@ -48,9 +48,17 @@ namespace TCOY.UserActors
         public Action<int> onApplyDamage { get; set; } = (damage) => { };
         public Action<int> onApplyRecovery { get; set; } = (recovery) => { };
 
+        public Action<int> onHPChanged { get; set; } = (value) => { };
+        public Action<int> onMPChanged { get; set; } = (value) => { };
+
         public void Initialize()
         {
             ResetAll();
+        }
+
+        public void Update()
+        {
+
         }
 
         public int GetAttribute(IStats.Attribute attribute)
@@ -87,6 +95,7 @@ namespace TCOY.UserActors
         public void ApplyCost(int cost)
         {
             MP -= cost;
+            onMPChanged.Invoke(MP);
         }
 
         public void ApplyDamage(float amount)
@@ -94,6 +103,7 @@ namespace TCOY.UserActors
             int result = (int)(amount * UnityEngine.Random.Range(0.8f, 1.2f));
             HP -= result;
             onApplyDamage.Invoke(result);
+            onHPChanged.Invoke(HP);
             CheckForZeroHealth();
         }
 
@@ -102,6 +112,7 @@ namespace TCOY.UserActors
             int result = (int)(amount * UnityEngine.Random.Range(0.8f, 1.2f));
             HP += result;
             onApplyRecovery.Invoke(result);
+            onHPChanged.Invoke(HP);
             CheckForZeroHealth();
         }
 

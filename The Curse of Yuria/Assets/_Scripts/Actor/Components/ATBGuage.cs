@@ -5,17 +5,20 @@ using System;
 
 namespace TCOY.UserActors
 {
+    [System.Serializable]
     public class ATBGuage : IATBGuage
     {
-        float maximumValue = 5f;
+        [SerializeField] float maximumValue = 5f;
+        [SerializeField] float speed = 1f;
 
         float accumulator = 0f;
-        float speed = 1f;
         bool isFull = false;
         int activity = 0;
 
         public Action OnATBGuageFilled { get; set; } = () => { };
+        public Action<float> onATBChanged { get; set; } = (value) => {};
         public bool isActive => activity == 0;
+        public float getMaximumValue => maximumValue;
 
         public void Initialize(Dictionary<string, int> statsDictionary)
         {
@@ -39,6 +42,7 @@ namespace TCOY.UserActors
                 return;
 
             accumulator += Time.deltaTime * speed;
+            onATBChanged.Invoke(accumulator);
 
             if (accumulator < maximumValue || isFull)
                 return;

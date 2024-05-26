@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public interface IStats
 {
@@ -10,6 +11,9 @@ public interface IStats
     const float powerMultiplier = 10f;
 
     enum Attribute { MaxHP, MaxMP, Strength, Defense, Magic, Aura, Speed, Luck }
+
+    Action<int> onHPChanged { get; set; }
+    Action<int> onMPChanged { get; set; }
 
     int HP { get; set; }
     int MP { get; set; }

@@ -69,12 +69,11 @@ namespace TCOY.AStar
                     }
                 }
             }
-
-            yield return new WaitForSeconds(0.1f);
             if (pathSuccess)
                 wayPoints = TraversePath(startNode, targetNode);
 
             pathRequester.FinishedProcessingPath(wayPoints, pathSuccess);
+            yield return new WaitForSecondsRealtime(0.1f);
         }
 
         Vector3[] TraversePath(Node startNode, Node endNode)

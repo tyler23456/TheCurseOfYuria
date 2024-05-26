@@ -26,6 +26,7 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] RectTransform commandDisplay;
         [SerializeField] RectTransform optionsDisplay;
         [SerializeField] RectTransform gameOverDisplay;
+        [SerializeField] RectTransform obtainedItemsDisplay;
 
         [SerializeField] Image promptImage;
         [SerializeField] TMP_Text promptText;
@@ -63,6 +64,7 @@ namespace TCOY.DontDestroyOnLoad
         public LinkedList<Command> pendingCommands { get; set; } = new LinkedList<Command>();
         public LinkedList<Command> successfulCommands { get; set; } = new LinkedList<Command>();
         public Queue<ActionBase> cutsceneActions { get; set; } = new Queue<ActionBase>();
+        public Queue<string> obtainedItems { get; set; } = new Queue<string>();
 
         public Image getPromptImage => promptImage;
         public TMP_Text getPromptText => promptText;
@@ -109,8 +111,10 @@ namespace TCOY.DontDestroyOnLoad
             displays.Add(IGlobal.Display.CommandDisplay, commandDisplay);
             displays.Add(IGlobal.Display.OptionsDisplay, optionsDisplay);
             displays.Add(IGlobal.Display.GameOverDisplay, gameOverDisplay);
+            displays.Add(IGlobal.Display.ObtainedItemsDisplay, obtainedItemsDisplay);
 
             IActor river = GameObject.Find("/DontDestroyOnLoad/AllieRoot/River").GetComponent<IActor>();
+            river.Initialize();
             allies.Add(river);
         }
 

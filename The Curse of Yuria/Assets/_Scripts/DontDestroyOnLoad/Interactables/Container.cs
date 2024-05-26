@@ -14,8 +14,12 @@ namespace TCOY.DontDestroyOnLoad
                 return;
 
             foreach (ItemBase item in items)
+            {
                 global.inventories[item.itemType.name].Add(item.name);
-
+                global.obtainedItems.Enqueue(item.name);
+            }
+            global.ToggleDisplay(IGlobal.Display.ObtainedItemsDisplay);
+                
             global.getCompletedIds.Add(getID, 1);
         }
     }

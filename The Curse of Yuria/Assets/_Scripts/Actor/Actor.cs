@@ -15,6 +15,7 @@ namespace TCOY.UserActors
         [SerializeField] TargeterBase.Party party;
         [SerializeField] List<ItemBase> defaultItems;
         [SerializeField] protected Stats stats;
+        [SerializeField] protected ATBGuage aTBGuage;
         [SerializeField] List<Reactor> counters;
         [SerializeField] List<Reactor> interrupts;
 
@@ -24,7 +25,6 @@ namespace TCOY.UserActors
         protected SpriteRenderer[] spriteRenderers;
         protected Position position;
         protected Rotation rotation;
-        protected ATBGuage aTBGuage;
         protected GroundChecker groundChecker;
         protected Inventory equipment;
         protected Inventory skills;
@@ -96,7 +96,7 @@ namespace TCOY.UserActors
             foreach (ItemBase item in defaultItems)
             {
                 Debug.Log(item.itemType.part.ToString());
-                factory.GetItem(item.name).Equip(this);
+                item.Equip(this);
             }
                 
         }

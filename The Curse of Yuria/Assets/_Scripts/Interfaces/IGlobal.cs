@@ -7,6 +7,8 @@ using TMPro;
 
 public interface IGlobal
 {
+    static IGlobal instance;
+
     enum Display
     {
         MainMenuDisplay,
@@ -16,7 +18,8 @@ public interface IGlobal
         ScrollDisplay,
         CommandDisplay,
         OptionsDisplay,
-        GameOverDisplay
+        GameOverDisplay,
+        ObtainedItemsDisplay
     }
 
     enum GameState { Playing, Paused, Stopped }
@@ -35,6 +38,7 @@ public interface IGlobal
     LinkedList<Command> pendingCommands { get; }
     LinkedList<Command> successfulCommands { get; }
     Queue<ActionBase> cutsceneActions { get; }
+    Queue<string> obtainedItems { get; }
 
     Image getPromptImage { get;}
     TMP_Text getPromptText { get; }

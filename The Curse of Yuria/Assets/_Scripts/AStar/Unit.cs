@@ -7,7 +7,7 @@ namespace TCOY.AStar
     public class Unit : MonoBehaviour
     {
         Transform target;
-        float speed = 5f;
+        float speed = 0.1f;
         Vector3[] path;
         int index;
 
@@ -38,6 +38,9 @@ namespace TCOY.AStar
 
         IEnumerator FollowPath()
         {
+            if (path.Length == 0)
+                yield break;
+
             Vector3 currentWayPoint = path[0];
 
             while (true)
@@ -50,7 +53,7 @@ namespace TCOY.AStar
                     currentWayPoint = path[index];
                 }
                 transform.position = Vector3.MoveTowards(transform.position, currentWayPoint, speed);
-                yield return null;
+                yield return new WaitForFixedUpdate();
             }
         }
 
