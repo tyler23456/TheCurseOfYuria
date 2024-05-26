@@ -7,8 +7,6 @@ namespace TCOY.UserActors
 {
     public class PlayerControls : MonoBehaviour, IPlayerControls
     {
-        IGlobal global;
-
         float speed = 1f;
         Actor actor;
         Vector2 velocity = Vector2.zero;
@@ -16,27 +14,26 @@ namespace TCOY.UserActors
         void Start()
         {
             actor = GetComponent<Actor>();
-            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
         }
         
         void Update()
         {
-            if (IGlobal.gameState == IGlobal.GameState.Stopped)
+            if (Global.instance.gameState == Global.GameState.Stopped)
                 return;
 
             if (Input.GetKeyDown(KeyCode.Escape))
-                global.ToggleDisplay(IGlobal.Display.OptionsDisplay);
+                Global.instance.ToggleDisplay(Global.Display.Options);
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
-                global.ToggleDisplay(IGlobal.Display.EquipmentDisplay);
+                Global.instance.ToggleDisplay(Global.Display.Equipment);
 
             if (Input.GetKeyDown(KeyCode.Alpha2))
-                global.ToggleDisplay(IGlobal.Display.ScrollDisplay);
+                Global.instance.ToggleDisplay(Global.Display.Scroll);
 
-            if (Input.GetKeyDown(KeyCode.Tab) && global.aTBGuageFilledQueue.Count > 0)
-                global.ToggleDisplay(IGlobal.Display.CommandDisplay);
+            if (Input.GetKeyDown(KeyCode.Tab) && Global.instance.aTBGuageFilledQueue.Count > 0)
+                Global.instance.ToggleDisplay(Global.Display.Command);
 
-            if (IGlobal.gameState == IGlobal.GameState.Paused)
+            if (Global.instance.gameState == Global.GameState.Paused)
                 return;
 
             actor.getAnimator.Stand();

@@ -11,17 +11,17 @@ namespace TCOY.DontDestroyOnLoad
         {
             base.Start();
 
-            if (global.getCompletedIds.Contains(getID))
+            if (Global.instance.getCompletedIds.Contains(getID))
                 gameObject.SetActive(false);
         }
 
         public override void Interact(IActor player)
         {
-            ItemTypeBase type = factory.GetItem(name).itemType;
+            ItemTypeBase type = Factory.instance.GetItem(name).itemType;
 
-            global.inventories[type.name].Add(name, 60); //--------------------------------------
+            Global.instance.inventories[type.name].Add(name, 60); //--------------------------------------
             gameObject.SetActive(false);
-            global.getCompletedIds.Add(getID, 1);
+            Global.instance.getCompletedIds.Add(getID, 1);
         }
     }
 }

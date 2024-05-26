@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Command : ICommand
+public class Command
 {
     public IActor user { get; }
     public IItem item { get; }

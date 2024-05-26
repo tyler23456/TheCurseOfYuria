@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IAction
 {
-    IEnumerator Activate(IGlobal global, IFactory factory, List<IActor> actors);
+    IEnumerator Activate(List<IActor> actors);
 }

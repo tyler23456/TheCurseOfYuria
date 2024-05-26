@@ -7,8 +7,6 @@ namespace TCOY.UserActors
 {
     public class StatusEffects : IStatusEffects
     {
-        IFactory factory;
-
         List<string> names = new List<string>();
         List<float> accumulators = new List<float>();
 
@@ -18,9 +16,8 @@ namespace TCOY.UserActors
         public Action<string> onRemove { get; set; } = (name) => { };
         public Action<string> onUpdate { get; set; } = (name) => { };
 
-        public StatusEffects(IFactory factory)
+        public StatusEffects()
         {
-            this.factory = factory;
         }
 
         public bool Contains(string name)
@@ -85,7 +82,7 @@ namespace TCOY.UserActors
             {
                 accumulators[i] += Time.deltaTime;
 
-                if (accumulators[i] > factory.GetStatusEffect(names[i]).getDuration)
+                if (accumulators[i] > Factory.instance.GetStatusEffect(names[i]).getDuration)
                     RemoveAt(i);
             }
         }

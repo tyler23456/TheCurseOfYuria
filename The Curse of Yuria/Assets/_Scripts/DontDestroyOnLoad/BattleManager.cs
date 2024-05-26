@@ -7,15 +7,12 @@ namespace TCOY.BattleSystem
 {
     public class BattleManager : MonoBehaviour
     {
-        IGlobal global;
-
         [SerializeField] TargeterBase enemyTargeter;
         [SerializeField] List<StatusEffectBase> gameOverStatusEffects;
 
         public void Start()
         {
-            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-            global.StartCoroutine(BattleSystemLoop());
+            Global.instance.StartCoroutine(BattleSystemLoop());
         }
 
         void Update()
@@ -27,7 +24,7 @@ namespace TCOY.BattleSystem
         {
             while (true)
             {
-                if (IGlobal.gameState != IGlobal.GameState.Playing)
+                if (Global.instance.gameState != Global.GameState.Playing)
                     yield return new WaitForEndOfFrame();
 
                 yield return new WaitForEndOfFrame();
@@ -38,70 +35,70 @@ namespace TCOY.BattleSystem
 
                 CheckForInterrupts();
 
-                if (global.pendingCommands.Count == 0)
+                if (Global.instance.pendingCommands.Count == 0)
                     continue;     
 
-                Command command = global.pendingCommands.First();
-                global.pendingCommands.RemoveFirst();
+                Command command = Global.instance.pendingCommands.First();
+                Global.instance.pendingCommands.RemoveFirst();
 
                 if (command.user == null)
                     continue;
 
                 command.user.StartCoroutine(command.item.Use(command.user, command.targets));
-                global.successfulCommands.AddLast(command);
+                Global.instance.successfulCommands.AddLast(command);
                 yield return new WaitForSeconds(1f);
             }
         }
 
         void CheckForCounters()
         {
-            if (global.successfulCommands.Count == 0 || !global.successfulCommands.Last().isCounterable)
+            if (Global.instance.successfulCommands.Count == 0 || !Global.instance.successfulCommands.Last().isCounterable)
                 return;
 
-            List<Command> counters = global.allies.CalculateCounters(global.successfulCommands.Last());
-            List<Command> counters2 = global.enemies.CalculateCounters(global.successfulCommands.Last());
+            List<Command> counters = Global.instance.allies.CalculateCounters(Global.instance.successfulCommands.Last());
+            List<Command> counters2 = Global.instance.enemies.CalculateCounters(Global.instance.successfulCommands.Last());
             counters.AddRange(counters2);
 
-            global.successfulCommands.Last().isCounterable = false; 
+            Global.instance.successfulCommands.Last().isCounterable = false; 
 
             foreach (Command command in counters)
             {
                 command.isCounterable = false;
-                global.pendingCommands.AddLast(command);
+                Global.instance.pendingCommands.AddLast(command);
             }
         }
 
         void CheckForInterrupts()
         {
-            if (global.pendingCommands.Count == 0 || !global.pendingCommands.First().isInterruptable)
+            if (Global.instance.pendingCommands.Count == 0 || !Global.instance.pendingCommands.First().isInterruptable)
                 return;
 
-            List<Command> interrupts = global.allies.CalculateInterrupts(global.pendingCommands.First());
-            List<Command> interrupts2 = global.enemies.CalculateInterrupts(global.pendingCommands.First());
+            List<Command> interrupts = Global.instance.allies.CalculateInterrupts(Global.instance.pendingCommands.First());
+            List<Command> interrupts2 = Global.instance.enemies.CalculateInterrupts(Global.instance.pendingCommands.First());
             interrupts.AddRange(interrupts2);
 
-            global.pendingCommands.First().isInterruptable = false;
+            Global.instance.pendingCommands.First().isInterruptable = false;
 
             foreach (Command command in interrupts)
             {
                 command.isInterruptable = false;
-                global.pendingCommands.AddFirst(command);
+                Global.instance.pendingCommands.AddFirst(command);
             }
         }
 
         void RefreshNearbyEnemies()
         {
-            List<IActor> targets = enemyTargeter.CalculateTargets(global.allies.GetPositionAt(0));
-            global.enemies.Set(targets);
+            List<IActor> targets = enemyTargeter.CalculateTargets(Global.instance.allies.GetPositionAt(0));
+            Global.instance.enemies.Set(targets);
         }
 
         void CheckForGameOver()
         {
-            if (IGlobal.gameState != IGlobal.GameState.Playing)
+            if (Global.instance.gameState != Global.GameState.Playing)
                 return;
 
-            if (global.allies.AllContainAnyOf(gameOverStatusEffects))
-                global.ToggleDisplay(IGlobal.Display.GameOverDisplay);
+            if (Global.instance.allies.AllContainAnyOf(gameOverStatusEffects))
+                Global.instance.ToggleDisplay(Global.Display.GameOver);
         }
     }
 }

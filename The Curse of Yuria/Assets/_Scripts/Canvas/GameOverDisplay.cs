@@ -12,7 +12,6 @@ namespace TCOY.Canvas
     public class GameOverDisplay : MonoBehaviour
     {
         ISaveManager saveManager;
-        IGlobal global;
 
         [SerializeField] Button buttonPrefab;
         [SerializeField] RectTransform rightPanel;
@@ -29,7 +28,6 @@ namespace TCOY.Canvas
         void OnEnable()
         {
             saveManager = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISaveManager>();
-            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
 
             load.onClick.RemoveAllListeners();
             mainMenu.onClick.RemoveAllListeners();
@@ -39,21 +37,21 @@ namespace TCOY.Canvas
             mainMenu.onClick.AddListener(LoadMainMenu);
             quit.onClick.AddListener(Application.Quit);
 
-            IGlobal.gameState = IGlobal.GameState.Stopped;
+            Global.instance.gameState = Global.GameState.Stopped;
             animator.SetTrigger("Activate");
             rightPanel.gameObject.SetActive(false);
         }
 
         private void OnDisable()
         {
-            IGlobal.gameState = IGlobal.GameState.Playing;
+            Global.instance.gameState = Global.GameState.Playing;
         }
 
         void LoadMainMenu()
         {
-            global.sceneIDToLoad = 2;
-            global.scenePositionToStart = Vector2.zero;
-            global.ToggleDisplay(IGlobal.Display.LoadingDisplay);
+            Global.instance.sceneIDToLoad = 2;
+            Global.instance.scenePositionToStart = Vector2.zero;
+            Global.instance.ToggleDisplay(Global.Display.Loading);
         }   
 
         void RefreshFiles()

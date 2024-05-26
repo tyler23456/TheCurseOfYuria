@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Modifier : IModifier
+public class Modifier
 {
     [SerializeField] IStats.Attribute attribute;
     [SerializeField] int offset;

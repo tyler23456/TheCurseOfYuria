@@ -15,12 +15,10 @@ namespace TCOY.DontDestroyOnLoad
 
             hasLoaded = true;
 
-            IGlobal global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-     
-            global.sceneIDToLoad = 3;
-            global.scenePositionToStart = Vector2.zero;
-            global.sceneEulerAngleZToStart = 0;
-            global.ToggleDisplay(IGlobal.Display.LoadingDisplay);
+            Global.instance.sceneIDToLoad = 3;
+            Global.instance.scenePositionToStart = Vector2.zero;
+            Global.instance.sceneEulerAngleZToStart = 0;
+            Global.instance.ToggleDisplay(Global.Display.Loading);
         }
     }
 }

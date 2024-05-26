@@ -9,9 +9,6 @@ namespace TCOY.Canvas
 {
     public class ScrollDisplay : MonoBehaviour
     {
-        IGlobal global;
-        IFactory factory;
-
         [SerializeField] Button buttonPrefab;
 
         [SerializeField] AudioClip open;
@@ -53,33 +50,30 @@ namespace TCOY.Canvas
 
         void OnEnable()
         {      
-            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-            factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
-
-            partyMemberInventoryUI = new InventoryUI(factory);
-            globalInventoryUI = new InventoryUI(factory);
+            partyMemberInventoryUI = new InventoryUI();
+            globalInventoryUI = new InventoryUI();
 
             allieIndex = 0;
             RefreshInventorySkills();
             RefreshPartyMember();
 
-            global.getAudioSource.PlayOneShot(open);
+            Global.instance.getAudioSource.PlayOneShot(open);
 
-            IGlobal.gameState = IGlobal.GameState.Paused;
+            Global.instance.gameState = Global.GameState.Paused;
         }
 
         private void OnDisable()
         {
-            global.getAudioSource.PlayOneShot(close);
+            Global.instance.getAudioSource.PlayOneShot(close);
 
-            IGlobal.gameState = IGlobal.GameState.Playing;
+            Global.instance.gameState = Global.GameState.Playing;
         }
 
         public void RefreshInventorySkills()
         {
             globalInventoryUI.grid = inventoryGrid;
             globalInventoryUI.buttonPrefab = buttonPrefab;
-            globalInventoryUI.inventory = global.inventories[factory.getScroll.name];
+            globalInventoryUI.inventory = Global.instance.inventories[Factory.instance.getScroll.name];
             globalInventoryUI.OnClick = (itemName) => OnAddSkill(itemName);
             globalInventoryUI.onPointerEnter = (itemName) => OnPointerEnterInventoryIcon(itemName);
             globalInventoryUI.onPointerExit = (itemName) => OnPointerExit(itemName);
@@ -88,7 +82,7 @@ namespace TCOY.Canvas
 
         public void RefreshPartyMember()
         {
-            allie = global.allies[allieIndex];
+            allie = Global.instance.allies[allieIndex];
             detailedActorViewCamera.cullingMask = LayerMask.GetMask("Actor" + (allieIndex + 1).ToString());
 
             skills = allie.getSkills;
@@ -120,9 +114,9 @@ namespace TCOY.Canvas
             if (skills.Contains(itemName))
                 return;
 
-            newSkill = factory.GetItem(itemName);
+            newSkill = Factory.instance.GetItem(itemName);
 
-            global.inventories[factory.getScroll.name].Remove(itemName);
+            Global.instance.inventories[Factory.instance.getScroll.name].Remove(itemName);
 
             newSkill.Equip(allie);
 
@@ -132,9 +126,9 @@ namespace TCOY.Canvas
 
         public void OnRemoveSkill(string itemName)
         {
-            newSkill = factory.GetItem(itemName);
+            newSkill = Factory.instance.GetItem(itemName);
 
-            global.inventories[factory.getScroll.name].Add(itemName);
+            Global.instance.inventories[Factory.instance.getScroll.name].Add(itemName);
 
             newSkill.Unequip(allie);
 
@@ -147,7 +141,7 @@ namespace TCOY.Canvas
             if (skills.Contains(itemName))
                 return;
 
-            newSkill = factory.GetItem(itemName);
+            newSkill = Factory.instance.GetItem(itemName);
 
             this.itemName.text = itemName;
             this.itemInfo.text = newSkill.getInfo;
@@ -156,7 +150,7 @@ namespace TCOY.Canvas
 
             newModifiers = newSkill.getModifiers;
 
-            int length = global.allies[allieIndex].getStats.GetAttributes().Length;
+            int length = Global.instance.allies[allieIndex].getStats.GetAttributes().Length;
 
             for (int i = 0; i < length; i++)
             {
@@ -181,7 +175,7 @@ namespace TCOY.Canvas
             if (skills.Contains(itemName))
                 return;
 
-            newSkill = factory.GetItem(itemName);
+            newSkill = Factory.instance.GetItem(itemName);
 
             this.itemName.text = itemName;
             this.itemInfo.text = newSkill.getInfo;
@@ -190,7 +184,7 @@ namespace TCOY.Canvas
 
             newModifiers = newSkill.getModifiers;
 
-            int length = global.allies[allieIndex].getStats.GetAttributes().Length;
+            int length = Global.instance.allies[allieIndex].getStats.GetAttributes().Length;
 
             for (int i = 0; i < length; i++)
             {
@@ -223,15 +217,15 @@ namespace TCOY.Canvas
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 allieIndex--;
-                allieIndex = Mathf.Clamp(allieIndex, 0, global.allies.count - 1);
-                global.getAudioSource.PlayOneShot(cyclePartyMembers);
+                allieIndex = Mathf.Clamp(allieIndex, 0, Global.instance.allies.count - 1);
+                Global.instance.getAudioSource.PlayOneShot(cyclePartyMembers);
                 RefreshPartyMember();
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
                 allieIndex++;
-                allieIndex = Mathf.Clamp(allieIndex, 0, global.allies.count - 1);
-                global.getAudioSource.PlayOneShot(cyclePartyMembers);
+                allieIndex = Mathf.Clamp(allieIndex, 0, Global.instance.allies.count - 1);
+                Global.instance.getAudioSource.PlayOneShot(cyclePartyMembers);
                 RefreshPartyMember();
             }
 

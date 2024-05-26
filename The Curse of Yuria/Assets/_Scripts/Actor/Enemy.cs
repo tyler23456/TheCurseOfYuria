@@ -40,7 +40,7 @@ namespace TCOY.UserActors
             }
 
 
-            global.pendingCommands.AddLast(new Command(this, movesQueue.Peek().getskill, targets));
+            Global.instance.pendingCommands.AddLast(new Command(this, movesQueue.Peek().getskill, targets));
 
             aTBGuage.Reset();
             movesQueue.Enqueue(movesQueue.Dequeue());

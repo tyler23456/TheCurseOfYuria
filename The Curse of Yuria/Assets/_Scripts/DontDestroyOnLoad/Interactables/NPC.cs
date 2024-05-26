@@ -43,8 +43,8 @@ namespace TCOY.DontDestroyOnLoad
 
             promptBranchers[0].getAction.onStart = () => animator.SetInteger("State", 8);
             promptBranchers[0].getAction.onStop = () => animator.SetInteger("State", 0);
-            global.cutsceneActions.Enqueue(promptBranchers[0].getAction);
-            global.ToggleDisplay(IGlobal.Display.CutsceneDisplay);
+            Global.instance.cutsceneActions.Enqueue(promptBranchers[0].getAction);
+            Global.instance.ToggleDisplay(Global.Display.Cutscene);
         }
 
         protected void Update()

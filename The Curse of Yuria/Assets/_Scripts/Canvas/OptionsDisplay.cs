@@ -33,12 +33,12 @@ namespace TCOY.Canvas
             saveTab.onClick.AddListener(OnClickSaveTab);
             quitTab.onClick.AddListener(OnClickQuitTab);
             OnClickGraphicsTab();
-            IGlobal.gameState = IGlobal.GameState.Paused;
+            Global.instance.gameState = Global.GameState.Paused;
         }
 
         private void OnDisable()
         {
-            IGlobal.gameState = IGlobal.GameState.Playing;
+            Global.instance.gameState = Global.GameState.Playing;
         }
 
         void ResetTabDisplays()

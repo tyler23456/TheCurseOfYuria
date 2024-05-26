@@ -6,12 +6,10 @@ namespace TCOY.Canvas
 {
     public class MainMenuManager : MonoBehaviour
     {
-        IGlobal global;
 
         public void Start()
         {
-            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-            global.ToggleDisplay(IGlobal.Display.MainMenuDisplay);           
+            Global.instance.ToggleDisplay(Global.Display.MainMenu);           
         }
     }
 }

@@ -16,10 +16,6 @@ public class PreviousTargeter : TargeterBase
 
         List<IActor> results = new List<IActor>();
 
-        IGlobal global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-
-        
-
         return results;
     }
 

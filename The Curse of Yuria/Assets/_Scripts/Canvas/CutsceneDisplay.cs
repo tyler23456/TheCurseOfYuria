@@ -8,31 +8,26 @@ namespace TCOY.Canvas
 {
     public class CutsceneDisplay : MonoBehaviour
     {
-        IGlobal global;
-        IFactory factory;
-
         [SerializeField] Image promptImage;
         [SerializeField] TMP_Text promptText;
 
 
         void OnEnable()
         {
-            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-            factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
-            IGlobal.gameState = IGlobal.GameState.Stopped;
+            Global.instance.gameState = Global.GameState.Stopped;
             //need to calculate the actors in the field 
-            global.StartCoroutine(Activate(global, factory, new List<IActor>()));
+            Global.instance.StartCoroutine(Activate(new List<IActor>()));
         }
 
         void OnDisable()
         {
-            IGlobal.gameState = IGlobal.GameState.Playing;
+            Global.instance.gameState = Global.GameState.Playing;
         }
 
-        public IEnumerator Activate(IGlobal global, IFactory factory, List<IActor> actors)
+        public IEnumerator Activate(List<IActor> actors)
         {
-            while (global.cutsceneActions.Count > 0)
-                yield return global.cutsceneActions.Dequeue().Activate(global, factory, actors);
+            while (Global.instance.cutsceneActions.Count > 0)
+                yield return Global.instance.cutsceneActions.Dequeue().Activate(actors);
 
             gameObject.SetActive(false);
         }

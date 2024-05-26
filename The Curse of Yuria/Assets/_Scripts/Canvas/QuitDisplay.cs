@@ -6,9 +6,6 @@ namespace TCOY.Canvas
 {
     public class QuitDisplay : MonoBehaviour
     {
-        IGlobal global;
-        IFactory factory;
-
         [SerializeField] RectTransform grid;
 
         InventoryUI inventory;
@@ -16,8 +13,7 @@ namespace TCOY.Canvas
 
         void OnEnable()
         {
-            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-            factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
+
         }
 
     }

@@ -6,9 +6,7 @@ public class Supply : Scroll, IItem
 {
     public override IEnumerator Use(IActor user, List<IActor> targets)
     {
-        global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-
-        global.inventories[itemType.name].Remove(name);
+        Global.instance.inventories[itemType.name].Remove(name);
 
         user.getAnimator.UseSupply();
 
@@ -20,9 +18,7 @@ public class Supply : Scroll, IItem
 
     public override IEnumerator Use(IActor target)
     {
-        global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-
-        global.inventories[itemType.name].Remove(name);
+        Global.instance.inventories[itemType.name].Remove(name);
 
         target.StartCoroutine(PerformEffect(target));
 

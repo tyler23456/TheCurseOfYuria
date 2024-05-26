@@ -13,8 +13,6 @@ namespace TCOY.DontDestroyOnLoad
     [ExecuteInEditMode]
     public class AssetManager : MonoBehaviour
     {
-        IFactory factory;
-
         [SerializeField] Material material;
 
         [SerializeField] NoArmType noArm;
@@ -79,9 +77,6 @@ namespace TCOY.DontDestroyOnLoad
                 Debug.Log(itemSprite.Name);
             }
             
-
-            factory = GetComponent<IFactory>();
-
             if (!createAllWithNoMatchingIcon)
                 return;
 
@@ -102,46 +97,46 @@ namespace TCOY.DontDestroyOnLoad
 
 
             foreach (Sprite icon in helmets)
-                RefreshItemCategory(icon, helmetsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getHelmet, noArm, noElement, neutral);
+                RefreshItemCategory(icon, helmetsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), Factory.instance.getHelmet, noArm, noElement, neutral);
 
             foreach (Sprite icon in earrings)
-                RefreshItemCategory(icon, earringsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getEarring, noArm, noElement, neutral);
+                RefreshItemCategory(icon, earringsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), Factory.instance.getEarring, noArm, noElement, neutral);
 
             foreach (Sprite icon in glasses)
-                RefreshItemCategory(icon, glassesPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getGlasses, noArm, noElement, neutral);
+                RefreshItemCategory(icon, glassesPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), Factory.instance.getGlasses, noArm, noElement, neutral);
 
             foreach (Sprite icon in masks)
-                RefreshItemCategory(icon, masksPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getMask, noArm, noElement, neutral);
+                RefreshItemCategory(icon, masksPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), Factory.instance.getMask, noArm, noElement, neutral);
 
             foreach (Sprite icon in meleeWeapon1H)
-                RefreshItemCategory(icon, meleeWeapon1HPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getMelee1H, melee, noElement, damage);
+                RefreshItemCategory(icon, meleeWeapon1HPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), Factory.instance.getMelee1H, melee, noElement, damage);
 
             foreach (Sprite icon in meleeWeapon2H)
-                RefreshItemCategory(icon, meleeWeapon2HPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getMelee2H, melee, noElement, damage);
+                RefreshItemCategory(icon, meleeWeapon2HPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), Factory.instance.getMelee2H, melee, noElement, damage);
 
             foreach (Sprite icon in capes)
-                RefreshItemCategory(icon, capesPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getCape, noArm, noElement, neutral);
+                RefreshItemCategory(icon, capesPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), Factory.instance.getCape, noArm, noElement, neutral);
 
             foreach (Sprite icon in armor)
-                RefreshItemCategory(icon, armorPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getArmor, noArm, noElement, neutral);
+                RefreshItemCategory(icon, armorPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), Factory.instance.getArmor, noArm, noElement, neutral);
 
             foreach (Sprite icon in shields)
-                RefreshItemCategory(icon, shieldsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getShield, noArm, noElement, neutral);
+                RefreshItemCategory(icon, shieldsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), Factory.instance.getShield, noArm, noElement, neutral);
 
             foreach (Sprite icon in bows)
-                RefreshItemCategory(icon, bowsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), factory.getBow, ranged, noElement, damage);
+                RefreshItemCategory(icon, bowsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), Factory.instance.getBow, ranged, noElement, damage);
 
             foreach (Sprite icon in scrolls)
-                RefreshItemCategory(icon, scrollsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Scroll>(), factory.getScroll, magic, noElement, neutral);
+                RefreshItemCategory(icon, scrollsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Scroll>(), Factory.instance.getScroll, magic, noElement, neutral);
 
             foreach (Sprite icon in supplies)
-                RefreshItemCategory(icon, suppliesPath + FilterName(icon.name), ScriptableObject.CreateInstance<Supply>(), factory.getBasic, supply, noElement, neutral);
+                RefreshItemCategory(icon, suppliesPath + FilterName(icon.name), ScriptableObject.CreateInstance<Supply>(), Factory.instance.getBasic, supply, noElement, neutral);
 
             foreach (Sprite icon in gems)
-                RefreshItemCategory(icon, gemPath + FilterName(icon.name), ScriptableObject.CreateInstance<Gem>(), factory.getGem, noArm, noElement, neutral);
+                RefreshItemCategory(icon, gemPath + FilterName(icon.name), ScriptableObject.CreateInstance<Gem>(), Factory.instance.getGem, noArm, noElement, neutral);
 
             foreach (Sprite icon in questItems)
-                RefreshItemCategory(icon, questItemPath + FilterName(icon.name), ScriptableObject.CreateInstance<QuestItem>(), factory.getQuestItem, noArm, noElement, neutral);
+                RefreshItemCategory(icon, questItemPath + FilterName(icon.name), ScriptableObject.CreateInstance<QuestItem>(), Factory.instance.getQuestItem, noArm, noElement, neutral);
         }
         
         void RefreshItemCategory(Sprite icon, string path, ItemBase scriptableObject, ItemTypeBase itemType, ArmTypeBase armType, ElementTypeBase elementType, CalculationTypeBase calculationType)

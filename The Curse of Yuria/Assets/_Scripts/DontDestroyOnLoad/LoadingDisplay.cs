@@ -8,26 +8,23 @@ namespace TCOY.DontDestroyOnLoad
 {
     public class LoadingDisplay : MonoBehaviour
     {
-        IGlobal global;
-
         [SerializeField] Image SceneLoaderImage;
-        [SerializeField] Slider progressBar; 
+        [SerializeField] Slider progressBar;
 
         private void OnEnable()
-        {
-            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-            IGlobal.gameState = IGlobal.GameState.Stopped;
-            global.StartCoroutine(CoroutineLoad());
+        {;
+            Global.instance.gameState = Global.GameState.Stopped;
+            Global.instance.StartCoroutine(CoroutineLoad());
         }
 
         private void OnDisable()
         {
-            IGlobal.gameState = IGlobal.GameState.Playing;
+            Global.instance.gameState = Global.GameState.Playing;
         }
 
         IEnumerator CoroutineLoad()
         {
-            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(global.sceneIDToLoad);
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(Global.instance.sceneIDToLoad);
             float progress = 0f;
 
             while (!asyncOperation.isDone)
@@ -38,10 +35,10 @@ namespace TCOY.DontDestroyOnLoad
 
             GameObject obj = GameObject.Find("/DontDestroyOnLoad/Pathfinding").gameObject;
             obj.SetActive(false);
-            global.getCamera.gameObject.SetActive(false);
-            global.allies.SetPosition(global.scenePositionToStart);
-            global.allies.SetEulerAngleZ(global.sceneEulerAngleZToStart);
-            global.getCamera.gameObject.SetActive(true);
+            Global.instance.getCamera.gameObject.SetActive(false);
+            Global.instance.allies.SetPosition(Global.instance.scenePositionToStart);
+            Global.instance.allies.SetEulerAngleZ(Global.instance.sceneEulerAngleZToStart);
+            Global.instance.getCamera.gameObject.SetActive(true);
             gameObject.SetActive(false);
             obj.SetActive(true);
         }

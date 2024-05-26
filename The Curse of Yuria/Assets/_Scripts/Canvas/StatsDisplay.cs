@@ -18,29 +18,27 @@ namespace TCOY.Canvas
 
         public void OnRefresh()
         {
-            IGlobal global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-
             for (int i = 0; i < statDisplays.Count; i++)
             {
-                if (i < global.allies.count)
+                if (i < Global.instance.allies.count)
                 {
                     int ii = i;
-                    global.allies[i].getStats.onHPChanged = (value) => statDisplays[ii].getHP.value = value;
-                    global.allies[i].getStats.onMPChanged = (value) => statDisplays[ii].getMP.value = value;
-                    global.allies[i].getATBGuage.onATBChanged = (value) => statDisplays[ii].getAP.value = value;
+                    Global.instance.allies[i].getStats.onHPChanged = (value) => statDisplays[ii].getHP.value = value;
+                    Global.instance.allies[i].getStats.onMPChanged = (value) => statDisplays[ii].getMP.value = value;
+                    Global.instance.allies[i].getATBGuage.onATBChanged = (value) => statDisplays[ii].getAP.value = value;
 
                     statDisplays[i].getName.gameObject.SetActive(true);
                     statDisplays[i].getHP.gameObject.SetActive(true);
                     statDisplays[i].getMP.gameObject.SetActive(true);
                     statDisplays[i].getAP.gameObject.SetActive(true);
 
-                    statDisplays[i].getName.text = global.allies[i].getGameObject.name;
-                    statDisplays[i].getHP.maxValue = global.allies[i].getStats.GetAttribute(IStats.Attribute.MaxHP);
-                    statDisplays[i].getMP.maxValue = global.allies[i].getStats.GetAttribute(IStats.Attribute.MaxMP);
-                    statDisplays[i].getAP.maxValue = global.allies[i].getATBGuage.getMaximumValue;
+                    statDisplays[i].getName.text = Global.instance.allies[i].getGameObject.name;
+                    statDisplays[i].getHP.maxValue = Global.instance.allies[i].getStats.GetAttribute(IStats.Attribute.MaxHP);
+                    statDisplays[i].getMP.maxValue = Global.instance.allies[i].getStats.GetAttribute(IStats.Attribute.MaxMP);
+                    statDisplays[i].getAP.maxValue = Global.instance.allies[i].getATBGuage.getMaximumValue;
 
-                    statDisplays[i].getHP.value = global.allies[i].getStats.HP;
-                    statDisplays[i].getMP.value = global.allies[i].getStats.HP;
+                    statDisplays[i].getHP.value = Global.instance.allies[i].getStats.HP;
+                    statDisplays[i].getMP.value = Global.instance.allies[i].getStats.HP;
                 }
                 else
                 {

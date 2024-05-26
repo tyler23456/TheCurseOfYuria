@@ -8,9 +8,9 @@ public class Mover : ActionBase, IAction
     [SerializeField] string actorName = "default";
     [SerializeField] Vector2 actorDestination;
 
-    public override IEnumerator Activate(IGlobal global, IFactory factory, List<IActor> actors)
+    public override IEnumerator Activate(List<IActor> actors)
     {
-        base.Activate(global, factory, actors);
+        base.Activate(actors);
 
         
 

@@ -10,20 +10,7 @@ namespace TCOY.DontDestroyOnLoad
     {
         [SerializeField] protected string id = "None";
 
-        GameObject obj;
-        protected IGlobal global;
-        protected IFactory factory;
-        protected ICutscene cutscene;
-
         protected string getID => id;
-
-        public void Start()
-        {
-            obj = GameObject.Find("/DontDestroyOnLoad");
-            global = obj.GetComponent<IGlobal>();
-            factory = obj.GetComponent<IFactory>();
-            cutscene = obj.GetComponent<ICutscene>();
-        }
 
         void OnValidate()
         {
@@ -31,8 +18,14 @@ namespace TCOY.DontDestroyOnLoad
                 id = System.DateTime.Now.Ticks.ToString() + "|" + System.Guid.NewGuid().ToString();    
         }
 
+        protected void Start()
+        {
+            
+        }
+
         public virtual void Interact(IActor player)
         {
+
         }
 
         private void OnTriggerStay2D(Collider2D collision)

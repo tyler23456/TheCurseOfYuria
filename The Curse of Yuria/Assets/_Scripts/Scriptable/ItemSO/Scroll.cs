@@ -7,8 +7,6 @@ public class Scroll : ItemBase, IItem
 {
     public override IEnumerator Use(IActor user, List<IActor> targets)
     {
-        global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-
         user.getStats.MP -= cost;
         user.getAnimator.Cast();
 
@@ -20,8 +18,6 @@ public class Scroll : ItemBase, IItem
 
     public override IEnumerator Use(IActor target)
     {
-        global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-
         target.StartCoroutine(PerformEffect(target));
 
         yield return null;

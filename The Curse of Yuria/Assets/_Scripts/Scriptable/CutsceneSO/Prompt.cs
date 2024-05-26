@@ -10,10 +10,10 @@ public class Prompt : ActionBase, IAction
 {
     [TextArea(3, 10)] [SerializeField] string text;
 
-    public override IEnumerator Activate(IGlobal global, IFactory factory, List<IActor> actors)
+    public override IEnumerator Activate(List<IActor> actors)
     {
-        Image image = global.getPromptImage;
-        TMP_Text text = global.getPromptText;
+        Image image = Global.instance.getPromptImage;
+        TMP_Text text = Global.instance.getPromptText;
         text.text = this.text;
         text.maxVisibleCharacters = 0;
         onStart.Invoke();

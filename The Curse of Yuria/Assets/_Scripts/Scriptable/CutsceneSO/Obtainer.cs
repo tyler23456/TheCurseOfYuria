@@ -7,12 +7,12 @@ public class Obtainer : ActionBase, IAction
 {
     [SerializeField] List<ItemBase> items;
 
-    public override IEnumerator Activate(IGlobal global, IFactory factory, List<IActor> actors)
+    public override IEnumerator Activate(List<IActor> actors)
     {
-        base.Activate(global, factory, actors);
+        base.Activate(actors);
 
         foreach (ItemBase item in items)
-            global.inventories[item.itemType.name].Add(item.name);
+            Global.instance.inventories[item.itemType.name].Add(item.name);
 
         yield return new WaitForEndOfFrame();
     }

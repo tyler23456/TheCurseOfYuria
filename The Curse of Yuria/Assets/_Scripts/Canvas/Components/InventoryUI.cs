@@ -9,8 +9,6 @@ namespace TCOY.Canvas
 {
     public class InventoryUI
     {
-        IFactory factory;
-  
         public Button buttonPrefab;
         public RectTransform grid { get; set; } = null;
         public Action<string> OnClick { get; set; } = (info) => { };
@@ -21,9 +19,8 @@ namespace TCOY.Canvas
         Button button = null;
         PointerHover pointerHover = null;
 
-        public InventoryUI(IFactory factory)
+        public InventoryUI()
         {
-            this.factory = factory;
         }
 
         public void Display()
@@ -45,7 +42,7 @@ namespace TCOY.Canvas
                     onPointerEnter.Invoke(inventory.GetName(index));
                 };
                 pointerHover.onPointerExit = () => onPointerExit.Invoke(inventory.GetName(index));
-                button.transform.GetChild(1).GetComponent<Image>().sprite = factory.GetItem(inventory.GetName(index)).icon;
+                button.transform.GetChild(1).GetComponent<Image>().sprite = Factory.instance.GetItem(inventory.GetName(index)).icon;
                 button.transform.GetChild(2).GetComponent<Text>().text = inventory.GetCount(index).ToString();
 
             }

@@ -8,9 +8,6 @@ namespace TCOY.Canvas
 {
     public class CommandDisplay : MonoBehaviour
     {
-        IGlobal global;
-        IFactory factory;
-
         [SerializeField] Button buttonPrefab;
         [SerializeField] RectTransform grid;
         [SerializeField] Button attackTab;
@@ -31,13 +28,10 @@ namespace TCOY.Canvas
 
         void OnEnable()
         {
-            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-            factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
+            skillInventoryUI = new InventoryUI();
+            itemInventoryUI = new InventoryUI();
 
-            skillInventoryUI = new InventoryUI(factory);
-            itemInventoryUI = new InventoryUI(factory);
-
-            currentPartyMember = global.aTBGuageFilledQueue.Peek();
+            currentPartyMember = Global.instance.aTBGuageFilledQueue.Peek();
 
             attackTab.onClick.RemoveAllListeners();
             magicTab.onClick.RemoveAllListeners();
@@ -51,12 +45,12 @@ namespace TCOY.Canvas
 
             OnClickAttack();
 
-            IGlobal.gameState = IGlobal.GameState.Paused;
+            Global.instance.gameState = Global.GameState.Paused;
         }
 
         private void OnDisable()
         {
-            IGlobal.gameState = IGlobal.GameState.Playing;
+            Global.instance.gameState = Global.GameState.Playing;
         }
 
         public void OnClickAttack()
@@ -64,9 +58,9 @@ namespace TCOY.Canvas
             currentState = State.attack;
 
             string weapon = currentPartyMember.getEquipment.Find(i => 
-            factory.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon1H ||
-            factory.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon2H ||
-            factory.GetItem(i).itemType.part == EquipmentPart.Bow);
+            Factory.instance.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon1H ||
+            Factory.instance.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon2H ||
+            Factory.instance.GetItem(i).itemType.part == EquipmentPart.Bow);
 
             if (weapon == null)
                 return;
@@ -100,7 +94,7 @@ namespace TCOY.Canvas
             itemInventoryUI.grid = grid;
             itemInventoryUI.buttonPrefab = buttonPrefab;
             itemInventoryUI.OnClick = (commandName) => OnSelectCommand(commandName);
-            itemInventoryUI.inventory = global.inventories[factory.getBasic.name];
+            itemInventoryUI.inventory = Global.instance.inventories[Factory.instance.getBasic.name];
             itemInventoryUI.onPointerEnter = (itemName) => { };
             itemInventoryUI.onPointerExit = (itemName) => { };
             itemInventoryUI.Display();
@@ -137,10 +131,10 @@ namespace TCOY.Canvas
 
         public void OnSelectTarget(IActor target)
         {
-            Command command = new Command(currentPartyMember, factory.GetItem(commandName), new List<IActor> { target });
-            global.pendingCommands.AddLast(command);
+            Command command = new Command(currentPartyMember, Factory.instance.GetItem(commandName), new List<IActor> { target });
+            Global.instance.pendingCommands.AddLast(command);
             currentPartyMember.getATBGuage.Reset();
-            global.aTBGuageFilledQueue.Dequeue();
+            Global.instance.aTBGuageFilledQueue.Dequeue();
             gameObject.SetActive(false);
         }
     }

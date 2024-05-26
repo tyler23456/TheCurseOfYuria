@@ -10,9 +10,6 @@ namespace TCOY.Canvas
 {
     public class EquipmentDisplay : MonoBehaviour
     {
-        IGlobal global;
-        IFactory factory;
-
         [SerializeField] Button buttonPrefab;
 
         [SerializeField] AudioClip open;
@@ -92,10 +89,7 @@ namespace TCOY.Canvas
         
         void OnEnable()
         {
-            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
-            factory = GameObject.Find("/DontDestroyOnLoad").GetComponent<IFactory>();
-
-            globalInventoryUI = new InventoryUI(factory);
+            globalInventoryUI = new InventoryUI();
 
             helmetsTab.onClick.RemoveAllListeners();
             earringsTab.onClick.RemoveAllListeners();
@@ -107,50 +101,50 @@ namespace TCOY.Canvas
             shieldsTab.onClick.RemoveAllListeners();
             bowsTab.onClick.RemoveAllListeners();
 
-            helmetsTab.onClick.AddListener(() => { RefreshEquipmentPart(factory.getHelmet); global.getAudioSource.PlayOneShot(cycleEquipmentParts); });
-            earringsTab.onClick.AddListener(() => { RefreshEquipmentPart(factory.getEarring); global.getAudioSource.PlayOneShot(cycleEquipmentParts); });
-            glassesTab.onClick.AddListener(() => { RefreshEquipmentPart(factory.getGlasses); global.getAudioSource.PlayOneShot(cycleEquipmentParts); });
-            meleeWeapons1HTab.onClick.AddListener(() => { RefreshEquipmentPart(factory.getMelee1H); global.getAudioSource.PlayOneShot(cycleEquipmentParts); });
-            meleeWeapons2HTab.onClick.AddListener(() => { RefreshEquipmentPart(factory.getMelee2H); global.getAudioSource.PlayOneShot(cycleEquipmentParts); });
-            capesTab.onClick.AddListener(() => { RefreshEquipmentPart(factory.getCape); global.getAudioSource.PlayOneShot(cycleEquipmentParts); });
-            armorTab.onClick.AddListener(() => { RefreshEquipmentPart(factory.getArmor); global.getAudioSource.PlayOneShot(cycleEquipmentParts); });
-            shieldsTab.onClick.AddListener(() => { RefreshEquipmentPart(factory.getShield); global.getAudioSource.PlayOneShot(cycleEquipmentParts); });
-            bowsTab.onClick.AddListener(() => { RefreshEquipmentPart(factory.getBow); global.getAudioSource.PlayOneShot(cycleEquipmentParts); });
+            helmetsTab.onClick.AddListener(() => { RefreshEquipmentPart(Factory.instance.getHelmet); Global.instance.getAudioSource.PlayOneShot(cycleEquipmentParts); });
+            earringsTab.onClick.AddListener(() => { RefreshEquipmentPart(Factory.instance.getEarring); Global.instance.getAudioSource.PlayOneShot(cycleEquipmentParts); });
+            glassesTab.onClick.AddListener(() => { RefreshEquipmentPart(Factory.instance.getGlasses); Global.instance.getAudioSource.PlayOneShot(cycleEquipmentParts); });
+            meleeWeapons1HTab.onClick.AddListener(() => { RefreshEquipmentPart(Factory.instance.getMelee1H); Global.instance.getAudioSource.PlayOneShot(cycleEquipmentParts); });
+            meleeWeapons2HTab.onClick.AddListener(() => { RefreshEquipmentPart(Factory.instance.getMelee2H); Global.instance.getAudioSource.PlayOneShot(cycleEquipmentParts); });
+            capesTab.onClick.AddListener(() => { RefreshEquipmentPart(Factory.instance.getCape); Global.instance.getAudioSource.PlayOneShot(cycleEquipmentParts); });
+            armorTab.onClick.AddListener(() => { RefreshEquipmentPart(Factory.instance.getArmor); Global.instance.getAudioSource.PlayOneShot(cycleEquipmentParts); });
+            shieldsTab.onClick.AddListener(() => { RefreshEquipmentPart(Factory.instance.getShield); Global.instance.getAudioSource.PlayOneShot(cycleEquipmentParts); });
+            bowsTab.onClick.AddListener(() => { RefreshEquipmentPart(Factory.instance.getBow); Global.instance.getAudioSource.PlayOneShot(cycleEquipmentParts); });
 
-            helmetsTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => factory.GetItem(i).itemType == factory.getHelmet)); };
-            earringsTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => factory.GetItem(i).itemType == factory.getEarring)); };
-            glassesTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => factory.GetItem(i).itemType == factory.getGlasses)); };
-            meleeWeapons1HTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => factory.GetItem(i).itemType == factory.getMelee1H)); };
-            meleeWeapons2HTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => factory.GetItem(i).itemType == factory.getMelee2H)); };
-            capesTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => factory.GetItem(i).itemType == factory.getCape)); };
-            armorTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => factory.GetItem(i).itemType == factory.getArmor)); };
-            shieldsTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => factory.GetItem(i).itemType == factory.getShield)); };
-            bowsTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => factory.GetItem(i).itemType == factory.getBow)); };
+            helmetsTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => Factory.instance.GetItem(i).itemType == Factory.instance.getHelmet)); };
+            earringsTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => Factory.instance.GetItem(i).itemType == Factory.instance.getEarring)); };
+            glassesTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => Factory.instance.GetItem(i).itemType == Factory.instance.getGlasses)); };
+            meleeWeapons1HTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => Factory.instance.GetItem(i).itemType == Factory.instance.getMelee1H)); };
+            meleeWeapons2HTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => Factory.instance.GetItem(i).itemType == Factory.instance.getMelee2H)); };
+            capesTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => Factory.instance.GetItem(i).itemType == Factory.instance.getCape)); };
+            armorTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => Factory.instance.GetItem(i).itemType == Factory.instance.getArmor)); };
+            shieldsTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => Factory.instance.GetItem(i).itemType == Factory.instance.getShield)); };
+            bowsTab.GetComponent<PointerHover>().onPointerRightClick = () => { OnUnequip(equipment.Find(i => Factory.instance.GetItem(i).itemType == Factory.instance.getBow)); };
 
             slots.Clear();
-            slots.Add(factory.getHelmet, helmetSlot);
-            slots.Add(factory.getEarring, earringSlot);
-            slots.Add(factory.getGlasses, glassesSlot);
-            slots.Add(factory.getMelee1H, meleeWeapon1HSlot);
-            slots.Add(factory.getMelee2H, meleeWeapon2HSlot);
-            slots.Add(factory.getCape, capeSlot);
-            slots.Add(factory.getArmor, armorSlot);
-            slots.Add(factory.getShield, shieldSlot);
-            slots.Add(factory.getBow, bowsSlot);
+            slots.Add(Factory.instance.getHelmet, helmetSlot);
+            slots.Add(Factory.instance.getEarring, earringSlot);
+            slots.Add(Factory.instance.getGlasses, glassesSlot);
+            slots.Add(Factory.instance.getMelee1H, meleeWeapon1HSlot);
+            slots.Add(Factory.instance.getMelee2H, meleeWeapon2HSlot);
+            slots.Add(Factory.instance.getCape, capeSlot);
+            slots.Add(Factory.instance.getArmor, armorSlot);
+            slots.Add(Factory.instance.getShield, shieldSlot);
+            slots.Add(Factory.instance.getBow, bowsSlot);
 
             allieIndex = 0;
-            RefreshEquipmentPart(factory.getHelmet);
+            RefreshEquipmentPart(Factory.instance.getHelmet);
             RefreshPartyMember();
 
-            global.getAudioSource.PlayOneShot(open);
+            Global.instance.getAudioSource.PlayOneShot(open);
 
-            IGlobal.gameState = IGlobal.GameState.Paused;
+            Global.instance.gameState = Global.GameState.Paused;
         }
 
         private void OnDisable()
         {
-            global.getAudioSource.PlayOneShot(close);
-            IGlobal.gameState = IGlobal.GameState.Playing;
+            Global.instance.getAudioSource.PlayOneShot(close);
+            Global.instance.gameState = Global.GameState.Playing;
         }
 
         public void RefreshEquipmentPart(ItemTypeBase part)
@@ -158,7 +152,7 @@ namespace TCOY.Canvas
             currentPart = part;
             globalInventoryUI.grid = grid;
             globalInventoryUI.buttonPrefab = buttonPrefab;
-            globalInventoryUI.inventory = global.inventories[currentPart.name];
+            globalInventoryUI.inventory = Global.instance.inventories[currentPart.name];
             globalInventoryUI.OnClick = (itemName) => OnEquip(itemName);
             globalInventoryUI.onPointerEnter = (itemName) => OnPointerEnter(itemName);
             globalInventoryUI.onPointerExit = (itemName) => OnPointerExit(itemName);
@@ -167,7 +161,7 @@ namespace TCOY.Canvas
 
         public void RefreshPartyMember()
         {
-            partyMember = global.allies[allieIndex];
+            partyMember = Global.instance.allies[allieIndex];
 
             detailedActorViewCamera.cullingMask = LayerMask.GetMask("Actor" + (allieIndex + 1).ToString());
 
@@ -184,12 +178,12 @@ namespace TCOY.Canvas
             shieldSlot.sprite = shieldSprite;
             bowsSlot.sprite = bowsSprite;
 
-            ItemTypeBase itemType = factory.getHelmet;
+            ItemTypeBase itemType = Factory.instance.getHelmet;
 
             for (int i = 0; i < equipment.count; i++)
             {
-                itemType = factory.GetItem(equipment.GetName(i)).itemType;
-                slots[itemType].sprite = factory.GetItem(equipment.GetName(i)).icon;
+                itemType = Factory.instance.GetItem(equipment.GetName(i)).itemType;
+                slots[itemType].sprite = Factory.instance.GetItem(equipment.GetName(i)).icon;
             }
             partyMemberName.text = partyMember.getGameObject.name;
             partyMemberStats.text = "";
@@ -208,11 +202,11 @@ namespace TCOY.Canvas
             if (itemName == null)
                 return;
 
-            currentItem = factory.GetItem(itemName);
+            currentItem = Factory.instance.GetItem(itemName);
 
-            global.inventories[currentItem.itemType.name].Add(itemName);
+            Global.instance.inventories[currentItem.itemType.name].Add(itemName);
             currentItem.Unequip(partyMember);
-            global.getAudioSource.PlayOneShot(unequip);
+            Global.instance.getAudioSource.PlayOneShot(unequip);
 
             RefreshPartyMember();
             RefreshEquipmentPart(currentItem.itemType);
@@ -220,22 +214,22 @@ namespace TCOY.Canvas
 
         public void OnEquip(string itemName)
         {
-            currentItem = factory.GetItem(itemName);
+            currentItem = Factory.instance.GetItem(itemName);
 
-            string partyMemberItem = equipment.Find(i => factory.GetItem(i).itemType == currentItem.itemType);
+            string partyMemberItem = equipment.Find(i => Factory.instance.GetItem(i).itemType == currentItem.itemType);
 
             if (partyMemberItem == null)
             {
-                global.inventories[currentPart.name].Remove(itemName);
+                Global.instance.inventories[currentPart.name].Remove(itemName);
             }
             else
             {
-                global.inventories[currentPart.name].Add(partyMemberItem);
-                global.inventories[currentPart.name].Remove(itemName);     
+                Global.instance.inventories[currentPart.name].Add(partyMemberItem);
+                Global.instance.inventories[currentPart.name].Remove(itemName);     
             }
 
             currentItem.Equip(partyMember);
-            global.getAudioSource.PlayOneShot(equip);
+            Global.instance.getAudioSource.PlayOneShot(equip);
 
             RefreshPartyMember();
             RefreshEquipmentPart(currentPart);
@@ -243,14 +237,14 @@ namespace TCOY.Canvas
 
         public void OnPointerEnter(string itemName)
         {
-            currentItem = factory.GetItem(itemName);
+            currentItem = Factory.instance.GetItem(itemName);
 
-            string previousItemName = equipment.Find(i => factory.GetItem(i).itemType == currentItem.itemType);
+            string previousItemName = equipment.Find(i => Factory.instance.GetItem(i).itemType == currentItem.itemType);
 
             if (previousItemName == null)
-                previousItem = factory.GetItem("Empty");
+                previousItem = Factory.instance.GetItem("Empty");
             else
-                previousItem = factory.GetItem(previousItemName);
+                previousItem = Factory.instance.GetItem(previousItemName);
             
 
             this.itemName.text = itemName;
@@ -314,15 +308,15 @@ namespace TCOY.Canvas
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 allieIndex--;
-                allieIndex = Mathf.Clamp(allieIndex, 0, global.allies.count - 1);
-                global.getAudioSource.PlayOneShot(cyclePartyMembers);
+                allieIndex = Mathf.Clamp(allieIndex, 0, Global.instance.allies.count - 1);
+                Global.instance.getAudioSource.PlayOneShot(cyclePartyMembers);
                 RefreshPartyMember();
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
                 allieIndex++;
-                allieIndex = Mathf.Clamp(allieIndex, 0, global.allies.count - 1);
-                global.getAudioSource.PlayOneShot(cyclePartyMembers);
+                allieIndex = Mathf.Clamp(allieIndex, 0, Global.instance.allies.count - 1);
+                Global.instance.getAudioSource.PlayOneShot(cyclePartyMembers);
                 RefreshPartyMember();
             }
 

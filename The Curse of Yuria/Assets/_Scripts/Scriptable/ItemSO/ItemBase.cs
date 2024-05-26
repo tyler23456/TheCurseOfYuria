@@ -6,8 +6,6 @@ using HeroEditor.Common.Data;
 
 public abstract class ItemBase : TypeBase
 {
-    protected static IGlobal global;
-
     [SerializeField] [HideInInspector] protected ulong guid;
 
     [SerializeField] protected Sprite _icon;

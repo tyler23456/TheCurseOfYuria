@@ -13,7 +13,7 @@ namespace TCOY.AStar
 
         void Start()
         {
-            target = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>().allies[0].getGameObject.transform;
+            target = Global.instance.allies[0].getGameObject.transform;
             StartCoroutine(CheckForPath());
         }
         

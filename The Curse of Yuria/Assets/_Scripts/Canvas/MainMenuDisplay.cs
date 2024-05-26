@@ -12,7 +12,6 @@ namespace TCOY.Canvas
     public class MainMenuDisplay : MonoBehaviour
     {
         ISaveManager saveManager;
-        IGlobal global;
 
         [SerializeField] Button buttonPrefab;
         [SerializeField] RectTransform rightPanel;
@@ -27,7 +26,6 @@ namespace TCOY.Canvas
         void OnEnable()
         {
             saveManager = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISaveManager>();
-            global = GameObject.Find("/DontDestroyOnLoad").GetComponent<IGlobal>();
 
             newGame.onClick.RemoveAllListeners();
             load.onClick.RemoveAllListeners();
@@ -40,12 +38,12 @@ namespace TCOY.Canvas
             rightPanel.gameObject.SetActive(false);
             //optional animation here
 
-            IGlobal.gameState = IGlobal.GameState.Stopped;
+            Global.instance.gameState = Global.GameState.Stopped;
         }
 
         void OnDisable()
         {
-            IGlobal.gameState = IGlobal.GameState.Playing;
+            Global.instance.gameState = Global.GameState.Playing;
         }
 
         void StartNewGame()
