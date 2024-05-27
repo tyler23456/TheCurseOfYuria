@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace TCOY.DontDestroyOnLoad
+namespace TCOY.Canvas
 {
     public class LoadingDisplay : MonoBehaviour
     {
@@ -33,14 +33,14 @@ namespace TCOY.DontDestroyOnLoad
                 yield return new WaitForEndOfFrame();
             }
 
-            GameObject obj = GameObject.Find("/DontDestroyOnLoad/Pathfinding").gameObject;
-            obj.SetActive(false);
+            //GameObject obj = GameObject.Find("/DontDestroyOnLoad/Pathfinding").gameObject;
+            //obj.SetActive(false);
             Global.instance.getCamera.gameObject.SetActive(false);
             Global.instance.allies.SetPosition(Global.instance.scenePositionToStart);
             Global.instance.allies.SetEulerAngleZ(Global.instance.sceneEulerAngleZToStart);
             Global.instance.getCamera.gameObject.SetActive(true);
             gameObject.SetActive(false);
-            obj.SetActive(true);
+            //obj.SetActive(true);
         }
     }
 }

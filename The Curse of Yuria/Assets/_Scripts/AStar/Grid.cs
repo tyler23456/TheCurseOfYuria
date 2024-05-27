@@ -58,21 +58,22 @@ namespace TCOY.AStar
             return neighbors;
         }
 
+        Vector3 worldBottomLeft;
         void CreateGrid()
         {
-            nodeDiameter = nodeRadius * 2;
+            nodeDiameter = nodeRadius * 2f;
             gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
             gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
 
             grid = new Node[gridSizeX, gridSizeY];
-            Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.up * gridWorldSize.y / 2;
+            worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2f - Vector3.up * gridWorldSize.y / 2f;
 
             for (int x = 0; x < gridSizeX; x++)
             {
-                for (int y = 0; y < gridSizeX; y++)
+                for (int y = 0; y < gridSizeY; y++)
                 {
                     Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
-                    bool walkable = Physics2D.OverlapCircle(worldPoint, nodeRadius, unwalkableMask) == null;
+                    bool walkable = Physics2D.OverlapCircle(worldPoint, nodeRadius - 0.1f, unwalkableMask) == null;
                     grid[x, y] = new Node(walkable, worldPoint, x, y);
                 }
             }

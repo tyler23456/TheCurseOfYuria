@@ -41,7 +41,7 @@ namespace TCOY.AStar
                 {
                     Node currentNode = openSet.RemoveFirst();
 
-                    //----
+                    
                     closedSet.Add(currentNode);
 
                     if (currentNode == targetNode)

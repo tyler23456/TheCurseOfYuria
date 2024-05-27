@@ -10,7 +10,7 @@ public class Reactor
     [SerializeField] Scroll reaction;
     [SerializeField] TargeterBase target;
 
-    public Scroll getItem => action;
+    public TypeBase getItem => action;
     public TargeterBase.Party getParty => party;
     public Scroll getReaction => reaction;
     public TargeterBase getTargeter => target;

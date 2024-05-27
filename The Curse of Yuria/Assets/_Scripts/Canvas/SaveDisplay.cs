@@ -11,7 +11,7 @@ namespace TCOY.Canvas
 {
     public class SaveDisplay : MonoBehaviour
     {
-        ISaveManager saveManager;
+        public enum State { NewSave, Overwrite, Load }
 
         [SerializeField] GameObject partyMemberPrefab;
 
@@ -26,17 +26,15 @@ namespace TCOY.Canvas
 
 
         Button button;
-        ISaveManager.State state = ISaveManager.State.NewSave;
+        State state = State.NewSave;
 
         void OnEnable()
         {
-            saveManager = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISaveManager>();
-
             newSaveButton.onClick.RemoveAllListeners();
             overwriteButton.onClick.RemoveAllListeners();
             loadButton.onClick.RemoveAllListeners();
 
-            newSaveButton.onClick.AddListener(() => { saveManager.OnNewSave(); RefreshFiles(); });
+            newSaveButton.onClick.AddListener(() => { SaveManager.instance.OnNewSave(); RefreshFiles(); });
             overwriteButton.onClick.AddListener(OnOverwriteSettingSet);
             loadButton.onClick.AddListener(OnLoadSettingSet);
 
@@ -65,12 +63,12 @@ namespace TCOY.Canvas
                 {
                     switch (state)
                     {
-                        case ISaveManager.State.Overwrite:
-                            saveManager.OnOverwrite(fileInfo.Name);
+                        case State.Overwrite:
+                            SaveManager.instance.OnOverwrite(fileInfo.Name);
                             RefreshFiles();
                             break;
-                        case ISaveManager.State.Load:
-                            saveManager.OnLoad(fileInfo.Name);
+                        case State.Load:
+                            SaveManager.instance.OnLoad(fileInfo.Name);
                             break;
                     }
                 });
@@ -80,13 +78,13 @@ namespace TCOY.Canvas
 
         void OnOverwriteSettingSet()
         {
-            state = ISaveManager.State.Overwrite;
+            state = State.Overwrite;
             heading.text = "Overwrite a save file";
         }
 
         void OnLoadSettingSet()
         {
-            state = ISaveManager.State.Load;
+            state = State.Load;
             heading.text = "Load a save file";
         }
     }

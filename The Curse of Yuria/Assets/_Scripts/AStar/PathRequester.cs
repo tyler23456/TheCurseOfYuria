@@ -11,14 +11,14 @@ namespace TCOY.AStar
 
         Queue<PathRequest> pathRequestQueue = new Queue<PathRequest>();
         PathRequest currentPathRequest;
-        Pathfinding pathFinding;
+        Pathfinding2 pathfinding;
 
         bool isProcessingPath;
 
         private void Awake()
         {
             instance = this;
-            pathFinding = GetComponent<Pathfinding>();
+            pathfinding = GetComponent<Pathfinding2>();
         }
 
         public static void RequestPath (Vector3 pathStart, Vector3 pathEnd, Action<Vector3[], bool> callback)
@@ -34,7 +34,7 @@ namespace TCOY.AStar
             {
                 currentPathRequest = pathRequestQueue.Dequeue();
                 isProcessingPath = true;
-                pathFinding.StartFindPath(currentPathRequest.pathStart, currentPathRequest.pathEnd);
+                pathfinding.StartFindPath(currentPathRequest.pathStart, currentPathRequest.pathEnd);
             }
         }
 

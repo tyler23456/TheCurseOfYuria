@@ -7,9 +7,16 @@ using System.Linq;
 using System;
 using FirstGearGames.SmoothCameraShaker;
 
-public class SaveManager : MonoBehaviour, ISaveManager
+public class SaveManager : MonoBehaviour
 {
+    public static SaveManager instance;
+
     [SerializeField] CameraShaker mainCameraShaker;
+
+    public void Awake()
+    {
+        instance = this;
+    }
 
     public void Start()
     {

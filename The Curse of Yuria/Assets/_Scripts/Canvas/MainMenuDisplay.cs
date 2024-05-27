@@ -11,8 +11,6 @@ namespace TCOY.Canvas
 {
     public class MainMenuDisplay : MonoBehaviour
     {
-        ISaveManager saveManager;
-
         [SerializeField] Button buttonPrefab;
         [SerializeField] RectTransform rightPanel;
         [SerializeField] RectTransform grid;
@@ -25,8 +23,6 @@ namespace TCOY.Canvas
 
         void OnEnable()
         {
-            saveManager = GameObject.Find("/DontDestroyOnLoad").GetComponent<ISaveManager>();
-
             newGame.onClick.RemoveAllListeners();
             load.onClick.RemoveAllListeners();
             quit.onClick.RemoveAllListeners();
@@ -48,7 +44,7 @@ namespace TCOY.Canvas
 
         void StartNewGame()
         {
-            saveManager.OnNewGame();
+            SaveManager.instance.OnNewGame();
         }
 
         void RefreshFiles()
@@ -69,7 +65,7 @@ namespace TCOY.Canvas
             {
                 button = Instantiate(buttonPrefab, grid);
                 button.onClick.RemoveAllListeners();
-                button.onClick.AddListener(() => saveManager.OnLoad(fileInfo.Name));
+                button.onClick.AddListener(() => SaveManager.instance.OnLoad(fileInfo.Name));
                 button.transform.GetChild(0).GetComponent<Text>().text = fileInfo.Name.Split('.')[0];
             }
         }
