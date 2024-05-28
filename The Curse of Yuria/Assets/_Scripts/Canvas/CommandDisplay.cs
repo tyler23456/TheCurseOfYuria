@@ -8,6 +8,8 @@ namespace TCOY.Canvas
 {
     public class CommandDisplay : MonoBehaviour
     {
+        [SerializeField] RectTransform display;
+
         [SerializeField] Button buttonPrefab;
         [SerializeField] RectTransform grid;
         [SerializeField] Button attackTab;
@@ -21,13 +23,13 @@ namespace TCOY.Canvas
         InventoryUI skillInventoryUI;
         InventoryUI itemInventoryUI;
 
-        public enum State { attack, skill, item }
-        State currentState = State.attack;
-
-        public State getState => currentState;
+        GameObject selectedIcon;
 
         void OnEnable()
         {
+            selectedIcon.gameObject.SetActive(false);
+            display.gameObject.SetActive(true);
+
             skillInventoryUI = new InventoryUI();
             itemInventoryUI = new InventoryUI();
 
@@ -43,7 +45,7 @@ namespace TCOY.Canvas
 
             commandName = "None";
 
-            OnClickAttack();
+            //OnClickAttack();
 
             Global.instance.gameState = Global.GameState.Paused;
         }
@@ -51,12 +53,11 @@ namespace TCOY.Canvas
         private void OnDisable()
         {
             Global.instance.gameState = Global.GameState.Playing;
+            MouseHover.instance.SetState(MouseHover.State.None);
         }
 
         public void OnClickAttack()
         {
-            currentState = State.attack;
-
             string weapon = currentPartyMember.getEquipment.Find(i => 
             Factory.instance.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon1H ||
             Factory.instance.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon2H ||
@@ -70,15 +71,8 @@ namespace TCOY.Canvas
 
         public void OnClickSkill()
         {
-            currentState = State.skill;
-            /*globalInventoryUI.grid = grid;
-            globalInventoryUI.buttonPrefab = buttonPrefab;
-            globalInventoryUI.inventory = inventory;
-            globalInventoryUI.OnClick = (itemName) => OnEquip(itemName);
-            globalInventoryUI.onPointerEnter = (itemName) => OnPointerEnter(itemName);
-            globalInventoryUI.onPointerExit = (itemName) => OnPointerExit(itemName);
-            globalInventoryUI.Display();*/
-
+            skillInventoryUI.displayName = true;
+            skillInventoryUI.displayCount = false;
             skillInventoryUI.grid = grid;
             skillInventoryUI.buttonPrefab = buttonPrefab;
             skillInventoryUI.OnClick = (commandName) => OnSelectCommand(commandName);
@@ -90,7 +84,6 @@ namespace TCOY.Canvas
 
         public void OnClickItems()
         {
-            currentState = State.item;
             itemInventoryUI.grid = grid;
             itemInventoryUI.buttonPrefab = buttonPrefab;
             itemInventoryUI.OnClick = (commandName) => OnSelectCommand(commandName);
@@ -116,17 +109,29 @@ namespace TCOY.Canvas
             if (target == null)
                 return;
 
-            //need an animation that shows selected target here.
+            if (selectedIcon == null)
+                selectedIcon = Instantiate(Factory.instance.gameObject);
+
+            selectedIcon.transform.position = target.getGameObject.transform.position + Vector3.up * target.getCollider2D.bounds.size.y;
 
             if (Input.GetMouseButtonDown(0))
             {
-                OnSelectTarget(target); 
+                OnSelectTarget(target);
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                commandName = "None";
+                display.gameObject.SetActive(true);
+                MouseHover.instance.SetState(MouseHover.State.None);
             }
         }
 
         public void OnSelectCommand(string commandName)
         {
             this.commandName = commandName;
+            MouseHover.instance.SetState(MouseHover.State.SelectTarget);
+            selectedIcon.SetActive(true);
+            display.gameObject.SetActive(false);
         }
 
         public void OnSelectTarget(IActor target)
@@ -135,7 +140,10 @@ namespace TCOY.Canvas
             Global.instance.pendingCommands.AddLast(command);
             currentPartyMember.getATBGuage.Reset();
             Global.instance.aTBGuageFilledQueue.Dequeue();
+            MouseHover.instance.SetState(MouseHover.State.None);
+            selectedIcon.gameObject.SetActive(true);
             gameObject.SetActive(false);
+            
         }
     }
 }

@@ -11,9 +11,14 @@ namespace TCOY.Canvas
     {
         [SerializeField] List<StatDisplay> statDisplays;
 
-        void Start()
+        void OnEnable()
         {   
             OnRefresh();
+        }
+
+        void OnDisable()
+        {
+            
         }
 
         public void OnRefresh()

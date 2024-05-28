@@ -71,6 +71,7 @@ namespace TCOY.Canvas
 
         public void RefreshInventorySkills()
         {
+            globalInventoryUI.displayName = true;
             globalInventoryUI.grid = inventoryGrid;
             globalInventoryUI.buttonPrefab = buttonPrefab;
             globalInventoryUI.inventory = Global.instance.inventories[Factory.instance.getScroll.name];
@@ -100,7 +101,8 @@ namespace TCOY.Canvas
                 partyMemberStats.text += ((IStats.Attribute)i).ToString() + "\n";
                 partyMemberValues.text += statValues[i].ToString() + "\n";
             }
-
+            partyMemberInventoryUI.displayName = true;
+            partyMemberInventoryUI.displayCount = false;
             partyMemberInventoryUI.grid = partyMemberGrid;
             partyMemberInventoryUI.buttonPrefab = buttonPrefab;
             partyMemberInventoryUI.inventory = allie.getSkills;

@@ -30,6 +30,7 @@ public class Factory : MonoBehaviour
     [SerializeField] AssetLabelReference itemsReference;
     [SerializeField] AssetLabelReference statusEffectsReference;
     [SerializeField] AssetLabelReference partyMemberReference;
+    [SerializeField] AssetLabelReference menuIconReference;
 
     [SerializeField] GameObject damagePopupPrefab;
     [SerializeField] GameObject recoveryPopupPrefab;
@@ -37,6 +38,7 @@ public class Factory : MonoBehaviour
     Dictionary<string, IItem> items = new Dictionary<string, IItem>();
     Dictionary<string, IStatusEffect> statusEffects = new Dictionary<string, IStatusEffect>();
     Dictionary<string, GameObject> partyMembers = new Dictionary<string, GameObject>();
+    Dictionary<string, GameObject> menuIcons = new Dictionary<string, GameObject>();
 
     public HelmetType getHelmet => helmet;
     public EarringType getEarring => earring;
@@ -74,6 +76,11 @@ public class Factory : MonoBehaviour
         {
             partyMembers.Add(i.name, i);
         }).WaitForCompletion();
+
+        Addressables.LoadAssetsAsync<GameObject>(menuIconReference, (i) =>
+        {
+            menuIcons.Add(i.name, i);
+        }).WaitForCompletion();
     }
 
     public IItem GetItem(string name)
@@ -94,5 +101,10 @@ public class Factory : MonoBehaviour
     public GameObject GetAllie(string partyMemberName)
     {
         return partyMembers[partyMemberName];
+    }
+
+    public GameObject GetMenuIcon(string menuIconName)
+    {
+        return menuIcons[menuIconName];
     }
 }

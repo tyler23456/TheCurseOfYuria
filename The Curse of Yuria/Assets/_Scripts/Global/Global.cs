@@ -20,6 +20,7 @@ public class Global : MonoBehaviour
     [SerializeField] AudioSource audioSource;
 
     [SerializeField] RectTransform canvas;
+    [SerializeField] RectTransform display2;
     [SerializeField] RectTransform mainMenuDisplay;
     [SerializeField] RectTransform loadingDisplay;
     [SerializeField] RectTransform cutsceneDisplay;
@@ -81,6 +82,7 @@ public class Global : MonoBehaviour
     GameState previousGameState = GameState.Playing;
 
     public RectTransform getCanvas => canvas;
+    public RectTransform getDisplay2 => display2;
 
     public int sceneIDToLoad { get; set; } = 0;
     public Vector2 scenePositionToStart { get; set; } = Vector2.zero;
@@ -134,6 +136,10 @@ public class Global : MonoBehaviour
                 Time.timeScale = 1f;
                 break;
             case GameState.Paused:
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                Time.timeScale = 1f;
+                break;
             case GameState.Stopped:
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;

@@ -35,11 +35,13 @@ namespace TCOY.Canvas
 
             //GameObject obj = GameObject.Find("/DontDestroyOnLoad/Pathfinding").gameObject;
             //obj.SetActive(false);
+            Global.instance.getDisplay2.gameObject.SetActive(false);
             Global.instance.getCamera.gameObject.SetActive(false);
             Global.instance.allies.SetPosition(Global.instance.scenePositionToStart);
             Global.instance.allies.SetEulerAngleZ(Global.instance.sceneEulerAngleZToStart);
             Global.instance.getCamera.gameObject.SetActive(true);
             gameObject.SetActive(false);
+            Global.instance.getDisplay2.gameObject.SetActive(true);
             //obj.SetActive(true);
         }
     }

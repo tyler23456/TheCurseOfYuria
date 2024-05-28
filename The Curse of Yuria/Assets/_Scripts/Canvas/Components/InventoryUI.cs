@@ -16,6 +16,9 @@ namespace TCOY.Canvas
         public Action<string> onPointerExit { get; set; } = (info) => { };
         public IInventory inventory { get; set; } = null;
 
+        public bool displayName { get; set; } = false;
+        public bool displayCount { get; set; } = true;
+
         Button button = null;
         PointerHover pointerHover = null;
 
@@ -43,9 +46,15 @@ namespace TCOY.Canvas
                 };
                 pointerHover.onPointerExit = () => onPointerExit.Invoke(inventory.GetName(index));
                 button.transform.GetChild(1).GetComponent<Image>().sprite = Factory.instance.GetItem(inventory.GetName(index)).icon;
-                button.transform.GetChild(2).GetComponent<Text>().text = inventory.GetCount(index).ToString();
 
+                if (displayCount)
+                    button.transform.GetChild(2).GetComponent<Text>().text = inventory.GetCount(index).ToString();
+                if (displayName)
+                    button.transform.GetChild(3).GetComponent<Text>().text = inventory.GetName(index);               
             }
+
+            displayName = false;
+            displayCount = true;
         }
 
         public void EmptyDisplay()
