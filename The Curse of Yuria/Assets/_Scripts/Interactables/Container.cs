@@ -16,7 +16,7 @@ namespace TCOY.DontDestroyOnLoad
             foreach (ItemBase item in items)
             {
                 Global.instance.inventories[item.itemType.name].Add(item.name);
-                Global.instance.obtainedItems.Enqueue(item.name);
+                Global.instance.obtainedItems.Add(item.name);
             }
             Global.instance.ToggleDisplay(Global.Display.ObtainedItems);
 

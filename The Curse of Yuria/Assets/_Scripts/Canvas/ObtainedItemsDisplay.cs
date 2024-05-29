@@ -6,31 +6,45 @@ using UnityEngine.UI;
 
 namespace TCOY.Canvas
 {
-    public class ObtainedItemsDisplay : MonoBehaviour
+    public class ObtainedItemsDisplay : MenuBase
     {
-        [SerializeField] Transform grid;
-        [SerializeField] GameObject obtainedItemPrefab;
-        [SerializeField] float displayTime = 10f;
+        [SerializeField] RectTransform grid;
+        [SerializeField] Button obtainedItemPrefab;
+        [SerializeField] float displayTime = 7f;
 
-        void OnEnable()
+        InventoryUI inventoryUI = new InventoryUI();
+
+        float accumulator;
+
+        protected new void OnEnable()
         {
-            for (int i = 0; i < Global.instance.obtainedItems.Count; i++)
-            {
-                GameObject obj = Instantiate(obtainedItemPrefab, grid);
-                obj.GetComponent<Text>().text = Global.instance.obtainedItems.Dequeue();
-                Destroy(obj, displayTime);
-            }
+            base.OnEnable();
+            Global.instance.gameState = Global.GameState.Playing;
+
+            Inventory inventory = new Inventory(Global.instance.obtainedItems.ToArray());
+            Global.instance.obtainedItems.Clear();
+
+            inventoryUI.grid = grid;
+            inventoryUI.buttonPrefab = obtainedItemPrefab;
+            inventoryUI.inventory = inventory;
+            inventoryUI.OnClick = (itemName) => { };
+            inventoryUI.onPointerEnter = (itemName) => { };
+            inventoryUI.onPointerExit = (itemName) => { };
+            inventoryUI.Display();
+
+            accumulator = 0f;
         }
 
-        void OnDisable()
+        protected new void OnDisable()
         {
-            foreach (Transform t in grid)
-                Destroy(t.gameObject);
+            base.OnDisable();
         }
 
         void Update()
         {
-            if (grid.childCount == 0)
+            accumulator += Time.deltaTime;
+
+            if (accumulator >= displayTime)
                 gameObject.SetActive(false);
         }
     }

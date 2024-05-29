@@ -6,6 +6,8 @@ public class Supply : Scroll, IItem
 {
     public override IEnumerator Use(IActor user, List<IActor> targets)
     {
+        SetDirection(user, targets);
+
         Global.instance.inventories[itemType.name].Remove(name);
 
         user.getAnimator.UseSupply();

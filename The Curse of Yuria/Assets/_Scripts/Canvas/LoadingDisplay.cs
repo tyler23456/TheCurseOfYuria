@@ -12,7 +12,7 @@ namespace TCOY.Canvas
         [SerializeField] Slider progressBar;
 
         private void OnEnable()
-        {;
+        {
             Global.instance.gameState = Global.GameState.Stopped;
             Global.instance.StartCoroutine(CoroutineLoad());
         }

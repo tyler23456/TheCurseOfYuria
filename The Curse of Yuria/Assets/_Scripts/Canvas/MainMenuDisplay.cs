@@ -32,7 +32,6 @@ namespace TCOY.Canvas
             quit.onClick.AddListener(Application.Quit);
 
             rightPanel.gameObject.SetActive(false);
-            //optional animation here
 
             Global.instance.gameState = Global.GameState.Stopped;
         }

@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 namespace TCOY.Canvas
 {
-    
-
     public class StatsDisplay : MonoBehaviour
     {
         [SerializeField] List<StatDisplay> statDisplays;

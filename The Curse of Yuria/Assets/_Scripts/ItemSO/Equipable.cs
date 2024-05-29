@@ -9,6 +9,8 @@ public class Equipable : ItemBase, IItem
 {
     public override IEnumerator Use(IActor user, List<IActor> targets)
     {
+        SetDirection(user, targets);
+
         user.getAnimator.Attack();
 
         foreach (IActor target in targets)

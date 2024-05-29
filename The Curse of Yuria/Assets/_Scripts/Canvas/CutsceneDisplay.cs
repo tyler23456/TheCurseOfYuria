@@ -6,22 +6,22 @@ using TMPro;
 
 namespace TCOY.Canvas
 {
-    public class CutsceneDisplay : MonoBehaviour
+    public class CutsceneDisplay : MenuBase
     {
         [SerializeField] Image promptImage;
         [SerializeField] TMP_Text promptText;
 
-
-        void OnEnable()
+        protected new void OnEnable()
         {
-            Global.instance.gameState = Global.GameState.Stopped;
-            //need to calculate the actors in the field 
+            base.OnEnable();
+
+            Global.instance.gameState = Global.GameState.Stopped; 
             Global.instance.StartCoroutine(Activate(new List<IActor>()));
         }
 
-        void OnDisable()
+        protected new void OnDisable()
         {
-            Global.instance.gameState = Global.GameState.Playing;
+            base.OnDisable();
         }
 
         public IEnumerator Activate(List<IActor> actors)

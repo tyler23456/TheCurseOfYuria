@@ -7,7 +7,7 @@ using System;
 
 namespace TCOY.Canvas
 {
-    public class ScrollDisplay : MonoBehaviour
+    public class ScrollDisplay : MenuBase
     {
         [SerializeField] Button buttonPrefab;
 
@@ -48,8 +48,10 @@ namespace TCOY.Canvas
         InventoryUI partyMemberInventoryUI;
         InventoryUI globalInventoryUI;
 
-        void OnEnable()
-        {      
+        protected new void OnEnable()
+        {
+            base.OnEnable();
+
             partyMemberInventoryUI = new InventoryUI();
             globalInventoryUI = new InventoryUI();
 
@@ -58,15 +60,13 @@ namespace TCOY.Canvas
             RefreshPartyMember();
 
             Global.instance.getAudioSource.PlayOneShot(open);
-
-            Global.instance.gameState = Global.GameState.Paused;
         }
 
-        private void OnDisable()
+        protected new void OnDisable()
         {
-            Global.instance.getAudioSource.PlayOneShot(close);
+            base.OnDisable();
 
-            Global.instance.gameState = Global.GameState.Playing;
+            Global.instance.getAudioSource.PlayOneShot(close);
         }
 
         public void RefreshInventorySkills()

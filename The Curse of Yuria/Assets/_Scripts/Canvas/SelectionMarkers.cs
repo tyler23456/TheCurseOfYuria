@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class SelectionMarkers : MonoBehaviour
@@ -10,40 +11,47 @@ public class SelectionMarkers : MonoBehaviour
     [SerializeField] RectTransform markerParent;
     [SerializeField] Camera mainCamera;
 
-    List<Collider2D> colliders;
+    public int count => markerParent.childCount;
 
     void Awake()
     {
         instance = this;
     }
 
-    public void AddMarkerTo(Collider target)
+    public void AddMarker(string message = "")
     {
-        Instantiate(target, markerParent);
+        Instantiate(Factory.instance.GetMenuIcon("SelectionMarker"), markerParent).transform.GetChild(0).GetChild(0).GetComponent<Text>().text = message;
     }
 
-    public void Update()
+    public void AddMarker(Vector3 worldPosition, string message = "")
     {
-        for (int i = colliders.Count - 1; i >= 0; i--)
-        {
-            if (colliders[i] == null)
-            {
-                colliders.RemoveAt(i);
-                continue;
-            }
-
-            Vector3 position = colliders[i].bounds.center + Vector3.up * colliders[i].bounds.extents.y;
-            position = mainCamera.WorldToScreenPoint(position);
-
-            ((RectTransform)markerParent.GetChild(i)).anchoredPosition = position;
-                
-        }
+        Instantiate(Factory.instance.GetMenuIcon("SelectionMarker"), markerParent).transform.GetChild(0).GetChild(0).GetComponent<Text>().text = message;
+        SetMarkerWorldPositionAt(count - 1, worldPosition);
     }
 
-    public void DestroyMarkers()
+    public void AddMarker(Vector2 screenPosition, string message = "")
     {
-        colliders.Clear();
+        Instantiate(Factory.instance.GetMenuIcon("SelectionMarker"), markerParent).transform.GetChild(0).GetChild(0).GetComponent<Text>().text = message;
+        SetMarkerScreenPositionAt(count - 1, screenPosition);
+    }
 
+    public void SetMarkerScreenPositionAt(int index, Vector2 screenPosition)
+    {
+        ((RectTransform)markerParent.GetChild(index)).position = screenPosition;
+    }
+
+    public void SetMarkerWorldPositionAt(int index, Vector3 worldPosition)
+    {
+        ((RectTransform)markerParent.GetChild(index)).position = mainCamera.WorldToScreenPoint(worldPosition);
+    }
+
+    public void SetMarkerMessageAt(int index, string message)
+    {
+        markerParent.GetChild(index).GetComponentInChildren<Text>().text = message;
+    }
+
+    public void DestroyAllMarkers()
+    {
         for (int i = markerParent.childCount - 1; i >= 0; i--)
             Destroy(markerParent.GetChild(i).gameObject);
     }

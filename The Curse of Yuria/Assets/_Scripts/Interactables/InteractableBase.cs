@@ -11,6 +11,7 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] protected string id = "None";
 
         protected string getID => id;
+        public virtual string getAction => "Interact with ";
 
         void OnValidate()
         {
@@ -30,14 +31,14 @@ namespace TCOY.DontDestroyOnLoad
 
         private void OnTriggerStay2D(Collider2D collision)
         {   
-            IPlayerControls playerControls = collision.GetComponent<IPlayerControls>();
+            /*IPlayerControls playerControls = collision.GetComponent<IPlayerControls>();
 
             if (playerControls == null || !Input.GetKeyDown(KeyCode.Mouse0))
                 return;
 
             IActor player = collision.GetComponent<IAllie>();
 
-            Interact(player);
+            Interact(player);*/
         }
     }
 }

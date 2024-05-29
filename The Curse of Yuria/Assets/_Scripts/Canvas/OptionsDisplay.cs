@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace TCOY.Canvas
 {
-    public class OptionsDisplay : MonoBehaviour
+    public class OptionsDisplay : MenuBase
     {
         [SerializeField] Button graphicsTab;
         [SerializeField] Button SettingsTab;
@@ -19,8 +19,10 @@ namespace TCOY.Canvas
         [SerializeField] RectTransform saveDisplay;
         [SerializeField] RectTransform quitDisplay;  
 
-        private void OnEnable()
+        protected new void OnEnable()
         {
+            base.OnEnable();
+
             graphicsTab.onClick.RemoveAllListeners();
             SettingsTab.onClick.RemoveAllListeners();
             controlsTab.onClick.RemoveAllListeners();
@@ -33,12 +35,11 @@ namespace TCOY.Canvas
             saveTab.onClick.AddListener(OnClickSaveTab);
             quitTab.onClick.AddListener(OnClickQuitTab);
             OnClickGraphicsTab();
-            Global.instance.gameState = Global.GameState.Paused;
         }
 
-        private void OnDisable()
+        protected new void OnDisable()
         {
-            Global.instance.gameState = Global.GameState.Playing;
+            base.OnDisable();
         }
 
         void ResetTabDisplays()

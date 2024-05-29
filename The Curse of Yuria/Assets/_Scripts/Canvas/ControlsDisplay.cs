@@ -10,9 +10,9 @@ namespace TCOY.Canvas
 
         InventoryUI inventory;
 
-        void OnEnable()
+        protected void OnEnable()
         {
-
+            
         }
     }
 }

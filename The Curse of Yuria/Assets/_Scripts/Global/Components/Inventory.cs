@@ -12,6 +12,16 @@ public class Inventory : IInventory
 
     public int count => names.Count;
 
+    public Inventory()
+    {
+    }
+
+    public Inventory(string[] items)
+    {
+        foreach (string item in items)
+            Add(item);
+    }
+
     public void Add(string name, int count = 1)
     {
         int index = names.IndexOf(name);

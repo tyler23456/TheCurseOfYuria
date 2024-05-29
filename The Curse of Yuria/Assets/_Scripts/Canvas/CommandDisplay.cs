@@ -6,7 +6,7 @@ using HeroEditor.Common.Enums;
 
 namespace TCOY.Canvas
 {
-    public class CommandDisplay : MonoBehaviour
+    public class CommandDisplay : MenuBase
     {
         [SerializeField] RectTransform display;
 
@@ -23,11 +23,11 @@ namespace TCOY.Canvas
         InventoryUI skillInventoryUI;
         InventoryUI itemInventoryUI;
 
-        GameObject selectedIcon;
 
-        void OnEnable()
+        protected new void OnEnable()
         {
-            selectedIcon.gameObject.SetActive(false);
+            base.OnEnable();
+
             display.gameObject.SetActive(true);
 
             skillInventoryUI = new InventoryUI();
@@ -44,14 +44,13 @@ namespace TCOY.Canvas
             itemTab.onClick.AddListener(() => OnClickItems());
 
             commandName = "None";
-
-            //OnClickAttack();
-
-            Global.instance.gameState = Global.GameState.Paused;
         }
 
-        private void OnDisable()
+        protected new void OnDisable()
         {
+            base.OnDisable();
+
+            SelectionMarkers.instance.DestroyAllMarkers();
             Global.instance.gameState = Global.GameState.Playing;
             MouseHover.instance.SetState(MouseHover.State.None);
         }
@@ -95,24 +94,33 @@ namespace TCOY.Canvas
 
         public void Update()
         {
+            target = null;
+
             if (commandName == "None")
                 return;
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+            RaycastHit2D[] hits = Physics2D.GetRayIntersectionAll(ray, Mathf.Infinity);
 
-            if (hit.transform == null)
-                return;
+            foreach (RaycastHit2D hit in hits)
+            {
+                target = hit.transform.GetComponent<IActor>();
 
-            target = hit.transform.GetComponent<IActor>();
+                if (target != null)
+                    break;
+            }
 
             if (target == null)
+            {
+                SelectionMarkers.instance.DestroyAllMarkers();
                 return;
+            }
+            
+            if (SelectionMarkers.instance.count == 0)
+                SelectionMarkers.instance.AddMarker();
 
-            if (selectedIcon == null)
-                selectedIcon = Instantiate(Factory.instance.gameObject);
-
-            selectedIcon.transform.position = target.getGameObject.transform.position + Vector3.up * target.getCollider2D.bounds.size.y;
+            SelectionMarkers.instance.SetMarkerMessageAt(0, "Use " + commandName + " on " + target.getGameObject.name);
+            SelectionMarkers.instance.SetMarkerWorldPositionAt(0, target.getCollider2D.bounds.center + Vector3.up * target.getCollider2D.bounds.extents.y);
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -130,7 +138,6 @@ namespace TCOY.Canvas
         {
             this.commandName = commandName;
             MouseHover.instance.SetState(MouseHover.State.SelectTarget);
-            selectedIcon.SetActive(true);
             display.gameObject.SetActive(false);
         }
 
@@ -140,8 +147,6 @@ namespace TCOY.Canvas
             Global.instance.pendingCommands.AddLast(command);
             currentPartyMember.getATBGuage.Reset();
             Global.instance.aTBGuageFilledQueue.Dequeue();
-            MouseHover.instance.SetState(MouseHover.State.None);
-            selectedIcon.gameObject.SetActive(true);
             gameObject.SetActive(false);
             
         }

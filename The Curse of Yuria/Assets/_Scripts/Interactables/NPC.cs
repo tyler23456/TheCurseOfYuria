@@ -29,17 +29,23 @@ namespace TCOY.DontDestroyOnLoad
             base.Interact(player);
 
             float difference = player.getGameObject.transform.position.x - this.transform.position.x;
-
-            //may need code in here that turns off walking animations and other animations
-
+            
             Vector3 eulerAngles = transform.eulerAngles;
+            Vector3 targetEulerAngles = player.getGameObject.transform.GetChild(0).eulerAngles;
 
             if (difference >= 0)
+            {
                 eulerAngles.y = 0f;
+                targetEulerAngles.y = 180;
+            }          
             else
+            {
                 eulerAngles.y = 180f;
-
+                targetEulerAngles.y = 0f;
+            }
+                
             transform.eulerAngles = eulerAngles;
+            player.getGameObject.transform.GetChild(0).eulerAngles = targetEulerAngles;
 
             promptBranchers[0].getAction.onStart = () => animator.SetInteger("State", 8);
             promptBranchers[0].getAction.onStop = () => animator.SetInteger("State", 0);

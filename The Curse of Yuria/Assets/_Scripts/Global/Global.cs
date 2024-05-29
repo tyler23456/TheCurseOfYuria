@@ -8,7 +8,6 @@ using FirstGearGames.SmoothCameraShaker;
 using TMPro;
 using System.Linq;
 
-
 public class Global : MonoBehaviour
 {
     public enum Display { MainMenu, Loading, Cutscene, Equipment, Scroll, Command, Options, GameOver, ObtainedItems }
@@ -67,7 +66,7 @@ public class Global : MonoBehaviour
     public LinkedList<Command> pendingCommands { get; set; } = new LinkedList<Command>();
     public LinkedList<Command> successfulCommands { get; set; } = new LinkedList<Command>();
     public Queue<ActionBase> cutsceneActions { get; set; } = new Queue<ActionBase>();
-    public Queue<string> obtainedItems { get; set; } = new Queue<string>();
+    public List<string> obtainedItems { get; set; } = new List<string>();
 
     public Image getPromptImage => promptImage;
     public TMP_Text getPromptText => promptText;
@@ -131,8 +130,8 @@ public class Global : MonoBehaviour
         switch (gameState)
         {
             case GameState.Playing:
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 1f;
                 break;
             case GameState.Paused:

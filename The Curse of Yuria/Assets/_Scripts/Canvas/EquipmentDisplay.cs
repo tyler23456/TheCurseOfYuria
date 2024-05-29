@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace TCOY.Canvas
 {
-    public class EquipmentDisplay : MonoBehaviour
+    public class EquipmentDisplay : MenuBase
     {
         [SerializeField] Button buttonPrefab;
 
@@ -87,8 +87,10 @@ namespace TCOY.Canvas
 
         InventoryUI globalInventoryUI;
         
-        void OnEnable()
+        protected new void OnEnable()
         {
+            base.OnEnable();
+
             globalInventoryUI = new InventoryUI();
 
             helmetsTab.onClick.RemoveAllListeners();
@@ -141,10 +143,9 @@ namespace TCOY.Canvas
             Global.instance.gameState = Global.GameState.Paused;
         }
 
-        private void OnDisable()
+        protected new void OnDisable()
         {
-            Global.instance.getAudioSource.PlayOneShot(close);
-            Global.instance.gameState = Global.GameState.Playing;
+            base.OnDisable();
         }
 
         public void RefreshEquipmentPart(ItemTypeBase part)

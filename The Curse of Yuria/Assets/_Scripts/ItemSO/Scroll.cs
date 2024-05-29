@@ -7,7 +7,11 @@ public class Scroll : ItemBase, IItem
 {
     public override IEnumerator Use(IActor user, List<IActor> targets)
     {
-        user.getStats.MP -= cost;
+        LightManager.instance.FadeOut();
+
+        SetDirection(user, targets);
+
+        user.getStats.ApplyCost(cost);
         user.getAnimator.Cast();
 
         foreach (IActor target in targets)
@@ -46,6 +50,8 @@ public class Scroll : ItemBase, IItem
         accumulator = _calculationType.Calculate(user, target, accumulator);
 
         CheckStatusEffects(target);
+
+        LightManager.instance.FadeIn();
     }
 
     protected virtual IEnumerator PerformEffect(IActor target)

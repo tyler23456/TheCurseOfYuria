@@ -9,7 +9,7 @@ using System;
 
 namespace TCOY.Canvas
 {
-    public class GameOverDisplay : MonoBehaviour
+    public class GameOverDisplay : MenuBase
     {
         [SerializeField] Button buttonPrefab;
         [SerializeField] RectTransform rightPanel;
@@ -23,8 +23,10 @@ namespace TCOY.Canvas
 
         Button button;
 
-        void OnEnable()
+        protected new void OnEnable()
         {
+            base.OnEnable();
+
             load.onClick.RemoveAllListeners();
             mainMenu.onClick.RemoveAllListeners();
             quit.onClick.RemoveAllListeners();
@@ -32,15 +34,14 @@ namespace TCOY.Canvas
             load.onClick.AddListener(RefreshFiles);
             mainMenu.onClick.AddListener(LoadMainMenu);
             quit.onClick.AddListener(Application.Quit);
-
-            Global.instance.gameState = Global.GameState.Stopped;
+;
             animator.SetTrigger("Activate");
             rightPanel.gameObject.SetActive(false);
         }
 
-        private void OnDisable()
+        protected new void OnDisable()
         {
-            Global.instance.gameState = Global.GameState.Playing;
+            base.OnDisable();
         }
 
         void LoadMainMenu()

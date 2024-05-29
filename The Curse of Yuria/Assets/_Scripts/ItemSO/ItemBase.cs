@@ -56,6 +56,19 @@ public abstract class ItemBase : TypeBase
         yield return null;
     }
 
+    protected void SetDirection(IActor user, List<IActor> targets)
+    {
+        if (targets.Count == 0)
+            return;
+
+        Vector2 direction = (targets[0].getGameObject.transform.position - user.getGameObject.transform.position).normalized;
+
+        if (direction.x >= 0)
+            user.getGameObject.transform.GetChild(0).eulerAngles = new Vector3(0f, 0f, 0f);
+        else
+            user.getGameObject.transform.GetChild(0).eulerAngles = new Vector3(0f, 180f, 0f);
+    }
+
     public virtual IEnumerator Use(IActor target)
     {
         yield return null;
