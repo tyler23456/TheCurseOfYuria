@@ -10,25 +10,12 @@ using System.Linq;
 
 public class Global : MonoBehaviour
 {
-    public enum Display { MainMenu, Loading, Cutscene, Equipment, Scroll, Command, Options, GameOver, ObtainedItems }
     public enum GameState { Playing, Paused, Stopped }
 
-    public static Global instance { get; set; }
+    public static Global Instance { get; set; }
 
     [SerializeField] ShakeData shakeData;
     [SerializeField] AudioSource audioSource;
-
-    [SerializeField] RectTransform canvas;
-    [SerializeField] RectTransform display2;
-    [SerializeField] RectTransform mainMenuDisplay;
-    [SerializeField] RectTransform loadingDisplay;
-    [SerializeField] RectTransform cutsceneDisplay;
-    [SerializeField] RectTransform equipmentDisplay;
-    [SerializeField] RectTransform scrollDisplay;
-    [SerializeField] RectTransform commandDisplay;
-    [SerializeField] RectTransform optionsDisplay;
-    [SerializeField] RectTransform gameOverDisplay;
-    [SerializeField] RectTransform obtainedItemsDisplay;
 
     [SerializeField] Image promptImage;
     [SerializeField] TMP_Text promptText;
@@ -54,8 +41,6 @@ public class Global : MonoBehaviour
     Inventory completedQuests = new Inventory();
     Inventory completedIds = new Inventory();
 
-    Dictionary<Display, RectTransform> displays = new Dictionary<Display, RectTransform>();
-
     public Camera getCamera => mainCamera;
     public Actors allies { get; private set; } = new Actors();
     public Actors enemies { get; private set; } = new Actors();
@@ -80,16 +65,9 @@ public class Global : MonoBehaviour
     public GameState gameState { get; set; } = GameState.Stopped;
     GameState previousGameState = GameState.Playing;
 
-    public RectTransform getCanvas => canvas;
-    public RectTransform getDisplay2 => display2;
-
-    public int sceneIDToLoad { get; set; } = 0;
-    public Vector2 scenePositionToStart { get; set; } = Vector2.zero;
-    public float sceneEulerAngleZToStart { get; set; } = 0;
-
     public void Awake()
     {
-        instance = this;
+        Instance = this;
 
         allies = new Actors(allieRoot);
 
@@ -106,16 +84,6 @@ public class Global : MonoBehaviour
         inventories.Add(Factory.instance.getBasic.name, supplies);
         inventories.Add(Factory.instance.getScroll.name, scrolls);
         inventories.Add(Factory.instance.getQuestItem.name, questItems);
-
-        displays.Add(Display.MainMenu, mainMenuDisplay);
-        displays.Add(Display.Loading, loadingDisplay);
-        displays.Add(Display.Cutscene, cutsceneDisplay);
-        displays.Add(Display.Equipment, equipmentDisplay);
-        displays.Add(Display.Scroll, scrollDisplay);
-        displays.Add(Display.Command, commandDisplay);
-        displays.Add(Display.Options, optionsDisplay);
-        displays.Add(Display.GameOver, gameOverDisplay);
-        displays.Add(Display.ObtainedItems, obtainedItemsDisplay);
 
         IActor river = GameObject.Find("/DontDestroyOnLoad/AllieRoot/River").GetComponent<IActor>();
         river.Initialize();
@@ -149,45 +117,10 @@ public class Global : MonoBehaviour
         previousGameState = gameState;
     }
 
-    public void ToggleDisplay(Display display)
-    {
-        if (displays[display].gameObject.activeSelf == true)
-        {
-            displays[display].gameObject.SetActive(false);
-        }
-        else
-        {
-            foreach (RectTransform t in canvas)
-                t.gameObject.SetActive(false);
-
-            displays[display].gameObject.SetActive(true);
-        }
-    }
-
     public void ClearAllInventories()
     {
         foreach (KeyValuePair<string, Inventory> inventory in inventories)
             inventory.Value.Clear();
-    }
-
-    public void AddDamagePopup(string damage, Vector3 position)
-    {
-        GameObject obj = Instantiate(Factory.instance.getDamagePopupPrefab, position, Quaternion.identity, popupRoot);
-        obj.transform.GetChild(0).GetComponent<TMP_Text>().text = damage;
-        Destroy(obj, 3f);
-    }
-
-    public void AddRecoveryPopup(string recovery, Vector3 position)
-    {
-        GameObject obj = Instantiate(Factory.instance.getRecoveryPopupPrefab, position, Quaternion.identity, popupRoot);
-        obj.transform.GetChild(0).GetComponent<TMP_Text>().text = recovery;
-        Destroy(obj, 3f);
-    }
-
-    public void ClearAllPopups()
-    {
-        for (int n = popupRoot.transform.childCount - 1; n > -1; n--)
-            Destroy(popupRoot.transform.GetChild(n).gameObject);
     }
 }
 

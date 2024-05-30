@@ -12,8 +12,8 @@ public class Prompt : ActionBase, IAction
 
     public override IEnumerator Activate(List<IActor> actors)
     {
-        Image image = Global.instance.getPromptImage;
-        TMP_Text text = Global.instance.getPromptText;
+        Image image = Global.Instance.getPromptImage;
+        TMP_Text text = Global.Instance.getPromptText;
         text.text = this.text;
         text.maxVisibleCharacters = 0;
         onStart.Invoke();

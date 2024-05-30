@@ -20,7 +20,7 @@ namespace TCOY.DontDestroyOnLoad
         {
             target = null;
 
-            if (Global.instance.gameState != Global.GameState.Playing)
+            if (Global.Instance.gameState != Global.GameState.Playing)
                 return;
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -31,25 +31,25 @@ namespace TCOY.DontDestroyOnLoad
                 target = hit.transform.GetComponent<InteractableBase>();
 
                 if (target != null)
-                    break;
+                     break;
             }
 
             if (target == null)
             {
-                SelectionMarkers.instance.DestroyAllMarkers();
+                MarkerManager.instance.DestroyAllMarkers();
                 return;
             }
 
-            if (SelectionMarkers.instance.count == 0)
-                SelectionMarkers.instance.AddMarker();
+            if (MarkerManager.instance.count == 0)
+                MarkerManager.instance.AddMarker();
 
-            SelectionMarkers.instance.SetMarkerMessageAt(0, target.getAction + target.name);
+            MarkerManager.instance.SetMarkerMessageAt(0, target.getAction + target.name);
             Collider2D collider = target.GetComponent<Collider2D>();
-            SelectionMarkers.instance.SetMarkerWorldPositionAt(0, collider.bounds.center + Vector3.up * collider.bounds.extents.y);
+            MarkerManager.instance.SetMarkerWorldPositionAt(0, collider.bounds.center + Vector3.up * collider.bounds.extents.y);
 
             if (Input.GetMouseButtonDown(0))
             {
-                target.Interact(Global.instance.allies[0]);
+                target.Interact(Global.Instance.allies[0]);
             }
         }
     }

@@ -5,67 +5,63 @@ using System;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace TCOY.Canvas
+
+public class InventoryUI
 {
-    public class InventoryUI
+    public Button buttonPrefab;
+    public RectTransform grid { get; set; } = null;
+    public Action<string> OnClick { get; set; } = (info) => { };
+    public Action<string> onPointerEnter { get; set; } = (info) => { };
+    public Action<string> onPointerExit { get; set; } = (info) => { };
+    public IInventory inventory { get; set; } = null;
+
+    public bool displayName { get; set; } = false;
+    public bool displayCount { get; set; } = true;
+
+    Button button = null;
+    PointerHover pointerHover = null;
+
+    public InventoryUI()
     {
-        public Button buttonPrefab;
-        public RectTransform grid { get; set; } = null;
-        public Action<string> OnClick { get; set; } = (info) => { };
-        public Action<string> onPointerEnter { get; set; } = (info) => { };
-        public Action<string> onPointerExit { get; set; } = (info) => { };
-        public IInventory inventory { get; set; } = null;
+    }
 
-        public bool displayName { get; set; } = false;
-        public bool displayCount { get; set; } = true;
+    public void Display()
+    {
+        EmptyDisplay();
 
-        Button button = null;
-        PointerHover pointerHover = null;
-
-        public InventoryUI()
+        for (int i = 0; i < inventory.count; i++)
         {
+            int index = i;
+            button = GameObject.Instantiate(buttonPrefab, grid);
+            button.onClick.RemoveAllListeners();
+            button.onClick.AddListener(() =>
+            {
+                OnClick(inventory.GetName(index));
+            });
+            pointerHover = button.GetComponent<PointerHover>();
+            pointerHover.onPointerEnter = () =>
+            {
+                onPointerEnter.Invoke(inventory.GetName(index));
+            };
+            pointerHover.onPointerExit = () => onPointerExit.Invoke(inventory.GetName(index));
+            button.transform.GetChild(1).GetComponent<Image>().sprite = Factory.instance.GetItem(inventory.GetName(index)).icon;
+
+            if (displayCount)
+                button.transform.GetChild(2).GetComponent<Text>().text = inventory.GetCount(index).ToString();
+            if (displayName)
+                button.transform.GetChild(3).GetComponent<Text>().text = inventory.GetName(index);
         }
 
-        public void Display()
-        {
-            EmptyDisplay();
+        displayName = false;
+        displayCount = true;
+    }
 
-            for (int i = 0; i < inventory.count; i++)
-            {   
-                int index = i;
-                button = GameObject.Instantiate(buttonPrefab, grid);
-                button.onClick.RemoveAllListeners();
-                button.onClick.AddListener(() => 
-                { 
-                    OnClick(inventory.GetName(index));
-                });
-                pointerHover = button.GetComponent<PointerHover>();
-                pointerHover.onPointerEnter = () =>
-                {
-                    onPointerEnter.Invoke(inventory.GetName(index));
-                };
-                pointerHover.onPointerExit = () => onPointerExit.Invoke(inventory.GetName(index));
-                button.transform.GetChild(1).GetComponent<Image>().sprite = Factory.instance.GetItem(inventory.GetName(index)).icon;
+    public void EmptyDisplay()
+    {
+        if (grid == null)
+            return;
 
-                if (displayCount)
-                    button.transform.GetChild(2).GetComponent<Text>().text = inventory.GetCount(index).ToString();
-                if (displayName)
-                    button.transform.GetChild(3).GetComponent<Text>().text = inventory.GetName(index);               
-            }
-
-            displayName = false;
-            displayCount = true;
-        }
-
-        public void EmptyDisplay()
-        {
-            if (grid == null)
-                return;
-
-            foreach (RectTransform child in grid)
-                GameObject.Destroy(child.gameObject);
-        }
-
-
+        foreach (RectTransform child in grid)
+            GameObject.Destroy(child.gameObject);
     }
 }

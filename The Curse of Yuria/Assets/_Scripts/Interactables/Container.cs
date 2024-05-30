@@ -6,21 +6,29 @@ namespace TCOY.DontDestroyOnLoad
 {
     public class Container : InteractableBase, IContainer
     {
-        [SerializeField] List<ItemBase> items;
+
+        [SerializeField] List<Entry> entries;
 
         public override void Interact(IActor player)
         {
-            if (Global.instance.getCompletedIds.Contains(getID))
+            if (Global.Instance.getCompletedIds.Contains(getID))
                 return;
 
-            foreach (ItemBase item in items)
+            foreach (Entry entry in entries)
             {
-                Global.instance.inventories[item.itemType.name].Add(item.name);
-                Global.instance.obtainedItems.Add(item.name);
+                Global.Instance.inventories[entry.item.itemType.name].Add(entry.item.name, entry.count);
+                ObtainedItemsDisplay.Instance.getInventory.Add(entry.item.name, entry.count);
             }
-            Global.instance.ToggleDisplay(Global.Display.ObtainedItems);
+            ObtainedItemsDisplay.Instance.Refresh();
 
-            Global.instance.getCompletedIds.Add(getID, 1);
+            Global.Instance.getCompletedIds.Add(getID, 1);
+        }
+
+        [System.Serializable]
+        class Entry
+        {
+            public ItemBase item;
+            public int count;
         }
     }
 }

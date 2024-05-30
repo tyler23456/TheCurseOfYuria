@@ -32,7 +32,7 @@ namespace TCOY.UserActors
 
         void MakeADecision()
         {
-            IActor target = Global.instance.allies[0];
+            IActor target = Global.Instance.allies[0];
             if (Vector3.Distance(transform.position, target.getGameObject.transform.position) > proximity)
                 return;
 
@@ -46,7 +46,7 @@ namespace TCOY.UserActors
             }
 
 
-            Global.instance.pendingCommands.AddLast(new Command(this, movesQueue.Peek().getskill, targets));
+            Global.Instance.pendingCommands.AddLast(new Command(this, movesQueue.Peek().getskill, targets));
             movesQueue.Enqueue(movesQueue.Dequeue());
         }
     }

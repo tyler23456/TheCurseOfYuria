@@ -18,22 +18,22 @@ namespace TCOY.UserActors
         
         void Update()
         {
-            if (Global.instance.gameState == Global.GameState.Stopped)
+            if (Global.Instance.gameState == Global.GameState.Stopped)
                 return;
 
             if (Input.GetKeyDown(KeyCode.Escape))
-                Global.instance.ToggleDisplay(Global.Display.Options);
+                OptionsDisplay.Instance.ToggleExclusivelyInParent();
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
-                Global.instance.ToggleDisplay(Global.Display.Equipment);
+                EquipmentDisplay.Instance.ToggleExclusivelyInParent();
 
             if (Input.GetKeyDown(KeyCode.Alpha2))
-                Global.instance.ToggleDisplay(Global.Display.Scroll);
+                ScrollDisplay.Instance.ToggleExclusivelyInParent();
 
-            if (Input.GetKeyDown(KeyCode.Tab) && Global.instance.aTBGuageFilledQueue.Count > 0)
-                Global.instance.ToggleDisplay(Global.Display.Command);
+            if (Input.GetKeyDown(KeyCode.Tab) && Global.Instance.aTBGuageFilledQueue.Count > 0)
+                CommandDisplay.Instance.ToggleExclusivelyInParent();
 
-            if (Global.instance.gameState == Global.GameState.Paused)
+            if (Global.Instance.gameState == Global.GameState.Paused)
                 return;
 
             actor.getAnimator.Stand();

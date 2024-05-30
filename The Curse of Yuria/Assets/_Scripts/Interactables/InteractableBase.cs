@@ -6,7 +6,7 @@ using System.Linq;
 namespace TCOY.DontDestroyOnLoad
 {
     [RequireComponent(typeof(BoxCollider2D))]
-    public abstract class InteractableBase : MonoBehaviour
+    public class InteractableBase : MonoBehaviour
     {
         [SerializeField] protected string id = "None";
 
@@ -27,18 +27,6 @@ namespace TCOY.DontDestroyOnLoad
         public virtual void Interact(IActor player)
         {
 
-        }
-
-        private void OnTriggerStay2D(Collider2D collision)
-        {   
-            /*IPlayerControls playerControls = collision.GetComponent<IPlayerControls>();
-
-            if (playerControls == null || !Input.GetKeyDown(KeyCode.Mouse0))
-                return;
-
-            IActor player = collision.GetComponent<IAllie>();
-
-            Interact(player);*/
         }
     }
 }

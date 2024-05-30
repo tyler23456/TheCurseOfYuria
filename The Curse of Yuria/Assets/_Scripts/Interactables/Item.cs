@@ -11,7 +11,7 @@ namespace TCOY.DontDestroyOnLoad
         {
             base.Start();
 
-            if (Global.instance.getCompletedIds.Contains(getID))
+            if (Global.Instance.getCompletedIds.Contains(getID))
                 gameObject.SetActive(false);
         }
 
@@ -19,9 +19,9 @@ namespace TCOY.DontDestroyOnLoad
         {
             ItemTypeBase type = Factory.instance.GetItem(name).itemType;
 
-            Global.instance.inventories[type.name].Add(name, 60); //--------------------------------------
+            Global.Instance.inventories[type.name].Add(name, 60); //--------------------------------------
             gameObject.SetActive(false);
-            Global.instance.getCompletedIds.Add(getID, 1);
+            Global.Instance.getCompletedIds.Add(getID, 1);
         }
     }
 }

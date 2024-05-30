@@ -10,7 +10,7 @@ public class Sequencer : ActionBase
     public void Start()
     {
         List<IActor> actors = new List<IActor>();
-        Global.instance.StartCoroutine(Activate(actors));
+        Global.Instance.StartCoroutine(Activate(actors));
     }
 
     public override IEnumerator Activate(List<IActor> actors)

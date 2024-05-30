@@ -8,7 +8,7 @@ public class Supply : Scroll, IItem
     {
         SetDirection(user, targets);
 
-        Global.instance.inventories[itemType.name].Remove(name);
+        Global.Instance.inventories[itemType.name].Remove(name);
 
         user.getAnimator.UseSupply();
 
@@ -20,7 +20,7 @@ public class Supply : Scroll, IItem
 
     public override IEnumerator Use(IActor target)
     {
-        Global.instance.inventories[itemType.name].Remove(name);
+        Global.Instance.inventories[itemType.name].Remove(name);
 
         target.StartCoroutine(PerformEffect(target));
 

@@ -15,10 +15,7 @@ namespace TCOY.DontDestroyOnLoad
 
             hasLoaded = true;
 
-            Global.instance.sceneIDToLoad = 3;
-            Global.instance.scenePositionToStart = Vector2.zero;
-            Global.instance.sceneEulerAngleZToStart = 0;
-            Global.instance.ToggleDisplay(Global.Display.Loading);
+            LoadingDisplay.Instance.ShowExclusivelyInParent(3, Vector2.zero, 0f);
         }
     }
 }

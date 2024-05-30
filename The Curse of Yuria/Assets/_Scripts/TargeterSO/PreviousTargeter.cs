@@ -18,13 +18,13 @@ public class PreviousTargeter : TargeterBase
 
         if (order == Order.before)
         {
-            if (Global.instance.pendingCommands.Count > 0)
-                results.Add(type == Type.user ? Global.instance.pendingCommands.First().user : Global.instance.pendingCommands.First().targets[0]);
+            if (Global.Instance.pendingCommands.Count > 0)
+                results.Add(type == Type.user ? Global.Instance.pendingCommands.First().user : Global.Instance.pendingCommands.First().targets[0]);
         }
         else
         {
-            if (Global.instance.successfulCommands.Count > 0)
-                results.Add(type == Type.user ? Global.instance.successfulCommands.First().user : Global.instance.successfulCommands.First().targets[0]);
+            if (Global.Instance.successfulCommands.Count > 0)
+                results.Add(type == Type.user ? Global.Instance.successfulCommands.First().user : Global.Instance.successfulCommands.First().targets[0]);
         }
         
 

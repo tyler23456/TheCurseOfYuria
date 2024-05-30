@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class SelectionMarkers : MonoBehaviour
+public class MarkerManager : MonoBehaviour
 {
-    public static SelectionMarkers instance { get; set; }
+    public static MarkerManager instance { get; set; }
 
     [SerializeField] RectTransform markerParent;
     [SerializeField] Camera mainCamera;

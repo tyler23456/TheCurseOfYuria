@@ -12,7 +12,7 @@ public class Obtainer : ActionBase, IAction
         base.Activate(actors);
 
         foreach (ItemBase item in items)
-            Global.instance.inventories[item.itemType.name].Add(item.name);
+            Global.Instance.inventories[item.itemType.name].Add(item.name);
 
         yield return new WaitForEndOfFrame();
     }

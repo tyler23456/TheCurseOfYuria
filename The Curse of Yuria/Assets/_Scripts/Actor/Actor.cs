@@ -78,13 +78,13 @@ namespace TCOY.UserActors
             stats.Initialize();
             stats.onApplyDamage = (damage) => animator.Hit();
             stats.onApplyDamage += (damage) => { }; //play a hit soundFX
-            stats.onApplyDamage += (damage) => Global.instance.AddDamagePopup(damage.ToString(), collider2D.bounds.center);
-            stats.onApplyDamage += (damage) => CameraShakerHandler.Shake(Global.instance.getShakeData);
+            stats.onApplyDamage += (damage) => PopupManager.Instance.AddDamagePopup(damage, collider2D.bounds.center);
+            stats.onApplyDamage += (damage) => CameraShakerHandler.Shake(Global.Instance.getShakeData);
             stats.onApplyDamage += (damage) => StartCoroutine(HitAnimation());
 
             stats.onZeroHealth = () => Factory.instance.GetStatusEffect("KnockOut").Activate(this);
 
-            stats.onApplyRecovery = (recovery) => Global.instance.AddRecoveryPopup(recovery.ToString(), collider2D.bounds.center);
+            stats.onApplyRecovery = (recovery) => PopupManager.Instance.AddRecoveryPopup(recovery, collider2D.bounds.center);
 
             foreach (ItemBase item in defaultItems)
             {

@@ -22,7 +22,7 @@ MonoBehaviour:
   _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
   anyType: {fileID: 0}
   power: 2
-  cost: 2
+  cost: 30
   effects: []
   particleSystem: {fileID: 3716787501423605696, guid: d40d075809b5a3f4ab6151c684aed3f3, type: 3}
   _itemSprite:

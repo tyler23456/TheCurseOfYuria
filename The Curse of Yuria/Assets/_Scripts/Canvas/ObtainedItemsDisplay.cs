@@ -4,48 +4,54 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-namespace TCOY.Canvas
+public class ObtainedItemsDisplay : DisplayBase
 {
-    public class ObtainedItemsDisplay : MenuBase
+    public static ObtainedItemsDisplay Instance { get; protected set; }
+
+    [SerializeField] RectTransform grid;
+    [SerializeField] Button obtainedItemPrefab;
+    [SerializeField] float displayTime = 7f;
+
+    Inventory inventory = new Inventory();
+    InventoryUI inventoryUI = new InventoryUI();
+
+    float accumulator;
+
+    public Inventory getInventory => inventory;
+
+    public override void Initialize()
     {
-        [SerializeField] RectTransform grid;
-        [SerializeField] Button obtainedItemPrefab;
-        [SerializeField] float displayTime = 7f;
+        base.Initialize();
+        Instance = this;
+    }
 
-        InventoryUI inventoryUI = new InventoryUI();
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        Global.Instance.gameState = Global.GameState.Playing;
 
-        float accumulator;
+        inventoryUI.grid = grid;
+        inventoryUI.buttonPrefab = obtainedItemPrefab;
+        inventoryUI.inventory = inventory;
+        inventoryUI.OnClick = (itemName) => { };
+        inventoryUI.onPointerEnter = (itemName) => { };
+        inventoryUI.onPointerExit = (itemName) => { };
+        inventoryUI.Display();
 
-        protected new void OnEnable()
-        {
-            base.OnEnable();
-            Global.instance.gameState = Global.GameState.Playing;
+        inventory.Clear();
+        accumulator = 0f;
+    }
 
-            Inventory inventory = new Inventory(Global.instance.obtainedItems.ToArray());
-            Global.instance.obtainedItems.Clear();
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+    }
 
-            inventoryUI.grid = grid;
-            inventoryUI.buttonPrefab = obtainedItemPrefab;
-            inventoryUI.inventory = inventory;
-            inventoryUI.OnClick = (itemName) => { };
-            inventoryUI.onPointerEnter = (itemName) => { };
-            inventoryUI.onPointerExit = (itemName) => { };
-            inventoryUI.Display();
+    void Update()
+    {
+        accumulator += Time.deltaTime;
 
-            accumulator = 0f;
-        }
-
-        protected new void OnDisable()
-        {
-            base.OnDisable();
-        }
-
-        void Update()
-        {
-            accumulator += Time.deltaTime;
-
-            if (accumulator >= displayTime)
-                gameObject.SetActive(false);
-        }
+        if (accumulator >= displayTime)
+            gameObject.SetActive(false);
     }
 }

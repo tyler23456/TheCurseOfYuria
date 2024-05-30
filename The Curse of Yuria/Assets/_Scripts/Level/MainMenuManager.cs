@@ -9,7 +9,7 @@ namespace TCOY.Canvas
 
         public void Start()
         {
-            Global.instance.ToggleDisplay(Global.Display.MainMenu);           
+            MainMenuDisplay.Instance.ShowExclusivelyInParent();          
         }
     }
 }

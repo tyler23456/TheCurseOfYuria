@@ -11,7 +11,7 @@ namespace TCOY.UserActors
         {
             base.Start();
 
-            aTBGuage.OnATBGuageFilled = () => Global.instance.aTBGuageFilledQueue.Enqueue(this);
+            aTBGuage.OnATBGuageFilled = () => Global.Instance.aTBGuageFilledQueue.Enqueue(this);
             aTBGuage.OnATBGuageFilled += () => Debug.Log("Filled");  
         }
 

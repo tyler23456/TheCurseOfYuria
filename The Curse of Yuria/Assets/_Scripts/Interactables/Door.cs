@@ -27,25 +27,22 @@ namespace TCOY.DontDestroyOnLoad
 
             closedDoor = spriteRenderer.sprite;
 
-            if (Global.instance.getCompletedIds.Contains(getID))
+            if (Global.Instance.getCompletedIds.Contains(getID))
                 ShowOpenDoorSprite();
         }
 
         public override void Interact(IActor player)
         {
-            if (!RequiredItems.TrueForAll(i => Global.instance.inventories[Factory.instance.getQuestItem.name].Contains(i.name)))
+            if (!RequiredItems.TrueForAll(i => Global.Instance.inventories[Factory.instance.getQuestItem.name].Contains(i.name)))
             {
                 ShowLockedPrompt();
                 return;
             }
 
             ShowOpenDoorSprite();
-            Global.instance.getCompletedIds.Add(getID, 1);
+            Global.Instance.getCompletedIds.Add(getID, 1);
 
-            Global.instance.sceneIDToLoad = sceneID;
-            Global.instance.scenePositionToStart = destination;
-            Global.instance.sceneEulerAngleZToStart = eulerAngleZ;
-            Global.instance.ToggleDisplay(Global.Display.Loading);
+            LoadingDisplay.Instance.ShowExclusivelyInParent(sceneID, destination, eulerAngleZ);
         }
 
         public void ShowOpenDoorSprite()
@@ -58,8 +55,7 @@ namespace TCOY.DontDestroyOnLoad
 
         public void ShowLockedPrompt()
         {
-            Global.instance.cutsceneActions.Enqueue(onLockedPrompt);
-            Global.instance.ToggleDisplay(Global.Display.Cutscene);
+            CutsceneDisplay.Instance.ShowExclusivelyInParent(new ActionBase[] { onLockedPrompt });
         }
     }
 }

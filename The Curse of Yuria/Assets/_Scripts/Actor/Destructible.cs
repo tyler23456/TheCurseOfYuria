@@ -21,7 +21,7 @@ namespace TCOY.UserActors
             stats.onZeroHealth += () =>
             {
                 foreach (IContainer interactable in interactables)
-                    interactable.Interact(Global.instance.allies[0]);
+                    interactable.Interact(Global.Instance.allies[0]);
             };
         }
 

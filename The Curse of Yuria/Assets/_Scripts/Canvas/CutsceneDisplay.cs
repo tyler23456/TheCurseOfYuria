@@ -4,32 +4,47 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-namespace TCOY.Canvas
+
+public class CutsceneDisplay : DisplayBase
 {
-    public class CutsceneDisplay : MenuBase
+    public static CutsceneDisplay Instance { get; protected set; }
+
+    [SerializeField] Image promptImage;
+    [SerializeField] TMP_Text promptText;
+
+    public Queue<ActionBase> actions { get; private set; } = new Queue<ActionBase>();
+
+    public override void Initialize()
     {
-        [SerializeField] Image promptImage;
-        [SerializeField] TMP_Text promptText;
+        base.Initialize();
+        Instance = this;
+    }
 
-        protected new void OnEnable()
-        {
-            base.OnEnable();
+    protected override void OnEnable()
+    {
+        base.OnEnable();
 
-            Global.instance.gameState = Global.GameState.Stopped; 
-            Global.instance.StartCoroutine(Activate(new List<IActor>()));
-        }
+        Global.Instance.gameState = Global.GameState.Stopped;
+        Global.Instance.StartCoroutine(Activate(new List<IActor>()));
+    }
 
-        protected new void OnDisable()
-        {
-            base.OnDisable();
-        }
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+    }
 
-        public IEnumerator Activate(List<IActor> actors)
-        {
-            while (Global.instance.cutsceneActions.Count > 0)
-                yield return Global.instance.cutsceneActions.Dequeue().Activate(actors);
+    public IEnumerator Activate(List<IActor> actors)
+    {
+        while (Global.Instance.cutsceneActions.Count > 0)
+            yield return Global.Instance.cutsceneActions.Dequeue().Activate(actors);
 
-            gameObject.SetActive(false);
-        }
+        gameObject.SetActive(false);
+    }
+
+    public void ShowExclusivelyInParent(ActionBase[] actions)
+    {
+        base.ShowExclusivelyInParent();
+
+        this.actions = new Queue<ActionBase>(actions);
     }
 }
