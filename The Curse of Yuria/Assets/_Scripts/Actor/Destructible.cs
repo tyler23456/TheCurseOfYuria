@@ -9,9 +9,9 @@ namespace TCOY.UserActors
         Animator userAnimator;
         IContainer[] interactables;
 
-        protected new void Start()
+        protected new void OnEnable()
         {
-            base.Start();
+            base.OnEnable();
 
             userAnimator = transform.GetChild(0).GetComponent<Animator>();
             interactables = GetComponents<IContainer>();
@@ -21,7 +21,7 @@ namespace TCOY.UserActors
             stats.onZeroHealth += () =>
             {
                 foreach (IContainer interactable in interactables)
-                    interactable.Interact(Global.Instance.allies[0]);
+                    interactable.Interact(AllieManager.Instance[0]);
             };
         }
 

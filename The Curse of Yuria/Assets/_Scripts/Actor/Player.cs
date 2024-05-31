@@ -7,11 +7,11 @@ namespace TCOY.UserActors
     public class Player : Actor, IAllie
     {
 
-        new protected void Start()
+        new protected void OnEnable()
         {
-            base.Start();
+            base.OnEnable();
 
-            aTBGuage.OnATBGuageFilled = () => Global.Instance.aTBGuageFilledQueue.Enqueue(this);
+            aTBGuage.OnATBGuageFilled = () => BattleManager.Instance.aTBGuageFilledQueue.Enqueue(this);
             aTBGuage.OnATBGuageFilled += () => Debug.Log("Filled");  
         }
 

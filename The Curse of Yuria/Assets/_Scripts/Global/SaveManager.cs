@@ -26,10 +26,9 @@ public class SaveManager : MonoBehaviour
     {
         ClearNonPersistentData();
 
-        IActor allie = Instantiate(Factory.instance.GetAllie("River")).GetComponent<IActor>();
+        IActor allie = AllieDatabase.Instance.Instantiate("River");
         allie.getGameObject.name = "River";
-        allie.Initialize();
-        Global.Instance.allies.Add(allie);
+        AllieManager.Instance.Add(allie);
         
         LoadingDisplay.Instance.ShowExclusivelyInParent(3, Vector2.zero, 0f);
     }
@@ -39,7 +38,7 @@ public class SaveManager : MonoBehaviour
         SaveData saveData = new SaveData();
         saveData.Save();
         string json = JsonUtility.ToJson(saveData);
-        string fileName = SceneManager.GetActiveScene().name + " " + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + " " + Global.Instance.inventories[Factory.instance.getQuestItem.name].count.ToString() + " questItems" + " ";
+        string fileName = SceneManager.GetActiveScene().name + " " + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + " " + InventoryManager.Instance.questItems.count.ToString() + " questItems" + " ";
         string fullPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + fileName;
         int i = 0;
         Debug.Log(Application.persistentDataPath);
@@ -81,14 +80,14 @@ public class SaveManager : MonoBehaviour
 
     public void ClearNonPersistentData()
     {
-        Global.Instance.ClearAllInventories();
-        Global.Instance.allies.DestroyAndClear();
-        Global.Instance.enemies.DestroyAndClear();
+        InventoryManager.Instance.EmptyAllInventories();
+        AllieManager.Instance.DestroyAll();
+        EnemyManager.Instance.DestroyAll();
         PopupManager.Instance.ClearAllPopups();
 
-        Global.Instance.aTBGuageFilledQueue.Clear();
-        Global.Instance.pendingCommands.Clear();
-        Global.Instance.successfulCommands.Clear();;
+        BattleManager.Instance.aTBGuageFilledQueue.Clear();
+        BattleManager.Instance.pendingCommands.Clear();
+        BattleManager.Instance.successfulCommands.Clear();;
     }
 
     class SaveData
@@ -149,54 +148,54 @@ public class SaveManager : MonoBehaviour
         {
             level = SceneManager.GetActiveScene().buildIndex;
 
-            helmetNames = Global.Instance.inventories[Factory.instance.getHelmet.name].GetNames();
-            helmetCounts = Global.Instance.inventories[Factory.instance.getHelmet.name].GetCounts();
+            helmetNames = InventoryManager.Instance.helmets.GetNames();
+            helmetCounts = InventoryManager.Instance.helmets.GetCounts();
 
-            earringNames = Global.Instance.inventories[Factory.instance.getHelmet.name].GetNames();
-            earringCounts = Global.Instance.inventories[Factory.instance.getHelmet.name].GetCounts();
+            earringNames = InventoryManager.Instance.earrings.GetNames();
+            earringCounts = InventoryManager.Instance.earrings.GetCounts();
 
-            glassesNames = Global.Instance.inventories[Factory.instance.getHelmet.name].GetNames();
-            glassesCounts = Global.Instance.inventories[Factory.instance.getHelmet.name].GetCounts();
+            glassesNames = InventoryManager.Instance.glasses.GetNames();
+            glassesCounts = InventoryManager.Instance.glasses.GetCounts();
 
-            maskNames = Global.Instance.inventories[Factory.instance.getHelmet.name].GetNames();
-            maskCounts = Global.Instance.inventories[Factory.instance.getHelmet.name].GetCounts();
+            maskNames = InventoryManager.Instance.masks.GetNames();
+            maskCounts = InventoryManager.Instance.masks.GetCounts();
 
-            meleeWeapon1HNames = Global.Instance.inventories[Factory.instance.getHelmet.name].GetNames();
-            meleeWeapon1HCounts = Global.Instance.inventories[Factory.instance.getHelmet.name].GetCounts();
+            meleeWeapon1HNames = InventoryManager.Instance.meleeWeapons1H.GetNames();
+            meleeWeapon1HCounts = InventoryManager.Instance.meleeWeapons1H.GetCounts();
 
-            meleeWeapon2HNames = Global.Instance.inventories[Factory.instance.getHelmet.name].GetNames();
-            meleeWeapon2HCounts = Global.Instance.inventories[Factory.instance.getHelmet.name].GetCounts();
+            meleeWeapon2HNames = InventoryManager.Instance.meleeWeapons2H.GetNames();
+            meleeWeapon2HCounts = InventoryManager.Instance.meleeWeapons2H.GetCounts();
 
-            capeNames = Global.Instance.inventories[Factory.instance.getHelmet.name].GetNames();
-            capeCounts = Global.Instance.inventories[Factory.instance.getHelmet.name].GetCounts();
+            capeNames = InventoryManager.Instance.capes.GetNames();
+            capeCounts = InventoryManager.Instance.capes.GetCounts();
 
-            armorNames = Global.Instance.inventories[Factory.instance.getHelmet.name].GetNames();
-            armorCounts = Global.Instance.inventories[Factory.instance.getHelmet.name].GetCounts();
+            armorNames = InventoryManager.Instance.armor.GetNames();
+            armorCounts = InventoryManager.Instance.armor.GetCounts();
 
-            shieldNames = Global.Instance.inventories[Factory.instance.getHelmet.name].GetNames();
-            shieldCounts = Global.Instance.inventories[Factory.instance.getHelmet.name].GetCounts();
+            shieldNames = InventoryManager.Instance.shields.GetNames();
+            shieldCounts = InventoryManager.Instance.shields.GetCounts();
 
-            bowNames = Global.Instance.inventories[Factory.instance.getHelmet.name].GetNames();
-            bowCounts = Global.Instance.inventories[Factory.instance.getHelmet.name].GetCounts();
+            bowNames = InventoryManager.Instance.bows.GetNames();
+            bowCounts = InventoryManager.Instance.bows.GetCounts();
 
-            scrollNames = Global.Instance.inventories[Factory.instance.getHelmet.name].GetNames();
-            scrollCounts = Global.Instance.inventories[Factory.instance.getHelmet.name].GetCounts();
+            scrollNames = InventoryManager.Instance.scrolls.GetNames();
+            scrollCounts = InventoryManager.Instance.scrolls.GetCounts();
 
-            supplyNames = Global.Instance.inventories[Factory.instance.getHelmet.name].GetNames();
-            supplyCounts = Global.Instance.inventories[Factory.instance.getHelmet.name].GetCounts();
+            supplyNames = InventoryManager.Instance.basic.GetNames();
+            supplyCounts = InventoryManager.Instance.basic.GetCounts();
 
-            questItemNames = Global.Instance.inventories[Factory.instance.getHelmet.name].GetNames();
-            questItemCounts = Global.Instance.inventories[Factory.instance.getHelmet.name].GetCounts();
+            questItemNames = InventoryManager.Instance.questItems.GetNames();
+            questItemCounts = InventoryManager.Instance.questItems.GetCounts();
 
-            completedQuestNames = Global.Instance.getCompletedQuests.GetNames();
-            completedQuestCounts = Global.Instance.getCompletedQuests.GetCounts();
+            completedQuestNames = InventoryManager.Instance.completedQuests.GetNames();
+            completedQuestCounts = InventoryManager.Instance.completedQuests.GetCounts();
 
-            completedIDNames = Global.Instance.getCompletedIds.GetNames();
-            completedIDCounts = Global.Instance.getCompletedIds.GetCounts();
+            completedIDNames = InventoryManager.Instance.completedIds.GetNames();
+            completedIDCounts = InventoryManager.Instance.completedIds.GetCounts();
 
             AllieData allieData = new AllieData();
             allieDatas = new List<AllieData>();
-            Global.Instance.allies.ForEach(i =>
+            AllieManager.Instance.ForEach(i =>
             {
                 allieData = new AllieData();
                 allieData.Save(i);
@@ -204,62 +203,62 @@ public class SaveManager : MonoBehaviour
 
             });
 
-            position = new float[] { Global.Instance.allies.GetPositionAt(0).x, Global.Instance.allies.GetPositionAt(0).y };
-            eulerAnglesZ = Global.Instance.allies.GetEulerAngleZAt(0);
+            position = new float[] { AllieManager.Instance.GetPositionAt(0).x, AllieManager.Instance.GetPositionAt(0).y };
+            eulerAnglesZ = AllieManager.Instance.GetEulerAngleZAt(0);
         }
 
         public void Load()
         {
-            Global.Instance.inventories[Factory.instance.getHelmet.name].SetNames(helmetNames);
-            Global.Instance.inventories[Factory.instance.getHelmet.name].SetCounts(helmetCounts);
+            InventoryManager.Instance.helmets.SetNames(helmetNames);
+            InventoryManager.Instance.helmets.SetCounts(helmetCounts);
 
-            Global.Instance.inventories[Factory.instance.getEarring.name].SetNames(earringNames);
-            Global.Instance.inventories[Factory.instance.getEarring.name].SetCounts(earringCounts);
+            InventoryManager.Instance.earrings.SetNames(earringNames);
+            InventoryManager.Instance.earrings.SetCounts(earringCounts);
 
-            Global.Instance.inventories[Factory.instance.getGlasses.name].SetNames(glassesNames);
-            Global.Instance.inventories[Factory.instance.getGlasses.name].SetCounts(glassesCounts);
+            InventoryManager.Instance.glasses.SetNames(glassesNames);
+            InventoryManager.Instance.glasses.SetCounts(glassesCounts);
 
-            Global.Instance.inventories[Factory.instance.getMask.name].SetNames(maskNames);
-            Global.Instance.inventories[Factory.instance.getMask.name].SetCounts(maskCounts);
+            InventoryManager.Instance.masks.SetNames(maskNames);
+            InventoryManager.Instance.masks.SetCounts(maskCounts);
 
-            Global.Instance.inventories[Factory.instance.getMelee1H.name].SetNames(meleeWeapon1HNames);
-            Global.Instance.inventories[Factory.instance.getMelee1H.name].SetCounts(meleeWeapon1HCounts);
+            InventoryManager.Instance.meleeWeapons1H.SetNames(meleeWeapon1HNames);
+            InventoryManager.Instance.meleeWeapons1H.SetCounts(meleeWeapon1HCounts);
 
-            Global.Instance.inventories[Factory.instance.getMelee2H.name].SetNames(meleeWeapon2HNames);
-            Global.Instance.inventories[Factory.instance.getMelee2H.name].SetCounts(meleeWeapon2HCounts);
+            InventoryManager.Instance.meleeWeapons2H.SetNames(meleeWeapon2HNames);
+            InventoryManager.Instance.meleeWeapons2H.SetCounts(meleeWeapon2HCounts);
 
-            Global.Instance.inventories[Factory.instance.getCape.name].SetNames(capeNames);
-            Global.Instance.inventories[Factory.instance.getCape.name].SetCounts(capeCounts);
+            InventoryManager.Instance.capes.SetNames(capeNames);
+            InventoryManager.Instance.capes.SetCounts(capeCounts);
 
-            Global.Instance.inventories[Factory.instance.getArmor.name].SetNames(armorNames);
-            Global.Instance.inventories[Factory.instance.getArmor.name].SetCounts(armorCounts);
+            InventoryManager.Instance.armor.SetNames(armorNames);
+            InventoryManager.Instance.armor.SetCounts(armorCounts);
 
-            Global.Instance.inventories[Factory.instance.getShield.name].SetNames(shieldNames);
-            Global.Instance.inventories[Factory.instance.getShield.name].SetCounts(shieldCounts);
+            InventoryManager.Instance.shields.SetNames(shieldNames);
+            InventoryManager.Instance.shields.SetCounts(shieldCounts);
 
-            Global.Instance.inventories[Factory.instance.getBow.name].SetNames(bowNames);
-            Global.Instance.inventories[Factory.instance.getBow.name].SetCounts(bowCounts);
+            InventoryManager.Instance.bows.SetNames(bowNames);
+            InventoryManager.Instance.bows.SetCounts(bowCounts);
 
-            Global.Instance.inventories[Factory.instance.getScroll.name].SetNames(scrollNames);
-            Global.Instance.inventories[Factory.instance.getScroll.name].SetCounts(scrollCounts);
+            InventoryManager.Instance.scrolls.SetNames(scrollNames);
+            InventoryManager.Instance.scrolls.SetCounts(scrollCounts);
 
-            Global.Instance.inventories[Factory.instance.getBasic.name].SetNames(supplyNames);
-            Global.Instance.inventories[Factory.instance.getBasic.name].SetCounts(supplyCounts);
+            InventoryManager.Instance.basic.SetNames(supplyNames);
+            InventoryManager.Instance.basic.SetCounts(supplyCounts);
 
-            Global.Instance.inventories[Factory.instance.getQuestItem.name].SetNames(questItemNames);
-            Global.Instance.inventories[Factory.instance.getQuestItem.name].SetCounts(questItemCounts);
+            InventoryManager.Instance.questItems.SetNames(questItemNames);
+            InventoryManager.Instance.questItems.SetCounts(questItemCounts);
 
-            Global.Instance.getCompletedQuests.SetNames(completedQuestNames);
-            Global.Instance.getCompletedQuests.SetCounts(completedQuestCounts);
+            InventoryManager.Instance.completedQuests.SetNames(completedQuestNames);
+            InventoryManager.Instance.completedQuests.SetCounts(completedQuestCounts);
 
-            Global.Instance.getCompletedIds.SetNames(completedIDNames);
-            Global.Instance.getCompletedIds.SetCounts(completedIDCounts);
+            InventoryManager.Instance.completedIds.SetNames(completedIDNames);
+            InventoryManager.Instance.completedIds.SetCounts(completedIDCounts);
 
             foreach (AllieData allieData in allieDatas)
             {
-                IActor allie = Instantiate(Factory.instance.GetAllie(allieData.name)).GetComponent<IActor>();
+                IActor allie = AllieDatabase.Instance.Instantiate("River");
                 allie.getGameObject.name = allieData.name;
-                Global.Instance.allies.Add(allie);
+                AllieManager.Instance.Add(allie);
                 allieData.Load(allie);
             }
         }
@@ -287,38 +286,33 @@ public class SaveManager : MonoBehaviour
 
             equipmentNames = partyMember.getEquipment.GetNames();
             equipmentCounts = partyMember.getEquipment.GetCounts();
-            skillNames = partyMember.getSkills.GetNames();
-            skillCounts = partyMember.getSkills.GetCounts();
+            skillNames = partyMember.getScrolls.GetNames();
+            skillCounts = partyMember.getScrolls.GetCounts();
             statusEffectNames = partyMember.getStatusEffects.GetNames();
             statusEffectAccumulators = partyMember.getStatusEffects.GetAccumulators();
         }
 
         public void Load(IActor allie)
         {
-            allie.Initialize();
-
             allie.getGameObject.name = name;
 
             allie.getStats.HP = HP;
             allie.getStats.MP = MP;
 
             foreach (string name in allie.getEquipment.GetNames())
-                Factory.instance.GetItem(name).Unequip(allie);
+                ItemDatabase.Instance.Get(name).Unequip(allie);
 
-            foreach (string name in allie.getSkills.GetNames())
-                Factory.instance.GetItem(name).Unequip(allie);
+            foreach (string name in allie.getScrolls.GetNames())
+                ItemDatabase.Instance.Get(name).Unequip(allie);
 
             foreach (string name in equipmentNames)
-                Factory.instance.GetItem(name).Equip(allie);
+                ItemDatabase.Instance.Get(name).Equip(allie);
 
             foreach (string name in skillNames)
-                Factory.instance.GetItem(name).Equip(allie);
+                ItemDatabase.Instance.Get(name).Equip(allie);
 
             foreach (string name in statusEffectNames)
-                Factory.instance.GetItem(name).Equip(allie);
-
-            foreach (string name in skillNames)
-                Factory.instance.GetItem(name).Equip(allie);
+                ItemDatabase.Instance.Get(name).Equip(allie);
 
             allie.getStatusEffects.SetNamesAndAccumulators(statusEffectNames, statusEffectAccumulators);
         }

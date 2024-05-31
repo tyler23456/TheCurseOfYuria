@@ -44,7 +44,7 @@ public class InventoryUI
                 onPointerEnter.Invoke(inventory.GetName(index));
             };
             pointerHover.onPointerExit = () => onPointerExit.Invoke(inventory.GetName(index));
-            button.transform.GetChild(1).GetComponent<Image>().sprite = Factory.instance.GetItem(inventory.GetName(index)).icon;
+            button.transform.GetChild(1).GetComponent<Image>().sprite = ItemDatabase.Instance.Get(inventory.GetName(index)).icon;
 
             if (displayCount)
                 button.transform.GetChild(2).GetComponent<Text>().text = inventory.GetCount(index).ToString();

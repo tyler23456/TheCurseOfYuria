@@ -82,7 +82,7 @@ namespace TCOY.UserActors
             {
                 accumulators[i] += Time.deltaTime;
 
-                if (accumulators[i] > Factory.instance.GetStatusEffect(names[i]).getDuration)
+                if (accumulators[i] > StatFXDatabase.Instance.Get(names[i]).getDuration)
                     RemoveAt(i);
             }
         }

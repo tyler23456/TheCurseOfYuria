@@ -63,25 +63,25 @@ public class ScrollDisplay : DisplayBase
         globalInventoryUI = new InventoryUI();
 
         allieIndex = 0;
-        RefreshInventorySkills();
+        RefreshInventoryScrolls();
         RefreshPartyMember();
 
-        Global.Instance.getAudioSource.PlayOneShot(open);
+        AudioManager.Instance.PlaySFX(open);
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
 
-        Global.Instance.getAudioSource.PlayOneShot(close);
+        AudioManager.Instance.PlaySFX(close);
     }
 
-    public void RefreshInventorySkills()
+    public void RefreshInventoryScrolls()
     {
         globalInventoryUI.displayName = true;
         globalInventoryUI.grid = inventoryGrid;
         globalInventoryUI.buttonPrefab = buttonPrefab;
-        globalInventoryUI.inventory = Global.Instance.inventories[Factory.instance.getScroll.name];
+        globalInventoryUI.inventory = InventoryManager.Instance.scrolls;
         globalInventoryUI.OnClick = (itemName) => OnAddSkill(itemName);
         globalInventoryUI.onPointerEnter = (itemName) => OnPointerEnterInventoryIcon(itemName);
         globalInventoryUI.onPointerExit = (itemName) => OnPointerExit(itemName);
@@ -90,10 +90,10 @@ public class ScrollDisplay : DisplayBase
 
     public void RefreshPartyMember()
     {
-        allie = Global.Instance.allies[allieIndex];
+        allie = AllieManager.Instance[allieIndex];
         detailedActorViewCamera.cullingMask = LayerMask.GetMask("Actor" + (allieIndex + 1).ToString());
 
-        skills = allie.getSkills;
+        skills = allie.getScrolls;
         stats = allie.getStats;
 
         //show party member stuff
@@ -112,7 +112,7 @@ public class ScrollDisplay : DisplayBase
         partyMemberInventoryUI.displayCount = false;
         partyMemberInventoryUI.grid = partyMemberGrid;
         partyMemberInventoryUI.buttonPrefab = buttonPrefab;
-        partyMemberInventoryUI.inventory = allie.getSkills;
+        partyMemberInventoryUI.inventory = allie.getScrolls;
         partyMemberInventoryUI.OnClick = (itemName) => OnRemoveSkill(itemName);
         partyMemberInventoryUI.onPointerEnter = (itemName) => OnPointerEnterPartyMemberSkillsIcon(itemName);
         partyMemberInventoryUI.onPointerExit = (itemName) => OnPointerExit(itemName);
@@ -123,26 +123,24 @@ public class ScrollDisplay : DisplayBase
         if (skills.Contains(itemName))
             return;
 
-        newSkill = Factory.instance.GetItem(itemName);
+        InventoryManager.Instance.scrolls.Remove(itemName);
 
-        Global.Instance.inventories[Factory.instance.getScroll.name].Remove(itemName);
-
+        newSkill = ItemDatabase.Instance.Get(itemName);
         newSkill.Equip(allie);
 
         RefreshPartyMember();
-        RefreshInventorySkills();
+        RefreshInventoryScrolls();
     }
 
     public void OnRemoveSkill(string itemName)
     {
-        newSkill = Factory.instance.GetItem(itemName);
-
-        Global.Instance.inventories[Factory.instance.getScroll.name].Add(itemName);
-
+        newSkill = ItemDatabase.Instance.Get(itemName);
         newSkill.Unequip(allie);
 
+        InventoryManager.Instance.scrolls.Add(itemName);
+
         RefreshPartyMember();
-        RefreshInventorySkills();
+        RefreshInventoryScrolls();
     }
 
     public void OnPointerEnterInventoryIcon(string itemName)
@@ -150,7 +148,7 @@ public class ScrollDisplay : DisplayBase
         if (skills.Contains(itemName))
             return;
 
-        newSkill = Factory.instance.GetItem(itemName);
+        newSkill = ItemDatabase.Instance.Get(itemName);
 
         this.itemName.text = itemName;
         this.itemInfo.text = newSkill.getInfo;
@@ -159,7 +157,7 @@ public class ScrollDisplay : DisplayBase
 
         newModifiers = newSkill.getModifiers;
 
-        int length = Global.Instance.allies[allieIndex].getStats.GetAttributes().Length;
+        int length = AllieManager.Instance[allieIndex].getStats.GetAttributes().Length;
 
         for (int i = 0; i < length; i++)
         {
@@ -184,7 +182,7 @@ public class ScrollDisplay : DisplayBase
         if (skills.Contains(itemName))
             return;
 
-        newSkill = Factory.instance.GetItem(itemName);
+        newSkill = ItemDatabase.Instance.Get(itemName);
 
         this.itemName.text = itemName;
         this.itemInfo.text = newSkill.getInfo;
@@ -193,7 +191,7 @@ public class ScrollDisplay : DisplayBase
 
         newModifiers = newSkill.getModifiers;
 
-        int length = Global.Instance.allies[allieIndex].getStats.GetAttributes().Length;
+        int length = AllieManager.Instance[allieIndex].getStats.GetAttributes().Length;
 
         for (int i = 0; i < length; i++)
         {
@@ -226,15 +224,15 @@ public class ScrollDisplay : DisplayBase
         if (Input.GetKeyDown(KeyCode.Q))
         {
             allieIndex--;
-            allieIndex = Mathf.Clamp(allieIndex, 0, Global.Instance.allies.count - 1);
-            Global.Instance.getAudioSource.PlayOneShot(cyclePartyMembers);
+            allieIndex = Mathf.Clamp(allieIndex, 0, AllieManager.Instance.count - 1);
+            AudioManager.Instance.PlaySFX(cyclePartyMembers);
             RefreshPartyMember();
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
             allieIndex++;
-            allieIndex = Mathf.Clamp(allieIndex, 0, Global.Instance.allies.count - 1);
-            Global.Instance.getAudioSource.PlayOneShot(cyclePartyMembers);
+            allieIndex = Mathf.Clamp(allieIndex, 0, AllieManager.Instance.count - 1);
+            AudioManager.Instance.PlaySFX(cyclePartyMembers);
             RefreshPartyMember();
         }
 

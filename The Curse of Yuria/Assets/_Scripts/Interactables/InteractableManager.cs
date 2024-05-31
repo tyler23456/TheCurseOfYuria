@@ -20,7 +20,7 @@ namespace TCOY.DontDestroyOnLoad
         {
             target = null;
 
-            if (Global.Instance.gameState != Global.GameState.Playing)
+            if (!GameStateManager.Instance.isPlaying)
                 return;
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -49,7 +49,7 @@ namespace TCOY.DontDestroyOnLoad
 
             if (Input.GetMouseButtonDown(0))
             {
-                target.Interact(Global.Instance.allies[0]);
+                target.Interact(AllieManager.Instance[0]);
             }
         }
     }

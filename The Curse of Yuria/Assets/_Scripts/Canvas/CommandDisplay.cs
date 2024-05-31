@@ -39,7 +39,7 @@ public class CommandDisplay : DisplayBase
         skillInventoryUI = new InventoryUI();
         itemInventoryUI = new InventoryUI();
 
-        currentPartyMember = Global.Instance.aTBGuageFilledQueue.Peek();
+        currentPartyMember = BattleManager.Instance.aTBGuageFilledQueue.Peek();
 
         attackTab.onClick.RemoveAllListeners();
         magicTab.onClick.RemoveAllListeners();
@@ -57,15 +57,15 @@ public class CommandDisplay : DisplayBase
         base.OnDisable();
 
         MarkerManager.instance.DestroyAllMarkers();
-        Global.Instance.gameState = Global.GameState.Playing;
+        GameStateManager.Instance.Play();
     }
 
     public void OnClickAttack()
     {
         string weapon = currentPartyMember.getEquipment.Find(i =>
-        Factory.instance.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon1H ||
-        Factory.instance.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon2H ||
-        Factory.instance.GetItem(i).itemType.part == EquipmentPart.Bow);
+        ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon1H ||
+        ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon2H ||
+        ItemDatabase.Instance.GetPart(i) == EquipmentPart.Bow);
 
         if (weapon == null)
             return;
@@ -80,7 +80,7 @@ public class CommandDisplay : DisplayBase
         skillInventoryUI.grid = grid;
         skillInventoryUI.buttonPrefab = buttonPrefab;
         skillInventoryUI.OnClick = (commandName) => OnSelectSkill(commandName);
-        skillInventoryUI.inventory = currentPartyMember.getSkills;
+        skillInventoryUI.inventory = currentPartyMember.getScrolls;
         skillInventoryUI.onPointerEnter = (itemName) => { };
         skillInventoryUI.onPointerExit = (itemName) => { };
         skillInventoryUI.Display();
@@ -91,7 +91,7 @@ public class CommandDisplay : DisplayBase
         itemInventoryUI.grid = grid;
         itemInventoryUI.buttonPrefab = buttonPrefab;
         itemInventoryUI.OnClick = (commandName) => OnSelectItem(commandName);
-        itemInventoryUI.inventory = Global.Instance.inventories[Factory.instance.getBasic.name];
+        itemInventoryUI.inventory = InventoryManager.Instance.basic;
         itemInventoryUI.onPointerEnter = (itemName) => { };
         itemInventoryUI.onPointerExit = (itemName) => { };
         itemInventoryUI.Display();
@@ -153,7 +153,7 @@ public class CommandDisplay : DisplayBase
 
     void OnSelectSkill(string commandName)
     {
-        if (currentPartyMember.getStats.MP >= Factory.instance.GetItem(commandName).getCost)
+        if (currentPartyMember.getStats.MP >= ItemDatabase.Instance.Get(commandName).getCost)
             OnSelectCommand(commandName);
         else
             NotificationManager.Instance.Notify("you do not have enough MP");
@@ -161,16 +161,16 @@ public class CommandDisplay : DisplayBase
 
     void OnSelectItem(string commandName)
     {
-        Global.Instance.inventories[Factory.instance.GetItem(commandName).itemType.name].Remove(commandName);
+        InventoryManager.Instance.basic.Remove(commandName);
         OnSelectCommand(commandName);
     }
 
     public void OnSelectTarget(IActor target)
     {
-        Command command = new Command(currentPartyMember, Factory.instance.GetItem(commandName), new List<IActor> { target });
-        Global.Instance.pendingCommands.AddLast(command);
+        Command command = new Command(currentPartyMember, ItemDatabase.Instance.Get(commandName), new List<IActor> { target });
+        BattleManager.Instance.pendingCommands.AddLast(command);
         currentPartyMember.getATBGuage.Reset();
-        Global.Instance.aTBGuageFilledQueue.Dequeue();
+        BattleManager.Instance.aTBGuageFilledQueue.Dequeue();
         gameObject.SetActive(false);
 
     }

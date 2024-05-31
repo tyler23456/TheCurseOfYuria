@@ -5,7 +5,6 @@ using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 
 public interface IActor
 {
-    void Initialize();
     TargeterBase.Party getParty { get; }
     Character getCharacter { get; }
     Collider2D getCollider2D { get; }
@@ -17,7 +16,7 @@ public interface IActor
     List<Reactor> getCounters { get; }
     List<Reactor> getInterrupts { get; }
     IInventory getEquipment { get;}
-    IInventory getSkills { get; }
+    IInventory getScrolls { get; }
     IAnimator getAnimator { get; }
     IStatusEffects getStatusEffects { get; }
     Coroutine StartCoroutine(IEnumerator routine);

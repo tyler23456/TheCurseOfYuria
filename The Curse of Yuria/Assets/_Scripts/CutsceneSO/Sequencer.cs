@@ -1,19 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 [CreateAssetMenu(fileName = "_NewCutscene", menuName = "Cutscene/Sequencer")]
 public class Sequencer : ActionBase
 {
     [SerializeField] List<ActionBase> actions;
 
-    public void Start()
-    {
-        List<IActor> actors = new List<IActor>();
-        Global.Instance.StartCoroutine(Activate(actors));
-    }
-
-    public override IEnumerator Activate(List<IActor> actors)
+    public override IEnumerator Activate(List<IActor> actors, Image image, TMP_Text text)
     {
         foreach (ActionBase action in actions)
         {
@@ -22,7 +18,7 @@ public class Sequencer : ActionBase
             action.onStop = onStop;
             action.onFinish = onFinish;
 
-            yield return action.Activate(actors);
+            yield return action.Activate(actors, image, text);
         }
             
     }

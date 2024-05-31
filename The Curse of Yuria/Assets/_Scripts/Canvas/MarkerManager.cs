@@ -8,6 +8,7 @@ public class MarkerManager : MonoBehaviour
 {
     public static MarkerManager instance { get; set; }
 
+    [SerializeField] GameObject markerPrefab;
     [SerializeField] RectTransform markerParent;
     [SerializeField] Camera mainCamera;
 
@@ -20,18 +21,18 @@ public class MarkerManager : MonoBehaviour
 
     public void AddMarker(string message = "")
     {
-        Instantiate(Factory.instance.GetMenuIcon("SelectionMarker"), markerParent).transform.GetChild(0).GetChild(0).GetComponent<Text>().text = message;
+        Instantiate(markerPrefab, markerParent).transform.GetChild(0).GetChild(0).GetComponent<Text>().text = message;
     }
 
     public void AddMarker(Vector3 worldPosition, string message = "")
     {
-        Instantiate(Factory.instance.GetMenuIcon("SelectionMarker"), markerParent).transform.GetChild(0).GetChild(0).GetComponent<Text>().text = message;
+        Instantiate(markerPrefab, markerParent).transform.GetChild(0).GetChild(0).GetComponent<Text>().text = message;
         SetMarkerWorldPositionAt(count - 1, worldPosition);
     }
 
     public void AddMarker(Vector2 screenPosition, string message = "")
     {
-        Instantiate(Factory.instance.GetMenuIcon("SelectionMarker"), markerParent).transform.GetChild(0).GetChild(0).GetComponent<Text>().text = message;
+        Instantiate(markerPrefab, markerParent).transform.GetChild(0).GetChild(0).GetComponent<Text>().text = message;
         SetMarkerScreenPositionAt(count - 1, screenPosition);
     }
 

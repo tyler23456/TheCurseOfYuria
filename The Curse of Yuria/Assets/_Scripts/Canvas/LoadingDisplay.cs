@@ -8,6 +8,7 @@ public class LoadingDisplay : DisplayBase
 {
     public static LoadingDisplay Instance { get; protected set; }
 
+    [SerializeField] GameObject mainCamera;
     [SerializeField] Image SceneLoaderImage;
     [SerializeField] Slider progressBar;
 
@@ -24,8 +25,8 @@ public class LoadingDisplay : DisplayBase
     protected override void OnEnable()
     {
         base.OnEnable();
-        Global.Instance.gameState = Global.GameState.Stopped;
-        Global.Instance.StartCoroutine(CoroutineLoad());
+        GameStateManager.Instance.Stop();
+        StartCoroutine(CoroutineLoad());
     }
 
     protected override void OnDisable()
@@ -45,10 +46,10 @@ public class LoadingDisplay : DisplayBase
         }
 
         StatsDisplay.Instance.HideAllInParent();
-        Global.Instance.getCamera.gameObject.SetActive(false);
-        Global.Instance.allies.SetPosition(positionToStart);
-        Global.Instance.allies.SetEulerAngleZ(eulerAngleZToStart);
-        Global.Instance.getCamera.gameObject.SetActive(true);
+        mainCamera.SetActive(false);
+        AllieManager.Instance.SetPosition(positionToStart);
+        AllieManager.Instance.SetEulerAngleZ(eulerAngleZToStart);
+        mainCamera.SetActive(true);
         StatsDisplay.Instance.ShowAllInParent();
         gameObject.SetActive(false);     
     }

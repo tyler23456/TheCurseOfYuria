@@ -11,24 +11,17 @@ namespace TCOY.DontDestroyOnLoad
 
         public override void Interact(IActor player)
         {
-            if (Global.Instance.getCompletedIds.Contains(getID))
+            if (InventoryManager.Instance.completedIds.Contains(getID))
                 return;
 
             foreach (Entry entry in entries)
             {
-                Global.Instance.inventories[entry.item.itemType.name].Add(entry.item.name, entry.count);
+                InventoryManager.Instance.AddItem(entry.item.name, entry.count);
                 ObtainedItemsDisplay.Instance.getInventory.Add(entry.item.name, entry.count);
             }
             ObtainedItemsDisplay.Instance.Refresh();
 
-            Global.Instance.getCompletedIds.Add(getID, 1);
-        }
-
-        [System.Serializable]
-        class Entry
-        {
-            public ItemBase item;
-            public int count;
+            InventoryManager.Instance.completedIds.Add(getID, 1);
         }
     }
 }

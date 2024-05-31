@@ -38,7 +38,7 @@ namespace TCOY.UserActors
 
         public void Update()
         {
-            if (!isActive || Global.Instance. gameState != Global.GameState.Playing)
+            if (!isActive)
                 return;
 
             accumulator += Time.deltaTime * speed;

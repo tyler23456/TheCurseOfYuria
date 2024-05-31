@@ -27,20 +27,20 @@ namespace TCOY.DontDestroyOnLoad
 
             closedDoor = spriteRenderer.sprite;
 
-            if (Global.Instance.getCompletedIds.Contains(getID))
+            if (InventoryManager.Instance.completedIds.Contains(getID))
                 ShowOpenDoorSprite();
         }
 
         public override void Interact(IActor player)
         {
-            if (!RequiredItems.TrueForAll(i => Global.Instance.inventories[Factory.instance.getQuestItem.name].Contains(i.name)))
+            if (!RequiredItems.TrueForAll(i => InventoryManager.Instance.questItems.Contains(i.name)))
             {
                 ShowLockedPrompt();
                 return;
             }
 
             ShowOpenDoorSprite();
-            Global.Instance.getCompletedIds.Add(getID, 1);
+            InventoryManager.Instance.completedIds.Add(getID, 1);
 
             LoadingDisplay.Instance.ShowExclusivelyInParent(sceneID, destination, eulerAngleZ);
         }

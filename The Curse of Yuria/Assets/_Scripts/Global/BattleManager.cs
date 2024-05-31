@@ -3,102 +3,110 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-namespace TCOY.BattleSystem
+public class BattleManager : MonoBehaviour
 {
-    public class BattleManager : MonoBehaviour
+    public static BattleManager Instance { get; private set; }
+
+    [SerializeField] TargeterBase enemyTargeter;
+    [SerializeField] List<StatusEffectBase> gameOverStatusEffects;
+
+    public Queue<IActor> aTBGuageFilledQueue { get; set; } = new Queue<IActor>();
+    public LinkedList<Command> pendingCommands { get; set; } = new LinkedList<Command>();
+    public LinkedList<Command> successfulCommands { get; set; } = new LinkedList<Command>();
+
+    public void Awake()
     {
-        [SerializeField] TargeterBase enemyTargeter;
-        [SerializeField] List<StatusEffectBase> gameOverStatusEffects;
+        Instance = this;
+    }
 
-        public void Start()
+    public void Start()
+    {
+        StartCoroutine(BattleSystemLoop());
+    }
+
+    void Update()
+    {
+        CheckForGameOver();
+    }
+
+    IEnumerator BattleSystemLoop()
+    {
+        while (true)
         {
-            Global.Instance.StartCoroutine(BattleSystemLoop());
-        }
-
-        void Update()
-        {
-            CheckForGameOver();
-        }
-
-        IEnumerator BattleSystemLoop()
-        {
-            while (true)
-            {
-                if (Global.Instance.gameState != Global.GameState.Playing)
-                    yield return new WaitForEndOfFrame();
-
+            if (!GameStateManager.Instance.isPlaying)
                 yield return new WaitForEndOfFrame();
 
-                RefreshNearbyEnemies();
+            yield return new WaitForEndOfFrame();
 
-                CheckForCounters();
+            RefreshNearbyEnemies();
 
-                CheckForInterrupts();
+            CheckForCounters();
 
-                if (Global.Instance.pendingCommands.Count == 0)
-                    continue;     
+            CheckForInterrupts();
 
-                Command command = Global.Instance.pendingCommands.First();
-                Global.Instance.pendingCommands.RemoveFirst();
+            if (pendingCommands.Count == 0)
+                continue;
 
-                if (command.user == null)
-                    continue;
+            Command command = pendingCommands.First();
+            pendingCommands.RemoveFirst();
 
-                command.user.StartCoroutine(command.item.Use(command.user, command.targets));
-                Global.Instance.successfulCommands.AddLast(command);
-                yield return new WaitForSeconds(1f);
-            }
+            if (command.user == null)
+                continue;
+
+            command.user.StartCoroutine(command.item.Use(command.user, command.targets));
+            successfulCommands.AddLast(command);
+            yield return new WaitForSeconds(1f);
         }
+    }
 
-        void CheckForCounters()
+    void CheckForCounters()
+    {
+        if (successfulCommands.Count == 0 || !successfulCommands.Last().isCounterable)
+            return;
+
+        List<Command> counters = AllieManager.Instance.CalculateCounters(successfulCommands.Last());
+        List<Command> counters2 = EnemyManager.Instance.CalculateCounters(successfulCommands.Last());
+        counters.AddRange(counters2);
+
+        successfulCommands.Last().isCounterable = false;
+
+        foreach (Command command in counters)
         {
-            if (Global.Instance.successfulCommands.Count == 0 || !Global.Instance.successfulCommands.Last().isCounterable)
-                return;
-
-            List<Command> counters = Global.Instance.allies.CalculateCounters(Global.Instance.successfulCommands.Last());
-            List<Command> counters2 = Global.Instance.enemies.CalculateCounters(Global.Instance.successfulCommands.Last());
-            counters.AddRange(counters2);
-
-            Global.Instance.successfulCommands.Last().isCounterable = false; 
-
-            foreach (Command command in counters)
-            {
-                command.isCounterable = false;
-                Global.Instance.pendingCommands.AddLast(command);
-            }
+            command.isCounterable = false;
+            pendingCommands.AddLast(command);
         }
+    }
 
-        void CheckForInterrupts()
+    void CheckForInterrupts()
+    {
+        if (pendingCommands.Count == 0 || !pendingCommands.First().isInterruptable)
+            return;
+
+        List<Command> interrupts = AllieManager.Instance.CalculateInterrupts(pendingCommands.First());
+        List<Command> interrupts2 = EnemyManager.Instance.CalculateInterrupts(pendingCommands.First());
+        interrupts.AddRange(interrupts2);
+
+        pendingCommands.First().isInterruptable = false;
+
+        foreach (Command command in interrupts)
         {
-            if (Global.Instance.pendingCommands.Count == 0 || !Global.Instance.pendingCommands.First().isInterruptable)
-                return;
-
-            List<Command> interrupts = Global.Instance.allies.CalculateInterrupts(Global.Instance.pendingCommands.First());
-            List<Command> interrupts2 = Global.Instance.enemies.CalculateInterrupts(Global.Instance.pendingCommands.First());
-            interrupts.AddRange(interrupts2);
-
-            Global.Instance.pendingCommands.First().isInterruptable = false;
-
-            foreach (Command command in interrupts)
-            {
-                command.isInterruptable = false;
-                Global.Instance.pendingCommands.AddFirst(command);
-            }
+            command.isInterruptable = false;
+            pendingCommands.AddFirst(command);
         }
+    }
 
-        void RefreshNearbyEnemies()
-        {
-            List<IActor> targets = enemyTargeter.CalculateTargets(Global.Instance.allies.GetPositionAt(0));
-            Global.Instance.enemies.Set(targets);
-        }
+    void RefreshNearbyEnemies()
+    {
+        List<IActor> targets = enemyTargeter.CalculateTargets(AllieManager.Instance.GetPositionAt(0));
+        EnemyManager.Instance.Set(targets);
+    }
 
-        void CheckForGameOver()
-        {
-            if (Global.Instance.gameState != Global.GameState.Playing)
-                return;
+    void CheckForGameOver()
+    {
+        if (!GameStateManager.Instance.isPlaying)
+            return;
 
-            if (Global.Instance.allies.AllContainAnyOf(gameOverStatusEffects))
-                GameOverDisplay.Instance.ShowExclusivelyInParent();
-        }
+        if (AllieManager.Instance.AllContainAnyOf(gameOverStatusEffects))
+            GameOverDisplay.Instance.ShowExclusivelyInParent();
     }
 }

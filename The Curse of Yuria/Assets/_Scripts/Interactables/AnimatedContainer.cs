@@ -17,7 +17,7 @@ namespace TCOY.DontDestroyOnLoad
 
             animator = GetComponent<Animator>();
 
-            if (!Global.Instance.getCompletedIds.Contains(getID) || animator == null)
+            if (!InventoryManager.Instance.completedIds.Contains(getID) || animator == null)
                 return;
 
             animator.enabled = true;
@@ -26,10 +26,10 @@ namespace TCOY.DontDestroyOnLoad
 
         public override void Interact(IActor player)
         {
-            if (Global.Instance.getCompletedIds.Contains(getID))
+            if (InventoryManager.Instance.completedIds.Contains(getID))
                 return;
 
-            if (!RequiredItems.TrueForAll(i => Global.Instance.inventories[Factory.instance.getQuestItem.name].Contains(i.name)))
+            if (!RequiredItems.TrueForAll(i => InventoryManager.Instance.questItems.Contains(i.name)))
             {
                 ShowLockedPrompt();
                 return;

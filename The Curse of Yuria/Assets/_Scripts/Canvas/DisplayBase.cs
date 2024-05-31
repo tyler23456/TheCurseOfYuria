@@ -11,14 +11,14 @@ public class DisplayBase : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-        Global.Instance.gameState = Global.GameState.Paused;
+        GameStateManager.Instance.Pause();
         MarkerManager.instance.DestroyAllMarkers();
         //Global.instance.getAudioSource.PlayOneShot(open);
     }
 
     protected virtual void OnDisable()
     {
-        Global.Instance.gameState = Global.GameState.Playing;
+        GameStateManager.Instance.Play();
         MarkerManager.instance.DestroyAllMarkers();
         //Global.instance.getAudioSource.PlayOneShot(open);
     }

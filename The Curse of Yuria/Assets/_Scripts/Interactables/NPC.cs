@@ -37,13 +37,13 @@ namespace TCOY.DontDestroyOnLoad
             {
                 eulerAngles.y = 0f;
                 targetEulerAngles.y = 180;
-            }          
+            }
             else
             {
                 eulerAngles.y = 180f;
                 targetEulerAngles.y = 0f;
             }
-                
+            
             transform.eulerAngles = eulerAngles;
             player.getGameObject.transform.GetChild(0).eulerAngles = targetEulerAngles;
 

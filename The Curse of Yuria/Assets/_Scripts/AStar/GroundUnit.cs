@@ -18,7 +18,7 @@ namespace TCOY.AStar
 
         void Start()
         {
-            target = Global.Instance.allies[0].getGameObject.transform;
+            target = AllieManager.Instance[0].getGameObject.transform;
             StartCoroutine(CheckForPath());
         }
 

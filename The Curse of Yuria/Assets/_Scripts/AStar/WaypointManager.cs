@@ -38,7 +38,7 @@ namespace TCOY.AStar
 
         void Start()
         {
-            CalculateClosestWaypoint(Global.Instance.allies[0].getGameObject.transform.position);
+            CalculateClosestWaypoint(AllieManager.Instance[0].getGameObject.transform.position);
         }
 
         void Update()
@@ -52,7 +52,7 @@ namespace TCOY.AStar
                 return;
 
             calculationAccumulator = 0f;
-            CalculateClosestWaypoint(Global.Instance.allies[0].getGameObject.transform.position);
+            CalculateClosestWaypoint(AllieManager.Instance[0].getGameObject.transform.position);
         }
 
         public Waypoint CalculateClosestWaypoint(Vector3 position)

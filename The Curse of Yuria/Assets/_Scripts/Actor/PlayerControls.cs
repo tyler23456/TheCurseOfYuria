@@ -18,7 +18,7 @@ namespace TCOY.UserActors
         
         void Update()
         {
-            if (Global.Instance.gameState == Global.GameState.Stopped)
+            if (GameStateManager.Instance.isStopped)
                 return;
 
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -30,10 +30,10 @@ namespace TCOY.UserActors
             if (Input.GetKeyDown(KeyCode.Alpha2))
                 ScrollDisplay.Instance.ToggleExclusivelyInParent();
 
-            if (Input.GetKeyDown(KeyCode.Tab) && Global.Instance.aTBGuageFilledQueue.Count > 0)
+            if (Input.GetKeyDown(KeyCode.Tab) && BattleManager.Instance.aTBGuageFilledQueue.Count > 0)
                 CommandDisplay.Instance.ToggleExclusivelyInParent();
 
-            if (Global.Instance.gameState == Global.GameState.Paused)
+            if (GameStateManager.Instance.isPaused)
                 return;
 
             actor.getAnimator.Stand();

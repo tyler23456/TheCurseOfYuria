@@ -28,7 +28,7 @@ public class ObtainedItemsDisplay : DisplayBase
     protected override void OnEnable()
     {
         base.OnEnable();
-        Global.Instance.gameState = Global.GameState.Playing;
+        GameStateManager.Instance.Play();
 
         inventoryUI.grid = grid;
         inventoryUI.buttonPrefab = obtainedItemPrefab;

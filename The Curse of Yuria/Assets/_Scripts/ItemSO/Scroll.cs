@@ -74,16 +74,16 @@ public class Scroll : ItemBase, IItem
     {
         base.Equip(target);
 
-        if (target.getSkills.Contains(name))
+        if (target.getScrolls.Contains(name))
             return;
 
-        target.getSkills.Add(name);
+        target.getScrolls.Add(name);
     }
 
     public override void Unequip(IActor target)
     {
         base.Unequip(target);
-        target.getSkills.Remove(name);
+        target.getScrolls.Remove(name);
     }
 
 

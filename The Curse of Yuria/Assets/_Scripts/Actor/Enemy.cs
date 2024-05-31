@@ -11,9 +11,9 @@ namespace TCOY.UserActors
 
         Queue<Move> movesQueue = new Queue<Move>();
 
-        protected new void Start()
+        protected new void OnEnable()
         {
-            base.Start();
+            base.OnEnable();
 
             aTBGuage.OnATBGuageFilled = MakeADecision;
             aTBGuage.OnATBGuageFilled += () => aTBGuage.Reset();
@@ -32,7 +32,7 @@ namespace TCOY.UserActors
 
         void MakeADecision()
         {
-            IActor target = Global.Instance.allies[0];
+            IActor target = AllieManager.Instance[0];
             if (Vector3.Distance(transform.position, target.getGameObject.transform.position) > proximity)
                 return;
 
@@ -46,7 +46,7 @@ namespace TCOY.UserActors
             }
 
 
-            Global.Instance.pendingCommands.AddLast(new Command(this, movesQueue.Peek().getskill, targets));
+            BattleManager.Instance.pendingCommands.AddLast(new Command(this, movesQueue.Peek().getskill, targets));
             movesQueue.Enqueue(movesQueue.Dequeue());
         }
     }

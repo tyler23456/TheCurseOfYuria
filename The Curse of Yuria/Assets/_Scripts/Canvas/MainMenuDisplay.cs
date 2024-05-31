@@ -31,7 +31,7 @@ public class MainMenuDisplay : DisplayBase
     protected override void OnEnable()
     {
         base.OnEnable();
-        Global.Instance.gameState = Global.GameState.Stopped;
+        GameStateManager.Instance.Stop();
 
         newGame.onClick.RemoveAllListeners();
         load.onClick.RemoveAllListeners();

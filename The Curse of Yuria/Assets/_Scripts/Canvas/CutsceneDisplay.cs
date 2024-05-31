@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-
 public class CutsceneDisplay : DisplayBase
 {
     public static CutsceneDisplay Instance { get; protected set; }
@@ -24,8 +23,8 @@ public class CutsceneDisplay : DisplayBase
     {
         base.OnEnable();
 
-        Global.Instance.gameState = Global.GameState.Stopped;
-        Global.Instance.StartCoroutine(Activate(new List<IActor>()));
+        GameStateManager.Instance.Stop();
+        StartCoroutine(Activate(new List<IActor>()));
     }
 
     protected override void OnDisable()
@@ -35,16 +34,15 @@ public class CutsceneDisplay : DisplayBase
 
     public IEnumerator Activate(List<IActor> actors)
     {
-        while (Global.Instance.cutsceneActions.Count > 0)
-            yield return Global.Instance.cutsceneActions.Dequeue().Activate(actors);
+        while (actions.Count > 0)
+            yield return actions.Dequeue().Activate(actors, promptImage, promptText);
 
         gameObject.SetActive(false);
     }
 
     public void ShowExclusivelyInParent(ActionBase[] actions)
     {
-        base.ShowExclusivelyInParent();
-
         this.actions = new Queue<ActionBase>(actions);
+        base.ShowExclusivelyInParent();
     }
 }

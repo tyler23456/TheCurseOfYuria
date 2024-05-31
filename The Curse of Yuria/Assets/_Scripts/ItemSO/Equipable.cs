@@ -48,45 +48,45 @@ public class Equipable : ItemBase, IItem
         {
             case EquipmentPart.MeleeWeapon1H:
                 removedItems = target.getEquipment.RemoveWhere(i =>
-                Factory.instance.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon1H ||
-                Factory.instance.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon2H ||
-                Factory.instance.GetItem(i).itemType.part == EquipmentPart.Bow);
+                ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon1H ||
+                ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon2H ||
+                ItemDatabase.Instance.GetPart(i) == EquipmentPart.Bow);
                 target.getAnimator.SetWeaponType(0);
                 break;
 
             case EquipmentPart.MeleeWeapon2H:
                 removedItems = target.getEquipment.RemoveWhere(i =>
-                Factory.instance.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon1H ||
-                Factory.instance.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon2H ||
-                Factory.instance.GetItem(i).itemType.part == EquipmentPart.Shield ||
-                Factory.instance.GetItem(i).itemType.part == EquipmentPart.Bow);
+                ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon1H ||
+                ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon2H ||
+                ItemDatabase.Instance.GetPart(i) == EquipmentPart.Shield ||
+                ItemDatabase.Instance.GetPart(i) == EquipmentPart.Bow);
                 target.getAnimator.SetWeaponType(1);
                 break;
 
             case EquipmentPart.Bow:
                 removedItems = target.getEquipment.RemoveWhere(i =>
-                Factory.instance.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon1H ||
-                Factory.instance.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon2H ||
-                Factory.instance.GetItem(i).itemType.part == EquipmentPart.Shield ||
-                Factory.instance.GetItem(i).itemType.part == EquipmentPart.Bow);
+                ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon1H ||
+                ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon2H ||
+                ItemDatabase.Instance.GetPart(i) == EquipmentPart.Shield ||
+                ItemDatabase.Instance.GetPart(i) == EquipmentPart.Bow);
                 target.getAnimator.SetWeaponType(3);
                 break;
 
             case EquipmentPart.Shield:
                 removedItems = target.getEquipment.RemoveWhere(i =>
-                Factory.instance.GetItem(i).itemType.part == EquipmentPart.MeleeWeapon2H ||
-                Factory.instance.GetItem(i).itemType.part == EquipmentPart.Shield ||
-                Factory.instance.GetItem(i).itemType.part == EquipmentPart.Bow);
+                ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon2H ||
+                ItemDatabase.Instance.GetPart(i) == EquipmentPart.Shield ||
+                ItemDatabase.Instance.GetPart(i) == EquipmentPart.Bow);
                 break;
 
             default:
                 removedItems = target.getEquipment.RemoveWhere(i =>
-                Factory.instance.GetItem(i).itemType == itemType);
+                ItemDatabase.Instance.GetTypeName(i) == itemType.name);
                 break;
         }
 
         foreach (string removedItem in removedItems)
-            Factory.instance.GetItem(removedItem).Unequip(target);
+            ItemDatabase.Instance.Get(removedItem).Unequip(target);
 
         target.getEquipment.Add(name);
         target.getCharacter.Equip(itemSprite, itemType.part);
@@ -99,7 +99,7 @@ public class Equipable : ItemBase, IItem
         List<string> removedItems = new List<string>();
 
         removedItems = target.getEquipment.RemoveWhere(i =>
-                Factory.instance.GetItem(i).itemType == itemType);
+                ItemDatabase.Instance.GetTypeName(i) == itemType.name);
 
         target.getEquipment.Remove(name);
         target.getCharacter.UnEquip(itemType.part);

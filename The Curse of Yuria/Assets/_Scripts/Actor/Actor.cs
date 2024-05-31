@@ -37,7 +37,7 @@ namespace TCOY.UserActors
         public IATBGuage getATBGuage => aTBGuage;
         public Character getCharacter => character;
         public IInventory getEquipment => equipment;
-        public IInventory getSkills => skills;
+        public IInventory getScrolls => skills;
         public IAnimator getAnimator => animator;
         public IStatusEffects getStatusEffects => statusEffects;
 
@@ -46,16 +46,8 @@ namespace TCOY.UserActors
 
         bool hasInitialized = false;
 
-        protected void Start()
+        protected void OnEnable()
         {
-            Initialize();
-        }
-
-        public virtual void Initialize()
-        {
-            if (hasInitialized)
-                return;
-
             hasInitialized = true;
 
             character = GetComponent<Character>();
@@ -71,31 +63,34 @@ namespace TCOY.UserActors
             animator = new UserAnimator(gameObject);
 
             statusEffects = new StatusEffects();
-            statusEffects.onAdd = (name) => Factory.instance.GetStatusEffect(name).OnAdd(this);
+            statusEffects.onAdd = (name) => StatFXDatabase.Instance.Get(name).OnAdd(this);
             statusEffects.onUpdate = (name) => { };
-            statusEffects.onRemove = (name) => Factory.instance.GetStatusEffect(name).OnRemove(this);
+            statusEffects.onRemove = (name) => StatFXDatabase.Instance.Get(name).OnRemove(this);
 
             stats.Initialize();
             stats.onApplyDamage = (damage) => animator.Hit();
             stats.onApplyDamage += (damage) => { }; //play a hit soundFX
             stats.onApplyDamage += (damage) => PopupManager.Instance.AddDamagePopup(damage, collider2D.bounds.center);
-            stats.onApplyDamage += (damage) => CameraShakerHandler.Shake(Global.Instance.getShakeData);
+            stats.onApplyDamage += (damage) => CameraShakerHandler.Shake(ShakeDatabase.Instance.Get("Hit"));
             stats.onApplyDamage += (damage) => StartCoroutine(HitAnimation());
 
-            stats.onZeroHealth = () => Factory.instance.GetStatusEffect("KnockOut").Activate(this);
+            stats.onZeroHealth = () => StatFXDatabase.Instance.Get("KnockOut").Activate(this);
 
             stats.onApplyRecovery = (recovery) => PopupManager.Instance.AddRecoveryPopup(recovery, collider2D.bounds.center);
-
-            foreach (ItemBase item in defaultItems)
-            {
-                Debug.Log(item.itemType.part.ToString());
-                item.Equip(this);
-            }
-                
         }
+
+        protected void Start()
+        {
+            foreach (ItemBase item in defaultItems)
+                item.Equip(this);
+        }
+
 
         protected void Update()
         {
+            if (!GameStateManager.Instance.isPlaying)
+                return;
+
             rotation.Update();
             aTBGuage.Update();
             groundChecker.Update();
