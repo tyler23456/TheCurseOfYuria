@@ -13,7 +13,7 @@ public class LoadingDisplay : DisplayBase
     [SerializeField] Slider progressBar;
 
     public int sceneIDToLoad = 0;
-    public Vector3 positionToStart = Vector3.zero;
+    public Vector2 positionToStart = Vector2.zero;
     public float eulerAngleZToStart = 0f;
 
     public override void Initialize()

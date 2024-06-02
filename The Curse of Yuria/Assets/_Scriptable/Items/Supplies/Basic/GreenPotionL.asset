@@ -19,12 +19,12 @@ MonoBehaviour:
   info: 
   _armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
   _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
+  _calculationType: {fileID: 11400000, guid: 58e92859ea816f142bcd47bd915112c7, type: 2}
   anyType: {fileID: 0}
-  power: 0
+  power: 4
   cost: 0
   effects: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 8544434443688463029, guid: 7fbb7b8dbd54bdf42b2b5875fe14b8bf, type: 3}
   _itemSprite:
     Name: GreenPotionL
     Collection: Supplies

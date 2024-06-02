@@ -9,7 +9,7 @@ public class ShakeDatabase : MonoBehaviour
 
     [SerializeField] ShakeData shakeData;
 
-    Dictionary<string, ShakeData> shakeDatas;
+    Dictionary<string, ShakeData> shakeDatas = new Dictionary<string, ShakeData>();
 
     void Awake()
     {

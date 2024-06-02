@@ -257,6 +257,7 @@ public class SaveManager : MonoBehaviour
             foreach (AllieData allieData in allieDatas)
             {
                 IActor allie = AllieDatabase.Instance.Instantiate("River");
+                allie.useDefaultItems = false;
                 allie.getGameObject.name = allieData.name;
                 AllieManager.Instance.Add(allie);
                 allieData.Load(allie);
@@ -272,8 +273,8 @@ public class SaveManager : MonoBehaviour
         public int MP;
         public string[] equipmentNames;
         public int[] equipmentCounts;
-        public string[] skillNames;
-        public int[] skillCounts;
+        public string[] scrollNames;
+        public int[] scrollCounts;
         public string[] statusEffectNames;
         public float[] statusEffectAccumulators;
 
@@ -286,8 +287,8 @@ public class SaveManager : MonoBehaviour
 
             equipmentNames = partyMember.getEquipment.GetNames();
             equipmentCounts = partyMember.getEquipment.GetCounts();
-            skillNames = partyMember.getScrolls.GetNames();
-            skillCounts = partyMember.getScrolls.GetCounts();
+            scrollNames = partyMember.getScrolls.GetNames();
+            scrollCounts = partyMember.getScrolls.GetCounts();
             statusEffectNames = partyMember.getStatusEffects.GetNames();
             statusEffectAccumulators = partyMember.getStatusEffects.GetAccumulators();
         }
@@ -308,7 +309,7 @@ public class SaveManager : MonoBehaviour
             foreach (string name in equipmentNames)
                 ItemDatabase.Instance.Get(name).Equip(allie);
 
-            foreach (string name in skillNames)
+            foreach (string name in scrollNames)
                 ItemDatabase.Instance.Get(name).Equip(allie);
 
             foreach (string name in statusEffectNames)

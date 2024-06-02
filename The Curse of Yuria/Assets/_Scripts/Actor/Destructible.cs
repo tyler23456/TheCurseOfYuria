@@ -9,9 +9,9 @@ namespace TCOY.UserActors
         Animator userAnimator;
         IContainer[] interactables;
 
-        protected new void OnEnable()
+        protected new void Awake()
         {
-            base.OnEnable();
+            base.Awake();
 
             userAnimator = transform.GetChild(0).GetComponent<Animator>();
             interactables = GetComponents<IContainer>();

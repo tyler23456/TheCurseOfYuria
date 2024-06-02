@@ -39,13 +39,5 @@ MonoBehaviour:
     Tags: []
   statusEffectProbabilities: []
   modifiers: []
-  counters:
-  - action: {fileID: 0}
-    party: 0
-    reaction: {fileID: 0}
-    target: {fileID: 0}
-  interrupts:
-  - action: {fileID: 0}
-    party: 0
-    reaction: {fileID: 0}
-    target: {fileID: 0}
+  counters: []
+  interrupts: []

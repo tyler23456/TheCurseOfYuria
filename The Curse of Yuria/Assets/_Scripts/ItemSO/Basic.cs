@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Supply : Scroll, IItem
+public class Basic : Scroll, IItem
 {
     public override IEnumerator Use(IActor user, List<IActor> targets)
     {

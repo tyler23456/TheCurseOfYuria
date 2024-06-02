@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 using FirstGearGames.SmoothCameraShaker;
+using HeroEditor.Common.Enums;
 
 namespace TCOY.UserActors
 {
     [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
     public class Actor : MonoBehaviour, IActor
     {
+        
         [SerializeField] TargeterBase.Party party;
+        [SerializeField] bool _useDefaultItems = true;
         [SerializeField] List<ItemBase> defaultItems;
         [SerializeField] protected Stats stats;
         [SerializeField] protected ATBGuage aTBGuage;
@@ -44,12 +47,10 @@ namespace TCOY.UserActors
         public List<Reactor> getCounters => counters;
         public List<Reactor> getInterrupts => interrupts;
 
-        bool hasInitialized = false;
+        public bool useDefaultItems { get { return _useDefaultItems; } set { _useDefaultItems = value; } }
 
-        protected void OnEnable()
+        protected void Awake()
         {
-            hasInitialized = true;
-
             character = GetComponent<Character>();
             collider2D = GetComponent<Collider2D>();
             spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
@@ -68,21 +69,47 @@ namespace TCOY.UserActors
             statusEffects.onRemove = (name) => StatFXDatabase.Instance.Get(name).OnRemove(this);
 
             stats.Initialize();
-            stats.onApplyDamage = (damage) => animator.Hit();
-            stats.onApplyDamage += (damage) => { }; //play a hit soundFX
-            stats.onApplyDamage += (damage) => PopupManager.Instance.AddDamagePopup(damage, collider2D.bounds.center);
-            stats.onApplyDamage += (damage) => CameraShakerHandler.Shake(ShakeDatabase.Instance.Get("Hit"));
-            stats.onApplyDamage += (damage) => StartCoroutine(HitAnimation());
+            stats.onHPDamage = (damage) => animator.Hit();
+            stats.onHPDamage += (damage) => { }; //play a hit soundFX
+            stats.onHPDamage += (damage) => PopupManager.Instance.AddHPDamagePopup(damage, collider2D.bounds.center);
+            stats.onHPDamage += (damage) => CameraShakerHandler.Shake(ShakeDatabase.Instance.Get("Hit"));
+            stats.onHPDamage += (damage) => StartCoroutine(HitAnimation());
 
             stats.onZeroHealth = () => StatFXDatabase.Instance.Get("KnockOut").Activate(this);
 
-            stats.onApplyRecovery = (recovery) => PopupManager.Instance.AddRecoveryPopup(recovery, collider2D.bounds.center);
+            stats.onHPRecovery = (recovery) => PopupManager.Instance.AddHPRecoveryPopup(recovery, collider2D.bounds.center);
+
+            stats.onMPDamage = (damage) => PopupManager.Instance.AddMPDamagePopup(damage, collider2D.bounds.center);
+
+            stats.onMPRecovery = (recovery) => PopupManager.Instance.AddMPRecoveryPopup(recovery, collider2D.bounds.center);
+        }
+
+        protected void OnValidate()
+        {
+            if (useDefaultItems)
+            {
+                character = GetComponent<Character>();
+                character.UnEquip(EquipmentPart.Helmet);
+                character.UnEquip(EquipmentPart.Earrings);
+                character.UnEquip(EquipmentPart.Glasses);
+                character.UnEquip(EquipmentPart.Mask);
+                character.UnEquip(EquipmentPart.MeleeWeapon1H);
+                character.UnEquip(EquipmentPart.MeleeWeapon2H);
+                character.UnEquip(EquipmentPart.Cape);
+                character.UnEquip(EquipmentPart.Armor);
+                character.UnEquip(EquipmentPart.Shield);
+                character.UnEquip(EquipmentPart.Bow);
+                foreach (ItemBase item in defaultItems)
+                    character.Equip(item.itemSprite, item.itemType.part);
+            }
+                
         }
 
         protected void Start()
         {
-            foreach (ItemBase item in defaultItems)
-                item.Equip(this);
+            if (useDefaultItems)
+                foreach (ItemBase item in defaultItems)
+                    item.Equip(this);
         }
 
 

@@ -17,12 +17,14 @@ public class CommandDisplay : DisplayBase
     [SerializeField] Button magicTab;
     [SerializeField] Button itemTab;
 
-    IActor currentPartyMember;
+    IActor currentAllie;
     string commandName = "None";
     IActor target = null;
 
     InventoryUI skillInventoryUI;
     InventoryUI itemInventoryUI;
+
+
 
     public override void Initialize()
     {
@@ -33,13 +35,14 @@ public class CommandDisplay : DisplayBase
     protected override void OnEnable()
     {
         base.OnEnable();
+        GameStateManager.Instance.Wait();
 
         display.gameObject.SetActive(true);
 
         skillInventoryUI = new InventoryUI();
         itemInventoryUI = new InventoryUI();
 
-        currentPartyMember = BattleManager.Instance.aTBGuageFilledQueue.Peek();
+        currentAllie = BattleManager.Instance.aTBGuageFilledQueue.Peek();
 
         attackTab.onClick.RemoveAllListeners();
         magicTab.onClick.RemoveAllListeners();
@@ -50,6 +53,9 @@ public class CommandDisplay : DisplayBase
         itemTab.onClick.AddListener(() => OnClickItems());
 
         commandName = "None";
+
+        int newAllieIndex = currentAllie.getGameObject.transform.GetSiblingIndex();
+        AllieManager.Instance.SwapIndexes(0, newAllieIndex);
     }
 
     protected override void OnDisable()
@@ -62,7 +68,7 @@ public class CommandDisplay : DisplayBase
 
     public void OnClickAttack()
     {
-        string weapon = currentPartyMember.getEquipment.Find(i =>
+        string weapon = currentAllie.getEquipment.Find(i =>
         ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon1H ||
         ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon2H ||
         ItemDatabase.Instance.GetPart(i) == EquipmentPart.Bow);
@@ -80,7 +86,7 @@ public class CommandDisplay : DisplayBase
         skillInventoryUI.grid = grid;
         skillInventoryUI.buttonPrefab = buttonPrefab;
         skillInventoryUI.OnClick = (commandName) => OnSelectSkill(commandName);
-        skillInventoryUI.inventory = currentPartyMember.getScrolls;
+        skillInventoryUI.inventory = currentAllie.getScrolls;
         skillInventoryUI.onPointerEnter = (itemName) => { };
         skillInventoryUI.onPointerExit = (itemName) => { };
         skillInventoryUI.Display();
@@ -153,7 +159,7 @@ public class CommandDisplay : DisplayBase
 
     void OnSelectSkill(string commandName)
     {
-        if (currentPartyMember.getStats.MP >= ItemDatabase.Instance.Get(commandName).getCost)
+        if (currentAllie.getStats.MP >= ItemDatabase.Instance.Get(commandName).getCost)
             OnSelectCommand(commandName);
         else
             NotificationManager.Instance.Notify("you do not have enough MP");
@@ -167,9 +173,9 @@ public class CommandDisplay : DisplayBase
 
     public void OnSelectTarget(IActor target)
     {
-        Command command = new Command(currentPartyMember, ItemDatabase.Instance.Get(commandName), new List<IActor> { target });
+        Command command = new Command(currentAllie, ItemDatabase.Instance.Get(commandName), new List<IActor> { target });
         BattleManager.Instance.pendingCommands.AddLast(command);
-        currentPartyMember.getATBGuage.Reset();
+        currentAllie.getATBGuage.Reset();
         BattleManager.Instance.aTBGuageFilledQueue.Dequeue();
         gameObject.SetActive(false);
 

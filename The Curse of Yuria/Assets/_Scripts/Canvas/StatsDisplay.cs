@@ -47,7 +47,7 @@ public class StatsDisplay : DisplayBase
                 statDisplays[i].getAP.maxValue = AllieManager.Instance[i].getATBGuage.getMaximumValue;
 
                 statDisplays[i].getHP.value = AllieManager.Instance[i].getStats.HP;
-                statDisplays[i].getMP.value = AllieManager.Instance[i].getStats.HP;
+                statDisplays[i].getMP.value = AllieManager.Instance[i].getStats.MP;
             }
             else
             {

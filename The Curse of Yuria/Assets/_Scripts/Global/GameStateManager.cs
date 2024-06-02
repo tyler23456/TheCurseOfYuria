@@ -6,10 +6,11 @@ public class GameStateManager: MonoBehaviour
 {
     public static GameStateManager Instance { get; private set; }
 
-    enum State { playing, paused, stopped }
+    enum State { playing, isWaiting, paused, stopped }
     State state = State.stopped;
 
     public bool isPlaying => state == State.playing;
+    public bool isWaiting => state == State.isWaiting;
     public bool isPaused => state == State.paused;
     public bool isStopped => state == State.stopped;
 
@@ -21,6 +22,14 @@ public class GameStateManager: MonoBehaviour
     public void Play()
     {
         state = State.playing;
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void Wait()
+    {
+        state = State.isWaiting;
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

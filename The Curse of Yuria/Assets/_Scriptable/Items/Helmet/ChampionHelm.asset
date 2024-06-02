@@ -38,8 +38,6 @@ MonoBehaviour:
     Hash: 40545ab5a8f37c78116f54d69b312614
     Tags: []
   statusEffectProbabilities: []
-  modifiers:
-  - attribute: 4
-    offset: 20
+  modifiers: []
   counters: []
   interrupts: []

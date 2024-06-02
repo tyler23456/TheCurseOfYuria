@@ -45,8 +45,10 @@ namespace TCOY.UserActors
 
         public Action<int[]> onStatsChanged { get; set; } = (statsDictionary) => { };
         public Action onZeroHealth { get; set; } = () => { };
-        public Action<int> onApplyDamage { get; set; } = (damage) => { };
-        public Action<int> onApplyRecovery { get; set; } = (recovery) => { };
+        public Action<int> onHPDamage { get; set; } = (damage) => { };
+        public Action<int> onHPRecovery { get; set; } = (recovery) => { };
+        public Action<int> onMPDamage { get; set; } = (damage) => { };
+        public Action<int> onMPRecovery { get; set; } = (recovery) => { };
 
         public Action<int> onHPChanged { get; set; } = (value) => { };
         public Action<int> onMPChanged { get; set; } = (value) => { };
@@ -98,20 +100,36 @@ namespace TCOY.UserActors
             onMPChanged.Invoke(MP);
         }
 
-        public void ApplyDamage(float amount)
+        public void ApplyMPRecovery(float amount)
+        {
+            int result = (int)(amount * UnityEngine.Random.Range(0.8f, 1.2f));
+            MP += result;
+            onMPRecovery.Invoke(result);
+            onMPChanged.Invoke(MP);
+        }
+
+        public void ApplyMPDamage(float amount)
+        {
+            int result = (int)(amount * UnityEngine.Random.Range(0.8f, 1.2f));
+            MP -= result;
+            onMPDamage.Invoke(result);
+            onMPChanged.Invoke(MP);
+        }
+
+        public void ApplyHPDamage(float amount)
         {
             int result = (int)(amount * UnityEngine.Random.Range(0.8f, 1.2f));
             HP -= result;
-            onApplyDamage.Invoke(result);
+            onHPDamage.Invoke(result);
             onHPChanged.Invoke(HP);
             CheckForZeroHealth();
         }
 
-        public void ApplyRecovery(float amount)
+        public void ApplyHPRecovery(float amount)
         {
             int result = (int)(amount * UnityEngine.Random.Range(0.8f, 1.2f));
             HP += result;
-            onApplyRecovery.Invoke(result);
+            onHPRecovery.Invoke(result);
             onHPChanged.Invoke(HP);
             CheckForZeroHealth();
         }

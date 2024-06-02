@@ -24,7 +24,9 @@ public interface IStats
     void OffsetWeakness(int index, int offset);
     void ResetAll();
     void ApplyCost(int cost);
-    void ApplyDamage(float amount);
-    void ApplyRecovery(float amount);
+    void ApplyHPDamage(float amount);
+    void ApplyHPRecovery(float amount);
+    void ApplyMPRecovery(float amount);
+    void ApplyMPDamage(float amount);
     int[] GetAttributes();
 }

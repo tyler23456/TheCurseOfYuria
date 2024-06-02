@@ -177,7 +177,8 @@ public class EquipmentDisplay : DisplayBase
     {
         partyMember = AllieManager.Instance[allieIndex];
 
-        detailedActorViewCamera.cullingMask = LayerMask.GetMask("Actor" + (allieIndex + 1).ToString());
+        detailedActorViewCamera.cullingMask = (1 << partyMember.getGameObject.transform.GetChild(0).gameObject.layer) 
+            | ( 1 << LayerMask.NameToLayer("Light"));
 
         equipment = partyMember.getEquipment;
         stats = partyMember.getStats;

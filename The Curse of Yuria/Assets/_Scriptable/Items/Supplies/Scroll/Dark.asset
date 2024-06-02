@@ -18,13 +18,13 @@ MonoBehaviour:
   _equipmentType: {fileID: 11400000, guid: 989166b4b7e1b3a45b41dd36d0c3d7d5, type: 2}
   info: 
   _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
-  _elementType: {fileID: 11400000, guid: 0ed350d9141d4124d8cfe2e5c127feb3, type: 2}
-  _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
   anyType: {fileID: 0}
-  power: 2
-  cost: 2
+  power: 0
+  cost: 0
   effects: []
-  particleSystem: {fileID: 2748146283442478975, guid: 1f26d3f51db44c24dac866a2ff5be7c7, type: 3}
+  particleSystem: {fileID: 0}
   _itemSprite:
     Name: Dark
     Collection: Supplies

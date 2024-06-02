@@ -9,8 +9,9 @@ public class AllieDatabase : MonoBehaviour
     [SerializeField] GameObject river;
     [SerializeField] GameObject sarah;
     [SerializeField] GameObject nate;
+    [SerializeField] GameObject juel;
 
-    Dictionary<string, GameObject> alliePrefabs;
+    Dictionary<string, GameObject> alliePrefabs = new Dictionary<string, GameObject>();
 
     void Awake()
     {
@@ -19,6 +20,7 @@ public class AllieDatabase : MonoBehaviour
         alliePrefabs.Add(river.name, river);
         alliePrefabs.Add(sarah.name, sarah);
         alliePrefabs.Add(nate.name, nate);
+        alliePrefabs.Add(juel.name, juel);
     }
 
     public IActor Instantiate(string allieName)

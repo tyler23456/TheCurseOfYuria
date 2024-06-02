@@ -16,8 +16,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: c2d3ff617fbb42c3a588fc7c49787ce1, type: 3}
   _prefab: {fileID: 1302459728351914197, guid: 57ce1ebec47ac71419976a5006d0ff72, type: 3}
   _equipmentType: {fileID: 11400000, guid: 31d38a323650e3b44900c2067dc872c8, type: 2}
-  info: Advanced dipper hat was designed by an famous blacksmith known for bewitching
-    his equipment to help against magical foes in battle.
+  info: 
   _armType: {fileID: 11400000, guid: cb2f26584ca6c49489dd6d16b5306e59, type: 2}
   _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
   _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
@@ -39,8 +38,6 @@ MonoBehaviour:
     Hash: f16ccf8fe4426613f86506f8c4ab0ba3
     Tags: []
   statusEffectProbabilities: []
-  modifiers:
-  - attribute: 4
-    offset: 20
+  modifiers: []
   counters: []
   interrupts: []

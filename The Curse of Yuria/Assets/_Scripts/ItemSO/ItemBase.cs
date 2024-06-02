@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HeroEditor.Common.Enums;
 using HeroEditor.Common.Data;
+using UnityEditor;
 
 public abstract class ItemBase : TypeBase
 {
@@ -113,3 +114,4 @@ public abstract class ItemBase : TypeBase
             target.getInterrupts.Remove(interrupt);
     }
 }
+

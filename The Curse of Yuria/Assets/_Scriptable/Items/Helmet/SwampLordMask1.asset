@@ -40,8 +40,6 @@ MonoBehaviour:
     Tags:
     - FullHair
   statusEffectProbabilities: []
-  modifiers:
-  - attribute: 4
-    offset: 20
+  modifiers: []
   counters: []
   interrupts: []

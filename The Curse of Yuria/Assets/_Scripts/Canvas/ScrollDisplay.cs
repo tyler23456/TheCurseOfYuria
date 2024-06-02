@@ -91,7 +91,9 @@ public class ScrollDisplay : DisplayBase
     public void RefreshPartyMember()
     {
         allie = AllieManager.Instance[allieIndex];
-        detailedActorViewCamera.cullingMask = LayerMask.GetMask("Actor" + (allieIndex + 1).ToString());
+
+        detailedActorViewCamera.cullingMask = (1 << allie.getGameObject.transform.GetChild(0).gameObject.layer) 
+            | ( 1 << LayerMask.NameToLayer("Light"));
 
         skills = allie.getScrolls;
         stats = allie.getStats;

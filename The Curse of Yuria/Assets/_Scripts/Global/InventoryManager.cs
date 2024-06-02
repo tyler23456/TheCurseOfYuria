@@ -13,7 +13,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] Melee2HType _melee2H;
     [SerializeField] CapeType _cape;
     [SerializeField] ArmorType _armor;
-    [SerializeField] ShieldType shield;
+    [SerializeField] ShieldType _shield;
     [SerializeField] BowType _bow;
     [SerializeField] BasicType _basic;
     [SerializeField] ScrollType _scroll;
@@ -46,7 +46,7 @@ public class InventoryManager : MonoBehaviour
     public Melee2HType melee2HType => _melee2H;
     public CapeType capeType => _cape;
     public ArmorType armorType => _armor;
-    public ShieldType shieldType => shield;
+    public ShieldType shieldType => _shield;
     public BowType bowType => _bow;
     public BasicType basicType => _basic;
     public ScrollType scrollType => _scroll;
@@ -65,7 +65,7 @@ public class InventoryManager : MonoBehaviour
         inventories.Add(_melee2H.name, meleeWeapons2H);
         inventories.Add(_cape.name, capes);
         inventories.Add(_armor.name, armor);
-        inventories.Add(shield.name, shields);
+        inventories.Add(_shield.name, shields);
         inventories.Add(_bow.name, bows);
         inventories.Add(_basic.name, basic);
         inventories.Add(_scroll.name, scrolls);
@@ -74,7 +74,7 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItem(string itemName, int count = 1)
     {
-        inventories[ItemDatabase.Instance.GetTypeName(itemName)].Add(name, count);
+        inventories[ItemDatabase.Instance.GetTypeName(itemName)].Add(itemName, count);
     }
 
     public Inventory Get(ItemTypeBase type)

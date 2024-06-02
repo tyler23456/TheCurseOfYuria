@@ -6,27 +6,20 @@ namespace TCOY.UserActors
 {
     public class CameraFollow : MonoBehaviour
     {
-        new Camera camera;
-
-        void Awake()
+        private void Start()
         {
-            camera = GameObject.Find("/DontDestroyOnLoad/Main Camera").GetComponent<Camera>();
-        }
+            if (AllieManager.Instance.count == 0)
+                return;
 
-        void OnEnable()
-        {
-            camera.transform.position = transform.position + new Vector3(0f, 0f, -1f);
-        }
-
-        void OnDisable()
-        {
-            
+            transform.position = AllieManager.Instance.GetPosition3DAt(0) + new Vector3(0f, 0f, -1f);
         }
 
         void LateUpdate()
         {
-            if (camera != null)
-                camera.transform.position = Vector3.Lerp(camera.transform.position, transform.position + new Vector3(0f, 0f, -1f), 0.3f);
+            if (AllieManager.Instance.count == 0)
+                return;
+
+            transform.position = Vector3.Lerp(transform.position, AllieManager.Instance.GetPosition3DAt(0) + new Vector3(0f, 0f, -1f), 0.3f);
         }
     }
 }

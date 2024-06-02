@@ -7,9 +7,9 @@ namespace TCOY.UserActors
     public class Player : Actor, IAllie
     {
 
-        new protected void OnEnable()
+        new protected void Awake()
         {
-            base.OnEnable();
+            base.Awake();
 
             aTBGuage.OnATBGuageFilled = () => BattleManager.Instance.aTBGuageFilledQueue.Enqueue(this);
             aTBGuage.OnATBGuageFilled += () => Debug.Log("Filled");  

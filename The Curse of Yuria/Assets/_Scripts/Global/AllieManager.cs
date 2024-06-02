@@ -15,12 +15,21 @@ public class AllieManager : MonoBehaviour
     }
 
     public int count => transform.childCount;
+    public int selectedCount => Mathf.Min(3, 0, count - 1);
 
     private void Awake()
     {
         Instance = this;
+    }
 
+    public int GetSafeIndex(int index)
+    {
+        return Mathf.Clamp(index, 0, count - 1);
+    }
 
+    public int GetSafeSelectedIndex(int index)
+    {
+        return Mathf.Clamp(index, 0, selectedCount - 1);
     }
 
     public List<Command> CalculateCounters(Command command)
@@ -76,7 +85,14 @@ public class AllieManager : MonoBehaviour
 
     public void SwapIndexes(int index1, int index2)
     {
+        if (index1 == index2)
+            return;
+            
+        int minIndex = Mathf.Min(index1, index2);
+        int maxIndex = Mathf.Max(index1, index2);
 
+        transform.GetChild(maxIndex).SetSiblingIndex(minIndex);
+        transform.GetChild(minIndex + 1).SetSiblingIndex(maxIndex);
     }
 
     public void ForEach(Action<IActor> action)
@@ -98,6 +114,11 @@ public class AllieManager : MonoBehaviour
         return transform.GetChild(index).position;
     }
 
+    public Vector3 GetPosition3DAt(int index)
+    {
+        return transform.GetChild(index).position;
+    }
+
     public float GetEulerAngleZAt(int index)
     {
         return transform.GetChild(index).eulerAngles.z;
@@ -107,9 +128,9 @@ public class AllieManager : MonoBehaviour
     {
         foreach (Transform t in transform)
         {
-            transform.gameObject.SetActive(false);
-            transform.position = position;
-            transform.gameObject.SetActive(true);
+            t.gameObject.SetActive(false);
+            t.position = position;
+            t.gameObject.SetActive(true);
         }
     }
 
@@ -117,9 +138,9 @@ public class AllieManager : MonoBehaviour
     {
         foreach (Transform t in transform)
         {
-            transform.gameObject.SetActive(false);
-            transform.eulerAngles = new Vector3(0f, 0f, z);
-            transform.gameObject.SetActive(true);
+            t.gameObject.SetActive(false);
+            t.eulerAngles = new Vector3(0f, 0f, z);
+            t.gameObject.SetActive(true);
         }
     }
 }

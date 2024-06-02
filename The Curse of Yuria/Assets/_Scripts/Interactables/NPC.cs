@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
+using HeroEditor.Common.Enums;
 
 namespace TCOY.DontDestroyOnLoad
 {
@@ -13,15 +14,29 @@ namespace TCOY.DontDestroyOnLoad
         Character character;
         Animator animator;
 
+        protected void OnValidate()
+        {
+            character = GetComponent<Character>();
+            character.UnEquip(EquipmentPart.Helmet);
+            character.UnEquip(EquipmentPart.Earrings);
+            character.UnEquip(EquipmentPart.Glasses);
+            character.UnEquip(EquipmentPart.Mask);
+            character.UnEquip(EquipmentPart.MeleeWeapon1H);
+            character.UnEquip(EquipmentPart.MeleeWeapon2H);
+            character.UnEquip(EquipmentPart.Cape);
+            character.UnEquip(EquipmentPart.Armor);
+            character.UnEquip(EquipmentPart.Shield);
+            character.UnEquip(EquipmentPart.Bow);
+            foreach (ItemBase item in equipment)
+                character.Equip(item.itemSprite, item.itemType.part);
+        }
+
         protected new void Start()
         {
             base.Start();
 
             character = GetComponent<Character>();
             animator = transform.GetChild(0).GetComponent<Animator>();
-
-            foreach (Equipable equipable in equipment)
-                character.Equip(equipable.itemSprite, equipable.itemType.part);
         }
 
         public override void Interact(IActor player)

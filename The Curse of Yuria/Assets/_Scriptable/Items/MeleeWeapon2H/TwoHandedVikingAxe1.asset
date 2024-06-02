@@ -21,7 +21,7 @@ MonoBehaviour:
   _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
   _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
   anyType: {fileID: 0}
-  power: 2
+  power: 0
   cost: 0
   effects: []
   particleSystem: {fileID: 0}
@@ -37,21 +37,7 @@ MonoBehaviour:
     Multiple: 1
     Hash: 2ec5ab71ce0751dcf77a2f2079e4126f
     Tags: []
-  statusEffectProbabilities:
-  - statusEffect: {fileID: 11400000, guid: f8cac8eef1e9b1741aa7a3ff955a24ee, type: 2}
-    probability: 0.5
-  modifiers:
-  - attribute: 3
-    offset: 100
-  - attribute: 5
-    offset: 1000
-  counters:
-  - action: {fileID: 11400000, guid: c9462efac7764f74aa35227a31e11bc5, type: 2}
-    party: 0
-    reaction: {fileID: 11400000, guid: 63bc36c5ed17bfe44afa341fe2697cdb, type: 2}
-    target: {fileID: 11400000, guid: 00a83578476619c438a60866ec4d4015, type: 2}
-  interrupts:
-  - action: {fileID: 11400000, guid: c9462efac7764f74aa35227a31e11bc5, type: 2}
-    party: 0
-    reaction: {fileID: 11400000, guid: 998908422ab360649aeb62f798a0bcb5, type: 2}
-    target: {fileID: 11400000, guid: 00a83578476619c438a60866ec4d4015, type: 2}
+  statusEffectProbabilities: []
+  modifiers: []
+  counters: []
+  interrupts: []

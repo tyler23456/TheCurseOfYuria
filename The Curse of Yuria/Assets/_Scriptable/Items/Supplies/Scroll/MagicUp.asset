@@ -21,10 +21,10 @@ MonoBehaviour:
   _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
   _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
   anyType: {fileID: 0}
-  power: 2
-  cost: 2
+  power: 0
+  cost: 0
   effects: []
-  particleSystem: {fileID: 4737892327257956861, guid: 780bee809545d824fbcfd09325198469, type: 3}
+  particleSystem: {fileID: 0}
   _itemSprite:
     Name: MagicUp
     Collection: Supplies

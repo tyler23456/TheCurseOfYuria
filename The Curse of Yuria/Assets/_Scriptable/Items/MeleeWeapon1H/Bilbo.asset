@@ -17,11 +17,11 @@ MonoBehaviour:
   _prefab: {fileID: 2850440776452712538, guid: 3a31cff3f0b922f459295af0da83e378, type: 3}
   _equipmentType: {fileID: 11400000, guid: 31f9a546ffe171947873ffcacf7f100c, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: 241958a3a01de8544a64f4d9cc9e7062, type: 2}
+  _armType: {fileID: 11400000, guid: 8cfce240d1fa4434d8a08f137e121d67, type: 2}
   _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
   _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
   anyType: {fileID: 0}
-  power: 0
+  power: 2
   cost: 0
   effects: []
   particleSystem: {fileID: 0}

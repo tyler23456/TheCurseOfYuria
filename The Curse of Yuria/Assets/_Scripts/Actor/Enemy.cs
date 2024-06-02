@@ -11,9 +11,9 @@ namespace TCOY.UserActors
 
         Queue<Move> movesQueue = new Queue<Move>();
 
-        protected new void OnEnable()
+        protected new void Awake()
         {
-            base.OnEnable();
+            base.Awake();
 
             aTBGuage.OnATBGuageFilled = MakeADecision;
             aTBGuage.OnATBGuageFilled += () => aTBGuage.Reset();
