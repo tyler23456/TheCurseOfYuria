@@ -30,11 +30,11 @@ namespace TCOY.DontDestroyOnLoad
             {
                 target = hit.transform.GetComponent<InteractableBase>();
 
-                if (target != null)
+                if (target != null && target.enabled == true)
                      break;
             }
 
-            if (target == null)
+            if (target == null || target.enabled == false)
             {
                 MarkerManager.instance.DestroyAllMarkers();
                 return;

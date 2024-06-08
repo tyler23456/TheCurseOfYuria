@@ -5,20 +5,15 @@ using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 
 public interface IActor
 {
-    TargeterBase.Party getParty { get; }
-    bool useDefaultItems { get; set ;}
-    Character getCharacter { get; }
+    bool useDefaultItems { get; set; }
     Collider2D getCollider2D { get; }
-    GameObject getGameObject { get; }
-    IPosition getPosition { get; }
-    IRotation getRotation { get; }
+    GameObject obj { get; }
     IStats getStats { get; }
     IATBGuage getATBGuage { get; }
     List<Reactor> getCounters { get; }
     List<Reactor> getInterrupts { get; }
     IInventory getEquipment { get; }
     IInventory getScrolls { get; }
-    IAnimator getAnimator { get; }
     IStatusEffects getStatusEffects { get; }
     Coroutine StartCoroutine(IEnumerator routine);
 }

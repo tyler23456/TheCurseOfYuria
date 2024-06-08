@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Equipable))]
+[CustomEditor(typeof(Equipable)), CanEditMultipleObjects]
 public class EquipableGUI : Editor
 {
     public override Texture2D RenderStaticPreview(string assetPath, Object[] subAssets, int width, int height)

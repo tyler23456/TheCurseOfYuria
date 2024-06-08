@@ -8,10 +8,16 @@ public class CutsceneDisplay : DisplayBase
 {
     public static CutsceneDisplay Instance { get; protected set; }
 
-    [SerializeField] Image promptImage;
+    [SerializeField] new Camera camera;
+    [SerializeField] Text promptName;
     [SerializeField] TMP_Text promptText;
 
+    public Camera getCamera => camera;
+    public Text getPromptName => promptName;
+    public TMP_Text getPromptText => promptText;
+
     public Queue<ActionBase> actions { get; private set; } = new Queue<ActionBase>();
+    Transform[] actorTransforms = new Transform[] { };
 
     public override void Initialize()
     {
@@ -24,7 +30,7 @@ public class CutsceneDisplay : DisplayBase
         base.OnEnable();
 
         GameStateManager.Instance.Stop();
-        StartCoroutine(Activate(new List<IActor>()));
+        StartCoroutine(Activate());
     }
 
     protected override void OnDisable()
@@ -32,10 +38,10 @@ public class CutsceneDisplay : DisplayBase
         base.OnDisable();
     }
 
-    public IEnumerator Activate(List<IActor> actors)
+    public IEnumerator Activate()
     {
         while (actions.Count > 0)
-            yield return actions.Dequeue().Activate(actors, promptImage, promptText);
+            yield return actions.Dequeue().Activate();
 
         gameObject.SetActive(false);
     }

@@ -6,5 +6,5 @@ using UnityEngine.UI;
 
 public interface IAction
 {
-    IEnumerator Activate(List<IActor> actors, Image image, TMP_Text text);
+    IEnumerator Activate();
 }

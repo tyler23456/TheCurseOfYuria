@@ -23,8 +23,13 @@ public class AllieDatabase : MonoBehaviour
         alliePrefabs.Add(juel.name, juel);
     }
 
-    public IActor Instantiate(string allieName)
+    public IAllie Instantiate(string allieName, Vector3 position, Quaternion rotation)
     {
-        return Instantiate(alliePrefabs[allieName]).GetComponent<IActor>();
+        return Instantiate(alliePrefabs[allieName], position, rotation).GetComponent<IAllie>();
+    }
+
+    public IAllie Instantiate(string allieName)
+    {
+        return Instantiate(alliePrefabs[allieName]).GetComponent<IAllie>();
     }
 }

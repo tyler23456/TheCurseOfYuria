@@ -10,7 +10,7 @@ public class Basic : Scroll, IItem
 
         InventoryManager.Instance.basic.Remove(name);
 
-        user.getAnimator.UseSupply();
+        user.obj.GetComponent<Animator>()?.SetTrigger("UseSupply");
 
         foreach (IActor target in targets)
             user.StartCoroutine(performAnimation(user, target));

@@ -92,7 +92,7 @@ public class ScrollDisplay : DisplayBase
     {
         allie = AllieManager.Instance[allieIndex];
 
-        detailedActorViewCamera.cullingMask = (1 << allie.getGameObject.transform.GetChild(0).gameObject.layer) 
+        detailedActorViewCamera.cullingMask = (1 << allie.obj.transform.GetChild(0).gameObject.layer) 
             | ( 1 << LayerMask.NameToLayer("Light"));
 
         skills = allie.getScrolls;
@@ -100,7 +100,7 @@ public class ScrollDisplay : DisplayBase
 
         //show party member stuff
 
-        partyMemberName.text = allie.getGameObject.name;
+        partyMemberName.text = allie.obj.name;
         partyMemberStats.text = "";
         partyMemberValues.text = "";
 
@@ -238,6 +238,6 @@ public class ScrollDisplay : DisplayBase
             RefreshPartyMember();
         }
 
-        detailedActorViewCamera.transform.position = allie.getGameObject.transform.position + new Vector3(0f, 1f, -2.5f);
+        detailedActorViewCamera.transform.position = allie.obj.transform.position + new Vector3(0f, 1f, -2.5f);
     }
 }

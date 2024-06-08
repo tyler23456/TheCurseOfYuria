@@ -7,7 +7,7 @@ namespace TCOY.DontDestroyOnLoad
     public class Container : InteractableBase, IContainer
     {
 
-        [SerializeField] List<Entry> entries;
+        [SerializeField] protected List<Entry> entries;
 
         public override void Interact(IActor player)
         {

@@ -14,6 +14,7 @@ public interface IAnimator
     public void KO();
     public void UseSupply();
     public void Ready();
+    public void Unready();
     public void Attack();
     public void Cast();
     public void Hit();

@@ -12,7 +12,7 @@ public class Scroll : ItemBase, IItem
         SetDirection(user, targets);
 
         user.getStats.ApplyCost(cost);
-        user.getAnimator.Cast();
+        user.obj.GetComponent<Animator>()?.SetTrigger("Cast");
 
         foreach (IActor target in targets)
             target.StartCoroutine(performAnimation(user, target));
@@ -35,7 +35,7 @@ public class Scroll : ItemBase, IItem
 
     protected virtual IEnumerator PerformEffect(IActor user, IActor target)
     {
-        ParticleSystem particleSystem = GameObject.Instantiate(this.particleSystem.gameObject, target.getGameObject.transform).GetComponent<ParticleSystem>();
+        ParticleSystem particleSystem = GameObject.Instantiate(this.particleSystem.gameObject, target.obj.transform).GetComponent<ParticleSystem>();
         Destroy(particleSystem.gameObject, particleSystem.main.duration);
 
         while (particleSystem.time < particleSystem.main.duration / 10f)
@@ -47,6 +47,10 @@ public class Scroll : ItemBase, IItem
         float accumulator = 0;
         accumulator = _elementType.Calculate(user, target, power * IStats.powerMultiplier);
         accumulator = _armType.Calculate(user, target, accumulator);
+
+        foreach (BonusTypeBase bonusType in _bonusTypes)
+            accumulator = bonusType.Calculate(user, target, accumulator);
+
         accumulator = _calculationType.Calculate(user, target, accumulator);
 
         CheckStatusEffects(target);
@@ -56,7 +60,7 @@ public class Scroll : ItemBase, IItem
 
     protected virtual IEnumerator PerformEffect(IActor target)
     {
-        ParticleSystem particleSystem = GameObject.Instantiate(this.particleSystem.gameObject, target.getGameObject.transform).GetComponent<ParticleSystem>();
+        ParticleSystem particleSystem = GameObject.Instantiate(this.particleSystem.gameObject, target.obj.transform).GetComponent<ParticleSystem>();
         Destroy(particleSystem.gameObject, particleSystem.main.duration);
 
         while (particleSystem.time < particleSystem.main.duration / 10f)

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace TCOY.AStar
 {
+    [RequireComponent(typeof(Animator), typeof(Rigidbody2D))]
     public class ArialUnit : MonoBehaviour
     {
         Transform target;
@@ -11,17 +12,24 @@ namespace TCOY.AStar
         float moveSpeed = 1f;
         Vector3[] path;
         int index;
+        Animator animator;
+        Rigidbody2D rigidBody2D;
 
         void Start()
         {
-            target = AllieManager.Instance[0].getGameObject.transform;
+            target = AllieManager.Instance.First().obj.transform;
             StartCoroutine(CheckForPath());
+            animator = GetComponent<Animator>();
+            rigidBody2D = GetComponent<Rigidbody2D>();
         }
         
         IEnumerator CheckForPath()
         {
             while (true)
             {
+                if (animator.GetInteger("MovePriority") < int.MaxValue)
+                    continue;
+
                 PathRequester.RequestPath(transform.position, target.position, OnPathFound);
                 yield return new WaitForSeconds(0.25f);
             }
@@ -70,18 +78,18 @@ namespace TCOY.AStar
         Vector2 velocity = Vector3.zero;
         void Move(Vector2 direction)
         {
-            GetComponent<IActor>().getAnimator.Stand();
+            animator.SetInteger("State", 0);
 
             if (direction.x > 0f)
             {
                 transform.GetChild(0).eulerAngles = new Vector3(0f, 0f, 0f);
-                GetComponent<IActor>().getAnimator.Walk();
+                animator.SetInteger("State", 2);
                 velocity += Vector2.right * moveSpeed;;
             }
             else if (direction.x < 0f)
             {
                 transform.GetChild(0).eulerAngles = new Vector3(0f, 180f, 0f);
-                GetComponent<IActor>().getAnimator.Walk();
+                animator.SetInteger("State", 2);
                 velocity += Vector2.left * moveSpeed;
             }
         }
@@ -103,7 +111,7 @@ namespace TCOY.AStar
 
         void FixedUpdate()
         {
-            GetComponent<IActor>().getPosition.Add(velocity, ForceMode2D.Impulse);
+            rigidBody2D.AddForce(velocity, ForceMode2D.Impulse);
             velocity = Vector2.zero;
         }
 

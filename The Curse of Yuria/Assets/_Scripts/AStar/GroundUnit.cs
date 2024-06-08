@@ -5,6 +5,7 @@ using System;
 
 namespace TCOY.AStar
 {
+    [RequireComponent(typeof(Rigidbody2D))]
     public class GroundUnit : MonoBehaviour
     {
         static float proximity = 5f;
@@ -14,18 +15,24 @@ namespace TCOY.AStar
         Vector3[] path = new Vector3[0];
         int index;
         Vector2 velocity = Vector2.zero;
-
+        Animator animator;
+        Rigidbody2D rigidBody2D;
 
         void Start()
         {
-            target = AllieManager.Instance[0].getGameObject.transform;
+            target = AllieManager.Instance[0].obj.transform;
             StartCoroutine(CheckForPath());
+            animator = GetComponent<Animator>();
+            rigidBody2D = GetComponent<Rigidbody2D>();
         }
 
         IEnumerator CheckForPath()
         {
             while (true)
             {
+                if (animator?.GetInteger("MovePriority") < int.MaxValue)
+                    continue;
+
                 if (Vector3.Distance(transform.position, target.position) < proximity)
                     yield return new WaitForSeconds(0.1f);
 
@@ -64,7 +71,7 @@ namespace TCOY.AStar
                 Vector2 direction = (path2D - position).normalized;
 
                 if (Vector3.Distance(transform.position, target.position) < proximity)
-                    yield break; ;
+                    yield break;
 
                 if (transform.position == currentWayPoint)
                 {
@@ -82,18 +89,18 @@ namespace TCOY.AStar
         
         void Move(Vector2 direction)
         {
-            GetComponent<IActor>().getAnimator.Stand();
+            animator?.SetInteger("State", 0);
 
             if (direction.x > 0f)
             {
                 transform.GetChild(0).eulerAngles = new Vector3(0f, 0f, 0f);
-                GetComponent<IActor>().getAnimator.Run();
+                animator?.SetInteger("State", 2);
                 velocity += Vector2.right * moveSpeed;
             }
             else if (direction.x < 0f)
             {
                 transform.GetChild(0).eulerAngles = new Vector3(0f, 180f, 0f);
-                GetComponent<IActor>().getAnimator.Run();
+                animator?.SetInteger("State", 3);
                 velocity += Vector2.left * moveSpeed;
             }
         }
@@ -111,7 +118,7 @@ namespace TCOY.AStar
 
         void FixedUpdate()
         {
-            GetComponent<IActor>().getPosition.Add(velocity, ForceMode2D.Impulse);
+            rigidBody2D.AddForce(velocity, ForceMode2D.Impulse);
             velocity = Vector2.zero;
         }
          

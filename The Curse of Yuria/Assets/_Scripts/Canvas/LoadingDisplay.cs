@@ -15,6 +15,7 @@ public class LoadingDisplay : DisplayBase
     public int sceneIDToLoad = 0;
     public Vector2 positionToStart = Vector2.zero;
     public float eulerAngleZToStart = 0f;
+    public bool isSettingTransforms = true;
 
     public override void Initialize()
     {
@@ -46,20 +47,34 @@ public class LoadingDisplay : DisplayBase
         }
 
         StatsDisplay.Instance.HideAllInParent();
+        StatsDisplay.Instance.ShowAllInParent();
+        AllieManager.Instance.Refresh();
+        gameObject.SetActive(false);
+
+        if (!isSettingTransforms)
+            yield break;
+
         mainCamera.SetActive(false);
         AllieManager.Instance.SetPosition(positionToStart);
         AllieManager.Instance.SetEulerAngleZ(eulerAngleZToStart);
         mainCamera.SetActive(true);
-        StatsDisplay.Instance.ShowAllInParent();
-        gameObject.SetActive(false);     
     }
 
-    public void ShowExclusivelyInParent(int sceneIDToLoad, Vector2 positionToStart = new Vector2(), float eulerAngleZToStart = 0f)
+    public void ShowExclusivelyInParent(int sceneIDToLoad, Vector2 positionToStart, float eulerAngleZToStart)
     {
         this.sceneIDToLoad = sceneIDToLoad;
         this.positionToStart = positionToStart;
         this.eulerAngleZToStart = eulerAngleZToStart;
+        isSettingTransforms = true;
 
         base.ShowExclusivelyInParent();  
+    }
+
+    public void ShowExclusivelyInParent(int sceneIDToLoad)
+    {
+        this.sceneIDToLoad = sceneIDToLoad;
+        isSettingTransforms = false;
+
+        base.ShowExclusivelyInParent();
     }
 }

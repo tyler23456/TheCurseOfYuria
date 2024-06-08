@@ -7,43 +7,32 @@ using HeroEditor.Common.Enums;
 
 namespace TCOY.UserActors
 {
-    [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
+    [RequireComponent(typeof(BoxCollider2D), typeof (CoroutineBehaviour))]
+    
     public class Actor : MonoBehaviour, IActor
     {
-        
-        [SerializeField] TargeterBase.Party party;
-        [SerializeField] bool _useDefaultItems = true;
-        [SerializeField] List<ItemBase> defaultItems;
+        [SerializeField] protected bool _useDefaultItems = true;
         [SerializeField] protected Stats stats;
         [SerializeField] protected ATBGuage aTBGuage;
-        [SerializeField] List<Reactor> counters;
-        [SerializeField] List<Reactor> interrupts;
-
-        protected Character character;
-        protected new Camera camera;
+        [SerializeField] protected List<Reactor> counters;
+        [SerializeField] protected List<Reactor> interrupts;
+      
+        protected CoroutineBehaviour coroutineBehaviour;
+        protected DefaultItems editorEquipper;
         protected new Collider2D collider2D;
         protected SpriteRenderer[] spriteRenderers;
-        protected Position position;
-        protected Rotation rotation;
         protected GroundChecker groundChecker;
         protected Inventory equipment;
         protected Inventory skills;
-        protected UserAnimator animator;
         protected StatusEffects statusEffects;
 
-        public TargeterBase.Party getParty => party;
         public Collider2D getCollider2D => collider2D;
-        public GameObject getGameObject => gameObject;
-        public IPosition getPosition => position;
-        public IRotation getRotation => rotation;
+        public GameObject obj => gameObject;
         public IStats getStats => stats;
         public IATBGuage getATBGuage => aTBGuage;
-        public Character getCharacter => character;
         public IInventory getEquipment => equipment;
         public IInventory getScrolls => skills;
-        public IAnimator getAnimator => animator;
         public IStatusEffects getStatusEffects => statusEffects;
-
         public List<Reactor> getCounters => counters;
         public List<Reactor> getInterrupts => interrupts;
 
@@ -51,29 +40,26 @@ namespace TCOY.UserActors
 
         protected void Awake()
         {
-            character = GetComponent<Character>();
+            coroutineBehaviour = GetComponent<CoroutineBehaviour>();
+            editorEquipper = GetComponent<DefaultItems>();
             collider2D = GetComponent<Collider2D>();
             spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
-            position = new Position(gameObject);
-            rotation = new Rotation(gameObject);
             aTBGuage = new ATBGuage();
             groundChecker = new GroundChecker(gameObject);
             equipment = new Inventory();
             skills = new Inventory();
-            animator = new UserAnimator(gameObject);
-
+            
             statusEffects = new StatusEffects();
             statusEffects.onAdd = (name) => StatFXDatabase.Instance.Get(name).OnAdd(this);
             statusEffects.onUpdate = (name) => { };
             statusEffects.onRemove = (name) => StatFXDatabase.Instance.Get(name).OnRemove(this);
 
             stats.Initialize();
-            stats.onHPDamage = (damage) => animator.Hit();
-            stats.onHPDamage += (damage) => { }; //play a hit soundFX
+            stats.onHPDamage = (damage) => { }; //play a hit soundFX
             stats.onHPDamage += (damage) => PopupManager.Instance.AddHPDamagePopup(damage, collider2D.bounds.center);
             stats.onHPDamage += (damage) => CameraShakerHandler.Shake(ShakeDatabase.Instance.Get("Hit"));
-            stats.onHPDamage += (damage) => StartCoroutine(HitAnimation());
+            stats.onHPDamage += (damage) => coroutineBehaviour.StartCoroutine(HitAnimation());
 
             stats.onZeroHealth = () => StatFXDatabase.Instance.Get("KnockOut").Activate(this);
 
@@ -84,32 +70,15 @@ namespace TCOY.UserActors
             stats.onMPRecovery = (recovery) => PopupManager.Instance.AddMPRecoveryPopup(recovery, collider2D.bounds.center);
         }
 
-        protected void OnValidate()
-        {
-            if (useDefaultItems)
-            {
-                character = GetComponent<Character>();
-                character.UnEquip(EquipmentPart.Helmet);
-                character.UnEquip(EquipmentPart.Earrings);
-                character.UnEquip(EquipmentPart.Glasses);
-                character.UnEquip(EquipmentPart.Mask);
-                character.UnEquip(EquipmentPart.MeleeWeapon1H);
-                character.UnEquip(EquipmentPart.MeleeWeapon2H);
-                character.UnEquip(EquipmentPart.Cape);
-                character.UnEquip(EquipmentPart.Armor);
-                character.UnEquip(EquipmentPart.Shield);
-                character.UnEquip(EquipmentPart.Bow);
-                foreach (ItemBase item in defaultItems)
-                    character.Equip(item.itemSprite, item.itemType.part);
-            }
-                
-        }
-
         protected void Start()
         {
-            if (useDefaultItems)
-                foreach (ItemBase item in defaultItems)
-                    item.Equip(this);
+            if (editorEquipper == null || _useDefaultItems == false)
+                return;
+
+            ItemBase[] items = editorEquipper.GetDefaultItems();
+
+            foreach (ItemBase item in items)
+                item.Equip(this);
         }
 
 
@@ -118,7 +87,6 @@ namespace TCOY.UserActors
             if (!GameStateManager.Instance.isPlaying)
                 return;
 
-            rotation.Update();
             aTBGuage.Update();
             groundChecker.Update();
             statusEffects.Update();

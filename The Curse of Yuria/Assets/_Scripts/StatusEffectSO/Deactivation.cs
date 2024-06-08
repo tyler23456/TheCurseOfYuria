@@ -10,7 +10,6 @@ public class Deactivation : StatusEffectBase, IStatusEffect
     [SerializeField] float minimumDuration = 0f;
     [SerializeField] float maximumDuration = 0f;
 
-    //we need to figure out a way to ensure deactivation effect duration is loaded properly after saving and loading.
     public override void Activate(IActor target, float accumulator = 0f)
     {
         base.Activate(target, Random.Range(minimumDuration, maximumDuration));
@@ -20,22 +19,26 @@ public class Deactivation : StatusEffectBase, IStatusEffect
     {
         base.OnAdd(target);
 
+        Animator animator = target.obj.GetComponent<Animator>();
+
         if (disableMovement)
-            target.getPosition.Deactivate();
+            animator?.SetInteger("MovePriority", animator.GetInteger("MovePriority") - 1);
 
         if (disableATBGauge)
-            target.getATBGuage.Deactivate();
+            target.getATBGuage.LowerPriority();
     }
-
 
     public override void OnRemove(IActor target)
     {
         base.OnRemove(target);
 
+        Animator animator = target.obj.GetComponent<Animator>();
+
         if (disableMovement)
-            target.getPosition.Deactivate();
+            animator?.SetInteger("MovePriority", animator.GetInteger("MovePriority") + 1);
+            
 
         if (disableATBGauge)
-            target.getATBGuage.Deactivate();
+            target.getATBGuage.LowerPriority();
     }
 }

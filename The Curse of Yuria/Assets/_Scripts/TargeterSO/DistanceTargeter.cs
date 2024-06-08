@@ -19,7 +19,7 @@ public class DistanceTargeter : TargeterBase
 
         foreach (IActor target in targets)
         {
-            inputValue = Vector3.Distance(target.getGameObject.transform.position, position);
+            inputValue = Vector3.Distance(target.obj.transform.position, position);
             if (distance == Distance.closest && inputValue < outputValue || distance == Distance.farthest && inputValue > outputValue)
             {
                 outputValue = inputValue;

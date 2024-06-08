@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IAllie : IActor
 {
-    enum Names { River, Sarah, Nathan,  Ashlyn, Juel, Nina, Onyx}
+    Rigidbody2D rigidbody2D { get; }
+    Animator animator { get; }
 }

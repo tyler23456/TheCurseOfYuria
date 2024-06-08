@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
   m_Name: TestPrompt2
   m_EditorClassIdentifier: 
+  characterName: {fileID: 11400000, guid: d6f7b8977f765194cac4f3aac768dd32, type: 2}
   text: This is the second dialogue test.  Ooops, I did it again.  I called the Cutscene
     system the dialogue system.

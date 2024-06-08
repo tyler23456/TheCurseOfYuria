@@ -177,7 +177,7 @@ public class EquipmentDisplay : DisplayBase
     {
         partyMember = AllieManager.Instance[allieIndex];
 
-        detailedActorViewCamera.cullingMask = (1 << partyMember.getGameObject.transform.GetChild(0).gameObject.layer) 
+        detailedActorViewCamera.cullingMask = (1 << partyMember.obj.transform.GetChild(0).gameObject.layer) 
             | ( 1 << LayerMask.NameToLayer("Light"));
 
         equipment = partyMember.getEquipment;
@@ -200,7 +200,7 @@ public class EquipmentDisplay : DisplayBase
             itemType = ItemDatabase.Instance.GetType(equipment.GetName(i));
             slots[itemType].sprite = ItemDatabase.Instance.GetIcon(equipment.GetName(i));
         }
-        partyMemberName.text = partyMember.getGameObject.name;
+        partyMemberName.text = partyMember.obj.name;
         partyMemberStats.text = "";
         partyMemberValues.text = "";
 
@@ -276,13 +276,13 @@ public class EquipmentDisplay : DisplayBase
             this.itemInfo.text += "\n\nCounters:";
 
         foreach (Reactor reactor in currentItem.getCounters)
-            this.itemInfo.text += "\n" + reactor.getItem.ToString() + "|" + reactor.getParty.ToString() + "|" + reactor.getReaction.ToString() + "|" + reactor.getTargeter.ToString();
+            this.itemInfo.text += "\n" + reactor.getItem.ToString() + "|" + reactor.getMask.ToString() + "|" + reactor.getReaction.ToString() + "|" + reactor.getTargeter.ToString();
 
         if (currentItem.getCounters.Count > 0)
             this.itemInfo.text += "\n\nInterrupts:";
 
         foreach (Reactor reactor in currentItem.getInterrupts)
-            this.itemInfo.text += "\n" + reactor.getItem.ToString() + "|" + reactor.getParty.ToString() + "|" + reactor.getReaction.ToString() + "|" + reactor.getTargeter.ToString();
+            this.itemInfo.text += "\n" + reactor.getItem.ToString() + "|" + reactor.getMask.ToString() + "|" + reactor.getReaction.ToString() + "|" + reactor.getTargeter.ToString();
 
         int length = partyMember.getStats.GetAttributes().Length;
 
@@ -338,7 +338,7 @@ public class EquipmentDisplay : DisplayBase
         }
 
         //move Detailed Actor View Camera to the new character
-        detailedActorViewCamera.transform.position = partyMember.getGameObject.transform.position + new Vector3(0f, 1f, -2.5f);
+        detailedActorViewCamera.transform.position = partyMember.obj.transform.position + new Vector3(0f, 1f, -2.5f);
         //---------------------------------------------------
     }
 }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
   m_Name: TestPrompt
   m_EditorClassIdentifier: 
+  characterName: {fileID: 11400000, guid: d6f7b8977f765194cac4f3aac768dd32, type: 2}
   text: Hi, this is a test to see if the dialogue is working properly.  What do you
     think?  Do you think the dialogue system is working.  Ooops, I meant to say Cutscene
     system because the developer decided to change its name.

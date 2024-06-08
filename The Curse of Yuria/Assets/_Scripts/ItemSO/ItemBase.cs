@@ -17,8 +17,8 @@ public abstract class ItemBase : TypeBase
     [SerializeField] protected ArmTypeBase _armType;
     [SerializeField] protected ElementTypeBase _elementType;
     [SerializeField] protected CalculationTypeBase _calculationType;
+    [SerializeField] protected List<BonusTypeBase> _bonusTypes;
 
-    [SerializeField] protected TypeBase anyType;
     [SerializeField] protected int power;
     [SerializeField] protected int cost;
 
@@ -40,11 +40,12 @@ public abstract class ItemBase : TypeBase
     public ArmTypeBase armType { get { return _armType; } set { _armType = value; } }
     public ElementTypeBase elementType { get { return _elementType; } set { _elementType = value; } }
     public CalculationTypeBase calculationType { get { return _calculationType; } set { _calculationType = value; } }
+    public List<BonusTypeBase> bonusTypes { get { return _bonusTypes; } set { _bonusTypes = value; } }
 
     public int getPower => power;
     public int getCost => cost;
 
-    public string getIdentifiers => base.name + '|' + _armType.name + '|' + _calculationType.name + '|' + _elementType.name + '|' + anyType.name;
+    public string getIdentifiers => base.name + '|' + _armType.name + '|' + _calculationType.name + '|' + _elementType.name;
 
     public ItemSprite itemSprite { get { return _itemSprite; } set { _itemSprite = value; } }
     public List<StatusEffectProbability> getStatusEffects => statusEffectProbabilities;
@@ -62,12 +63,12 @@ public abstract class ItemBase : TypeBase
         if (targets.Count == 0)
             return;
 
-        Vector2 direction = (targets[0].getGameObject.transform.position - user.getGameObject.transform.position).normalized;
+        Vector2 direction = (targets[0].obj.transform.position - user.obj.transform.position).normalized;
 
         if (direction.x >= 0)
-            user.getGameObject.transform.GetChild(0).eulerAngles = new Vector3(0f, 0f, 0f);
+            user.obj.transform.GetChild(0).eulerAngles = new Vector3(0f, 0f, 0f);
         else
-            user.getGameObject.transform.GetChild(0).eulerAngles = new Vector3(0f, 180f, 0f);
+            user.obj.transform.GetChild(0).eulerAngles = new Vector3(0f, 180f, 0f);
     }
 
     public virtual IEnumerator Use(IActor target)
@@ -85,7 +86,7 @@ public abstract class ItemBase : TypeBase
     public virtual void ApplyStatusEffect(IActor target, StatusEffectBase statusEffect)
     {
         if (statusEffect.getVisualEffect != null)
-            Destroy(Instantiate(statusEffect.getVisualEffect, target.getGameObject.transform), 5f);
+            Destroy(Instantiate(statusEffect.getVisualEffect, target.obj.transform), 5f);
 
         statusEffect.Activate(target);
     }

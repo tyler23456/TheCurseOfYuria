@@ -9,17 +9,31 @@ public class AllieManager : MonoBehaviour
 {
     public static AllieManager Instance { get; private set; }
 
-    public IActor this[int index]
+    public IAllie this[int index]
     {
-        get => transform.GetChild(index).GetComponent<IActor>();
+        get => transform.GetChild(index).GetComponent<IAllie>();
     }
 
     public int count => transform.childCount;
-    public int selectedCount => Mathf.Min(3, 0, count - 1);
+    public int selectedCount => Mathf.Min(3, count);
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    public IAllie First()
+    {
+        return Instance[0];
+    }
+
+    public void Refresh()
+    {
+            for (int i = 0; i < selectedCount; i++)
+            transform.GetChild(i).gameObject.SetActive(true);
+
+        for (int i = 3; i < count; i++)
+            transform.GetChild(i).gameObject.SetActive(false);
     }
 
     public int GetSafeIndex(int index)
@@ -34,32 +48,32 @@ public class AllieManager : MonoBehaviour
 
     public List<Command> CalculateCounters(Command command)
     {
-        IActor actor = null;
-
+        IAllie actor = null;
+         
         List<Command> results = new List<Command>();
         foreach (Transform t in transform)
         {
-            actor = t.GetComponent<IActor>();
-
+            actor = t.GetComponent<IAllie>();
+            
             foreach (Reactor reactor in actor.getCounters)
-                if (command.targets[0].getParty == reactor.getParty && command.item.name == reactor.getItem.name)
-                    results.Add(new Command(actor, reactor.getReaction, reactor.getTargeter.CalculateTargets(actor.getGameObject.transform.position)));
-        }   
+                if (((1 << command.targets[0].obj.layer) & reactor.getMask) != 0 && command.item.name == reactor.getItem.name)
+                    results.Add(new Command(actor, reactor.getReaction, reactor.getTargeter.CalculateTargets(actor.obj.transform.position)));
+        }
         return results;
     }
 
     public List<Command> CalculateInterrupts(Command command)
     {
-        IActor actor = null;
+        IAllie actor = null;
 
         List<Command> results = new List<Command>();
         foreach (Transform t in transform)
         {
-            actor = t.GetComponent<IActor>();
+            actor = t.GetComponent<IAllie>();
 
             foreach (Reactor reactor in actor.getInterrupts)
-                if (command.targets[0].getParty == reactor.getParty && command.item.name == reactor.getItem.name) //targets can be null....need to fix that
-                    results.Add(new Command(actor, reactor.getReaction, reactor.getTargeter.CalculateTargets(actor.getGameObject.transform.position)));
+                if (((1 << command.targets[0].obj.layer) & reactor.getMask) != 0 && command.item.name == reactor.getItem.name) //targets can be null....need to fix that
+                    results.Add(new Command(actor, reactor.getReaction, reactor.getTargeter.CalculateTargets(actor.obj.transform.position)));
         }      
         return results;
     }
@@ -70,18 +84,28 @@ public class AllieManager : MonoBehaviour
             Destroy(t.gameObject);
     }
 
-    public void Set(List<IActor> actors)
+    public void Set(List<IAllie> actors)
     {
         foreach (IActor actor in actors)
-            actor.getGameObject.transform.parent = transform;
+            actor.obj.transform.parent = transform;
     }
 
-    public void Add(IActor actor)
+    public void Add(IAllie actor)
     {
-        actor.getGameObject.transform.parent = transform;
+        actor.obj.transform.parent = transform;
     }
 
+    public void AddAndRefresh(IAllie actor)
+    {
+        actor.obj.transform.parent = transform;
+        Refresh();
+    }
 
+    public void MoveIndex(int fromIndex, int toIndex)
+    {
+        transform.GetChild(fromIndex).SetSiblingIndex(toIndex);
+        Refresh();
+    }
 
     public void SwapIndexes(int index1, int index2)
     {
@@ -93,6 +117,7 @@ public class AllieManager : MonoBehaviour
 
         transform.GetChild(maxIndex).SetSiblingIndex(minIndex);
         transform.GetChild(minIndex + 1).SetSiblingIndex(maxIndex);
+        Refresh();
     }
 
     public void ForEach(Action<IActor> action)
@@ -126,21 +151,25 @@ public class AllieManager : MonoBehaviour
 
     public void SetPosition(Vector2 position)
     {
+        bool previousActive = false;
         foreach (Transform t in transform)
         {
+            previousActive = t.gameObject.activeSelf;
             t.gameObject.SetActive(false);
             t.position = position;
-            t.gameObject.SetActive(true);
+            t.gameObject.SetActive(previousActive);
         }
     }
 
     public void SetEulerAngleZ(float z)
     {
+        bool previousActive = false;
         foreach (Transform t in transform)
         {
+            previousActive = t.gameObject.activeSelf;
             t.gameObject.SetActive(false);
             t.eulerAngles = new Vector3(0f, 0f, z);
-            t.gameObject.SetActive(true);
+            t.gameObject.SetActive(previousActive);
         }
     }
 }

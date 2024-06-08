@@ -20,8 +20,9 @@ MonoBehaviour:
   _armType: {fileID: 11400000, guid: 241958a3a01de8544a64f4d9cc9e7062, type: 2}
   _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
   _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
-  anyType: {fileID: 0}
-  power: 0
+  _bonusTypes:
+  - {fileID: 11400000, guid: 95654927c8f7be14a9e8a723adecc6dd, type: 2}
+  power: 4
   cost: 0
   effects: []
   particleSystem: {fileID: 0}

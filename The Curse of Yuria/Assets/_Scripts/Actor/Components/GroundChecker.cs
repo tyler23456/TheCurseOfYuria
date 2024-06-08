@@ -15,6 +15,8 @@ namespace TCOY.UserActors
         public GroundChecker(GameObject obj)
         {
             animator = obj.transform.GetChild(0).GetComponent<Animator>();
+            if (animator == null)
+                animator = obj.transform.GetComponent<Animator>();
         }
 
         public void Update()

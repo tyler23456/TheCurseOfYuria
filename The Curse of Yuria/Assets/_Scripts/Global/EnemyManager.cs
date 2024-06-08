@@ -8,9 +8,9 @@ public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager Instance { get; private set; }
 
-    public IActor this[int index]
+    public IEnemy this[int index]
     {
-        get => transform.GetChild(index).GetComponent<IActor>();
+        get => transform.GetChild(index).GetComponent<IEnemy>();
     }
 
     public int count => transform.childCount;
@@ -22,32 +22,32 @@ public class EnemyManager : MonoBehaviour
 
     public List<Command> CalculateCounters(Command command)
     {
-        IActor actor = null;
+        IEnemy actor = null;
 
         List<Command> results = new List<Command>();
         foreach (Transform t in transform)
         {
-            actor = t.GetComponent<IActor>();
+            actor = t.GetComponent<IEnemy>();
 
             foreach (Reactor reactor in actor.getCounters)
-                if (command.targets[0].getParty == reactor.getParty && command.item.name == reactor.getItem.name)
-                    results.Add(new Command(actor, reactor.getReaction, reactor.getTargeter.CalculateTargets(actor.getGameObject.transform.position)));
+                if (((1 << command.targets[0].obj.layer) & reactor.getMask) != 0 && command.item.name == reactor.getItem.name)
+                    results.Add(new Command(actor, reactor.getReaction, reactor.getTargeter.CalculateTargets(actor.obj.transform.position)));
         }
         return results;
     }
 
     public List<Command> CalculateInterrupts(Command command)
     {
-        IActor actor = null;
+        IEnemy actor = null;
 
         List<Command> results = new List<Command>();
         foreach (Transform t in transform)
         {
-            actor = t.GetComponent<IActor>();
+            actor = t.GetComponent<IEnemy>();
 
             foreach (Reactor reactor in actor.getInterrupts)
-                if (command.targets[0].getParty == reactor.getParty && command.item.name == reactor.getItem.name) //targets can be null....need to fix that
-                    results.Add(new Command(actor, reactor.getReaction, reactor.getTargeter.CalculateTargets(actor.getGameObject.transform.position)));
+                if (((1 << command.targets[0].obj.layer) & reactor.getMask) != 0 && command.item.name == reactor.getItem.name) //targets can be null....need to fix that
+                    results.Add(new Command(actor, reactor.getReaction, reactor.getTargeter.CalculateTargets(actor.obj.transform.position)));
         }
         return results;
     }
@@ -61,12 +61,12 @@ public class EnemyManager : MonoBehaviour
     public void Set(List<IActor> actors)
     {
         foreach (IActor actor in actors)
-            actor.getGameObject.transform.parent = transform;
+            actor.obj.transform.parent = transform;
     }
 
     public void Add(IActor actor)
     {
-        actor.getGameObject.transform.parent = transform;
+        actor.obj.transform.parent = transform;
     }
 
     public void SwapIndexes(int index1, int index2)

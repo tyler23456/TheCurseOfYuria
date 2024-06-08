@@ -6,12 +6,12 @@ using UnityEngine;
 public class Reactor
 {
     [SerializeField] Scroll action;
-    [SerializeField] TargeterBase.Party party;
+    [SerializeField] LayerMask mask;
     [SerializeField] Scroll reaction;
     [SerializeField] TargeterBase target;
 
     public TypeBase getItem => action;
-    public TargeterBase.Party getParty => party;
+    public LayerMask getMask => mask;
     public Scroll getReaction => reaction;
     public TargeterBase getTargeter => target;
 

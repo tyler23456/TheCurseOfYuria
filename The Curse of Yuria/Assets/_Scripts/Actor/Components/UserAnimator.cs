@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace TCOY.UserActors
 {
@@ -10,10 +11,28 @@ namespace TCOY.UserActors
         [SerializeField] Animator animator;
 
         public bool isPerformingCommand => animator.GetBool("Action");
+        public bool isGrounded => animator.GetBool("IsGrounded");
+
+        public Action onStand = () => { };
+        public Action onWalk = () => { };
+        public Action onRun = () => { };
+        public Action onJump = () => { };
+        public Action onCrouch = () => { };
+        public Action onClimb = () => { };
+        public Action onKO = () => { };
+        public Action onReady = () => { };
+        public Action onUnready = () => { };
+        public Action onUseSupply = () => { };
+        public Action onCast = () => { };
+        public Action onAttack = () => { };
+        public Action onHit = () => { };
+        public Action<int> onSetWeaponType = (type) => { };
 
         public UserAnimator(GameObject obj)
         {
             animator = obj.transform.GetChild(0).GetComponent<Animator>();
+            if (animator == null)
+                animator = obj.transform.GetComponent<Animator>();
         }
 
         void SetActionToTrue()
@@ -23,71 +42,75 @@ namespace TCOY.UserActors
 
         public void Stand()
         {
-            animator.SetInteger("State", 0);
+            onStand.Invoke();
         }
 
         public void Walk()
         {
-            animator.SetInteger("State", 1);
+            onWalk.Invoke();
         }
 
         public void Run()
         {
-            animator.SetInteger("State", 2);
+            onRun.Invoke();
         }
 
         public void Jump()
         {
-            animator.SetInteger("State", 3);
+            onJump.Invoke();
         }
 
         public void Crouch()
         {
-            animator.SetInteger("State", 4);
+            onCrouch.Invoke();
         }
 
         public void Climb()
         {
-            animator.SetInteger("State", 6);
+            onClimb.Invoke();
         }
 
         public void KO()
         {
-            animator.SetInteger("State", 7);
+            onKO.Invoke();
         }
 
         public void Ready()
         {
-            animator.SetBool("Ready", true);
-            animator.SetBool("Action", false);
+            onReady.Invoke();
+        }
+
+        public void Unready()
+        {
+            onReady.Invoke();
         }
 
         public void UseSupply()
         {
+            onUseSupply.Invoke();
             SetActionToTrue();
-            animator.SetTrigger("UseSupply");
         }  
 
         public void Attack()
         {
+            onAttack.Invoke();
             SetActionToTrue();
-            animator.SetTrigger("Slash");
         }
 
         public void Cast()
         {
+            onCast.Invoke();
             SetActionToTrue();
-            animator.SetTrigger("Cast");
         }
 
         public void Hit()
         {
-            animator.SetTrigger("Hit");
+            onHit.Invoke();
         }
 
         public void SetWeaponType(int type)
         {
-            animator.SetInteger("WeaponType", type);
+            onSetWeaponType.Invoke(type);
         }
     }
 }

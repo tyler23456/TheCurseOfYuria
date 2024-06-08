@@ -21,6 +21,7 @@ public class CommandDisplay : DisplayBase
     string commandName = "None";
     IActor target = null;
 
+    InventoryUI attackInventoryUI;
     InventoryUI skillInventoryUI;
     InventoryUI itemInventoryUI;
 
@@ -39,6 +40,7 @@ public class CommandDisplay : DisplayBase
 
         display.gameObject.SetActive(true);
 
+        attackInventoryUI = new InventoryUI();
         skillInventoryUI = new InventoryUI();
         itemInventoryUI = new InventoryUI();
 
@@ -54,8 +56,10 @@ public class CommandDisplay : DisplayBase
 
         commandName = "None";
 
-        int newAllieIndex = currentAllie.getGameObject.transform.GetSiblingIndex();
+        int newAllieIndex = currentAllie.obj.transform.GetSiblingIndex();
         AllieManager.Instance.SwapIndexes(0, newAllieIndex);
+
+        RefreshGridWithAttackOptions();
     }
 
     protected override void OnDisable()
@@ -66,12 +70,25 @@ public class CommandDisplay : DisplayBase
         GameStateManager.Instance.Play();
     }
 
+    public void RefreshGridWithAttackOptions()
+    {
+        attackInventoryUI.grid = grid;
+        attackInventoryUI.buttonPrefab = buttonPrefab;
+        attackInventoryUI.OnClick = (commandName) => OnSelectItem(commandName);
+        attackInventoryUI.inventory = new Inventory();
+        attackInventoryUI.onPointerEnter = (itemName) => { };
+        attackInventoryUI.onPointerExit = (itemName) => { };
+        attackInventoryUI.Display();
+    }
+
     public void OnClickAttack()
     {
         string weapon = currentAllie.getEquipment.Find(i =>
         ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon1H ||
         ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon2H ||
         ItemDatabase.Instance.GetPart(i) == EquipmentPart.Bow);
+
+        RefreshGridWithAttackOptions();
 
         if (weapon == null)
             return;
@@ -137,7 +154,7 @@ public class CommandDisplay : DisplayBase
         if (MarkerManager.instance.count == 0)
             MarkerManager.instance.AddMarker();
 
-        MarkerManager.instance.SetMarkerMessageAt(0, "Use " + commandName + " on " + target.getGameObject.name);
+        MarkerManager.instance.SetMarkerMessageAt(0, "Use " + commandName + " on " + target.obj.name);
         MarkerManager.instance.SetMarkerWorldPositionAt(0, target.getCollider2D.bounds.center + Vector3.up * target.getCollider2D.bounds.extents.y);
 
         if (Input.GetMouseButtonDown(0))

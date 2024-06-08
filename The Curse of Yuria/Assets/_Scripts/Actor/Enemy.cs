@@ -4,19 +4,29 @@ using UnityEngine;
 
 namespace TCOY.UserActors
 {
-    public class Enemy : Actor, IEnemy
+    [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
+    public class Enemy : Actor, IEnemy, IActor
     {
         [SerializeField] float proximity = 5f;
         [SerializeField] List<Move> moves;
 
         Queue<Move> movesQueue = new Queue<Move>();
 
+        public new Rigidbody2D rigidbody2D { get; private set; }
+        public Animator animator { get; private set; }  
+
         protected new void Awake()
         {
             base.Awake();
 
+            rigidbody2D = GetComponent<Rigidbody2D>();
+            animator = GetComponent<Animator>();
+
             aTBGuage.OnATBGuageFilled = MakeADecision;
             aTBGuage.OnATBGuageFilled += () => aTBGuage.Reset();
+
+            stats.onZeroHealth += () => GetComponent<DontDestroyOnLoad.RandomDrop>().enabled = true;
+            stats.onZeroHealth += () => Destroy(this);
 
             foreach (Move move in moves)
                 movesQueue.Enqueue(move);
@@ -33,7 +43,7 @@ namespace TCOY.UserActors
         void MakeADecision()
         {
             IActor target = AllieManager.Instance[0];
-            if (Vector3.Distance(transform.position, target.getGameObject.transform.position) > proximity)
+            if (Vector3.Distance(transform.position, target.obj.transform.position) > proximity)
                 return;
 
             List<IActor> targets = movesQueue.Peek().getTargeter.CalculateTargets(transform.position);

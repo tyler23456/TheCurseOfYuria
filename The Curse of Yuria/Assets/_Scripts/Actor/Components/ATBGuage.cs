@@ -13,11 +13,10 @@ namespace TCOY.UserActors
 
         float accumulator = 0f;
         bool isFull = false;
-        int activity = 0;
+        int priority = int.MaxValue;
 
         public Action OnATBGuageFilled { get; set; } = () => { };
         public Action<float> onATBChanged { get; set; } = (value) => {};
-        public bool isActive => activity == 0;
         public float getMaximumValue => maximumValue;
 
         public void Initialize(Dictionary<string, int> statsDictionary)
@@ -38,7 +37,7 @@ namespace TCOY.UserActors
 
         public void Update()
         {
-            if (!isActive)
+            if (priority != int.MaxValue)
                 return;
 
             accumulator += Time.deltaTime * speed;
@@ -51,17 +50,14 @@ namespace TCOY.UserActors
             OnATBGuageFilled.Invoke();
         }
 
-        public void Activate()
+        public void RaisePriority()
         {
-            activity++;
-
-            if (activity > 0)
-                activity = 0;
+            priority++;
         }
 
-        public void Deactivate()
+        public void LowerPriority()
         {
-            activity--;
+            priority--;
         }
     }
 }

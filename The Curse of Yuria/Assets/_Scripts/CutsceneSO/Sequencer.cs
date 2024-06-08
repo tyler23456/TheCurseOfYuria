@@ -9,7 +9,7 @@ public class Sequencer : ActionBase
 {
     [SerializeField] List<ActionBase> actions;
 
-    public override IEnumerator Activate(List<IActor> actors, Image image, TMP_Text text)
+    public override IEnumerator Activate()
     {
         foreach (ActionBase action in actions)
         {
@@ -18,7 +18,7 @@ public class Sequencer : ActionBase
             action.onStop = onStop;
             action.onFinish = onFinish;
 
-            yield return action.Activate(actors, image, text);
+            yield return action.Activate();
         }
             
     }

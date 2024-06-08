@@ -41,7 +41,7 @@ public class StatsDisplay : DisplayBase
                 statDisplays[i].getMP.gameObject.SetActive(true);
                 statDisplays[i].getAP.gameObject.SetActive(true);
 
-                statDisplays[i].getName.text = AllieManager.Instance[i].getGameObject.name;
+                statDisplays[i].getName.text = AllieManager.Instance[i].obj.name;
                 statDisplays[i].getHP.maxValue = AllieManager.Instance[i].getStats.GetAttribute(IStats.Attribute.MaxHP);
                 statDisplays[i].getMP.maxValue = AllieManager.Instance[i].getStats.GetAttribute(IStats.Attribute.MaxMP);
                 statDisplays[i].getAP.maxValue = AllieManager.Instance[i].getATBGuage.getMaximumValue;

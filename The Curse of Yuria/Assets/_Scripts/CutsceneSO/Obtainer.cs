@@ -9,9 +9,9 @@ public class Obtainer : ActionBase, IAction
 {
     [SerializeField] List<Entry> entries;
 
-    public override IEnumerator Activate(List<IActor> actors, Image image, TMP_Text text)
+    public override IEnumerator Activate()
     {
-        base.Activate(actors, image, text);
+        base.Activate();
 
         foreach (Entry entry in entries)
             InventoryManager.Instance.AddItem(entry.item.name, entry.count);

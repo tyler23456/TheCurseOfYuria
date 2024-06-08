@@ -11,8 +11,7 @@ public class KnockOut : Deactivation, IStatusEffect
 
         base.OnAdd(target);
 
-        target.getAnimator.KO();
-
+        target.obj.GetComponent<Animator>()?.SetInteger("State", 6);
     }
 
 
@@ -20,6 +19,6 @@ public class KnockOut : Deactivation, IStatusEffect
     {
         base.OnRemove(target);
 
-        target.getAnimator.Stand();
+        target.obj.GetComponent<Animator>()?.SetInteger("State", 0);
     }
 }

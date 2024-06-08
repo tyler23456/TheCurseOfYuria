@@ -24,7 +24,7 @@ public abstract class StatusEffectBase : ScriptableObject, IStatusEffect
             return;
 
         GameObject obj = new GameObject(icon.name);
-        obj.transform.parent = target.getGameObject.transform;
+        obj.transform.parent = target.obj.transform;
         SpriteRenderer spriteRenderer = obj.AddComponent<SpriteRenderer>();
         spriteRenderer.sprite = icon;
         spriteRenderer.sortingOrder = 199;
@@ -37,6 +37,6 @@ public abstract class StatusEffectBase : ScriptableObject, IStatusEffect
         if (icon == null)
             return;
 
-        Destroy(target.getGameObject.transform.Find(icon.name).gameObject);
+        Destroy(target.obj.transform.Find(icon.name).gameObject);
     }
 }

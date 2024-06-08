@@ -10,9 +10,9 @@ public class Mover : ActionBase, IAction
     [SerializeField] string actorName = "default";
     [SerializeField] Vector2 actorDestination;
 
-    public override IEnumerator Activate(List<IActor> actors, Image image, TMP_Text text)
+    public override IEnumerator Activate()
     {
-        base.Activate(actors, image, text);
+        base.Activate();
         yield return null;
     }
 }

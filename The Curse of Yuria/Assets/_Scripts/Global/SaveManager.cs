@@ -26,8 +26,8 @@ public class SaveManager : MonoBehaviour
     {
         ClearNonPersistentData();
 
-        IActor allie = AllieDatabase.Instance.Instantiate("River");
-        allie.getGameObject.name = "River";
+        IAllie allie = AllieDatabase.Instance.Instantiate("River");
+        allie.obj.name = "River";
         AllieManager.Instance.Add(allie);
         
         LoadingDisplay.Instance.ShowExclusivelyInParent(3, Vector2.zero, 0f);
@@ -75,7 +75,7 @@ public class SaveManager : MonoBehaviour
         SaveData saveData = JsonUtility.FromJson<SaveData>(json);
         saveData.Load();
 
-        LoadingDisplay.Instance.ShowExclusivelyInParent(saveData.level, new Vector2(saveData.position[0], saveData.position[1]), 0f);
+        LoadingDisplay.Instance.ShowExclusivelyInParent(saveData.level);
     }
 
     public void ClearNonPersistentData()
@@ -93,9 +93,6 @@ public class SaveManager : MonoBehaviour
     class SaveData
     {
         public int level;
-
-        public float[] position;
-        public float eulerAnglesZ;
 
         public string[] helmetNames;
         public int[] helmetCounts;
@@ -202,9 +199,6 @@ public class SaveManager : MonoBehaviour
                 allieDatas.Add(allieData);
 
             });
-
-            position = new float[] { AllieManager.Instance.GetPositionAt(0).x, AllieManager.Instance.GetPositionAt(0).y };
-            eulerAnglesZ = AllieManager.Instance.GetEulerAngleZAt(0);
         }
 
         public void Load()
@@ -256,9 +250,11 @@ public class SaveManager : MonoBehaviour
 
             foreach (AllieData allieData in allieDatas)
             {
-                IActor allie = AllieDatabase.Instance.Instantiate("River");
+                IAllie allie = AllieDatabase.Instance.Instantiate(allieData.name, new Vector3(allieData.positionX, allieData.positionY, 0f),
+                    Quaternion.identity);
+                allie.obj.SetActive(false);
                 allie.useDefaultItems = false;
-                allie.getGameObject.name = allieData.name;
+                allie.obj.name = allieData.name;
                 AllieManager.Instance.Add(allie);
                 allieData.Load(allie);
             }
@@ -269,6 +265,9 @@ public class SaveManager : MonoBehaviour
     public class AllieData
     {
         public string name;
+        public float positionX;
+        public float positionY;
+        public float eulerAngleZ;
         public int HP;
         public int MP;
         public string[] equipmentNames;
@@ -278,27 +277,33 @@ public class SaveManager : MonoBehaviour
         public string[] statusEffectNames;
         public float[] statusEffectAccumulators;
 
-        public void Save(IActor partyMember)
+        public void Save(IActor allie)
         {
-            name = partyMember.getGameObject.name;
+            name = allie.obj.name;
 
-            HP = partyMember.getStats.HP;
-            MP = partyMember.getStats.MP;
+            positionX = allie.obj.transform.position.x;
+            positionY = allie.obj.transform.position.y;
+            eulerAngleZ = allie.obj.transform.GetChild(0).eulerAngles.z;
 
-            equipmentNames = partyMember.getEquipment.GetNames();
-            equipmentCounts = partyMember.getEquipment.GetCounts();
-            scrollNames = partyMember.getScrolls.GetNames();
-            scrollCounts = partyMember.getScrolls.GetCounts();
-            statusEffectNames = partyMember.getStatusEffects.GetNames();
-            statusEffectAccumulators = partyMember.getStatusEffects.GetAccumulators();
+            HP = allie.getStats.HP;
+            MP = allie.getStats.MP;
+
+            equipmentNames = allie.getEquipment.GetNames();
+            equipmentCounts = allie.getEquipment.GetCounts();
+            scrollNames = allie.getScrolls.GetNames();
+            scrollCounts = allie.getScrolls.GetCounts();
+            statusEffectNames = allie.getStatusEffects.GetNames();
+            statusEffectAccumulators = allie.getStatusEffects.GetAccumulators();
         }
 
         public void Load(IActor allie)
         {
-            allie.getGameObject.name = name;
+            allie.obj.name = name;
 
             allie.getStats.HP = HP;
             allie.getStats.MP = MP;
+
+            allie.obj.transform.GetChild(0).eulerAngles = new Vector3(0f, 0f, eulerAngleZ);
 
             foreach (string name in allie.getEquipment.GetNames())
                 ItemDatabase.Instance.Get(name).Unequip(allie);
