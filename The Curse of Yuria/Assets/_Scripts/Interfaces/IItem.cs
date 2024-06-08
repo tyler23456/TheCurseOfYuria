@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HeroEditor.Common.Enums;
 using HeroEditor.Common.Data;
+using System.Collections.ObjectModel;
 
 public interface IItem
 {
@@ -12,17 +13,8 @@ public interface IItem
     GameObject prefab { get; }
     ItemTypeBase itemType { get; }
     string getInfo { get; }
-
-    ArmTypeBase armType { get; }
-    CalculationTypeBase calculationType { get; }
-    ElementTypeBase elementType { get; }
-    int getPower { get; }
-    int getCost { get; }
-
     ItemSprite itemSprite { get; }
-    public List<Modifier> getModifiers { get; }
-    public List<Reactor> getCounters { get; }
-    public List<Reactor> getInterrupts { get; }
+
 
     IEnumerator Use(IActor user, List<IActor> targets);
     IEnumerator Use(IActor target);

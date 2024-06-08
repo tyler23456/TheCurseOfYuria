@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Scroll : ItemBase, IItem
+public class Scroll : Skill, IItem, IScroll
 {
+    [SerializeField] protected int cost;
+
+    public int getCost => cost;
+
     public override IEnumerator Use(IActor user, List<IActor> targets)
     {
         LightManager.instance.FadeOut();
@@ -23,7 +27,6 @@ public class Scroll : ItemBase, IItem
     public override IEnumerator Use(IActor target)
     {
         target.StartCoroutine(PerformEffect(target));
-
         yield return null;
     }
 

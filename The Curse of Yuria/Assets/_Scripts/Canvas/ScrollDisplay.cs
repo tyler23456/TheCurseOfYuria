@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using System;
-
+using System.Collections.ObjectModel;
 
 public class ScrollDisplay : DisplayBase
 {
@@ -42,9 +42,6 @@ public class ScrollDisplay : DisplayBase
     IStats stats;
 
     IItem newSkill;
-    List<Modifier> newModifiers;
-    Modifier newModifier;
-    int modifierValue = 0;
 
     InventoryUI partyMemberInventoryUI;
     InventoryUI globalInventoryUI;
@@ -156,27 +153,6 @@ public class ScrollDisplay : DisplayBase
         this.itemInfo.text = newSkill.getInfo;
         partyMemberIncreases.text = "";
         this.itemSprite.sprite = newSkill.icon;
-
-        newModifiers = newSkill.getModifiers;
-
-        int length = AllieManager.Instance[allieIndex].getStats.GetAttributes().Length;
-
-        for (int i = 0; i < length; i++)
-        {
-            newModifier = newModifiers.FirstOrDefault(e => e.getAttribute == (IStats.Attribute)i);
-
-            if (newModifier == null)
-                modifierValue = 0;
-            else
-                modifierValue = newModifier.getOffset;
-
-            if (modifierValue == 0)
-                partyMemberIncreases.text += "<color=#555555ff>" + modifierValue.ToString() + "\n" + "</color>";
-            else if (modifierValue > 0)
-                partyMemberIncreases.text += "<color=#00ff00ff>" + "+ " + modifierValue.ToString() + "\n" + "</color>";
-            else
-                partyMemberIncreases.text += "<color=#ff0000ff>" + "" + modifierValue.ToString() + "\n" + "</color>";
-        }
     }
 
     public void OnPointerEnterPartyMemberSkillsIcon(string itemName)
@@ -190,27 +166,6 @@ public class ScrollDisplay : DisplayBase
         this.itemInfo.text = newSkill.getInfo;
         partyMemberIncreases.text = "";
         this.itemSprite.sprite = newSkill.icon;
-
-        newModifiers = newSkill.getModifiers;
-
-        int length = AllieManager.Instance[allieIndex].getStats.GetAttributes().Length;
-
-        for (int i = 0; i < length; i++)
-        {
-            newModifier = newModifiers.FirstOrDefault(e => e.getAttribute == (IStats.Attribute)i);
-
-            if (newModifier == null)
-                modifierValue = 0;
-            else
-                modifierValue = newModifier.getOffset;
-
-            if (modifierValue == 0)
-                partyMemberIncreases.text += "<color=#555555ff>" + modifierValue.ToString() + "\n" + "</color>";
-            else if (modifierValue > 0)
-                partyMemberIncreases.text += "<color=#00ff00ff>" + "+ " + modifierValue.ToString() + "\n" + "</color>";
-            else
-                partyMemberIncreases.text += "<color=#ff0000ff>" + "" + modifierValue.ToString() + "\n" + "</color>";
-        }
     }
 
     public void OnPointerExit(string itemName)

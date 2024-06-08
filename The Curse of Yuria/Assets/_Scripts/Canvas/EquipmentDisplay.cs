@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using HeroEditor.Common.Enums;
 using HeroEditor.Common.Data;
 using System.Linq;
-
+using System.Collections.ObjectModel;
 
 public class EquipmentDisplay : DisplayBase
 {
@@ -74,11 +74,11 @@ public class EquipmentDisplay : DisplayBase
     IInventory equipment;
     IStats stats;
 
-    IItem previousItem;
-    IItem currentItem;
+    IEquipment previousItem;
+    IEquipment currentItem;
 
-    List<Modifier> oldModifiers;
-    List<Modifier> newModifiers;
+    ReadOnlyCollection<Modifier> oldModifiers;
+    ReadOnlyCollection<Modifier> newModifiers;
 
     Modifier oldModifier;
     Modifier newModifier;
@@ -219,7 +219,7 @@ public class EquipmentDisplay : DisplayBase
         if (itemName == null)
             return;
 
-        currentItem = ItemDatabase.Instance.Get(itemName);
+        currentItem = (IEquipment)ItemDatabase.Instance.Get(itemName);
 
         InventoryManager.Instance.Get(currentItem.itemType).Add(itemName);
         currentItem.Unequip(partyMember);
@@ -231,7 +231,7 @@ public class EquipmentDisplay : DisplayBase
 
     public void OnEquip(string itemName)
     {
-        currentItem = ItemDatabase.Instance.Get(itemName);
+        currentItem = (IEquipment)ItemDatabase.Instance.Get(itemName);
 
         string partyMemberItem = equipment.Find(i => ItemDatabase.Instance.GetTypeName(i) == currentItem.itemType.name);
 
@@ -254,14 +254,14 @@ public class EquipmentDisplay : DisplayBase
 
     public void OnPointerEnter(string itemName)
     {
-        currentItem = ItemDatabase.Instance.Get(itemName);
+        currentItem = (IEquipment)ItemDatabase.Instance.Get(itemName);
 
         string previousItemName = equipment.Find(i => ItemDatabase.Instance.GetTypeName(i) == currentItem.itemType.name);
 
         if (previousItemName == null)
-            previousItem = ItemDatabase.Instance.Get("Empty");
+            previousItem = (IEquipment)ItemDatabase.Instance.Get("Empty");
         else
-            previousItem = ItemDatabase.Instance.Get(previousItemName);
+            previousItem = (IEquipment)ItemDatabase.Instance.Get(previousItemName);
 
 
         this.itemName.text = itemName;
@@ -276,13 +276,13 @@ public class EquipmentDisplay : DisplayBase
             this.itemInfo.text += "\n\nCounters:";
 
         foreach (Reactor reactor in currentItem.getCounters)
-            this.itemInfo.text += "\n" + reactor.getItem.ToString() + "|" + reactor.getMask.ToString() + "|" + reactor.getReaction.ToString() + "|" + reactor.getTargeter.ToString();
+            this.itemInfo.text += "\n" + reactor.getItemName.ToString() + "|" + reactor.getMask.ToString() + "|" + reactor.getReaction.ToString() + "|" + reactor.getTargeter.ToString();
 
         if (currentItem.getCounters.Count > 0)
             this.itemInfo.text += "\n\nInterrupts:";
 
         foreach (Reactor reactor in currentItem.getInterrupts)
-            this.itemInfo.text += "\n" + reactor.getItem.ToString() + "|" + reactor.getMask.ToString() + "|" + reactor.getReaction.ToString() + "|" + reactor.getTargeter.ToString();
+            this.itemInfo.text += "\n" + reactor.getItemName.ToString() + "|" + reactor.getMask.ToString() + "|" + reactor.getReaction.ToString() + "|" + reactor.getTargeter.ToString();
 
         int length = partyMember.getStats.GetAttributes().Length;
 

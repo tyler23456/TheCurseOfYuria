@@ -16,15 +16,6 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: ea2079d7752ea1c4098b3edad8658ac8, type: 3}
   _prefab: {fileID: 2002395186172691488, guid: d2a4c96b39227814aa3f452e9c406ca1, type: 3}
   _equipmentType: {fileID: 11400000, guid: b86a7051f638b54408b09fdfdeda6471, type: 2}
-  info: 
-  _armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  anyType: {fileID: 0}
-  power: 0
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: SpikeBomb
     Collection: Supplies
@@ -37,7 +28,11 @@ MonoBehaviour:
     Multiple: 1
     Hash: ec06cd97fbfd3de91fc9cf84343b433b
     Tags: []
+  info: 
+  power: 0
+  _armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
+  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
+  _bonusTypes: []
   statusEffectProbabilities: []
-  modifiers: []
-  counters: []
-  interrupts: []
+  particleSystem: {fileID: 0}

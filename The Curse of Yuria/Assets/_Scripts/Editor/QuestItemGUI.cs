@@ -19,4 +19,6 @@ public class QuestItemGUI : Editor
         EditorUtility.CopySerialized(source: item.icon.texture, dest: texture);
         return texture;
     }
+
+
 }

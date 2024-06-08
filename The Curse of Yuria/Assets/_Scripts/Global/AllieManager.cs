@@ -56,7 +56,7 @@ public class AllieManager : MonoBehaviour
             actor = t.GetComponent<IAllie>();
             
             foreach (Reactor reactor in actor.getCounters)
-                if (((1 << command.targets[0].obj.layer) & reactor.getMask) != 0 && command.item.name == reactor.getItem.name)
+                if (((1 << command.targets[0].obj.layer) & reactor.getMask) != 0 && command.item.name == reactor.getItemName)
                     results.Add(new Command(actor, reactor.getReaction, reactor.getTargeter.CalculateTargets(actor.obj.transform.position)));
         }
         return results;
@@ -72,7 +72,7 @@ public class AllieManager : MonoBehaviour
             actor = t.GetComponent<IAllie>();
 
             foreach (Reactor reactor in actor.getInterrupts)
-                if (((1 << command.targets[0].obj.layer) & reactor.getMask) != 0 && command.item.name == reactor.getItem.name) //targets can be null....need to fix that
+                if (((1 << command.targets[0].obj.layer) & reactor.getMask) != 0 && command.item.name == reactor.getItemName) //targets can be null....need to fix that
                     results.Add(new Command(actor, reactor.getReaction, reactor.getTargeter.CalculateTargets(actor.obj.transform.position)));
         }      
         return results;

@@ -16,15 +16,6 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 7ae830bf277740a8852b2339619a11eb, type: 3}
   _prefab: {fileID: 127900282185826375, guid: 127cb7e0f2d9a0344ba6ff1c2c06e04c, type: 3}
   _equipmentType: {fileID: 11400000, guid: b86a7051f638b54408b09fdfdeda6471, type: 2}
-  info: 
-  _armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  anyType: {fileID: 0}
-  power: 0
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: SmallPotion [Paint]
     Collection: Basic
@@ -39,7 +30,11 @@ MonoBehaviour:
     Hash: 9266fc4c60d6fda75e62d7a158c2ae9e
     Tags:
     - Paint
+  info: 
+  power: 0
+  _armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
+  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
+  _bonusTypes: []
   statusEffectProbabilities: []
-  modifiers: []
-  counters: []
-  interrupts: []
+  particleSystem: {fileID: 0}

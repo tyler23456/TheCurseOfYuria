@@ -9,23 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Script: {fileID: 11500000, guid: be4df94db76d1c64f9cae97913d80fa8, type: 3}
   m_Name: LittleLionSword
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 05324b45a7dd4102a3832c4f345fba11, type: 3}
   _prefab: {fileID: 2755560847065670955, guid: 5b3df74c1eafe4c4c9cec0ee052a6bc5, type: 3}
   _equipmentType: {fileID: 11400000, guid: 31f9a546ffe171947873ffcacf7f100c, type: 2}
-  info: 
-  _armType: {fileID: 11400000, guid: 241958a3a01de8544a64f4d9cc9e7062, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
-  _bonusTypes:
-  - {fileID: 11400000, guid: 95654927c8f7be14a9e8a723adecc6dd, type: 2}
-  power: 2
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: LittleLionSword [Paint]
     Collection: Thrones
@@ -40,7 +30,14 @@ MonoBehaviour:
     Hash: a09e2fd26c4bd597f807d7694b9908a6
     Tags:
     - Paint
-  statusEffectProbabilities: []
+  info: 
   modifiers: []
   counters: []
   interrupts: []
+  power: 2
+  _armType: {fileID: 0}
+  _elementType: {fileID: 0}
+  _calculationType: {fileID: 0}
+  _bonusTypes: []
+  statusEffectProbabilities: []
+  particleSystem: {fileID: 0}

@@ -176,7 +176,7 @@ public class CommandDisplay : DisplayBase
 
     void OnSelectSkill(string commandName)
     {
-        if (currentAllie.getStats.MP >= ItemDatabase.Instance.Get(commandName).getCost)
+        if (currentAllie.getStats.MP >= ((IScroll)ItemDatabase.Instance.Get(commandName)).getCost)
             OnSelectCommand(commandName);
         else
             NotificationManager.Instance.Notify("you do not have enough MP");

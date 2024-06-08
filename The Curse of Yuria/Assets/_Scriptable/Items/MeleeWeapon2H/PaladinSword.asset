@@ -9,23 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Script: {fileID: 11500000, guid: be4df94db76d1c64f9cae97913d80fa8, type: 3}
   m_Name: PaladinSword
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: b2f25bb307dd4ac09f091e2d2d8fa7a6, type: 3}
   _prefab: {fileID: 373122726922318382, guid: cdf0fff31d6845e4e930a57e404aaf61, type: 3}
   _equipmentType: {fileID: 11400000, guid: 18dd5fa8a819a4b4e87d9a9053dc78fc, type: 2}
-  info: 
-  _armType: {fileID: 11400000, guid: 241958a3a01de8544a64f4d9cc9e7062, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
-  _bonusTypes:
-  - {fileID: 11400000, guid: 95654927c8f7be14a9e8a723adecc6dd, type: 2}
-  power: 4
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: PaladinSword [Paint]
     Collection: Basic
@@ -40,7 +30,14 @@ MonoBehaviour:
     Hash: 0e934d71a91bf45cf5544a136975adc0
     Tags:
     - Paint
-  statusEffectProbabilities: []
+  info: 
   modifiers: []
   counters: []
   interrupts: []
+  power: 2
+  _armType: {fileID: 0}
+  _elementType: {fileID: 0}
+  _calculationType: {fileID: 0}
+  _bonusTypes: []
+  statusEffectProbabilities: []
+  particleSystem: {fileID: 0}
