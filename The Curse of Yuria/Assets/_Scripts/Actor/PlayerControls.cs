@@ -68,7 +68,7 @@ namespace TCOY.UserActors
 
             if (Input.GetKey(KeyCode.A))
             {
-                allie.obj.transform.GetChild(0).eulerAngles = new Vector3(0f, 180f, 0f);
+                allie.obj.transform.eulerAngles = new Vector3(0f, 180f, 0f);
 
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
@@ -83,7 +83,7 @@ namespace TCOY.UserActors
             }
             else if (Input.GetKey(KeyCode.D))
             {
-                allie.obj.transform.GetChild(0).eulerAngles = new Vector3(0f, 0f, 0f);
+                allie.obj.transform.eulerAngles = new Vector3(0f, 0f, 0f);
 
                 if (Input.GetKey(KeyCode.LeftShift))
                 {

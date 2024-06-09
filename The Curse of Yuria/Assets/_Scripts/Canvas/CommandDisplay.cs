@@ -126,7 +126,7 @@ public class CommandDisplay : DisplayBase
         {
             commandName = "None";
             display.gameObject.SetActive(true);
-            MarkerManager.instance.DestroyAllMarkers();
+            MarkerManager.instance.DestroyAllMarkersWith("CommandDisplayMarker");
         }
 
         target = null;
@@ -147,15 +147,15 @@ public class CommandDisplay : DisplayBase
 
         if (target == null)
         {
-            MarkerManager.instance.DestroyAllMarkers();
+            MarkerManager.instance.DestroyAllMarkersWith("CommandDisplayMarker");
             return;
         }
 
-        if (MarkerManager.instance.count == 0)
-            MarkerManager.instance.AddMarker();
+        if (MarkerManager.instance.Count("CommandDisplayMarker") == 0)
+            MarkerManager.instance.AddMarker("CommandDisplayMarker");
 
-        MarkerManager.instance.SetMarkerMessageAt(0, "Use " + commandName + " on " + target.obj.name);
-        MarkerManager.instance.SetMarkerWorldPositionAt(0, target.getCollider2D.bounds.center + Vector3.up * target.getCollider2D.bounds.extents.y);
+        MarkerManager.instance.SetMarkerMessageAt("CommandDisplayMarker", "Use " + commandName + " on " + target.obj.name);
+        MarkerManager.instance.SetMarkerWorldPositionAt("CommandDisplayMarker", target.getCollider2D.bounds.center + Vector3.up * target.getCollider2D.bounds.extents.y);
 
         if (Input.GetMouseButtonDown(0))
         {

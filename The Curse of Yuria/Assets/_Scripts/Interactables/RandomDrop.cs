@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class RandomDrop : InteractableBase
+    public class RandomDrop : InteractableBase, IInteractablePointer
     {
         [Range(0, 20)]public int minCount = 1;
         [Range(1, 20)]public int maxCount = 3;

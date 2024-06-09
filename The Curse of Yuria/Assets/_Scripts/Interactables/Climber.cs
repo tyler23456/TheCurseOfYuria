@@ -4,11 +4,17 @@ using UnityEngine;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class Movable : InteractableBase, IInteractableTrigger
+    public class Climber : InteractableBase, IInteractableTrigger
     {
+        
+
         public override void Interact(IActor player)
         {
-           
+            base.Interact(player);
+
+
         }
+
+
     }
 }

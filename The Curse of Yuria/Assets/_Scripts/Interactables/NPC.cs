@@ -6,7 +6,7 @@ using HeroEditor.Common.Enums;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class NPC : InteractableBase
+    public class NPC : InteractableBase, IInteractablePointer
     {
         [SerializeField] List<Equipable> equipment;
         [SerializeField] List<PromptBrancher> promptBranchers;
@@ -46,7 +46,7 @@ namespace TCOY.DontDestroyOnLoad
             float difference = player.obj.transform.position.x - this.transform.position.x;
             
             Vector3 eulerAngles = transform.eulerAngles;
-            Vector3 targetEulerAngles = player.obj.transform.GetChild(0).eulerAngles;
+            Vector3 targetEulerAngles = player.obj.transform.eulerAngles;
 
             if (difference >= 0)
             {
@@ -60,7 +60,7 @@ namespace TCOY.DontDestroyOnLoad
             }
             
             transform.eulerAngles = eulerAngles;
-            player.obj.transform.GetChild(0).eulerAngles = targetEulerAngles;
+            player.obj.transform.eulerAngles = targetEulerAngles;
 
             promptBranchers[0].getAction.onStart = () => animator.SetInteger("State", 8);
             promptBranchers[0].getAction.onStop = () => animator.SetInteger("State", 0);

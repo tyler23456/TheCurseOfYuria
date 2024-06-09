@@ -82,13 +82,13 @@ namespace TCOY.AStar
 
             if (direction.x > 0f)
             {
-                transform.GetChild(0).eulerAngles = new Vector3(0f, 0f, 0f);
+                transform.eulerAngles = new Vector3(0f, 0f, 0f);
                 animator.SetInteger("State", 2);
                 velocity += Vector2.right * moveSpeed;;
             }
             else if (direction.x < 0f)
             {
-                transform.GetChild(0).eulerAngles = new Vector3(0f, 180f, 0f);
+                transform.eulerAngles = new Vector3(0f, 180f, 0f);
                 animator.SetInteger("State", 2);
                 velocity += Vector2.left * moveSpeed;
             }
@@ -103,7 +103,7 @@ namespace TCOY.AStar
 
         bool JumpTest()
         {
-            bool forwardObstruction = Physics2D.Raycast(transform.position + transform.up * 0.1f, transform.GetChild(0).right, 0.8f, LayerMask.GetMask("TileCollision"));
+            bool forwardObstruction = Physics2D.Raycast(transform.position + transform.up * 0.1f, transform.right, 0.8f, LayerMask.GetMask("TileCollision"));
             bool grounded = Physics2D.Raycast(transform.position, -transform.up, 0.2f, LayerMask.GetMask("TileCollision"));
 
             return grounded && forwardObstruction;
@@ -118,7 +118,7 @@ namespace TCOY.AStar
         public void OnDrawGizmos()
         {
             Gizmos.color = Color.cyan;
-            Gizmos.DrawLine(transform.position + transform.up * 0.1f, transform.position + transform.up * 0.1f + transform.GetChild(0).right * 0.8f);
+            Gizmos.DrawLine(transform.position + transform.up * 0.1f, transform.position + transform.up * 0.1f + transform.right * 0.8f);
             Gizmos.DrawLine(transform.position, transform.position - transform.up * 0.2f);
 
             if (path != null)

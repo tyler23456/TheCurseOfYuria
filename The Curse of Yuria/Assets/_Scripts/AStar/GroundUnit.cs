@@ -93,13 +93,13 @@ namespace TCOY.AStar
 
             if (direction.x > 0f)
             {
-                transform.GetChild(0).eulerAngles = new Vector3(0f, 0f, 0f);
+                transform.eulerAngles = new Vector3(0f, 0f, 0f);
                 animator?.SetInteger("State", 2);
                 velocity += Vector2.right * moveSpeed;
             }
             else if (direction.x < 0f)
             {
-                transform.GetChild(0).eulerAngles = new Vector3(0f, 180f, 0f);
+                transform.eulerAngles = new Vector3(0f, 180f, 0f);
                 animator?.SetInteger("State", 3);
                 velocity += Vector2.left * moveSpeed;
             }

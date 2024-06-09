@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class Container : InteractableBase, IContainer
+    public class Container : InteractableBase, IContainer, IInteractablePointer
     {
 
         [SerializeField] protected List<Entry> entries;

@@ -7,7 +7,7 @@ public abstract class TargeterBase : ScriptableObject
     public enum Party { Allie, Enemy, Both }
 
     static LayerMask layerMask; 
-    static float targetCheckDistance = 20f;
+    static float targetCheckDistance = 30f;
 
     protected static int colliderCount { get; private set; } = 0;
     protected static Collider2D[] colliders { get; private set; } = new Collider2D[10];

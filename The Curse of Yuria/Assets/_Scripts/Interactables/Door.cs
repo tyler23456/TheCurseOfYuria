@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class Door : InteractableBase, IContainer
+    public class Door : InteractableBase, IInteractableTrigger
     {
         [SerializeField] int sceneID;
         [SerializeField] Vector3 destination;
@@ -57,5 +57,7 @@ namespace TCOY.DontDestroyOnLoad
         {
             CutsceneDisplay.Instance.ShowExclusivelyInParent(new ActionBase[] { onLockedPrompt });
         }
+
+
     }
 }

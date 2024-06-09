@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class InteractableManager : MonoBehaviour
+    public class InteractingPointerManager : MonoBehaviour
     {
-        public static InteractableManager instance { get; set; }
+        public static InteractingPointerManager instance { get; set; }
 
-        InteractableBase target;
+        IInteractablePointer target;
 
         private void Awake()
         {
@@ -28,24 +26,24 @@ namespace TCOY.DontDestroyOnLoad
 
             foreach (RaycastHit2D hit in hits)
             {
-                target = hit.transform.GetComponent<InteractableBase>();
+                target = hit.transform.GetComponent<IInteractablePointer>();
 
                 if (target != null && target.enabled == true)
-                     break;
+                    break;
             }
 
             if (target == null || target.enabled == false)
             {
-                MarkerManager.instance.DestroyAllMarkers();
+                MarkerManager.instance.DestroyAllMarkersWith("InteractingPointer");
                 return;
             }
 
-            if (MarkerManager.instance.count == 0)
-                MarkerManager.instance.AddMarker();
+            if (MarkerManager.instance.Count("InteractingPointer") == 0)
+                MarkerManager.instance.AddMarker("InteractingPointer");
 
-            MarkerManager.instance.SetMarkerMessageAt(0, target.getAction + target.name);
-            Collider2D collider = target.GetComponent<Collider2D>();
-            MarkerManager.instance.SetMarkerWorldPositionAt(0, collider.bounds.center + Vector3.up * collider.bounds.extents.y);
+            MarkerManager.instance.SetMarkerMessageAt("InteractingPointer", target.getAction + target.gameObject.name);
+            Collider2D collider = target.gameObject.GetComponent<Collider2D>();
+            MarkerManager.instance.SetMarkerWorldPositionAt("InteractingPointer", collider.bounds.center + Vector3.up * collider.bounds.extents.y);
 
             if (Input.GetMouseButtonDown(0))
             {
