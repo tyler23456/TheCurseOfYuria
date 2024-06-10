@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 
-namespace TCOY.UserActors
+namespace TCOY.PlayerControls
 {
     public class PlayerControls : MonoBehaviour, IPlayerControls
     {
-        float speed = 1f;
-        IAllie allie;
-        Vector2 velocity = Vector2.zero;
+        public float speed { get; set; } = 1f;
+        public IAllie allie { get; set; }
+        public Vector2 velocity { get; set; } = Vector2.zero;
+
+        PlayerControllerStateBase stateObject = new NormalState();
+        IPlayerControls.State currentState = IPlayerControls.State.Normal;
 
         void FixedUpdate()
         {
@@ -64,41 +67,34 @@ namespace TCOY.UserActors
             }
 
             allie = AllieManager.Instance.First();
-            allie.animator.SetInteger("State", 0);
 
-            if (Input.GetKey(KeyCode.A))
+            ExecuteControllerState();
+        }
+
+        void ExecuteControllerState()
+        {
+            if (IPlayerControls.state != currentState)
             {
-                allie.obj.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+                stateObject.MarkStateAsFinished(this);
 
-                if (Input.GetKey(KeyCode.LeftShift))
+                switch (IPlayerControls.state)
                 {
-                    allie.animator.SetInteger("State", 2);
-                    velocity += Vector2.left * speed * 2f;
-                }
-                else
-                {
-                    allie.animator.SetInteger("State", 1);
-                    velocity += Vector2.left * speed;
+                    case IPlayerControls.State.Normal:
+                        stateObject = new NormalState();
+                        currentState = IPlayerControls.State.Normal;
+                        break;
+                    case IPlayerControls.State.Combat:
+                        stateObject = new CombatState();
+                        currentState = IPlayerControls.State.Combat;
+                        break;
+                    case IPlayerControls.State.Climb:
+                        stateObject = new ClimbState();
+                        currentState = IPlayerControls.State.Climb;
+                        break;
                 }
             }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                allie.obj.transform.eulerAngles = new Vector3(0f, 0f, 0f);
 
-                if (Input.GetKey(KeyCode.LeftShift))
-                {
-                    allie.animator.SetInteger("State", 2);
-                    velocity += Vector2.right * speed * 2f;
-                }
-                else
-                {
-                    allie.animator.SetInteger("State", 1);
-                    velocity += Vector2.right * speed;
-                }
-            }
-            
-            if (Input.GetKeyDown(KeyCode.Space))
-                velocity += Vector2.up * 100;
+            stateObject.Update(this);
         }
     }
 }

@@ -16,6 +16,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: d0f634c44ad540969f94c1df75ee8b43, type: 3}
   _prefab: {fileID: 3254058673456637816, guid: 1f4022b2c7c06a446bae892bbfc038c0, type: 3}
   _equipmentType: {fileID: 11400000, guid: 23b0fb110feaf4f43912fd4f11319cea, type: 2}
+  info: 
   _itemSprite:
     Name: CrusaderShield
     Collection: Basic
@@ -28,7 +29,6 @@ MonoBehaviour:
     Multiple: 1
     Hash: 3a1a80f9d25de7ad90d80eace9ea8ca4
     Tags: []
-  info: 
   modifiers: []
   counters: []
   interrupts: []

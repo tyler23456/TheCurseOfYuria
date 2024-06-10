@@ -16,6 +16,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: ab70dae1e18c4a0b989d181f10ee3fc0, type: 3}
   _prefab: {fileID: 3140988248372130330, guid: 8d7b16c32f50deb478e50a366a0ca287, type: 3}
   _equipmentType: {fileID: 11400000, guid: b86a7051f638b54408b09fdfdeda6471, type: 2}
+  info: 
   _itemSprite:
     Name: MediumPotion [Paint]
     Collection: Basic
@@ -30,11 +31,10 @@ MonoBehaviour:
     Hash: f720ffa7f3a76a59184483f4c0b4eb29
     Tags:
     - Paint
-  info: 
+  statusEffectProbabilities: []
   power: 0
   _armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
   _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
   _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
   _bonusTypes: []
-  statusEffectProbabilities: []
   particleSystem: {fileID: 0}
