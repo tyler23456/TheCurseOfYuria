@@ -17,6 +17,7 @@ public class InventoryUI
 
     public bool displayName { get; set; } = false;
     public bool displayCount { get; set; } = true;
+    public bool displayItemSprite { get; set; } = true;
 
     Button button = null;
     PointerHover pointerHover = null;
@@ -44,8 +45,9 @@ public class InventoryUI
                 onPointerEnter.Invoke(inventory.GetName(index));
             };
             pointerHover.onPointerExit = () => onPointerExit.Invoke(inventory.GetName(index));
-            button.transform.GetChild(1).GetComponent<Image>().sprite = ItemDatabase.Instance.Get(inventory.GetName(index)).icon;
 
+            if (displayItemSprite)
+                button.transform.GetChild(1).GetComponent<Image>().sprite = ItemDatabase.Instance.Get(inventory.GetName(index)).icon;
             if (displayCount)
                 button.transform.GetChild(2).GetComponent<Text>().text = inventory.GetCount(index).ToString();
             if (displayName)

@@ -6,7 +6,7 @@ using HeroEditor.Common.Data;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 using System.Collections.ObjectModel;
 
-public class Equipable : ItemBase, IItem
+public class Equipable : ItemBase, IItem, IEquipment
 {
     [SerializeField] protected List<Modifier> modifiers;
     [SerializeField] protected List<Reactor> counters;

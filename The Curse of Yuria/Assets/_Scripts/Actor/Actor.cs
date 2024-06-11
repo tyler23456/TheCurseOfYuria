@@ -4,6 +4,7 @@ using UnityEngine;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 using FirstGearGames.SmoothCameraShaker;
 using HeroEditor.Common.Enums;
+using System;
 
 namespace TCOY.UserActors
 {
@@ -25,6 +26,8 @@ namespace TCOY.UserActors
         protected Inventory equipment;
         protected Inventory skills;
         protected StatusEffects statusEffects;
+        protected HitAnimator hitAnimator;
+        protected FadeAnimator fadeAnimator;
 
         public Collider2D getCollider2D => collider2D;
         public GameObject obj => gameObject;
@@ -33,6 +36,8 @@ namespace TCOY.UserActors
         public IInventory getEquipment => equipment;
         public IInventory getScrolls => skills;
         public IStatusEffects getStatusEffects => statusEffects;
+        public HitAnimator getHitAnimator => hitAnimator;
+        public IFadeAnimator getFadeAnimator => fadeAnimator;
         public List<Reactor> getCounters => counters;
         public List<Reactor> getInterrupts => interrupts;
 
@@ -55,11 +60,14 @@ namespace TCOY.UserActors
             statusEffects.onUpdate = (name) => { };
             statusEffects.onRemove = (name) => StatFXDatabase.Instance.Get(name).OnRemove(this);
 
+            hitAnimator = new HitAnimator(this, spriteRenderers);
+            fadeAnimator = new FadeAnimator(this, spriteRenderers);
+
             stats.Initialize();
             stats.onHPDamage = (damage) => { }; //play a hit soundFX
             stats.onHPDamage += (damage) => PopupManager.Instance.AddHPDamagePopup(damage, collider2D.bounds.center);
             stats.onHPDamage += (damage) => CameraShakerHandler.Shake(ShakeDatabase.Instance.Get("Hit"));
-            stats.onHPDamage += (damage) => coroutineBehaviour.StartCoroutine(HitAnimation());
+            stats.onHPDamage += (damage) => hitAnimator.Start();
 
             stats.onZeroHealth = () => StatFXDatabase.Instance.Get("KnockOut").Activate(this);
 
@@ -90,19 +98,6 @@ namespace TCOY.UserActors
             aTBGuage.Update();
             groundChecker.Update();
             statusEffects.Update();
-        }
-
-        protected IEnumerator HitAnimation()
-        {
-            float accumulator = Time.unscaledTime;
-            while(Time.unscaledTime < accumulator + 0.5f)
-            {
-                foreach (SpriteRenderer spriteRenderer in spriteRenderers)
-                    spriteRenderer.enabled = !spriteRenderer.enabled;
-                yield return new WaitForSecondsRealtime(0.05f);
-            }
-            foreach (SpriteRenderer spriteRenderer in spriteRenderers)
-                spriteRenderer.enabled = true;
         }
     }
 }

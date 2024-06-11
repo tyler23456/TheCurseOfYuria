@@ -54,6 +54,9 @@ namespace TCOY.PlayerControls
             if (Input.GetKeyDown(KeyCode.Tab) && BattleManager.Instance.aTBGuageFilledQueue.Count > 0)
                 CommandDisplay.Instance.ToggleExclusivelyInParent();
 
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+                SwitchAllieDisplay.Instance.ToggleExclusivelyInParent();
+
             if (GameStateManager.Instance.isPaused)
                 return;
 

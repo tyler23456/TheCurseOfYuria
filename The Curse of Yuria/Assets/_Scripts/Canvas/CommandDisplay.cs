@@ -25,8 +25,6 @@ public class CommandDisplay : DisplayBase
     InventoryUI skillInventoryUI;
     InventoryUI itemInventoryUI;
 
-
-
     public override void Initialize()
     {
         base.Initialize();

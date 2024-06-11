@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TCOY.UserActors
 {
-    public class CameraFollow : MonoBehaviour
+    public class CameraFollow : MonoBehaviour, IEnabler
     {
         private void Start()
         {
