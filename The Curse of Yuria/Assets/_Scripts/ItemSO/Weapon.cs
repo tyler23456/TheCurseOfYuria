@@ -34,6 +34,7 @@ public class Weapon : Equipable, IItem, IWeapon, IEquipment
     protected virtual IEnumerator performAnimation(IActor user, IActor target)
     {
         yield return new WaitForSeconds(0.5f);
+        CheckForStatusEffectCounters(user, target);
         yield return PerformEffect(user, target);
     }
 
@@ -54,18 +55,16 @@ public class Weapon : Equipable, IItem, IWeapon, IEquipment
         CheckStatusEffects(target);
     }
 
-    public virtual void CheckStatusEffects(IActor target)
+    protected virtual void CheckStatusEffects(IActor target)
     {
         foreach (StatusEffectProbability statusEffectProbability in statusEffectProbabilities)
             if (Random.Range(0f, 1f) > statusEffectProbability.getProbability)
-                ApplyStatusEffect(target, statusEffectProbability.getStatusEffect);
+                statusEffectProbability.getStatusEffect.Activate(target);
     }
 
-    public virtual void ApplyStatusEffect(IActor target, StatusEffectBase statusEffect)
+    protected virtual void CheckForStatusEffectCounters(IActor user, IActor target)
     {
-        if (statusEffect.getVisualEffect != null)
-            Destroy(Instantiate(statusEffect.getVisualEffect, target.obj.transform), 5f);
-
-        statusEffect.Activate(target);
+        foreach (string statusEffect in target.getStatusEffects.GetNames())
+            StatFXDatabase.Instance.Get(statusEffect).ActivateCounter(user, target, this);
     }
 }

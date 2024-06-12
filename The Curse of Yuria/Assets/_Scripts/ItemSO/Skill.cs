@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,18 +17,16 @@ public abstract class Skill : ItemBase, IItem
     public CalculationTypeBase calculationType { get { return _calculationType; } set { _calculationType = value; } }
     public List<BonusTypeBase> bonusTypes { get { return _bonusTypes; } set { _bonusTypes = value; } }
 
+    public virtual void CheckForStatusEffectCounters(IActor user, IActor target)
+    {
+        foreach (string statusEffect in target.getStatusEffects.GetNames())
+            StatFXDatabase.Instance.Get(statusEffect).ActivateCounter(user, target, this);
+    }
+
     public virtual void CheckStatusEffects(IActor target)
     {
         foreach (StatusEffectProbability statusEffectProbability in statusEffectProbabilities)
             if (Random.Range(0f, 1f) > statusEffectProbability.getProbability)
-                ApplyStatusEffect(target, statusEffectProbability.getStatusEffect);
-    }
-
-    public virtual void ApplyStatusEffect(IActor target, StatusEffectBase statusEffect)
-    {
-        if (statusEffect.getVisualEffect != null)
-            Destroy(Instantiate(statusEffect.getVisualEffect, target.obj.transform), 5f);
-
-        statusEffect.Activate(target);
+                statusEffectProbability.getStatusEffect.Activate(target);
     }
 }

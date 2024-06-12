@@ -7,15 +7,18 @@ using System;
 public abstract class StatusEffectBase : ScriptableObject, IStatusEffect
 {
     [SerializeField] protected Sprite icon;
-    [SerializeField] protected GameObject visualEffect;
     [SerializeField] protected float duration;
 
     public float getDuration => duration;
-    public GameObject getVisualEffect => visualEffect;
 
     public virtual void Activate(IActor target, float accumulator = 0f)
     {
         target.getStatusEffects.Add(name, accumulator);
+    }
+
+    public virtual void ActivateCounter(IActor user, IActor target, IItem item)
+    {
+        
     }
 
     public virtual void OnAdd(IActor target)
