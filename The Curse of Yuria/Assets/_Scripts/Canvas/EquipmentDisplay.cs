@@ -69,7 +69,7 @@ public class EquipmentDisplay : DisplayBase
     ItemTypeBase currentType;
     int allieIndex = 0;
 
-    IActor partyMember;
+    IActor allie;
 
     IInventory equipment;
     IStats stats;
@@ -85,6 +85,8 @@ public class EquipmentDisplay : DisplayBase
     int oldModifierValue = 0;
     int newModifierValue = 0;
     int modifierValue = 0;
+
+    bool previousActive = true;
 
     InventoryUI globalInventoryUI;
 
@@ -173,15 +175,22 @@ public class EquipmentDisplay : DisplayBase
         globalInventoryUI.Display();
     }
 
-    public void RefreshPartyMember()
+    public void RefreshPartyMember(int offset = 0)
     {
-        partyMember = AllieManager.Instance[allieIndex];
+        allie?.obj.SetActive(previousActive);
 
-        detailedActorViewCamera.cullingMask = (1 << partyMember.obj.transform.GetChild(0).gameObject.layer) 
+        allieIndex--;
+        allieIndex = Mathf.Clamp(allieIndex, 0, AllieManager.Instance.count - 1);
+
+        allie = AllieManager.Instance[allieIndex];
+        previousActive = allie.obj.activeSelf;
+        allie.obj.SetActive(true);
+
+        detailedActorViewCamera.cullingMask = (1 << allie.obj.transform.GetChild(0).gameObject.layer) 
             | ( 1 << LayerMask.NameToLayer("Light"));
 
-        equipment = partyMember.getEquipment;
-        stats = partyMember.getStats;
+        equipment = allie.getEquipment;
+        stats = allie.getStats;
 
         helmetSlot.sprite = helmetSprite;
         earringSlot.sprite = earringSprite;
@@ -200,7 +209,7 @@ public class EquipmentDisplay : DisplayBase
             itemType = ItemDatabase.Instance.GetType(equipment.GetName(i));
             slots[itemType].sprite = ItemDatabase.Instance.GetIcon(equipment.GetName(i));
         }
-        partyMemberName.text = partyMember.obj.name;
+        partyMemberName.text = allie.obj.name;
         partyMemberStats.text = "";
         partyMemberValues.text = "";
 
@@ -222,7 +231,7 @@ public class EquipmentDisplay : DisplayBase
         currentItem = (IEquipment)ItemDatabase.Instance.Get(itemName);
 
         InventoryManager.Instance.Get(currentItem.itemType).Add(itemName);
-        currentItem.Unequip(partyMember);
+        currentItem.Unequip(allie);
         AudioManager.Instance.PlaySFX(unequip);
 
         RefreshPartyMember();
@@ -245,7 +254,7 @@ public class EquipmentDisplay : DisplayBase
             InventoryManager.Instance.Get(currentType).Remove(itemName);
         }
 
-        currentItem.Equip(partyMember);
+        currentItem.Equip(allie);
         AudioManager.Instance.PlaySFX(equip);
 
         RefreshPartyMember();
@@ -284,7 +293,7 @@ public class EquipmentDisplay : DisplayBase
         foreach (Reactor reactor in currentItem.getInterrupts)
             this.itemInfo.text += "\n" + reactor.getItemName.ToString() + "|" + reactor.getMask.ToString() + "|" + reactor.getReaction.ToString() + "|" + reactor.getTargeter.ToString();
 
-        int length = partyMember.getStats.GetAttributes().Length;
+        int length = allie.getStats.GetAttributes().Length;
 
         for (int i = 0; i < length; i++)
         {
@@ -323,22 +332,18 @@ public class EquipmentDisplay : DisplayBase
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
-        {
-            allieIndex--;
-            allieIndex = Mathf.Clamp(allieIndex, 0, AllieManager.Instance.count - 1);
+        {        
             AudioManager.Instance.PlaySFX(cyclePartyMembers);
-            RefreshPartyMember();
+            RefreshPartyMember(-1);
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            allieIndex++;
-            allieIndex = Mathf.Clamp(allieIndex, 0, AllieManager.Instance.count - 1);
             AudioManager.Instance.PlaySFX(cyclePartyMembers);
-            RefreshPartyMember();
+            RefreshPartyMember(1);
         }
 
         //move Detailed Actor View Camera to the new character
-        detailedActorViewCamera.transform.position = partyMember.obj.transform.position + new Vector3(0f, 1f, -2.5f);
+        detailedActorViewCamera.transform.position = allie.obj.transform.position + new Vector3(0f, 1f, -2.5f);
         //---------------------------------------------------
     }
 }

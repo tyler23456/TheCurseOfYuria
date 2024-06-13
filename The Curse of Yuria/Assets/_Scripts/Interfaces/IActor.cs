@@ -16,5 +16,6 @@ public interface IActor
     IInventory getScrolls { get; }
     IStatusEffects getStatusEffects { get; }
     IFadeAnimator getFadeAnimator { get; }
+    ISpriteFlipper getSpriteFlipper { get; }
     Coroutine StartCoroutine(IEnumerator routine);
 }

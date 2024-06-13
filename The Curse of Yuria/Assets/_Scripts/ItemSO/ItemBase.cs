@@ -49,10 +49,20 @@ public abstract class ItemBase : TypeBase
 
         Vector2 direction = (targets[0].obj.transform.position - user.obj.transform.position).normalized;
 
-        if (direction.x >= 0)
-            user.obj.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+        if (user.obj.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            if (direction.x >= 0)
+                user.obj.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            else
+                user.obj.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+        }      
         else
-            user.obj.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        {
+            if (direction.x >= 0)
+                user.obj.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            else
+                user.obj.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        }
     }
 }
 

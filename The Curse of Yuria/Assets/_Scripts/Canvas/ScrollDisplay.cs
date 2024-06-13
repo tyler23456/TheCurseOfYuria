@@ -46,6 +46,8 @@ public class ScrollDisplay : DisplayBase
     InventoryUI partyMemberInventoryUI;
     InventoryUI globalInventoryUI;
 
+    bool previousActive = true;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -61,7 +63,7 @@ public class ScrollDisplay : DisplayBase
 
         allieIndex = 0;
         RefreshInventoryScrolls();
-        RefreshPartyMember();
+        RefreshAllie();
 
         AudioManager.Instance.PlaySFX(open);
     }
@@ -70,6 +72,7 @@ public class ScrollDisplay : DisplayBase
     {
         base.OnDisable();
 
+        allie?.obj.SetActive(previousActive);
         AudioManager.Instance.PlaySFX(close);
     }
 
@@ -85,9 +88,16 @@ public class ScrollDisplay : DisplayBase
         globalInventoryUI.Display();
     }
 
-    public void RefreshPartyMember()
+    public void RefreshAllie(int offset = 0)
     {
+        allie?.obj.SetActive(previousActive);
+
+        allieIndex += offset;
+        allieIndex = Mathf.Clamp(allieIndex, 0, AllieManager.Instance.count - 1);
+
         allie = AllieManager.Instance[allieIndex];
+        previousActive = allie.obj.activeSelf;
+        allie.obj.SetActive(true);
 
         detailedActorViewCamera.cullingMask = (1 << allie.obj.transform.GetChild(0).gameObject.layer) 
             | ( 1 << LayerMask.NameToLayer("Light"));
@@ -127,7 +137,7 @@ public class ScrollDisplay : DisplayBase
         newSkill = ItemDatabase.Instance.Get(itemName);
         newSkill.Equip(allie);
 
-        RefreshPartyMember();
+        RefreshAllie();
         RefreshInventoryScrolls();
     }
 
@@ -138,7 +148,7 @@ public class ScrollDisplay : DisplayBase
 
         InventoryManager.Instance.scrolls.Add(itemName);
 
-        RefreshPartyMember();
+        RefreshAllie();
         RefreshInventoryScrolls();
     }
 
@@ -179,18 +189,14 @@ public class ScrollDisplay : DisplayBase
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
-        {
-            allieIndex--;
-            allieIndex = Mathf.Clamp(allieIndex, 0, AllieManager.Instance.count - 1);
+        {          
             AudioManager.Instance.PlaySFX(cyclePartyMembers);
-            RefreshPartyMember();
+            RefreshAllie(-1);
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            allieIndex++;
-            allieIndex = Mathf.Clamp(allieIndex, 0, AllieManager.Instance.count - 1);
             AudioManager.Instance.PlaySFX(cyclePartyMembers);
-            RefreshPartyMember();
+            RefreshAllie(1);
         }
 
         detailedActorViewCamera.transform.position = allie.obj.transform.position + new Vector3(0f, 1f, -2.5f);

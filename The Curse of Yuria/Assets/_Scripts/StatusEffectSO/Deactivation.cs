@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewDeactivation", menuName = "StatusEffects/Deactivation")]
-public class Deactivation : StatusEffectBase, IStatusEffect
+public class Deactivation : StatusEffectIcon, IStatusEffect
 {
     [SerializeField] bool disableMovement = false;
     [SerializeField] bool disableATBGauge = false;

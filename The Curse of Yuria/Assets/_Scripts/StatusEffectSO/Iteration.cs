@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewIteration", menuName = "StatusEffects/Iteration")]
-public class Iteration : StatusEffectBase, IStatusEffect
+public class Iteration : StatusEffectIcon, IStatusEffect
 {
     enum ActivationType { OnKnockOut, TickDuration  }
 

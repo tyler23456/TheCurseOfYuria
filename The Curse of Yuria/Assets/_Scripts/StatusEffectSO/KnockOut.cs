@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewKnockOut", menuName = "StatusEffects/KnockOut")]
-public class KnockOut : Deactivation, IStatusEffect
+public class KnockOut : StatusEffectBase, IStatusEffect
 {
     public override void OnAdd(IActor target)
     {
-        target.getStatusEffects.RemoveWhere(e => e != name);
-
         base.OnAdd(target);
 
-        target.obj.GetComponent<Animator>()?.SetInteger("State", 6);
+        target.getStatusEffects.RemoveWhere(e => e != name);    
+        Animator animator = target.obj.GetComponent<Animator>();
+        animator?.SetInteger("MovePriority", animator.GetInteger("MovePriority") - 1);
+        target.getATBGuage.LowerPriority();
+        animator?.SetInteger("State", 6);
     }
-
 
     public override void OnRemove(IActor target)
     {
         base.OnRemove(target);
 
-        target.obj.GetComponent<Animator>()?.SetInteger("State", 0);
+        Animator animator = target.obj.GetComponent<Animator>();
+        animator?.SetInteger("MovePriority", animator.GetInteger("MovePriority") + 1);
+        target.getATBGuage.LowerPriority();
+        animator?.SetInteger("State", 0);
     }
 }

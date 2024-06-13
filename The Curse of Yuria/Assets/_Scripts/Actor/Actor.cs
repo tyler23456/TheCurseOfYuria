@@ -28,6 +28,7 @@ namespace TCOY.UserActors
         protected StatusEffects statusEffects;
         protected HitAnimator hitAnimator;
         protected FadeAnimator fadeAnimator;
+        protected SpriteFlipper spriteFlipper;
 
         public Collider2D getCollider2D => collider2D;
         public GameObject obj => gameObject;
@@ -38,6 +39,7 @@ namespace TCOY.UserActors
         public IStatusEffects getStatusEffects => statusEffects;
         public HitAnimator getHitAnimator => hitAnimator;
         public IFadeAnimator getFadeAnimator => fadeAnimator;
+        public ISpriteFlipper getSpriteFlipper => spriteFlipper;
         public List<Reactor> getCounters => counters;
         public List<Reactor> getInterrupts => interrupts;
 
@@ -62,6 +64,7 @@ namespace TCOY.UserActors
 
             hitAnimator = new HitAnimator(this, spriteRenderers);
             fadeAnimator = new FadeAnimator(this, spriteRenderers);
+            spriteFlipper = new SpriteFlipper(spriteRenderers);
 
             stats.Initialize();
             stats.onHPDamage = (damage) => { }; //play a hit soundFX

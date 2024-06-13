@@ -15,10 +15,17 @@ namespace TCOY.PlayerControls
         {
             controls.allie.animator.SetInteger("State", 0);
 
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                controls.allie.rigidbody2D.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                controls.allie.rigidbody2D.transform.eulerAngles = new Vector3(0f, 0, 0f);
+            }
+
             if (Input.GetKey(KeyCode.A))
             {
-                controls.allie.obj.transform.eulerAngles = new Vector3(0f, 180f, 0f);
-
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     controls.allie.animator.SetInteger("State", 2);
@@ -32,8 +39,6 @@ namespace TCOY.PlayerControls
             }
             else if (Input.GetKey(KeyCode.D))
             {
-                controls.allie.obj.transform.eulerAngles = new Vector3(0f, 0f, 0f);
-
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     controls.allie.animator.SetInteger("State", 2);

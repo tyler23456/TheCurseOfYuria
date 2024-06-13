@@ -29,7 +29,7 @@ namespace TCOY.PlayerControls
                 return;
 
             allie = AllieManager.Instance.First();
-
+            
             allie.rigidbody2D.AddForce(velocity, ForceMode2D.Impulse);
             velocity = Vector3.zero;
         }

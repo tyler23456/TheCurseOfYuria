@@ -6,8 +6,7 @@ using System;
 
 public abstract class StatusEffectBase : ScriptableObject, IStatusEffect
 {
-    [SerializeField] protected Sprite icon;
-    [SerializeField] protected float duration;
+    [SerializeField] protected float duration = float.PositiveInfinity;
 
     public float getDuration => duration;
 
@@ -23,23 +22,11 @@ public abstract class StatusEffectBase : ScriptableObject, IStatusEffect
 
     public virtual void OnAdd(IActor target)
     {
-        if (icon == null)
-            return;
-
-        GameObject obj = new GameObject(icon.name);
-        obj.transform.parent = target.obj.transform;
-        SpriteRenderer spriteRenderer = obj.AddComponent<SpriteRenderer>();
-        spriteRenderer.sprite = icon;
-        spriteRenderer.sortingOrder = 199;
-        int count = target.getStatusEffects.getCount;
-        obj.transform.localPosition = new Vector3(-3f + (1.5f * count), 1f, 0f);  
+          
     }
 
     public virtual void OnRemove(IActor target)
     {
-        if (icon == null)
-            return;
-
-        Destroy(target.obj.transform.Find(icon.name).gameObject);
+        
     }
 }

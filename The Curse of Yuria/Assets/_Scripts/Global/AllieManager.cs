@@ -29,11 +29,14 @@ public class AllieManager : MonoBehaviour
 
     public void Refresh()
     {
-            for (int i = 0; i < selectedCount; i++)
+        for (int i = 0; i < selectedCount; i++)
             transform.GetChild(i).gameObject.SetActive(true);
 
         for (int i = 3; i < count; i++)
+        {
             transform.GetChild(i).gameObject.SetActive(false);
+            transform.GetChild(i).position = new Vector3(0f, -10000f, 0f);
+        }
     }
 
     public int GetSafeIndex(int index)
@@ -151,25 +154,21 @@ public class AllieManager : MonoBehaviour
 
     public void SetPosition(Vector2 position)
     {
-        bool previousActive = false;
-        foreach (Transform t in transform)
-        {
-            previousActive = t.gameObject.activeSelf;
-            t.gameObject.SetActive(false);
-            t.position = position;
-            t.gameObject.SetActive(previousActive);
+        for (int i = 0; i < selectedCount; i++)
+        {        
+            transform.GetChild(i).gameObject.SetActive(false);
+            transform.GetChild(i).position = position;
+            transform.GetChild(i).gameObject.SetActive(true);
         }
     }
 
     public void SetEulerAngleZ(float z)
     {
-        bool previousActive = false;
-        foreach (Transform t in transform)
+        for (int i = 0; i < selectedCount; i++)
         {
-            previousActive = t.gameObject.activeSelf;
-            t.gameObject.SetActive(false);
-            t.eulerAngles = new Vector3(0f, 0f, z);
-            t.gameObject.SetActive(previousActive);
+            transform.GetChild(i).gameObject.SetActive(false);
+            transform.GetChild(i).eulerAngles = new Vector3(0f, 0f, z);
+            transform.GetChild(i).gameObject.SetActive(true);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace TCOY.UserActors
     [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
     public class Enemy : Actor, IEnemy, IActor
     {
-        [SerializeField] float proximity = 5f;
+        [SerializeField] TargeterBase targeterForHostility;
         [SerializeField] List<Move> moves;
 
         Queue<Move> movesQueue = new Queue<Move>();
@@ -42,8 +42,7 @@ namespace TCOY.UserActors
 
         void MakeADecision()
         {
-            IActor target = AllieManager.Instance[0];
-            if (Vector3.Distance(transform.position, target.obj.transform.position) > proximity)
+            if (targeterForHostility.CalculateTargets(transform.position).Count == 0)
                 return;
 
             List<IActor> targets = movesQueue.Peek().getTargeter.CalculateTargets(transform.position);
