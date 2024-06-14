@@ -17,6 +17,8 @@ public abstract class TargeterBase : ScriptableObject
 
     [SerializeField] Party party;
 
+    protected virtual bool canTargetKO => false;
+
     public virtual List<IActor> CalculateTargets(Vector2 position)
     {
         switch (party)
@@ -48,6 +50,16 @@ public abstract class TargeterBase : ScriptableObject
             targets.Add(colliders[i].GetComponent<IActor>());
         }
 
+        FilterResults(targets);
+
         return targets;
     }
+
+    protected virtual void FilterResults(List<IActor> targets)
+    {
+        targets.RemoveAll(i => i.getStatusEffects.Contains(StatFXDatabase.Instance.getKnockOut.name));
+    }
+
+
+
 }

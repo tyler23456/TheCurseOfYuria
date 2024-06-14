@@ -16,6 +16,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 1c8f9255255e4f39b30b0954f2d3f458, type: 3}
   _prefab: {fileID: 8893616831737595038, guid: b5699f02b7cdf1943845cbb344873091, type: 3}
   _equipmentType: {fileID: 11400000, guid: 31f9a546ffe171947873ffcacf7f100c, type: 2}
+  info: 
   _itemSprite:
     Name: WaterAdeptWand1
     Collection: Basic
@@ -28,14 +29,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 62c06225226f9ff43c3dd4a24315e65c
     Tags: []
-  info: 
   modifiers: []
   counters: []
   interrupts: []
-  power: 2
-  _armType: {fileID: 0}
-  _elementType: {fileID: 0}
-  _calculationType: {fileID: 0}
-  _bonusTypes: []
   statusEffectProbabilities: []
+  power: 2
+  _armType: {fileID: 11400000, guid: 241958a3a01de8544a64f4d9cc9e7062, type: 2}
+  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+  _bonusTypes: []
   particleSystem: {fileID: 0}

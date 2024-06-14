@@ -16,6 +16,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: c47da954629e4c86ae58df06ace2a1a3, type: 3}
   _prefab: {fileID: 1303918196146946098, guid: 873dfa397737b4d46a9e205235115f18, type: 3}
   _equipmentType: {fileID: 11400000, guid: 31f9a546ffe171947873ffcacf7f100c, type: 2}
+  info: 
   _itemSprite:
     Name: IronIslandsSword [Paint]
     Collection: Thrones
@@ -30,14 +31,13 @@ MonoBehaviour:
     Hash: e716b47ae8bba8c5ff563786a1711f94
     Tags:
     - Paint
-  info: 
   modifiers: []
   counters: []
   interrupts: []
-  power: 2
-  _armType: {fileID: 0}
-  _elementType: {fileID: 0}
-  _calculationType: {fileID: 0}
-  _bonusTypes: []
   statusEffectProbabilities: []
+  power: 2
+  _armType: {fileID: 11400000, guid: 241958a3a01de8544a64f4d9cc9e7062, type: 2}
+  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+  _bonusTypes: []
   particleSystem: {fileID: 0}

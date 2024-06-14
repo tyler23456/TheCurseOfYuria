@@ -16,6 +16,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: c0bfe3f8935949728d7f317c20e7e238, type: 3}
   _prefab: {fileID: 1664391652825050594, guid: 97d31cc135bf72c4e9899b181ca117fa, type: 3}
   _equipmentType: {fileID: 11400000, guid: 31f9a546ffe171947873ffcacf7f100c, type: 2}
+  info: 
   _itemSprite:
     Name: WoodenMace
     Collection: Basic
@@ -28,14 +29,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 029069702e4102a9e2517a5892743de9
     Tags: []
-  info: 
   modifiers: []
   counters: []
   interrupts: []
-  power: 2
-  _armType: {fileID: 0}
-  _elementType: {fileID: 0}
-  _calculationType: {fileID: 0}
-  _bonusTypes: []
   statusEffectProbabilities: []
+  power: 2
+  _armType: {fileID: 11400000, guid: 241958a3a01de8544a64f4d9cc9e7062, type: 2}
+  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+  _bonusTypes: []
   particleSystem: {fileID: 0}

@@ -16,6 +16,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 8c9181e7ded448cab8adcac286966e31, type: 3}
   _prefab: {fileID: 8115665640748571232, guid: f3e62d8593456d44d95335fccb6c7b38, type: 3}
   _equipmentType: {fileID: 11400000, guid: 31f9a546ffe171947873ffcacf7f100c, type: 2}
+  info: 
   _itemSprite:
     Name: VikingSword2 [Paint]
     Collection: Vikings
@@ -30,14 +31,13 @@ MonoBehaviour:
     Hash: 3e3e883ec0d9dea6327649d44f1a4777
     Tags:
     - Paint
-  info: 
   modifiers: []
   counters: []
   interrupts: []
-  power: 2
-  _armType: {fileID: 0}
-  _elementType: {fileID: 0}
-  _calculationType: {fileID: 0}
-  _bonusTypes: []
   statusEffectProbabilities: []
+  power: 2
+  _armType: {fileID: 11400000, guid: 241958a3a01de8544a64f4d9cc9e7062, type: 2}
+  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+  _bonusTypes: []
   particleSystem: {fileID: 0}

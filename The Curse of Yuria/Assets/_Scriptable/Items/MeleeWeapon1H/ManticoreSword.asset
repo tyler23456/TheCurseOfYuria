@@ -16,6 +16,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: a2077d01747d4b88aef082ffe4b9ccbf, type: 3}
   _prefab: {fileID: 2020311694940872056, guid: f938f9d9102182f4681f5c4e90d8b51c, type: 3}
   _equipmentType: {fileID: 11400000, guid: 31f9a546ffe171947873ffcacf7f100c, type: 2}
+  info: 
   _itemSprite:
     Name: ManticoreSword
     Collection: Basic
@@ -28,14 +29,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: ecf4585647ab7f247a0186059efc5a6f
     Tags: []
-  info: 
   modifiers: []
   counters: []
   interrupts: []
-  power: 2
-  _armType: {fileID: 0}
-  _elementType: {fileID: 0}
-  _calculationType: {fileID: 0}
-  _bonusTypes: []
   statusEffectProbabilities: []
+  power: 2
+  _armType: {fileID: 11400000, guid: 241958a3a01de8544a64f4d9cc9e7062, type: 2}
+  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+  _bonusTypes: []
   particleSystem: {fileID: 0}

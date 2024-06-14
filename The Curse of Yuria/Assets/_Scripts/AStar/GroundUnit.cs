@@ -30,8 +30,12 @@ namespace TCOY.AStar
         {
             while (true)
             {
-                if (animator?.GetInteger("MovePriority") < int.MaxValue)
+                if (animator?.GetInteger("MovePriority") < int.MaxValue || GetComponent<IActor>()?.enabled == false)
+                {
+                    yield return new WaitForSeconds(0.1f);
                     continue;
+                }
+                
 
                 if (Vector3.Distance(transform.position, target.position) < proximity)
                     yield return new WaitForSeconds(0.1f);
@@ -66,6 +70,12 @@ namespace TCOY.AStar
 
             while (true)
             {
+                if (GetComponent<IActor>()?.enabled == false)
+                {
+                    yield return new WaitForSeconds(0.1f);
+                    continue;
+                }
+
                 Vector2 path2D = new Vector2(path[index].x, path[index].y);
                 Vector2 position = new Vector2(transform.position.x, transform.position.y);
                 Vector2 direction = (path2D - position).normalized;

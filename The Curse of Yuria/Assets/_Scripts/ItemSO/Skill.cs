@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.ObjectModel;
+using System;
 
-public abstract class Skill : ItemBase, IItem
+public abstract class Skill : ItemBase, IItem, ISkill
 {
     [SerializeField] protected List<StatusEffectProbability> statusEffectProbabilities;
     [SerializeField] protected int power;
@@ -26,7 +28,12 @@ public abstract class Skill : ItemBase, IItem
     public virtual void CheckStatusEffects(IActor target)
     {
         foreach (StatusEffectProbability statusEffectProbability in statusEffectProbabilities)
-            if (Random.Range(0f, 1f) > statusEffectProbability.getProbability)
+            if (UnityEngine.Random.Range(0f, 1f) < statusEffectProbability.getProbability)
                 statusEffectProbability.getStatusEffect.Activate(target);
+    }
+
+    public virtual bool TrueForAnyStatusEffect(Func<IStatusEffect, bool> predicate)
+    {
+        return statusEffectProbabilities.Find(i => predicate.Invoke(i.getStatusEffect)) != null;
     }
 }

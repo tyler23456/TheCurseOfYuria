@@ -24,7 +24,7 @@ public class DefaultItems : MonoBehaviour
         character.UnEquip(EquipmentPart.Bow);
 
         foreach (ItemBase item in defaultItems)
-            if (item != null)
+            if (item != null && item is IEquipment)
                 character.Equip(item.itemSprite, item.itemType.part);
     }
 

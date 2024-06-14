@@ -8,6 +8,7 @@ public class Command
     public IItem item { get; }
     public List<IActor> targets { get; }
 
+    public bool isCancelled { get; set; }
     public bool isCounterable { get; set; }
     public bool isInterruptable { get; set; }
 

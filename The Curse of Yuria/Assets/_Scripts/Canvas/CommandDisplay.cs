@@ -9,6 +9,8 @@ public class CommandDisplay : DisplayBase
 {
     public static DisplayBase Instance { get; protected set; }
 
+    [SerializeField] StatusEffectBase KOStatusEffect;
+
     [SerializeField] RectTransform display;
 
     [SerializeField] Button buttonPrefab;
@@ -19,6 +21,7 @@ public class CommandDisplay : DisplayBase
 
     IActor currentAllie;
     string commandName = "None";
+    List<IActor> potentialTargets = new List<IActor>();
     IActor target = null;
 
     InventoryUI attackInventoryUI;
@@ -134,13 +137,41 @@ public class CommandDisplay : DisplayBase
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D[] hits = Physics2D.GetRayIntersectionAll(ray, Mathf.Infinity);
+        potentialTargets.Clear();
 
         foreach (RaycastHit2D hit in hits)
         {
             target = hit.transform.GetComponent<IActor>();
 
             if (target != null)
-                break;
+                potentialTargets.Add(target);
+        }
+
+        ISkill item = (ISkill)ItemDatabase.Instance.Get(commandName);
+        bool containsKO = item.TrueForAnyStatusEffect(i => i is IRestoration && ((IRestoration)i).ContainsStatusEffectToRemove(KOStatusEffect.name));
+
+        target = null;
+        if (containsKO)
+        {
+            foreach (IActor potentialTarget in potentialTargets)
+            {
+                if (potentialTarget.getStatusEffects.Contains(KOStatusEffect.name))
+                {
+                    target = potentialTarget;
+                    break;
+                }  
+            }
+        } 
+        else
+        {
+            foreach (IActor potentialTarget in potentialTargets)
+            {
+                if (!potentialTarget.getStatusEffects.Contains(KOStatusEffect.name))
+                {
+                    target = potentialTarget;
+                    break;
+                }
+            }
         }
 
         if (target == null)

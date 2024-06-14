@@ -26,7 +26,6 @@ namespace TCOY.UserActors
             aTBGuage.OnATBGuageFilled += () => aTBGuage.Reset();
 
             stats.onZeroHealth += () => GetComponent<DontDestroyOnLoad.RandomDrop>().enabled = true;
-            stats.onZeroHealth += () => Destroy(this);
 
             foreach (Move move in moves)
                 movesQueue.Enqueue(move);

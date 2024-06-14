@@ -8,11 +8,14 @@ public class StatFXDatabase : MonoBehaviour
 {
     public static StatFXDatabase Instance { get; private set; }
 
+    [SerializeField] StatusEffectBase knockOut;
     [SerializeField] AssetLabelReference statusEffectsReference;
     [SerializeField] bool populate = false;
     [SerializeField] List<StatusEffectBase> serializedEffects = new List<StatusEffectBase>();
 
     Dictionary<string, IStatusEffect> statusEffects = new Dictionary<string, IStatusEffect>();
+
+    public IStatusEffect getKnockOut => knockOut;
 
     void Awake()
     {

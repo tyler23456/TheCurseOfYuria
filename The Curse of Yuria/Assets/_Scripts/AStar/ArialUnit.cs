@@ -27,8 +27,11 @@ namespace TCOY.AStar
         {
             while (true)
             {
-                if (animator.GetInteger("MovePriority") < int.MaxValue)
+                if (animator?.GetInteger("MovePriority") < int.MaxValue || GetComponent<IActor>()?.enabled == false)
+                {
+                    yield return new WaitForSeconds(0.1f);
                     continue;
+                }
 
                 PathRequester.RequestPath(transform.position, target.position, OnPathFound);
                 yield return new WaitForSeconds(0.25f);
@@ -54,6 +57,12 @@ namespace TCOY.AStar
 
             while (true)
             {
+                if (GetComponent<IActor>()?.enabled == false)
+                {
+                    yield return new WaitForSeconds(0.1f);
+                    continue;
+                }
+
                 Vector2 path2D = new Vector2(path[0].x, path[0].y);
                 Vector2 position = new Vector2(transform.position.x, transform.position.y);
                 Vector2 direction = (path2D - position).normalized;

@@ -5,6 +5,7 @@ using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 
 public interface IActor
 {
+    bool enabled { get; set; }
     bool useDefaultItems { get; set; }
     Collider2D getCollider2D { get; }
     GameObject obj { get; }

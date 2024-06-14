@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class BattleManager : MonoBehaviour
 {
@@ -50,7 +51,13 @@ public class BattleManager : MonoBehaviour
             Command command = pendingCommands.First();
             pendingCommands.RemoveFirst();
 
+            if (command == null)
+                continue;
+
             if (command.user == null)
+                continue;
+
+            if (command.isCancelled)
                 continue;
 
             command.user.StartCoroutine(command.item.Use(command.user, command.targets));
@@ -108,5 +115,12 @@ public class BattleManager : MonoBehaviour
 
         if (AllieManager.Instance.AllContainAnyOf(gameOverStatusEffects))
             GameOverDisplay.Instance.ShowExclusivelyInParent();
+    }
+
+    public void CancelPendingCommandsWhere(Func<Command, bool> predicate)
+    {
+        foreach (Command command in pendingCommands)
+            if (predicate.Invoke(command))
+                command.isCancelled = true;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [CreateAssetMenu(fileName = "NewDeactivation", menuName = "StatusEffects/Deactivation")]
 public class Deactivation : StatusEffectIcon, IStatusEffect
@@ -25,7 +26,11 @@ public class Deactivation : StatusEffectIcon, IStatusEffect
             animator?.SetInteger("MovePriority", animator.GetInteger("MovePriority") - 1);
 
         if (disableATBGauge)
+        {
             target.getATBGuage.LowerPriority();
+            BattleManager.Instance.CancelPendingCommandsWhere(i => i.user.obj.name == target.obj.name);
+        }
+            
     }
 
     public override void OnRemove(IActor target)
@@ -39,6 +44,9 @@ public class Deactivation : StatusEffectIcon, IStatusEffect
             
 
         if (disableATBGauge)
-            target.getATBGuage.LowerPriority();
+        {
+            target.getATBGuage.LowerPriority();;
+        }
+            
     }
 }

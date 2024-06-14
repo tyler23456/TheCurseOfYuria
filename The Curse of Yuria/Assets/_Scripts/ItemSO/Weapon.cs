@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections.ObjectModel;
+using System;
 
 public class Weapon : Equipable, IItem, IWeapon, IEquipment
 {
@@ -17,6 +18,8 @@ public class Weapon : Equipable, IItem, IWeapon, IEquipment
     public ElementTypeBase elementType { get { return _elementType; } set { _elementType = value; } }
     public CalculationTypeBase calculationType { get { return _calculationType; } set { _calculationType = value; } }
     public List<BonusTypeBase> bonusTypes { get { return _bonusTypes; } set { _bonusTypes = value; } }
+
+    public ReadOnlyCollection<StatusEffectProbability> getStatusEffectProbabilities => statusEffectProbabilities.AsReadOnly();
 
     public override IEnumerator Use(IActor user, List<IActor> targets)
     {
@@ -58,7 +61,7 @@ public class Weapon : Equipable, IItem, IWeapon, IEquipment
     protected virtual void CheckStatusEffects(IActor target)
     {
         foreach (StatusEffectProbability statusEffectProbability in statusEffectProbabilities)
-            if (Random.Range(0f, 1f) > statusEffectProbability.getProbability)
+            if (UnityEngine.Random.Range(0f, 1f) < statusEffectProbability.getProbability)
                 statusEffectProbability.getStatusEffect.Activate(target);
     }
 
@@ -66,5 +69,10 @@ public class Weapon : Equipable, IItem, IWeapon, IEquipment
     {
         foreach (string statusEffect in target.getStatusEffects.GetNames())
             StatFXDatabase.Instance.Get(statusEffect).ActivateCounter(user, target, this);
+    }
+
+    public virtual bool TrueForAnyStatusEffect(Func<IStatusEffect, bool> predicate)
+    {
+        return statusEffectProbabilities.Find(i => predicate.Invoke(i.getStatusEffect)) != null;
     }
 }

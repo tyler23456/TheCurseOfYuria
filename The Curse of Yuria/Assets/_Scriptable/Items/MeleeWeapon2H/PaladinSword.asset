@@ -16,6 +16,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: b2f25bb307dd4ac09f091e2d2d8fa7a6, type: 3}
   _prefab: {fileID: 373122726922318382, guid: cdf0fff31d6845e4e930a57e404aaf61, type: 3}
   _equipmentType: {fileID: 11400000, guid: 18dd5fa8a819a4b4e87d9a9053dc78fc, type: 2}
+  info: 
   _itemSprite:
     Name: PaladinSword [Paint]
     Collection: Basic
@@ -30,14 +31,13 @@ MonoBehaviour:
     Hash: 0e934d71a91bf45cf5544a136975adc0
     Tags:
     - Paint
-  info: 
   modifiers: []
   counters: []
   interrupts: []
-  power: 2
-  _armType: {fileID: 0}
-  _elementType: {fileID: 0}
-  _calculationType: {fileID: 0}
-  _bonusTypes: []
   statusEffectProbabilities: []
+  power: 2
+  _armType: {fileID: 11400000, guid: 8cfce240d1fa4434d8a08f137e121d67, type: 2}
+  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+  _bonusTypes: []
   particleSystem: {fileID: 0}
