@@ -51,7 +51,7 @@ namespace TCOY.PlayerControls
             if (Input.GetKeyDown(KeyCode.Alpha2))
                 ScrollDisplay.Instance.ToggleExclusivelyInParent();
 
-            if (Input.GetKeyDown(KeyCode.Tab) && BattleManager.Instance.aTBGuageFilledQueue.Count > 0)
+            if (Input.GetKeyDown(KeyCode.Tab) && BattleManager.Instance.aTBGuageFilledCount > 0)
                 CommandDisplay.Instance.ToggleExclusivelyInParent();
 
             if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -64,10 +64,13 @@ namespace TCOY.PlayerControls
             if (CommandDisplay.Instance.gameObject.activeSelf == false && AllieManager.Instance.count > 1)
             {
                 if (Input.GetKeyDown(KeyCode.E))
-                    AllieManager.Instance.MoveIndex(0, AllieManager.Instance.GetSafeSelectedIndex(2));
+                    AllieManager.Instance.CycleUp();
                 else if (Input.GetKeyDown(KeyCode.Q))
-                    AllieManager.Instance.MoveIndex(AllieManager.Instance.GetSafeSelectedIndex(2), 0);
+                    AllieManager.Instance.CycleDown();
             }
+
+            if (AllieManager.Instance.First().enabled == false)
+                return;
 
             allie = AllieManager.Instance.First();
 

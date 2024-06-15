@@ -6,22 +6,32 @@ namespace TCOY.UserActors
 {
     public class Destructible : Actor
     {
-        Animator userAnimator;
-        IContainer[] interactables;
+        AudioSource audioSource;
+        Animator animator;
+        IInteractable[] containers;
+        IEnabler[] scriptsToBeEnabled;
 
         protected new void Awake()
         {
             base.Awake();
 
-            userAnimator = transform.GetChild(0).GetComponent<Animator>();
-            interactables = GetComponents<IContainer>();
-            userAnimator.enabled = false;
+            animator = transform.GetComponent<Animator>();
+            audioSource = transform.GetComponent<AudioSource>();
 
-            stats.onZeroHealth += () => userAnimator.enabled = true;
+            containers = GetComponents<IInteractable>();
+            scriptsToBeEnabled = GetComponents<IEnabler>();
+
+            stats.onZeroHealth += () => animator.enabled = true;
             stats.onZeroHealth += () =>
             {
-                foreach (IContainer interactable in interactables)
-                    interactable.Interact(AllieManager.Instance[0]);
+                audioSource?.Play();
+                animator?.SetTrigger("Activate");
+
+                foreach (IInteractable container in containers)
+                    container.Interact(AllieManager.Instance[0]);
+
+                foreach (IEnabler scriptToBeEnabled in scriptsToBeEnabled)
+                    scriptToBeEnabled.enabled = true;
             };
         }
 

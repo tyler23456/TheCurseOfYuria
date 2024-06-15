@@ -17,14 +17,6 @@ MonoBehaviour:
   _prefab: {fileID: 5963739093106098168, guid: 585797fb8afa9b14f88e951dc410e732, type: 3}
   _equipmentType: {fileID: 11400000, guid: 989166b4b7e1b3a45b41dd36d0c3d7d5, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
-  _elementType: {fileID: 11400000, guid: 61dd2432436639444aa0b5f9ab37ff9d, type: 2}
-  _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
-  _bonusTypes: []
-  power: 2
-  cost: 2
-  effects: []
-  particleSystem: {fileID: 3716787501423605696, guid: d40d075809b5a3f4ab6151c684aed3f3, type: 3}
   _itemSprite:
     Name: Fire
     Collection: Supplies
@@ -38,6 +30,10 @@ MonoBehaviour:
     Hash: 73b1b850d84fd1ef1a3536726865aa99
     Tags: []
   statusEffectProbabilities: []
-  modifiers: []
-  counters: []
-  interrupts: []
+  power: 16
+  _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+  _elementType: {fileID: 11400000, guid: 61dd2432436639444aa0b5f9ab37ff9d, type: 2}
+  _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+  _bonusTypes: []
+  particleSystem: {fileID: 3716787501423605696, guid: d40d075809b5a3f4ab6151c684aed3f3, type: 3}
+  cost: 2

@@ -37,7 +37,6 @@ public class CommandDisplay : DisplayBase
     protected override void OnEnable()
     {
         base.OnEnable();
-        GameStateManager.Instance.Wait();
 
         display.gameObject.SetActive(true);
 
@@ -45,7 +44,7 @@ public class CommandDisplay : DisplayBase
         skillInventoryUI = new InventoryUI();
         itemInventoryUI = new InventoryUI();
 
-        currentAllie = BattleManager.Instance.aTBGuageFilledQueue.Peek();
+        currentAllie = BattleManager.Instance.PeekNextATBGuageFilled();
 
         attackTab.onClick.RemoveAllListeners();
         magicTab.onClick.RemoveAllListeners();
@@ -220,9 +219,9 @@ public class CommandDisplay : DisplayBase
     public void OnSelectTarget(IActor target)
     {
         Command command = new Command(currentAllie, ItemDatabase.Instance.Get(commandName), new List<IActor> { target });
-        BattleManager.Instance.pendingCommands.AddLast(command);
+        BattleManager.Instance.AddCommand(command);
         currentAllie.getATBGuage.Reset();
-        BattleManager.Instance.aTBGuageFilledQueue.Dequeue();
+        BattleManager.Instance.RemoveNextATBGuageFilled();
         gameObject.SetActive(false);
 
     }

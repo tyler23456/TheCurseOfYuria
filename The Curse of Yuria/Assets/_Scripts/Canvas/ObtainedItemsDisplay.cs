@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class ObtainedItemsDisplay : DisplayBase
 {
@@ -10,12 +11,12 @@ public class ObtainedItemsDisplay : DisplayBase
 
     [SerializeField] RectTransform grid;
     [SerializeField] Button obtainedItemPrefab;
-    [SerializeField] float displayTime = 7f;
+    [SerializeField] Button exitButton;
 
     Inventory inventory = new Inventory();
     InventoryUI inventoryUI = new InventoryUI();
 
-    float accumulator;
+    public Action<string> onClick { get; set; } = (itemName) => { };
 
     public Inventory getInventory => inventory;
 
@@ -29,29 +30,40 @@ public class ObtainedItemsDisplay : DisplayBase
     {
         base.OnEnable();
         GameStateManager.Instance.Play();
+        exitButton.onClick.AddListener(OnExit);
+        OnRefresh();
+    }
 
+    public void OnRefresh()
+    {
         inventoryUI.grid = grid;
         inventoryUI.buttonPrefab = obtainedItemPrefab;
         inventoryUI.inventory = inventory;
-        inventoryUI.OnClick = (itemName) => { };
+        inventoryUI.OnClick = OnClick;
+        inventoryUI.OnClick += onClick;
         inventoryUI.onPointerEnter = (itemName) => { };
         inventoryUI.onPointerExit = (itemName) => { };
         inventoryUI.Display();
-
-        inventory.Clear();
-        accumulator = 0f;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
+        inventory.Clear();
+        onClick = (itemName) => { };
     }
 
-    void Update()
+    void OnClick(string itemName)
     {
-        accumulator += Time.deltaTime;
+        getInventory.Remove(itemName);
+        OnRefresh();
 
-        if (accumulator >= displayTime)
+        if (inventory.count == 0)
             gameObject.SetActive(false);
+    }
+
+    void OnExit()
+    {
+        gameObject.SetActive(false);
     }
 }

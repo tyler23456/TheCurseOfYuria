@@ -28,7 +28,7 @@ public class Deactivation : StatusEffectIcon, IStatusEffect
         if (disableATBGauge)
         {
             target.getATBGuage.LowerPriority();
-            BattleManager.Instance.CancelPendingCommandsWhere(i => i.user.obj.name == target.obj.name);
+            BattleManager.Instance.CancelCommandsFrom(target);
         }
             
     }

@@ -36,4 +36,14 @@ public abstract class Skill : ItemBase, IItem, ISkill
     {
         return statusEffectProbabilities.Find(i => predicate.Invoke(i.getStatusEffect)) != null;
     }
+
+    public bool ContainsStatusEffectThatCanRemoveKO()
+    {
+        return TrueForAnyStatusEffect(i => i is IRestoration && ((IRestoration)i).ContainsStatusEffectToRemove(StatFXDatabase.Instance.getKnockOut.name));
+    }
+
+    public bool IsInvalidTarget(IActor target)
+    {
+        return target.enabled == false && !ContainsStatusEffectThatCanRemoveKO() || target.obj.activeSelf == false;
+    }
 }

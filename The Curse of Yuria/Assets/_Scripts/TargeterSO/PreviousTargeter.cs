@@ -18,13 +18,13 @@ public class PreviousTargeter : TargeterBase
 
         if (order == Order.before)
         {
-            if (BattleManager.Instance.pendingCommands.Count > 0)
-                results.Add(type == Type.user ? BattleManager.Instance.pendingCommands.First().user : BattleManager.Instance.pendingCommands.First().targets[0]);
+            if (BattleManager.Instance.pendingCommandsCount > 0)
+                results.Add(type == Type.user ? BattleManager.Instance.PeekNextCommand().user : BattleManager.Instance.PeekNextCommand().targets[0]);
         }
         else
         {
-            if (BattleManager.Instance.successfulCommands.Count > 0)
-                results.Add(type == Type.user ? BattleManager.Instance.successfulCommands.First().user : BattleManager.Instance.successfulCommands.First().targets[0]);
+            if (BattleManager.Instance.successfulCommandsCount > 0)
+                results.Add(type == Type.user ? BattleManager.Instance.PeekPreviousCommand().user : BattleManager.Instance.PeekPreviousCommand().targets[0]);
         }
         
 

@@ -8,8 +8,7 @@ namespace TCOY.Independent
     public class MaterialConverter : MonoBehaviour
     {
         [SerializeField] Material materialToConvertTo;
-        [SerializeField] bool convertToMaterial;
-
+        [SerializeField] bool convertToMaterial = false;
 
         void Update()
         {

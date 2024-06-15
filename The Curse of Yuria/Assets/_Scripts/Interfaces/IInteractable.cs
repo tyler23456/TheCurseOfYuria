@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IEnabledOnKO : IEnabler
+public interface IInteractable
 {
-    
+    void Interact(IActor player);
 }

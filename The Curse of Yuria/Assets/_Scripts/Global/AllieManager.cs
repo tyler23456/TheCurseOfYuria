@@ -104,9 +104,27 @@ public class AllieManager : MonoBehaviour
         Refresh();
     }
 
-    public void MoveIndex(int fromIndex, int toIndex)
+    public void CycleUp()
     {
-        transform.GetChild(fromIndex).SetSiblingIndex(toIndex);
+        for (int i = 0; i < selectedCount; i++)
+        {
+            transform.GetChild(0).SetSiblingIndex(selectedCount - 1);
+
+            if (First().enabled == true)
+                break;
+        }          
+        Refresh();
+    }
+
+    public void CycleDown()
+    {
+        for (int i = 0; i < selectedCount; i++)
+        {
+            transform.GetChild(selectedCount - 1).SetSiblingIndex(0);
+
+            if (First().enabled == true)
+                break;
+        }
         Refresh();
     }
 
@@ -131,8 +149,8 @@ public class AllieManager : MonoBehaviour
 
     public bool AllContainAnyOf(List<StatusEffectBase> statusEffects)
     {
-        foreach (Transform t in transform)
-            if (statusEffects.All(statusEffect => !t.GetComponent<IActor>().getStatusEffects.Contains(statusEffect.name)))
+        for (int i = 0; i < selectedCount; i++)
+            if (statusEffects.All(statusEffect => !transform.GetChild(i).GetComponent<IActor>().getStatusEffects.Contains(statusEffect.name)))
                 return false;
         return true;
     }

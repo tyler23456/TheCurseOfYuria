@@ -37,7 +37,6 @@ public class Weapon : Equipable, IItem, IWeapon, IEquipment
     protected virtual IEnumerator performAnimation(IActor user, IActor target)
     {
         yield return new WaitForSeconds(0.5f);
-        CheckForStatusEffectCounters(user, target);
         yield return PerformEffect(user, target);
     }
 
@@ -45,6 +44,11 @@ public class Weapon : Equipable, IItem, IWeapon, IEquipment
     {
         if (user == null)
             yield break;
+
+        if (IsInvalidTarget(target))
+            yield break;
+
+        CheckForStatusEffectCounters(user, target);
 
         float accumulator = 0;
         accumulator = _elementType.Calculate(user, target, power * IStats.powerMultiplier);
@@ -74,5 +78,15 @@ public class Weapon : Equipable, IItem, IWeapon, IEquipment
     public virtual bool TrueForAnyStatusEffect(Func<IStatusEffect, bool> predicate)
     {
         return statusEffectProbabilities.Find(i => predicate.Invoke(i.getStatusEffect)) != null;
+    }
+
+    public bool ContainsStatusEffectThatCanRemoveKO()
+    {
+        return TrueForAnyStatusEffect(i => i is IRestoration && ((IRestoration)i).ContainsStatusEffectToRemove(StatFXDatabase.Instance.getKnockOut.name));
+    }
+
+    public bool IsInvalidTarget(IActor target)
+    {
+        return target.enabled == false && !ContainsStatusEffectThatCanRemoveKO() || target.obj.activeSelf == false;
     }
 }

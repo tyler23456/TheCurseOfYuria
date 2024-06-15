@@ -7,6 +7,7 @@ namespace TCOY.DontDestroyOnLoad
         public static InteractingPointerManager instance { get; set; }
 
         IInteractablePointer target;
+        IInteractable[] targets;
 
         private void Awake()
         {
@@ -47,7 +48,9 @@ namespace TCOY.DontDestroyOnLoad
 
             if (Input.GetMouseButtonDown(0))
             {
-                target.Interact(AllieManager.Instance[0]);
+                targets = target.gameObject.GetComponents<IInteractable>();
+                foreach (IInteractable target in targets)
+                    target.Interact(AllieManager.Instance.First());
             }
         }
     }

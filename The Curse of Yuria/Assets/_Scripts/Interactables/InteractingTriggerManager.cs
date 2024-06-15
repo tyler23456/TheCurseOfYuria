@@ -7,6 +7,7 @@ public class InteractingTriggerManager : MonoBehaviour
     public static InteractingTriggerManager instance { get; set; }
 
     IInteractableTrigger target;
+    IInteractable[] targets;
 
     private void Awake()
     {
@@ -44,9 +45,11 @@ public class InteractingTriggerManager : MonoBehaviour
         Collider2D collider = target.gameObject.GetComponent<Collider2D>();
         MarkerManager.instance.SetMarkerWorldPositionAt("InteractingTrigger", collider.bounds.center + Vector3.up * collider.bounds.extents.y);
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetMouseButtonDown(0))
         {
-            target.Interact(AllieManager.Instance[0]);
+            targets = target.gameObject.GetComponents<IInteractable>();
+            foreach (IInteractable target in targets)
+                target.Interact(AllieManager.Instance.First());
         }
     }
 }

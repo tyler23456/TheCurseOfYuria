@@ -54,7 +54,7 @@ namespace TCOY.UserActors
             }
 
 
-            BattleManager.Instance.pendingCommands.AddLast(new Command(this, movesQueue.Peek().getskill, targets));
+            BattleManager.Instance.AddCommand(new Command(this, movesQueue.Peek().getskill, targets));
             movesQueue.Enqueue(movesQueue.Dequeue());
         }
     }

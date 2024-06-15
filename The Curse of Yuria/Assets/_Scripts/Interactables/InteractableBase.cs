@@ -13,7 +13,7 @@ namespace TCOY.DontDestroyOnLoad
         protected string getID => id;
         public virtual string getAction => "Interact with ";
 
-        void OnValidate()
+        protected virtual void OnValidate()
         {
             if (id == "None")
                 id = System.DateTime.Now.Ticks.ToString() + "|" + System.Guid.NewGuid().ToString();    

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class AnimatedContainer : Container, IContainer, IInteractablePointer
+    public class AnimatedContainer : Container, IInteractable, IInteractablePointer
     {
         [SerializeField] List<ItemBase> RequiredItems;
         [SerializeField] Prompt onLockedPrompt;

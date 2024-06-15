@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    public class RandomDrop : InteractableBase, IInteractablePointer, IEnabledOnKO
+    public class RandomDrop : InteractableBase, IInteractablePointer, IEnabler
     {
         [Range(0, 20)]public int minCount = 1;
         [Range(1, 20)]public int maxCount = 3;
@@ -76,7 +76,7 @@ namespace TCOY.DontDestroyOnLoad
             float weightAccumulator = 0;
             float normalizedWeight;
 
-            for (int i = 0; i <= decisions.Count; i++)
+            for (int i = 0; i < decisions.Count; i++)
             {
                 normalizedWeight = weights[i] / weightSum;
                 weightAccumulator += normalizedWeight;

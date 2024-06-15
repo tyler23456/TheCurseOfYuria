@@ -15,11 +15,11 @@ public class KnockOut : StatusEffectBase, IStatusEffect
         target.getATBGuage.LowerPriority();
         animator?.SetInteger("State", 9);
 
-        IEnabledOnKO[] objectsToEnable = target.obj.GetComponents<IEnabledOnKO>();
-        foreach (IEnabledOnKO objectToEnable in objectsToEnable)
+        IEnabler[] objectsToEnable = target.obj.GetComponents<IEnabler>();
+        foreach (IEnabler objectToEnable in objectsToEnable)
             objectToEnable.enabled = true;
 
-        BattleManager.Instance.CancelPendingCommandsWhere(i => i.user.obj.name == target.obj.name);
+        BattleManager.Instance.CancelCommandsFrom(target);
 
         target.enabled = false;
     }
@@ -32,8 +32,8 @@ public class KnockOut : StatusEffectBase, IStatusEffect
         animator?.SetInteger("MovePriority", animator.GetInteger("MovePriority") + 1);
         target.getATBGuage.RaisePriority();
 
-        IEnabledOnKO[] objectsToEnable = target.obj.GetComponents<IEnabledOnKO>();
-        foreach (IEnabledOnKO objectToEnable in objectsToEnable)
+        IEnabler[] objectsToEnable = target.obj.GetComponents<IEnabler>();
+        foreach (IEnabler objectToEnable in objectsToEnable)
             objectToEnable.enabled = false;
 
         animator?.SetInteger("State", 0);

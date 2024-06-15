@@ -85,9 +85,7 @@ public class SaveManager : MonoBehaviour
         EnemyManager.Instance.DestroyAll();
         PopupManager.Instance.ClearAllPopups();
 
-        BattleManager.Instance.aTBGuageFilledQueue.Clear();
-        BattleManager.Instance.pendingCommands.Clear();
-        BattleManager.Instance.successfulCommands.Clear();;
+        BattleManager.Instance.ClearAll();
     }
 
     class SaveData

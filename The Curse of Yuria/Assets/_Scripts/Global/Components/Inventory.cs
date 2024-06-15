@@ -86,6 +86,14 @@ public class Inventory : IInventory
         return null;
     }
 
+    public int GetCount(string name)
+    {
+        for (int i = 0; i < names.Count; i++)
+            if (name == names[i])
+                return counts[i];
+        return 0;
+    }
+
     public List<string> RemoveWhere(Func<string, bool> predicate)
     {
         List<int> indexes = new List<int>();

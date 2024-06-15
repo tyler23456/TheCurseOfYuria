@@ -139,6 +139,10 @@ public class SwitchAllieDisplay : DisplayBase
         AllieManager.Instance.SwapIndexes(0, unselectedIndex);
         cameraFollowEnabler.enabled = true;
         gameObject.SetActive(false);
+        nextAllie.getATBGuage.Reset();
+        //call update for other methods
+        BattleManager.Instance.CancelCommandsFrom(previousAllie);
+        StatsDisplay.Instance.Refresh();
     }
 
     void OnPointerEnter(string itemName)

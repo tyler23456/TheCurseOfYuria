@@ -48,6 +48,9 @@ public class Scroll : Skill, IItem, IScroll
         if (user == null)
             yield break;
 
+        if (IsInvalidTarget(target))
+            yield break;
+
         float accumulator = 0;
         accumulator = _elementType.Calculate(user, target, power * IStats.powerMultiplier);
         accumulator = _armType.Calculate(user, target, accumulator);

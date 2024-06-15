@@ -11,9 +11,13 @@ public class BattleManager : MonoBehaviour
     [SerializeField] TargeterBase enemyTargeter;
     [SerializeField] List<StatusEffectBase> gameOverStatusEffects;
 
-    public Queue<IActor> aTBGuageFilledQueue { get; set; } = new Queue<IActor>();
-    public LinkedList<Command> pendingCommands { get; set; } = new LinkedList<Command>();
-    public LinkedList<Command> successfulCommands { get; set; } = new LinkedList<Command>();
+    List<IActor> aTBGuageFilledList { get; set; } = new List<IActor>();
+    LinkedList<Command> pendingCommands { get; set; } = new LinkedList<Command>();
+    LinkedList<Command> successfulCommands { get; set; } = new LinkedList<Command>();
+
+    public int aTBGuageFilledCount => aTBGuageFilledList.Count;
+    public int pendingCommandsCount => pendingCommands.Count;
+    public int successfulCommandsCount => successfulCommands.Count;
 
     public void Awake()
     {
@@ -117,10 +121,51 @@ public class BattleManager : MonoBehaviour
             GameOverDisplay.Instance.ShowExclusivelyInParent();
     }
 
-    public void CancelPendingCommandsWhere(Func<Command, bool> predicate)
+    public void CancelCommandsFrom(IActor actor)
     {
         foreach (Command command in pendingCommands)
-            if (predicate.Invoke(command))
+            if (actor.obj.name == command.user.obj.name)
                 command.isCancelled = true;
+
+        for (int i = aTBGuageFilledList.Count - 1; i >= 0; i--)
+            if (aTBGuageFilledList[i].obj.name == actor.obj.name)
+                aTBGuageFilledList.RemoveAt(i);
+    }
+
+    public void AddCommand(Command command)
+    {
+        pendingCommands.AddLast(command);
+    }
+
+    public void AddATBGuageFilled(IActor actor)
+    {
+        aTBGuageFilledList.Add(actor);
+    }
+
+    public IActor PeekNextATBGuageFilled()
+    {
+        return aTBGuageFilledList[0];
+    }
+
+    public Command PeekNextCommand()
+    {
+        return pendingCommands.First();
+    }
+
+    public Command PeekPreviousCommand()
+    {
+        return successfulCommands.Last();
+    }
+
+    public void RemoveNextATBGuageFilled()
+    {
+        aTBGuageFilledList.RemoveAt(0);
+    }
+
+    public void ClearAll()
+    {
+        aTBGuageFilledList.Clear();
+        pendingCommands.Clear();
+        successfulCommands.Clear();
     }
 }

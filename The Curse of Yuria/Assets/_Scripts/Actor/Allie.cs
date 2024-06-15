@@ -17,7 +17,7 @@ namespace TCOY.UserActors
             rigidbody2D = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
             
-            aTBGuage.OnATBGuageFilled = () => BattleManager.Instance.aTBGuageFilledQueue.Enqueue(this);
+            aTBGuage.OnATBGuageFilled = () => BattleManager.Instance.AddATBGuageFilled(this);
 
             stats.onHPDamage += (damage) => animator.SetTrigger("Hit");
         }
