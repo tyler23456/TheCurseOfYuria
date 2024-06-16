@@ -7,13 +7,12 @@ namespace TCOY.UserActors
     [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
     public class Enemy : Actor, IEnemy, IActor
     {
-        [SerializeField] TargeterBase targeterForHostility;
         [SerializeField] List<Move> moves;
 
         Queue<Move> movesQueue = new Queue<Move>();
 
         public new Rigidbody2D rigidbody2D { get; private set; }
-        public Animator animator { get; private set; }  
+        public Animator animator { get; private set; }
 
         protected new void Awake()
         {
@@ -41,7 +40,7 @@ namespace TCOY.UserActors
 
         void MakeADecision()
         {
-            if (targeterForHostility.CalculateTargets(transform.position).Count == 0)
+            if (TargeterDatabase.Instance.getNearbyAllieTargeter.CalculateTargets(transform.position).Count == 0)
                 return;
 
             List<IActor> targets = movesQueue.Peek().getTargeter.CalculateTargets(transform.position);

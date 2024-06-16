@@ -8,7 +8,7 @@ namespace TCOY.Independent
     public class MaterialConverter : MonoBehaviour
     {
         [SerializeField] Material materialToConvertTo;
-        [SerializeField] bool convertToMaterial = false;
+        [SerializeField] public bool convertToMaterial = false;
 
         void Update()
         {
@@ -21,8 +21,11 @@ namespace TCOY.Independent
 
             foreach (SpriteRenderer renderer in spriteRenderers)
                 renderer.material = materialToConvertTo;
+        }
 
-
+        public void SetMaterial(Material material)
+        {
+            materialToConvertTo = material;
         }
     }
 }
