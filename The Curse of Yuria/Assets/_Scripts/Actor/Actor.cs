@@ -8,7 +8,7 @@ using System;
 
 namespace TCOY.UserActors
 {
-    [RequireComponent(typeof(BoxCollider2D), typeof (CoroutineBehaviour))]
+    [RequireComponent(typeof(Collider2D))]
     
     public class Actor : MonoBehaviour, IActor
     {
@@ -18,7 +18,6 @@ namespace TCOY.UserActors
         [SerializeField] protected List<Reactor> counters;
         [SerializeField] protected List<Reactor> interrupts;
       
-        protected CoroutineBehaviour coroutineBehaviour;
         protected DefaultItems editorEquipper;
         protected new Collider2D collider2D;
         protected SpriteRenderer[] spriteRenderers;
@@ -47,7 +46,6 @@ namespace TCOY.UserActors
 
         protected void Awake()
         {
-            coroutineBehaviour = GetComponent<CoroutineBehaviour>();
             editorEquipper = GetComponent<DefaultItems>();
             collider2D = GetComponent<Collider2D>();
             spriteRenderers = GetComponentsInChildren<SpriteRenderer>();

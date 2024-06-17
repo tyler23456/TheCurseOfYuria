@@ -3,16 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 
-namespace TCOY.PlayerControls
+namespace TCOY.ControllerStates
 {
-    public class PlayerControls : MonoBehaviour, IPlayerControls
+    public class PlayerControls : MonoBehaviour, IPlayerControls, IStateController
     {
-        public float speed { get; set; } = 1f;
-        public IAllie allie { get; set; }
-        public Vector2 velocity { get; set; } = Vector2.zero;
+        [SerializeField] StateBase initialState;
+        [SerializeField] float _safeDistance = 30f;
+        [SerializeField] float _battleDistance = 10f;
+        [SerializeField] float _stopDistance = 2f;
 
-        PlayerControllerStateBase stateObject = new NormalState();
-        IPlayerControls.State currentState = IPlayerControls.State.Normal;
+        public Vector2 velocity { get; set; } = Vector2.zero;
+        public float speed { get; set; } = 1f;
+        public IActor actor { get; set; }
+        public Animator animator { get; set; }
+        public new Rigidbody2D rigidbody2D { get; set; }
+
+        public float safeDistance => _safeDistance;
+        public float battleDistance => _battleDistance;
+        public float stopDistance => _stopDistance;
+
+        public IState state { get; set; }
+
+        void Awake()
+        {
+            state = initialState;
+        }
 
         void FixedUpdate()
         {
@@ -28,9 +43,11 @@ namespace TCOY.PlayerControls
             if (GameStateManager.Instance.isPaused)
                 return;
 
-            allie = AllieManager.Instance.First();
-            
-            allie.rigidbody2D.AddForce(velocity, ForceMode2D.Impulse);
+            actor = AllieManager.Instance.First();
+            animator = actor.obj.GetComponent<Animator>();
+            rigidbody2D = actor.obj.GetComponent<Rigidbody2D>();
+
+            rigidbody2D.AddForce(velocity, ForceMode2D.Impulse);
             velocity = Vector3.zero;
         }
 
@@ -72,35 +89,11 @@ namespace TCOY.PlayerControls
             if (AllieManager.Instance.First().enabled == false)
                 return;
 
-            allie = AllieManager.Instance.First();
+            actor = AllieManager.Instance.First();
+            animator = actor.obj.GetComponent<Animator>();
+            rigidbody2D = actor.obj.GetComponent<Rigidbody2D>();
 
-            ExecuteControllerState();
-        }
-
-        void ExecuteControllerState()
-        {
-            if (IPlayerControls.state != currentState)
-            {
-                stateObject.MarkStateAsFinished(this);
-
-                switch (IPlayerControls.state)
-                {
-                    case IPlayerControls.State.Normal:
-                        stateObject = new NormalState();
-                        currentState = IPlayerControls.State.Normal;
-                        break;
-                    case IPlayerControls.State.Combat:
-                        stateObject = new CombatState();
-                        currentState = IPlayerControls.State.Combat;
-                        break;
-                    case IPlayerControls.State.Climb:
-                        stateObject = new ClimbState();
-                        currentState = IPlayerControls.State.Climb;
-                        break;
-                }
-            }
-
-            stateObject.Update(this);
+            state.UpdateState(this);
         }
     }
 }

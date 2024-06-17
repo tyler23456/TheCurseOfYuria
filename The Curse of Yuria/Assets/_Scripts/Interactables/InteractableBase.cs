@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace TCOY.DontDestroyOnLoad
 {
-    [RequireComponent(typeof(BoxCollider2D))]
+    [RequireComponent(typeof(Collider2D))]
     public class InteractableBase : MonoBehaviour
     {
         [SerializeField] protected string id = "None";

@@ -33,7 +33,7 @@ public class EnemyAssetManager : MonoBehaviour
     void RefreshEnemyPrefabs(GameObject prefab)
     {
         TCOY.UserActors.Enemy enemy = prefab.GetComponent<TCOY.UserActors.Enemy>();
-        TCOY.AStar.GroundUnit unit = prefab.GetComponent<TCOY.AStar.GroundUnit>();
+        TCOY.AStar.ControllerUnit unit = prefab.GetComponent<TCOY.AStar.ControllerUnit>();
         TCOY.DontDestroyOnLoad.RandomDrop drop = prefab.GetComponent<TCOY.DontDestroyOnLoad.RandomDrop>();
         TCOY.Independent.MaterialConverter converter = prefab.GetComponent<TCOY.Independent.MaterialConverter>();
 
@@ -47,7 +47,7 @@ public class EnemyAssetManager : MonoBehaviour
             enemy = prefab.AddComponent<TCOY.UserActors.Enemy>();
 
         if (unit == null)
-            unit = prefab.AddComponent<TCOY.AStar.GroundUnit>();
+            unit = prefab.AddComponent<TCOY.AStar.ControllerUnit>();
 
         if (drop == null)
             drop = prefab.AddComponent<TCOY.DontDestroyOnLoad.RandomDrop>();
@@ -68,18 +68,16 @@ public class EnemyAssetManager : MonoBehaviour
 
         collider.sharedMaterial = noFrictionMaterial;
 
+        prefab.layer = LayerMask.NameToLayer("Enemy");
+
         //foreach (SpriteRenderer spriteRenderer in spriteRenderers)
         //{
         //    spriteRenderer.sortingOrder = 200;
         //}
 
-        //----------------------------make sure BoxCollider2D gets deleted.
-        //----------------------------change layer in here too.
-        //----------------------------give troll his capsule collider back (use a capsule collider from one of the previous trolls)
-
         if (previousCollider != null)
-            DestroyImmediate(previousCollider);
-
+            DestroyImmediate(previousCollider, true);
+            
         PrefabUtility.SavePrefabAsset(prefab);
     }
 }
