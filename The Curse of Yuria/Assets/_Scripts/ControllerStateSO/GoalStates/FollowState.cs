@@ -15,7 +15,7 @@ namespace TCOY.ControllerStates
 
         protected override void Enter(IController controller)
         {
-            base.Enter(controller);
+              base.Enter(controller);
             
             controller.destination = AllieManager.Instance[0].obj.transform.position;
             controller.waypoints.Clear();
@@ -64,7 +64,7 @@ namespace TCOY.ControllerStates
         {
             while (true)
             {
-                if (controller.animator.GetInteger("MovePriority") < int.MaxValue || controller.actor.enabled == false)
+                if (controller.animator.GetInteger("MovePriority") < int.MaxValue) //|| controller.actor.enabled == false)
                     yield return null;
 
                 PathRequester.RequestPath(controller.origin, controller.destination, (IPath)controller);

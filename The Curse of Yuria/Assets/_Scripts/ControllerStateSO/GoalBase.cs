@@ -17,28 +17,28 @@ namespace TCOY.ControllerStates
 
         public void UpdateState(IController controller)
         {
-            if (controller.actionState == IState.State.enter)
+            if (controller.goalState == IState.State.enter)
             {
-                controller.actionState = IState.State.stay;
+                controller.goalState = IState.State.stay;
                 Enter(controller);
                 
             }
 
 
-            if (controller.actionState == IState.State.stay)
+            if (controller.goalState == IState.State.stay)
                 Stay(controller);
 
             foreach (GoalBase transitionState in transitionStates)
                 if (transitionState.CheckForTransition(controller) == true)
                 {
-                    controller.actionState = IState.State.exit;
+                    controller.goalState = IState.State.exit;
                     controller.goal = transitionState;
                 }
 
-            if (controller.actionState == IState.State.exit)
+            if (controller.goalState == IState.State.exit)
             {
                 Exit(controller);
-                controller.actionState = IState.State.enter;
+                controller.goalState = IState.State.enter;
             }
         }
 

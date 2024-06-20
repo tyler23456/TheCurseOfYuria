@@ -31,14 +31,16 @@ namespace TCOY.AStar
 
         public IAction action { get; set; }
         public IGoal goal { get; set; }
-        public IState.State actionState { get; set; }
-        public IState.State goalState { get; set; }
+        public IState.State actionState { get; set; } = IState.State.enter;
+        public IState.State goalState { get; set; } = IState.State.enter;
 
         void Awake()
         {
             actor = GetComponent<IActor>();
             animator = actor.obj.GetComponent<Animator>();
             rigidbody2D = actor.obj.GetComponent<Rigidbody2D>();
+            action = initialActionState;
+            goal = initialGoalState;
         }
 
         void Update()
@@ -56,6 +58,7 @@ namespace TCOY.AStar
                 return;
 
             action.UpdateState(this);
+            goal.UpdateState(this);
         }
 
         void FixedUpdate()
@@ -75,10 +78,10 @@ namespace TCOY.AStar
             rigidbody2D.AddForce(velocity, ForceMode2D.Impulse);
             velocity = Vector2.zero;
         }
-         
+        
         void OnDrawGizmos()
         {
-            action.OnDrawGizmosMethod(this);
+            //action.OnDrawGizmosMethod(this);
         }
     }
 }
