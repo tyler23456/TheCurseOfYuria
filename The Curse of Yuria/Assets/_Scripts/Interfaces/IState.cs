@@ -4,6 +4,9 @@ using UnityEngine;
 
 public interface IState
 {
-    void UpdateState(IStateController controller);
-    void OnDrawGizmosMethod(IStateController controller);
+    public enum State { enter, stay, exit }
+
+    string getName { get; }
+    void UpdateState(IController controller);
+    void OnDrawGizmosMethod(IController controller);
 }

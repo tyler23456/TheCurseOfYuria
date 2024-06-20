@@ -5,10 +5,11 @@ using TCOY.Heap;
 
 namespace TCOY.AStar
 {
-    public class Waypoint : MonoBehaviour, IHeapItem<Waypoint>
+    public class Waypoint : MonoBehaviour, IHeapItem<Waypoint>, IWaypoint
     {
         [SerializeField] WaypointManager waypointManager; 
-        [SerializeField] List<Waypoint> connectedWaypoints;
+        [SerializeField] List<Connection> connectedWaypoints;
+        [SerializeField] List<Waypoint> waypoints;
 
         int _heapIndex;
 
@@ -19,7 +20,8 @@ namespace TCOY.AStar
         public int fCost => hCost + gCost;
         public int heapIndex { get { return _heapIndex; } set { _heapIndex = value; } }
 
-        public List<Waypoint> getNeighbors => connectedWaypoints;
+        public List<Waypoint> getNeighbors => waypoints;
+        public Vector2 position => transform.position;
 
         void Reset()
         {
@@ -30,14 +32,12 @@ namespace TCOY.AStar
                 waypointManager = transform.parent.GetComponent<WaypointManager>();
         }
 
-        void Start()
+        void OnValidate()
         {
+            waypoints.Clear();
 
-        }
-
-        void Update()
-        {
-
+            foreach (Connection connection in connectedWaypoints)
+                waypoints.Add(connection.waypoint);
         }
 
         public int CompareTo(Waypoint nodeToCompare)
@@ -48,6 +48,16 @@ namespace TCOY.AStar
                 compare = hCost.CompareTo(nodeToCompare.hCost);
             }
             return -compare;
+        }
+
+        public List<IConnection> GetConnections()
+        {
+            List<IConnection> results = new List<IConnection>();
+
+            foreach (Connection connection in connectedWaypoints)
+                    results.Add(connection);
+
+            return results;
         }
     }
 }

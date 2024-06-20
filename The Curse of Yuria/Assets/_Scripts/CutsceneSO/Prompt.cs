@@ -6,7 +6,7 @@ using TMPro;
 using System;
 
 [CreateAssetMenu(fileName = "NewPrompt", menuName = "Cutscene/Prompt")]
-public class Prompt : ActionBase, IAction
+public class Prompt : ActionBase, ICutsceneAction
 {
     [TextArea(3, 10)] [SerializeField] string text;
 

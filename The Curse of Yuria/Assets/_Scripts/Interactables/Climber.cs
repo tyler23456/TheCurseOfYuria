@@ -6,15 +6,18 @@ namespace TCOY.DontDestroyOnLoad
 {
     public class Climber : InteractableBase, IInteractableTrigger, IClimber
     {
-        
+        static IController controller;
+
         public override void Interact(IActor player)
         {
             base.Interact(player);
 
-            if (IPlayerControls.state != IPlayerControls.State.Normal)
+            controller = player.obj.GetComponent<IController>();
+
+            if (controller.action.getName != "ClimbState")
                 return;
 
-            IPlayerControls.state = IPlayerControls.State.Climb;
+            controller.action = StateDatabase.Instance.GetAction("ClimbState");
         }
     }
 }

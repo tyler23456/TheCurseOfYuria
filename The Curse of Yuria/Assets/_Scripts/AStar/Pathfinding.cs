@@ -72,7 +72,7 @@ namespace TCOY.AStar
             if (pathSuccess)
                 wayPoints = TraversePath(startNode, targetNode);
 
-            pathRequester.FinishedProcessingPath(wayPoints, pathSuccess);
+            pathRequester.FinishedProcessingPath();
             yield return new WaitForSecondsRealtime(0.1f);
         }
 

@@ -21,9 +21,9 @@ namespace TCOY.AStar
             pathfinding = GetComponent<Pathfinding2>();
         }
 
-        public static void RequestPath (Vector3 pathStart, Vector3 pathEnd, Action<Vector3[], bool> callback)
+        public static void RequestPath (Vector3 pathStart, Vector3 pathEnd, IPath path)
         {
-            PathRequest newRequest = new PathRequest(pathStart, pathEnd, callback);
+            PathRequest newRequest = new PathRequest(pathStart, pathEnd, path);
             instance.pathRequestQueue.Enqueue(newRequest);
             instance.TryProcessNext();
         }
@@ -34,13 +34,12 @@ namespace TCOY.AStar
             {
                 currentPathRequest = pathRequestQueue.Dequeue();
                 isProcessingPath = true;
-                pathfinding.StartFindPath(currentPathRequest.pathStart, currentPathRequest.pathEnd);
+                pathfinding.StartFindPath(currentPathRequest.pathStart, currentPathRequest.pathEnd, currentPathRequest.path);
             }
         }
 
-        public void FinishedProcessingPath(Vector3[] path, bool success)
+        public void FinishedProcessingPath()
         {
-            currentPathRequest.callback(path, success);
             isProcessingPath = false;
             TryProcessNext();
         }
@@ -49,13 +48,13 @@ namespace TCOY.AStar
         {
             public Vector3 pathStart;
             public Vector3 pathEnd;
-            public Action<Vector3[], bool> callback;
+            public IPath path;
 
-            public PathRequest(Vector3 start, Vector3 end, Action<Vector3[], bool> callback)
+            public PathRequest(Vector3 start, Vector3 end, IPath path)
             {
                 this.pathStart = start;
                 this.pathEnd = end;
-                this.callback = callback;
+                this.path = path;
             }
         }
 

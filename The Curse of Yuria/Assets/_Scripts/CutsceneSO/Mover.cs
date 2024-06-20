@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 [CreateAssetMenu(fileName = "NewMover", menuName = "Cutscene/Mover")]
-public class Mover : ActionBase, IAction
+public class Mover : ActionBase, ICutsceneAction
 {
     [SerializeField] string actorName = "default";
     [SerializeField] Vector2 actorDestination;

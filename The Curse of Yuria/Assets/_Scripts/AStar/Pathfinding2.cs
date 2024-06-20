@@ -18,12 +18,12 @@ namespace TCOY.AStar
             waypointManager = GetComponent<WaypointManager>();
         }
 
-        internal void StartFindPath(Vector3 pathStart, Vector3 pathEnd)
+        internal void StartFindPath(Vector3 pathStart, Vector3 pathEnd, IPath path)
         {
-            StartCoroutine(FindPath(pathStart, pathEnd));
+            StartCoroutine(FindPath(pathStart, pathEnd, path));
         }
 
-        IEnumerator FindPath(Vector3 startPosition, Vector3 targetPosition)
+        IEnumerator FindPath(Vector3 startPosition, Vector3 targetPosition, IPath path)
         {
             Vector3[] results = new Vector3[0];
 
@@ -31,7 +31,7 @@ namespace TCOY.AStar
             Waypoint targetNode = waypointManager.CalculateClosestWaypoint(targetPosition);
             Heap<Waypoint> openSet = new Heap<Waypoint>(waypointManager.transform.childCount);
             List<Waypoint> closedSet = new List<Waypoint>();
-            bool pathSuccess = false;
+            path.pathSuccess = false;
 
             openSet.Add(startNode);
 
@@ -44,7 +44,7 @@ namespace TCOY.AStar
 
                 if (currentNode.GetInstanceID() == targetNode.GetInstanceID())
                 {
-                    pathSuccess = true;
+                    path.pathSuccess = true;
                     break;
                 }
 
@@ -67,26 +67,25 @@ namespace TCOY.AStar
                 }
             }
 
-            if (pathSuccess)
-                results = TraversePath(startNode, targetNode);
+            if (path.pathSuccess)
+                TraversePath(startNode, targetNode, path);
 
-            pathRequester.FinishedProcessingPath(results, pathSuccess);
+            pathRequester.FinishedProcessingPath();
             yield return new WaitForSecondsRealtime(0.1f);
         }
 
-        Vector3[] TraversePath(Waypoint startNode, Waypoint endNode)
+        void TraversePath(Waypoint startNode, Waypoint endNode, IPath path)
         {
-            List<Vector3> path = new List<Vector3>();
+            path.waypoints.Clear();
             Waypoint currentNode = endNode;
 
             while (currentNode.GetInstanceID() != startNode.GetInstanceID())
             {
-                path.Add(currentNode.transform.position);
+                path.waypoints.Add(currentNode);
                 currentNode = currentNode.parent;
             }
 
-            path.Reverse();
-            return path.ToArray();
+            path.waypoints.Reverse();
         }
 
         Vector3[] simplifyPath(List<Node> path)

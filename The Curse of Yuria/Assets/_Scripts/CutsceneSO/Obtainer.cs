@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 [CreateAssetMenu(fileName = "NewObtainer", menuName = "Cutscene/Obtainer")]
-public class Obtainer : ActionBase, IAction
+public class Obtainer : ActionBase, ICutsceneAction
 {
     [SerializeField] List<Entry> entries;
 

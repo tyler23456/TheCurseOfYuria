@@ -6,9 +6,10 @@ using System;
 namespace TCOY.AStar
 {
     [RequireComponent(typeof(Animator), typeof(Rigidbody2D))]
-    public class ControllerUnit : MonoBehaviour, IStateController
+    public class ControllerUnit : MonoBehaviour, IController, IPath
     {
-        [SerializeField] TCOY.ControllerStates.StateBase initialState;
+        [SerializeField] TCOY.ControllerStates.ActionBase initialActionState;
+        [SerializeField] TCOY.ControllerStates.GoalBase initialGoalState;
         [SerializeField] float _safeDistance = 30f;
         [SerializeField] float _battleDistance = 10f;
         [SerializeField] float _stopDistance = 2f;
@@ -18,12 +19,20 @@ namespace TCOY.AStar
         public IActor actor { get; set; }
         public Animator animator { get; set; }
         public new Rigidbody2D rigidbody2D { get; set; }
-
+        public bool pathSuccess { get; set; }
+        public List<IWaypoint> waypoints { get; set; } = new List<IWaypoint>();
+        public int index { get; set; }
+        public Vector2 destination { get; set; }
+        public Vector2 origin => transform.position;
+        
         public float safeDistance => _safeDistance;
         public float battleDistance => _battleDistance;
         public float stopDistance => _stopDistance;
 
-        public IState state { get; set; }
+        public IAction action { get; set; }
+        public IGoal goal { get; set; }
+        public IState.State actionState { get; set; }
+        public IState.State goalState { get; set; }
 
         void Awake()
         {
@@ -46,7 +55,7 @@ namespace TCOY.AStar
             if (GameStateManager.Instance.isPaused)
                 return;
 
-            state.UpdateState(this);
+            action.UpdateState(this);
         }
 
         void FixedUpdate()
@@ -69,7 +78,7 @@ namespace TCOY.AStar
          
         void OnDrawGizmos()
         {
-            state.OnDrawGizmosMethod(this);
+            action.OnDrawGizmosMethod(this);
         }
     }
 }
