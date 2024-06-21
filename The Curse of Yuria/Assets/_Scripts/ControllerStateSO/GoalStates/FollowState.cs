@@ -67,6 +67,7 @@ namespace TCOY.ControllerStates
                 if (controller.animator.GetInteger("MovePriority") < int.MaxValue) //|| controller.actor.enabled == false)
                     yield return null;
 
+                controller.destination = AllieManager.Instance[0].obj.transform.position;
                 PathRequester.RequestPath(controller.origin, controller.destination, (IPath)controller);
 
                 yield return new WaitForSeconds(0.5f);

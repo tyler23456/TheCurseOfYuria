@@ -4,6 +4,8 @@ using UnityEngine;
 
 public interface IConnection
 {
-    IWaypoint getNextWaypoint { get; }
+    IWaypoint getFirstWaypoint { get; }
+    IWaypoint getSecondWaypoint { get; }
     IAction getAction { get; }
+    IWaypoint GetOtherWaypoint(IWaypoint thisWaypoint);
 }

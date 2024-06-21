@@ -74,25 +74,5 @@ namespace TCOY.AStar
 
             return shortestTransform.GetComponent<Waypoint>();
         }
-
-        Waypoint waypoint;
-        void OnDrawGizmos()
-        {
-            foreach (Transform t in transform)
-            {
-                waypoint = t.GetComponent<Waypoint>();
-
-                Gizmos.color = Color.cyan / 1.5f;
-                Gizmos.DrawSphere(t.position, 1f);
-
-                if (waypoint == null || waypoint.getNeighbors == null)
-                    continue;
-
-                /*Gizmos.color = Color.green;
-                foreach (Waypoint w in waypoint.getNeighbors)
-                    if (w != null)
-                        Gizmos.DrawLine(t.position, w.transform.position);*/
-            }
-        }
     }
 }
