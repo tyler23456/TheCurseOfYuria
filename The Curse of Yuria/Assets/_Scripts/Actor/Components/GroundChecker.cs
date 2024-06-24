@@ -12,21 +12,34 @@ namespace TCOY.UserActors
         bool isGrounded;
         bool isFalling;
 
-        public GroundChecker(GameObject obj)
+        public GroundChecker(Animator animator)
         {
-            animator = obj.transform.GetComponent<Animator>();
+            this.animator = animator;
         }
 
         public void Update()
         {
-            if (!Physics.Raycast(animator.transform.position, Vector2.down, 0.2f))
-                return;
+            //if (!Physics2D.Raycast(animator.transform.position, Vector2.down, 0.1f, LayerMask.GetMask("TileCollision")))
+                //return;
 
-            isGrounded = Physics.SphereCast(animator.transform.position + Vector3.up * 0.55f, 0.5f, Vector3.down, out RaycastHit groundHit, 0.3f);
+            isGrounded = Physics2D.CircleCast(animator.transform.position, 0.3f, Vector3.down, 0.3f, LayerMask.GetMask("TileCollision"));
             animator.SetBool("IsGrounded", isGrounded);
 
-            isFalling = Physics.SphereCast(animator.transform.position + Vector3.up * 0.55f, 0.4f, Vector3.down, out RaycastHit fallHit, 2f);
-            animator.SetBool("IsFalling", !isFalling);
+            //isFalling = Physics2D.CircleCast(animator.transform.position, 0.4f, Vector3.down, 1f, LayerMask.GetMask("TileCollision"));
+            //animator.SetBool("IsFalling", !isFalling);
+        }
+
+        public void OnDrawGizmos()
+        {
+            if (animator == null)
+                return;
+
+            if (isGrounded)
+                Gizmos.color = Color.green;
+            else
+                Gizmos.color = Color.yellow;
+
+            Gizmos.DrawSphere(animator.transform.position, 0.3f);
         }
     }
 }

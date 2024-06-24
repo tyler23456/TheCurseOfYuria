@@ -21,7 +21,6 @@ namespace TCOY.UserActors
         protected DefaultItems editorEquipper;
         protected new Collider2D collider2D;
         protected SpriteRenderer[] spriteRenderers;
-        protected GroundChecker groundChecker;
         protected Inventory equipment;
         protected Inventory skills;
         protected StatusEffects statusEffects;
@@ -51,7 +50,6 @@ namespace TCOY.UserActors
             spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
             aTBGuage = new ATBGuage();
-            groundChecker = new GroundChecker(gameObject);
             equipment = new Inventory();
             skills = new Inventory();
             
@@ -97,7 +95,6 @@ namespace TCOY.UserActors
                 return;
 
             aTBGuage.Update();
-            groundChecker.Update();
             statusEffects.Update();
         }
     }

@@ -22,9 +22,14 @@ public class AllieManager : MonoBehaviour
         Instance = this;
     }
 
-    public IAllie First()
+    public IAllie FirstAllie()
     {
         return Instance[0];
+    }
+
+    public IController FirstController()
+    {
+        return Instance[0].obj.GetComponent<IController>();
     }
 
     public void Refresh()
@@ -110,7 +115,7 @@ public class AllieManager : MonoBehaviour
         {
             transform.GetChild(0).SetSiblingIndex(selectedCount - 1);
 
-            if (First().enabled == true)
+            if (FirstAllie().enabled == true)
                 break;
         }          
         Refresh();
@@ -122,7 +127,7 @@ public class AllieManager : MonoBehaviour
         {
             transform.GetChild(selectedCount - 1).SetSiblingIndex(0);
 
-            if (First().enabled == true)
+            if (FirstAllie().enabled == true)
                 break;
         }
         Refresh();

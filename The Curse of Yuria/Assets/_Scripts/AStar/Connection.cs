@@ -7,8 +7,11 @@ using UnityEditor;
 namespace TCOY.AStar
 {
     [ExecuteAlways]
+    [RequireComponent(typeof(EdgeCollider2D))]
     public class Connection : MonoBehaviour, IConnection
     {
+        [SerializeField] [HideInInspector] EdgeCollider2D collider;
+
         [SerializeField] Waypoint firstWaypoint;
         [SerializeField] Waypoint secondWaypoint;
         [SerializeField] TCOY.ControllerStates.ActionBase action;
@@ -21,11 +24,55 @@ namespace TCOY.AStar
         {
             this.firstWaypoint = firstWaypoint;
             this.secondWaypoint = secondWaypoint;
+            RefreshTransform();
+            RefreshCollider();
         }
+
+        public void RefreshTransform()
+        {
+            Vector2 averagePosition = (firstWaypoint.position + secondWaypoint.position) / 2;
+            transform.position = averagePosition;
+        }
+
+        public void Update()
+        {
+            if (!transform.hasChanged)
+                return;
+
+            transform.hasChanged = false;
+
+            RefreshTransformOfAttachedWaypoints();
+            RefreshCollider();
+        }
+
+        public void RefreshTransformOfAttachedWaypoints()
+        {
+            firstWaypoint.UpdateTransform();
+            secondWaypoint.UpdateTransform();
+        }
+
+        public void RefreshCollider()
+        {
+            if (collider == null)
+                collider = gameObject.GetComponent<EdgeCollider2D>();
+
+            collider.isTrigger = true;
+            collider.edgeRadius = 0.1f;
+
+            Vector2 halfLength = (secondWaypoint.position - firstWaypoint.position) / 2f;
+
+            collider.points = new Vector2[] { -halfLength, halfLength };
+        }
+
 
         public IWaypoint GetOtherWaypoint(IWaypoint thisWaypoint)
         {
             return thisWaypoint.Equals(firstWaypoint) ? secondWaypoint : firstWaypoint;
+        }
+
+        public IWaypoint GetClosestWaypoint(Vector2 position)
+        {
+            return Vector2.Distance(position, firstWaypoint.position) > Vector2.Distance(position, secondWaypoint.position)? secondWaypoint : firstWaypoint;
         }
 
         void OnDestroy()

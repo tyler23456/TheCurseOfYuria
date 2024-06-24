@@ -21,7 +21,7 @@ public class InteractingTriggerManager : MonoBehaviour
         if (!GameStateManager.Instance.isPlaying)
             return;
         
-        Ray ray = new Ray(AllieManager.Instance.First().obj.transform.position - Vector3.forward, Vector3.forward);
+        Ray ray = new Ray(AllieManager.Instance.FirstAllie().obj.transform.position - Vector3.forward, Vector3.forward);
         RaycastHit2D[] hits = Physics2D.GetRayIntersectionAll(ray, Mathf.Infinity);
 
         foreach (RaycastHit2D hit in hits)
@@ -49,7 +49,7 @@ public class InteractingTriggerManager : MonoBehaviour
         {
             targets = target.gameObject.GetComponents<IInteractable>();
             foreach (IInteractable target in targets)
-                target.Interact(AllieManager.Instance.First());
+                target.Interact(AllieManager.Instance.FirstAllie());
         }
     }
 }

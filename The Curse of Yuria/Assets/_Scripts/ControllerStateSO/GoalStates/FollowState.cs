@@ -10,7 +10,7 @@ namespace TCOY.ControllerStates
     {
         public override bool CheckForTransition(IController controller)
         {
-            return Vector3.Distance(controller.origin, controller.destination) < controller.battleDistance;
+            return Vector3.Distance(controller.position, controller.destination) < controller.battleDistance;
         }
 
         protected override void Enter(IController controller)
@@ -22,40 +22,10 @@ namespace TCOY.ControllerStates
             controller.actor.StartCoroutine(CheckForPath(controller));
         }
 
-        protected override void Stay(IController controller)
-        {
-            if (controller.waypoints.Count == 0 || controller.index >= controller.waypoints.Count || Vector3.Distance(controller.origin, controller.destination) < controller.stopDistance)
-                return;
-
-            Vector3 currentWayPoint = controller.waypoints[controller.index].position;
-
-            Vector2 path2D = controller.waypoints[controller.index].position;
-            Vector2 position = controller.rigidbody2D.transform.position;
-            Vector2 direction = (path2D - position).normalized;
-
-            controller.animator.SetInteger("State", 0);
-
-            if (direction.x > 0f)
-            {
-                controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 0f, 0f);
-                controller.animator.SetInteger("State", 2);
-                controller.velocity += Vector2.right * controller.speed;
-            }
-            else if (direction.x < 0f)
-            {
-                controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 180f, 0f);
-                controller.animator.SetInteger("State", 3);
-                controller.velocity += Vector2.left * controller.speed;
-            }
-
-            if (controller.rigidbody2D.transform.position == currentWayPoint)
-                controller.index++;
-        }
-
+       
         protected override void Exit(IController controller)
         {
             base.Exit(controller);
-
             controller.actor.StopCoroutine(CheckForPath(controller));
         }
 
@@ -67,10 +37,10 @@ namespace TCOY.ControllerStates
                 if (controller.animator.GetInteger("MovePriority") < int.MaxValue) //|| controller.actor.enabled == false)
                     yield return null;
 
-                controller.destination = AllieManager.Instance[0].obj.transform.position;
-                PathRequester.RequestPath(controller.origin, controller.destination, (IPath)controller);
+                controller.destination = AllieManager.Instance.FirstController().position;
+                PathRequester.RequestPath(controller, AllieManager.Instance.FirstController());
 
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.2f);
             }
         }
 
@@ -81,12 +51,12 @@ namespace TCOY.ControllerStates
                 for (int i = controller.index; i < controller.waypoints.Count; i++)
                 {
                     Gizmos.color = Color.red / 2f;
-                    Gizmos.DrawCube(controller.waypoints[i].position, Vector3.one);
+                    Gizmos.DrawCube(controller.waypoints[i], Vector3.one);
 
                     if (i == controller.index)
-                        Gizmos.DrawLine(controller.rigidbody2D.transform.position, controller.waypoints[i].position);
+                        Gizmos.DrawLine(controller.rigidbody2D.transform.position, controller.waypoints[i]);
                     else
-                        Gizmos.DrawLine(controller.waypoints[i - 1].position, controller.waypoints[i].position);
+                        Gizmos.DrawLine(controller.waypoints[i - 1], controller.waypoints[i]);
                 }
             }
         }

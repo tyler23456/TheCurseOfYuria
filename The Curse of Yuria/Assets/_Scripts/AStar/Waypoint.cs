@@ -7,6 +7,7 @@ using UnityEditor;
 namespace TCOY.AStar
 {
     [ExecuteAlways]
+    [RequireComponent(typeof(CircleCollider2D))]
     public class Waypoint : MonoBehaviour, IHeapItem<Waypoint>, IWaypoint
     {
         [SerializeField] WaypointManager waypointManager;
@@ -75,10 +76,61 @@ namespace TCOY.AStar
                 this.RemoveAndDestroyConnection(neighbors[i]);
         }
 
+        void Update()
+        {
+            if (!transform.hasChanged)
+                return;
+
+            transform.hasChanged = false;
+            UpdateTransform();
+        }
+
+        public void UpdateTransform()
+        {
+            foreach (Connection connection in connections)
+            {
+                connection.RefreshTransform();
+                connection.RefreshCollider();
+            }
+                
+        }
+
         void OnDestroy()
         {
             RemoveAllAndDestroyConnection();
         }
+
+        void OnTriggerEnter2D(Collider2D collision)
+        {
+            IController controller = collision.GetComponent<IController>();
+
+            if (controller == null || controller.waypoints.Count == 0 || controller.goal.getName == "PlayerState") //may need to change player state later
+                return;
+
+            Vector2 position = transform.position;
+
+            if (controller.index >= controller.waypoints.Count || position != controller.waypoints[controller.index])
+                return;
+
+            controller.index++;
+
+            Connection targetConnection = null;
+            foreach (Connection connection in connections)
+                if (controller.waypoints.Contains(connection.GetOtherWaypoint(this).position))
+                {
+                    targetConnection = connection;
+                    break;
+                }
+            
+            if (targetConnection == null || targetConnection.getAction == null)
+                return;
+
+            controller.actionState = IState.State.exit;
+            controller.action.UpdateState(controller);
+            controller.action = targetConnection.getAction;
+        }
+
+       
 
         public int CompareTo(Waypoint nodeToCompare)
         {

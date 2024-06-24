@@ -50,7 +50,7 @@ namespace TCOY.DontDestroyOnLoad
             {
                 targets = target.gameObject.GetComponents<IInteractable>();
                 foreach (IInteractable target in targets)
-                    target.Interact(AllieManager.Instance.First());
+                    target.Interact(AllieManager.Instance.FirstAllie());
             }
         }
     }

@@ -21,9 +21,9 @@ namespace TCOY.AStar
             pathfinding = GetComponent<Pathfinding2>();
         }
 
-        public static void RequestPath (Vector3 pathStart, Vector3 pathEnd, IPath path)
+        public static void RequestPath (IPath user, IPath target)
         {
-            PathRequest newRequest = new PathRequest(pathStart, pathEnd, path);
+            PathRequest newRequest = new PathRequest(user, target);
             instance.pathRequestQueue.Enqueue(newRequest);
             instance.TryProcessNext();
         }
@@ -34,7 +34,7 @@ namespace TCOY.AStar
             {
                 currentPathRequest = pathRequestQueue.Dequeue();
                 isProcessingPath = true;
-                pathfinding.StartFindPath(currentPathRequest.pathStart, currentPathRequest.pathEnd, currentPathRequest.path);
+                pathfinding.StartFindPath(currentPathRequest.user, currentPathRequest.target);
             }
         }
 
@@ -46,15 +46,13 @@ namespace TCOY.AStar
 
         public struct PathRequest
         {
-            public Vector3 pathStart;
-            public Vector3 pathEnd;
-            public IPath path;
+            public IPath user;
+            public IPath target;
 
-            public PathRequest(Vector3 start, Vector3 end, IPath path)
+            public PathRequest(IPath user, IPath target)
             {
-                this.pathStart = start;
-                this.pathEnd = end;
-                this.path = path;
+                this.user = user;
+                this.target = target;
             }
         }
 

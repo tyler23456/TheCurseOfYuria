@@ -70,7 +70,7 @@ public class SwitchAllieDisplay : DisplayBase
     {
         cameraFollowEnabler.enabled = false;
 
-        previousAllie = AllieManager.Instance.First();
+        previousAllie = AllieManager.Instance.FirstAllie();
 
         nextAllie = null;
         for (int i = 3; i < AllieManager.Instance.count; i++)

@@ -10,7 +10,7 @@ namespace TCOY.ControllerStates
         protected override void Enter(IController controller)
         {
             base.Enter(controller);
-            controller.velocity += Vector2.up * 100;
+            controller.rigidbody2D.AddForce(Vector2.up * 4f * controller.speed, ForceMode2D.Impulse);
             controller.action = StateDatabase.Instance.GetAction("GroundState");
             controller.actionState = IState.State.exit;
         }

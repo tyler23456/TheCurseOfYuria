@@ -4,9 +4,10 @@ using UnityEngine;
 
 public interface IPath
 {
-    Vector2 origin { get; }
+    Vector2 position { get; }
     Vector2 destination { get; set; }
     bool pathSuccess { get; set; }
-    List<IWaypoint> waypoints { get; set; }
+    List<Vector2> waypoints { get; set; }
     int index { get; set; }
+    IConnection connection { get; }
 }

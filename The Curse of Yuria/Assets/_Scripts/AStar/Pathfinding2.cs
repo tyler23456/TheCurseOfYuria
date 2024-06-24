@@ -18,20 +18,25 @@ namespace TCOY.AStar
             waypointManager = GetComponent<WaypointManager>();
         }
 
-        internal void StartFindPath(Vector3 pathStart, Vector3 pathEnd, IPath path)
+        internal void StartFindPath(IPath user, IPath target)
         {
-            StartCoroutine(FindPath(pathStart, pathEnd, path));
+            StartCoroutine(FindPath(user, target));
         }
 
-        IEnumerator FindPath(Vector3 startPosition, Vector3 targetPosition, IPath path)
+        IEnumerator FindPath(IPath user, IPath target)
         {
-            Vector3[] results = new Vector3[0];
+            Waypoint startNode = waypointManager.CalculateClosestWaypoint(user);
+            Waypoint targetNode = waypointManager.CalculateClosestWaypoint(target);
 
-            Waypoint startNode = waypointManager.CalculateClosestWaypoint(startPosition);
-            Waypoint targetNode = waypointManager.CalculateClosestWaypoint(targetPosition);
             Heap<Waypoint> openSet = new Heap<Waypoint>(waypointManager.transform.childCount);
             List<Waypoint> closedSet = new List<Waypoint>();
-            path.pathSuccess = false;
+            user.pathSuccess = false;
+
+            if (startNode == null || targetNode == null)
+            {
+                pathRequester.FinishedProcessingPath();
+                yield break;
+            }
 
             openSet.Add(startNode);
 
@@ -42,9 +47,9 @@ namespace TCOY.AStar
 
                 closedSet.Add(currentNode);
 
-                if (currentNode.GetInstanceID() == targetNode.GetInstanceID())
+                if (currentNode.position == targetNode.position)
                 {
-                    path.pathSuccess = true;
+                    user.pathSuccess = true;
                     break;
                 }
 
@@ -67,31 +72,47 @@ namespace TCOY.AStar
                 }
             }
 
-            if (path.pathSuccess)
-                TraversePath(startNode, targetNode, path);
+            if (user.pathSuccess)
+                TraversePath(user, target, startNode, targetNode);
 
             pathRequester.FinishedProcessingPath();
-            yield return new WaitForSecondsRealtime(0.1f);
+            yield break;
         }
 
-        void TraversePath(Waypoint startNode, Waypoint endNode, IPath path)
+        void TraversePath(IPath user, IPath target, Waypoint startNode, Waypoint endNode)
         {
-            path.waypoints.Clear();
+            user.waypoints.Clear();
+            user.index = 0;
             Waypoint currentNode = endNode;
 
-            while (currentNode.GetInstanceID() != startNode.GetInstanceID())
+            Vector2 previousDirection = (target.position - currentNode.position).normalized;
+            Vector2 currentDirection = Vector2.zero;
+
+            while (currentNode.position != startNode.position)
             {
-                path.waypoints.Add(currentNode);
+                currentDirection = (currentNode.position - currentNode.parent.position).normalized;
+
+                //helps to prevent directions that overlap one another
+                if (Vector2.Dot(previousDirection, currentDirection) > -0.8f)
+                    user.waypoints.Add(currentNode.position);
+
                 currentNode = currentNode.parent;
+                previousDirection = currentDirection;
             }
 
-            path.waypoints.Reverse();
+            currentDirection = (currentNode.position - user.position).normalized;
+            if (Vector2.Dot(previousDirection, currentDirection) > -0.8f)
+                user.waypoints.Add(currentNode.position);
+
+            user.waypoints.Reverse();
+            user.waypoints.Add(target.position);
         }
 
         Vector3[] simplifyPath(List<Node> path)
         {
             List<Vector3> wayPoints = new List<Vector3>();
             Vector2 directionOld = Vector2.zero;
+            path.Clear();
 
             for (int i = 1; i < path.Count; i++)
             {

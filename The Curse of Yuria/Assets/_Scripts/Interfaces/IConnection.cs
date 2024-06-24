@@ -8,4 +8,5 @@ public interface IConnection
     IWaypoint getSecondWaypoint { get; }
     IAction getAction { get; }
     IWaypoint GetOtherWaypoint(IWaypoint thisWaypoint);
+    IWaypoint GetClosestWaypoint(Vector2 position);
 }
