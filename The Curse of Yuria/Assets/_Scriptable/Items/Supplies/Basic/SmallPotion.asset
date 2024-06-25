@@ -32,9 +32,9 @@ MonoBehaviour:
     Tags:
     - Paint
   statusEffectProbabilities: []
-  power: 0
+  power: 1
   _armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
   _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
+  _calculationType: {fileID: 11400000, guid: f117aa43d73050a469876f83fa098e44, type: 2}
   _bonusTypes: []
   particleSystem: {fileID: 0}

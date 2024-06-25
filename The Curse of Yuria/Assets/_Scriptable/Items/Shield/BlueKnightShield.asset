@@ -17,14 +17,6 @@ MonoBehaviour:
   _prefab: {fileID: 413214594623980170, guid: a6ae99cf4a0946b4eb07eaad59ff9995, type: 3}
   _equipmentType: {fileID: 11400000, guid: 23b0fb110feaf4f43912fd4f11319cea, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: cb2f26584ca6c49489dd6d16b5306e59, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  anyType: {fileID: 0}
-  power: 0
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: BlueKnightShield
     Collection: Knights
@@ -37,7 +29,11 @@ MonoBehaviour:
     Multiple: 1
     Hash: 7917425b8e17bfaed8cc0a8b5c8de726
     Tags: []
-  statusEffectProbabilities: []
-  modifiers: []
+  modifiers:
+  - attribute: 3
+    offset: 17
+  - attribute: 6
+    offset: -6
+  wards: []
   counters: []
   interrupts: []

@@ -17,14 +17,6 @@ MonoBehaviour:
   _prefab: {fileID: 5704237430909992935, guid: ee1dfad612e8d8b43b7991e2f7aa0e54, type: 3}
   _equipmentType: {fileID: 11400000, guid: 989166b4b7e1b3a45b41dd36d0c3d7d5, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  _bonusTypes: []
-  power: 2
-  cost: 2
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: DarkSkip
     Collection: Supplies
@@ -37,7 +29,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 8b6da46856830ea90bc70976b4f1a660
     Tags: []
-  statusEffectProbabilities: []
-  modifiers: []
-  counters: []
-  interrupts: []
+  statusEffectProbabilities:
+  - statusEffect: {fileID: 0}
+    probability: 0
+  power: 2
+  _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
+  _bonusTypes: []
+  particleSystem: {fileID: 0}
+  cost: 2

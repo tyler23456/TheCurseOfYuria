@@ -29,8 +29,10 @@ MonoBehaviour:
     Multiple: 1
     Hash: 73b1b850d84fd1ef1a3536726865aa99
     Tags: []
-  statusEffectProbabilities: []
-  power: 16
+  statusEffectProbabilities:
+  - statusEffect: {fileID: 11400000, guid: ae77481f8ee6b884ab328cb287dd14e0, type: 2}
+    probability: 0.05
+  power: 3
   _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
   _elementType: {fileID: 11400000, guid: 61dd2432436639444aa0b5f9ab37ff9d, type: 2}
   _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}

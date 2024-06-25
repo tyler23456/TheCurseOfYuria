@@ -31,7 +31,7 @@ MonoBehaviour:
     Tags: []
   statusEffectProbabilities:
   - statusEffect: {fileID: 11400000, guid: 1af67323599600b4d9b00b97c88ce548, type: 2}
-    probability: 1
+    probability: 0.9
   power: 2
   _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
   _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}

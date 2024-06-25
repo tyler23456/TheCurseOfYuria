@@ -17,14 +17,6 @@ MonoBehaviour:
   _prefab: {fileID: 7603236896305238775, guid: ea9660dac9bb36c43a3cf9a2adbe6b29, type: 3}
   _equipmentType: {fileID: 11400000, guid: 989166b4b7e1b3a45b41dd36d0c3d7d5, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  _bonusTypes: []
-  power: 2
-  cost: 2
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: Shock
     Collection: Supplies
@@ -37,7 +29,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: d65cff6b7720473755273ad676b84379
     Tags: []
-  statusEffectProbabilities: []
-  modifiers: []
-  counters: []
-  interrupts: []
+  statusEffectProbabilities:
+  - statusEffect: {fileID: 11400000, guid: 61dea5dbd52f2044198734224c6bcac7, type: 2}
+    probability: 0.9
+  power: 2
+  _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+  _elementType: {fileID: 11400000, guid: cd55b3b1c40b8dd4daea30da3e507901, type: 2}
+  _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+  _bonusTypes: []
+  particleSystem: {fileID: 0}
+  cost: 2

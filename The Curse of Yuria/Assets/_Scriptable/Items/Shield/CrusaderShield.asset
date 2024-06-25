@@ -29,6 +29,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 3a1a80f9d25de7ad90d80eace9ea8ca4
     Tags: []
-  modifiers: []
+  modifiers:
+  - attribute: 3
+    offset: 23
+  - attribute: 6
+    offset: -7
+  wards:
+  - elementType: {fileID: 11400000, guid: 0ed350d9141d4124d8cfe2e5c127feb3, type: 2}
+    amount: 20
   counters: []
   interrupts: []

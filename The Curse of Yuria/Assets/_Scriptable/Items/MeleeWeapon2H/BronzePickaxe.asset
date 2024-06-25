@@ -29,7 +29,12 @@ MonoBehaviour:
     Multiple: 1
     Hash: de74c9f294c1eca489beed52ece47eff
     Tags: []
-  modifiers: []
+  modifiers:
+  - attribute: 2
+    offset: 17
+  - attribute: 6
+    offset: -1
+  wards: []
   counters: []
   interrupts: []
   statusEffectProbabilities: []

@@ -17,14 +17,6 @@ MonoBehaviour:
   _prefab: {fileID: 4496648333311565105, guid: 8b42d719046d80f4181a95e7390998a4, type: 3}
   _equipmentType: {fileID: 11400000, guid: 989166b4b7e1b3a45b41dd36d0c3d7d5, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  _bonusTypes: []
-  power: 2
-  cost: 2
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: Deflect
     Collection: Supplies
@@ -37,7 +29,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: ed5272d4617fe9461f7774f78621861a
     Tags: []
-  statusEffectProbabilities: []
-  modifiers: []
-  counters: []
-  interrupts: []
+  statusEffectProbabilities:
+  - statusEffect: {fileID: 11400000, guid: e0e5a3d14adb3c14981132197fdcb1dc, type: 2}
+    probability: 0.9
+  power: 2
+  _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
+  _bonusTypes: []
+  particleSystem: {fileID: 0}
+  cost: 2

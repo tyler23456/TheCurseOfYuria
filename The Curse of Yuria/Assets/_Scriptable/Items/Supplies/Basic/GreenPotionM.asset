@@ -17,14 +17,6 @@ MonoBehaviour:
   _prefab: {fileID: 2749901435637128954, guid: 6549444433e2f5b4b9f925f3903ffc5b, type: 3}
   _equipmentType: {fileID: 11400000, guid: b86a7051f638b54408b09fdfdeda6471, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  anyType: {fileID: 0}
-  power: 0
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: GreenPotionM
     Collection: Supplies
@@ -38,6 +30,9 @@ MonoBehaviour:
     Hash: 7389e96bbf34ba9d66cfd7c8c965f582
     Tags: []
   statusEffectProbabilities: []
-  modifiers: []
-  counters: []
-  interrupts: []
+  power: 6
+  _armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
+  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _calculationType: {fileID: 11400000, guid: 58e92859ea816f142bcd47bd915112c7, type: 2}
+  _bonusTypes: []
+  particleSystem: {fileID: 0}

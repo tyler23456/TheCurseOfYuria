@@ -17,14 +17,6 @@ MonoBehaviour:
   _prefab: {fileID: 531575024381700716, guid: 37522396708f043498fbd82d81185af3, type: 3}
   _equipmentType: {fileID: 11400000, guid: 989166b4b7e1b3a45b41dd36d0c3d7d5, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  _bonusTypes: []
-  power: 2
-  cost: 2
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: SpeedUp
     Collection: Supplies
@@ -37,7 +29,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 5349f98dfc124a81fcdc23455eb004e0
     Tags: []
-  statusEffectProbabilities: []
-  modifiers: []
-  counters: []
-  interrupts: []
+  statusEffectProbabilities:
+  - statusEffect: {fileID: 11400000, guid: 43b2406d862121b4ba282b049f0c094c, type: 2}
+    probability: 0.9
+  power: 2
+  _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
+  _bonusTypes: []
+  particleSystem: {fileID: 0}
+  cost: 2

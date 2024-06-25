@@ -17,14 +17,6 @@ MonoBehaviour:
   _prefab: {fileID: 7599406979704279450, guid: a03933f026561a843a9caaab6902bfdb, type: 3}
   _equipmentType: {fileID: 11400000, guid: b86a7051f638b54408b09fdfdeda6471, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  anyType: {fileID: 0}
-  power: 0
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: Wine
     Collection: Supplies
@@ -38,6 +30,9 @@ MonoBehaviour:
     Hash: 00f80db7311add2d553b050a9f8789ad
     Tags: []
   statusEffectProbabilities: []
-  modifiers: []
-  counters: []
-  interrupts: []
+  power: 1
+  _armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
+  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _calculationType: {fileID: 11400000, guid: f117aa43d73050a469876f83fa098e44, type: 2}
+  _bonusTypes: []
+  particleSystem: {fileID: 0}

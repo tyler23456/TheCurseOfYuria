@@ -31,7 +31,12 @@ MonoBehaviour:
     Hash: a119eb7e0e41419bcb674e4079d92b52
     Tags:
     - Paint
-  modifiers: []
+  modifiers:
+  - attribute: 2
+    offset: 27
+  - attribute: 6
+    offset: -8
+  wards: []
   counters: []
   interrupts: []
   statusEffectProbabilities: []

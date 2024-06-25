@@ -17,14 +17,6 @@ MonoBehaviour:
   _prefab: {fileID: 5308437309192367178, guid: ce3fed2989533aa49920158476516f55, type: 3}
   _equipmentType: {fileID: 11400000, guid: 1dca343acf143b048bea32c35e9cfab5, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: cb2f26584ca6c49489dd6d16b5306e59, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  anyType: {fileID: 0}
-  power: 0
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: Coins
     Collection: Supplies
@@ -37,8 +29,4 @@ MonoBehaviour:
     Multiple: 1
     Hash: db6abcbc058dcb01f0f105596a848054
     Tags: []
-  statusEffectProbabilities: []
-  modifiers: []
-  counters: []
-  interrupts: []
-  value: 0
+  value: 4

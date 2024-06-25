@@ -17,14 +17,6 @@ MonoBehaviour:
   _prefab: {fileID: 3880149546028488782, guid: a66ec941c27cd504480489bace1c44cd, type: 3}
   _equipmentType: {fileID: 11400000, guid: b86a7051f638b54408b09fdfdeda6471, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  anyType: {fileID: 0}
-  power: 0
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: AntidoteS
     Collection: Supplies
@@ -37,7 +29,12 @@ MonoBehaviour:
     Multiple: 1
     Hash: 129815e5f145afeb825fe967b86e0a8f
     Tags: []
-  statusEffectProbabilities: []
-  modifiers: []
-  counters: []
-  interrupts: []
+  statusEffectProbabilities:
+  - statusEffect: {fileID: 11400000, guid: 6bf753a7d23cf7d49a2c1a1af711297f, type: 2}
+    probability: 0.5
+  power: 0
+  _armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
+  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
+  _bonusTypes: []
+  particleSystem: {fileID: 0}

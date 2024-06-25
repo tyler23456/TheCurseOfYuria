@@ -17,14 +17,6 @@ MonoBehaviour:
   _prefab: {fileID: 3837931717842791694, guid: 737d6a58f41aec94daf8c372b57ad7e0, type: 3}
   _equipmentType: {fileID: 11400000, guid: 989166b4b7e1b3a45b41dd36d0c3d7d5, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: d4951b43f3bcada4e9bb24de971309b9, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
-  _bonusTypes: []
-  power: 2
-  cost: 2
-  effects: []
-  particleSystem: {fileID: 1553769055366101237, guid: 72790e9559c105448a3af8094a62b0fe, type: 3}
   _itemSprite:
     Name: Pierce
     Collection: Supplies
@@ -37,7 +29,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 3a78b069c4cee40f9514520938256b8e
     Tags: []
-  statusEffectProbabilities: []
-  modifiers: []
-  counters: []
-  interrupts: []
+  statusEffectProbabilities:
+  - statusEffect: {fileID: 11400000, guid: 97d1e405c350be747aefc75f9490411b, type: 2}
+    probability: 0.9
+  power: 2
+  _armType: {fileID: 11400000, guid: d4951b43f3bcada4e9bb24de971309b9, type: 2}
+  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+  _bonusTypes: []
+  particleSystem: {fileID: 1553769055366101237, guid: 72790e9559c105448a3af8094a62b0fe, type: 3}
+  cost: 2
