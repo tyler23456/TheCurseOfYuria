@@ -17,14 +17,6 @@ MonoBehaviour:
   _prefab: {fileID: 6055386865235220975, guid: 9d23c7fc6c2b9d349a698fa6fb159e1e, type: 3}
   _equipmentType: {fileID: 11400000, guid: a3a3e7436dcc2b9418bb3686d15dc324, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: cb2f26584ca6c49489dd6d16b5306e59, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  _bonusTypes: []
-  power: 0
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: AssassinArmor [Paint]
     Collection: Basic
@@ -50,7 +42,9 @@ MonoBehaviour:
     Hash: ac593a3243eff2082daa22406cc721a0
     Tags:
     - Paint
-  statusEffectProbabilities: []
-  modifiers: []
+  modifiers:
+  - attribute: 2
+    offset: 10
+  wards: []
   counters: []
   interrupts: []

@@ -17,14 +17,6 @@ MonoBehaviour:
   _prefab: {fileID: 2646878643967506243, guid: 06ebf033272085a40849d1757cfbe8d7, type: 3}
   _equipmentType: {fileID: 11400000, guid: a3a3e7436dcc2b9418bb3686d15dc324, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: cb2f26584ca6c49489dd6d16b5306e59, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  anyType: {fileID: 0}
-  power: 0
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: EliteGuardArmor [Paint]
     Collection: Knights
@@ -50,7 +42,21 @@ MonoBehaviour:
     Hash: 7920db55d1d96355285b4c7e6a31f3ad
     Tags:
     - Paint
-  statusEffectProbabilities: []
-  modifiers: []
+  modifiers:
+  - attribute: 3
+    offset: 40
+  - attribute: 5
+    offset: 10
+  wards:
+  - elementType: {fileID: 11400000, guid: 61dd2432436639444aa0b5f9ab37ff9d, type: 2}
+    amount: 12
+  - elementType: {fileID: 11400000, guid: ec53dfa52e95a994f944653b3b1d8422, type: 2}
+    amount: 12
+  - elementType: {fileID: 11400000, guid: cd55b3b1c40b8dd4daea30da3e507901, type: 2}
+    amount: 12
+  - elementType: {fileID: 11400000, guid: 97b64b870e1d7cf4e94ad6c7aced1304, type: 2}
+    amount: 12
+  - elementType: {fileID: 11400000, guid: 0ed350d9141d4124d8cfe2e5c127feb3, type: 2}
+    amount: 12
   counters: []
   interrupts: []

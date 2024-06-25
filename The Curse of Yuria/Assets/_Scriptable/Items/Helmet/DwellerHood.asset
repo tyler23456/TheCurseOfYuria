@@ -17,14 +17,6 @@ MonoBehaviour:
   _prefab: {fileID: 2698342753093293247, guid: 0668a70085808394db22fb116ffdd3d8, type: 3}
   _equipmentType: {fileID: 11400000, guid: 31d38a323650e3b44900c2067dc872c8, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: cb2f26584ca6c49489dd6d16b5306e59, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  anyType: {fileID: 0}
-  power: 0
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: DwellerHood [Paint]
     Collection: Basic
@@ -39,7 +31,9 @@ MonoBehaviour:
     Hash: 8a4f684bc183c995251d0694338fb0e8
     Tags:
     - Paint
-  statusEffectProbabilities: []
-  modifiers: []
+  modifiers:
+  - attribute: 0
+    offset: 200
+  wards: []
   counters: []
   interrupts: []

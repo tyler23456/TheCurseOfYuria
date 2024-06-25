@@ -29,13 +29,20 @@ MonoBehaviour:
     Multiple: 1
     Hash: f94b7938abd51f18c8d40fb6ccfa583a
     Tags: []
-  modifiers: []
+  modifiers:
+  - attribute: 2
+    offset: 17
+  - attribute: 4
+    offset: 20
+  wards: []
   counters: []
   interrupts: []
-  statusEffectProbabilities: []
+  statusEffectProbabilities:
+  - statusEffect: {fileID: 11400000, guid: ae77481f8ee6b884ab328cb287dd14e0, type: 2}
+    probability: 0.5
   power: 2
   _armType: {fileID: 11400000, guid: 241958a3a01de8544a64f4d9cc9e7062, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+  _elementType: {fileID: 11400000, guid: 61dd2432436639444aa0b5f9ab37ff9d, type: 2}
   _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
   _bonusTypes: []
   particleSystem: {fileID: 0}

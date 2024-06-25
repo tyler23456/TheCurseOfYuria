@@ -99,8 +99,8 @@ namespace TCOY.AStar
         {
             RemoveAllAndDestroyConnection();
         }
-
-        void OnTriggerEnter2D(Collider2D collision)
+        
+        void OnTriggerStay2D(Collider2D collision)
         {
             IController controller = collision.GetComponent<IController>();
 

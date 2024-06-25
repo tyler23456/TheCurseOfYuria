@@ -17,14 +17,6 @@ MonoBehaviour:
   _prefab: {fileID: 7721804759585892453, guid: 36217335b7219e14c9e3fbaaf5da9c63, type: 3}
   _equipmentType: {fileID: 11400000, guid: a3a3e7436dcc2b9418bb3686d15dc324, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: cb2f26584ca6c49489dd6d16b5306e59, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  anyType: {fileID: 0}
-  power: 0
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: BerserkArmor
     Collection: Basic
@@ -48,7 +40,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 33ceb31eb167a69247014b570809920e
     Tags: []
-  statusEffectProbabilities: []
-  modifiers: []
+  modifiers:
+  - attribute: 6
+    offset: -5
+  - attribute: 2
+    offset: 15
+  - attribute: 3
+    offset: 5
+  wards: []
   counters: []
   interrupts: []

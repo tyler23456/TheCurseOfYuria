@@ -17,14 +17,6 @@ MonoBehaviour:
   _prefab: {fileID: 3630322272553319225, guid: 8595d7db95bb888478a2fc037751da0a, type: 3}
   _equipmentType: {fileID: 11400000, guid: 31d38a323650e3b44900c2067dc872c8, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: cb2f26584ca6c49489dd6d16b5306e59, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  anyType: {fileID: 0}
-  power: 0
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: DarkMountainHelm [Paint]
     Collection: Thrones
@@ -39,7 +31,11 @@ MonoBehaviour:
     Hash: b71d1729cf98438729a7733a856569d0
     Tags:
     - Paint
-  statusEffectProbabilities: []
-  modifiers: []
+  modifiers:
+  - attribute: 3
+    offset: 21
+  wards:
+  - elementType: {fileID: 11400000, guid: 97b64b870e1d7cf4e94ad6c7aced1304, type: 2}
+    amount: 28
   counters: []
   interrupts: []

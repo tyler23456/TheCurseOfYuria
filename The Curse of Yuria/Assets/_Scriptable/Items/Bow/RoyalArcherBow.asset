@@ -31,7 +31,12 @@ MonoBehaviour:
     Multiple: 1
     Hash: 51d717141d3ddc22c003bf9e004d75ec
     Tags: []
-  modifiers: []
+  modifiers:
+  - attribute: 2
+    offset: 28
+  - attribute: 6
+    offset: 12
+  wards: []
   counters: []
   interrupts: []
   statusEffectProbabilities: []

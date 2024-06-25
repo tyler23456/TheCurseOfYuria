@@ -22,7 +22,7 @@ namespace TCOY.UserActors
             //if (!Physics2D.Raycast(animator.transform.position, Vector2.down, 0.1f, LayerMask.GetMask("TileCollision")))
                 //return;
 
-            isGrounded = Physics2D.CircleCast(animator.transform.position, 0.3f, Vector3.down, 0.3f, LayerMask.GetMask("TileCollision"));
+            isGrounded = Physics2D.CircleCast(animator.transform.position, 0.1f, Vector3.down, 0.1f, LayerMask.GetMask("TileCollision"));
             animator.SetBool("IsGrounded", isGrounded);
 
             //isFalling = Physics2D.CircleCast(animator.transform.position, 0.4f, Vector3.down, 1f, LayerMask.GetMask("TileCollision"));
@@ -39,7 +39,7 @@ namespace TCOY.UserActors
             else
                 Gizmos.color = Color.yellow;
 
-            Gizmos.DrawSphere(animator.transform.position, 0.3f);
+            Gizmos.DrawSphere(animator.transform.position, 0.1f);
         }
     }
 }

@@ -31,7 +31,10 @@ MonoBehaviour:
     Multiple: 1
     Hash: 9d4121dc81ab0e88223d31b35bb1f0bb
     Tags: []
-  modifiers: []
+  modifiers:
+  - attribute: 2
+    offset: 13
+  wards: []
   counters: []
   interrupts: []
   statusEffectProbabilities: []

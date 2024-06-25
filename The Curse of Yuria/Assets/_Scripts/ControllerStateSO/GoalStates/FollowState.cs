@@ -37,6 +37,9 @@ namespace TCOY.ControllerStates
                 if (controller.animator.GetInteger("MovePriority") < int.MaxValue) //|| controller.actor.enabled == false)
                     yield return null;
 
+
+                
+
                 controller.destination = AllieManager.Instance.FirstController().position;
                 PathRequester.RequestPath(controller, AllieManager.Instance.FirstController());
 

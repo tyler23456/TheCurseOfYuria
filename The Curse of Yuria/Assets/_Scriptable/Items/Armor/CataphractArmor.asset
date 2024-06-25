@@ -17,14 +17,6 @@ MonoBehaviour:
   _prefab: {fileID: 5953453584949039667, guid: 71b80438b8fc8994289076c368b1712c, type: 3}
   _equipmentType: {fileID: 11400000, guid: a3a3e7436dcc2b9418bb3686d15dc324, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: cb2f26584ca6c49489dd6d16b5306e59, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  anyType: {fileID: 0}
-  power: 0
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: CataphractArmor [Paint]
     Collection: Basic
@@ -50,7 +42,11 @@ MonoBehaviour:
     Hash: e4f1df8463499ef3a7f48ef909bfc5bb
     Tags:
     - Paint
-  statusEffectProbabilities: []
-  modifiers: []
+  modifiers:
+  - attribute: 3
+    offset: 30
+  wards:
+  - elementType: {fileID: 11400000, guid: 61dd2432436639444aa0b5f9ab37ff9d, type: 2}
+    amount: 15
   counters: []
   interrupts: []

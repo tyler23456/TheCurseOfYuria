@@ -29,10 +29,15 @@ MonoBehaviour:
     Multiple: 1
     Hash: 4d0b6eaa57ab30a856a4b5a9f5e8927d
     Tags: []
-  modifiers: []
+  modifiers:
+  - attribute: 4
+    offset: 30
+  wards: []
   counters: []
   interrupts: []
-  statusEffectProbabilities: []
+  statusEffectProbabilities:
+  - statusEffect: {fileID: 11400000, guid: f8cac8eef1e9b1741aa7a3ff955a24ee, type: 2}
+    probability: 0.5
   power: 2
   _armType: {fileID: 11400000, guid: 241958a3a01de8544a64f4d9cc9e7062, type: 2}
   _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}

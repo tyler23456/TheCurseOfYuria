@@ -28,14 +28,14 @@ namespace TCOY.ControllerStates
                 controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 0f, 0f);
                 controller.animator.SetInteger("State", 3);
                 //controller.velocity += Vector2.right * controller.speed;
-                controller.rigidbody2D.AddForce(Vector2.right * controller.speed);
+                controller.rigidbody2D.AddForce(Vector2.right * controller.speed * 2f);
             }
             else if (direction.x < 0f)
             {
                 controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 180f, 0f);
                 controller.animator.SetInteger("State", 3);
                 //controller.velocity += Vector2.left * controller.speed;
-                controller.rigidbody2D.AddForce(Vector2.left * controller.speed);
+                controller.rigidbody2D.AddForce(Vector2.left * controller.speed * 2f);
             }
         }
     }

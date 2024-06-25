@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 public class Equipable : ItemBase, IItem, IEquipment
 {
     [SerializeField] protected List<Modifier> modifiers;
+    [SerializeField] protected List<Ward> wards;
     [SerializeField] protected List<Reactor> counters;
     [SerializeField] protected List<Reactor> interrupts;
 
@@ -20,6 +21,9 @@ public class Equipable : ItemBase, IItem, IEquipment
     {
         foreach (Modifier modifier in modifiers)
             target.getStats.OffsetAttribute(modifier.getAttribute, modifier.getOffset);
+
+        foreach (Ward ward in wards)
+            target.getStats.OffsetWeakness(ward.getElementType.weaknessIndex, ward.getAmount);
 
         foreach (Reactor counter in counters)
             target.getCounters.Add(counter);
@@ -82,6 +86,9 @@ public class Equipable : ItemBase, IItem, IEquipment
         foreach (Modifier modifier in modifiers)
             target.getStats.OffsetAttribute(modifier.getAttribute, -modifier.getOffset);
 
+        foreach (Ward ward in wards)
+            target.getStats.OffsetWeakness(ward.getElementType.weaknessIndex, -ward.getAmount);
+
         foreach (Reactor counter in counters)
             target.getCounters.Remove(counter);
 
@@ -95,5 +102,15 @@ public class Equipable : ItemBase, IItem, IEquipment
 
         target.getEquipment.Remove(name);
         target.obj.GetComponent<Character>().UnEquip(itemType.part);
+    }
+
+    [System.Serializable]
+    public class Ward
+    {
+        [SerializeField] ElementTypeBase elementType; 
+        [SerializeField] [Range(1, 500)] int amount = 5;
+
+        public ElementTypeBase getElementType => elementType;
+        public int getAmount => amount;
     }
 }

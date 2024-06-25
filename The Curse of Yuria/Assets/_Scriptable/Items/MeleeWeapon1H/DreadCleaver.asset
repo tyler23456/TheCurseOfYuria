@@ -30,11 +30,12 @@ MonoBehaviour:
     Hash: 0a720e266353b8b0eb628a919dcc957c
     Tags: []
   modifiers: []
+  wards: []
   counters: []
   interrupts: []
   statusEffectProbabilities: []
   power: 2
-  _armType: {fileID: 11400000, guid: 241958a3a01de8544a64f4d9cc9e7062, type: 2}
+  _armType: {fileID: 11400000, guid: 8cfce240d1fa4434d8a08f137e121d67, type: 2}
   _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
   _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
   _bonusTypes: []

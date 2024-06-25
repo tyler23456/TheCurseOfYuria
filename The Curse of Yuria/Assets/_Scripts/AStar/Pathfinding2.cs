@@ -25,6 +25,9 @@ namespace TCOY.AStar
 
         IEnumerator FindPath(IPath user, IPath target)
         {
+            if (!((IController)user).animator.GetBool("IsGrounded"))
+                yield return null;
+
             Waypoint startNode = waypointManager.CalculateClosestWaypoint(user);
             Waypoint targetNode = waypointManager.CalculateClosestWaypoint(target);
 

@@ -16,7 +16,7 @@ namespace TCOY.AStar
         [SerializeField] float _stopDistance = 2f;
 
         public Vector2 velocity { get; set; } = Vector2.zero;
-        public float speed { get; set; } = 28f;
+        public float speed { get; set; } = 28f * 2f;
         public IActor actor { get; set; }
         public Animator animator { get; set; }
         public new Rigidbody2D rigidbody2D { get; set; }
