@@ -98,8 +98,8 @@ public class CommandDisplay : DisplayBase
 
     public void OnClickSkill()
     {
-        skillInventoryUI.displayName = true;
-        skillInventoryUI.displayCount = false;
+        skillInventoryUI.showName = true;
+        skillInventoryUI.showCount = false;
         skillInventoryUI.grid = grid;
         skillInventoryUI.buttonPrefab = buttonPrefab;
         skillInventoryUI.OnClick = (commandName) => OnSelectSkill(commandName);

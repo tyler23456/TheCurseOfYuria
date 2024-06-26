@@ -1,52 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using System.Linq;
-using System;
-using System.Collections.ObjectModel;
-
-public class ScrollDisplay : DisplayBase
+public class ScrollDisplay : ItemDisplayBase
 {
-    public static DisplayBase Instance { get; protected set; }
-
-    [SerializeField] Button buttonPrefab;
-
-    [SerializeField] AudioClip open;
-    [SerializeField] AudioClip close;
-    [SerializeField] AudioClip equip;
-    [SerializeField] AudioClip unequip;
-    [SerializeField] AudioClip cyclePartyMembers;
-
-    [SerializeField] Camera detailedActorViewCamera;
-
-    [SerializeField] RectTransform inventoryGrid;
-    [SerializeField] RectTransform partyMemberGrid;
-
-    [SerializeField] Text itemName;
-    [SerializeField] Image itemSprite;
-    [SerializeField] Text itemInfo;
-
-    [SerializeField] Text partyMemberName;
-    [SerializeField] Text partyMemberStats;
-    [SerializeField] Text partyMemberValues;
-    [SerializeField] Text partyMemberIncreases;
-
-    [SerializeField] Sprite emptySprite;
-
-    int allieIndex = 0;
-
-    IActor allie;
-
-    IInventory skills;
-    IStats stats;
-
-    IItem newSkill;
-
-    InventoryUI partyMemberInventoryUI;
-    InventoryUI globalInventoryUI;
-
-    bool previousActive = true;
+    public static ScrollDisplay Instance { get; protected set; }
 
     public override void Initialize()
     {
@@ -58,11 +12,11 @@ public class ScrollDisplay : DisplayBase
     {
         base.OnEnable();
 
-        partyMemberInventoryUI = new InventoryUI();
+        allieInventoryUI = new InventoryUI();
         globalInventoryUI = new InventoryUI();
 
         allieIndex = 0;
-        RefreshInventoryScrolls();
+        RefreshGlobalInventory(InventoryManager.Instance.scrolls, showName: true);
         RefreshAllie();
 
         AudioManager.Instance.PlaySFX(open);
@@ -76,129 +30,64 @@ public class ScrollDisplay : DisplayBase
         AudioManager.Instance.PlaySFX(close);
     }
 
-    public void RefreshInventoryScrolls()
+    public override void RefreshAllie(int offset = 0)
     {
-        globalInventoryUI.displayName = true;
-        globalInventoryUI.grid = inventoryGrid;
-        globalInventoryUI.buttonPrefab = buttonPrefab;
-        globalInventoryUI.inventory = InventoryManager.Instance.scrolls;
-        globalInventoryUI.OnClick = (itemName) => OnAddSkill(itemName);
-        globalInventoryUI.onPointerEnter = (itemName) => OnPointerEnterInventoryIcon(itemName);
-        globalInventoryUI.onPointerExit = (itemName) => OnPointerExit(itemName);
-        globalInventoryUI.Display();
-    }
+        base.RefreshAllie(offset);
 
-    public void RefreshAllie(int offset = 0)
-    {
-        allie?.obj.SetActive(previousActive);
-
-        allieIndex += offset;
-        allieIndex = Mathf.Clamp(allieIndex, 0, AllieManager.Instance.count - 1);
-
-        allie = AllieManager.Instance[allieIndex];
-        previousActive = allie.obj.activeSelf;
-        allie.obj.SetActive(true);
-
-        detailedActorViewCamera.cullingMask = (1 << allie.obj.transform.GetChild(0).gameObject.layer) 
-            | ( 1 << LayerMask.NameToLayer("Light"));
-
-        skills = allie.getScrolls;
-        stats = allie.getStats;
-
-        //show party member stuff
-
-        partyMemberName.text = allie.obj.name;
-        partyMemberStats.text = "";
-        partyMemberValues.text = "";
+        globalInventory = allie.getScrolls;
 
         int[] statValues = stats.GetAttributes();
         for (int i = 0; i < statValues.Length; i++)
         {
-            partyMemberStats.text += ((IStats.Attribute)i).ToString() + "\n";
-            partyMemberValues.text += statValues[i].ToString() + "\n";
+            allieStats.text += ((IStats.Attribute)i).ToString() + "\n";
+            allieValues.text += statValues[i].ToString() + "\n";
         }
-        partyMemberInventoryUI.displayName = true;
-        partyMemberInventoryUI.displayCount = false;
-        partyMemberInventoryUI.grid = partyMemberGrid;
-        partyMemberInventoryUI.buttonPrefab = buttonPrefab;
-        partyMemberInventoryUI.inventory = allie.getScrolls;
-        partyMemberInventoryUI.OnClick = (itemName) => OnRemoveSkill(itemName);
-        partyMemberInventoryUI.onPointerEnter = (itemName) => OnPointerEnterPartyMemberSkillsIcon(itemName);
-        partyMemberInventoryUI.onPointerExit = (itemName) => OnPointerExit(itemName);
-        partyMemberInventoryUI.Display();
-    }
-    public void OnAddSkill(string itemName)
-    {
-        if (skills.Contains(itemName))
-            return;
-
-        InventoryManager.Instance.scrolls.Remove(itemName);
-
-        newSkill = ItemDatabase.Instance.Get(itemName);
-        newSkill.Equip(allie);
-
-        RefreshAllie();
-        RefreshInventoryScrolls();
     }
 
-    public void OnRemoveSkill(string itemName)
+    public override void OnClickAllieItem(string itemName)
     {
-        newSkill = ItemDatabase.Instance.Get(itemName);
-        newSkill.Unequip(allie);
+        IItem scroll = ItemDatabase.Instance.Get(itemName);
+        scroll.Unequip(allie);
 
         InventoryManager.Instance.scrolls.Add(itemName);
 
         RefreshAllie();
-        RefreshInventoryScrolls();
+        RefreshAllieInventory(allie.getScrolls, showName: true, showCount: false);
+        RefreshGlobalInventory(InventoryManager.Instance.scrolls, showName: true);
+        ClearItemAndAllieData();
     }
 
-    public void OnPointerEnterInventoryIcon(string itemName)
+    public override void OnClickGlobalItem(string itemName)
     {
-        if (skills.Contains(itemName))
+        if (globalInventory.Contains(itemName))
             return;
 
-        newSkill = ItemDatabase.Instance.Get(itemName);
+        InventoryManager.Instance.scrolls.Remove(itemName);
 
-        this.itemName.text = itemName;
-        this.itemInfo.text = newSkill.getInfo;
-        partyMemberIncreases.text = "";
-        this.itemSprite.sprite = newSkill.icon;
+        IItem scroll = ItemDatabase.Instance.Get(itemName);
+        scroll.Equip(allie);
+
+        RefreshAllie();
+        RefreshAllieInventory(allie.getScrolls, showName: true, showCount: false);
+        RefreshGlobalInventory(InventoryManager.Instance.scrolls, showName: true);
+        ClearItemAndAllieData();
     }
 
-    public void OnPointerEnterPartyMemberSkillsIcon(string itemName)
+    public override void OnEnterGlobalItem(string itemName)
     {
-        if (skills.Contains(itemName))
+        if (globalInventory.Contains(itemName))
             return;
 
-        newSkill = ItemDatabase.Instance.Get(itemName);
+        IItem scroll = ItemDatabase.Instance.Get(itemName);
 
         this.itemName.text = itemName;
-        this.itemInfo.text = newSkill.getInfo;
-        partyMemberIncreases.text = "";
-        this.itemSprite.sprite = newSkill.icon;
+        this.itemInfo.text = scroll.getInfo;
+        this.allieIncreases.text = "";
+        this.itemSprite.sprite = scroll.icon;
     }
 
-    public void OnPointerExit(string itemName)
+    public override void OnExitGlobalItem(string itemName)
     {
-        this.itemName.text = "";
-        itemInfo.text = "";
-        partyMemberIncreases.text = "";
-        this.itemSprite.sprite = emptySprite;
-    }
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {          
-            AudioManager.Instance.PlaySFX(cyclePartyMembers);
-            RefreshAllie(-1);
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            AudioManager.Instance.PlaySFX(cyclePartyMembers);
-            RefreshAllie(1);
-        }
-
-        detailedActorViewCamera.transform.position = allie.obj.transform.position + new Vector3(0f, 1f, -2.5f);
+        ClearItemAndAllieData();
     }
 }

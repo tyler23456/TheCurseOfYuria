@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
-  m_Name: AutoReplenish
+  m_Name: Rereplenish
   m_EditorClassIdentifier: 
   guid: 0
   _icon: {fileID: 21300000, guid: 3f04c52b262f57949b6ffe45f4ad6a53, type: 3}
@@ -37,5 +37,5 @@ MonoBehaviour:
   _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
   _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
   _bonusTypes: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 8544434443688463029, guid: 477ef4ed4c8d606429133b61b307cc96, type: 3}
   cost: 2

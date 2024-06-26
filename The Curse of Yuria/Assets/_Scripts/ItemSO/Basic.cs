@@ -30,6 +30,10 @@ public class Basic : Skill, IItem
     protected virtual IEnumerator performAnimation(IActor user, IActor target)
     {
         yield return new WaitForSeconds(0.5f);
+
+        if (CheckForStatusEffectCounters(user, target))
+            yield break;
+
         yield return PerformEffect(user, target);
     }
 

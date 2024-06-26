@@ -35,5 +35,5 @@ MonoBehaviour:
   _elementType: {fileID: 11400000, guid: 97b64b870e1d7cf4e94ad6c7aced1304, type: 2}
   _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
   _bonusTypes: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 335701130982456758, guid: 6f35ccbeb00794040ac4b65146c8fd7e, type: 3}
   cost: 3

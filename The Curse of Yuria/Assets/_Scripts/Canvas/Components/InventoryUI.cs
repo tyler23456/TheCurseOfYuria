@@ -15,9 +15,9 @@ public class InventoryUI
     public Action<string> onPointerExit { get; set; } = (info) => { };
     public IInventory inventory { get; set; } = null;
 
-    public bool displayName { get; set; } = false;
-    public bool displayCount { get; set; } = true;
-    public bool displayItemSprite { get; set; } = true;
+    public bool showName { get; set; } = false;
+    public bool showCount { get; set; } = true;
+    public bool showSprite { get; set; } = true;
 
     Button button = null;
     PointerHover pointerHover = null;
@@ -46,16 +46,16 @@ public class InventoryUI
             };
             pointerHover.onPointerExit = () => onPointerExit.Invoke(inventory.GetName(index));
 
-            if (displayItemSprite)
+            if (showSprite)
                 button.transform.GetChild(1).GetComponent<Image>().sprite = ItemDatabase.Instance.Get(inventory.GetName(index)).icon;
-            if (displayCount)
+            if (showCount)
                 button.transform.GetChild(2).GetComponent<Text>().text = inventory.GetCount(index).ToString();
-            if (displayName)
+            if (showName)
                 button.transform.GetChild(3).GetComponent<Text>().text = inventory.GetName(index);
         }
 
-        displayName = false;
-        displayCount = true;
+        showName = false;
+        showCount = true;
     }
 
     public void EmptyDisplay()

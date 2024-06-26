@@ -48,8 +48,9 @@ public class Weapon : Equipable, IItem, IWeapon, IEquipment
         if (IsInvalidTarget(target))
             yield break;
 
-        CheckForStatusEffectCounters(user, target);
-
+        if (CheckForStatusEffectCounters(user, target))
+            yield break;
+        
         float accumulator = 0;
         accumulator = _elementType.Calculate(user, target, power * IStats.powerMultiplier);
         accumulator = _armType.Calculate(user, target, accumulator);
@@ -69,10 +70,16 @@ public class Weapon : Equipable, IItem, IWeapon, IEquipment
                 statusEffectProbability.getStatusEffect.Activate(target);
     }
 
-    protected virtual void CheckForStatusEffectCounters(IActor user, IActor target)
+    protected virtual bool CheckForStatusEffectCounters(IActor user, IActor target)
     {
+        List<bool> itemCancellationFlags = new List<bool>();
         foreach (string statusEffect in target.getStatusEffects.GetNames())
-            StatFXDatabase.Instance.Get(statusEffect).ActivateCounter(user, target, this);
+            itemCancellationFlags.Add(StatFXDatabase.Instance.Get(statusEffect).ActivateCounter(user, target, this));
+
+        if (itemCancellationFlags.Contains(true))
+            return true;
+
+        return false;
     }
 
     public virtual bool TrueForAnyStatusEffect(Func<IStatusEffect, bool> predicate)

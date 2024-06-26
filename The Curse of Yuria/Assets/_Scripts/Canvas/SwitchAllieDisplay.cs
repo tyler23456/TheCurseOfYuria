@@ -47,9 +47,9 @@ public class SwitchAllieDisplay : DisplayBase
         for (int i = 3; i < AllieManager.Instance.count; i++)
             inventory.Add(AllieManager.Instance[i].obj.name);
 
-        inventoryUI.displayItemSprite = false;
-        inventoryUI.displayName = true;
-        inventoryUI.displayCount = false;
+        inventoryUI.showSprite = false;
+        inventoryUI.showName = true;
+        inventoryUI.showCount = false;
         inventoryUI.grid = grid;
         inventoryUI.buttonPrefab = buttonPrefab;
         inventoryUI.inventory = inventory;

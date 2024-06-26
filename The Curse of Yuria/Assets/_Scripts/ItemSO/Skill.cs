@@ -19,10 +19,16 @@ public abstract class Skill : ItemBase, IItem, ISkill
     public CalculationTypeBase calculationType { get { return _calculationType; } set { _calculationType = value; } }
     public List<BonusTypeBase> bonusTypes { get { return _bonusTypes; } set { _bonusTypes = value; } }
 
-    public virtual void CheckForStatusEffectCounters(IActor user, IActor target)
+    protected virtual bool CheckForStatusEffectCounters(IActor user, IActor target)
     {
+        List<bool> itemCancellationFlags = new List<bool>();
         foreach (string statusEffect in target.getStatusEffects.GetNames())
-            StatFXDatabase.Instance.Get(statusEffect).ActivateCounter(user, target, this);
+            itemCancellationFlags.Add(StatFXDatabase.Instance.Get(statusEffect).ActivateCounter(user, target, this));
+
+        if (itemCancellationFlags.Contains(true))
+            return true;
+
+        return false;
     }
 
     public virtual void CheckStatusEffects(IActor target)

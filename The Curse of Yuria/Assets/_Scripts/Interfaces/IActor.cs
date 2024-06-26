@@ -18,6 +18,7 @@ public interface IActor
     IStatusEffects getStatusEffects { get; }
     IFadeAnimator getFadeAnimator { get; }
     ISpriteFlipper getSpriteFlipper { get; }
+    IDetection getDetection { get; }
     Coroutine StartCoroutine(IEnumerator routine);
     void StopCoroutine(IEnumerator routine);
     void StopCoroutine(Coroutine routine);

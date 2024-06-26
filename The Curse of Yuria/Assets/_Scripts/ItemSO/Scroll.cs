@@ -33,7 +33,10 @@ public class Scroll : Skill, IItem, IScroll
     protected virtual IEnumerator performAnimation(IActor user, IActor target)
     {
         yield return new WaitForSeconds(0.5f);
-        CheckForStatusEffectCounters(user, target);
+
+        if (CheckForStatusEffectCounters(user, target))
+            yield break;
+
         yield return PerformEffect(user, target);
     }
 

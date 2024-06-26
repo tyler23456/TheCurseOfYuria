@@ -27,6 +27,7 @@ namespace TCOY.UserActors
         protected HitAnimator hitAnimator;
         protected FadeAnimator fadeAnimator;
         protected SpriteFlipper spriteFlipper;
+        protected Detection detection;
 
         public Collider2D getCollider2D => collider2D;
         public GameObject obj => gameObject;
@@ -38,6 +39,7 @@ namespace TCOY.UserActors
         public HitAnimator getHitAnimator => hitAnimator;
         public IFadeAnimator getFadeAnimator => fadeAnimator;
         public ISpriteFlipper getSpriteFlipper => spriteFlipper;
+        public IDetection getDetection => detection;
         public List<Reactor> getCounters => counters;
         public List<Reactor> getInterrupts => interrupts;
 
@@ -52,6 +54,7 @@ namespace TCOY.UserActors
             aTBGuage = new ATBGuage();
             equipment = new Inventory();
             skills = new Inventory();
+            detection = new Detection();
             
             statusEffects = new StatusEffects();
             statusEffects.onAdd = (name) => StatFXDatabase.Instance.Get(name).OnAdd(this);

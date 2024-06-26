@@ -15,9 +15,16 @@ public abstract class StatusEffectBase : ScriptableObject, IStatusEffect
         target.getStatusEffects.Add(name, accumulator);
     }
 
-    public virtual void ActivateCounter(IActor user, IActor target, IItem item)
+    public virtual bool ActivateAttack(IActor user, IActor target, IItem item)
     {
-        
+        bool itemCancellationFlag = false;
+        return itemCancellationFlag;
+    }
+
+    public virtual bool ActivateCounter(IActor user, IActor target, IItem item)
+    {
+        bool itemCancellationFlag = false;
+        return itemCancellationFlag;
     }
 
     public virtual void OnAdd(IActor target)

@@ -7,23 +7,11 @@ using HeroEditor.Common.Data;
 using System.Linq;
 using System.Collections.ObjectModel;
 
-public class EquipmentDisplay : DisplayBase
+public class EquipmentDisplay : ItemDisplayBase
 {
-    public static DisplayBase Instance { get; protected set; }
+    public static EquipmentDisplay Instance { get; protected set; }
 
-    [SerializeField] Button buttonPrefab;
-
-    [SerializeField] AudioClip open;
-    [SerializeField] AudioClip close;
-    [SerializeField] AudioClip equip;
-    [SerializeField] AudioClip unequip;
-    [SerializeField] AudioClip cyclePartyMembers;
-    [SerializeField] AudioClip cycleEquipmentParts;
-
-    [SerializeField] Camera detailedActorViewCamera;
-
-    [SerializeField] RectTransform grid;
-
+    [Header("Tabs")]
     [SerializeField] Button helmetsTab;
     [SerializeField] Button earringsTab;
     [SerializeField] Button glassesTab;
@@ -34,15 +22,7 @@ public class EquipmentDisplay : DisplayBase
     [SerializeField] Button shieldsTab;
     [SerializeField] Button bowsTab;
 
-    [SerializeField] Text itemName;
-    [SerializeField] Image itemSprite;
-    [SerializeField] Text itemInfo;
-
-    [SerializeField] Text partyMemberName;
-    [SerializeField] Text partyMemberStats;
-    [SerializeField] Text partyMemberValues;
-    [SerializeField] Text partyMemberIncreases;
-
+    [Header("Slots")]
     [SerializeField] Image helmetSlot;
     [SerializeField] Image earringSlot;
     [SerializeField] Image glassesSlot;
@@ -53,6 +33,7 @@ public class EquipmentDisplay : DisplayBase
     [SerializeField] Image shieldSlot;
     [SerializeField] Image bowsSlot;
 
+    [Header("Sprites")]
     [SerializeField] Sprite helmetSprite;
     [SerializeField] Sprite earringSprite;
     [SerializeField] Sprite glassesSprite;
@@ -62,33 +43,8 @@ public class EquipmentDisplay : DisplayBase
     [SerializeField] Sprite armorSprite;
     [SerializeField] Sprite shieldSprite;
     [SerializeField] Sprite bowsSprite;
-    [SerializeField] Sprite EmptySprite;
 
     Dictionary<ItemTypeBase, Image> slots = new Dictionary<ItemTypeBase, Image>();
-
-    ItemTypeBase currentType;
-    int allieIndex = 0;
-
-    IActor allie;
-
-    IInventory equipment;
-    IStats stats;
-
-    IEquipment previousItem;
-    IEquipment currentItem;
-
-    ReadOnlyCollection<Modifier> oldModifiers;
-    ReadOnlyCollection<Modifier> newModifiers;
-
-    Modifier oldModifier;
-    Modifier newModifier;
-    int oldModifierValue = 0;
-    int newModifierValue = 0;
-    int modifierValue = 0;
-
-    bool previousActive = true;
-
-    InventoryUI globalInventoryUI;
 
     public override void Initialize()
     {
@@ -145,10 +101,9 @@ public class EquipmentDisplay : DisplayBase
 
         allieIndex = 0;
         RefreshEquipment(InventoryManager.Instance.helmetType);
-        RefreshPartyMember();
+        RefreshAllie();
 
         AudioManager.Instance.PlaySFX(open);
-
         GameStateManager.Instance.Pause();
     }
 
@@ -166,32 +121,15 @@ public class EquipmentDisplay : DisplayBase
     public void RefreshEquipment(ItemTypeBase type)
     {
         currentType = type;
-        globalInventoryUI.grid = grid;
-        globalInventoryUI.buttonPrefab = buttonPrefab;
-        globalInventoryUI.inventory = InventoryManager.Instance.Get(type);
-        globalInventoryUI.OnClick = (itemName) => OnEquip(itemName);
-        globalInventoryUI.onPointerEnter = (itemName) => OnPointerEnter(itemName);
-        globalInventoryUI.onPointerExit = (itemName) => OnPointerExit(itemName);
-        globalInventoryUI.Display();
+        RefreshGlobalInventory(InventoryManager.Instance.Get(type));
     }
 
-    public void RefreshPartyMember(int offset = 0)
+    public override void RefreshAllie(int offset = 0)
     {
-        allie?.obj.SetActive(previousActive);
+        base.RefreshAllie(offset);
 
-        allieIndex--;
-        allieIndex = Mathf.Clamp(allieIndex, 0, AllieManager.Instance.count - 1);
-
-        allie = AllieManager.Instance[allieIndex];
-        previousActive = allie.obj.activeSelf;
-        allie.obj.SetActive(true);
-
-        detailedActorViewCamera.cullingMask = (1 << allie.obj.transform.GetChild(0).gameObject.layer) 
-            | ( 1 << LayerMask.NameToLayer("Light"));
-
-        equipment = allie.getEquipment;
-        stats = allie.getStats;
-
+        globalInventory = allie.getEquipment;
+        
         helmetSlot.sprite = helmetSprite;
         earringSlot.sprite = earringSprite;
         glassesSlot.sprite = glassesSprite;
@@ -204,26 +142,23 @@ public class EquipmentDisplay : DisplayBase
 
         ItemTypeBase itemType = InventoryManager.Instance.helmetType;
 
-        for (int i = 0; i < equipment.count; i++)
+        for (int i = 0; i < globalInventory.count; i++)
         {
-            itemType = ItemDatabase.Instance.GetType(equipment.GetName(i));
-            slots[itemType].sprite = ItemDatabase.Instance.GetIcon(equipment.GetName(i));
+            itemType = ItemDatabase.Instance.GetType(globalInventory.GetName(i));
+            slots[itemType].sprite = ItemDatabase.Instance.GetIcon(globalInventory.GetName(i));
         }
-        partyMemberName.text = allie.obj.name;
-        partyMemberStats.text = "";
-        partyMemberValues.text = "";
 
         int[] statValues = stats.GetAttributes();
         for (int i = 0; i < statValues.Length; i++)
         {
-            partyMemberStats.text += ((IStats.Attribute)i).ToString() + "\n";
-            partyMemberValues.text += statValues[i].ToString() + "\n";
+            allieStats.text += ((IStats.Attribute)i).ToString() + "\n";
+            allieValues.text += statValues[i].ToString() + "\n";
         }
     }
 
     public void OnUnequip(ItemTypeBase type)
     {
-        string itemName = equipment.Find(i => ItemDatabase.Instance.GetTypeName(i) == type.name);
+        string itemName = globalInventory.Find(i => ItemDatabase.Instance.GetTypeName(i) == type.name);
 
         if (itemName == null)
             return;
@@ -234,15 +169,16 @@ public class EquipmentDisplay : DisplayBase
         currentItem.Unequip(allie);
         AudioManager.Instance.PlaySFX(unequip);
 
-        RefreshPartyMember();
+        RefreshAllie();
         RefreshEquipment(currentItem.itemType);
+        ClearItemAndAllieData();
     }
 
-    public void OnEquip(string itemName)
+    public override void OnClickGlobalItem(string itemName)
     {
         currentItem = (IEquipment)ItemDatabase.Instance.Get(itemName);
 
-        string partyMemberItem = equipment.Find(i => ItemDatabase.Instance.GetTypeName(i) == currentItem.itemType.name);
+        string partyMemberItem = globalInventory.Find(i => ItemDatabase.Instance.GetTypeName(i) == currentItem.itemType.name);
 
         if (partyMemberItem == null)
         {
@@ -257,15 +193,16 @@ public class EquipmentDisplay : DisplayBase
         currentItem.Equip(allie);
         AudioManager.Instance.PlaySFX(equip);
 
-        RefreshPartyMember();
+        RefreshAllie();
         RefreshEquipment(currentType);
+        ClearItemAndAllieData();
     }
 
-    public void OnPointerEnter(string itemName)
+    public override void OnEnterGlobalItem(string itemName)
     {
         currentItem = (IEquipment)ItemDatabase.Instance.Get(itemName);
 
-        string previousItemName = equipment.Find(i => ItemDatabase.Instance.GetTypeName(i) == currentItem.itemType.name);
+        string previousItemName = globalInventory.Find(i => ItemDatabase.Instance.GetTypeName(i) == currentItem.itemType.name);
 
         if (previousItemName == null)
             previousItem = (IEquipment)ItemDatabase.Instance.Get("Empty");
@@ -275,7 +212,7 @@ public class EquipmentDisplay : DisplayBase
 
         this.itemName.text = itemName;
         this.itemInfo.text = currentItem.getInfo;
-        partyMemberIncreases.text = "";
+        allieIncreases.text = "";
         this.itemSprite.sprite = currentItem.icon;
 
         oldModifiers = previousItem.getModifiers;
@@ -313,37 +250,18 @@ public class EquipmentDisplay : DisplayBase
             modifierValue = newModifierValue - oldModifierValue;
 
             if (modifierValue == 0)
-                partyMemberIncreases.text += "<color=#555555ff>" + modifierValue.ToString() + "\n" + "</color>";
+                allieIncreases.text += "<color=#555555ff>" + modifierValue.ToString() + "\n" + "</color>";
             else if (modifierValue > 0)
-                partyMemberIncreases.text += "<color=#00ff00ff>" + "+ " + modifierValue.ToString() + "\n" + "</color>";
+                allieIncreases.text += "<color=#00ff00ff>" + "+ " + modifierValue.ToString() + "\n" + "</color>";
             else
-                partyMemberIncreases.text += "<color=#ff0000ff>" + "" + modifierValue.ToString() + "\n" + "</color>";
+                allieIncreases.text += "<color=#ff0000ff>" + "" + modifierValue.ToString() + "\n" + "</color>";
         }
     }
 
-    public void OnPointerExit(string itemName)
-    {
-        this.itemName.text = "";
-        itemInfo.text = "";
-        partyMemberIncreases.text = "";
-        this.itemSprite.sprite = EmptySprite;
-    }
+    
 
-    public void Update()
+    public override void OnExitGlobalItem(string itemName)
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {        
-            AudioManager.Instance.PlaySFX(cyclePartyMembers);
-            RefreshPartyMember(-1);
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            AudioManager.Instance.PlaySFX(cyclePartyMembers);
-            RefreshPartyMember(1);
-        }
-
-        //move Detailed Actor View Camera to the new character
-        detailedActorViewCamera.transform.position = allie.obj.transform.position + new Vector3(0f, 1f, -2.5f);
-        //---------------------------------------------------
+        ClearItemAndAllieData();
     }
 }

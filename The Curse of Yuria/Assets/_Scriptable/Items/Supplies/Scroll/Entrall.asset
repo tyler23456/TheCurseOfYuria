@@ -29,13 +29,11 @@ MonoBehaviour:
     Multiple: 1
     Hash: fab74b9440a14077f3d67b3ffbb45ebd
     Tags: []
-  statusEffectProbabilities:
-  - statusEffect: {fileID: 0}
-    probability: 0
+  statusEffectProbabilities: []
   power: 2
   _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
   _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
   _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
   _bonusTypes: []
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 3189163135992822113, guid: 2678f3b8c148f8a418a86721ce7a2a5a, type: 3}
   cost: 2

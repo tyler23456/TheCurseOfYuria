@@ -47,6 +47,9 @@ public abstract class TargeterBase : ScriptableObject
             if (target.getStatusEffects.Contains("KnockOut"))
                 continue;
 
+            if (target.getDetection.getPriority < 0)
+                continue;
+
             targets.Add(colliders[i].GetComponent<IActor>());
         }
 

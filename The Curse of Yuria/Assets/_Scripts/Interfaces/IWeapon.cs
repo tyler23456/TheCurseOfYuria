@@ -4,8 +4,5 @@ using UnityEngine;
 
 public interface IWeapon : IItem, IEquipment, ISkill
 {
-    ArmTypeBase armType { get; }
-    ElementTypeBase elementType { get; }
-    CalculationTypeBase calculationType { get; }
-    List<BonusTypeBase> bonusTypes { get; }
+    
 }
