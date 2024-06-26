@@ -112,19 +112,19 @@ public class EquipmentDisplay : ItemDisplayBase
         base.OnDisable();
     }
 
-    public void RefreshEquipmentWithSFX(ItemTypeBase part)
+    protected void RefreshEquipmentWithSFX(ItemTypeBase part)
     {
         AudioManager.Instance.PlaySFX(cycleEquipmentParts);
         RefreshEquipment(part);
     }
 
-    public void RefreshEquipment(ItemTypeBase type)
+    protected void RefreshEquipment(ItemTypeBase type)
     {
         currentType = type;
         RefreshGlobalInventory(InventoryManager.Instance.Get(type));
     }
 
-    public override void RefreshAllie(int offset = 0)
+    protected override void RefreshAllie(int offset = 0)
     {
         base.RefreshAllie(offset);
 
@@ -156,7 +156,7 @@ public class EquipmentDisplay : ItemDisplayBase
         }
     }
 
-    public void OnUnequip(ItemTypeBase type)
+    protected virtual void OnUnequip(ItemTypeBase type)
     {
         string itemName = globalInventory.Find(i => ItemDatabase.Instance.GetTypeName(i) == type.name);
 
@@ -174,7 +174,7 @@ public class EquipmentDisplay : ItemDisplayBase
         ClearItemAndAllieData();
     }
 
-    public override void OnClickGlobalItem(string itemName)
+    protected override void OnClickGlobalItem(string itemName)
     {
         currentItem = (IEquipment)ItemDatabase.Instance.Get(itemName);
 
@@ -198,7 +198,7 @@ public class EquipmentDisplay : ItemDisplayBase
         ClearItemAndAllieData();
     }
 
-    public override void OnEnterGlobalItem(string itemName)
+    protected override void OnEnterGlobalItem(string itemName)
     {
         currentItem = (IEquipment)ItemDatabase.Instance.Get(itemName);
 
@@ -258,9 +258,9 @@ public class EquipmentDisplay : ItemDisplayBase
         }
     }
 
-    
 
-    public override void OnExitGlobalItem(string itemName)
+
+    protected override void OnExitGlobalItem(string itemName)
     {
         ClearItemAndAllieData();
     }

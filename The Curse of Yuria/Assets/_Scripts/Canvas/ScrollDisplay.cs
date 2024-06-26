@@ -30,7 +30,7 @@ public class ScrollDisplay : ItemDisplayBase
         AudioManager.Instance.PlaySFX(close);
     }
 
-    public override void RefreshAllie(int offset = 0)
+    protected override void RefreshAllie(int offset = 0)
     {
         base.RefreshAllie(offset);
 
@@ -44,7 +44,7 @@ public class ScrollDisplay : ItemDisplayBase
         }
     }
 
-    public override void OnClickAllieItem(string itemName)
+    protected override void OnClickAllieItem(string itemName)
     {
         IItem scroll = ItemDatabase.Instance.Get(itemName);
         scroll.Unequip(allie);
@@ -57,7 +57,7 @@ public class ScrollDisplay : ItemDisplayBase
         ClearItemAndAllieData();
     }
 
-    public override void OnClickGlobalItem(string itemName)
+    protected override void OnClickGlobalItem(string itemName)
     {
         if (globalInventory.Contains(itemName))
             return;
@@ -73,7 +73,7 @@ public class ScrollDisplay : ItemDisplayBase
         ClearItemAndAllieData();
     }
 
-    public override void OnEnterGlobalItem(string itemName)
+    protected override void OnEnterGlobalItem(string itemName)
     {
         if (globalInventory.Contains(itemName))
             return;
@@ -86,7 +86,7 @@ public class ScrollDisplay : ItemDisplayBase
         this.itemSprite.sprite = scroll.icon;
     }
 
-    public override void OnExitGlobalItem(string itemName)
+    protected override void OnExitGlobalItem(string itemName)
     {
         ClearItemAndAllieData();
     }

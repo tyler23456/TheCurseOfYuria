@@ -59,7 +59,7 @@ public class ItemDisplayBase : DisplayBase
     protected IInventory globalInventory;
     protected ItemTypeBase currentType;
 
-    public virtual void RefreshAllie(int offset)
+    protected virtual void RefreshAllie(int offset)
     {
         allie?.obj.SetActive(previousActive);
 
@@ -80,7 +80,7 @@ public class ItemDisplayBase : DisplayBase
         allieValues.text = "";
     }
 
-    public void RefreshAllieInventory(IInventory inventory, bool showName = false, bool showCount = true, bool showSprite = true)
+    protected void RefreshAllieInventory(IInventory inventory, bool showName = false, bool showCount = true, bool showSprite = true)
     {
         allieInventoryUI.showName = showName;
         allieInventoryUI.showCount = showCount;
@@ -95,7 +95,7 @@ public class ItemDisplayBase : DisplayBase
     }
 
 
-    public void RefreshGlobalInventory(IInventory inventory, bool showName = false, bool showCount = true, bool showSprite = true)
+    protected void RefreshGlobalInventory(IInventory inventory, bool showName = false, bool showCount = true, bool showSprite = true)
     {
         globalInventoryUI.showName = showName;
         globalInventoryUI.showCount = showCount;
@@ -125,7 +125,7 @@ public class ItemDisplayBase : DisplayBase
         detailedActorViewCamera.transform.position = allie.obj.transform.position + new Vector3(0f, 1f, -2.5f);
     }
 
-    public void ClearItemAndAllieData()
+    protected void ClearItemAndAllieData()
     {
         itemName.text = "";
         itemInfo.text = "";
@@ -133,32 +133,32 @@ public class ItemDisplayBase : DisplayBase
         itemSprite.sprite = emptySprite;
     }
 
-    public virtual void OnClickAllieItem(string itemName)
+    protected virtual void OnClickAllieItem(string itemName)
     {
 
     }
 
-    public virtual void OnEnterAllieItem(string itemName)
+    protected virtual void OnEnterAllieItem(string itemName)
     {
 
     }
 
-    public virtual void OnExitAllieItem(string itemName)
+    protected virtual void OnExitAllieItem(string itemName)
     {
       
     }
 
-    public virtual void OnClickGlobalItem(string itemName)
+    protected virtual void OnClickGlobalItem(string itemName)
     {
 
     }
 
-    public virtual void OnEnterGlobalItem(string itemName)
+    protected virtual void OnEnterGlobalItem(string itemName)
     {
 
     }
 
-    public virtual void OnExitGlobalItem(string itemName)
+    protected virtual void OnExitGlobalItem(string itemName)
     {
 
     }
