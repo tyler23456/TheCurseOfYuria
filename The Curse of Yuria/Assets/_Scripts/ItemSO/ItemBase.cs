@@ -14,6 +14,7 @@ public abstract class ItemBase : TypeBase
     [SerializeField] protected ItemTypeBase _equipmentType;
     [SerializeField] [TextArea(3, 10)] protected string info;
     [SerializeField] protected ItemSprite _itemSprite;
+    [SerializeField] protected int value = 4;
 
     public ulong getGuid => guid;
 
@@ -22,6 +23,7 @@ public abstract class ItemBase : TypeBase
     public ItemTypeBase itemType { get { return _equipmentType; } set { _equipmentType = value; } }
     public ItemSprite itemSprite { get { return _itemSprite; } set { _itemSprite = value; } }
     public string getInfo => info;
+    public int getValue => value;
 
     
     public virtual IEnumerator Use(IActor user, List<IActor> targets)

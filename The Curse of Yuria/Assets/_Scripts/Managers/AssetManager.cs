@@ -16,12 +16,8 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] Material material;
 
         [SerializeField] HelmetType helmetType;
-        [SerializeField] EarringType earringType;
-        [SerializeField] GlassesType glassesType;
-        [SerializeField] MaskType maskType;
         [SerializeField] Melee1HType melee1HType;
         [SerializeField] Melee2HType melee2HType;
-        [SerializeField] CapeType capeType;
         [SerializeField] ArmorType armorType;
         [SerializeField] ShieldType shieldType;
         [SerializeField] BowType bowType;
@@ -103,23 +99,11 @@ namespace TCOY.DontDestroyOnLoad
             foreach (Sprite icon in helmets)
                 RefreshItemCategory(icon, helmetsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), helmetType);
 
-            foreach (Sprite icon in earrings)
-                RefreshItemCategory(icon, earringsPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), earringType);
-
-            foreach (Sprite icon in glasses)
-                RefreshItemCategory(icon, glassesPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), glassesType);
-
-            foreach (Sprite icon in masks)
-                RefreshItemCategory(icon, masksPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), maskType);
-
             foreach (Sprite icon in meleeWeapon1H)
                 RefreshItemCategory(icon, meleeWeapon1HPath + FilterName(icon.name), ScriptableObject.CreateInstance<Weapon>(), melee1HType);
 
             foreach (Sprite icon in meleeWeapon2H)
                 RefreshItemCategory(icon, meleeWeapon2HPath + FilterName(icon.name), ScriptableObject.CreateInstance<Weapon>(), melee2HType);
-
-            foreach (Sprite icon in capes)
-                RefreshItemCategory(icon, capesPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), capeType);
 
             foreach (Sprite icon in armor)
                 RefreshItemCategory(icon, armorPath + FilterName(icon.name), ScriptableObject.CreateInstance<Equipable>(), armorType);

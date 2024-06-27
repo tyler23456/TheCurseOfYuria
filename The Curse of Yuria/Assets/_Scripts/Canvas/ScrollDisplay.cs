@@ -12,12 +12,12 @@ public class ScrollDisplay : ItemDisplayBase
     {
         base.OnEnable();
 
-        allieInventoryUI = new InventoryUI();
+        localInventoryUI = new InventoryUI();
         globalInventoryUI = new InventoryUI();
 
         allieIndex = 0;
-        RefreshGlobalInventory(InventoryManager.Instance.scrolls, showName: true);
-        RefreshAllie();
+        RefreshGlobalEquipment(InventoryManager.Instance.scrolls);
+        RefreshAllieEquipment();
 
         AudioManager.Instance.PlaySFX(open);
     }
@@ -30,9 +30,9 @@ public class ScrollDisplay : ItemDisplayBase
         AudioManager.Instance.PlaySFX(close);
     }
 
-    protected override void RefreshAllie(int offset = 0)
+    protected override void RefreshAllieGeneric(int offset = 0)
     {
-        base.RefreshAllie(offset);
+        base.RefreshAllieEquipment(offset);
 
         globalInventory = allie.getScrolls;
 
@@ -44,20 +44,20 @@ public class ScrollDisplay : ItemDisplayBase
         }
     }
 
-    protected override void OnClickAllieItem(string itemName)
+    protected void OnClickAllieItem(string itemName)
     {
         IItem scroll = ItemDatabase.Instance.Get(itemName);
         scroll.Unequip(allie);
 
         InventoryManager.Instance.scrolls.Add(itemName);
 
-        RefreshAllie();
-        RefreshAllieInventory(allie.getScrolls, showName: true, showCount: false);
-        RefreshGlobalInventory(InventoryManager.Instance.scrolls, showName: true);
+        RefreshAllieEquipment();
+        RefreshLocalScrolls(allie.getScrolls);
+        RefreshGlobalEquipment(InventoryManager.Instance.scrolls);
         ClearItemAndAllieData();
     }
 
-    protected override void OnClickGlobalItem(string itemName)
+    protected void OnEquipEquipment(string itemName)
     {
         if (globalInventory.Contains(itemName))
             return;
@@ -67,13 +67,13 @@ public class ScrollDisplay : ItemDisplayBase
         IItem scroll = ItemDatabase.Instance.Get(itemName);
         scroll.Equip(allie);
 
-        RefreshAllie();
-        RefreshAllieInventory(allie.getScrolls, showName: true, showCount: false);
-        RefreshGlobalInventory(InventoryManager.Instance.scrolls, showName: true);
+        RefreshAllieEquipment();
+        RefreshLocalScrolls(allie.getScrolls);
+        RefreshGlobalEquipment(InventoryManager.Instance.scrolls);
         ClearItemAndAllieData();
     }
 
-    protected override void OnEnterGlobalItem(string itemName)
+    protected override void OnEnterGlobalEquipment(string itemName)
     {
         if (globalInventory.Contains(itemName))
             return;
@@ -84,10 +84,5 @@ public class ScrollDisplay : ItemDisplayBase
         this.itemInfo.text = scroll.getInfo;
         this.allieIncreases.text = "";
         this.itemSprite.sprite = scroll.icon;
-    }
-
-    protected override void OnExitGlobalItem(string itemName)
-    {
-        ClearItemAndAllieData();
     }
 }

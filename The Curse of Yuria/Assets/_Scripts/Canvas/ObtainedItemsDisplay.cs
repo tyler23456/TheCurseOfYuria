@@ -56,6 +56,8 @@ public class ObtainedItemsDisplay : DisplayBase
     void OnClick(string itemName)
     {
         getInventory.Remove(itemName);
+        InventoryManager.Instance.AddItem(itemName);
+
         OnRefresh();
 
         if (inventory.count == 0)

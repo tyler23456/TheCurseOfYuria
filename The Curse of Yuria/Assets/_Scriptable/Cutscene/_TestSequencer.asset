@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220bf2bb7a263c34f96fc4c7bb0c8c92, type: 3}
   m_Name: _TestSequencer
   m_EditorClassIdentifier: 
+  characterName: {fileID: 0}
   actions:
   - {fileID: 11400000, guid: ccc69783fd35d1745b0c6dbf8e1813b6, type: 2}
   - {fileID: 11400000, guid: fa1bcdc36d4aadb43b2fd73f56f24183, type: 2}
+  - {fileID: 11400000, guid: 0fc9516964569784c8acfecbcd040b13, type: 2}

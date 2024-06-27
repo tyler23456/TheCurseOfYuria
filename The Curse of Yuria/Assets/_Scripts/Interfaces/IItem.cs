@@ -14,6 +14,7 @@ public interface IItem
     ItemTypeBase itemType { get; }
     string getInfo { get; }
     ItemSprite itemSprite { get; }
+    int getValue { get; }
 
 
     IEnumerator Use(IActor user, List<IActor> targets);

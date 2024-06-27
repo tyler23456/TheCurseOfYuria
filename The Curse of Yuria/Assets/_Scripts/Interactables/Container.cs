@@ -27,7 +27,6 @@ namespace TCOY.DontDestroyOnLoad
                 if (count <= 0)
                     continue;
 
-                InventoryManager.Instance.AddItem(entry.item.name, count);
                 ObtainedItemsDisplay.Instance.getInventory.Add(entry.item.name, count);
             }
             ObtainedItemsDisplay.Instance.onClick = OnClick;
@@ -39,12 +38,6 @@ namespace TCOY.DontDestroyOnLoad
             foreach (SavedEntry entry in entries)
                 if (entry.item.name == itemName)
                     InventoryManager.Instance.completedIds.Add(entry.ID);
-        }
-
-        [System.Serializable]
-        public class SavedEntry : Entry
-        {
-            [HideInInspector] [SerializeField] public string ID = "None";
         }
     }
 }

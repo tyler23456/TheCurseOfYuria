@@ -7,13 +7,11 @@ using HeroEditor.Common.Data;
 using System.Linq;
 using System.Collections.ObjectModel;
 
-public class EquipmentDisplay : EquipmentDisplayBase
+public class EquipmentDisplayBase : ItemDisplayBase
 {
-    public static EquipmentDisplay Instance { get; protected set; }
+   
 
-    public override void Initialize()
-    {
-        base.Initialize();
-        Instance = this;
-    }
+    
+
+    
 }

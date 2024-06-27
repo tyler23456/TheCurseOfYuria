@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b9bbce98579bb94b8a0c6001bad5959, type: 3}
+  m_Name: TestShop
+  m_EditorClassIdentifier: 
+  characterName: {fileID: 11400000, guid: d6f7b8977f765194cac4f3aac768dd32, type: 2}
+  buyersRating: 0.2
+  sellersRating: 1.8
+  entries:
+  - item: {fileID: 11400000, guid: 8c83aa72ea2af6d459b351112127fe95, type: 2}
+    count: 12
+    ID: 638550159647473775|24177c79-62f5-4879-87d3-67c75129abce
+  - item: {fileID: 11400000, guid: 76bcef5625eb3994dbcc35767d5b14f7, type: 2}
+    count: 12
+    ID: 638550159647473775|24177c79-62f5-4879-87d3-67c75129abce
+  - item: {fileID: 11400000, guid: f11b5a5e6a458c3478a56cc6eec71d8e, type: 2}
+    count: 12
+    ID: 638550159647473775|24177c79-62f5-4879-87d3-67c75129abce
+  - item: {fileID: 11400000, guid: abd85df91e80ef74999eb51b0773cc3f, type: 2}
+    count: 12
+    ID: 638550159647473775|24177c79-62f5-4879-87d3-67c75129abce
+  - item: {fileID: 11400000, guid: fe344b5d65a95ce48a23692c07b977e5, type: 2}
+    count: 12
+    ID: 638550159647473775|24177c79-62f5-4879-87d3-67c75129abce
+  - item: {fileID: 11400000, guid: 2671adf9ee6f599409feebb1b6f24df0, type: 2}
+    count: 12
+    ID: 638550159647473775|24177c79-62f5-4879-87d3-67c75129abce

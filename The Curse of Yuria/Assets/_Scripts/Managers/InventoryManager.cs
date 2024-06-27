@@ -6,12 +6,8 @@ public sealed class InventoryManager : MonoBehaviour
     public static InventoryManager Instance { get; private set; }
 
     [SerializeField] HelmetType _helmet;
-    [SerializeField] EarringType _earring;
-    [SerializeField] GlassesType _glasses;
-    [SerializeField] MaskType _mask;
     [SerializeField] Melee1HType _melee1H;
     [SerializeField] Melee2HType _melee2H;
-    [SerializeField] CapeType _cape;
     [SerializeField] ArmorType _armor;
     [SerializeField] ShieldType _shield;
     [SerializeField] BowType _bow;
@@ -22,6 +18,7 @@ public sealed class InventoryManager : MonoBehaviour
 
     Dictionary<string, Inventory> inventories = new Dictionary<string, Inventory>();
 
+    public float olms { get; set; } = 107;
     public Inventory helmets { get; private set; } = new Inventory();
     public Inventory earrings { get; private set; } = new Inventory();
     public Inventory glasses { get; private set; } = new Inventory();
@@ -39,12 +36,8 @@ public sealed class InventoryManager : MonoBehaviour
     public Inventory completedIds { get; private set; } = new Inventory();
 
     public HelmetType helmetType => _helmet;
-    public EarringType earringType => _earring;
-    public GlassesType glassesType => _glasses;
-    public MaskType maskType => _mask;
     public Melee1HType melee1HType => _melee1H;
     public Melee2HType melee2HType => _melee2H;
-    public CapeType capeType => _cape;
     public ArmorType armorType => _armor;
     public ShieldType shieldType => _shield;
     public BowType bowType => _bow;
@@ -58,12 +51,8 @@ public sealed class InventoryManager : MonoBehaviour
         Instance = this;
 
         inventories.Add(_helmet.name, helmets);
-        inventories.Add(_earring.name, earrings);
-        inventories.Add(_glasses.name, glasses);
-        inventories.Add(_mask.name, masks);
         inventories.Add(_melee1H.name, meleeWeapons1H);
         inventories.Add(_melee2H.name, meleeWeapons2H);
-        inventories.Add(_cape.name, capes);
         inventories.Add(_armor.name, armor);
         inventories.Add(_shield.name, shields);
         inventories.Add(_bow.name, bows);
