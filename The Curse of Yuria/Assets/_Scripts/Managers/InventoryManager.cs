@@ -18,7 +18,7 @@ public sealed class InventoryManager : MonoBehaviour
 
     Dictionary<string, Inventory> inventories = new Dictionary<string, Inventory>();
 
-    public float olms { get; set; } = 107;
+    public int olms { get; set; } = 107;
     public Inventory helmets { get; private set; } = new Inventory();
     public Inventory earrings { get; private set; } = new Inventory();
     public Inventory glasses { get; private set; } = new Inventory();
@@ -69,6 +69,11 @@ public sealed class InventoryManager : MonoBehaviour
     public Inventory Get(ItemTypeBase type)
     {
         return inventories[type.name];
+    }
+
+    public IInventory GetInventoryOf(string itemName)
+    {
+        return inventories[ItemDatabase.Instance.Get(itemName).itemType.name];
     }
 
     public void EmptyAllInventories()

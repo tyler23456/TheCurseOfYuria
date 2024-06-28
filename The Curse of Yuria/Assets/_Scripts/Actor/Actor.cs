@@ -55,7 +55,6 @@ namespace TCOY.UserActors
             equipment = new Inventory();
             skills = new Inventory();
             detection = new Detection();
-            
             statusEffects = new StatusEffects();
             statusEffects.onAdd = (name) => StatFXDatabase.Instance.Get(name).OnAdd(this);
             statusEffects.onUpdate = (name) => { };

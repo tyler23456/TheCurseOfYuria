@@ -33,15 +33,15 @@ public class ItemDatabase : MonoBehaviour
         }).WaitForCompletion();
     }
 
+    public bool Contains(string itemName)
+    {
+        CheckForEmptyDictionary();
+        return items.ContainsKey(itemName);
+    }
+
     public IItem Get(string itemName)
     {
-        if (items.Count == 0)
-        {
-            foreach (IItem item in serializedItems)
-                items.Add(item.name, item);
-            serializedItems.Clear();
-        }
-
+        CheckForEmptyDictionary();
         return items[itemName];
     }
 
@@ -63,5 +63,15 @@ public class ItemDatabase : MonoBehaviour
     public EquipmentPart GetPart(string itemName)
     {
         return Get(itemName).itemType.part;
+    }
+
+    void CheckForEmptyDictionary()
+    {
+        if (items.Count == 0)
+        {
+            foreach (IItem item in serializedItems)
+                items.Add(item.name, item);
+            serializedItems.Clear();
+        }
     }
 }

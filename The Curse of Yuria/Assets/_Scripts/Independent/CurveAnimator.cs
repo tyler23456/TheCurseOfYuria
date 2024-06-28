@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopComponent : MonoBehaviour
+public class CurveAnimator : MonoBehaviour
 {
-    
+    [SerializeField] LineRenderer renderer;
 }

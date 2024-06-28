@@ -11,6 +11,8 @@ public interface IStats
     const float powerMultiplier = 10f;
 
     enum Attribute { MaxHP, MaxMP, Strength, Defense, Magic, Aura, Speed, Luck }
+    enum Elements { Fire, Ice, Thunder, Light, Dark }
+
 
     Action<int> onHPChanged { get; set; }
     Action<int> onMPChanged { get; set; }

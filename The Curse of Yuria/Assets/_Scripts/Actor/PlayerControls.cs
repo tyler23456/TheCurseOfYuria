@@ -27,10 +27,7 @@ namespace TCOY.ControllerStates
                 OptionsDisplay.Instance.ToggleExclusivelyInParent();
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
-                EquipmentDisplay.Instance.ToggleExclusivelyInParent();
-
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-                ScrollDisplay.Instance.ToggleExclusivelyInParent();
+                ItemDisplay.Instance.ToggleExclusivelyInParent();
 
             if (Input.GetKeyDown(KeyCode.Tab) && BattleManager.Instance.aTBGuageFilledCount > 0)
                 CommandDisplay.Instance.ToggleExclusivelyInParent();

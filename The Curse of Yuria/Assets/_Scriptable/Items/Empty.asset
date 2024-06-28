@@ -15,16 +15,8 @@ MonoBehaviour:
   guid: 0
   _icon: {fileID: 0}
   _prefab: {fileID: 0}
-  _equipmentType: {fileID: 0}
+  _equipmentType: {fileID: 11400000, guid: 31d38a323650e3b44900c2067dc872c8, type: 2}
   info: 
-  _armType: {fileID: 0}
-  _elementType: {fileID: 0}
-  _calculationType: {fileID: 0}
-  _bonusTypes: []
-  power: 0
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: ArielDress [Paint]
     Collection: Basic
@@ -50,7 +42,8 @@ MonoBehaviour:
     Hash: b943e84d7d9355e5270ffb15fb2e511f
     Tags:
     - Paint
-  statusEffectProbabilities: []
+  value: 4
   modifiers: []
+  wards: []
   counters: []
   interrupts: []

@@ -2,27 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
+using HeroEditor.Common.Enums;
+using HeroEditor.Common.Data;
+using System.Linq;
+using System.Collections.ObjectModel;
 
-public class ItemDisplay : ItemDisplayBase
+public class ItemDisplay : DisplayBase
 {
     public static ItemDisplay Instance { get; protected set; }
 
-    [Header("Shop")]
-    [SerializeField] Button buy;
-    [SerializeField] Button sell;
-    [SerializeField] Text selectedInfo;
-    [SerializeField] Text currencyLabel;
-    [SerializeField] Text currencyValue;
-    [SerializeField] Text currencyIncrease;
-
-    bool isBuying = true;
-    Dictionary<ItemTypeBase, Inventory> shopInventories = new Dictionary<ItemTypeBase, Inventory>();
-
-    public float buyersRating { get; set; } = 1f;
-    public float sellersRating { get; set; } = 1f;
-    public Action<string> onClickGlobalItem { get; set; } = (itemName) => { };
-    public List<(string name, int count)> itemsForSell { get; private set; } = new List<(string name, int count)>();
+    [SerializeField] ItemDisplayAsset display;
 
     public override void Initialize()
     {
@@ -32,112 +21,140 @@ public class ItemDisplay : ItemDisplayBase
 
     protected override void OnEnable()
     {
-        shopInventories = new Dictionary<ItemTypeBase, Inventory>();
-        shopInventories.Add(InventoryManager.Instance.helmetType, new Inventory());
-        shopInventories.Add(InventoryManager.Instance.melee1HType, new Inventory());
-        shopInventories.Add(InventoryManager.Instance.melee2HType, new Inventory());
-        shopInventories.Add(InventoryManager.Instance.armorType, new Inventory());
-        shopInventories.Add(InventoryManager.Instance.shieldType, new Inventory());
-        shopInventories.Add(InventoryManager.Instance.bowType, new Inventory());
-        shopInventories.Add(InventoryManager.Instance.scrollType, new Inventory());
-        shopInventories.Add(InventoryManager.Instance.basicType, new Inventory());
-
-        foreach ((string name, int count) item in itemsForSell)
-            shopInventories[ItemDatabase.Instance.Get(item.name).itemType].Add(item.name, item.count);
-
         base.OnEnable();
 
-        buy.onClick.RemoveAllListeners();
-        sell.onClick.RemoveAllListeners();
+        
 
-        buy.onClick.AddListener(OnClickBuy);
-        sell.onClick.AddListener(OnClickSell);
+        display.gameObject.SetActive(true);
+        display.Initialize();
 
-        OnClickBuy();
+        display.helmetsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.helmetType));
+        display.meleeWeapons1HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee1HType));
+        display.meleeWeapons2HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee2HType));
+        display.armorTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.armorType));
+        display.shieldsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.shieldType));
+        display.bowsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.bowType));
+        display.scrollsTab.onClick.AddListener(() => RefreshScrollsWithSFX(InventoryManager.Instance.scrollType));
+        display.basicTab.onClick.AddListener(() => RefreshReadonlyWithSFX(InventoryManager.Instance.basicType));
+        display.questItemsTab.onClick.AddListener(() => RefreshReadonlyWithSFX(InventoryManager.Instance.questItemType));
+
+        display.helmetsTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.helmetType);
+        display.meleeWeapons1HTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.melee1HType);
+        display.meleeWeapons2HTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.melee2HType);
+        display.armorTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.armorType);
+        display.shieldsTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.shieldType);
+        display.bowsTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.bowType);
+        display.scrollsTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
+        display.basicTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
+        display.questItemsTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
+
+        display.RefreshAllie(0);
+        RefreshEquipment(InventoryManager.Instance.helmetType);
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        shopInventories.Clear();
-        RefreshCurrency();
-        itemsForSell.Clear();
+        display.gameObject.SetActive(false);
     }
 
-
-    protected override void RefreshEquipment(ItemTypeBase type)
+    private void Update()
     {
-        currentType = type;
-        if (isBuying)
+        display.UpdateAllieView();
+    }
+
+    void RefreshEquipmentWithSFX(ItemTypeBase type)
+    {
+        AudioManager.Instance.PlaySFX(display.cycleEquipmentParts);
+        RefreshEquipment(type);
+    }
+
+    void RefreshEquipment(ItemTypeBase type)
+    {
+        display.onEnterItem = display.ShowItemInfo;
+        display.onEnterItem += display.RefreshStatusAttributes;
+        display.onExitItem = (n) => display.ClearItemInfo();
+        display.onExitItem = (n) => display.RefreshStatusAttributes("");
+        display.onGlobalClick = OnEquipEquipment;
+        display.RefreshEquipment(type);
+        display.localInventoryGameObject.SetActive(false);
+    }
+
+    void RefreshScrollsWithSFX(ItemTypeBase type)
+    {
+        AudioManager.Instance.PlaySFX(display.cycleEquipmentParts);
+        display.onEnterItem = display.ShowItemInfo;
+        display.onExitItem = display.ClearAllieAndItemInfo;
+        display.onGlobalClick = OnEquipScroll;
+        display.RefreshNonEquipment(type);
+        display.localInventoryGameObject.SetActive(true);
+    }
+
+    void RefreshReadonlyWithSFX(ItemTypeBase type)
+    {
+        AudioManager.Instance.PlaySFX(display.cycleEquipmentParts);
+        display.onEnterItem = display.ShowItemInfo;
+        display.onExitItem = display.ClearAllieAndItemInfo;
+        display.onGlobalClick = (itemName) => { };
+        display.RefreshNonEquipment(type);
+        display.localInventoryGameObject.SetActive(false);
+    }
+
+    void OnEquipEquipment(string itemName)
+    {
+        IEquipment current = (IEquipment)ItemDatabase.Instance.Get(itemName);
+
+        string previous = display.allie.getEquipment.Find(i => ItemDatabase.Instance.GetTypeName(i) == current.itemType.name);
+
+        if (previous == null)
         {
-            RefreshGlobalEquipment(shopInventories[type]);
-            globalInventoryUI.OnClick += onClickGlobalItem;
+            InventoryManager.Instance.Get(current.itemType).Remove(itemName);
         }
         else
         {
-            RefreshGlobalEquipment(InventoryManager.Instance.Get(type));
-            globalInventoryUI.OnClick += onClickGlobalItem;
+            InventoryManager.Instance.Get(current.itemType).Add(previous);
+            InventoryManager.Instance.Get(current.itemType).Remove(itemName);
         }
+
+        current.Equip(display.allie);
+        AudioManager.Instance.PlaySFX(display.equip);
+
+        display.RefreshEquipment(current.itemType);
     }
 
-    protected void RefreshCurrency()
+    void OnUnequipEquipment(ItemTypeBase type)
     {
-        currencyIncrease.text = "";
-        currencyValue.text = InventoryManager.Instance.olms.ToString();
+        string itemName = display.allie.getEquipment.Find(i => ItemDatabase.Instance.GetTypeName(i) == type.name);
+
+        if (itemName == null)
+            return;
+
+        IEquipment current = (IEquipment)ItemDatabase.Instance.Get(itemName);
+
+        InventoryManager.Instance.Get(current.itemType).Add(itemName);
+        current.Unequip(display.allie);
+        AudioManager.Instance.PlaySFX(display.unequip);
+
+        display.RefreshEquipment(type);
     }
 
-    protected void OnClickBuy()
+    protected void OnEquipScroll(string itemName)
     {
-        isBuying = true;
-        selectedInfo.text = "Buy an item";
-        RefreshEquipmentWithSFX(currentType);
+        InventoryManager.Instance.scrolls.Remove(itemName);
+
+        IItem scroll = ItemDatabase.Instance.Get(itemName);
+        scroll.Equip(display.allie);
+
+        display.RefreshNonEquipment(scroll.itemType);
     }
 
-    protected void OnClickSell()
+    protected void OnUnequipScroll(string itemName)
     {
-        isBuying = false;
-        selectedInfo.text = "Sell an item";
-        RefreshEquipmentWithSFX(currentType);
-    }
+        IItem scroll = ItemDatabase.Instance.Get(itemName);
+        scroll.Unequip(display.allie);
 
+        InventoryManager.Instance.scrolls.Add(itemName);
 
-    protected new void OnEquipEquipment(string itemName)
-    {
-        if (isBuying)
-        {
-            InventoryManager.Instance.olms -= (int)(currentItem.getValue * buyersRating);
-            InventoryManager.Instance.AddItem(itemName);
-        }
-        else
-        {
-            InventoryManager.Instance.olms += (int)(currentItem.getValue * sellersRating);
-            InventoryManager.Instance.Get(currentItem.itemType).Remove(itemName);
-        }
-        RefreshCurrency();
-        RefreshEquipment(currentItem.itemType);
-    }
-
-    protected override void OnEnterGlobalEquipment(string itemName)
-    {
-        base.OnEnterGlobalEquipment(itemName);
-
-        int price = 4;
-
-        if (isBuying)
-        {
-            price = (int)(currentItem.getValue * buyersRating);
-            currencyIncrease.text = "<color=#ff0000ff>" + "+ " + price.ToString() + "</color>";
-        }  
-        else
-        {
-            price = (int)(currentItem.getValue * sellersRating);
-            currencyIncrease.text = "<color=#00ff00ff>" + "+ " + price.ToString() + "</color>";
-        }
-    }
-
-    protected new void OnExitGlobalItem(string itemName)
-    {
-        base.OnExitGlobalItem(itemName);
-        RefreshCurrency();
+        display.RefreshNonEquipment(scroll.itemType);
     }
 }

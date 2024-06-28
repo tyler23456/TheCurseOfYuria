@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class ParentDisplay : MonoBehaviour
 {
-    DisplayBase display;
+    DisplayBase[] displays;
     void Awake()
     {
         foreach (Transform child in transform)
         {
-            display = child.GetComponent<DisplayBase>();
+            displays = child.GetComponents<DisplayBase>();
 
-            if (display == null)
-                continue;
-
-            display.Initialize();
+            foreach (DisplayBase display in displays)
+                if (display != null)
+                    display.Initialize();
         }
-            
     }
 }

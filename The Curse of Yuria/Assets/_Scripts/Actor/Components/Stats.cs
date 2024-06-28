@@ -144,5 +144,10 @@ namespace TCOY.UserActors
         {
             return attributes.ToArray();
         }
+
+        public int[] GetWeaknesses()
+        {
+            return attributes.ToArray();
+        }
     }
 }

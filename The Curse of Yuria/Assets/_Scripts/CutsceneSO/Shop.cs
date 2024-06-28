@@ -27,13 +27,13 @@ public class Shop : ActionBase
                 continue;
 
             ObtainedItemsDisplay.Instance.getInventory.Add(entry.item.name, count);
-            ItemDisplay.Instance.itemsForSell.Add((entry.item.name, entry.count));
+            ShopDisplay.Instance.itemsForSell.Add((entry.item.name, entry.count));
         }
 
-        ItemDisplay.Instance.buyersRating = buyersRating;
-        ItemDisplay.Instance.sellersRating = sellersRating;
-        ItemDisplay.Instance.onClickGlobalItem = OnClick;
-        ItemDisplay.Instance.ShowExclusivelyInParent();
+        ShopDisplay.Instance.buyersRating = buyersRating;
+        ShopDisplay.Instance.sellersRating = sellersRating;
+        ShopDisplay.Instance.onClickGlobalItem = OnClick;
+        ShopDisplay.Instance.ShowExclusivelyInParent();
 
         yield return null;
     }
