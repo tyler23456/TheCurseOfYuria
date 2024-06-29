@@ -49,6 +49,12 @@ namespace TCOY.AStar
             groundChecker = new UserActors.GroundChecker(animator);
         }
 
+        public void SetInitialStates(TCOY.ControllerStates.GoalBase initialGoalState, TCOY.ControllerStates.ActionBase initialActionState)
+        {
+            this.initialGoalState = initialGoalState;
+            this.initialActionState = initialActionState;
+        }
+
         void Update()
         {
             if (AllieManager.Instance.count == 0)

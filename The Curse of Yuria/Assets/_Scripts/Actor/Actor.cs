@@ -17,7 +17,8 @@ namespace TCOY.UserActors
         [SerializeField] protected ATBGuage aTBGuage;
         [SerializeField] protected List<Reactor> counters;
         [SerializeField] protected List<Reactor> interrupts;
-      
+        [SerializeField] protected Color _trajectoryPathColor;
+
         protected DefaultItems editorEquipper;
         protected new Collider2D collider2D;
         protected SpriteRenderer[] spriteRenderers;
@@ -44,6 +45,7 @@ namespace TCOY.UserActors
         public List<Reactor> getInterrupts => interrupts;
 
         public bool useDefaultItems { get { return _useDefaultItems; } set { _useDefaultItems = value; } }
+        public Color trajectoryPathColor { get { return _trajectoryPathColor; } set { _trajectoryPathColor = value; } }
 
         protected void Awake()
         {

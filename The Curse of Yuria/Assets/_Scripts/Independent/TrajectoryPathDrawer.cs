@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [RequireComponent(typeof(LineRenderer))]
-public class LineDrawer : MonoBehaviour
+public class TrajectoryPathDrawer : MonoBehaviour
 {
     const int drawTime = 1;
     const int lineCount = 60;
@@ -21,10 +21,9 @@ public class LineDrawer : MonoBehaviour
     int visibleLinesCount = 1;
     float drawRate = 0f;
 
-    public Color color { get; set; } = Color.grey;
     public Action onFinishedDrawing { get; set; } = () => { };
 
-    public void Initialize(Transform user, Transform target)
+    public void Initialize(Transform user, Transform target, Color color)
     {
         lineRenderer = GetComponent<LineRenderer>();
         drawRateAccumulator = 0f;
@@ -33,6 +32,8 @@ public class LineDrawer : MonoBehaviour
 
         this.user = user;
         this.target = target;
+        lineRenderer.startColor = color;
+        lineRenderer.endColor = color;
     }
 
     LaunchData CalculateLaunchData(Vector2 user, Vector2 target)

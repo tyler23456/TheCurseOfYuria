@@ -8,7 +8,7 @@ public class BattleManager : MonoBehaviour
 {
     public static BattleManager Instance { get; private set; }
 
-    [SerializeField] LineDrawer lineDrawerPrefab;
+    [SerializeField] TrajectoryPathDrawer lineDrawerPrefab;
     [SerializeField] TargeterBase enemyTargeter;
     [SerializeField] List<StatusEffectBase> gameOverStatusEffects;
 
@@ -56,9 +56,9 @@ public class BattleManager : MonoBehaviour
             Command command = pendingCommands.First();
             pendingCommands.RemoveFirst();
 
-            LineDrawer drawer = Instantiate(lineDrawerPrefab.gameObject).GetComponent<LineDrawer>();
+            TrajectoryPathDrawer drawer = Instantiate(lineDrawerPrefab.gameObject).GetComponent<TrajectoryPathDrawer>();
             drawer.onFinishedDrawing = () => RunCommand(command);
-            drawer.Initialize(command.user.obj.transform, command.targets[0].obj.transform);
+            drawer.Initialize(command.user.obj.transform, command.targets[0].obj.transform, command.user.trajectoryPathColor);
 
             yield return new WaitForSeconds(1f);
         }

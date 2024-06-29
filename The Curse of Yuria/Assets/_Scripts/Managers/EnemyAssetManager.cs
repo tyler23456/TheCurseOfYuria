@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.AddressableAssets;
 using UnityEditor.Animations;
+using System.Linq;
 
 [ExecuteInEditMode]
 public class EnemyAssetManager : MonoBehaviour
@@ -12,6 +13,8 @@ public class EnemyAssetManager : MonoBehaviour
     [SerializeField] PhysicsMaterial2D noFrictionMaterial;
     [SerializeField] AssetLabelReference enemyPrefabReference;
     [SerializeField] AssetLabelReference animatorControllerReference;
+    [SerializeField] TCOY.ControllerStates.GoalBase initialGoalState;
+    [SerializeField] TCOY.ControllerStates.ActionBase initialActionState;
     [SerializeField] bool refresh = false;
     
     void Update()
@@ -40,6 +43,7 @@ public class EnemyAssetManager : MonoBehaviour
         foreach (AnimatorController controller in controllers)
             RefreshAnimatorControllers(controller);
 
+        AssetDatabase.SaveAssets();
     }
 
     void RefreshEnemyPrefabs(GameObject prefab)
@@ -69,6 +73,20 @@ public class EnemyAssetManager : MonoBehaviour
         if (animator == null)
             animator = prefab.AddComponent<Animator>();
 
+        Color color = enemy.trajectoryPathColor;
+
+        if (color.r < 0.2f && color.g < 0.2f && color.b < 0.2f)
+        {
+            float valueA = Random.Range(0.65f, 1f);
+            float valueB = Random.Range(0.3f, 1f);
+            float valueC = Random.Range(0f, 0.5f);
+            List<float> randomValues = new List<float> { valueA, valueB, valueC };
+            randomValues = randomValues.OrderBy(i => Random.Range(0, 1)).ToList();
+            enemy.trajectoryPathColor = new Color(randomValues[0], randomValues[1], randomValues[2], 0.9f);
+        }
+        
+        unit.SetInitialStates(initialGoalState, initialActionState);
+
         drop.enabled = false;
 
         converter.SetMaterial(material);
@@ -78,6 +96,7 @@ public class EnemyAssetManager : MonoBehaviour
         body.gravityScale = 8f;
         body.interpolation = RigidbodyInterpolation2D.Interpolate;
         body.freezeRotation = true;
+        body.drag = 16;
 
         collider.sharedMaterial = noFrictionMaterial;
 
@@ -85,7 +104,7 @@ public class EnemyAssetManager : MonoBehaviour
 
         if (previousCollider != null)
             DestroyImmediate(previousCollider, true);
-            
+        
         PrefabUtility.SavePrefabAsset(prefab);
     }
 
@@ -119,5 +138,8 @@ public class EnemyAssetManager : MonoBehaviour
         isGrounded.type = AnimatorControllerParameterType.Bool;
         isGrounded.defaultBool = true;
 
+        controller.parameters = parameters.ToArray();
+
+        EditorUtility.SetDirty(controller);
     }
 }
