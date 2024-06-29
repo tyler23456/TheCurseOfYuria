@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestShop
   m_EditorClassIdentifier: 
   characterName: {fileID: 11400000, guid: d6f7b8977f765194cac4f3aac768dd32, type: 2}
-  buyersRating: 0.2
+  buyersRating: 1.5
   sellersRating: 1.8
   entries:
   - item: {fileID: 11400000, guid: 8c83aa72ea2af6d459b351112127fe95, type: 2}

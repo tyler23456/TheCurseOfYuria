@@ -44,7 +44,10 @@ public class InventoryUI
             {
                 onPointerEnter.Invoke(inventory.GetName(index));
             };
-            pointerHover.onPointerExit = () => onPointerExit.Invoke(inventory.GetName(index));
+            pointerHover.onPointerExit = () =>
+            {
+                onPointerExit.Invoke(inventory.GetName(index));
+            };
 
             if (showSprite)
                 button.transform.GetChild(1).GetComponent<Image>().sprite = ItemDatabase.Instance.Get(inventory.GetName(index)).icon;
@@ -53,9 +56,6 @@ public class InventoryUI
             if (showName)
                 button.transform.GetChild(3).GetComponent<Text>().text = inventory.GetName(index);
         }
-
-        showName = false;
-        showCount = true;
     }
 
     public void EmptyDisplay()

@@ -23,8 +23,6 @@ public class ItemDisplay : DisplayBase
     {
         base.OnEnable();
 
-        
-
         display.gameObject.SetActive(true);
         display.Initialize();
 
@@ -48,7 +46,13 @@ public class ItemDisplay : DisplayBase
         display.basicTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
         display.questItemsTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
 
+        display.onEnterItem = display.ShowItemInfo;
+        display.onEnterItem += display.RefreshAllieInfo;
+        display.onExitItem = (n) => display.ClearItemInfo();
+        display.onExitItem += (n) => display.RefreshAllieInfo("");
+
         display.RefreshAllie(0);
+
         RefreshEquipment(InventoryManager.Instance.helmetType);
     }
 
@@ -71,33 +75,35 @@ public class ItemDisplay : DisplayBase
 
     void RefreshEquipment(ItemTypeBase type)
     {
-        display.onEnterItem = display.ShowItemInfo;
-        display.onEnterItem += display.RefreshStatusAttributes;
-        display.onExitItem = (n) => display.ClearItemInfo();
-        display.onExitItem = (n) => display.RefreshStatusAttributes("");
         display.onGlobalClick = OnEquipEquipment;
-        display.RefreshEquipment(type);
+        display.isRefreshingStatusAttributes = true;
         display.localInventoryGameObject.SetActive(false);
+        display.SetGlobalInventoryBehavior();
+        display.SetLocalInventoryBehavior();
+        display.RefreshItemInfo(type);
     }
 
     void RefreshScrollsWithSFX(ItemTypeBase type)
     {
         AudioManager.Instance.PlaySFX(display.cycleEquipmentParts);
-        display.onEnterItem = display.ShowItemInfo;
-        display.onExitItem = display.ClearAllieAndItemInfo;
         display.onGlobalClick = OnEquipScroll;
-        display.RefreshNonEquipment(type);
+        display.onLocalClick = OnUnequipScroll;
+        display.isRefreshingStatusAttributes = false;
         display.localInventoryGameObject.SetActive(true);
+        display.SetGlobalInventoryBehavior(showName: true);
+        display.SetLocalInventoryBehavior(showName: true, showCount: false);
+        display.RefreshItemInfo(type);
     }
 
     void RefreshReadonlyWithSFX(ItemTypeBase type)
     {
         AudioManager.Instance.PlaySFX(display.cycleEquipmentParts);
-        display.onEnterItem = display.ShowItemInfo;
-        display.onExitItem = display.ClearAllieAndItemInfo;
         display.onGlobalClick = (itemName) => { };
-        display.RefreshNonEquipment(type);
+        display.isRefreshingStatusAttributes = false;
         display.localInventoryGameObject.SetActive(false);
+        display.SetGlobalInventoryBehavior();
+        display.SetLocalInventoryBehavior();
+        display.RefreshItemInfo(type);
     }
 
     void OnEquipEquipment(string itemName)
@@ -119,7 +125,7 @@ public class ItemDisplay : DisplayBase
         current.Equip(display.allie);
         AudioManager.Instance.PlaySFX(display.equip);
 
-        display.RefreshEquipment(current.itemType);
+        display.RefreshItemInfo(current.itemType);
     }
 
     void OnUnequipEquipment(ItemTypeBase type)
@@ -135,17 +141,20 @@ public class ItemDisplay : DisplayBase
         current.Unequip(display.allie);
         AudioManager.Instance.PlaySFX(display.unequip);
 
-        display.RefreshEquipment(type);
+        display.RefreshItemInfo(type);
     }
 
     protected void OnEquipScroll(string itemName)
     {
+        if (display.allie.getScrolls.Contains(itemName))
+            return;
+
         InventoryManager.Instance.scrolls.Remove(itemName);
 
         IItem scroll = ItemDatabase.Instance.Get(itemName);
         scroll.Equip(display.allie);
 
-        display.RefreshNonEquipment(scroll.itemType);
+        display.RefreshItemInfo(scroll.itemType);
     }
 
     protected void OnUnequipScroll(string itemName)
@@ -155,6 +164,6 @@ public class ItemDisplay : DisplayBase
 
         InventoryManager.Instance.scrolls.Add(itemName);
 
-        display.RefreshNonEquipment(scroll.itemType);
+        display.RefreshItemInfo(scroll.itemType);
     }
 }

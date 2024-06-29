@@ -6,6 +6,8 @@ using System.Collections.ObjectModel;
 [CreateAssetMenu(fileName = "NewShop", menuName = "Cutscene/Shop")]
 public class Shop : ActionBase
 {
+    const float SellDivisor = 2f;
+
     [SerializeField] [Range(0.1f, 10f)] float buyersRating = 1f;
     [SerializeField] [Range(0.1f, 10f)] float sellersRating = 1f;
     [SerializeField] List<SavedEntry> entries;
@@ -31,17 +33,22 @@ public class Shop : ActionBase
         }
 
         ShopDisplay.Instance.buyersRating = buyersRating;
-        ShopDisplay.Instance.sellersRating = sellersRating;
-        ShopDisplay.Instance.onClickGlobalItem = OnClick;
+        ShopDisplay.Instance.sellersRating = sellersRating / SellDivisor;
+        ShopDisplay.Instance.onBuyItem = OnBuyItem;
         ShopDisplay.Instance.ShowExclusivelyInParent();
 
         yield return null;
     }
 
-    public void OnClick(string itemName)
+    public void OnBuyItem(string itemName)
     {
         foreach (SavedEntry entry in entries)
             if (entry.item.name == itemName)
                 InventoryManager.Instance.completedIds.Add(entry.ID);
+    }
+
+    public void OnSellItem(string itemName)
+    {
+        //checks to see if item exists, if it does not, it creates a new ID.  If it does exist, takes out ID from player ids
     }
 }

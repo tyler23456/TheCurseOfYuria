@@ -70,6 +70,7 @@ public class ItemDisplayAsset : MonoBehaviour
     InventoryUI globalInventoryUI;
 
     [NonSerialized] public bool previousActive = true;
+    [NonSerialized] public bool isRefreshingStatusAttributes = true;
     [NonSerialized] public int allieIndex = 0;
     public IActor allie;
 
@@ -94,6 +95,7 @@ public class ItemDisplayAsset : MonoBehaviour
         ClearTabListenters();
 
         allieIndex = 0;
+        isRefreshingStatusAttributes = true;
       
         AudioManager.Instance.PlaySFX(open);
         GameStateManager.Instance.Pause();
@@ -131,7 +133,14 @@ public class ItemDisplayAsset : MonoBehaviour
         ClearAllieInfo();
         RefreshTabs();
         RefreshCurrency(0);
-        RefreshStatusAttributes();
+        RefreshAllieInfo();
+    }
+
+    public void SetLocalInventoryBehavior(bool showName = false, bool showCount = true, bool showSprite = true)
+    {
+        localInventoryUI.showName = showName;
+        localInventoryUI.showCount = showCount;
+        localInventoryUI.showSprite = showSprite;
     }
 
     public void RefreshLocalInventory(IInventory inventory)
@@ -145,6 +154,12 @@ public class ItemDisplayAsset : MonoBehaviour
         localInventoryUI.Display();
     }
 
+    public void SetGlobalInventoryBehavior(bool showName = false, bool showCount = true, bool showSprite = true)
+    {
+        globalInventoryUI.showName = showName;
+        globalInventoryUI.showCount = showCount;
+        globalInventoryUI.showSprite = showSprite;
+    }
     public void RefreshGlobalInventory(IInventory inventory)
     {
         globalInventoryUI.grid = globalInventoryGrid;
@@ -156,21 +171,24 @@ public class ItemDisplayAsset : MonoBehaviour
         globalInventoryUI.Display();
     }
 
-    public void RefreshEquipment(ItemTypeBase type)
-    {
-        ClearAllieAndItemInfo();
-        RefreshGlobalInventory(InventoryManager.Instance.Get(type));      
-        RefreshTabs();
-        RefreshCurrency(0);
-        RefreshStatusAttributes();
-    }
-
-    public void RefreshNonEquipment(ItemTypeBase type)
+    public void RefreshItemInfo(ItemTypeBase type)
     {
         ClearAllieAndItemInfo();
         RefreshGlobalInventory(InventoryManager.Instance.Get(type));
+        RefreshLocalInventory(allie.getScrolls);
         RefreshTabs();
         RefreshCurrency(0);
+        RefreshAllieInfo();
+    }
+
+    public void RefreshItemInfo(ItemTypeBase type, Inventory inventory)
+    {
+        ClearAllieAndItemInfo();
+        RefreshGlobalInventory(inventory);
+        RefreshLocalInventory(allie.getScrolls);
+        RefreshTabs();
+        RefreshCurrency(0);
+        RefreshAllieInfo();
     }
 
     public void UpdateAllieView()
@@ -231,7 +249,7 @@ public class ItemDisplayAsset : MonoBehaviour
         allieOffset.text += "\n";
     }
 
-    void ClearTabs()
+    public void RefreshTabs()
     {
         helmetSlot.sprite = helmetSprite;
         meleeWeapon1HSlot.sprite = meleeWeapon1HSprite;
@@ -239,11 +257,6 @@ public class ItemDisplayAsset : MonoBehaviour
         armorSlot.sprite = armorSprite;
         shieldSlot.sprite = shieldSprite;
         bowsSlot.sprite = bowsSprite;
-    }
-
-    public void RefreshTabs()
-    {
-        ClearTabs();
 
         ItemTypeBase itemType = null;
 
@@ -265,8 +278,8 @@ public class ItemDisplayAsset : MonoBehaviour
             string item = allie.getEquipment.Find(i => ItemDatabase.Instance.GetTypeName(i) == itemType.name);
             if (item != null)
             {
-                slots[itemType].GetComponent<PointerHover>().onPointerEnter = () => { ShowItemInfo(item); RefreshStatusAttributes(item); };
-                slots[itemType].GetComponent<PointerHover>().onPointerExit = () => { ClearItemInfo(); RefreshStatusAttributes(""); };
+                slots[itemType].GetComponent<PointerHover>().onPointerEnter = () => { ShowItemInfo(item); RefreshAllieInfo(item); };
+                slots[itemType].GetComponent<PointerHover>().onPointerExit = () => { ClearItemInfo(); RefreshAllieInfo(""); };
             }
             else
             {
@@ -282,11 +295,29 @@ public class ItemDisplayAsset : MonoBehaviour
         AddAllieInfo("Olms", InventoryManager.Instance.olms, offset);
     }
 
-    public void RefreshStatusAttributes(string itemName = "")
+    public void RefreshAllieInfo(string itemName = "")
+    {
+        RefreshAllieInfo(itemName, 0);
+    }
+
+    public void RefreshAllieInfo(string itemName, int currencyOffset)
     {
         ClearAllieInfo();
-        AddAllieInfo("Olms", InventoryManager.Instance.olms, 0);
+        AddAllieInfo("Olms", InventoryManager.Instance.olms, currencyOffset);
 
+        AddNewLineToAllieInfo();
+
+        AddAllieInfo("HP", allie.getStats.HP, 0);
+        AddAllieInfo("MP", allie.getStats.MP, 0);
+
+        AddNewLineToAllieInfo();
+
+        //if (localInventoryGameObject.activeSelf)
+            //RefreshLocalInventory(allie.getScrolls);
+
+        if (!isRefreshingStatusAttributes)
+            return;
+        
         IEquipment previous = null;
         IEquipment current = null;
 

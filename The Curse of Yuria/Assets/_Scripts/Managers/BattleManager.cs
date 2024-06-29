@@ -8,6 +8,7 @@ public class BattleManager : MonoBehaviour
 {
     public static BattleManager Instance { get; private set; }
 
+    [SerializeField] LineDrawer lineDrawerPrefab;
     [SerializeField] TargeterBase enemyTargeter;
     [SerializeField] List<StatusEffectBase> gameOverStatusEffects;
 
@@ -55,19 +56,27 @@ public class BattleManager : MonoBehaviour
             Command command = pendingCommands.First();
             pendingCommands.RemoveFirst();
 
-            if (command == null)
-                continue;
+            LineDrawer drawer = Instantiate(lineDrawerPrefab.gameObject).GetComponent<LineDrawer>();
+            drawer.onFinishedDrawing = () => RunCommand(command);
+            drawer.Initialize(command.user.obj.transform, command.targets[0].obj.transform);
 
-            if (command.user == null)
-                continue;
-
-            if (command.isCancelled)
-                continue;
-
-            command.user.StartCoroutine(command.item.Use(command.user, command.targets));
-            successfulCommands.AddLast(command);
             yield return new WaitForSeconds(1f);
         }
+    }
+
+    void RunCommand(Command command)
+    {
+        if (command == null)
+            return;
+
+        if (command.user == null)
+            return;
+
+        if (command.isCancelled)
+            return;
+
+        command.user.StartCoroutine(command.item.Use(command.user, command.targets));
+        successfulCommands.AddLast(command);
     }
 
     void CheckForCounters()
