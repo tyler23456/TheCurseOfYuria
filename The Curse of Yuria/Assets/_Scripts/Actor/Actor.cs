@@ -58,9 +58,6 @@ namespace TCOY.UserActors
             skills = new Inventory();
             detection = new Detection();
             statusEffects = new StatusEffects();
-            statusEffects.onAdd = (name) => StatFXDatabase.Instance.Get(name).OnAdd(this);
-            statusEffects.onUpdate = (name) => { };
-            statusEffects.onRemove = (name) => StatFXDatabase.Instance.Get(name).OnRemove(this);
 
             hitAnimator = new HitAnimator(this, spriteRenderers);
             fadeAnimator = new FadeAnimator(this, spriteRenderers);
@@ -99,7 +96,6 @@ namespace TCOY.UserActors
                 return;
 
             aTBGuage.Update();
-            statusEffects.Update();
         }
     }
 }

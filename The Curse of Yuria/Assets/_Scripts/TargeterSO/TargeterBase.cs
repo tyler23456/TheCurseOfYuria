@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class TargeterBase : ScriptableObject
+public abstract class TargeterBase : TargeterSO
 {
-    public enum Party { Allie, Enemy, Both }
-
     static LayerMask layerMask; 
     static float targetCheckDistance = 30f;
 
@@ -19,7 +17,7 @@ public abstract class TargeterBase : ScriptableObject
 
     protected virtual bool canTargetKO => false;
 
-    public virtual List<IActor> CalculateTargets(Vector2 position)
+    public override List<IActor> CalculateTargets(Vector2 position)
     {
         switch (party)
         {

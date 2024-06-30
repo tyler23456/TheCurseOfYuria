@@ -12,14 +12,6 @@ namespace TCOY.UserActors
 
         public int getCount => names.Count;
 
-        public Action<string> onAdd { get; set; } = (name) => { };
-        public Action<string> onRemove { get; set; } = (name) => { };
-        public Action<string> onUpdate { get; set; } = (name) => { };
-
-        public StatusEffects()
-        {
-        }
-
         public bool Contains(string name)
         {
             return names.Contains(name);
@@ -37,7 +29,6 @@ namespace TCOY.UserActors
             {
                 names.Add(name);
                 accumulators.Add(accumulator);
-                onAdd.Invoke(name);
             }
         }
 
@@ -55,7 +46,6 @@ namespace TCOY.UserActors
             {
                 names.RemoveAt(index);
                 accumulators.RemoveAt(index);
-                onRemove.Invoke(name);
             }
         }
 
@@ -64,7 +54,6 @@ namespace TCOY.UserActors
             string name = names[index];
             names.RemoveAt(index);
             accumulators.RemoveAt(index);
-            onRemove.Invoke(name);
         }
 
         public void RemoveRange(List<string> names)
@@ -73,18 +62,19 @@ namespace TCOY.UserActors
                 Remove(name);
         }
 
-        public void Update()
+        public bool Elapse(string name, float duration)
         {
-            foreach (string name in names)
-                onUpdate.Invoke(name);
+            int index = names.IndexOf(name);
 
-            for (int i = names.Count - 1; i > -1; i--)
-            {
-                accumulators[i] += Time.deltaTime;
+            if (index == -1)
+                return false;
 
-                if (accumulators[i] > StatFXDatabase.Instance.Get(names[i]).getDuration)
-                    RemoveAt(i);
-            }
+            accumulators[index] += Time.deltaTime;
+
+            if (accumulators[index] > duration)
+                return false;
+
+            return true;
         }
 
         public string[] GetNames()

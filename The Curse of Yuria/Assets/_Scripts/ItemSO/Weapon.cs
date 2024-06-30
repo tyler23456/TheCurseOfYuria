@@ -74,7 +74,7 @@ public class Weapon : Equipable, IItem, IWeapon, IEquipment
     {
         List<bool> itemCancellationFlags = new List<bool>();
         foreach (string statusEffect in target.getStatusEffects.GetNames())
-            itemCancellationFlags.Add(StatFXDatabase.Instance.Get(statusEffect).ActivateCounter(user, target, this));
+            itemCancellationFlags.Add(StatFXDatabase.Instance.Get(statusEffect).OnHit(user, target, this));
 
         if (itemCancellationFlags.Contains(true))
             return true;

@@ -8,7 +8,7 @@ public class Cancellation : StatusEffectBase
     [SerializeField] List<ElementTypeBase> elementTypes;
     [SerializeField] List<ItemTypeBase> itemTypes;
 
-    public override bool ActivateCounter(IActor user, IActor target, IItem item)
+    public override bool OnHit(IActor user, IActor target, IItem item)
     {
         if (item is not ISkill)
             return false;

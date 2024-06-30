@@ -21,7 +21,7 @@ public class EnemyAssetManager : MonoBehaviour
     {
         if (!refresh)
             return;
-
+        
         refresh = false;
 
         List<GameObject> prefabs = new List<GameObject>();

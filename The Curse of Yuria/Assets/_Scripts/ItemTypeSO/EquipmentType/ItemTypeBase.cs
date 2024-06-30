@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class ItemTypeBase : TypeBase
+public abstract class ItemTypeBase : ItemTypeSO
 {
-    public virtual EquipmentPart part => EquipmentPart.Armor;
+    public override EquipmentPart part => EquipmentPart.Armor;
 }

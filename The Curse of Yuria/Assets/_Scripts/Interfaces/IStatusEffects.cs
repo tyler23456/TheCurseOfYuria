@@ -6,6 +6,7 @@ using System;
 public interface IStatusEffects
 {
     int getCount { get; }
+    bool Elapse(string name, float duration);
     bool Contains(string name);
     void Add(string name, float accumulator = 0f);
     void AddRange(List<string> names);

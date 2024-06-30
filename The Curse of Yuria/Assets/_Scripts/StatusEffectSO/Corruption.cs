@@ -14,7 +14,7 @@ public class Corruption : StatusEffectIcon
         base.Activate(target, accumulator);
     }
 
-    public override bool ActivateAttack(IActor user, IActor target, IItem item)
+    public override bool OnAttack(IActor user, IActor target, IItem item)
     {
         if (Random.Range(0f, 1f) >= probability)
             return false;

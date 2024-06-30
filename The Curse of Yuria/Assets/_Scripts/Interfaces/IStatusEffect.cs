@@ -4,11 +4,10 @@ using UnityEngine;
 
 public interface IStatusEffect
 {
-    float getDuration { get; }
-    string name { get; set; }
+    string name { get; }
     void Activate(IActor actor, float accumulator = 0f);
-    bool ActivateAttack(IActor user, IActor target, IItem item);
-    bool ActivateCounter(IActor user, IActor target, IItem item);
+    bool OnAttack(IActor user, IActor target, IItem item);
+    bool OnHit(IActor user, IActor target, IItem item);
     void OnAdd(IActor actor);
     void OnRemove(IActor actor);
 }

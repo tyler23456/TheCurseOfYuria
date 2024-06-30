@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public abstract class CalculationTypeBase : CalculationTypeSO
+public class CharacterNameSO : ScriptableObject
 {
     
 }

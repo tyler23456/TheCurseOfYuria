@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ElementTypeBase : TypeBase
+public abstract class ElementTypeBase : ElementTypeSO
 {
     [SerializeField] ParticleSystem particleSystem;
     [SerializeField] AudioClip clip;
 
-    public virtual int weaknessIndex => 0;
+    public override int weaknessIndex => 0;
 
     public override float Calculate(IActor user, IActor target, float accumulator)
     {

@@ -16,7 +16,7 @@ public class Redirection : StatusEffectBase, IStatusEffect
         base.Activate(target, duration);
     }
 
-    public override bool ActivateCounter(IActor user, IActor target, IItem item)
+    public override bool OnHit(IActor user, IActor target, IItem item)
     {
         if (type == Type.Deflection && item is IScroll || type == Type.Reflection && item is IWeapon)
         {
