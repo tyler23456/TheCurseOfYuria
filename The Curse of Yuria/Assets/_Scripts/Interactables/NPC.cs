@@ -14,8 +14,10 @@ namespace TCOY.DontDestroyOnLoad
         Character character;
         Animator animator;
 
-        protected void OnValidate()
+        protected new void OnValidate()
         {
+            base.OnValidate();
+
             character = GetComponent<Character>();
             character.UnEquip(EquipmentPart.Helmet);
             character.UnEquip(EquipmentPart.Earrings);
@@ -64,22 +66,18 @@ namespace TCOY.DontDestroyOnLoad
 
             promptBranchers[0].getAction.onStart = () => animator.SetInteger("State", 8);
             promptBranchers[0].getAction.onStop = () => animator.SetInteger("State", 0);
-            CutsceneDisplay.Instance.ShowExclusivelyInParent(new ActionBase[] { promptBranchers[0].getAction });
-        }
 
-        protected void Update()
-        {
-            //npc walking animation or other idle animation
+            ActivateScriptedSequence(promptBranchers[0].getAction);
         }
 
         [System.Serializable]
         public class PromptBrancher
         {
             [SerializeField] QuestBase unlockingQuest;
-            [SerializeField] ActionBase action;
+            [SerializeField] ScriptedSequencerActionSO action;
 
             public QuestBase getUnlockingQuest => unlockingQuest;
-            public ActionBase getAction => action;
+            public ScriptedSequencerActionSO getAction => action;
         }
     }
 }

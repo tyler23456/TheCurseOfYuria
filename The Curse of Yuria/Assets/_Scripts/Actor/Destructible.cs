@@ -27,8 +27,10 @@ namespace TCOY.UserActors
                 audioSource?.Play();
                 animator?.SetTrigger("Activate");
 
+                Transform allies = GameObject.Find("/DontDestroyOnLoad/Allies").transform;
+                IActor leader = allies.GetChild(0).GetComponent<IActor>();
                 foreach (IInteractable container in containers)
-                    container.Interact(AllieManager.Instance[0]);
+                    container.Interact(leader);
 
                 foreach (IEnabler scriptToBeEnabled in scriptsToBeEnabled)
                     scriptToBeEnabled.enabled = true;

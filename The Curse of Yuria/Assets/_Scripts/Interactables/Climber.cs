@@ -14,10 +14,10 @@ namespace TCOY.DontDestroyOnLoad
 
             controller = player.obj.GetComponent<IController>();
 
-            if (controller.action.getName != "ClimbState")
+            if (controller.action.name != "ClimbState")
                 return;
 
-            controller.action = StateDatabase.Instance.GetAction("ClimbState");
+            controller.SetAction(StateDatabase.Instance.GetAction("ClimbState"));
         }
     }
 }

@@ -18,6 +18,7 @@ namespace TCOY.UserActors
         public Action OnATBGuageFilled { get; set; } = () => { };
         public Action<float> onATBChanged { get; set; } = (value) => {};
         public float getMaximumValue => maximumValue;
+        public bool isActive => priority == int.MaxValue;
 
         public void Initialize(Dictionary<string, int> statsDictionary)
         {

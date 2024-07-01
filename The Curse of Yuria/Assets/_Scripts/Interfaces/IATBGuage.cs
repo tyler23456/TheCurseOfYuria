@@ -5,6 +5,7 @@ using System;
 
 public interface IATBGuage
 {
+    public bool isActive { get; }
     float getMaximumValue { get; }
     Action<float> onATBChanged { get; set; }
     void Reset();

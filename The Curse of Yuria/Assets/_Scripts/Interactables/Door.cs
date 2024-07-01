@@ -6,7 +6,7 @@ namespace TCOY.DontDestroyOnLoad
 {
     public class Door : InteractableBase, IInteractableTrigger
     {
-        [SerializeField] int sceneID;
+        [SerializeField] string sceneName;
         [SerializeField] Vector3 destination;
         [SerializeField] float eulerAngleZ;
         [SerializeField] Sprite OpenDoor;
@@ -35,14 +35,17 @@ namespace TCOY.DontDestroyOnLoad
         {
             if (!RequiredItems.TrueForAll(i => InventoryManager.Instance.questItems.Contains(i.name)))
             {
-                ShowLockedPrompt();
+                ActivateScriptedSequence(onLockedPrompt);
                 return;
             }
 
             ShowOpenDoorSprite();
             InventoryManager.Instance.completedIds.Add(getID, 1);
 
-            LoadingDisplay.Instance.ShowExclusivelyInParent(sceneID, destination, eulerAngleZ);
+            Transform loadingDisplay = GameObject.Find("/DontDestroyOnLoad/Canvas/LoadingDisplay").transform;
+
+            loadingDisplay.GetChild(0).name = sceneName;
+            loadingDisplay.gameObject.SetActive(true);
         }
 
         public void ShowOpenDoorSprite()
@@ -52,12 +55,5 @@ namespace TCOY.DontDestroyOnLoad
 
             spriteRenderer.sprite = OpenDoor;
         }
-
-        public void ShowLockedPrompt()
-        {
-            CutsceneDisplay.Instance.ShowExclusivelyInParent(new ActionBase[] { onLockedPrompt });
-        }
-
-
     }
 }

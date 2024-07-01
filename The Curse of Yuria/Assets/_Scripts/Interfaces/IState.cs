@@ -6,7 +6,7 @@ public interface IState
 {
     public enum State { enter, stay, exit }
 
-    string getName { get; }
+    string name { get; }
     void UpdateState(IController controller);
     void OnDrawGizmosMethod(IController controller);
 }

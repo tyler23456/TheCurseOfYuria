@@ -10,7 +10,7 @@ public class StatusAttributeTargeter : TargeterBase
     [SerializeField] State state;
     [SerializeField] IStats.Attribute attribute;
 
-    public override List<IActor> CalculateTargets(Vector2 position)
+    public override IActor[] CalculateTargets(Vector2 position)
     {
         base.CalculateTargets(position);
 
@@ -30,6 +30,6 @@ public class StatusAttributeTargeter : TargeterBase
         if (result != null)
             results.Add(result);
 
-        return results;
+        return results.ToArray();
     }
 }

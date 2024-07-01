@@ -11,8 +11,8 @@ namespace TCOY.ControllerStates
         {
             base.Enter(controller);
             controller.rigidbody2D.AddForce(Vector2.up * 4f * controller.speed, ForceMode2D.Impulse);
-            controller.action = StateDatabase.Instance.GetAction("GroundState");
-            controller.actionState = IState.State.exit;
+
+            controller.SetAction(StateDatabase.Instance.GetAction("GroundState"));
         }
 
         protected override void Stay(IController controller)

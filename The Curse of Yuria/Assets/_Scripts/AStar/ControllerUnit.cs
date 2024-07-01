@@ -15,6 +15,8 @@ namespace TCOY.AStar
         [SerializeField] float _battleDistance = 10f;
         [SerializeField] float _stopDistance = 2f;
 
+        Transform allies;
+
         public Vector2 velocity { get; set; } = Vector2.zero;
         public float speed { get; set; } = 28f * 2f;
         public IActor actor { get; set; }
@@ -43,10 +45,33 @@ namespace TCOY.AStar
             actor = GetComponent<IActor>();
             animator = actor.obj.GetComponent<Animator>();
             rigidbody2D = actor.obj.GetComponent<Rigidbody2D>();
-            action = initialActionState;
-            goal = initialGoalState;
 
+            if (goal == null)
+                goal = initialGoalState;
+            if (action == null)
+                action = initialActionState;
+            
             groundChecker = new UserActors.GroundChecker(animator);
+        }
+
+        void Start()
+        {
+            if (allies == null)
+                allies = GameObject.Find("/DontDestroyOnLoad/Allies").transform;
+        }
+
+        public void SetGoal(IGoal goal)
+        {
+            goalState = IState.State.exit;
+            goal.UpdateState(this);
+            this.goal = goal;
+        }
+
+        public void SetAction(IAction action)
+        {
+            actionState = IState.State.exit;
+            action.UpdateState(this);
+            this.action = action;
         }
 
         public void SetInitialStates(TCOY.ControllerStates.GoalBase initialGoalState, TCOY.ControllerStates.ActionBase initialActionState)
@@ -57,7 +82,7 @@ namespace TCOY.AStar
 
         void Update()
         {
-            if (AllieManager.Instance.count == 0)
+            if (allies.childCount == 0)
                 return;
 
             if (animator.GetInteger("MovePriority") < int.MaxValue)
@@ -77,7 +102,7 @@ namespace TCOY.AStar
 
         void FixedUpdate()
         {
-            if (AllieManager.Instance.count == 0)
+            if (allies.childCount == 0)
                 return;
 
             if (animator.GetInteger("MovePriority") < int.MaxValue)

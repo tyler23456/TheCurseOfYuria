@@ -5,12 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewRandomTargeter", menuName = "Targeters/RandomTargeter")]
 public class RandomTargeter : TargeterBase
 {
-    public override List<IActor> CalculateTargets(Vector2 position)
+    public override IActor[] CalculateTargets(Vector2 position)
     {
         base.CalculateTargets(position);
 
         int index = Random.Range(0, targets.Count);
 
-        return targets.Count == 0? new List<IActor> { } : new List<IActor> { targets[index] };
+        return targets.Count == 0? new IActor[] { } : new IActor[] { targets[index] };
     }
 }

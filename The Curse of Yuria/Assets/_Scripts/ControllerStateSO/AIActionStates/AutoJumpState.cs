@@ -62,8 +62,7 @@ namespace TCOY.ControllerStates
 
         void EndTheState(IController controller)
         {
-            controller.action = StateDatabase.Instance.GetAction("AutoGroundState");
-            controller.actionState = IState.State.exit;
+            controller.SetAction(StateDatabase.Instance.GetAction("AutoGroundState"));
         }
 
         protected override void Exit(IController controller)

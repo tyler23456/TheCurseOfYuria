@@ -26,11 +26,7 @@ public class Deactivation : StatusEffectIcon, IStatusEffect
             animator?.SetInteger("MovePriority", animator.GetInteger("MovePriority") - 1);
 
         if (disableATBGauge)
-        {
-            target.getATBGuage.LowerPriority();
-            BattleManager.Instance.CancelCommandsFrom(target);
-        }
-            
+            target.getATBGuage.LowerPriority();          
     }
 
     public override void OnRemove(IActor target)
@@ -40,13 +36,10 @@ public class Deactivation : StatusEffectIcon, IStatusEffect
         Animator animator = target.obj.GetComponent<Animator>();
 
         if (disableMovement)
-            animator?.SetInteger("MovePriority", animator.GetInteger("MovePriority") + 1);
-            
+            animator?.SetInteger("MovePriority", animator.GetInteger("MovePriority") + 1);        
 
         if (disableATBGauge)
-        {
-            target.getATBGuage.LowerPriority();;
-        }
+            target.getATBGuage.RaisePriority();;
             
     }
 }

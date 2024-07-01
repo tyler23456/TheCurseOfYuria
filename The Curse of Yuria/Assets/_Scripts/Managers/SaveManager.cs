@@ -12,6 +12,11 @@ public class SaveManager : MonoBehaviour
     public static SaveManager instance;
 
     [SerializeField] CameraShaker mainCameraShaker;
+    [SerializeField] Transform aTBGuagesFilled;
+    [SerializeField] Transform pendingCommands;
+    [SerializeField] Transform successfulCommands;
+    [SerializeField] Transform allies;
+    [SerializeField] Transform enemies;
 
     public void Awake()
     {
@@ -28,7 +33,7 @@ public class SaveManager : MonoBehaviour
 
         IAllie allie = AllieDatabase.Instance.Instantiate("River");
         allie.obj.name = "River";
-        AllieManager.Instance.Add(allie);
+        allie.obj.transform.parent = allies;
         
         LoadingDisplay.Instance.ShowExclusivelyInParent(3, Vector2.zero, 0f);
     }
@@ -36,7 +41,7 @@ public class SaveManager : MonoBehaviour
     public void OnNewSave()
     {
         SaveData saveData = new SaveData();
-        saveData.Save();
+        saveData.Save(allies);
         string json = JsonUtility.ToJson(saveData);
         string fileName = SceneManager.GetActiveScene().name + " " + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + " " + InventoryManager.Instance.questItems.count.ToString() + " questItems" + " ";
         string fullPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + fileName;
@@ -55,12 +60,12 @@ public class SaveManager : MonoBehaviour
     public void OnOverwrite(string fileName)
     {
         SaveData saveData = new SaveData();
-        saveData.Save();
+        saveData.Save(allies);
         string json = JsonUtility.ToJson(saveData);
         string fullPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + fileName;
 
         File.WriteAllText(fullPath + ".json", json); //need to save scene and position
-    }   
+    }
 
     public void OnLoad(string fileName)
     {
@@ -73,19 +78,30 @@ public class SaveManager : MonoBehaviour
 
         json = File.ReadAllText(Application.persistentDataPath + Path.AltDirectorySeparatorChar + fileName);
         SaveData saveData = JsonUtility.FromJson<SaveData>(json);
-        saveData.Load();
+        saveData.Load(allies);
 
         LoadingDisplay.Instance.ShowExclusivelyInParent(saveData.level);
     }
 
     public void ClearNonPersistentData()
     {
-        InventoryManager.Instance.EmptyAllInventories();
-        AllieManager.Instance.DestroyAll();
-        EnemyManager.Instance.DestroyAll();
+        InventoryManager.Instance.EmptyAllInventories();      
         PopupManager.Instance.ClearAllPopups();
 
-        BattleManager.Instance.ClearAll();
+        foreach (Transform child in allies)
+            Destroy(child.gameObject);
+
+        foreach (Transform child in enemies)
+            Destroy(child.gameObject);
+
+        foreach (Transform child in aTBGuagesFilled)
+            Destroy(child.gameObject);
+
+        foreach (Transform child in pendingCommands)
+            Destroy(child.gameObject);
+
+        foreach (Transform child in successfulCommands)
+            Destroy(child.gameObject);
     }
 
     class SaveData
@@ -139,7 +155,7 @@ public class SaveManager : MonoBehaviour
 
         public List<AllieData> allieDatas;
 
-        public void Save()
+        public void Save(Transform allies)
         {
             level = SceneManager.GetActiveScene().buildIndex;
 
@@ -190,16 +206,15 @@ public class SaveManager : MonoBehaviour
 
             AllieData allieData = new AllieData();
             allieDatas = new List<AllieData>();
-            AllieManager.Instance.ForEach(i =>
+            foreach (Transform allie in allies)
             {
                 allieData = new AllieData();
-                allieData.Save(i);
+                allieData.Save(allie.GetComponent<IActor>());
                 allieDatas.Add(allieData);
-
-            });
+            }
         }
 
-        public void Load()
+        public void Load(Transform allies)
         {
             InventoryManager.Instance.helmets.SetNames(helmetNames);
             InventoryManager.Instance.helmets.SetCounts(helmetCounts);
@@ -248,12 +263,11 @@ public class SaveManager : MonoBehaviour
 
             foreach (AllieData allieData in allieDatas)
             {
-                IAllie allie = AllieDatabase.Instance.Instantiate(allieData.name, new Vector3(allieData.positionX, allieData.positionY, 0f),
-                    Quaternion.identity);
+                IAllie allie = AllieDatabase.Instance.Instantiate(allieData.name, new Vector3(allieData.positionX, allieData.positionY, 0f), Quaternion.identity);
                 allie.obj.SetActive(false);
                 allie.useDefaultItems = false;
                 allie.obj.name = allieData.name;
-                AllieManager.Instance.Add(allie);
+                allie.obj.transform.parent = allies;
                 allieData.Load(allie);
             }
         }

@@ -2,22 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Command
+public class Command : MonoBehaviour
 {
-    public IActor user { get; }
-    public IItem item { get; }
-    public List<IActor> targets { get; }
+    public IActor user { get; private set; }
+    public IItem item { get; private set; }
+    public IActor[] targets { get; private set; }
 
-    public bool isCancelled { get; set; }
-    public bool isCounterable { get; set; }
-    public bool isInterruptable { get; set; }
+    public bool isCounterable { get; set; } = true;
+    public bool isInterruptable { get; set; } = true;
 
-    public Command(IActor user, IItem item, List<IActor> targets, bool isCounterable = true, bool isInterruptable = true)
+    public void Set(IActor user, IItem item, params IActor[] targets)
     {
         this.user = user;
         this.item = item;
         this.targets = targets;
-        this.isCounterable = isCounterable;
-        this.isInterruptable = isInterruptable;
     }
 }

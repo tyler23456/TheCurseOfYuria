@@ -11,6 +11,8 @@ public class GameOverDisplay : DisplayBase
 {
     public static DisplayBase Instance { get; protected set; }
 
+    [SerializeField] Transform LoadingDisplay;
+
     [SerializeField] Button buttonPrefab;
     [SerializeField] RectTransform rightPanel;
     [SerializeField] RectTransform grid;
@@ -52,7 +54,8 @@ public class GameOverDisplay : DisplayBase
 
     void LoadMainMenu()
     {
-        LoadingDisplay.Instance.ShowExclusivelyInParent(2, Vector2.zero, 0f);
+        LoadingDisplay.GetChild(0).name = "MainMenu";
+        LoadingDisplay.gameObject.SetActive(true);
     }
 
     void RefreshFiles()

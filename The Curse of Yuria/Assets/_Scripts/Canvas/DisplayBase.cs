@@ -5,12 +5,19 @@ using UnityEngine;
 
 public class DisplayBase : MonoBehaviour
 {
+    [SerializeField] Transform displayTransform;
+
     public virtual void Initialize()
     {
     }
 
     protected virtual void OnEnable()
     {
+        foreach (Transform child in displayTransform.parent)
+            child.gameObject.SetActive(false);
+
+        displayTransform.gameObject.SetActive(true);
+
         GameStateManager.Instance.Pause();
         MarkerManager.instance.DestroyAllMarkers();
         //Global.instance.getAudioSource.PlayOneShot(open);
@@ -20,53 +27,8 @@ public class DisplayBase : MonoBehaviour
     {
         GameStateManager.Instance.Play();
         MarkerManager.instance.DestroyAllMarkers();
+
+        displayTransform.gameObject.SetActive(false);
         //Global.instance.getAudioSource.PlayOneShot(open);
-    }
-
-    public void ShowExclusivelyInParent()
-    {
-        HideAllInParent();
-        Show();
-    }
-
-    public void ShowAllInParent()
-    {
-        foreach (Transform child in transform.parent)
-            child.gameObject.SetActive(true);
-    }
-
-    public void HideAllInParent()
-    {
-        foreach (Transform child in transform.parent)
-            child.gameObject.SetActive(false);
-    }
-
-    public void Show()
-    {
-        gameObject.SetActive(true);
-    }
-
-    public void Refresh()
-    {
-        Hide();
-        Show();
-    }
-
-    public void Hide()
-    {
-        gameObject.SetActive(false);
-    }
-
-    public void Toggle()
-    {
-        gameObject.SetActive(!gameObject.activeSelf);
-    }
-
-    public void ToggleExclusivelyInParent()
-    {
-        if (gameObject.activeSelf)
-            HideAllInParent();
-        else
-            ShowExclusivelyInParent();
     }
 }

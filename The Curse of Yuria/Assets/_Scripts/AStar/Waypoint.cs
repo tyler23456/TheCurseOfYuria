@@ -104,7 +104,7 @@ namespace TCOY.AStar
         {
             IController controller = collision.GetComponent<IController>();
 
-            if (controller == null || controller.waypoints.Count == 0 || controller.goal.getName == "PlayerState") //may need to change player state later
+            if (controller == null || controller.waypoints.Count == 0 || controller.goal.name == "PlayerState") //may need to change player state later
                 return;
 
             Vector2 position = transform.position;
@@ -125,9 +125,7 @@ namespace TCOY.AStar
             if (targetConnection == null || targetConnection.getAction == null)
                 return;
 
-            controller.actionState = IState.State.exit;
-            controller.action.UpdateState(controller);
-            controller.action = targetConnection.getAction;
+            controller.SetAction(targetConnection.getAction);
         }
 
        

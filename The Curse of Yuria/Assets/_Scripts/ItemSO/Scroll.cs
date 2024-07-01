@@ -9,7 +9,7 @@ public class Scroll : Skill, IItem, IScroll
 
     public int getCost => cost;
 
-    public override IEnumerator Use(IActor user, List<IActor> targets)
+    public override IEnumerator Use(IActor user, params IActor[] targets)
     {
         LightManager.instance.FadeOut();
 

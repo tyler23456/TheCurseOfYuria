@@ -9,7 +9,7 @@ public class DistanceTargeter : TargeterBase
 
     [SerializeField] Distance distance;
 
-    public override List<IActor> CalculateTargets(Vector2 position)
+    public override IActor[] CalculateTargets(Vector2 position)
     {
         base.CalculateTargets(position);
 
@@ -31,6 +31,6 @@ public class DistanceTargeter : TargeterBase
         if (result != null)
             results.Add(result);
 
-        return results;
+        return results.ToArray();
     }
 }

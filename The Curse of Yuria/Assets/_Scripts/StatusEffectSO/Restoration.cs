@@ -16,6 +16,7 @@ public class Restoration : StatusEffectBase, IStatusEffect, IRestoration
 
     public bool ContainsStatusEffectToRemove(string statusEffectToRemoveName)
     {
+        
         return StatusEffectsToRemove.Find(i => i.name == statusEffectToRemoveName) != null;
     }
 }

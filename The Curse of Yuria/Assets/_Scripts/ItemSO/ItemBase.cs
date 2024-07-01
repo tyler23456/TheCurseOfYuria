@@ -26,7 +26,7 @@ public abstract class ItemBase : TypeBase
     public int getValue => value;
 
     
-    public virtual IEnumerator Use(IActor user, List<IActor> targets)
+    public virtual IEnumerator Use(IActor user, params IActor[] targets)
     {
         yield return null;
     }   
@@ -44,9 +44,9 @@ public abstract class ItemBase : TypeBase
     {   
     }
 
-    protected void SetDirection(IActor user, List<IActor> targets)
+    protected void SetDirection(IActor user, params IActor[] targets)
     {
-        if (targets.Count == 0)
+        if (targets.Length == 0)
             return;
 
         Vector2 direction = (targets[0].obj.transform.position - user.obj.transform.position).normalized;

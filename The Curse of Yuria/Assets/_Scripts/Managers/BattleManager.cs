@@ -6,24 +6,21 @@ using System;
 
 public class BattleManager : MonoBehaviour
 {
-    public static BattleManager Instance { get; private set; }
-
+    [SerializeField] Transform aTBGuagesFilled;
+    [SerializeField] Transform pendingCommands;
+    [SerializeField] Transform executingCommands;
+    [SerializeField] Transform successfulCommands;
+    [SerializeField] Transform allies;
+    [SerializeField] Transform enemies;
+    [SerializeField] Transform gameOverDisplay;
+    
     [SerializeField] TrajectoryPathDrawer lineDrawerPrefab;
     [SerializeField] TargeterBase enemyTargeter;
     [SerializeField] List<StatusEffectBase> gameOverStatusEffects;
 
-    List<IActor> aTBGuageFilledList { get; set; } = new List<IActor>();
-    LinkedList<Command> pendingCommands { get; set; } = new LinkedList<Command>();
-    LinkedList<Command> successfulCommands { get; set; } = new LinkedList<Command>();
-
-    public int aTBGuageFilledCount => aTBGuageFilledList.Count;
-    public int pendingCommandsCount => pendingCommands.Count;
-    public int successfulCommandsCount => successfulCommands.Count;
-
-    public void Awake()
-    {
-        Instance = this;
-    }
+    public int aTBGuageFilledCount => aTBGuagesFilled.childCount;
+    public Command previousSuccessfulCommand => successfulCommands.GetChild(successfulCommands.childCount - 1).GetComponent<Command>();
+    public Command nextPendingCommand => pendingCommands.GetChild(0).GetComponent<Command>();
 
     public void Start()
     {
@@ -39,6 +36,8 @@ public class BattleManager : MonoBehaviour
     {
         while (true)
         {
+            DestroyBrokenExecutingCommands();
+
             if (!GameStateManager.Instance.isPlaying)
                 yield return new WaitForEndOfFrame();
 
@@ -50,11 +49,11 @@ public class BattleManager : MonoBehaviour
 
             CheckForInterrupts();
 
-            if (pendingCommands.Count == 0)
+            if (pendingCommands.childCount == 0)
                 continue;
 
-            Command command = pendingCommands.First();
-            pendingCommands.RemoveFirst();
+            Command command = nextPendingCommand;
+            command.transform.parent = executingCommands;
 
             TrajectoryPathDrawer drawer = Instantiate(lineDrawerPrefab.gameObject).GetComponent<TrajectoryPathDrawer>();
             drawer.onFinishedDrawing = () => RunCommand(command);
@@ -64,61 +63,92 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    void DestroyBrokenExecutingCommands()
+    {
+        foreach (Transform child in executingCommands)
+            if (child.GetComponent<Command>() == null)
+                Destroy(child.gameObject);
+    }
+
     void RunCommand(Command command)
     {
         if (command == null)
             return;
 
-        if (command.user == null)
+        if (command.user == null || !command.user.getATBGuage.isActive)
+        {
+            Destroy(command.gameObject);
             return;
-
-        if (command.isCancelled)
-            return;
+        }
 
         command.user.StartCoroutine(command.item.Use(command.user, command.targets));
-        successfulCommands.AddLast(command);
+        command.transform.parent = successfulCommands;
     }
 
     void CheckForCounters()
     {
-        if (successfulCommands.Count == 0 || !successfulCommands.Last().isCounterable)
+        if (successfulCommands.childCount == 0 || !previousSuccessfulCommand.isCounterable)
             return;
 
-        List<Command> counters = AllieManager.Instance.CalculateCounters(successfulCommands.Last());
-        List<Command> counters2 = EnemyManager.Instance.CalculateCounters(successfulCommands.Last());
-        counters.AddRange(counters2);
+        Command previousCommand = previousSuccessfulCommand;
 
-        successfulCommands.Last().isCounterable = false;
+        CalculateReactors(previousCommand, allies, true);
+        CalculateReactors(previousCommand, enemies, true);
 
-        foreach (Command command in counters)
-        {
-            command.isCounterable = false;
-            pendingCommands.AddLast(command);
-        }
+        previousCommand.isCounterable = false;
     }
 
     void CheckForInterrupts()
     {
-        if (pendingCommands.Count == 0 || !pendingCommands.First().isInterruptable)
+        if (pendingCommands.childCount == 0 || !nextPendingCommand.isInterruptable)
             return;
 
-        List<Command> interrupts = AllieManager.Instance.CalculateInterrupts(pendingCommands.First());
-        List<Command> interrupts2 = EnemyManager.Instance.CalculateInterrupts(pendingCommands.First());
-        interrupts.AddRange(interrupts2);
+        Command nextCommand = nextPendingCommand;
 
-        pendingCommands.First().isInterruptable = false;
+        CalculateReactors(nextCommand, allies, false);
+        CalculateReactors(nextCommand, enemies, false);
 
-        foreach (Command command in interrupts)
+        nextCommand.isInterruptable = false;
+    }
+
+    public void CalculateReactors(Command command, Transform actorsParent, bool isCounter)
+    {
+        IActor actor = null;
+
+        foreach (Transform t in actorsParent)
         {
-            command.isInterruptable = false;
-            pendingCommands.AddFirst(command);
+            actor = t.GetComponent<IActor>();
+            List<Reactor> reactors = isCounter ? actor.getCounters : actor.getInterrupts;
+
+            foreach (Reactor reactor in reactors)
+                if (((1 << command.targets[0].obj.layer) & reactor.getMask) != 0 && command.item.name == reactor.getItemName)
+                {
+                    Command reaction = new GameObject("Command").AddComponent<Command>();
+                    reaction.Set(actor, reactor.getReaction, reactor.getTargeter.CalculateTargets(actor.obj.transform.position));
+                    reaction.transform.parent = pendingCommands;
+
+                    if (isCounter)
+                    {
+                        command.isCounterable = false;
+                    }
+                    else
+                    {
+                        command.isInterruptable = false;
+                        reaction.transform.SetSiblingIndex(0);
+                    }
+                }
         }
     }
 
     void RefreshNearbyEnemies()
     {
-        List<IActor> targets = enemyTargeter.CalculateTargets(AllieManager.Instance.GetPositionAt(0));
-        EnemyManager.Instance.Set(targets);
+        IActor[] targets = enemyTargeter.CalculateTargets(allies.GetChild(0).position); //calculate targets from where
+
+        foreach (Transform t in enemies)
+            t.parent = null;
+
+        foreach (IActor actor in targets)
+            actor.obj.transform.parent = enemies;
     }
 
     void CheckForGameOver()
@@ -126,55 +156,14 @@ public class BattleManager : MonoBehaviour
         if (!GameStateManager.Instance.isPlaying)
             return;
 
-        if (AllieManager.Instance.AllContainAnyOf(gameOverStatusEffects))
-            GameOverDisplay.Instance.ShowExclusivelyInParent();
+        int count = Mathf.Min(allies.childCount, IAllie.MaxActiveAlliesCount);
+
+        for (int i = 0; i < count; i++)
+            if (gameOverStatusEffects.All(statusEffect => !allies.GetChild(i).GetComponent<IActor>().getStatusEffects.Contains(statusEffect.name)))
+                return;
+
+        gameOverDisplay.gameObject.SetActive(true);
     }
 
-    public void CancelCommandsFrom(IActor actor)
-    {
-        foreach (Command command in pendingCommands)
-            if (actor.obj.name == command.user.obj.name)
-                command.isCancelled = true;
-
-        for (int i = aTBGuageFilledList.Count - 1; i >= 0; i--)
-            if (aTBGuageFilledList[i].obj.name == actor.obj.name)
-                aTBGuageFilledList.RemoveAt(i);
-    }
-
-    public void AddCommand(Command command)
-    {
-        pendingCommands.AddLast(command);
-    }
-
-    public void AddATBGuageFilled(IActor actor)
-    {
-        aTBGuageFilledList.Add(actor);
-    }
-
-    public IActor PeekNextATBGuageFilled()
-    {
-        return aTBGuageFilledList[0];
-    }
-
-    public Command PeekNextCommand()
-    {
-        return pendingCommands.First();
-    }
-
-    public Command PeekPreviousCommand()
-    {
-        return successfulCommands.Last();
-    }
-
-    public void RemoveNextATBGuageFilled()
-    {
-        aTBGuageFilledList.RemoveAt(0);
-    }
-
-    public void ClearAll()
-    {
-        aTBGuageFilledList.Clear();
-        pendingCommands.Clear();
-        successfulCommands.Clear();
-    }
+   
 }

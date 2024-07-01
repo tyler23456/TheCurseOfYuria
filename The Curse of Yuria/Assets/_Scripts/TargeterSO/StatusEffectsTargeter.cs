@@ -10,7 +10,7 @@ public class StatusEffectsTargeter : TargeterBase
     
     [SerializeField] List<StatusEffectBase> statusEffects;
 
-    public override List<IActor> CalculateTargets(Vector2 position)
+    public override IActor[] CalculateTargets(Vector2 position)
     {
         base.CalculateTargets(position);
 
@@ -19,8 +19,8 @@ public class StatusEffectsTargeter : TargeterBase
         results = targets.FindAll(target => statusEffects.Any(statusEffect => target.getStatusEffects.Contains(statusEffect.name)));
 
         if (results.Count > 0)
-            return new List<IActor> { results[Random.Range(0, results.Count)] };
+            return new IActor[] { results[Random.Range(0, results.Count)] };
         else
-            return results;
+            return results.ToArray();
     }
 }

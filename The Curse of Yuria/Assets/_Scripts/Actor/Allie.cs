@@ -17,7 +17,7 @@ namespace TCOY.UserActors
             rigidbody2D = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
             
-            aTBGuage.OnATBGuageFilled = () => BattleManager.Instance.AddATBGuageFilled(this);
+            aTBGuage.OnATBGuageFilled = OnATBGuageFilled;
 
             stats.onHPDamage += (damage) => animator.SetTrigger("Hit");
         }
@@ -25,6 +25,13 @@ namespace TCOY.UserActors
         new protected void Update()
         {
             base.Update();
+        }
+
+        void OnATBGuageFilled()
+        {
+            ATBGuageFilledEntry entry = new GameObject("Entry").AddComponent<ATBGuageFilledEntry>();
+            entry.actor = this;
+            entry.transform.parent = GameObject.Find("/DontDestroyOnLoad/ATBGuagesFilled").transform;
         }
     }
 }

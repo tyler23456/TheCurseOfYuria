@@ -8,6 +8,8 @@ using System;
 
 public class ItemDisplayAsset : MonoBehaviour
 {
+    [SerializeField] Transform allies;
+
     [Header("Prefabs")]
     [SerializeField] public Button buttonPrefab;
     [SerializeField] public Sprite emptySprite;
@@ -119,9 +121,9 @@ public class ItemDisplayAsset : MonoBehaviour
         allie?.obj.SetActive(previousActive);
 
         allieIndex += offset;
-        allieIndex = Mathf.Clamp(allieIndex, 0, AllieManager.Instance.count - 1);
+        allieIndex = Mathf.Clamp(allieIndex, 0, allies.childCount);
 
-        allie = AllieManager.Instance[allieIndex];
+        allie = allies.GetChild(allieIndex).GetComponent<IActor>();
         previousActive = allie.obj.activeSelf;
         allie.obj.SetActive(true);
 

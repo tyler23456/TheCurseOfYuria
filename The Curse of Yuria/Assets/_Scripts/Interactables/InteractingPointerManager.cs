@@ -6,6 +6,8 @@ namespace TCOY.DontDestroyOnLoad
     {
         public static InteractingPointerManager instance { get; set; }
 
+        [SerializeField] Transform allies;
+
         IInteractablePointer target;
         IInteractable[] targets;
 
@@ -50,7 +52,7 @@ namespace TCOY.DontDestroyOnLoad
             {
                 targets = target.gameObject.GetComponents<IInteractable>();
                 foreach (IInteractable target in targets)
-                    target.Interact(AllieManager.Instance.FirstAllie());
+                    target.Interact(allies.GetChild(0).GetComponent<IActor>());
             }
         }
     }

@@ -6,7 +6,6 @@ using HeroEditor.Common.Data;
 public abstract class ItemSO : ScriptableObject
 {
     public abstract ulong getGuid { get; }
-    public new string name { get; }
     public abstract Sprite icon { get; }
     public abstract GameObject prefab { get; }
     public abstract ItemTypeBase itemType { get; }

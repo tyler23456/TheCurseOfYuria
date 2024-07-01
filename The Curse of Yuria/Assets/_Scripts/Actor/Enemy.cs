@@ -40,20 +40,21 @@ namespace TCOY.UserActors
 
         void MakeADecision()
         {
-            if (TargeterDatabase.Instance.getNearbyAllieTargeter.CalculateTargets(transform.position).Count == 0)
+            if (TargeterDatabase.Instance.getNearbyAllieTargeter.CalculateTargets(transform.position).Length == 0)
                 return;
 
-            List<IActor> targets = movesQueue.Peek().getTargeter.CalculateTargets(transform.position);
+            IActor[] targets = movesQueue.Peek().getTargeter.CalculateTargets(transform.position);
 
-            if (targets.Count == 0)
+            if (targets.Length == 0)
             {
                 aTBGuage.Reset();
                 movesQueue.Enqueue(movesQueue.Dequeue());
                 return;
             }
 
-
-            BattleManager.Instance.AddCommand(new Command(this, movesQueue.Peek().getskill, targets));
+            Command command = new GameObject("Command").AddComponent<Command>();
+            command.Set(this, movesQueue.Peek().getskill, targets);
+            command.transform.parent = GameObject.Find("/DontDestroyOnLoad/PendingCommands").transform;
             movesQueue.Enqueue(movesQueue.Dequeue());
         }
     }

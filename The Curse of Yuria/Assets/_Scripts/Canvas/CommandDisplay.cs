@@ -9,6 +9,9 @@ public class CommandDisplay : DisplayBase
 {
     public static DisplayBase Instance { get; protected set; }
 
+    [SerializeField] Transform aTBGuagesFilled;
+    [SerializeField] Transform pendingCommands;
+
     [SerializeField] StatusEffectBase KOStatusEffect;
 
     [SerializeField] RectTransform display;
@@ -44,7 +47,7 @@ public class CommandDisplay : DisplayBase
         skillInventoryUI = new InventoryUI();
         itemInventoryUI = new InventoryUI();
 
-        currentAllie = BattleManager.Instance.PeekNextATBGuageFilled();
+        currentAllie = aTBGuagesFilled.GetChild(0).GetComponent<IATBGuageFilledEntry>().actor;
 
         attackTab.onClick.RemoveAllListeners();
         magicTab.onClick.RemoveAllListeners();
@@ -56,9 +59,7 @@ public class CommandDisplay : DisplayBase
 
         commandName = "None";
 
-        int newAllieIndex = currentAllie.obj.transform.GetSiblingIndex();
-        AllieManager.Instance.SwapIndexes(0, newAllieIndex);
-
+        currentAllie.obj.transform.SetAsFirstSibling();
         RefreshGridWithAttackOptions();
     }
 
@@ -74,7 +75,7 @@ public class CommandDisplay : DisplayBase
     {
         attackInventoryUI.grid = grid;
         attackInventoryUI.buttonPrefab = buttonPrefab;
-        attackInventoryUI.OnClick = (commandName) => OnSelectItem(commandName);
+        attackInventoryUI.OnClick = OnSelectItem;
         attackInventoryUI.inventory = new Inventory();
         attackInventoryUI.onPointerEnter = (itemName) => { };
         attackInventoryUI.onPointerExit = (itemName) => { };
@@ -160,7 +161,7 @@ public class CommandDisplay : DisplayBase
                     break;
                 }  
             }
-        } 
+        }
         else
         {
             foreach (IActor potentialTarget in potentialTargets)
@@ -218,10 +219,13 @@ public class CommandDisplay : DisplayBase
 
     public void OnSelectTarget(IActor target)
     {
-        Command command = new Command(currentAllie, ItemDatabase.Instance.Get(commandName), new List<IActor> { target });
-        BattleManager.Instance.AddCommand(command);
+        Command command = new GameObject("Command").AddComponent<Command>();
+        command.Set(currentAllie, ItemDatabase.Instance.Get(commandName), target);
+        command.transform.parent = pendingCommands;
+
         currentAllie.getATBGuage.Reset();
-        BattleManager.Instance.RemoveNextATBGuageFilled();
+
+        Destroy(aTBGuagesFilled.GetChild(0).gameObject);
         gameObject.SetActive(false);
 
     }

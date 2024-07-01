@@ -12,8 +12,10 @@ public interface IController : IPath
     IActor actor { get; }
     Animator animator { get; }
     Rigidbody2D rigidbody2D { get; }
-    IAction action { get; set; }
-    IGoal goal { get; set; }
+    IAction action { get; }
+    IGoal goal { get; }
     IState.State actionState { get; set; }
     IState.State goalState { get; set; }
+    void SetGoal(IGoal goal);
+    public void SetAction(IAction action);
 }

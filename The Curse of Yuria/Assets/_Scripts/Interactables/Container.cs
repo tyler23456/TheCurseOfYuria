@@ -30,7 +30,7 @@ namespace TCOY.DontDestroyOnLoad
                 ObtainedItemsDisplay.Instance.getInventory.Add(entry.item.name, count);
             }
             ObtainedItemsDisplay.Instance.onClick = OnClick;
-            ObtainedItemsDisplay.Instance.ShowExclusivelyInParent();     
+            ObtainedItemsDisplay.Instance.ShowExclusivelyInParent();
         }
 
         public void OnClick(string itemName)

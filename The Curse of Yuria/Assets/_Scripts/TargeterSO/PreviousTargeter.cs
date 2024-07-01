@@ -11,25 +11,33 @@ public class PreviousTargeter : TargeterBase
 
     [SerializeField] Type type;
     [SerializeField] Order order;
-    
-    public override List<IActor> CalculateTargets(Vector2 position)
+
+    public override IActor[] CalculateTargets(Vector2 position)
     {
         List<IActor> results = new List<IActor>();
 
         if (order == Order.before)
         {
-            if (BattleManager.Instance.pendingCommandsCount > 0)
-                results.Add(type == Type.user ? BattleManager.Instance.PeekNextCommand().user : BattleManager.Instance.PeekNextCommand().targets[0]);
+            Transform pendingCommands = GameObject.Find("DontDestroyOnLoad/PendingCommands").transform;
+
+            if (pendingCommands.childCount > 0)
+                return results.ToArray();
+
+            Command command = pendingCommands.GetChild(0).GetComponent<Command>();
+            results.Add(type == Type.user ? command.user : command.targets[0]);
+
         }
         else
         {
-            if (BattleManager.Instance.successfulCommandsCount > 0)
-                results.Add(type == Type.user ? BattleManager.Instance.PeekPreviousCommand().user : BattleManager.Instance.PeekPreviousCommand().targets[0]);
+            Transform successfulCommands = GameObject.Find("DontDestroyOnLoad/SuccessfulCommands").transform;
+
+            if (successfulCommands.childCount > 0)
+                results.ToArray();
+
+            Command command = successfulCommands.GetChild(successfulCommands.childCount).GetComponent<Command>();
+            results.Add(type == Type.user ? command.user : command.targets[0]);
+
         }
-        
-
-        return results;
+        return results.ToArray();
     }
-
-
 }

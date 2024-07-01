@@ -40,15 +40,14 @@ public class CutsceneDisplay : DisplayBase
 
     public IEnumerator Activate()
     {
-        while (actions.Count > 0)
-            yield return actions.Dequeue().Activate();
+        while (transform.childCount > 0)
+        {
 
+            yield return transform.GetChild(0).GetComponent<ScriptedSequencerAction>().action.Activate();
+            Destroy(transform.GetChild(0));
+
+            yield return null;
+        }
         gameObject.SetActive(false);
-    }
-
-    public void ShowExclusivelyInParent(ActionBase[] actions)
-    {
-        this.actions = new Queue<ActionBase>(actions);
-        base.ShowExclusivelyInParent();
     }
 }

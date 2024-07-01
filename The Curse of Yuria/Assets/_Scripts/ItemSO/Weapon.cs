@@ -21,7 +21,7 @@ public class Weapon : Equipable, IItem, IWeapon, IEquipment
 
     public ReadOnlyCollection<StatusEffectProbability> getStatusEffectProbabilities => statusEffectProbabilities.AsReadOnly();
 
-    public override IEnumerator Use(IActor user, List<IActor> targets)
+    public override IEnumerator Use(IActor user, params IActor[] targets)
     {
         SetDirection(user, targets);
 

@@ -59,10 +59,7 @@ namespace TCOY.ControllerStates
             }
 
             if (Input.GetKeyDown(KeyCode.Space))
-            {
-                controller.action = StateDatabase.Instance.GetAction("JumpState");
-                controller.actionState = IState.State.exit;
-            }
+                controller.SetAction(StateDatabase.Instance.GetAction("JumpState"));
                 
         }
 

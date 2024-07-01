@@ -19,12 +19,12 @@ public class StateDatabase : MonoBehaviour
 
         Addressables.LoadAssetsAsync<IAction>(actionStateReference, (i) =>
         {
-            actionDatabase.Add(i.getName, i);
+            actionDatabase.Add(i.name, i);
         }).WaitForCompletion();
 
         Addressables.LoadAssetsAsync<IGoal>(goalStateReference, (i) =>
         {
-            goalDatabase.Add(i.getName, i);
+            goalDatabase.Add(i.name, i);
         }).WaitForCompletion();
     }
 

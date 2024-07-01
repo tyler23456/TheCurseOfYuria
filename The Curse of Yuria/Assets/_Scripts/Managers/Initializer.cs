@@ -15,7 +15,9 @@ namespace TCOY.DontDestroyOnLoad
 
             hasLoaded = true;
 
-            LoadingDisplay.Instance.ShowExclusivelyInParent(3, Vector2.zero, 0f);
+            Transform loadingDisplay = GameObject.Find("/DontDestroyOnLoad/Canvas/LoadingDisplay").transform;
+            loadingDisplay.GetChild(0).name = "Lunn";
+            loadingDisplay.gameObject.SetActive(true);
         }
     }
 }

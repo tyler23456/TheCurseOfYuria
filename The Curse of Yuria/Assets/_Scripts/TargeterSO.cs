@@ -5,5 +5,5 @@ using UnityEngine;
 public abstract class TargeterSO : ScriptableObject
 {
     public enum Party { Allie, Enemy, Both }
-    public abstract List<IActor> CalculateTargets(Vector2 position);
+    public abstract IActor[] CalculateTargets(Vector2 position);
 }

@@ -8,14 +8,11 @@ public class LoadingDisplay : DisplayBase
 {
     public static LoadingDisplay Instance { get; protected set; }
 
+    [SerializeField] Transform allies;
+
     [SerializeField] GameObject mainCamera;
     [SerializeField] Image SceneLoaderImage;
     [SerializeField] Slider progressBar;
-
-    public int sceneIDToLoad = 0;
-    public Vector2 positionToStart = Vector2.zero;
-    public float eulerAngleZToStart = 0f;
-    public bool isSettingTransforms = true;
 
     public override void Initialize()
     {
@@ -37,7 +34,7 @@ public class LoadingDisplay : DisplayBase
 
     IEnumerator CoroutineLoad()
     {
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneIDToLoad);
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(transform.GetChild(0).name);
         float progress = 0f;
 
         while (!asyncOperation.isDone)
@@ -46,35 +43,6 @@ public class LoadingDisplay : DisplayBase
             yield return new WaitForEndOfFrame();
         }
 
-        StatsDisplay.Instance.HideAllInParent();
-        StatsDisplay.Instance.ShowAllInParent();
-        AllieManager.Instance.Refresh();
         gameObject.SetActive(false);
-
-        if (!isSettingTransforms)
-            yield break;
-
-        mainCamera.SetActive(false);
-        AllieManager.Instance.SetPosition(positionToStart);
-        AllieManager.Instance.SetEulerAngleZ(eulerAngleZToStart);
-        mainCamera.SetActive(true);
-    }
-
-    public void ShowExclusivelyInParent(int sceneIDToLoad, Vector2 positionToStart, float eulerAngleZToStart)
-    {
-        this.sceneIDToLoad = sceneIDToLoad;
-        this.positionToStart = positionToStart;
-        this.eulerAngleZToStart = eulerAngleZToStart;
-        isSettingTransforms = true;
-
-        base.ShowExclusivelyInParent();  
-    }
-
-    public void ShowExclusivelyInParent(int sceneIDToLoad)
-    {
-        this.sceneIDToLoad = sceneIDToLoad;
-        isSettingTransforms = false;
-
-        base.ShowExclusivelyInParent();
     }
 }

@@ -9,6 +9,7 @@ namespace TCOY.ControllerStates
     {
         float gravityScale;
         IClimber trigger;
+        Transform allies;
 
         protected override void Enter(IController controller)
         {
@@ -16,11 +17,16 @@ namespace TCOY.ControllerStates
             controller.actor.obj.transform.eulerAngles = new Vector3(0f, 180f, 0f);
             gravityScale = controller.rigidbody2D.gravityScale;
             controller.rigidbody2D.gravityScale = 0f;
+
+            if (allies == null)
+                allies = GameObject.Find("/DontDestroyOnLoad/Allies").transform;
         }
 
         protected override void Stay(IController controller)
         {
-            Ray ray = new Ray(AllieManager.Instance.FirstAllie().obj.transform.position - Vector3.forward, Vector3.forward);
+            Vector3 position = allies.GetChild(0).position;
+
+            Ray ray = new Ray(position - Vector3.forward, Vector3.forward);
             RaycastHit2D[] hits = Physics2D.GetRayIntersectionAll(ray, Mathf.Infinity);
 
             trigger = null;

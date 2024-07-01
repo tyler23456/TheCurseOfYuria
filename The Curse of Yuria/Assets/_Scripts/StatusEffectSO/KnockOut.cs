@@ -19,8 +19,6 @@ public class KnockOut : StatusEffectBase, IStatusEffect
         foreach (IEnabler objectToEnable in objectsToEnable)
             objectToEnable.enabled = true;
 
-        BattleManager.Instance.CancelCommandsFrom(target);
-
         target.enabled = false;
     }
 

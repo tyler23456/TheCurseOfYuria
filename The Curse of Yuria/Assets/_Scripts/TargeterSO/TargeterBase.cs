@@ -17,7 +17,7 @@ public abstract class TargeterBase : TargeterSO
 
     protected virtual bool canTargetKO => false;
 
-    public override List<IActor> CalculateTargets(Vector2 position)
+    public override IActor[] CalculateTargets(Vector2 position)
     {
         switch (party)
         {
@@ -53,7 +53,7 @@ public abstract class TargeterBase : TargeterSO
 
         FilterResults(targets);
 
-        return targets;
+        return targets.ToArray();
     }
 
     protected virtual void FilterResults(List<IActor> targets)

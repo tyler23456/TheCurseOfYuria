@@ -48,7 +48,9 @@ namespace TCOY.DontDestroyOnLoad
                 InventoryManager.Instance.AddItem(weightedEntry.item.name, entryCount);
                 ObtainedItemsDisplay.Instance.getInventory.Add(weightedEntry.item.name, entryCount);
             }
-            ObtainedItemsDisplay.Instance.Refresh();
+            Transform obtainedItemsDisplay = GameObject.Find("/DontDestroyOnLoad/Canvas/ObtainedItemsDisplay").transform;
+            obtainedItemsDisplay.gameObject.SetActive(false);
+            obtainedItemsDisplay.gameObject.SetActive(true);
 
             Destroy(gameObject);
         }

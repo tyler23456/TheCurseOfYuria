@@ -25,29 +25,36 @@ public class StatsDisplay : DisplayBase
     {
     }
 
+    public void OnTransformChildrenChanged()
+    {
+        OnRefresh();
+    }
+
     public void OnRefresh()
     {
         for (int i = 0; i < statDisplays.Count; i++)
         {
-            if (i < AllieManager.Instance.count)
+            if (i < transform.childCount)
             {
                 int ii = i;
-                AllieManager.Instance[i].getStats.onHPChanged = (value) => statDisplays[ii].getHP.value = value;
-                AllieManager.Instance[i].getStats.onMPChanged = (value) => statDisplays[ii].getMP.value = value;
-                AllieManager.Instance[i].getATBGuage.onATBChanged = (value) => statDisplays[ii].getAP.value = value;
+                IActor allie = transform.GetChild(i).GetComponent<IActor>();
+
+                allie.getStats.onHPChanged = (value) => statDisplays[ii].getHP.value = value;
+                allie.getStats.onMPChanged = (value) => statDisplays[ii].getMP.value = value;
+                allie.getATBGuage.onATBChanged = (value) => statDisplays[ii].getAP.value = value;
 
                 statDisplays[i].getName.gameObject.SetActive(true);
                 statDisplays[i].getHP.gameObject.SetActive(true);
                 statDisplays[i].getMP.gameObject.SetActive(true);
                 statDisplays[i].getAP.gameObject.SetActive(true);
 
-                statDisplays[i].getName.text = AllieManager.Instance[i].obj.name;
-                statDisplays[i].getHP.maxValue = AllieManager.Instance[i].getStats.GetAttribute(IStats.Attribute.MaxHP);
-                statDisplays[i].getMP.maxValue = AllieManager.Instance[i].getStats.GetAttribute(IStats.Attribute.MaxMP);
-                statDisplays[i].getAP.maxValue = AllieManager.Instance[i].getATBGuage.getMaximumValue;
+                statDisplays[i].getName.text = allie.obj.name;
+                statDisplays[i].getHP.maxValue = allie.getStats.GetAttribute(IStats.Attribute.MaxHP);
+                statDisplays[i].getMP.maxValue = allie.getStats.GetAttribute(IStats.Attribute.MaxMP);
+                statDisplays[i].getAP.maxValue = allie.getATBGuage.getMaximumValue;
 
-                statDisplays[i].getHP.value = AllieManager.Instance[i].getStats.HP;
-                statDisplays[i].getMP.value = AllieManager.Instance[i].getStats.MP;
+                statDisplays[i].getHP.value = allie.getStats.HP;
+                statDisplays[i].getMP.value = allie.getStats.MP;
             }
             else
             {

@@ -7,6 +7,8 @@ public class SwitchAllieDisplay : DisplayBase
 {
     public static DisplayBase Instance { get; protected set; }
 
+    [SerializeField] Transform allies;
+
     [SerializeField] RectTransform display;
     [SerializeField] RectTransform grid;
     [SerializeField] Button buttonPrefab;
@@ -44,8 +46,8 @@ public class SwitchAllieDisplay : DisplayBase
 
         inventory.Clear();
 
-        for (int i = 3; i < AllieManager.Instance.count; i++)
-            inventory.Add(AllieManager.Instance[i].obj.name);
+        for (int i = 3; i < allies.childCount; i++)
+            inventory.Add(allies.GetChild(i).name);
 
         inventoryUI.showSprite = false;
         inventoryUI.showName = true;
@@ -70,17 +72,15 @@ public class SwitchAllieDisplay : DisplayBase
     {
         cameraFollowEnabler.enabled = false;
 
-        previousAllie = AllieManager.Instance.FirstAllie();
+        previousAllie = allies.GetChild(0).GetComponent<IAllie>();
 
-        nextAllie = null;
-        for (int i = 3; i < AllieManager.Instance.count; i++)
-            if (AllieManager.Instance[i].obj.name == allieName)
-            {
-                nextAllie = AllieManager.Instance[i];
-                unselectedIndex = i;
-                break;
-            }
+        Transform nextAllieTransform = allies.Find(allieName);
 
+        if (nextAllieTransform == null)
+            return;
+
+        nextAllie = nextAllieTransform.GetComponent<IAllie>();
+       
         if (nextAllie == null)
             return;
 
@@ -136,13 +136,17 @@ public class SwitchAllieDisplay : DisplayBase
     {
         nextAllie.rigidbody2D.gravityScale = gravityScale;
         nextAllie.getCollider2D.enabled = true;
-        AllieManager.Instance.SwapIndexes(0, unselectedIndex);
+        nextAllie.getATBGuage.RaisePriority();
+
+        unselectedIndex = nextAllie.obj.transform.GetSiblingIndex();
+        nextAllie.obj.transform.SetSiblingIndex(0);
+        previousAllie.obj.transform.SetSiblingIndex(unselectedIndex);
+        
         cameraFollowEnabler.enabled = true;
         gameObject.SetActive(false);
         nextAllie.getATBGuage.Reset();
         //call update for other methods
-        BattleManager.Instance.CancelCommandsFrom(previousAllie);
-        StatsDisplay.Instance.Refresh();
+        previousAllie.getATBGuage.LowerPriority();
     }
 
     void OnPointerEnter(string itemName)
