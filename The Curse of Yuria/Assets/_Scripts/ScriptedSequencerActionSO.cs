@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public abstract class ScriptedSequencerActionSO : ScriptableObject
+public abstract class ScriptedSequencerActionSO : ScriptableObject, ICutsceneAction
 {
     public abstract bool isFinished { get; protected set; }
 

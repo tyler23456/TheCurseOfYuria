@@ -33,9 +33,8 @@ namespace TCOY.DontDestroyOnLoad
         {
             Transform scriptedSequencerDisplay = GameObject.Find("/DontDestroyOnLoad/Canvas/ScriptedSequencerDisplay").transform;
 
-            ScriptedSequencerAction sequencerAction = new GameObject("action").AddComponent<ScriptedSequencerAction>();
-            sequencerAction.action = action;
-            sequencerAction.transform.parent = scriptedSequencerDisplay;
+            IScriptedSequencerData.actions.Clear();
+            IScriptedSequencerData.actions.Enqueue(action);
 
             scriptedSequencerDisplay.gameObject.SetActive(true);
         }

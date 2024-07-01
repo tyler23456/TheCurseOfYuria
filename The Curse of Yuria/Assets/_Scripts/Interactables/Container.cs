@@ -20,6 +20,8 @@ namespace TCOY.DontDestroyOnLoad
             if (InventoryManager.Instance.completedIds.Contains(getID))
                 return;
 
+            IObtainedItemsData.inventory.Clear();
+
             foreach (SavedEntry entry in entries)
             {
                 int count = entry.count - InventoryManager.Instance.completedIds.GetCount(entry.ID);
@@ -27,10 +29,11 @@ namespace TCOY.DontDestroyOnLoad
                 if (count <= 0)
                     continue;
 
-                ObtainedItemsDisplay.Instance.getInventory.Add(entry.item.name, count);
+                IObtainedItemsData.inventory.Add(entry.item.name, count);
             }
-            ObtainedItemsDisplay.Instance.onClick = OnClick;
-            ObtainedItemsDisplay.Instance.ShowExclusivelyInParent();
+
+            IObtainedItemsData.onClick = OnClick;
+            GameObject.Find("/DontDestroyOnLoad/Canvas/ObtainedItemsDisplay").SetActive(true);
         }
 
         public void OnClick(string itemName)

@@ -9,6 +9,11 @@ namespace TCOY.ControllerStates
     {
         [SerializeField] Transform aTBGuagesFilled;
 
+        [SerializeField] Transform optionsDisplay;
+        [SerializeField] Transform itemsDisplay;
+        [SerializeField] Transform commandDisplay;
+        [SerializeField] Transform switchAllieDisplay;
+
         [SerializeField] GoalSO selectedDefaultGoal;
         [SerializeField] GoalSO unselectedDefaultGoal;
         [SerializeField] ActionSO selectedDefaultAction;
@@ -33,16 +38,16 @@ namespace TCOY.ControllerStates
                 return;
 
             if (Input.GetKeyDown(KeyCode.Escape))
-                OptionsDisplay.Instance.ToggleExclusivelyInParent();
+                optionsDisplay.gameObject.SetActive(true);
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
-                ItemDisplay.Instance.ToggleExclusivelyInParent();
+                itemsDisplay.gameObject.SetActive(true);
 
             if (Input.GetKeyDown(KeyCode.Tab) && aTBGuagesFilled.childCount > 0)
-                CommandDisplay.Instance.ToggleExclusivelyInParent();
+                commandDisplay.gameObject.SetActive(true);
 
             if (Input.GetKeyDown(KeyCode.Alpha3))
-                SwitchAllieDisplay.Instance.ToggleExclusivelyInParent();
+                switchAllieDisplay.gameObject.SetActive(true);
 
             if (GameStateManager.Instance.isPaused)
                 return;

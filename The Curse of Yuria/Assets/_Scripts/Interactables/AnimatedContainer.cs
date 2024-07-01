@@ -46,7 +46,7 @@ namespace TCOY.DontDestroyOnLoad
             if (onLockedPrompt == null)
                 return;
 
-            CutsceneDisplay.Instance.ShowExclusivelyInParent(new ActionBase[] { onLockedPrompt });
+            ActivateScriptedSequence(onLockedPrompt);
         }
     }
 }

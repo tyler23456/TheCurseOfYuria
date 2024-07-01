@@ -40,12 +40,9 @@ public class CutsceneDisplay : DisplayBase
 
     public IEnumerator Activate()
     {
-        while (transform.childCount > 0)
+        while (IScriptedSequencerData.actions.Count > 0)
         {
-
-            yield return transform.GetChild(0).GetComponent<ScriptedSequencerAction>().action.Activate();
-            Destroy(transform.GetChild(0));
-
+            yield return IScriptedSequencerData.actions.Dequeue().Activate();
             yield return null;
         }
         gameObject.SetActive(false);

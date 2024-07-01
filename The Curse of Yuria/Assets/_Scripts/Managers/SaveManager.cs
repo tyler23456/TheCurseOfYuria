@@ -17,6 +17,7 @@ public class SaveManager : MonoBehaviour
     [SerializeField] Transform successfulCommands;
     [SerializeField] Transform allies;
     [SerializeField] Transform enemies;
+    [SerializeField] Transform loadingDisplay;
 
     public void Awake()
     {
@@ -34,8 +35,11 @@ public class SaveManager : MonoBehaviour
         IAllie allie = AllieDatabase.Instance.Instantiate("River");
         allie.obj.name = "River";
         allie.obj.transform.parent = allies;
-        
-        LoadingDisplay.Instance.ShowExclusivelyInParent(3, Vector2.zero, 0f);
+
+        ILoadingData.sceneID = 3;
+        ILoadingData.destination = Vector2.zero;
+        ILoadingData.eulerAngleZ = 0f;
+        loadingDisplay.gameObject.SetActive(true);
     }
 
     public void OnNewSave()
@@ -80,7 +84,8 @@ public class SaveManager : MonoBehaviour
         SaveData saveData = JsonUtility.FromJson<SaveData>(json);
         saveData.Load(allies);
 
-        LoadingDisplay.Instance.ShowExclusivelyInParent(saveData.level);
+        ILoadingData.sceneID = saveData.level;
+        loadingDisplay.gameObject.SetActive(true);
     }
 
     public void ClearNonPersistentData()

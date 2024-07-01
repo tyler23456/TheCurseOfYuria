@@ -21,6 +21,7 @@ public class Shop : ActionBase
 
     public override IEnumerator Activate()
     {
+        IShopData.inventory.Clear();
         foreach (SavedEntry entry in entries)
         {
             int count = entry.count - InventoryManager.Instance.completedIds.GetCount(entry.ID);
@@ -28,15 +29,14 @@ public class Shop : ActionBase
             if (count <= 0)
                 continue;
 
-            ObtainedItemsDisplay.Instance.getInventory.Add(entry.item.name, count);
-            ShopDisplay.Instance.itemsForSell.Add((entry.item.name, entry.count));
+            //ObtainedItemsDisplay.Instance.getInventory.Add(entry.item.name, count);
+            IShopData.inventory.Add(entry.item.name, entry.count);
         }
 
-        ShopDisplay.Instance.buyersRating = buyersRating;
-        ShopDisplay.Instance.sellersRating = sellersRating / SellDivisor;
-        ShopDisplay.Instance.onBuyItem = OnBuyItem;
-        ShopDisplay.Instance.ShowExclusivelyInParent();
-
+        IShopData.buyersRating = buyersRating;
+        IShopData.sellersRating = sellersRating / SellDivisor;
+        IShopData.onClick = OnBuyItem;
+        GameObject.Find("/DontDestroyOnLoad/Canvas/ShopDisplay").SetActive(true);
         yield return null;
     }
 

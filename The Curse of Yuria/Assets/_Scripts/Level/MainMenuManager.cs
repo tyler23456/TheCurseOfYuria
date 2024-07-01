@@ -9,7 +9,7 @@ namespace TCOY.Canvas
 
         public void Start()
         {
-            MainMenuDisplay.Instance.ShowExclusivelyInParent();          
+            GameObject.Find("/DontDestroyOnLoad/Canvas/MainMenuDisplay").SetActive(true);       
         }
     }
 }
