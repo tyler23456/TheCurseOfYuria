@@ -8,7 +8,7 @@ namespace TCOY.DontDestroyOnLoad
 {
     public class NPC : InteractableBase, IInteractablePointer
     {
-        [SerializeField] List<Equipable> equipment;
+        [SerializeField] List<ItemSO> equipment;
         [SerializeField] List<PromptBrancher> promptBranchers;
 
         Character character;

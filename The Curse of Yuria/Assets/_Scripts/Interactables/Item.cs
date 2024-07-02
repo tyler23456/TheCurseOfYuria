@@ -18,8 +18,8 @@ namespace TCOY.DontDestroyOnLoad
         public override void Interact(IActor player)
         {
             InventoryManager.Instance.AddItem(name, 60);
-            gameObject.SetActive(false);
             InventoryManager.Instance.completedIds.Add(getID, 1);
+            gameObject.SetActive(false);
         }
     }
 }

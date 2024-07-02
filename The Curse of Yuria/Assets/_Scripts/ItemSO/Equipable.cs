@@ -6,111 +6,114 @@ using HeroEditor.Common.Data;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 using System.Collections.ObjectModel;
 
-public class Equipable : ItemBase, IItem, IEquipment
+namespace TCOY.Items
 {
-    [SerializeField] protected List<Modifier> modifiers;
-    [SerializeField] protected List<Ward> wards;
-    [SerializeField] protected List<Reactor> counters;
-    [SerializeField] protected List<Reactor> interrupts;
-
-    public ReadOnlyCollection<Modifier> getModifiers => modifiers.AsReadOnly();
-    public ReadOnlyCollection<Reactor> getCounters => counters.AsReadOnly();
-    public ReadOnlyCollection<Reactor> getInterrupts => interrupts.AsReadOnly();
-
-    public override void Equip(IActor target)
+    public class Equipable : ItemBase, IItem, IEquipment
     {
-        foreach (Modifier modifier in modifiers)
-            target.getStats.OffsetAttribute(modifier.getAttribute, modifier.getOffset);
+        [SerializeField] protected List<Modifier> modifiers;
+        [SerializeField] protected List<Ward> wards;
+        [SerializeField] protected List<Reactor> counters;
+        [SerializeField] protected List<Reactor> interrupts;
 
-        foreach (Ward ward in wards)
-            target.getStats.OffsetWeakness(ward.getElementType.weaknessIndex, ward.getAmount);
+        public ReadOnlyCollection<Modifier> getModifiers => modifiers.AsReadOnly();
+        public ReadOnlyCollection<Reactor> getCounters => counters.AsReadOnly();
+        public ReadOnlyCollection<Reactor> getInterrupts => interrupts.AsReadOnly();
 
-        foreach (Reactor counter in counters)
-            target.getCounters.Add(counter);
-
-        foreach (Reactor interrupt in interrupts)
-            target.getInterrupts.Add(interrupt);
-
-        List<string> removedItems = new List<string>();
-
-        switch (itemType.part)
+        public override void Equip(IActor target)
         {
-            case EquipmentPart.MeleeWeapon1H:
-                removedItems = target.getEquipment.RemoveWhere(i =>
-                ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon1H ||
-                ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon2H ||
-                ItemDatabase.Instance.GetPart(i) == EquipmentPart.Bow);
-                target.obj.GetComponent<Animator>()?.SetInteger("WeaponType", 0);
-                break;
+            foreach (Modifier modifier in modifiers)
+                target.getStats.OffsetAttribute(modifier.getAttribute, modifier.getOffset);
 
-            case EquipmentPart.MeleeWeapon2H:
-                removedItems = target.getEquipment.RemoveWhere(i =>
-                ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon1H ||
-                ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon2H ||
-                ItemDatabase.Instance.GetPart(i) == EquipmentPart.Shield ||
-                ItemDatabase.Instance.GetPart(i) == EquipmentPart.Bow);
-                target.obj.GetComponent<Animator>()?.SetInteger("WeaponType", 1);
-                break;
+            foreach (Ward ward in wards)
+                target.getStats.OffsetWeakness(ward.getElementType.weaknessIndex, ward.getAmount);
 
-            case EquipmentPart.Bow:
-                removedItems = target.getEquipment.RemoveWhere(i =>
-                ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon1H ||
-                ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon2H ||
-                ItemDatabase.Instance.GetPart(i) == EquipmentPart.Shield ||
-                ItemDatabase.Instance.GetPart(i) == EquipmentPart.Bow);
-                target.obj.GetComponent<Animator>()?.SetInteger("WeaponType", 3);
-                break;
+            foreach (Reactor counter in counters)
+                target.getCounters.Add(counter);
 
-            case EquipmentPart.Shield:
-                removedItems = target.getEquipment.RemoveWhere(i =>
-                ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon2H ||
-                ItemDatabase.Instance.GetPart(i) == EquipmentPart.Shield ||
-                ItemDatabase.Instance.GetPart(i) == EquipmentPart.Bow);
-                break;
+            foreach (Reactor interrupt in interrupts)
+                target.getInterrupts.Add(interrupt);
 
-            default:
-                removedItems = target.getEquipment.RemoveWhere(i =>
-                ItemDatabase.Instance.GetTypeName(i) == itemType.name);
-                break;
+            List<string> removedItems = new List<string>();
+
+            switch (itemType.part)
+            {
+                case EquipmentPart.MeleeWeapon1H:
+                    removedItems = target.getEquipment.RemoveWhere(i =>
+                    ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon1H ||
+                    ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon2H ||
+                    ItemDatabase.Instance.GetPart(i) == EquipmentPart.Bow);
+                    target.obj.GetComponent<Animator>()?.SetInteger("WeaponType", 0);
+                    break;
+
+                case EquipmentPart.MeleeWeapon2H:
+                    removedItems = target.getEquipment.RemoveWhere(i =>
+                    ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon1H ||
+                    ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon2H ||
+                    ItemDatabase.Instance.GetPart(i) == EquipmentPart.Shield ||
+                    ItemDatabase.Instance.GetPart(i) == EquipmentPart.Bow);
+                    target.obj.GetComponent<Animator>()?.SetInteger("WeaponType", 1);
+                    break;
+
+                case EquipmentPart.Bow:
+                    removedItems = target.getEquipment.RemoveWhere(i =>
+                    ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon1H ||
+                    ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon2H ||
+                    ItemDatabase.Instance.GetPart(i) == EquipmentPart.Shield ||
+                    ItemDatabase.Instance.GetPart(i) == EquipmentPart.Bow);
+                    target.obj.GetComponent<Animator>()?.SetInteger("WeaponType", 3);
+                    break;
+
+                case EquipmentPart.Shield:
+                    removedItems = target.getEquipment.RemoveWhere(i =>
+                    ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon2H ||
+                    ItemDatabase.Instance.GetPart(i) == EquipmentPart.Shield ||
+                    ItemDatabase.Instance.GetPart(i) == EquipmentPart.Bow);
+                    break;
+
+                default:
+                    removedItems = target.getEquipment.RemoveWhere(i =>
+                    ItemDatabase.Instance.GetTypeName(i) == itemType.name);
+                    break;
+            }
+
+            foreach (string removedItem in removedItems)
+                ItemDatabase.Instance.Get(removedItem).Unequip(target);
+
+            target.getEquipment.Add(name);
+            target.obj.GetComponent<Character>()?.Equip(itemSprite, itemType.part);
         }
 
-        foreach (string removedItem in removedItems)
-            ItemDatabase.Instance.Get(removedItem).Unequip(target);
+        public override void Unequip(IActor target)
+        {
+            foreach (Modifier modifier in modifiers)
+                target.getStats.OffsetAttribute(modifier.getAttribute, -modifier.getOffset);
 
-        target.getEquipment.Add(name);
-        target.obj.GetComponent<Character>()?.Equip(itemSprite, itemType.part);
-    }
+            foreach (Ward ward in wards)
+                target.getStats.OffsetWeakness(ward.getElementType.weaknessIndex, -ward.getAmount);
 
-    public override void Unequip(IActor target)
-    {
-        foreach (Modifier modifier in modifiers)
-            target.getStats.OffsetAttribute(modifier.getAttribute, -modifier.getOffset);
+            foreach (Reactor counter in counters)
+                target.getCounters.Remove(counter);
 
-        foreach (Ward ward in wards)
-            target.getStats.OffsetWeakness(ward.getElementType.weaknessIndex, -ward.getAmount);
+            foreach (Reactor interrupt in interrupts)
+                target.getInterrupts.Remove(interrupt);
 
-        foreach (Reactor counter in counters)
-            target.getCounters.Remove(counter);
+            List<string> removedItems = new List<string>();
 
-        foreach (Reactor interrupt in interrupts)
-            target.getInterrupts.Remove(interrupt);
+            removedItems = target.getEquipment.RemoveWhere(i =>
+                ItemDatabase.Instance.GetTypeName(i) == itemType.name);
 
-        List<string> removedItems = new List<string>();
+            target.getEquipment.Remove(name);
+            target.obj.GetComponent<Character>().UnEquip(itemType.part);
+        }
 
-        removedItems = target.getEquipment.RemoveWhere(i =>
-            ItemDatabase.Instance.GetTypeName(i) == itemType.name);
+        [System.Serializable]
+        public class Ward
+        {
+            [SerializeField] ElementTypeBase elementType;
+            [SerializeField] [Range(1, 500)] int amount = 5;
 
-        target.getEquipment.Remove(name);
-        target.obj.GetComponent<Character>().UnEquip(itemType.part);
-    }
-
-    [System.Serializable]
-    public class Ward
-    {
-        [SerializeField] ElementTypeBase elementType; 
-        [SerializeField] [Range(1, 500)] int amount = 5;
-
-        public ElementTypeBase getElementType => elementType;
-        public int getAmount => amount;
+            public ElementTypeBase getElementType => elementType;
+            public int getAmount => amount;
+        }
     }
 }

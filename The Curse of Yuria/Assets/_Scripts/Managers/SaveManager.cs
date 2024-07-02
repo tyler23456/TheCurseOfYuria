@@ -12,9 +12,6 @@ public class SaveManager : MonoBehaviour
     public static SaveManager instance;
 
     [SerializeField] CameraShaker mainCameraShaker;
-    [SerializeField] Transform aTBGuagesFilled;
-    [SerializeField] Transform pendingCommands;
-    [SerializeField] Transform successfulCommands;
     [SerializeField] Transform allies;
     [SerializeField] Transform enemies;
     [SerializeField] Transform loadingDisplay;
@@ -99,14 +96,9 @@ public class SaveManager : MonoBehaviour
         foreach (Transform child in enemies)
             Destroy(child.gameObject);
 
-        foreach (Transform child in aTBGuagesFilled)
-            Destroy(child.gameObject);
-
-        foreach (Transform child in pendingCommands)
-            Destroy(child.gameObject);
-
-        foreach (Transform child in successfulCommands)
-            Destroy(child.gameObject);
+        IBattleData.aTBGuagesFilled.Clear();
+        IBattleData.pendingCommands.Clear();
+        IBattleData.successfulCommands.Clear();
     }
 
     class SaveData

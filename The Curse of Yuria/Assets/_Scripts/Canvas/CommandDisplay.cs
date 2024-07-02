@@ -9,9 +9,6 @@ public class CommandDisplay : DisplayBase
 {
     public static DisplayBase Instance { get; protected set; }
 
-    [SerializeField] Transform aTBGuagesFilled;
-    [SerializeField] Transform pendingCommands;
-
     [SerializeField] StatusEffectBase KOStatusEffect;
 
     [SerializeField] RectTransform display;
@@ -47,7 +44,7 @@ public class CommandDisplay : DisplayBase
         skillInventoryUI = new InventoryUI();
         itemInventoryUI = new InventoryUI();
 
-        currentAllie = aTBGuagesFilled.GetChild(0).GetComponent<IATBGuageFilledEntry>().actor;
+        currentAllie = IBattleData.aTBGuagesFilled.First.Value;
 
         attackTab.onClick.RemoveAllListeners();
         magicTab.onClick.RemoveAllListeners();
@@ -219,13 +216,12 @@ public class CommandDisplay : DisplayBase
 
     public void OnSelectTarget(IActor target)
     {
-        Command command = new GameObject("Command").AddComponent<Command>();
-        command.Set(currentAllie, ItemDatabase.Instance.Get(commandName), target);
-        command.transform.parent = pendingCommands;
+        Command command = new Command(currentAllie, ItemDatabase.Instance.Get(commandName), target);
+        IBattleData.pendingCommands.AddLast(command);
 
         currentAllie.getATBGuage.Reset();
 
-        Destroy(aTBGuagesFilled.GetChild(0).gameObject);
+        IBattleData.aTBGuagesFilled.RemoveFirst();
         gameObject.SetActive(false);
 
     }

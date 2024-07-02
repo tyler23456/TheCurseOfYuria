@@ -14,9 +14,8 @@ public class DisplayBase : MonoBehaviour
     protected virtual void OnEnable()
     {
         foreach (Transform child in displayTransform.parent)
-            child.gameObject.SetActive(false);
-
-        displayTransform.gameObject.SetActive(true);
+            if (child != displayTransform)
+                child.gameObject.SetActive(false);
 
         GameStateManager.Instance.Pause();
         MarkerManager.instance.DestroyAllMarkers();

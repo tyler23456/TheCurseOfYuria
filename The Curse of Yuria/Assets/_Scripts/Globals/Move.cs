@@ -7,9 +7,9 @@ using System.Linq;
 [System.Serializable]
 public class Move
 {
-    [SerializeField] Scroll skill;
+    [SerializeField] ItemSO skill;
     [SerializeField] TargeterBase target;
 
-    public Scroll getskill => skill;
+    public ItemSO getskill => skill;
     public TargeterBase getTargeter => target;
 }

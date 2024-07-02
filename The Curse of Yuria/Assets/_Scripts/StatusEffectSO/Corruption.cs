@@ -30,9 +30,8 @@ public class Corruption : StatusEffectIcon
         if (targets.Count == 0)
             return false;
 
-        Command command = new GameObject("Command").AddComponent<Command>();
-        command.Set(user, move.getskill, targets[0]);
-        command.transform.parent = GameObject.Find("/DontDestroyOnLoad/PendingCommands").transform;
+        Command command = new Command(user, move.getskill, targets[0]);
+        IBattleData.pendingCommands.AddLast(command);
         return true;
     }
 

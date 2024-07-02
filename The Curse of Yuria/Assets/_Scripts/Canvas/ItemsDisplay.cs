@@ -7,9 +7,9 @@ using HeroEditor.Common.Data;
 using System.Linq;
 using System.Collections.ObjectModel;
 
-public class ItemDisplay : DisplayBase
+public class ItemsDisplay : DisplayBase
 {
-    public static ItemDisplay Instance { get; protected set; }
+    public static ItemsDisplay Instance { get; protected set; }
 
     [SerializeField] ItemDisplayAsset display;
 

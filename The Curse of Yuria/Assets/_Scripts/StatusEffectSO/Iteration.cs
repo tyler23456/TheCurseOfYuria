@@ -7,7 +7,7 @@ public class Iteration : StatusEffectIcon, IStatusEffect
 {
     enum ActivationType { OnKnockOut, TickDuration  }
 
-    [SerializeField] Scroll action;
+    [SerializeField] ItemSO action;
     [SerializeField] int power = 2;
     [SerializeField] float tickDuration = 5f;
 

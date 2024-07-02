@@ -12,22 +12,30 @@ namespace TCOY.DontDestroyOnLoad
 
         [SerializeField] public List<WeightedEntry> weightedEntries;
 
-        List<ItemBase> items = new List<ItemBase>();
+        List<ItemSO> items = new List<ItemSO>();
         List<float> weights = new List<float>();
         int count = 1;
+
+        ItemSO item;
+        Inventory inventory = new Inventory();
+
+        bool isFirstEnable = true;
         
-        void OnValidate()
+        public new void OnValidate()
         {
+            base.OnValidate();
+
             if (minCount > maxCount)
                 minCount = maxCount;
-
-            //foreach (WeightedEntry entry in weightedEntries)
-                //if (entry.minCount > entry.maxCount)
-                    //entry.minCount = entry.maxCount;
         }
 
         void OnEnable()
         {
+            if (!isFirstEnable)
+                return;
+
+            isFirstEnable = true;
+
             foreach (WeightedEntry entry in weightedEntries)
             {
                 items.Add(entry.item);
@@ -35,19 +43,21 @@ namespace TCOY.DontDestroyOnLoad
             }
 
             count = Random.Range(minCount, maxCount);
+
+            for (int i = 0; i < count; i++)
+            {
+                WeightedEntry weightedEntry = new WeightedEntry();
+                ItemSO item = WeightedDecision.Generate(items, weights);
+                int entryCount = Random.Range(weightedEntry.minCount, weightedEntry.maxCount);
+                inventory.Add(item.name, entryCount);
+            }
         }
 
         public override void Interact(IActor player)
         {
-            for (int i = 0; i < count; i++)
-            {
-                WeightedEntry weightedEntry = new WeightedEntry();
-                weightedEntry = WeightedDecision.Generate(weightedEntries, weights);
-                int entryCount = Random.Range(weightedEntry.minCount, weightedEntry.maxCount);
-
-                InventoryManager.Instance.AddItem(weightedEntry.item.name, entryCount);
-                ObtainedItemsDisplay.Instance.getInventory.Add(weightedEntry.item.name, entryCount);
-            }
+            for (int i = 0; i < IObtainedItemsData.inventory.count; i++)
+                IObtainedItemsData.inventory.Add(inventory.GetName(i), inventory.GetCount(i));
+                      
             Transform obtainedItemsDisplay = GameObject.Find("/DontDestroyOnLoad/Canvas/ObtainedItemsDisplay").transform;
             obtainedItemsDisplay.gameObject.SetActive(false);
             obtainedItemsDisplay.gameObject.SetActive(true);
@@ -59,7 +69,7 @@ namespace TCOY.DontDestroyOnLoad
     [System.Serializable]
     public class WeightedEntry
     {
-        public ItemBase item;
+        public ItemSO item;
         [Range(1, 20)] public int minCount;
         [Range(1, 20)] public int maxCount;
         public float weight;

@@ -5,14 +5,14 @@ using UnityEngine;
 [System.Serializable]
 public class Reactor
 {
-    [SerializeField] Scroll action;
+    [SerializeField] ItemSO action;
     [SerializeField] LayerMask mask;
-    [SerializeField] Scroll reaction;
+    [SerializeField] ItemSO reaction;
     [SerializeField] TargeterBase target;
 
     public string getItemName => action.name;
     public LayerMask getMask => mask;
-    public Scroll getReaction => reaction;
+    public ItemSO getReaction => reaction;
     public TargeterBase getTargeter => target;
 
     public string PrintInfo()

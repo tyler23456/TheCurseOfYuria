@@ -11,7 +11,7 @@ public class ItemDatabase : MonoBehaviour
 
     [SerializeField] AssetLabelReference itemsReference;
     [SerializeField] bool populate = false;
-    [SerializeField] List<ItemBase> serializedItems = new List<ItemBase>();
+    [SerializeField] List<ItemSO> serializedItems = new List<ItemSO>();
 
     Dictionary<string, IItem> items = new Dictionary<string, IItem>();
 

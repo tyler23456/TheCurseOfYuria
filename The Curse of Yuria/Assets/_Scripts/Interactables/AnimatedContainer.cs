@@ -6,7 +6,7 @@ namespace TCOY.DontDestroyOnLoad
 {
     public class AnimatedContainer : Container, IInteractable, IInteractablePointer
     {
-        [SerializeField] List<ItemBase> RequiredItems;
+        [SerializeField] List<ItemSO> RequiredItems;
         [SerializeField] Prompt onLockedPrompt;
 
         Animator animator;

@@ -18,8 +18,6 @@ public class ObtainedItemsDisplay : DisplayBase
 
     public Action<string> onClick { get; set; } = (itemName) => { };
 
-    public Inventory getInventory => inventory;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -55,7 +53,7 @@ public class ObtainedItemsDisplay : DisplayBase
 
     void OnClick(string itemName)
     {
-        getInventory.Remove(itemName);
+        IObtainedItemsData.inventory.Remove(itemName);
         InventoryManager.Instance.AddItem(itemName);
 
         OnRefresh();

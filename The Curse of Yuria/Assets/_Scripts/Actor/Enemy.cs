@@ -52,9 +52,8 @@ namespace TCOY.UserActors
                 return;
             }
 
-            Command command = new GameObject("Command").AddComponent<Command>();
-            command.Set(this, movesQueue.Peek().getskill, targets);
-            command.transform.parent = GameObject.Find("/DontDestroyOnLoad/PendingCommands").transform;
+            Command command = new Command(this, movesQueue.Peek().getskill, targets);
+            IBattleData.pendingCommands.AddLast(command);
             movesQueue.Enqueue(movesQueue.Dequeue());
         }
     }

@@ -4,96 +4,99 @@ using UnityEngine;
 using System.Collections.ObjectModel;
 using System;
 
-public class Weapon : Equipable, IItem, IWeapon, IEquipment
+namespace TCOY.Items
 {
-    [SerializeField] protected List<StatusEffectProbability> statusEffectProbabilities;
-    [SerializeField] protected float power = 2f;
-    [SerializeField] protected ArmTypeBase _armType;
-    [SerializeField] protected ElementTypeBase _elementType;
-    [SerializeField] protected CalculationTypeBase _calculationType;
-    [SerializeField] protected List<BonusTypeBase> _bonusTypes;
-    [SerializeField] protected ParticleSystem particleSystem;
-
-    public ArmTypeBase armType { get { return _armType; } set { _armType = value; } }
-    public ElementTypeBase elementType { get { return _elementType; } set { _elementType = value; } }
-    public CalculationTypeBase calculationType { get { return _calculationType; } set { _calculationType = value; } }
-    public List<BonusTypeBase> bonusTypes { get { return _bonusTypes; } set { _bonusTypes = value; } }
-
-    public ReadOnlyCollection<StatusEffectProbability> getStatusEffectProbabilities => statusEffectProbabilities.AsReadOnly();
-
-    public override IEnumerator Use(IActor user, params IActor[] targets)
+    public class Weapon : Equipable, IItem, IWeapon, IEquipment
     {
-        SetDirection(user, targets);
+        [SerializeField] protected List<StatusEffectProbability> statusEffectProbabilities;
+        [SerializeField] protected float power = 2f;
+        [SerializeField] protected ArmTypeBase _armType;
+        [SerializeField] protected ElementTypeBase _elementType;
+        [SerializeField] protected CalculationTypeBase _calculationType;
+        [SerializeField] protected List<BonusTypeBase> _bonusTypes;
+        [SerializeField] protected ParticleSystem particleSystem;
 
-        Animator animator = user.obj.GetComponent<Animator>();
-        animator?.SetTrigger("Slash");
+        public ArmTypeBase armType { get { return _armType; } set { _armType = value; } }
+        public ElementTypeBase elementType { get { return _elementType; } set { _elementType = value; } }
+        public CalculationTypeBase calculationType { get { return _calculationType; } set { _calculationType = value; } }
+        public List<BonusTypeBase> bonusTypes { get { return _bonusTypes; } set { _bonusTypes = value; } }
 
-        foreach (IActor target in targets)
-            target.StartCoroutine(performAnimation(user, target));
+        public ReadOnlyCollection<StatusEffectProbability> getStatusEffectProbabilities => statusEffectProbabilities.AsReadOnly();
 
-        yield return null;
-    }
+        public override IEnumerator Use(IActor user, params IActor[] targets)
+        {
+            SetDirection(user, targets);
 
-    protected virtual IEnumerator performAnimation(IActor user, IActor target)
-    {
-        yield return new WaitForSeconds(0.5f);
-        yield return PerformEffect(user, target);
-    }
+            Animator animator = user.obj.GetComponent<Animator>();
+            animator?.SetTrigger("Slash");
 
-    protected virtual IEnumerator PerformEffect(IActor user, IActor target)
-    {
-        if (user == null)
-            yield break;
+            foreach (IActor target in targets)
+                target.StartCoroutine(performAnimation(user, target));
 
-        if (IsInvalidTarget(target))
-            yield break;
+            yield return null;
+        }
 
-        if (CheckForStatusEffectCounters(user, target))
-            yield break;
-        
-        float accumulator = 0;
-        accumulator = _elementType.Calculate(user, target, power * IStats.powerMultiplier);
-        accumulator = _armType.Calculate(user, target, accumulator);
+        protected virtual IEnumerator performAnimation(IActor user, IActor target)
+        {
+            yield return new WaitForSeconds(0.5f);
+            yield return PerformEffect(user, target);
+        }
 
-        foreach (BonusTypeBase bonusType in _bonusTypes)
-            accumulator = bonusType.Calculate(user, target, accumulator);
+        protected virtual IEnumerator PerformEffect(IActor user, IActor target)
+        {
+            if (user == null)
+                yield break;
 
-        accumulator = _calculationType.Calculate(user, target, accumulator);
+            if (IsInvalidTarget(target))
+                yield break;
 
-        CheckStatusEffects(target);
-    }
+            if (CheckForStatusEffectCounters(user, target))
+                yield break;
 
-    protected virtual void CheckStatusEffects(IActor target)
-    {
-        foreach (StatusEffectProbability statusEffectProbability in statusEffectProbabilities)
-            if (UnityEngine.Random.Range(0f, 1f) < statusEffectProbability.getProbability)
-                statusEffectProbability.getStatusEffect.Activate(target);
-    }
+            float accumulator = 0;
+            accumulator = _elementType.Calculate(user, target, power * IStats.powerMultiplier);
+            accumulator = _armType.Calculate(user, target, accumulator);
 
-    protected virtual bool CheckForStatusEffectCounters(IActor user, IActor target)
-    {
-        List<bool> itemCancellationFlags = new List<bool>();
-        foreach (string statusEffect in target.getStatusEffects.GetNames())
-            itemCancellationFlags.Add(StatFXDatabase.Instance.Get(statusEffect).OnHit(user, target, this));
+            foreach (BonusTypeBase bonusType in _bonusTypes)
+                accumulator = bonusType.Calculate(user, target, accumulator);
 
-        if (itemCancellationFlags.Contains(true))
-            return true;
+            accumulator = _calculationType.Calculate(user, target, accumulator);
 
-        return false;
-    }
+            CheckStatusEffects(target);
+        }
 
-    public virtual bool TrueForAnyStatusEffect(Func<IStatusEffect, bool> predicate)
-    {
-        return statusEffectProbabilities.Find(i => predicate.Invoke(i.getStatusEffect)) != null;
-    }
+        protected virtual void CheckStatusEffects(IActor target)
+        {
+            foreach (StatusEffectProbability statusEffectProbability in statusEffectProbabilities)
+                if (UnityEngine.Random.Range(0f, 1f) < statusEffectProbability.getProbability)
+                    statusEffectProbability.getStatusEffect.Activate(target);
+        }
 
-    public bool ContainsStatusEffectThatCanRemoveKO()
-    {
-        return TrueForAnyStatusEffect(i => i is IRestoration && ((IRestoration)i).ContainsStatusEffectToRemove(StatFXDatabase.Instance.getKnockOut.name));
-    }
+        protected virtual bool CheckForStatusEffectCounters(IActor user, IActor target)
+        {
+            List<bool> itemCancellationFlags = new List<bool>();
+            foreach (string statusEffect in target.getStatusEffects.GetNames())
+                itemCancellationFlags.Add(StatFXDatabase.Instance.Get(statusEffect).OnHit(user, target, this));
 
-    public bool IsInvalidTarget(IActor target)
-    {
-        return target.enabled == false && !ContainsStatusEffectThatCanRemoveKO() || target.obj.activeSelf == false;
+            if (itemCancellationFlags.Contains(true))
+                return true;
+
+            return false;
+        }
+
+        public virtual bool TrueForAnyStatusEffect(Func<IStatusEffect, bool> predicate)
+        {
+            return statusEffectProbabilities.Find(i => predicate.Invoke(i.getStatusEffect)) != null;
+        }
+
+        public bool ContainsStatusEffectThatCanRemoveKO()
+        {
+            return TrueForAnyStatusEffect(i => i is IRestoration && ((IRestoration)i).ContainsStatusEffectToRemove(StatFXDatabase.Instance.getKnockOut.name));
+        }
+
+        public bool IsInvalidTarget(IActor target)
+        {
+            return target.enabled == false && !ContainsStatusEffectThatCanRemoveKO() || target.obj.activeSelf == false;
+        }
     }
 }

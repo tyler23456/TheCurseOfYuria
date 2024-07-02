@@ -5,6 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class Entry
 {
-    public ItemBase item;
+    public ItemSO item;
     public int count;
 }

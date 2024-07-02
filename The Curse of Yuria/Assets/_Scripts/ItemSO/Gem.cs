@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gem : ItemBase, IItem
+namespace TCOY.Items
 {
+    public class Gem : ItemBase, IItem
+    {
+    }
 }

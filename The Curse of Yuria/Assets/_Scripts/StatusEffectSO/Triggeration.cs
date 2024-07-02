@@ -6,7 +6,7 @@ using UnityEngine;
 public class Triggeration : StatusEffectBase, IStatusEffect
 {
     [SerializeField] List<StatusEffectBase> triggers;
-    [SerializeField] Scroll skill;
+    [SerializeField] ItemSO skill;
 
     public override void Activate(IActor target, float accumulator = 0)
     {

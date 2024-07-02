@@ -6,10 +6,6 @@ using System;
 
 public class BattleManager : MonoBehaviour
 {
-    [SerializeField] Transform aTBGuagesFilled;
-    [SerializeField] Transform pendingCommands;
-    [SerializeField] Transform executingCommands;
-    [SerializeField] Transform successfulCommands;
     [SerializeField] Transform allies;
     [SerializeField] Transform enemies;
     [SerializeField] Transform gameOverDisplay;
@@ -18,9 +14,6 @@ public class BattleManager : MonoBehaviour
     [SerializeField] TargeterBase enemyTargeter;
     [SerializeField] List<StatusEffectBase> gameOverStatusEffects;
 
-    public int aTBGuageFilledCount => aTBGuagesFilled.childCount;
-    public Command previousSuccessfulCommand => successfulCommands.GetChild(successfulCommands.childCount - 1).GetComponent<Command>();
-    public Command nextPendingCommand => pendingCommands.GetChild(0).GetComponent<Command>();
 
     public void Start()
     {
@@ -36,8 +29,6 @@ public class BattleManager : MonoBehaviour
     {
         while (true)
         {
-            DestroyBrokenExecutingCommands();
-
             if (!GameStateManager.Instance.isPlaying)
                 yield return new WaitForEndOfFrame();
 
@@ -49,11 +40,11 @@ public class BattleManager : MonoBehaviour
 
             CheckForInterrupts();
 
-            if (pendingCommands.childCount == 0)
+            if (IBattleData.pendingCommands.Count == 0)
                 continue;
 
-            Command command = nextPendingCommand;
-            command.transform.parent = executingCommands;
+            Command command = IBattleData.pendingCommands.First.Value;
+            IBattleData.pendingCommands.RemoveFirst();
 
             TrajectoryPathDrawer drawer = Instantiate(lineDrawerPrefab.gameObject).GetComponent<TrajectoryPathDrawer>();
             drawer.onFinishedDrawing = () => RunCommand(command);
@@ -63,34 +54,21 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    void DestroyBrokenExecutingCommands()
-    {
-        foreach (Transform child in executingCommands)
-            if (child.GetComponent<Command>() == null)
-                Destroy(child.gameObject);
-    }
-
     void RunCommand(Command command)
     {
-        if (command == null)
+        if (command == null || command.user == null || !command.user.getATBGuage.isActive)
             return;
-
-        if (command.user == null || !command.user.getATBGuage.isActive)
-        {
-            Destroy(command.gameObject);
-            return;
-        }
 
         command.user.StartCoroutine(command.item.Use(command.user, command.targets));
-        command.transform.parent = successfulCommands;
+        IBattleData.successfulCommands.AddLast(command);
     }
 
     void CheckForCounters()
     {
-        if (successfulCommands.childCount == 0 || !previousSuccessfulCommand.isCounterable)
+        if (IBattleData.successfulCommands.Count == 0 || !IBattleData.successfulCommands.Last.Value.isCounterable)
             return;
 
-        Command previousCommand = previousSuccessfulCommand;
+        Command previousCommand = IBattleData.successfulCommands.Last.Value;
 
         CalculateReactors(previousCommand, allies, true);
         CalculateReactors(previousCommand, enemies, true);
@@ -100,10 +78,10 @@ public class BattleManager : MonoBehaviour
 
     void CheckForInterrupts()
     {
-        if (pendingCommands.childCount == 0 || !nextPendingCommand.isInterruptable)
+        if (IBattleData.pendingCommands.Count == 0 || !IBattleData.pendingCommands.First.Value.isInterruptable)
             return;
 
-        Command nextCommand = nextPendingCommand;
+        Command nextCommand = IBattleData.pendingCommands.First.Value;
 
         CalculateReactors(nextCommand, allies, false);
         CalculateReactors(nextCommand, enemies, false);
@@ -123,32 +101,25 @@ public class BattleManager : MonoBehaviour
             foreach (Reactor reactor in reactors)
                 if (((1 << command.targets[0].obj.layer) & reactor.getMask) != 0 && command.item.name == reactor.getItemName)
                 {
-                    Command reaction = new GameObject("Command").AddComponent<Command>();
-                    reaction.Set(actor, reactor.getReaction, reactor.getTargeter.CalculateTargets(actor.obj.transform.position));
-                    reaction.transform.parent = pendingCommands;
+                    Command reaction = new Command(actor, reactor.getReaction, reactor.getTargeter.CalculateTargets(actor.obj.transform.position));
 
                     if (isCounter)
-                    {
-                        command.isCounterable = false;
-                    }
+                        IBattleData.pendingCommands.AddLast(reaction);
                     else
-                    {
-                        command.isInterruptable = false;
-                        reaction.transform.SetSiblingIndex(0);
-                    }
+                        IBattleData.pendingCommands.AddFirst(reaction);
                 }
         }
     }
 
     void RefreshNearbyEnemies()
     {
-        IActor[] targets = enemyTargeter.CalculateTargets(allies.GetChild(0).position); //calculate targets from where
+        IActor[] enemyTargets = enemyTargeter.CalculateTargets(allies.GetChild(0).position);
 
         foreach (Transform t in enemies)
             t.parent = null;
 
-        foreach (IActor actor in targets)
-            actor.obj.transform.parent = enemies;
+        foreach (IActor enemyTarget in enemyTargets)
+            enemyTarget.obj.transform.parent = enemies;
     }
 
     void CheckForGameOver()

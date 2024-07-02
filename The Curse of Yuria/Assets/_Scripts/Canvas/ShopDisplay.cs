@@ -18,11 +18,8 @@ public class ShopDisplay : DisplayBase
     ItemTypeBase type;
     Dictionary<ItemTypeBase, Inventory> shopInventories = new Dictionary<ItemTypeBase, Inventory>();
 
-    public float buyersRating { get; set; } = 1f;
-    public float sellersRating { get; set; } = 1f / 2f;
     public Action<string> onBuyItem { get; set; } = (itemName) => { };
     public Action<string> onSellItem { get; set; } = (itemName) => { };
-    public List<(string name, int count)> itemsForSell { get; private set; } = new List<(string name, int count)>();
 
     public override void Initialize()
     {
@@ -55,8 +52,9 @@ public class ShopDisplay : DisplayBase
         shopInventories.Add(InventoryManager.Instance.basicType, new Inventory());
         shopInventories.Add(InventoryManager.Instance.questItemType, new Inventory());
 
-        foreach ((string name, int count) item in itemsForSell)
-            shopInventories[ItemDatabase.Instance.Get(item.name).itemType].Add(item.name, item.count);
+        for (int i = 0; i < IShopData.inventory.count; i++)
+            shopInventories[ItemDatabase.Instance.Get(IShopData.inventory.GetName(i)).itemType].Add(IShopData.inventory.GetName(i), IShopData.inventory.GetCount(i));
+            
 
         buy.onClick.RemoveAllListeners();
         sell.onClick.RemoveAllListeners();
@@ -79,7 +77,7 @@ public class ShopDisplay : DisplayBase
         base.OnDisable();
         shopInventories.Clear();
         display.RefreshCurrency();
-        itemsForSell.Clear();
+        IShopData.inventory.Clear();
         buy.transform.parent.gameObject.SetActive(false);
         sell.transform.parent.gameObject.SetActive(false);
         display.gameObject.SetActive(true);
@@ -181,7 +179,7 @@ public class ShopDisplay : DisplayBase
     void OnBuyItem(string itemName)
     {
         IItem current = ItemDatabase.Instance.Get(itemName);
-        InventoryManager.Instance.olms -= (int)(current.getValue * buyersRating);
+        InventoryManager.Instance.olms -= (int)(current.getValue * IShopData.buyersRating);
         InventoryManager.Instance.AddItem(itemName);
         shopInventories[current.itemType].Remove(itemName);
         onBuyItem.Invoke(itemName);
@@ -193,7 +191,7 @@ public class ShopDisplay : DisplayBase
     void OnSellItem(string itemName)
     {
         IItem current = ItemDatabase.Instance.Get(itemName);
-        InventoryManager.Instance.olms += (int)(current.getValue * sellersRating);
+        InventoryManager.Instance.olms += (int)(current.getValue * IShopData.sellersRating);
         shopInventories[current.itemType].Add(itemName);
         InventoryManager.Instance.Get(current.itemType).Remove(itemName);
         onSellItem.Invoke(itemName);
@@ -205,14 +203,14 @@ public class ShopDisplay : DisplayBase
     void ShowPlayerProfit(string itemName)
     {
         IItem current = ItemDatabase.Instance.Get(itemName);
-        int price = (int)(current.getValue * sellersRating);
+        int price = (int)(current.getValue * IShopData.sellersRating);
         display.RefreshAllieInfo(itemName, price);
     }
 
     void ShowPlayerDeficit(string itemName)
     {
         IItem current = ItemDatabase.Instance.Get(itemName);
-        int price = (int)(current.getValue * buyersRating);
+        int price = (int)(current.getValue * IShopData.buyersRating);
         display.RefreshAllieInfo(itemName, -price);
     }
 }

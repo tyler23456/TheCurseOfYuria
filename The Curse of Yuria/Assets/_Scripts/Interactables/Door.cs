@@ -10,7 +10,7 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] Vector3 destination;
         [SerializeField] float eulerAngleZ;
         [SerializeField] Sprite OpenDoor;
-        [SerializeField] List<ItemBase> RequiredItems;
+        [SerializeField] List<ItemSO> RequiredItems;
         [SerializeField] Prompt onLockedPrompt;
 
         Sprite closedDoor;

@@ -11,7 +11,7 @@ using System.Linq;
 namespace TCOY.DontDestroyOnLoad
 {
     [ExecuteInEditMode]
-    public class AssetManager : MonoBehaviour
+    public class AssetManager : MonoBehaviour //this needs to be split up in two
     {
         [SerializeField] Material material;
 

@@ -7,8 +7,6 @@ namespace TCOY.ControllerStates
 {
     public class PlayerControls : MonoBehaviour, IPlayerControls
     {
-        [SerializeField] Transform aTBGuagesFilled;
-
         [SerializeField] Transform optionsDisplay;
         [SerializeField] Transform itemsDisplay;
         [SerializeField] Transform commandDisplay;
@@ -43,7 +41,7 @@ namespace TCOY.ControllerStates
             if (Input.GetKeyDown(KeyCode.Alpha1))
                 itemsDisplay.gameObject.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.Tab) && aTBGuagesFilled.childCount > 0)
+            if (Input.GetKeyDown(KeyCode.Tab) && IBattleData.aTBGuagesFilled.Count > 0)
                 commandDisplay.gameObject.SetActive(true);
 
             if (Input.GetKeyDown(KeyCode.Alpha3))
