@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HeroEditor.Common.Enums;
 
-namespace TCOY.DontDestroyOnLoad
+namespace TCOY.Interactables
 {
     public class Item : InteractableBase, IInteractablePointer
     {

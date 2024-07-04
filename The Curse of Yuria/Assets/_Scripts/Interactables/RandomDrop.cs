@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Sirenix.Serialization;
 
-namespace TCOY.DontDestroyOnLoad
+namespace TCOY.Interactables
 {
     public class RandomDrop : InteractableBase, IInteractablePointer, IEnabler
     {
         [Range(0, 20)]public int minCount = 1;
         [Range(1, 20)]public int maxCount = 3;
 
-        [SerializeField] public List<WeightedEntry> weightedEntries;
+        [OdinSerialize] public List<WeightedEntry> weightedEntries;
 
-        List<ItemSO> items = new List<ItemSO>();
+        List<IItem> items = new List<IItem>();
         List<float> weights = new List<float>();
         int count = 1;
 
-        ItemSO item;
+        IItem item;
         Inventory inventory = new Inventory();
 
         bool isFirstEnable = true;
@@ -47,7 +48,7 @@ namespace TCOY.DontDestroyOnLoad
             for (int i = 0; i < count; i++)
             {
                 WeightedEntry weightedEntry = new WeightedEntry();
-                ItemSO item = WeightedDecision.Generate(items, weights);
+                IItem item = WeightedDecision.Generate(items, weights);
                 int entryCount = Random.Range(weightedEntry.minCount, weightedEntry.maxCount);
                 inventory.Add(item.name, entryCount);
             }
@@ -66,10 +67,9 @@ namespace TCOY.DontDestroyOnLoad
         }
     }
 
-    [System.Serializable]
     public class WeightedEntry
     {
-        public ItemSO item;
+        public IItem item;
         [Range(1, 20)] public int minCount;
         [Range(1, 20)] public int maxCount;
         public float weight;

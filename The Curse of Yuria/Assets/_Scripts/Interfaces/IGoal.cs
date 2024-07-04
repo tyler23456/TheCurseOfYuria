@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IGoal : IState
 {
-    
+    bool CheckForTransition(IController controller);
 }

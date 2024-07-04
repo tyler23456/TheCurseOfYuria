@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public abstract class ArmTypeBase : ArmTypeSO
+public abstract class ArmTypeBase : IArmType
 {
-    public override float Calculate(IActor user, IActor target, float accumulator)
+    public virtual float Calculate(IActor user, IActor target, float accumulator)
     {
         return accumulator;
     }

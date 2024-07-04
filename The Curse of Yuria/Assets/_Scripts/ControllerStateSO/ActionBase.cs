@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace TCOY.ControllerStates
 {
-    public abstract class ActionBase : ActionSO, IAction
+    public abstract class ActionBase : ScriptableObject, IAction
     {
         public new string name => base.name;
 
-        public override void UpdateState(IController controller)
+        public virtual void UpdateState(IController controller)
         {
             if (controller.actionState == IState.State.enter)
             {
@@ -30,17 +30,17 @@ namespace TCOY.ControllerStates
         protected virtual void Stay(IController controller) { }
         protected virtual void Exit(IController controller) { }
 
-        public override bool CheckForTransition(IController controller)
+        public virtual bool CheckForTransition(IController controller)
         {
             return true;
         }
 
-        public override IState GetSisterState()
+        public virtual IState GetSisterState()
         {
             return null;
         }
 
-        public override void OnDrawGizmosMethod(IController controller)
+        public virtual void OnDrawGizmosMethod(IController controller)
         {
 
         }

@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IAction : IState
 {
-    
+    bool CheckForTransition(IController controller);
+    IState GetSisterState();
 }

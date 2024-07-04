@@ -1,73 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using HeroEditor.Common.Enums;
 using HeroEditor.Common.Data;
-using UnityEditor;
+using HeroEditor.Common.Enums;
+using Sirenix.Serialization;
+using Sirenix.OdinInspector;
 
-namespace TCOY.Items
+public abstract class ItemBase : SerializedScriptableObject
 {
-    public abstract class ItemBase : TypeBase
-    {
-        [SerializeField] [HideInInspector] protected ulong guid;
+    [SerializeField] Sprite _icon;
+    [SerializeField] GameObject _prefab;
+    [SerializeField] [TextArea(3, 10)] string info;
+    [SerializeField] ItemSprite _itemSprite;
+    [SerializeField] int worth = 4;
 
-        [SerializeField] protected Sprite _icon;
-        [SerializeField] protected GameObject _prefab;
-        [SerializeField] protected ItemTypeBase _equipmentType;
-        [SerializeField] [TextArea(3, 10)] protected string info;
-        [SerializeField] protected ItemSprite _itemSprite;
-        [SerializeField] protected int value = 4;
+    public virtual string type => "";
 
-        public ulong getGuid => guid;
+    public Sprite icon { get { return _icon; } set { _icon = value; } }
+    public GameObject prefab { get { return _prefab; } set { _prefab = value; } }
+    public ItemSprite itemSprite { get { return _itemSprite; } set { _itemSprite = value; } }
 
-        public Sprite icon { get { return _icon; } set { _icon = value; } }
-        public GameObject prefab { get { return _prefab; } set { _prefab = value; } }
-        public ItemTypeBase itemType { get { return _equipmentType; } set { _equipmentType = value; } }
-        public ItemSprite itemSprite { get { return _itemSprite; } set { _itemSprite = value; } }
-        public string getInfo => info;
-        public int getValue => value;
+    public string getInfo => info;
+    public int getWorth => worth;
 
-
-        public virtual IEnumerator Use(IActor user, params IActor[] targets)
-        {
-            yield return null;
-        }
-
-        public virtual IEnumerator Use(IActor target)
-        {
-            yield return null;
-        }
-
-        public virtual void Equip(IActor target)
-        {
-        }
-
-        public virtual void Unequip(IActor target)
-        {
-        }
-
-        protected void SetDirection(IActor user, params IActor[] targets)
-        {
-            if (targets.Length == 0)
-                return;
-
-            Vector2 direction = (targets[0].obj.transform.position - user.obj.transform.position).normalized;
-
-            if (user.obj.layer == LayerMask.NameToLayer("Enemy"))
-            {
-                if (direction.x >= 0)
-                    user.obj.transform.eulerAngles = new Vector3(0f, 180f, 0f);
-                else
-                    user.obj.transform.eulerAngles = new Vector3(0f, 0f, 0f);
-            }
-            else
-            {
-                if (direction.x >= 0)
-                    user.obj.transform.eulerAngles = new Vector3(0f, 0f, 0f);
-                else
-                    user.obj.transform.eulerAngles = new Vector3(0f, 180f, 0f);
-            }
-        }
-    }
+    public virtual IEnumerator Use(IActor user, IActor[] targets) { yield return null; }
+    public virtual IEnumerator Use(IActor target) { yield return null; }
+    public virtual void Equip(IActor user) { }
+    public virtual void Unequip(IActor user) { }
 }
-

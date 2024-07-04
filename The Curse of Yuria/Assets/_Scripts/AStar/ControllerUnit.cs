@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEditor;
+using Sirenix.Serialization;
+using Sirenix.OdinInspector;
 
 namespace TCOY.AStar
 {
     [RequireComponent(typeof(Animator), typeof(Rigidbody2D))]
-    public class ControllerUnit : MonoBehaviour, IController, IPath
+    public class ControllerUnit : SerializedMonoBehaviour, IController, IPath
     {
-        [SerializeField] TCOY.ControllerStates.ActionBase initialActionState;
-        [SerializeField] TCOY.ControllerStates.GoalBase initialGoalState;
+        [OdinSerialize] IGoal initialGoalState;
+        [OdinSerialize] IAction initialActionState;
         [SerializeField] float _safeDistance = 30f;
         [SerializeField] float _battleDistance = 10f;
         [SerializeField] float _stopDistance = 2f;
@@ -33,8 +35,9 @@ namespace TCOY.AStar
         public float battleDistance => _battleDistance;
         public float stopDistance => _stopDistance;
 
-        public IAction action { get; set; }
         public IGoal goal { get; set; }
+        public IAction action { get; set; }
+       
         public IState.State actionState { get; set; } = IState.State.enter;
         public IState.State goalState { get; set; } = IState.State.enter;
 
@@ -74,7 +77,7 @@ namespace TCOY.AStar
             this.action = action;
         }
 
-        public void SetInitialStates(TCOY.ControllerStates.GoalBase initialGoalState, TCOY.ControllerStates.ActionBase initialActionState)
+        public void SetInitialStates(IGoal initialGoalState, IAction initialActionState)
         {
             this.initialGoalState = initialGoalState;
             this.initialActionState = initialActionState;

@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Sirenix.OdinInspector;
 
 
-public abstract class StatusEffectBase : StatusEffectSO, IStatusEffect
+public abstract class StatusEffectBase : SerializedScriptableObject, IStatusEffect
 {
     [SerializeField] protected float duration = float.PositiveInfinity;
 
     protected float getDuration => duration;
 
-    public override void Activate(IActor target, float accumulator = 0f)
+    public virtual void Activate(IActor target, float accumulator = 0f)
     {
         OnAdd(target);
         target.getStatusEffects.Add(name, accumulator);
@@ -27,24 +28,24 @@ public abstract class StatusEffectBase : StatusEffectSO, IStatusEffect
 
     }
 
-    public override bool OnAttack(IActor user, IActor target, IItem item)
+    public virtual bool OnAttack(IActor user, IActor target, IItem item)
     {
         bool itemCancellationFlag = false;
         return itemCancellationFlag;
     }
 
-    public override bool OnHit(IActor user, IActor target, IItem item)
+    public virtual bool OnHit(IActor user, IActor target, IItem item)
     {
         bool itemCancellationFlag = false;
         return itemCancellationFlag;
     }
 
-    public override void OnAdd(IActor target)
+    public virtual void OnAdd(IActor target)
     {
           
     }
 
-    public override void OnRemove(IActor target)
+    public virtual void OnRemove(IActor target)
     {
         
     }

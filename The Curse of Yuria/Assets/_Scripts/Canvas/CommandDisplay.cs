@@ -82,9 +82,9 @@ public class CommandDisplay : DisplayBase
     public void OnClickAttack()
     {
         string weapon = currentAllie.getEquipment.Find(i =>
-        ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon1H ||
-        ItemDatabase.Instance.GetPart(i) == EquipmentPart.MeleeWeapon2H ||
-        ItemDatabase.Instance.GetPart(i) == EquipmentPart.Bow);
+        ItemDatabase.Instance.Part(i) == EquipmentPart.MeleeWeapon1H ||
+        ItemDatabase.Instance.Part(i) == EquipmentPart.MeleeWeapon2H ||
+        ItemDatabase.Instance.Part(i) == EquipmentPart.Bow);
 
         RefreshGridWithAttackOptions();
 

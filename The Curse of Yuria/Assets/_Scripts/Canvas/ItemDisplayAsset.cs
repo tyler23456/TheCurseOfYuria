@@ -173,7 +173,7 @@ public class ItemDisplayAsset : MonoBehaviour
         globalInventoryUI.Display();
     }
 
-    public void RefreshItemInfo(ItemTypeBase type)
+    public void RefreshItemInfo(string type)
     {
         ClearAllieAndItemInfo();
         RefreshGlobalInventory(InventoryManager.Instance.Get(type));
@@ -183,7 +183,7 @@ public class ItemDisplayAsset : MonoBehaviour
         RefreshAllieInfo();
     }
 
-    public void RefreshItemInfo(ItemTypeBase type, Inventory inventory)
+    public void RefreshItemInfo(string type, Inventory inventory)
     {
         ClearAllieAndItemInfo();
         RefreshGlobalInventory(inventory);
@@ -260,14 +260,14 @@ public class ItemDisplayAsset : MonoBehaviour
         shieldSlot.sprite = shieldSprite;
         bowsSlot.sprite = bowsSprite;
 
-        ItemTypeBase itemType = null;
+        string itemType = null;
 
-        Dictionary<ItemTypeBase, Image> slots = new Dictionary<ItemTypeBase, Image>();
+        Dictionary<string, Image> slots = new Dictionary<string, Image>();
 
         slots.Clear();
         slots.Add(InventoryManager.Instance.helmetType, helmetSlot);
-        slots.Add(InventoryManager.Instance.melee1HType, meleeWeapon1HSlot);
-        slots.Add(InventoryManager.Instance.melee2HType, meleeWeapon2HSlot);
+        slots.Add(InventoryManager.Instance.melee1HandedType, meleeWeapon1HSlot);
+        slots.Add(InventoryManager.Instance.melee2HandedType, meleeWeapon2HSlot);
         slots.Add(InventoryManager.Instance.armorType, armorSlot);
         slots.Add(InventoryManager.Instance.shieldType, shieldSlot);
         slots.Add(InventoryManager.Instance.bowType, bowsSlot);
@@ -277,7 +277,7 @@ public class ItemDisplayAsset : MonoBehaviour
             itemType = ItemDatabase.Instance.GetType(allie.getEquipment.GetName(i));
 
             slots[itemType].sprite = ItemDatabase.Instance.GetIcon(allie.getEquipment.GetName(i));
-            string item = allie.getEquipment.Find(i => ItemDatabase.Instance.GetTypeName(i) == itemType.name);
+            string item = allie.getEquipment.Find(i => ItemDatabase.Instance.GetType(i) == itemType);
             if (item != null)
             {
                 slots[itemType].GetComponent<PointerHover>().onPointerEnter = () => { ShowItemInfo(item); RefreshAllieInfo(item); };
@@ -328,7 +328,7 @@ public class ItemDisplayAsset : MonoBehaviour
         else
             current = (IEquipment)ItemDatabase.Instance.Get("Empty");
 
-        string previousItemName = allie.getEquipment.Find(i => ItemDatabase.Instance.GetTypeName(i) == current.itemType.name);
+        string previousItemName = allie.getEquipment.Find(i => ItemDatabase.Instance.GetType(i) == current.type);
 
         if (previousItemName == null)
             previous = (IEquipment)ItemDatabase.Instance.Get("Empty");

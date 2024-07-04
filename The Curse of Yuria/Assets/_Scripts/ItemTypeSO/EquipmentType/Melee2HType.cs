@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Melee2H", menuName = "ItemType/Melee2H")]
-public class Melee2HType : ItemTypeBase, IType
+public class Melee2HType : ItemTypeBase, IItemType
 {
     public override EquipmentPart part => EquipmentPart.MeleeWeapon2H;
 }

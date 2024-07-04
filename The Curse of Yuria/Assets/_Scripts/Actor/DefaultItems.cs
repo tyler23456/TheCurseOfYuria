@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 using HeroEditor.Common.Enums;
+using Sirenix.Serialization;
+using Sirenix.OdinInspector;
 
-public class DefaultItems : MonoBehaviour
+public class DefaultItems : SerializedMonoBehaviour
 {
     [SerializeField] Character character;
-    [SerializeField] List<ItemSO> defaultItems;
+    [SerializeField] List<IItem> defaultItems;
 
     protected void OnValidate()
     {
@@ -23,12 +25,12 @@ public class DefaultItems : MonoBehaviour
         character.UnEquip(EquipmentPart.Shield);
         character.UnEquip(EquipmentPart.Bow);
 
-        foreach (ItemSO item in defaultItems)
+        foreach (IItem item in defaultItems)
             if (item != null && item is IEquipment)
-                character.Equip(item.itemSprite, item.itemType.part);
+                character.Equip(item.itemSprite, ((IEquipment)item).part);
     }
 
-    public ItemSO[] GetDefaultItems()
+    public IItem[] GetDefaultItems()
     {
         return defaultItems.ToArray();
     }

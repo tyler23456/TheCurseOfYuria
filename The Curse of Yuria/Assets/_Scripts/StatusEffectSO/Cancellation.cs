@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewCancellation", menuName = "StatusEffects/Cancellation")]
 public class Cancellation : StatusEffectBase
 {
-    [SerializeField] List<ElementTypeBase> elementTypes;
+    [SerializeField] List<ElementTypeSO> elementTypes;
     [SerializeField] List<ItemTypeBase> itemTypes;
 
     public override bool OnHit(IActor user, IActor target, IItem item)
@@ -15,7 +15,7 @@ public class Cancellation : StatusEffectBase
 
         ISkill skill = (ISkill)item;
 
-        if (itemTypes.TrueForAll(i => i.name != skill.itemType.name) || elementTypes.TrueForAll(i => i.name != skill.elementType.name))
+        if (itemTypes.TrueForAll(i => i.name != skill.type) || elementTypes.TrueForAll(i => i.name != skill.elementType.name))
         {
             user.getStatusEffects.Remove(name);
             return true;

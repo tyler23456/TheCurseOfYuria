@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class TargeterBase : TargeterSO
+public abstract class TargeterBase : ScriptableObject, ITargeter
 {
     static LayerMask layerMask; 
     static float targetCheckDistance = 30f;
@@ -13,21 +13,21 @@ public abstract class TargeterBase : TargeterSO
 
     static IActor target = null;
 
-    [SerializeField] Party party;
+    [SerializeField] ITargeter.Party party;
 
     protected virtual bool canTargetKO => false;
 
-    public override IActor[] CalculateTargets(Vector2 position)
+    public virtual IActor[] CalculateTargets(Vector2 position)
     {
         switch (party)
         {
-            case Party.Allie:
+            case ITargeter.Party.Allie:
                 layerMask = LayerMask.GetMask("Allie");
                 break;
-            case Party.Enemy:
+            case ITargeter.Party.Enemy:
                 layerMask = LayerMask.GetMask("Enemy");
                 break;
-            case Party.Both:
+            case ITargeter.Party.Both:
                 layerMask = LayerMask.GetMask("Allie") | LayerMask.GetMask("Enemy");
                 break;
         }

@@ -15,8 +15,8 @@ public class ShopDisplay : DisplayBase
     [SerializeField] Button sell;
     [SerializeField] Text selectedInfo;
 
-    ItemTypeBase type;
-    Dictionary<ItemTypeBase, Inventory> shopInventories = new Dictionary<ItemTypeBase, Inventory>();
+    string type;
+    Dictionary<string, Inventory> shopInventories = new Dictionary<string, Inventory>();
 
     public Action<string> onBuyItem { get; set; } = (itemName) => { };
     public Action<string> onSellItem { get; set; } = (itemName) => { };
@@ -41,10 +41,10 @@ public class ShopDisplay : DisplayBase
         display.shieldsTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
         display.bowsTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
 
-        shopInventories = new Dictionary<ItemTypeBase, Inventory>();
+        shopInventories = new Dictionary<string, Inventory>();
         shopInventories.Add(InventoryManager.Instance.helmetType, new Inventory());
-        shopInventories.Add(InventoryManager.Instance.melee1HType, new Inventory());
-        shopInventories.Add(InventoryManager.Instance.melee2HType, new Inventory());
+        shopInventories.Add(InventoryManager.Instance.melee1HandedType, new Inventory());
+        shopInventories.Add(InventoryManager.Instance.melee2HandedType, new Inventory());
         shopInventories.Add(InventoryManager.Instance.armorType, new Inventory());
         shopInventories.Add(InventoryManager.Instance.shieldType, new Inventory());
         shopInventories.Add(InventoryManager.Instance.bowType, new Inventory());
@@ -53,7 +53,7 @@ public class ShopDisplay : DisplayBase
         shopInventories.Add(InventoryManager.Instance.questItemType, new Inventory());
 
         for (int i = 0; i < IShopData.inventory.count; i++)
-            shopInventories[ItemDatabase.Instance.Get(IShopData.inventory.GetName(i)).itemType].Add(IShopData.inventory.GetName(i), IShopData.inventory.GetCount(i));
+            shopInventories[ItemDatabase.Instance.Get(IShopData.inventory.GetName(i)).type].Add(IShopData.inventory.GetName(i), IShopData.inventory.GetCount(i));
             
 
         buy.onClick.RemoveAllListeners();
@@ -88,13 +88,13 @@ public class ShopDisplay : DisplayBase
         display.UpdateAllieView();
     }
 
-    void RefreshEquipmentWithSFX(ItemTypeBase type, Inventory inventory)
+    void RefreshEquipmentWithSFX(string type, Inventory inventory)
     {
         AudioManager.Instance.PlaySFX(display.cycleEquipmentParts);
         RefreshEquipment(type, inventory);
     }
 
-    void RefreshEquipment(ItemTypeBase type, Inventory inventory)
+    void RefreshEquipment(string type, Inventory inventory)
     {
         this.type = type;
         display.isRefreshingStatusAttributes = true;
@@ -104,7 +104,7 @@ public class ShopDisplay : DisplayBase
         display.RefreshItemInfo(type, inventory);
     }
 
-    void RefreshScrollsWithSFX(ItemTypeBase type, Inventory inventory)
+    void RefreshScrollsWithSFX(string type, Inventory inventory)
     {
         AudioManager.Instance.PlaySFX(display.cycleEquipmentParts);
         this.type = type;      
@@ -115,7 +115,7 @@ public class ShopDisplay : DisplayBase
         display.RefreshItemInfo(type, inventory);
     }
 
-    void RefreshReadonlyWithSFX(ItemTypeBase type, Inventory inventory)
+    void RefreshReadonlyWithSFX(string type, Inventory inventory)
     {
         AudioManager.Instance.PlaySFX(display.cycleEquipmentParts);
         this.type = type;        
@@ -132,8 +132,8 @@ public class ShopDisplay : DisplayBase
         display.ClearTabListenters();
 
         display.helmetsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.helmetType, shopInventories[InventoryManager.Instance.helmetType]));
-        display.meleeWeapons1HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee1HType, shopInventories[InventoryManager.Instance.melee1HType]));
-        display.meleeWeapons2HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee2HType, shopInventories[InventoryManager.Instance.melee2HType]));
+        display.meleeWeapons1HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee1HandedType, shopInventories[InventoryManager.Instance.melee1HandedType]));
+        display.meleeWeapons2HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee2HandedType, shopInventories[InventoryManager.Instance.melee2HandedType]));
         display.armorTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.armorType, shopInventories[InventoryManager.Instance.armorType]));
         display.shieldsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.shieldType, shopInventories[InventoryManager.Instance.shieldType]));
         display.bowsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.bowType, shopInventories[InventoryManager.Instance.bowType]));
@@ -157,8 +157,8 @@ public class ShopDisplay : DisplayBase
         display.ClearTabListenters();
 
         display.helmetsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.helmetType, InventoryManager.Instance.helmets));
-        display.meleeWeapons1HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee1HType, InventoryManager.Instance.meleeWeapons1H));
-        display.meleeWeapons2HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee2HType, InventoryManager.Instance.meleeWeapons2H));
+        display.meleeWeapons1HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee1HandedType, InventoryManager.Instance.meleeWeapons1H));
+        display.meleeWeapons2HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee2HandedType, InventoryManager.Instance.meleeWeapons2H));
         display.armorTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.armorType, InventoryManager.Instance.armor));
         display.shieldsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.shieldType, InventoryManager.Instance.shields));
         display.bowsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.bowType, InventoryManager.Instance.bows));
@@ -179,38 +179,38 @@ public class ShopDisplay : DisplayBase
     void OnBuyItem(string itemName)
     {
         IItem current = ItemDatabase.Instance.Get(itemName);
-        InventoryManager.Instance.olms -= (int)(current.getValue * IShopData.buyersRating);
+        InventoryManager.Instance.olms -= (int)(current.getWorth * IShopData.buyersRating);
         InventoryManager.Instance.AddItem(itemName);
-        shopInventories[current.itemType].Remove(itemName);
+        shopInventories[current.type].Remove(itemName);
         onBuyItem.Invoke(itemName);
 
         display.RefreshAllieInfo();
-        display.RefreshGlobalInventory(shopInventories[current.itemType]);
+        display.RefreshGlobalInventory(shopInventories[current.type]);
     }
 
     void OnSellItem(string itemName)
     {
         IItem current = ItemDatabase.Instance.Get(itemName);
-        InventoryManager.Instance.olms += (int)(current.getValue * IShopData.sellersRating);
-        shopInventories[current.itemType].Add(itemName);
-        InventoryManager.Instance.Get(current.itemType).Remove(itemName);
+        InventoryManager.Instance.olms += (int)(current.getWorth * IShopData.sellersRating);
+        shopInventories[current.type].Add(itemName);
+        InventoryManager.Instance.Get(current.type).Remove(itemName);
         onSellItem.Invoke(itemName);
 
         display.RefreshAllieInfo();
-        display.RefreshGlobalInventory(InventoryManager.Instance.Get(current.itemType));
+        display.RefreshGlobalInventory(InventoryManager.Instance.Get(current.type));
     }
 
     void ShowPlayerProfit(string itemName)
     {
         IItem current = ItemDatabase.Instance.Get(itemName);
-        int price = (int)(current.getValue * IShopData.sellersRating);
+        int price = (int)(current.getWorth * IShopData.sellersRating);
         display.RefreshAllieInfo(itemName, price);
     }
 
     void ShowPlayerDeficit(string itemName)
     {
         IItem current = ItemDatabase.Instance.Get(itemName);
-        int price = (int)(current.getValue * IShopData.buyersRating);
+        int price = (int)(current.getWorth * IShopData.buyersRating);
         display.RefreshAllieInfo(itemName, -price);
     }
 }

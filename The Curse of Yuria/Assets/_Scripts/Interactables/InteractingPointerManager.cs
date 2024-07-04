@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TCOY.DontDestroyOnLoad
+namespace TCOY.Interactables
 {
     public class InteractingPointerManager : MonoBehaviour
     {

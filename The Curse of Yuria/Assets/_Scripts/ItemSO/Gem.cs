@@ -6,5 +6,6 @@ namespace TCOY.Items
 {
     public class Gem : ItemBase, IItem
     {
+        public override string type => "Gem";
     }
 }

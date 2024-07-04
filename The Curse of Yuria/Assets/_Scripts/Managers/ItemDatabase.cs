@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using HeroEditor.Common.Enums;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 
 [ExecuteAlways]
-public class ItemDatabase : MonoBehaviour
+public class ItemDatabase : SerializedMonoBehaviour
 {
     public static ItemDatabase Instance { get; private set; }
 
     [SerializeField] AssetLabelReference itemsReference;
     [SerializeField] bool populate = false;
-    [SerializeField] List<ItemSO> serializedItems = new List<ItemSO>();
+    [OdinSerialize] List<IItem> serializedItems = new List<IItem>();
 
     Dictionary<string, IItem> items = new Dictionary<string, IItem>();
 
@@ -27,7 +29,7 @@ public class ItemDatabase : MonoBehaviour
 
         populate = false;
 
-        Addressables.LoadAssetsAsync<ItemBase>(itemsReference, (i) =>
+        Addressables.LoadAssetsAsync<IItem>(itemsReference, (i) =>
         {
             serializedItems.Add(i);
         }).WaitForCompletion();
@@ -45,24 +47,19 @@ public class ItemDatabase : MonoBehaviour
         return items[itemName];
     }
 
-    public ItemTypeBase GetType(string itemName)
+    public string GetType(string itemName)
     {
-        return Get(itemName).itemType;
+        return Get(itemName).type;
+    }
+
+    public EquipmentPart Part(string itemName)
+    {
+        return ((IEquipment)Get(itemName)).part;
     }
 
     public Sprite GetIcon(string itemName)
     {
         return Get(itemName).icon;
-    }
-
-    public string GetTypeName(string itemName)
-    {
-        return Get(itemName).itemType.name;
-    }
-
-    public EquipmentPart GetPart(string itemName)
-    {
-        return Get(itemName).itemType.part;
     }
 
     void CheckForEmptyDictionary()

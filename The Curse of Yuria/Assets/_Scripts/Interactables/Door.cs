@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.Serialization;
 
-namespace TCOY.DontDestroyOnLoad
+namespace TCOY.Interactables
 {
     public class Door : InteractableBase, IInteractableTrigger
     {
@@ -10,7 +11,7 @@ namespace TCOY.DontDestroyOnLoad
         [SerializeField] Vector3 destination;
         [SerializeField] float eulerAngleZ;
         [SerializeField] Sprite OpenDoor;
-        [SerializeField] List<ItemSO> RequiredItems;
+        [OdinSerialize] List<IItem> RequiredItems;
         [SerializeField] Prompt onLockedPrompt;
 
         Sprite closedDoor;

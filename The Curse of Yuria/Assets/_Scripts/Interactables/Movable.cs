@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TCOY.DontDestroyOnLoad
+namespace TCOY.Interactables
 {
     public class Movable : InteractableBase, IInteractableTrigger
     {

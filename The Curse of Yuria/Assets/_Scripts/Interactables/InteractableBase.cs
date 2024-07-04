@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Sirenix.Serialization;
+using Sirenix.OdinInspector;
 
-namespace TCOY.DontDestroyOnLoad
+namespace TCOY.Interactables
 {
     [RequireComponent(typeof(Collider2D))]
-    public class InteractableBase : MonoBehaviour
+    public class InteractableBase : SerializedMonoBehaviour
     {
         [SerializeField] protected string id = "None";
 
@@ -29,7 +31,7 @@ namespace TCOY.DontDestroyOnLoad
 
         }
 
-        public virtual void ActivateScriptedSequence (ScriptedSequencerActionSO action)
+        public virtual void ActivateScriptedSequence (IScriptedSequencerAction action)
         {
             Transform scriptedSequencerDisplay = GameObject.Find("/DontDestroyOnLoad/Canvas/ScriptedSequencerDisplay").transform;
 

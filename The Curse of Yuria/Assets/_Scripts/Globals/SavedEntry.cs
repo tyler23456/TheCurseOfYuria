@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
-[System.Serializable]
 public class SavedEntry : Entry
 {
-    [HideInInspector] [SerializeField] public string ID = "None";
+    [HideInEditorMode] [HideInPlayMode] public string ID;
 }

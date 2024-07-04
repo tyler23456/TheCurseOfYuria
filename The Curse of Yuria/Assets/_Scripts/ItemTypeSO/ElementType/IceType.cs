@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Ice", menuName = "ElementType/Ice")]
-public class IceType : ElementTypeBase
+public class IceType : ElementTypeSO
 {
     public override int weaknessIndex => 1;
 }

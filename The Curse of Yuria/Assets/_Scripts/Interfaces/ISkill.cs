@@ -7,7 +7,7 @@ using System;
 public interface ISkill : IItem
 {
     ArmTypeBase armType { get; }
-    ElementTypeBase elementType { get; }
+    ElementTypeSO elementType { get; }
     CalculationTypeBase calculationType { get; }
     List<BonusTypeBase> bonusTypes { get; }
 

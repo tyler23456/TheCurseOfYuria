@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.Serialization;
+using Sirenix.OdinInspector;
 
-namespace TCOY.DontDestroyOnLoad
+namespace TCOY.Interactables
 {
     public class AnimatedContainer : Container, IInteractable, IInteractablePointer
     {
-        [SerializeField] List<ItemSO> RequiredItems;
+        [SerializeField] List<IItem> RequiredItems;
         [SerializeField] Prompt onLockedPrompt;
 
         Animator animator;

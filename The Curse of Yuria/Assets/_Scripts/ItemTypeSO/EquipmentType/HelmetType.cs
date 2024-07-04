@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Helmet", menuName = "ItemType/Helmet")]
-public class HelmetType : ItemTypeBase, IType
+public class HelmetType : ItemTypeBase, IItemType
 {
     public override EquipmentPart part => EquipmentPart.Helmet;
 }

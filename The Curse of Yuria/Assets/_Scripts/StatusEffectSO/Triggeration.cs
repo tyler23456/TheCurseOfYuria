@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.Serialization;
 
 [CreateAssetMenu(fileName = "NewTriggeration", menuName = "StatusEffects/Triggeration")]
 public class Triggeration : StatusEffectBase, IStatusEffect
 {
     [SerializeField] List<StatusEffectBase> triggers;
-    [SerializeField] ItemSO skill;
+    [OdinSerialize] ISkill skill;
 
     public override void Activate(IActor target, float accumulator = 0)
     {

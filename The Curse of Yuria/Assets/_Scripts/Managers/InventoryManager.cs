@@ -5,17 +5,6 @@ public sealed class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance { get; private set; }
 
-    [SerializeField] HelmetType _helmet;
-    [SerializeField] Melee1HType _melee1H;
-    [SerializeField] Melee2HType _melee2H;
-    [SerializeField] ArmorType _armor;
-    [SerializeField] ShieldType _shield;
-    [SerializeField] BowType _bow;
-    [SerializeField] BasicType _basic;
-    [SerializeField] ScrollType _scroll;
-    [SerializeField] GemType _gem;
-    [SerializeField] QuestItemType _questItem;
-
     Dictionary<string, Inventory> inventories = new Dictionary<string, Inventory>();
 
     public int olms { get; set; } = 107;
@@ -35,45 +24,44 @@ public sealed class InventoryManager : MonoBehaviour
     public Inventory completedQuests { get; private set; } = new Inventory();
     public Inventory completedIds { get; private set; } = new Inventory();
 
-    public HelmetType helmetType => _helmet;
-    public Melee1HType melee1HType => _melee1H;
-    public Melee2HType melee2HType => _melee2H;
-    public ArmorType armorType => _armor;
-    public ShieldType shieldType => _shield;
-    public BowType bowType => _bow;
-    public BasicType basicType => _basic;
-    public ScrollType scrollType => _scroll;
-    public GemType gemType => _gem;
-    public QuestItemType questItemType => _questItem;
+    public string helmetType => "Helmet";
+    public string melee1HandedType => "Melee1Handed";
+    public string melee2HandedType => "Melee2Handed";
+    public string armorType => "Armor";
+    public string shieldType => "Shield";
+    public string bowType => "Bow";
+    public string basicType => "Basic";
+    public string scrollType => "Scroll";
+    public string questItemType => "QuestItem";
 
     void Awake()
     {
         Instance = this;
 
-        inventories.Add(_helmet.name, helmets);
-        inventories.Add(_melee1H.name, meleeWeapons1H);
-        inventories.Add(_melee2H.name, meleeWeapons2H);
-        inventories.Add(_armor.name, armor);
-        inventories.Add(_shield.name, shields);
-        inventories.Add(_bow.name, bows);
-        inventories.Add(_basic.name, basic);
-        inventories.Add(_scroll.name, scrolls);
-        inventories.Add(_questItem.name, questItems);
+        inventories.Add("Helmet", helmets);
+        inventories.Add("Melee1Handed", meleeWeapons1H);
+        inventories.Add("Melee2Handed", meleeWeapons2H);
+        inventories.Add("Armor", armor);
+        inventories.Add("Shield", shields);
+        inventories.Add("Bow", bows);
+        inventories.Add("Basic", basic);
+        inventories.Add("Scroll", scrolls);
+        inventories.Add("QuestItem", questItems);
     }
 
     public void AddItem(string itemName, int count = 1)
     {
-        inventories[ItemDatabase.Instance.GetTypeName(itemName)].Add(itemName, count);
+        inventories[ItemDatabase.Instance.GetType(itemName)].Add(itemName, count);
     }
 
-    public Inventory Get(ItemTypeBase type)
+    public Inventory Get(string type)
     {
-        return inventories[type.name];
+        return inventories[type];
     }
 
     public IInventory GetInventoryOf(string itemName)
     {
-        return inventories[ItemDatabase.Instance.Get(itemName).itemType.name];
+        return inventories[ItemDatabase.Instance.Get(itemName).type];
     }
 
     public void EmptyAllInventories()

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Shield", menuName = "ItemType/Shield")]
-public class ShieldType : ItemTypeBase, IType
+public class ShieldType : ItemTypeBase, IItemType
 {
     public override EquipmentPart part => EquipmentPart.Shield;
 }

@@ -5,18 +5,18 @@ using System;
 using TMPro;
 using UnityEngine.UI;
 
-public abstract class ActionBase : ScriptedSequencerActionSO
+public abstract class ActionBase : ScriptableObject, IScriptedSequencerAction
 {
     [SerializeField] protected CharacterNameBase characterName;
 
-    public override bool isFinished { get; protected set; } = false;
+    public virtual bool isFinished { get; protected set; } = false;
 
-    public override Action onStart { get; set; } = () => { };
-    public override Action onUpdate { get; set; } = () => { };
-    public override Action onStop { get; set; } = () => { };
-    public override Action onFinish { get; set; } = () => { };
+    public virtual Action onStart { get; set; } = () => { };
+    public virtual Action onUpdate { get; set; } = () => { };
+    public virtual Action onStop { get; set; } = () => { };
+    public virtual Action onFinish { get; set; } = () => { };
 
-    public override IEnumerator Activate()
+    public virtual IEnumerator Activate()
     {
         yield return null;
     }

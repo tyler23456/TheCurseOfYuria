@@ -24,7 +24,7 @@ namespace TCOY.UserActors
             aTBGuage.OnATBGuageFilled = MakeADecision;
             aTBGuage.OnATBGuageFilled += () => aTBGuage.Reset();
 
-            stats.onZeroHealth += () => GetComponent<DontDestroyOnLoad.RandomDrop>().enabled = true;
+            stats.onZeroHealth += () => GetComponent<IEnabler>().enabled = true;
 
             foreach (Move move in moves)
                 movesQueue.Enqueue(move);

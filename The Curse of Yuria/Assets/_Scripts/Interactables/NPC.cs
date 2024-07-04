@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 using HeroEditor.Common.Enums;
+using Sirenix.Serialization;
 
-namespace TCOY.DontDestroyOnLoad
+namespace TCOY.Interactables
 {
     public class NPC : InteractableBase, IInteractablePointer
     {
-        [SerializeField] List<ItemSO> equipment;
+        [OdinSerialize] List<IItem> equipment;
         [SerializeField] List<PromptBrancher> promptBranchers;
 
         Character character;
@@ -29,8 +30,8 @@ namespace TCOY.DontDestroyOnLoad
             character.UnEquip(EquipmentPart.Armor);
             character.UnEquip(EquipmentPart.Shield);
             character.UnEquip(EquipmentPart.Bow);
-            foreach (ItemBase item in equipment)
-                character.Equip(item.itemSprite, item.itemType.part);
+            foreach (IItem item in equipment)
+                character.Equip(item.itemSprite, ((IEquipment)item).part);
         }
 
         protected new void Start()
@@ -74,10 +75,10 @@ namespace TCOY.DontDestroyOnLoad
         public class PromptBrancher
         {
             [SerializeField] QuestBase unlockingQuest;
-            [SerializeField] ScriptedSequencerActionSO action;
+            [SerializeField] IScriptedSequencerAction action;
 
             public QuestBase getUnlockingQuest => unlockingQuest;
-            public ScriptedSequencerActionSO getAction => action;
+            public IScriptedSequencerAction getAction => action;
         }
     }
 }

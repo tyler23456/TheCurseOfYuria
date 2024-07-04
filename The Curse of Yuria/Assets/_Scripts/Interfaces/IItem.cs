@@ -7,14 +7,13 @@ using System.Collections.ObjectModel;
 
 public interface IItem
 {
-    ulong getGuid { get; }
     string name { get; }
     Sprite icon { get; }
     GameObject prefab { get; }
-    ItemTypeBase itemType { get; }
-    string getInfo { get; }
     ItemSprite itemSprite { get; }
-    int getValue { get; }
+    string type { get; }
+    string getInfo { get; }
+    int getWorth { get; }
 
 
     IEnumerator Use(IActor user, params IActor[] targets);
