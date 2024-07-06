@@ -12,19 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd81c45a38e25a48ac8944c5fbaa306, type: 3}
   m_Name: MagicBronzeRing
   m_EditorClassIdentifier: 
-  guid: 0
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   _icon: {fileID: 21300000, guid: 778916b2b207b47468cc67feb978b1ed, type: 3}
   _prefab: {fileID: 6879379406796944176, guid: 062b687f7e5474246b3efe74eb50b9d9, type: 3}
-  _equipmentType: {fileID: 11400000, guid: 835c1215377854942a3a8ae013361009, type: 2}
-  info: 
-  _armType: {fileID: 11400000, guid: cb2f26584ca6c49489dd6d16b5306e59, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  anyType: {fileID: 0}
-  power: 0
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
+  description: 
   _itemSprite:
     Name: MagicBronzeRing
     Collection: Basic
@@ -37,9 +36,4 @@ MonoBehaviour:
     Multiple: 1
     Hash: 3649a31c51409fbd163d78cd2d699003
     Tags: []
-  statusEffectProbabilities: []
-  modifiers: []
-  counters: []
-  interrupts: []
-  bookPrefab: {fileID: 0}
-  pagesText: []
+  marketValue: 4

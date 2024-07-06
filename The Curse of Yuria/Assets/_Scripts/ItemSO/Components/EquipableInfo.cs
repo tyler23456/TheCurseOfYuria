@@ -4,30 +4,28 @@ using UnityEngine;
 using HeroEditor.Common.Enums;
 using HeroEditor.Common.Data;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
-using System.Collections.ObjectModel;
 
 namespace TCOY.Items
 {
     [System.Serializable]
     public class EquipableInfo
     {
-        [SerializeField] public List<Modifier> modifiers;
-        [SerializeField] public List<Ward> wards;
-        [SerializeField] public List<Reactor> counters;
-        [SerializeField] public List<Reactor> interrupts;
-
-        public ReadOnlyCollection<Modifier> getModifiers => modifiers.AsReadOnly();
-        public ReadOnlyCollection<Ward> getWards => wards.AsReadOnly();
-        public ReadOnlyCollection<Reactor> getCounters => counters.AsReadOnly();
-        public ReadOnlyCollection<Reactor> getInterrupts => interrupts.AsReadOnly();
+        [Space(5)]
+        public List<Modifier> modifiers = new List<Modifier>();
+        [Space(5)]
+        public List<Ward> wards = new List<Ward>();
+        [Space(5)]
+        public List<Reactor> counters = new List<Reactor>();
+        [Space(5)]
+        public List<Reactor> interrupts = new List<Reactor>();
 
         public void Equip(IActor target, string equipmentName, EquipmentPart part, ItemSprite equipmentSprite)
         {
             foreach (Modifier modifier in modifiers)
-                target.getStats.OffsetAttribute(modifier.getAttribute, modifier.getOffset);
+                target.getStats.OffsetAttribute(modifier.attribute, modifier.offset);
 
             foreach (Ward ward in wards)
-                target.getStats.OffsetWeakness(ward.getElementType.weaknessIndex, ward.getAmount);
+                target.getStats.OffsetWeakness(ward.elementType.weaknessIndex, ward.amount);
 
             foreach (Reactor counter in counters)
                 target.getCounters.Add(counter);
@@ -88,10 +86,10 @@ namespace TCOY.Items
         public void Unequip(IActor target, string equipmentName, EquipmentPart part)
         {
             foreach (Modifier modifier in modifiers)
-                target.getStats.OffsetAttribute(modifier.getAttribute, -modifier.getOffset);
+                target.getStats.OffsetAttribute(modifier.attribute, -modifier.offset);
 
             foreach (Ward ward in wards)
-                target.getStats.OffsetWeakness(ward.getElementType.weaknessIndex, -ward.getAmount);
+                target.getStats.OffsetWeakness(ward.elementType.weaknessIndex, -ward.amount);
 
             foreach (Reactor counter in counters)
                 target.getCounters.Remove(counter);

@@ -9,14 +9,127 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be4df94db76d1c64f9cae97913d80fa8, type: 3}
+  m_Script: {fileID: 11500000, guid: c81e6c75cbed47644ba49fdd8e3ef969, type: 3}
   m_Name: FireWarriorSword1
   m_EditorClassIdentifier: 
-  guid: 0
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: skillInfo
+      Entry: 7
+      Data: 0|TCOY.Items.SkillInfo, Assembly-CSharp
+    - Name: power
+      Entry: 3
+      Data: 0
+    - Name: armType
+      Entry: 6
+      Data: 
+    - Name: elementType
+      Entry: 6
+      Data: 
+    - Name: calculationType
+      Entry: 6
+      Data: 
+    - Name: bonusTypes
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[IBonusType, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: particleSystem
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: statusEffectsInfo
+      Entry: 7
+      Data: 2|TCOY.Items.StatusEffectsInfo, Assembly-CSharp
+    - Name: statusEffectProbabilities
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[StatusEffectProbability, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: equipableInfo
+      Entry: 7
+      Data: 4|TCOY.Items.EquipableInfo, Assembly-CSharp
+    - Name: modifiers
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: wards
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: counters
+      Entry: 7
+      Data: 7|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: interrupts
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _icon: {fileID: 21300000, guid: 637c5f33f41a480fb696713864f30c1d, type: 3}
   _prefab: {fileID: 2800447729109075406, guid: a18513005a82b3441b562d953b6d6146, type: 3}
-  _equipmentType: {fileID: 11400000, guid: 31f9a546ffe171947873ffcacf7f100c, type: 2}
-  info: 
+  description: 
   _itemSprite:
     Name: FireWarriorSword1
     Collection: Basic
@@ -29,20 +142,4 @@ MonoBehaviour:
     Multiple: 1
     Hash: b9e871b4b52e77b3670afeeef59b3ba1
     Tags: []
-  modifiers:
-  - attribute: 2
-    offset: 23
-  - attribute: 6
-    offset: -4
-  wards: []
-  counters: []
-  interrupts: []
-  statusEffectProbabilities:
-  - statusEffect: {fileID: 11400000, guid: ae77481f8ee6b884ab328cb287dd14e0, type: 2}
-    probability: 0.8
-  power: 2
-  _armType: {fileID: 11400000, guid: 241958a3a01de8544a64f4d9cc9e7062, type: 2}
-  _elementType: {fileID: 11400000, guid: 61dd2432436639444aa0b5f9ab37ff9d, type: 2}
-  _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
-  _bonusTypes: []
-  particleSystem: {fileID: 0}
+  marketValue: 4

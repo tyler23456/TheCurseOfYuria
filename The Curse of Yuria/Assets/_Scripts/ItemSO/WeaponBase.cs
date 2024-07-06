@@ -7,9 +7,9 @@ using HeroEditor.Common.Enums;
 
 namespace TCOY.Items
 {
-    public class WeaponBase : SkillBase, IItem, IWeapon, IEquipment
+    public class WeaponBase : SkillBase, IItem, IEquipment
     {
-        [SerializeField] EquipableInfo equipableInfo;
+        [Space(5)] [SerializeField] protected EquipableInfo equipableInfo;
 
         public virtual EquipmentPart part => EquipmentPart.Armor;
 
@@ -17,6 +17,12 @@ namespace TCOY.Items
         public ReadOnlyCollection<Ward> getWards => equipableInfo.wards.AsReadOnly();
         public ReadOnlyCollection<Reactor> getCounters => equipableInfo.counters.AsReadOnly();
         public ReadOnlyCollection<Reactor> getInterrupts => equipableInfo.interrupts.AsReadOnly();
+
+        public override void Awake()
+        {
+            base.Awake();
+            equipableInfo = new EquipableInfo();
+        }
 
         public override IEnumerator Use(IActor user, params IActor[] targets)
         {

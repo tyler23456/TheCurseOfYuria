@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Sirenix.Serialization;
 
 [CreateAssetMenu(fileName = "NewIteration", menuName = "StatusEffects/Iteration")]
 public class Iteration : StatusEffectIcon, IStatusEffect
 {
     enum ActivationType { OnKnockOut, TickDuration  }
 
-    [OdinSerialize] ISkill action;
+    [SerializeField] Skill action;
     [SerializeField] int power = 2;
     [SerializeField] float tickDuration = 5f;
 

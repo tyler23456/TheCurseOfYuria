@@ -9,14 +9,75 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fd90c4673afd1641ab5d12b93064875, type: 3}
   m_Name: BlacksmithHeadband
   m_EditorClassIdentifier: 
-  guid: 0
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: equipableInfo
+      Entry: 7
+      Data: 0|TCOY.Items.EquipableInfo, Assembly-CSharp
+    - Name: modifiers
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: wards
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: counters
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: interrupts
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _icon: {fileID: 21300000, guid: 55e5c0dcdd0765d46b403d7daf68dd33, type: 3}
   _prefab: {fileID: 3852337139795041051, guid: 8c3eb3630db73fd4b8ee4f1b3b6ad7fa, type: 3}
-  _equipmentType: {fileID: 11400000, guid: 31d38a323650e3b44900c2067dc872c8, type: 2}
-  info: 
+  description: 
   _itemSprite:
     Name: BlacksmithHeadband
     Collection: Basic
@@ -29,9 +90,4 @@ MonoBehaviour:
     Multiple: 1
     Hash: bc49c2864536b289a7a78667ecbdb285
     Tags: []
-  modifiers:
-  - attribute: 3
-    offset: 6
-  wards: []
-  counters: []
-  interrupts: []
+  marketValue: 4

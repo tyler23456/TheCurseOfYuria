@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using HeroEditor.Common.Enums;
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 
 [ExecuteAlways]
-public class ItemDatabase : SerializedMonoBehaviour
+public class ItemDatabase : MonoBehaviour
 {
     public static ItemDatabase Instance { get; private set; }
 
     [SerializeField] AssetLabelReference itemsReference;
     [SerializeField] bool populate = false;
-    [OdinSerialize] List<IItem> serializedItems = new List<IItem>();
+    [SerializeField] List<IItem> serializedItems = new List<IItem>();
 
     Dictionary<string, IItem> items = new Dictionary<string, IItem>();
 

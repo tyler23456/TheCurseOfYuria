@@ -4,16 +4,14 @@ using UnityEngine;
 
 namespace TCOY.Items
 {
-    [System.Serializable]
     public class SkillInfo
     {
-        [SerializeField] public int power;
-        [SerializeField] public ArmTypeBase armType;
-        [SerializeField] public ElementTypeSO elementType;
-        [SerializeField] public CalculationTypeBase calculationType;
-        [SerializeField] public List<BonusTypeBase> bonusTypes;
-
-        [SerializeField] protected ParticleSystem particleSystem;
+        public int power;
+        public ArmType armType;
+        public ElementType elementType;
+        public CalculationType calculationType;
+        [Space(5)] public List<BonusType> bonusTypes;
+        [Space(5)] [SerializeField] protected ParticleSystem particleSystem;
 
         public IEnumerator PerformAnimation(IActor user, IActor target, IItem item, StatusEffectsInfo statusEffectsInfo)
         {
@@ -43,7 +41,7 @@ namespace TCOY.Items
             accumulator = elementType.Calculate(user, target, power * IStats.powerMultiplier);
             accumulator = armType.Calculate(user, target, accumulator);
 
-            foreach (BonusTypeBase bonusType in bonusTypes)
+            foreach (BonusType bonusType in bonusTypes)
                 accumulator = bonusType.Calculate(user, target, accumulator);
 
             accumulator = calculationType.Calculate(user, target, accumulator);

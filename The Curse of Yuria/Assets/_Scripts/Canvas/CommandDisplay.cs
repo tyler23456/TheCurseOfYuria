@@ -144,7 +144,7 @@ public class CommandDisplay : DisplayBase
                 potentialTargets.Add(target);
         }
 
-        ISkill item = (ISkill)ItemDatabase.Instance.Get(commandName);
+        Skill item = (Skill)ItemDatabase.Instance.Get(commandName);
         bool containsKO = item.TrueForAnyStatusEffect(i => i is IRestoration && ((IRestoration)i).ContainsStatusEffectToRemove(KOStatusEffect.name));
 
         target = null;
@@ -216,7 +216,7 @@ public class CommandDisplay : DisplayBase
 
     public void OnSelectTarget(IActor target)
     {
-        Command command = new Command(currentAllie, ItemDatabase.Instance.Get(commandName), target);
+        Command command = new Command(currentAllie, (Skill)ItemDatabase.Instance.Get(commandName), target);
         IBattleData.pendingCommands.AddLast(command);
 
         currentAllie.getATBGuage.Reset();

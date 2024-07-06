@@ -7,9 +7,6 @@ using System.Linq;
 [System.Serializable]
 public class Move
 {
-    [SerializeField] ISkill skill;
-    [SerializeField] TargeterBase target;
-
-    public ISkill getskill => skill;
-    public TargeterBase getTargeter => target;
+    public Skill skill;
+    public ITargeter target;
 }

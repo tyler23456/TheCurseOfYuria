@@ -20,7 +20,7 @@ public class Corruption : StatusEffectIcon
             return false;
 
         Move move = moves[Random.Range(0, moves.Count)];
-        List<IActor> targets = new List<IActor>(move.getTargeter.CalculateTargets(user.obj.transform.position));
+        List<IActor> targets = new List<IActor>(move.target.CalculateTargets(user.obj.transform.position));
 
         int layer = user.obj.layer == LayerMask.NameToLayer("Allie") ? LayerMask.NameToLayer("Enemy") : LayerMask.NameToLayer("Allie");
 
@@ -30,7 +30,7 @@ public class Corruption : StatusEffectIcon
         if (targets.Count == 0)
             return false;
 
-        Command command = new Command(user, move.getskill, targets[0]);
+        Command command = new Command(user, move.skill, targets[0]);
         IBattleData.pendingCommands.AddLast(command);
         return true;
     }

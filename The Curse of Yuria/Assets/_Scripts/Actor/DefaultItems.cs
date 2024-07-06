@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 using HeroEditor.Common.Enums;
-using Sirenix.Serialization;
-using Sirenix.OdinInspector;
 
-public class DefaultItems : SerializedMonoBehaviour
+public class DefaultItems : MonoBehaviour
 {
     [SerializeField] Character character;
     [SerializeField] List<IItem> defaultItems;
@@ -24,6 +22,9 @@ public class DefaultItems : SerializedMonoBehaviour
         character.UnEquip(EquipmentPart.Armor);
         character.UnEquip(EquipmentPart.Shield);
         character.UnEquip(EquipmentPart.Bow);
+
+        if (defaultItems == null)
+            return;
 
         foreach (IItem item in defaultItems)
             if (item != null && item is IEquipment)

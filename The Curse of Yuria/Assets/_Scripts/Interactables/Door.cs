@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Sirenix.Serialization;
 
 namespace TCOY.Interactables
 {
@@ -11,7 +10,7 @@ namespace TCOY.Interactables
         [SerializeField] Vector3 destination;
         [SerializeField] float eulerAngleZ;
         [SerializeField] Sprite OpenDoor;
-        [OdinSerialize] List<IItem> RequiredItems;
+        [SerializeField] List<IItem> RequiredItems;
         [SerializeField] Prompt onLockedPrompt;
 
         Sprite closedDoor;

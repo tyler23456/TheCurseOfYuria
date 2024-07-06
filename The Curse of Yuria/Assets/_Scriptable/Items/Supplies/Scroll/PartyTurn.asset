@@ -12,19 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: PartyTurn
   m_EditorClassIdentifier: 
-  guid: 0
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statusEffectsInfo
+      Entry: 6
+      Data: 
+    - Name: skillInfo
+      Entry: 6
+      Data: 
   _icon: {fileID: 21300000, guid: 390b5c0e3bcc31847a5089dbb73b5c5e, type: 3}
   _prefab: {fileID: 7287167298612801845, guid: f1197ff1820f34e43885e71cc6dc6af7, type: 3}
-  _equipmentType: {fileID: 11400000, guid: 989166b4b7e1b3a45b41dd36d0c3d7d5, type: 2}
   info: 
-  _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  _bonusTypes: []
-  power: 2
-  cost: 2
-  effects: []
-  particleSystem: {fileID: 0}
   _itemSprite:
     Name: PartyTurn
     Collection: Supplies
@@ -37,7 +42,5 @@ MonoBehaviour:
     Multiple: 1
     Hash: b6733d506b2c7153d7349ebce87b6af3
     Tags: []
-  statusEffectProbabilities: []
-  modifiers: []
-  counters: []
-  interrupts: []
+  worth: 4
+  cost: 0

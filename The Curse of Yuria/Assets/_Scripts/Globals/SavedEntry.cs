@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Sirenix.OdinInspector;
 
-public class SavedEntry : Entry
+[System.Serializable]
+public class SavedEntry
 {
-    [HideInEditorMode] [HideInPlayMode] public string ID;
+    public string ID = System.DateTime.Now.Ticks.ToString() + "|" + System.Guid.NewGuid().ToString();
+    public IItem item;
+    public int count = 1;
 }

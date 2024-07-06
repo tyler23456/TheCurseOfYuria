@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TCOY.Items
 {
-    public class Basic : SkillBase, ISkill, IItem
+    public class Basic : SkillBase, IItem
     {
         public override string type => "Basic";
 

@@ -10,9 +10,10 @@ namespace TCOY.Interactables
 
         protected override void OnValidate()
         {
-            foreach (SavedEntry entry in entries)
-                if (entry != null && entry.ID == "None" || entry.ID == "")
-                    entry.ID = System.DateTime.Now.Ticks.ToString() + "|" + System.Guid.NewGuid().ToString();           
+            base.OnValidate();
+
+            if (entries == null)
+                entries = new SavedEntry[] { };
         }
 
         public override void Interact(IActor player)

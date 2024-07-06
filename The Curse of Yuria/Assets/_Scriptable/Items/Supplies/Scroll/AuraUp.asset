@@ -12,10 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: AuraUp
   m_EditorClassIdentifier: 
-  guid: 0
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statusEffectsInfo
+      Entry: 6
+      Data: 
+    - Name: skillInfo
+      Entry: 6
+      Data: 
   _icon: {fileID: 21300000, guid: ecbab5d6fcae574479f8fb466de1c920, type: 3}
   _prefab: {fileID: 7187096278522722127, guid: 443445fe49da8e54bb3339491e4753f0, type: 3}
-  _equipmentType: {fileID: 11400000, guid: 989166b4b7e1b3a45b41dd36d0c3d7d5, type: 2}
   info: 
   _itemSprite:
     Name: AuraUp
@@ -29,13 +42,5 @@ MonoBehaviour:
     Multiple: 1
     Hash: 5349f98dfc124a81fcdc23455eb004e0
     Tags: []
-  statusEffectProbabilities:
-  - statusEffect: {fileID: 11400000, guid: c0f74924d28641142b01ad432add433f, type: 2}
-    probability: 0.9
-  power: 2
-  _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  _bonusTypes: []
-  particleSystem: {fileID: 5062031598457638996, guid: b9a5073caef5a9741a5eb2c025fa2629, type: 3}
-  cost: 2
+  worth: 4
+  cost: 0

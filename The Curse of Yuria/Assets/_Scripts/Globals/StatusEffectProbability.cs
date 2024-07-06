@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class StatusEffectProbability
 {
-    [SerializeField] IStatusEffect statusEffect;
-    [Range(0, 1)][SerializeField] float probability = 1f;
-
-    public IStatusEffect getStatusEffect => statusEffect;
-    public float getProbability => probability;
+    public StatusEffect statusEffect;
+    [Range(0f, 1f)] public float probability = 1;
 }

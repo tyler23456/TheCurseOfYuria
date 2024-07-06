@@ -12,10 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: Shatter
   m_EditorClassIdentifier: 
-  guid: 0
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statusEffectsInfo
+      Entry: 6
+      Data: 
+    - Name: skillInfo
+      Entry: 6
+      Data: 
   _icon: {fileID: 21300000, guid: 108208d3ddf5c7b419768f98a4fcb951, type: 3}
   _prefab: {fileID: 1031989834673634693, guid: baa09a078e7f150459da3c9ec5a834ac, type: 3}
-  _equipmentType: {fileID: 11400000, guid: 989166b4b7e1b3a45b41dd36d0c3d7d5, type: 2}
   info: 
   _itemSprite:
     Name: Shatter
@@ -29,13 +42,5 @@ MonoBehaviour:
     Multiple: 1
     Hash: 3a78b069c4cee40f9514520938256b8e
     Tags: []
-  statusEffectProbabilities:
-  - statusEffect: {fileID: 11400000, guid: 9dc7f7e935254644396e8d3112013f99, type: 2}
-    probability: 0.9
-  power: 2
-  _armType: {fileID: 11400000, guid: d4951b43f3bcada4e9bb24de971309b9, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
-  _bonusTypes: []
-  particleSystem: {fileID: 1755964656112663945, guid: 5c1018d9598c5d9419ef110b52392286, type: 3}
-  cost: 2
+  worth: 4
+  cost: 0

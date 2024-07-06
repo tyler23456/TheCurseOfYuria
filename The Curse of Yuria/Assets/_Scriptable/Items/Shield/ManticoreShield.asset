@@ -9,22 +9,75 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b33a5570e726424cabb39144caf02d7, type: 3}
   m_Name: ManticoreShield
   m_EditorClassIdentifier: 
-  guid: 0
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: equipableInfo
+      Entry: 7
+      Data: 0|TCOY.Items.EquipableInfo, Assembly-CSharp
+    - Name: modifiers
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: wards
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: counters
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: interrupts
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _icon: {fileID: 21300000, guid: 58cce7db553d4e4eb33687309ef3ba0a, type: 3}
   _prefab: {fileID: 7526756544939675211, guid: f83f469f63666d847acc9c63036c4024, type: 3}
-  _equipmentType: {fileID: 11400000, guid: 23b0fb110feaf4f43912fd4f11319cea, type: 2}
-  info: 
-  _armType: {fileID: 11400000, guid: cb2f26584ca6c49489dd6d16b5306e59, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  anyType: {fileID: 0}
-  power: 0
-  cost: 0
-  effects: []
-  particleSystem: {fileID: 0}
+  description: 
   _itemSprite:
     Name: ManticoreShield
     Collection: Basic
@@ -37,7 +90,4 @@ MonoBehaviour:
     Multiple: 1
     Hash: a2b4a6b40231f51e88711114f4cc7f9d
     Tags: []
-  statusEffectProbabilities: []
-  modifiers: []
-  counters: []
-  interrupts: []
+  marketValue: 4

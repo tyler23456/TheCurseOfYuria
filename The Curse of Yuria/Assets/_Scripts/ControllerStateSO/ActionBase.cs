@@ -4,25 +4,25 @@ using UnityEngine;
 
 namespace TCOY.ControllerStates
 {
-    public abstract class ActionBase : ScriptableObject, IAction
+    public abstract class ActionBase : ScriptableObject
     {
         public new string name => base.name;
 
         public virtual void UpdateState(IController controller)
         {
-            if (controller.actionState == IState.State.enter)
+            if (controller.actionState == ActionState.State.enter)
             {
-                controller.actionState = IState.State.stay;
+                controller.actionState = ActionState.State.stay;
                 Enter(controller);
             }
 
-            if (controller.actionState == IState.State.stay)
+            if (controller.actionState == ActionState.State.stay)
                 Stay(controller);
 
-            if (controller.actionState == IState.State.exit)
+            if (controller.actionState == ActionState.State.exit)
             {
                 Exit(controller);
-                controller.actionState = IState.State.enter;
+                controller.actionState = ActionState.State.enter;
             }
         }
 
@@ -35,7 +35,7 @@ namespace TCOY.ControllerStates
             return true;
         }
 
-        public virtual IState GetSisterState()
+        public virtual ActionState GetSisterState()
         {
             return null;
         }

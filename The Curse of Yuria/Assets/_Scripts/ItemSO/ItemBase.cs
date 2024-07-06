@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using HeroEditor.Common.Data;
 using HeroEditor.Common.Enums;
-using Sirenix.Serialization;
-using Sirenix.OdinInspector;
 
-public abstract class ItemBase : SerializedScriptableObject
+public abstract class ItemBase : ScriptableObject
 {
-    [SerializeField] Sprite _icon;
-    [SerializeField] GameObject _prefab;
-    [SerializeField] [TextArea(3, 10)] string info;
-    [SerializeField] ItemSprite _itemSprite;
-    [SerializeField] int worth = 4;
+    [HideInInspector][SerializeField] Sprite _icon;
+    [HideInInspector][SerializeField] GameObject _prefab;
+
+    [Space(5)]
+    [SerializeField] [TextArea(3, 10)] string description;
+    [HideInInspector][SerializeField] ItemSprite _itemSprite;
+
+    [Space(5)]
+    [SerializeField] int marketValue = 4;
 
     public virtual string type => "";
 
@@ -20,8 +22,8 @@ public abstract class ItemBase : SerializedScriptableObject
     public GameObject prefab { get { return _prefab; } set { _prefab = value; } }
     public ItemSprite itemSprite { get { return _itemSprite; } set { _itemSprite = value; } }
 
-    public string getInfo => info;
-    public int getWorth => worth;
+    public string getDescription => description;
+    public int getWorth => marketValue;
 
     public virtual IEnumerator Use(IActor user, IActor[] targets) { yield return null; }
     public virtual IEnumerator Use(IActor target) { yield return null; }

@@ -7,11 +7,9 @@ using System.Collections.ObjectModel;
 namespace TCOY.Items
 {
     [System.Serializable]
-    public class StatusEffectsInfo : MonoBehaviour
+    public class StatusEffectsInfo
     {
-        [SerializeField] public List<StatusEffectProbability> statusEffectProbabilities;
-
-        public ReadOnlyCollection<StatusEffectProbability> getStatusEffectProbabilities => statusEffectProbabilities.AsReadOnly();
+        [Space(5)] public List<StatusEffectProbability> statusEffectProbabilities = new List<StatusEffectProbability>();
 
         public bool CheckForStatusEffectCounters(IActor user, IActor target, IItem item)
         {
@@ -28,13 +26,13 @@ namespace TCOY.Items
         public void CheckStatusEffects(IActor target)
         {
             foreach (StatusEffectProbability statusEffectProbability in statusEffectProbabilities)
-                if (UnityEngine.Random.Range(0f, 1f) < statusEffectProbability.getProbability)
-                    statusEffectProbability.getStatusEffect.Activate(target);
+                if (UnityEngine.Random.Range(0f, 1f) < statusEffectProbability.probability)
+                    statusEffectProbability.statusEffect.Activate(target);
         }
 
-        public bool TrueForAnyStatusEffect(Func<IStatusEffect, bool> predicate)
+        public bool TrueForAnyStatusEffect(Func<StatusEffect, bool> predicate)
         {
-            return statusEffectProbabilities.Find(i => predicate.Invoke(i.getStatusEffect)) != null;
+            return statusEffectProbabilities.Find(i => predicate.Invoke(i.statusEffect)).statusEffect != null;
         }
 
         public bool ContainsStatusEffectThatCanRemoveKO()

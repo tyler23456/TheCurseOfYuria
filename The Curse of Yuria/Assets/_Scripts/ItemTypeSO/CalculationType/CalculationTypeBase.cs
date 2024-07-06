@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public abstract class CalculationTypeBase : ScriptableObject, ICalculationType
+public abstract class CalculationTypeBase : CalculationType
 {
-    public virtual float Calculate(IActor user, IActor target, float accumulator)
+    public override float Calculate(IActor user, IActor target, float accumulator)
     {
         return 0f;
     }

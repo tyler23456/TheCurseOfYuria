@@ -9,14 +9,75 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Script: {fileID: 11500000, guid: 1aeadf7fb46759741b5681dcc00c3096, type: 3}
   m_Name: AssassinArmor
   m_EditorClassIdentifier: 
-  guid: 0
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: equipableInfo
+      Entry: 7
+      Data: 0|TCOY.Items.EquipableInfo, Assembly-CSharp
+    - Name: modifiers
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: wards
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: counters
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: interrupts
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _icon: {fileID: 21300000, guid: e83128d56b334879b705cc4e6b056d32, type: 3}
   _prefab: {fileID: 6055386865235220975, guid: 9d23c7fc6c2b9d349a698fa6fb159e1e, type: 3}
-  _equipmentType: {fileID: 11400000, guid: a3a3e7436dcc2b9418bb3686d15dc324, type: 2}
-  info: 
+  description: 
   _itemSprite:
     Name: AssassinArmor [Paint]
     Collection: Basic
@@ -42,9 +103,4 @@ MonoBehaviour:
     Hash: ac593a3243eff2082daa22406cc721a0
     Tags:
     - Paint
-  modifiers:
-  - attribute: 2
-    offset: 10
-  wards: []
-  counters: []
-  interrupts: []
+  marketValue: 4

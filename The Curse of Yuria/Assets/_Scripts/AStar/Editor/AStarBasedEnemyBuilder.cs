@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Sirenix.Serialization;
-using Sirenix.OdinInspector;
 
 namespace TCOY.AStar
 {
-    public class AStarBasedEnemyBuilder : SerializedMonoBehaviour, IPrefabComponentsBuilder
+    public class AStarBasedEnemyBuilder : MonoBehaviour, IPrefabComponentsBuilder
     {
-        [OdinSerialize] IGoal initialGoalState;
-        [OdinSerialize] IAction initialActionState;
+        [SerializeField] GoalState initialGoalState;
+        [SerializeField] ActionState initialActionState;
 
         ControllerUnit unit;
 

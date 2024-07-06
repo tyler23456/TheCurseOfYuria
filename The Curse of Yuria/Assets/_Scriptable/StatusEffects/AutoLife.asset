@@ -12,9 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66139cc92762fc48af6aa505ca7d78e, type: 3}
   m_Name: AutoLife
   m_EditorClassIdentifier: 
-  icon: {fileID: -214298916, guid: 080cb6d98b00c2645b2c41df5f69bc78, type: 3}
-  visualEffect: {fileID: 2020990484930409885, guid: aa2fce678c8c3094d97c31716ad037a1, type: 3}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: a2d2994d723f53b448e90e875cc19b02, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: triggers
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[IStatusEffect, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: skill
+      Entry: 10
+      Data: 0
   duration: 240
-  triggers:
-  - {fileID: 11400000, guid: a1731249df62122449371e32cb119535, type: 2}
-  skill: {fileID: 11400000, guid: 4507a6e645bd51e4ca226ab28f6861c0, type: 2}

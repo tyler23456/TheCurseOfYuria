@@ -18,7 +18,7 @@ public class Redirection : StatusEffectBase, IStatusEffect
 
     public override bool OnHit(IActor user, IActor target, IItem item)
     {
-        if (type == Type.Deflection && item is IScroll || type == Type.Reflection && item is IWeapon)
+        if (type == Type.Deflection && item is IAttack || type == Type.Reflection && item is IScroll)
         {
             Destroy(Instantiate(particleSystem.gameObject, target.obj.transform), particleSystem.main.duration);
             target = user;

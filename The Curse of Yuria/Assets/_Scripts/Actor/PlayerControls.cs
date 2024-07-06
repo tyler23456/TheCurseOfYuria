@@ -2,22 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
-using Sirenix.Serialization;
-using Sirenix.OdinInspector;
 
 namespace TCOY.ControllerStates
 {
-    public class PlayerControls : SerializedMonoBehaviour, IPlayerControls
+    public class PlayerControls : MonoBehaviour, IPlayerControls
     {
         [SerializeField] Transform optionsDisplay;
         [SerializeField] Transform itemsDisplay;
         [SerializeField] Transform commandDisplay;
         [SerializeField] Transform switchAllieDisplay;
 
-        [OdinSerialize] IGoal selectedDefaultGoal;
-        [OdinSerialize] IGoal unselectedDefaultGoal;
-        [OdinSerialize] IAction selectedDefaultAction;
-        [OdinSerialize] IAction unselectedDefaultAction;
+        [SerializeField] GoalState selectedDefaultGoal;
+        [SerializeField] GoalState unselectedDefaultGoal;
+        [SerializeField] ActionState selectedDefaultAction;
+        [SerializeField] ActionState unselectedDefaultAction;
 
         void Awake()
         {

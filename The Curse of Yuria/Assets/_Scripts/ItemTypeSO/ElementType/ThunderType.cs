@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Thunder", menuName = "ElementType/Thunder")]
-public class ThunderType : ElementTypeSO
+public class ThunderType : ElementBase
 {
     public override int weaknessIndex => 2;
 }

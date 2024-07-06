@@ -10,30 +10,30 @@ public class StateDatabase : MonoBehaviour
     [SerializeField] AssetLabelReference actionStateReference;
     [SerializeField] AssetLabelReference goalStateReference;
 
-    Dictionary<string, IAction> actionDatabase = new Dictionary<string, IAction>();
-    Dictionary<string, IGoal> goalDatabase = new Dictionary<string, IGoal>();
+    Dictionary<string, ActionState> actionDatabase = new Dictionary<string, ActionState>();
+    Dictionary<string, GoalState> goalDatabase = new Dictionary<string, GoalState>();
 
     void Awake()
     {
         Instance = this;
 
-        Addressables.LoadAssetsAsync<IAction>(actionStateReference, (i) =>
+        Addressables.LoadAssetsAsync<ActionState>(actionStateReference, (i) =>
         {
             actionDatabase.Add(i.name, i);
         }).WaitForCompletion();
 
-        Addressables.LoadAssetsAsync<IGoal>(goalStateReference, (i) =>
+        Addressables.LoadAssetsAsync<GoalState>(goalStateReference, (i) =>
         {
             goalDatabase.Add(i.name, i);
         }).WaitForCompletion();
     }
 
-    public IAction GetAction(string stateName)
+    public ActionState GetAction(string stateName)
     {
         return actionDatabase[stateName];
     }
 
-    public IGoal GetGoal(string stateName)
+    public GoalState GetGoal(string stateName)
     {
         return goalDatabase[stateName];
     }

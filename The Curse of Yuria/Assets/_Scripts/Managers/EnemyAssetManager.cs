@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine.AddressableAssets;
 using UnityEditor.Animations;
 using System.Linq;
+using TCOY.UserActors;
 
 [ExecuteInEditMode]
 public class EnemyAssetManager : MonoBehaviour
@@ -52,6 +53,11 @@ public class EnemyAssetManager : MonoBehaviour
 
     void RefreshEnemyPrefabs(GameObject prefab)
     {
+        //--------------------------------
+        //prefab.GetComponent<RandomDrop>().Reset();
+        //prefab.GetComponent<Actor>().Reset();
+        //--------------------------------
+
         foreach (IPrefabComponentsBuilder prefabComponentsBuilder in prefabComponentsBuilders)
             prefabComponentsBuilder.AddComponentsWithAppropriateValuesTo(prefab);
 

@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 using HeroEditor.Common.Enums;
-using Sirenix.Serialization;
 
 namespace TCOY.Interactables
 {
     public class NPC : InteractableBase, IInteractablePointer
     {
-        [OdinSerialize] List<IItem> equipment;
+        [SerializeField] IItem[] equipment;
         [SerializeField] List<PromptBrancher> promptBranchers;
 
         Character character;
         Animator animator;
 
-        protected new void OnValidate()
+        protected override void OnValidate()
         {
             base.OnValidate();
 
@@ -30,6 +29,10 @@ namespace TCOY.Interactables
             character.UnEquip(EquipmentPart.Armor);
             character.UnEquip(EquipmentPart.Shield);
             character.UnEquip(EquipmentPart.Bow);
+
+            if (equipment == null)
+                equipment = new IItem[] { };
+
             foreach (IItem item in equipment)
                 character.Equip(item.itemSprite, ((IEquipment)item).part);
         }

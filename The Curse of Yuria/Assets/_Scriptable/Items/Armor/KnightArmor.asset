@@ -9,14 +9,75 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Script: {fileID: 11500000, guid: 1aeadf7fb46759741b5681dcc00c3096, type: 3}
   m_Name: KnightArmor
   m_EditorClassIdentifier: 
-  guid: 0
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: equipableInfo
+      Entry: 7
+      Data: 0|TCOY.Items.EquipableInfo, Assembly-CSharp
+    - Name: modifiers
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: wards
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: counters
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: interrupts
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _icon: {fileID: 21300000, guid: 2f649603f0744f5c9dfdd11987600da7, type: 3}
   _prefab: {fileID: 5666062248077327325, guid: 5fde7bc4de609b94aaa1739b88c6b17e, type: 3}
-  _equipmentType: {fileID: 11400000, guid: a3a3e7436dcc2b9418bb3686d15dc324, type: 2}
-  info: 
+  description: 
   _itemSprite:
     Name: KnightArmor
     Collection: Knights
@@ -40,6 +101,4 @@ MonoBehaviour:
     Multiple: 1
     Hash: 75264e822e5c9f4f009a34caeaa5630d
     Tags: []
-  modifiers: []
-  counters: []
-  interrupts: []
+  marketValue: 4

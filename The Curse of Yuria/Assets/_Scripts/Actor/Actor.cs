@@ -47,6 +47,13 @@ namespace TCOY.UserActors
         public bool useDefaultItems { get { return _useDefaultItems; } set { _useDefaultItems = value; } }
         public Color trajectoryPathColor { get { return _trajectoryPathColor; } set { _trajectoryPathColor = value; } }
 
+
+        public void Reset()
+        {
+            counters = new List<Reactor>();
+            interrupts = new List<Reactor>();
+        }
+
         protected void Awake()
         {
             editorEquipper = GetComponent<DefaultItems>();

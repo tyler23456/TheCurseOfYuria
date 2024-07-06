@@ -6,7 +6,7 @@ public interface IConnection
 {
     IWaypoint getFirstWaypoint { get; }
     IWaypoint getSecondWaypoint { get; }
-    IAction getAction { get; }
+    ActionState getAction { get; }
     IWaypoint GetOtherWaypoint(IWaypoint thisWaypoint);
     IWaypoint GetClosestWaypoint(Vector2 position);
 }

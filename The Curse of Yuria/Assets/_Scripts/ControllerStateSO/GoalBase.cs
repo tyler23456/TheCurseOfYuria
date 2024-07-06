@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace TCOY.ControllerStates
 {
-    public abstract class GoalBase : ScriptableObject, IGoal
+    public abstract class GoalBase : ScriptableObject
     {
-        [SerializeField] protected GoalBase[] transitionStates;
+        [SerializeField] protected GoalState[] transitionStates;
 
         public new string name => base.name;
 
@@ -17,27 +17,27 @@ namespace TCOY.ControllerStates
 
         public virtual void UpdateState(IController controller)
         {
-            if (controller.goalState == IState.State.enter)
+            if (controller.goalState == GoalState.State.enter)
             {
-                controller.goalState = IState.State.stay;
+                controller.goalState = GoalState.State.stay;
                 Enter(controller);
                 
             }
 
 
-            if (controller.goalState == IState.State.stay)
+            if (controller.goalState == GoalState.State.stay)
                 Stay(controller);
 
-            foreach (GoalBase transitionState in transitionStates)
+            foreach (GoalState transitionState in transitionStates)
                 if (transitionState.CheckForTransition(controller) == true)
                 {
                     controller.SetGoal(transitionState);
                 }
 
-            if (controller.goalState == IState.State.exit)
+            if (controller.goalState == GoalState.State.exit)
             {
                 Exit(controller);
-                controller.goalState = IState.State.enter;
+                controller.goalState = GoalState.State.enter;
             }
         }
 

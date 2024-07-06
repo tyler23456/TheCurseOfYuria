@@ -12,10 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: MagicDown
   m_EditorClassIdentifier: 
-  guid: 0
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statusEffectsInfo
+      Entry: 6
+      Data: 
+    - Name: skillInfo
+      Entry: 6
+      Data: 
   _icon: {fileID: 21300000, guid: 379448668209fbc4a88ca8e4258a9119, type: 3}
   _prefab: {fileID: 4458038851349192921, guid: e7e11543b1cc99f4d8a1aded57c6dc5b, type: 3}
-  _equipmentType: {fileID: 11400000, guid: 989166b4b7e1b3a45b41dd36d0c3d7d5, type: 2}
   info: 
   _itemSprite:
     Name: MagicDown
@@ -29,13 +42,5 @@ MonoBehaviour:
     Multiple: 1
     Hash: 9149e99914501e1b939bee993bb1ef97
     Tags: []
-  statusEffectProbabilities:
-  - statusEffect: {fileID: 11400000, guid: 15c8b2bdac96a2646b2e767119af6b61, type: 2}
-    probability: 0.9
-  power: 2
-  _armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
-  _elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
-  _calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
-  _bonusTypes: []
-  particleSystem: {fileID: 4737892327257956861, guid: 9e7a4d14f3d163849ae37d1db2ee8fc9, type: 3}
-  cost: 2
+  worth: 4
+  cost: 0

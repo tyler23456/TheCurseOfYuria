@@ -99,9 +99,9 @@ public class BattleManager : MonoBehaviour
             List<Reactor> reactors = isCounter ? actor.getCounters : actor.getInterrupts;
 
             foreach (Reactor reactor in reactors)
-                if (((1 << command.targets[0].obj.layer) & reactor.getMask) != 0 && command.item.name == reactor.getItemName)
+                if (((1 << command.targets[0].obj.layer) & reactor.mask) != 0 && command.item.name == reactor.action.name)
                 {
-                    Command reaction = new Command(actor, reactor.getReaction, reactor.getTargeter.CalculateTargets(actor.obj.transform.position));
+                    Command reaction = new Command(actor, reactor.reaction, reactor.target.CalculateTargets(actor.obj.transform.position));
 
                     if (isCounter)
                         IBattleData.pendingCommands.AddLast(reaction);

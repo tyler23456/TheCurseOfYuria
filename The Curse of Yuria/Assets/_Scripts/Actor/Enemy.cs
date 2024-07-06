@@ -43,7 +43,7 @@ namespace TCOY.UserActors
             if (TargeterDatabase.Instance.getNearbyAllieTargeter.CalculateTargets(transform.position).Length == 0)
                 return;
 
-            IActor[] targets = movesQueue.Peek().getTargeter.CalculateTargets(transform.position);
+            IActor[] targets = movesQueue.Peek().target.CalculateTargets(transform.position);
 
             if (targets.Length == 0)
             {
@@ -52,7 +52,7 @@ namespace TCOY.UserActors
                 return;
             }
 
-            Command command = new Command(this, movesQueue.Peek().getskill, targets);
+            Command command = new Command(this, movesQueue.Peek().skill, targets);
             IBattleData.pendingCommands.AddLast(command);
             movesQueue.Enqueue(movesQueue.Dequeue());
         }

@@ -1,17 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Sirenix.Serialization;
-using Sirenix.OdinInspector;
 
 namespace TCOY.Interactables
 {
     public class AnimatedContainer : Container, IInteractable, IInteractablePointer
     {
-        [SerializeField] List<IItem> RequiredItems;
+        [SerializeField] List<IItem> requiredItems;
         [SerializeField] Prompt onLockedPrompt;
 
         Animator animator;
+
+        protected override void OnValidate()
+        {
+            if (requiredItems == null)
+                requiredItems = new List<IItem>();
+
+            base.OnValidate();
+        }
+
 
         protected new void Start()
         {
@@ -31,7 +38,7 @@ namespace TCOY.Interactables
             if (InventoryManager.Instance.completedIds.Contains(getID))
                 return;
 
-            if (!RequiredItems.TrueForAll(i => InventoryManager.Instance.questItems.Contains(i.name)))
+            if (!requiredItems.TrueForAll(i => InventoryManager.Instance.questItems.Contains(i.name)))
             {
                 ShowLockedPrompt();
                 return;

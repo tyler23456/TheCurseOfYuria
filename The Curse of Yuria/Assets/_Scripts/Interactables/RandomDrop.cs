@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using Sirenix.Serialization;
 
 namespace TCOY.Interactables
 {
@@ -11,7 +10,7 @@ namespace TCOY.Interactables
         [Range(0, 20)]public int minCount = 1;
         [Range(1, 20)]public int maxCount = 3;
 
-        [OdinSerialize] public List<WeightedEntry> weightedEntries;
+        [SerializeField] public List<WeightedEntry> weightedEntries;
 
         List<IItem> items = new List<IItem>();
         List<float> weights = new List<float>();
@@ -22,12 +21,15 @@ namespace TCOY.Interactables
 
         bool isFirstEnable = true;
         
-        public new void OnValidate()
+        protected override void OnValidate()
         {
-            base.OnValidate();
-
             if (minCount > maxCount)
                 minCount = maxCount;
+        }
+
+        public void Reset()
+        {
+            weightedEntries = new List<WeightedEntry>();
         }
 
         void OnEnable()
@@ -67,7 +69,7 @@ namespace TCOY.Interactables
         }
     }
 
-    public class WeightedEntry
+    public struct WeightedEntry
     {
         public IItem item;
         [Range(1, 20)] public int minCount;

@@ -12,7 +12,7 @@ public interface IItem
     GameObject prefab { get; }
     ItemSprite itemSprite { get; }
     string type { get; }
-    string getInfo { get; }
+    string getDescription { get; }
     int getWorth { get; }
 
 

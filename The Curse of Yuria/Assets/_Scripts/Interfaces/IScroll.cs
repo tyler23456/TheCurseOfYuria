@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IScroll : IItem, ISkill
+public interface IScroll
 {
     int getCost { get; }
 }

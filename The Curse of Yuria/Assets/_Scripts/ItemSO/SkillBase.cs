@@ -7,15 +7,21 @@ namespace TCOY.Items
 {
     public abstract class SkillBase : ItemBase
     {
-        [SerializeField] protected StatusEffectsInfo statusEffectsInfo;
-        [SerializeField] protected SkillInfo skillInfo;
+        [Space(5)] [SerializeField] protected SkillInfo skillInfo;
+        [Space(5)] [SerializeField] protected StatusEffectsInfo statusEffectsInfo;
 
-        public ArmTypeBase armType => skillInfo.armType;
-        public ElementTypeSO elementType => skillInfo.elementType;
-        public CalculationTypeBase calculationType => skillInfo.calculationType;
-        public List<BonusTypeBase> bonusTypes => skillInfo.bonusTypes;
+        public ArmType armType => skillInfo.armType;
+        public ElementType elementType => skillInfo.elementType;
+        public CalculationType calculationType => skillInfo.calculationType;
+        public List<BonusType> bonusTypes => skillInfo.bonusTypes;
 
-        bool CheckForStatusEffectCounters(IActor user, IActor target, IItem item)
+        public virtual void Awake()
+        {
+            skillInfo = new SkillInfo();
+            statusEffectsInfo = new StatusEffectsInfo();
+        }
+
+        bool CheckForStatusEffectOnHits(IActor user, IActor target, IItem item)
         {
             return statusEffectsInfo.CheckForStatusEffectCounters(user, target, item);
         }
@@ -25,7 +31,7 @@ namespace TCOY.Items
             statusEffectsInfo.CheckStatusEffects(target);
         }
 
-        public bool TrueForAnyStatusEffect(Func<IStatusEffect, bool> predicate)
+        public bool TrueForAnyStatusEffect(Func<StatusEffect, bool> predicate)
         {
             return statusEffectsInfo.TrueForAnyStatusEffect(predicate);
         }

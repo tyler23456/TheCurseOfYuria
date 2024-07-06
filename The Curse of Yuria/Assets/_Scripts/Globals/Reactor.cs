@@ -5,15 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class Reactor
 {
-    [SerializeField] ISkill action;
-    [SerializeField] LayerMask mask;
-    [SerializeField] ISkill reaction;
-    [SerializeField] TargeterBase target;
-
-    public string getItemName => action.name;
-    public LayerMask getMask => mask;
-    public ISkill getReaction => reaction;
-    public TargeterBase getTargeter => target;
+    public Skill action;
+    public LayerMask mask;
+    public Skill reaction;
+    public ITargeter target;
 
     public string PrintInfo()
     {
@@ -27,5 +22,4 @@ public class Reactor
 
         return "if " + action.name + " on " + name + " then " + reaction.name + " on " + target.name;
     }
-
 }

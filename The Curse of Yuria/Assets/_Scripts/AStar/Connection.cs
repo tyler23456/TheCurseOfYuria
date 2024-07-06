@@ -14,11 +14,11 @@ namespace TCOY.AStar
 
         [SerializeField] Waypoint firstWaypoint;
         [SerializeField] Waypoint secondWaypoint;
-        [SerializeField] TCOY.ControllerStates.ActionBase action;
+        [SerializeField] ActionState action;
 
         public IWaypoint getFirstWaypoint => firstWaypoint;
         public IWaypoint getSecondWaypoint => secondWaypoint;
-        public IAction getAction => action;
+        public ActionState getAction => action;
 
         public void ConnectWaypoints(Waypoint firstWaypoint, Waypoint secondWaypoint)
         {

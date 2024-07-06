@@ -10,7 +10,7 @@ namespace TCOY.Items
 {
     public class EquipableBase : ItemBase, IEquipment, IItem
     {
-        [SerializeField] EquipableInfo equipableInfo;
+        [Space(5)] [SerializeField] protected EquipableInfo equipableInfo;
 
         public virtual EquipmentPart part => EquipmentPart.Armor;
 
@@ -18,6 +18,11 @@ namespace TCOY.Items
         public ReadOnlyCollection<Ward> getWards => equipableInfo.wards.AsReadOnly();
         public ReadOnlyCollection<Reactor> getCounters => equipableInfo.counters.AsReadOnly();
         public ReadOnlyCollection<Reactor> getInterrupts => equipableInfo.interrupts.AsReadOnly();
+
+        public virtual void Awake()
+        {
+            equipableInfo = new EquipableInfo();
+        }
 
         public override void Equip(IActor user)
         {

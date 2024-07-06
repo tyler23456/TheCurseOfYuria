@@ -213,7 +213,7 @@ public class ItemDisplayAsset : MonoBehaviour
         IItem current = ItemDatabase.Instance.Get(itemName);
 
         this.itemName.text = itemName;
-        this.itemInfo.text = current.getInfo;
+        this.itemInfo.text = current.getDescription;
         this.itemSprite.sprite = current.icon;
     }
 
@@ -314,9 +314,6 @@ public class ItemDisplayAsset : MonoBehaviour
 
         AddNewLineToAllieInfo();
 
-        //if (localInventoryGameObject.activeSelf)
-            //RefreshLocalInventory(allie.getScrolls);
-
         if (!isRefreshingStatusAttributes)
             return;
         
@@ -345,11 +342,8 @@ public class ItemDisplayAsset : MonoBehaviour
 
         for (int i = 0; i < attributes.Length; i++)
         {
-            oldModifier = oldModifiers.FirstOrDefault(e => e.getAttribute == (IStats.Attribute)i);
-            newModifier = newModifiers.FirstOrDefault(e => e.getAttribute == (IStats.Attribute)i);
-
-            oldModifierValue = oldModifier == null ? 0 : oldModifier.getOffset;
-            newModifierValue = newModifier == null ? 0 : newModifier.getOffset;
+            oldModifier = oldModifiers.FirstOrDefault(e => e.attribute == (IStats.Attribute)i);
+            newModifier = newModifiers.FirstOrDefault(e => e.attribute == (IStats.Attribute)i);
 
             modifierValue = newModifierValue - oldModifierValue;
 

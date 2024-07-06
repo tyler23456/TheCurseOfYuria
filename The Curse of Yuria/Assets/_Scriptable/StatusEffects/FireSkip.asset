@@ -12,7 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc3f55a9a0eb8940ae075ca507a6c64, type: 3}
   m_Name: FireSkip
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 61dd2432436639444aa0b5f9ab37ff9d, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: elementTypes
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[IElementType, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   duration: 120
-  elementTypes:
-  - {fileID: 11400000, guid: 61dd2432436639444aa0b5f9ab37ff9d, type: 2}
-  itemTypes: []

@@ -9,14 +9,75 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f1e45483ace4e84fbbb50de1ed1bd1d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b33a5570e726424cabb39144caf02d7, type: 3}
   m_Name: BasicIronShield
   m_EditorClassIdentifier: 
-  guid: 0
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: equipableInfo
+      Entry: 7
+      Data: 0|TCOY.Items.EquipableInfo, Assembly-CSharp
+    - Name: modifiers
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: wards
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: counters
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: interrupts
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _icon: {fileID: 21300000, guid: 4082d5629b0349a0acd7ef04001d84ab, type: 3}
   _prefab: {fileID: 2078275559155351475, guid: 2129942102fcc5d4caeb629919ec7457, type: 3}
-  _equipmentType: {fileID: 11400000, guid: 23b0fb110feaf4f43912fd4f11319cea, type: 2}
-  info: 
+  description: 
   _itemSprite:
     Name: BasicIronShield
     Collection: Basic
@@ -29,11 +90,4 @@ MonoBehaviour:
     Multiple: 1
     Hash: 06fa51548e362dc64978bfedd2b527c8
     Tags: []
-  modifiers:
-  - attribute: 3
-    offset: 22
-  - attribute: 6
-    offset: -8
-  wards: []
-  counters: []
-  interrupts: []
+  marketValue: 4

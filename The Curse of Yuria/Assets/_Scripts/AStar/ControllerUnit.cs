@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEditor;
-using Sirenix.Serialization;
-using Sirenix.OdinInspector;
 
 namespace TCOY.AStar
 {
     [RequireComponent(typeof(Animator), typeof(Rigidbody2D))]
-    public class ControllerUnit : SerializedMonoBehaviour, IController, IPath
+    public class ControllerUnit : MonoBehaviour, IController, IPath
     {
-        [OdinSerialize] IGoal initialGoalState;
-        [OdinSerialize] IAction initialActionState;
+        [SerializeField] GoalState initialGoalState;
+        [SerializeField] ActionState initialActionState;
         [SerializeField] float _safeDistance = 30f;
         [SerializeField] float _battleDistance = 10f;
         [SerializeField] float _stopDistance = 2f;
@@ -35,12 +33,12 @@ namespace TCOY.AStar
         public float battleDistance => _battleDistance;
         public float stopDistance => _stopDistance;
 
-        public IGoal goal { get; set; }
-        public IAction action { get; set; }
-       
-        public IState.State actionState { get; set; } = IState.State.enter;
-        public IState.State goalState { get; set; } = IState.State.enter;
+        public GoalState goal { get; set; }
+        public ActionState action { get; set; }
 
+        public GoalState.State goalState { get; set; } = GoalState.State.enter;
+        public ActionState.State actionState { get; set; } = ActionState.State.enter;
+        
         protected TCOY.UserActors.GroundChecker groundChecker;
 
         void Awake()
@@ -63,21 +61,21 @@ namespace TCOY.AStar
                 allies = GameObject.Find("/DontDestroyOnLoad/Allies").transform;
         }
 
-        public void SetGoal(IGoal goal)
+        public void SetGoal(GoalState goal)
         {
-            goalState = IState.State.exit;
+            goalState = GoalState.State.exit;
             goal.UpdateState(this);
             this.goal = goal;
         }
 
-        public void SetAction(IAction action)
+        public void SetAction(ActionState action)
         {
-            actionState = IState.State.exit;
+            actionState = ActionState.State.exit;
             action.UpdateState(this);
             this.action = action;
         }
 
-        public void SetInitialStates(IGoal initialGoalState, IAction initialActionState)
+        public void SetInitialStates(GoalState initialGoalState, ActionState initialActionState)
         {
             this.initialGoalState = initialGoalState;
             this.initialActionState = initialActionState;

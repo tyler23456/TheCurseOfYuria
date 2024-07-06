@@ -5,13 +5,13 @@ using UnityEngine;
 public class Command
 {
     public IActor user { get; private set; }
-    public IItem item { get; private set; }
+    public Skill item { get; private set; }
     public IActor[] targets { get; private set; }
 
     public bool isCounterable { get; set; } = true;
     public bool isInterruptable { get; set; } = true;
 
-    public Command(IActor user, IItem item, params IActor[] targets)
+    public Command(IActor user, Skill item, params IActor[] targets)
     {
         this.user = user;
         this.item = item;

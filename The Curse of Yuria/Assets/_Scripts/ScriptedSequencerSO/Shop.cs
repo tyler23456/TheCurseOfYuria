@@ -14,9 +14,9 @@ public class Shop : ActionBase
 
     void OnValidate()
     {
-        foreach (SavedEntry entry in entries)
-            if (entry != null && entry.ID == "None" || entry.ID == "")
-                entry.ID = System.DateTime.Now.Ticks.ToString() + "|" + System.Guid.NewGuid().ToString();
+        /*foreach (SavedEntry entry in entries)
+            if (entry.ID == "")
+                entry.Initialize();*/
     }
 
     public override IEnumerator Activate()

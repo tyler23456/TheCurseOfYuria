@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Sirenix.OdinInspector;
 
-
-public abstract class StatusEffectBase : SerializedScriptableObject, IStatusEffect
+public abstract class StatusEffectBase : ScriptableObject, IStatusEffect
 {
     [SerializeField] protected float duration = float.PositiveInfinity;
 

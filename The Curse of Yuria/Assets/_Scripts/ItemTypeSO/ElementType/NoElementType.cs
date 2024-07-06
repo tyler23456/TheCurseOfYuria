@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NoElement", menuName = "ElementType/NoElement")]
-public class NoElementType : ElementTypeSO
+public class NoElementType : ElementBase
 {
     public override int weaknessIndex => -1;
 
