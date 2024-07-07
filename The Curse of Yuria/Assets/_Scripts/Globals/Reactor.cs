@@ -8,7 +8,7 @@ public class Reactor
     public Skill action;
     public LayerMask mask;
     public Skill reaction;
-    public ITargeter target;
+    public Targeter target;
 
     public string PrintInfo()
     {

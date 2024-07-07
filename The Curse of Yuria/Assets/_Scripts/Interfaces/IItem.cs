@@ -12,8 +12,8 @@ public interface IItem
     GameObject prefab { get; }
     ItemSprite itemSprite { get; }
     string type { get; }
-    string getDescription { get; }
-    int getWorth { get; }
+    string description { get; }
+    int marketValue { get; }
 
 
     IEnumerator Use(IActor user, params IActor[] targets);

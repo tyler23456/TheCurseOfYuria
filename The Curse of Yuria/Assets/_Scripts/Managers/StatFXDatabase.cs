@@ -15,7 +15,7 @@ public class StatFXDatabase : MonoBehaviour
 
     Dictionary<string, IStatusEffect> statusEffects = new Dictionary<string, IStatusEffect>();
 
-    public IStatusEffect getKnockOut => knockOut;
+    public StatusEffect getKnockOut => knockOut;
 
     void Awake()
     {

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public abstract class StatusEffectBase : ScriptableObject, IStatusEffect
+public abstract class StatusEffectBase : StatusEffect
 {
     [SerializeField] protected float duration = float.PositiveInfinity;
 
     protected float getDuration => duration;
 
-    public virtual void Activate(IActor target, float accumulator = 0f)
+    public override void Activate(IActor target, float accumulator = 0f)
     {
         OnAdd(target);
         target.getStatusEffects.Add(name, accumulator);
@@ -26,24 +26,24 @@ public abstract class StatusEffectBase : ScriptableObject, IStatusEffect
 
     }
 
-    public virtual bool OnAttack(IActor user, IActor target, IItem item)
+    public override bool OnAttack(IActor user, IActor target, IItem item)
     {
         bool itemCancellationFlag = false;
         return itemCancellationFlag;
     }
 
-    public virtual bool OnHit(IActor user, IActor target, IItem item)
+    public override bool OnHit(IActor user, IActor target, IItem item)
     {
         bool itemCancellationFlag = false;
         return itemCancellationFlag;
     }
 
-    public virtual void OnAdd(IActor target)
+    public override void OnAdd(IActor target)
     {
           
     }
 
-    public virtual void OnRemove(IActor target)
+    public override void OnRemove(IActor target)
     {
         
     }

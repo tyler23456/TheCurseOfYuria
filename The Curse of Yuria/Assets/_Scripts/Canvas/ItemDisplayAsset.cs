@@ -213,7 +213,7 @@ public class ItemDisplayAsset : MonoBehaviour
         IItem current = ItemDatabase.Instance.Get(itemName);
 
         this.itemName.text = itemName;
-        this.itemInfo.text = current.getDescription;
+        this.itemInfo.text = current.description;
         this.itemSprite.sprite = current.icon;
     }
 

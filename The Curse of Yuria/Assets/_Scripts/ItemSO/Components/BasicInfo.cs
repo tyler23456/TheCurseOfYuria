@@ -7,20 +7,13 @@ using HeroEditor.Common.Data;
 [System.Serializable]
 public class BasicInfo : MonoBehaviour
 {
-    [HideInInspector] [SerializeField] Sprite _icon;
-    [HideInInspector] [SerializeField] GameObject _prefab;
+    [HideInInspector] [SerializeField] public Sprite icon;
+    [HideInInspector] [SerializeField] public GameObject prefab;
 
     [Space(5)]
-    [SerializeField] [TextArea(3, 10)] string description;
-    [HideInInspector] [SerializeField] ItemSprite _itemSprite;
+    [SerializeField] [TextArea(3, 10)] public string description;
+    [HideInInspector] [SerializeField] public ItemSprite itemSprite;
 
     [Space(5)]
-    [SerializeField] int marketValue = 4;
-
-    public Sprite icon { get { return _icon; } set { _icon = value; } }
-    public GameObject prefab { get { return _prefab; } set { _prefab = value; } }
-    public ItemSprite itemSprite { get { return _itemSprite; } set { _itemSprite = value; } }
-
-    public string getDescription => description;
-    public int getWorth => marketValue;
+    [SerializeField] public int marketValue = 4;
 }

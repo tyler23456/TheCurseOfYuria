@@ -8,5 +8,5 @@ using System.Linq;
 public class Move
 {
     public Skill skill;
-    public ITargeter target;
+    public Targeter target;
 }

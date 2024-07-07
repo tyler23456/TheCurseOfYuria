@@ -4,25 +4,25 @@ using UnityEngine;
 
 namespace TCOY.ControllerStates
 {
-    public abstract class ActionBase : ScriptableObject
+    public abstract class ActionBase : ActionState
     {
         public new string name => base.name;
 
-        public virtual void UpdateState(IController controller)
+        public override void UpdateState(IController controller)
         {
-            if (controller.actionState == ActionState.State.enter)
+            if (controller.actionState == State.enter)
             {
-                controller.actionState = ActionState.State.stay;
+                controller.actionState = State.stay;
                 Enter(controller);
             }
 
-            if (controller.actionState == ActionState.State.stay)
+            if (controller.actionState == State.stay)
                 Stay(controller);
 
-            if (controller.actionState == ActionState.State.exit)
+            if (controller.actionState == State.exit)
             {
                 Exit(controller);
-                controller.actionState = ActionState.State.enter;
+                controller.actionState = State.enter;
             }
         }
 
@@ -30,17 +30,17 @@ namespace TCOY.ControllerStates
         protected virtual void Stay(IController controller) { }
         protected virtual void Exit(IController controller) { }
 
-        public virtual bool CheckForTransition(IController controller)
+        public override bool CheckForTransition(IController controller)
         {
             return true;
         }
 
-        public virtual ActionState GetSisterState()
+        public override ActionState GetSisterState()
         {
             return null;
         }
 
-        public virtual void OnDrawGizmosMethod(IController controller)
+        public override void OnDrawGizmosMethod(IController controller)
         {
 
         }

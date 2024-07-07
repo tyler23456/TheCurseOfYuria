@@ -6,24 +6,16 @@ using HeroEditor.Common.Enums;
 
 public abstract class ItemBase : ScriptableObject
 {
-    [HideInInspector][SerializeField] Sprite _icon;
-    [HideInInspector][SerializeField] GameObject _prefab;
-
-    [Space(5)]
-    [SerializeField] [TextArea(3, 10)] string description;
-    [HideInInspector][SerializeField] ItemSprite _itemSprite;
-
-    [Space(5)]
-    [SerializeField] int marketValue = 4;
+    [SerializeField] BasicInfo basicInfo;
 
     public virtual string type => "";
 
-    public Sprite icon { get { return _icon; } set { _icon = value; } }
-    public GameObject prefab { get { return _prefab; } set { _prefab = value; } }
-    public ItemSprite itemSprite { get { return _itemSprite; } set { _itemSprite = value; } }
+    public Sprite icon { get { return basicInfo.icon; } set { basicInfo.icon = value; } }
+    public GameObject prefab { get { return basicInfo.prefab; } set { basicInfo.prefab = value; } }
+    public ItemSprite itemSprite { get { return basicInfo.itemSprite; } set { basicInfo.itemSprite = value; } }
 
-    public string getDescription => description;
-    public int getWorth => marketValue;
+    public string description => basicInfo.description;
+    public int marketValue => basicInfo.marketValue;
 
     public virtual IEnumerator Use(IActor user, IActor[] targets) { yield return null; }
     public virtual IEnumerator Use(IActor target) { yield return null; }

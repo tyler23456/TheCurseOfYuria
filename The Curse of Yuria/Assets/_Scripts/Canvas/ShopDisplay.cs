@@ -179,7 +179,7 @@ public class ShopDisplay : DisplayBase
     void OnBuyItem(string itemName)
     {
         IItem current = ItemDatabase.Instance.Get(itemName);
-        InventoryManager.Instance.olms -= (int)(current.getWorth * IShopData.buyersRating);
+        InventoryManager.Instance.olms -= (int)(current.marketValue * IShopData.buyersRating);
         InventoryManager.Instance.AddItem(itemName);
         shopInventories[current.type].Remove(itemName);
         onBuyItem.Invoke(itemName);
@@ -191,7 +191,7 @@ public class ShopDisplay : DisplayBase
     void OnSellItem(string itemName)
     {
         IItem current = ItemDatabase.Instance.Get(itemName);
-        InventoryManager.Instance.olms += (int)(current.getWorth * IShopData.sellersRating);
+        InventoryManager.Instance.olms += (int)(current.marketValue * IShopData.sellersRating);
         shopInventories[current.type].Add(itemName);
         InventoryManager.Instance.Get(current.type).Remove(itemName);
         onSellItem.Invoke(itemName);
@@ -203,14 +203,14 @@ public class ShopDisplay : DisplayBase
     void ShowPlayerProfit(string itemName)
     {
         IItem current = ItemDatabase.Instance.Get(itemName);
-        int price = (int)(current.getWorth * IShopData.sellersRating);
+        int price = (int)(current.marketValue * IShopData.sellersRating);
         display.RefreshAllieInfo(itemName, price);
     }
 
     void ShowPlayerDeficit(string itemName)
     {
         IItem current = ItemDatabase.Instance.Get(itemName);
-        int price = (int)(current.getWorth * IShopData.buyersRating);
+        int price = (int)(current.marketValue * IShopData.buyersRating);
         display.RefreshAllieInfo(itemName, -price);
     }
 }

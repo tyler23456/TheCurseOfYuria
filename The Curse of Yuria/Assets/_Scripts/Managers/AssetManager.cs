@@ -119,7 +119,7 @@ namespace TCOY.Items
                 RefreshItemCategory(icon, questItemPath + FilterName(icon.name), ScriptableObject.CreateInstance<QuestItem>());
         }
         
-        void RefreshItemCategory(Sprite icon, string path, ItemBase scriptableObject)
+        void RefreshItemCategory(Sprite icon, string path, IItem scriptableObject)
         {
             prefab = (GameObject)AssetDatabase.LoadAssetAtPath(prefabsRootPath + path + ".prefab", typeof(GameObject));
             asset = (ItemBase)AssetDatabase.LoadAssetAtPath(assetsRootPath + path + ".asset", typeof(ItemBase));
@@ -171,9 +171,9 @@ namespace TCOY.Items
             CreatePrefab(icon, path);
         }
 
-        void CreateScriptableObject(Sprite icon, GameObject prefab, ItemBase scriptableObject, string path)
+        void CreateScriptableObject(Sprite icon, GameObject prefab, IItem scriptableObject, string path)
         {
-            AssetDatabase.CreateAsset(scriptableObject, assetsRootPath + path + ".asset");
+            AssetDatabase.CreateAsset((ScriptableObject)scriptableObject, assetsRootPath + path + ".asset");
             RefreshScriptableObject(icon, prefab, path);
         }
 

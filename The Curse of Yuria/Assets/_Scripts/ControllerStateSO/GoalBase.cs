@@ -4,28 +4,28 @@ using UnityEngine;
 
 namespace TCOY.ControllerStates
 {
-    public abstract class GoalBase : ScriptableObject
+    public abstract class GoalBase : GoalState
     {
         [SerializeField] protected GoalState[] transitionStates;
 
         public new string name => base.name;
 
-        public virtual bool CheckForTransition(IController controller)
+        public override bool CheckForTransition(IController controller)
         {
             return true;
         }
 
-        public virtual void UpdateState(IController controller)
+        public override void UpdateState(IController controller)
         {
-            if (controller.goalState == GoalState.State.enter)
+            if (controller.goalState == State.enter)
             {
-                controller.goalState = GoalState.State.stay;
+                controller.goalState = State.stay;
                 Enter(controller);
                 
             }
 
 
-            if (controller.goalState == GoalState.State.stay)
+            if (controller.goalState == State.stay)
                 Stay(controller);
 
             foreach (GoalState transitionState in transitionStates)
@@ -34,10 +34,10 @@ namespace TCOY.ControllerStates
                     controller.SetGoal(transitionState);
                 }
 
-            if (controller.goalState == GoalState.State.exit)
+            if (controller.goalState == State.exit)
             {
                 Exit(controller);
-                controller.goalState = GoalState.State.enter;
+                controller.goalState = State.enter;
             }
         }
 
@@ -45,7 +45,7 @@ namespace TCOY.ControllerStates
         protected virtual void Stay(IController controller) { }
         protected virtual void Exit(IController controller) { }
 
-        public virtual void OnDrawGizmosMethod(IController controller)
+        public override void OnDrawGizmosMethod(IController controller)
         {
 
         }
