@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: ddf75fc975a6411f895930f10ef4c22d, type: 3}
   _prefab: {fileID: 6139751929140777689, guid: e9eddf39c83cc3144833b481e3fc079d, type: 3}
-  _description: 
+  _description: 'this hat increases '
   _itemSprite:
     Name: AgileHat
     Collection: Basic

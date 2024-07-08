@@ -5,7 +5,7 @@ using UnityEngine.AddressableAssets;
 using HeroEditor.Common.Enums;
 
 [ExecuteAlways]
-public class ItemDatabase : MonoBehaviour
+public class ItemDatabase : MonoBehaviour//, ISerializationCallbackReceiver
 {
     public static ItemDatabase Instance { get; private set; }
 
@@ -15,9 +15,14 @@ public class ItemDatabase : MonoBehaviour
 
     Dictionary<string, IItem> items = new Dictionary<string, IItem>();
 
+    public List<string> keys = new List<string>();
+    public List<IItem> values = new List<IItem>();
+
     void Awake()
     {
         Instance = this;
+
+        Populate();
     }
     
     void Update()
@@ -27,9 +32,16 @@ public class ItemDatabase : MonoBehaviour
 
         populate = false;
 
+        Populate();
+    }
+
+    void Populate()
+    {
         Addressables.LoadAssetsAsync<IItem>(itemsReference, (i) =>
         {
-            serializedItems.Add(i);
+            //serializedItems.Add(i);
+            items.Add(i.name, i);
+            
         }).WaitForCompletion();
     }
 
@@ -69,4 +81,30 @@ public class ItemDatabase : MonoBehaviour
             serializedItems.Clear();
         }
     }
+
+    /*public void OnBeforeSerialize()
+    {
+        keys.Clear();
+        values.Clear();
+
+        foreach (var item in items)
+        {
+            keys.Add(item.Key);
+            values.Add(item.Value);
+        }
+    }
+
+    public void OnAfterDeserialize()
+    {
+        items = new Dictionary<string, IItem>();
+
+        for (int i = 0; i != Mathf.Min(keys.Count, values.Count); i++)
+            items.Add(keys[i], values[i]);
+    }
+
+    void OnGUI()
+    {
+        foreach (var kvp in items)
+            GUILayout.Label("Key: " + kvp.Key + " value: " + kvp.Value);
+    }*/
 }
