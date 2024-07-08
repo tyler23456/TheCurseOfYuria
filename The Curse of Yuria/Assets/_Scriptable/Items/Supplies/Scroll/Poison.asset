@@ -12,24 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: Poison
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 193706529b846104ca13b03bbf949a58, type: 3}
-  _prefab: {fileID: 7276168454807695507, guid: bd0b89e8ed096c7478aa7a0b79cb5300, type: 3}
-  info: 
+  _prefab: {fileID: 2375611315980512538, guid: bd0b89e8ed096c7478aa7a0b79cb5300, type: 3}
+  _description: Inflicts the "Poison" status effect on a target.  Poison will periodically
+    damage the target with a small amount of non elemental damage.
   _itemSprite:
     Name: Poison
     Collection: Supplies
@@ -42,5 +28,16 @@ MonoBehaviour:
     Multiple: 1
     Hash: fab74b9440a14077f3d67b3ffbb45ebd
     Tags: []
-  worth: 4
-  cost: 0
+  _marketValue: 4
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 2118910425838060974, guid: dc3c3ff8e0da4ab45a70c1961bcfa4de, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities:
+    - statusEffect: {fileID: 11400000, guid: f8cac8eef1e9b1741aa7a3ff955a24ee, type: 2}
+      probability: 0.95
+  cost: 2

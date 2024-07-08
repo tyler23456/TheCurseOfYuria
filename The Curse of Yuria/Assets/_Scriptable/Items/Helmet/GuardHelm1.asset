@@ -12,72 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd90c4673afd1641ab5d12b93064875, type: 3}
   m_Name: GuardHelm1
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: equipableInfo
-      Entry: 7
-      Data: 0|TCOY.Items.EquipableInfo, Assembly-CSharp
-    - Name: modifiers
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: wards
-      Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: counters
-      Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: interrupts
-      Entry: 7
-      Data: 4|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _icon: {fileID: 21300000, guid: 916da663fc1d4567afc85433dc52c8b2, type: 3}
-  _prefab: {fileID: 1827582984348220772, guid: 62ebcf382e41b824e9792b61a6265c3e, type: 3}
-  description: 
+  _prefab: {fileID: 4986253840958474983, guid: 62ebcf382e41b824e9792b61a6265c3e, type: 3}
+  _description: 
   _itemSprite:
     Name: GuardHelm1 [Paint]
     Collection: Basic
@@ -92,4 +29,13 @@ MonoBehaviour:
     Hash: fa6d6040c3459bc3597da236b4ce6dc1
     Tags:
     - Paint
-  marketValue: 4
+  _marketValue: 4
+  equipableInfo:
+    modifiers:
+    - attribute: 3
+      offset: 9
+    - attribute: 6
+      offset: -1
+    wards: []
+    counters: []
+    interrupts: []

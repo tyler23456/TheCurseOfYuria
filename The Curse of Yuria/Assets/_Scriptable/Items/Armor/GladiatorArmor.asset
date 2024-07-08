@@ -12,72 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aeadf7fb46759741b5681dcc00c3096, type: 3}
   m_Name: GladiatorArmor
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: equipableInfo
-      Entry: 7
-      Data: 0|TCOY.Items.EquipableInfo, Assembly-CSharp
-    - Name: modifiers
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: wards
-      Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: counters
-      Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: interrupts
-      Entry: 7
-      Data: 4|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _icon: {fileID: 21300000, guid: 44e56a6f46dd4ebdaaca10e032890dd8, type: 3}
-  _prefab: {fileID: 1678508476536939558, guid: dcb49fed45c3be547a7bd59598b147dd, type: 3}
-  description: 
+  _prefab: {fileID: 7783050611563335890, guid: dcb49fed45c3be547a7bd59598b147dd, type: 3}
+  _description: Gladiators are free men who compete in an area for prizes.  This
+    is the uniform they wear in battle.
   _itemSprite:
     Name: GladiatorArmor
     Collection: Basic
@@ -101,4 +39,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: ee4a9e523d220d42ec0f6aa67953fd28
     Tags: []
-  marketValue: 4
+  _marketValue: 2
+  equipableInfo:
+    modifiers:
+    - attribute: 3
+      offset: 13
+    - attribute: 6
+      offset: 3
+    wards: []
+    counters: []
+    interrupts: []

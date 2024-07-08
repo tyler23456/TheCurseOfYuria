@@ -12,72 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd90c4673afd1641ab5d12b93064875, type: 3}
   m_Name: MasterDodgeHat
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: equipableInfo
-      Entry: 7
-      Data: 0|TCOY.Items.EquipableInfo, Assembly-CSharp
-    - Name: modifiers
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: wards
-      Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: counters
-      Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: interrupts
-      Entry: 7
-      Data: 4|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _icon: {fileID: 21300000, guid: 6df36ed8f65242cd9784cb69375ece6c, type: 3}
-  _prefab: {fileID: 5383360970137508189, guid: 23adee7a27c06fe42859dec4c1dada62, type: 3}
-  description: 
+  _prefab: {fileID: 4556185709728717577, guid: 23adee7a27c06fe42859dec4c1dada62, type: 3}
+  _description: 
   _itemSprite:
     Name: MasterDodgeHat
     Collection: Basic
@@ -90,4 +27,8 @@ MonoBehaviour:
     Multiple: 1
     Hash: 883458afd852e959663f413f7e3cb7e8
     Tags: []
-  marketValue: 4
+  _marketValue: 4
+  equipableInfo:
+    modifiers: []
+    counters: []
+    interrupts: []

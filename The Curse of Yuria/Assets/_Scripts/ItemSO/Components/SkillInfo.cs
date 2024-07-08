@@ -4,13 +4,14 @@ using UnityEngine;
 
 namespace TCOY.Items
 {
+    [System.Serializable]
     public class SkillInfo
     {
-        public int power;
-        public ArmType armType;
-        public ElementType elementType;
-        public CalculationType calculationType;
-        [Space(5)] public List<BonusType> bonusTypes;
+        [SerializeField] public int power;
+        [SerializeField] public ArmType armType;
+        [SerializeField] public ElementType elementType;
+        [SerializeField] public CalculationType calculationType;
+        [Space(5)] [SerializeField] public List<BonusType> bonusTypes;
         [Space(5)] [SerializeField] protected ParticleSystem particleSystem;
 
         public IEnumerator PerformAnimation(IActor user, IActor target, IItem item, StatusEffectsInfo statusEffectsInfo)

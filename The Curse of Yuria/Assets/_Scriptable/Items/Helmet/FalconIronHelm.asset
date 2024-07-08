@@ -12,72 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd90c4673afd1641ab5d12b93064875, type: 3}
   m_Name: FalconIronHelm
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: equipableInfo
-      Entry: 7
-      Data: 0|TCOY.Items.EquipableInfo, Assembly-CSharp
-    - Name: modifiers
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: wards
-      Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: counters
-      Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: interrupts
-      Entry: 7
-      Data: 4|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _icon: {fileID: 21300000, guid: ced213e1637f47188f9665b88f36379a, type: 3}
-  _prefab: {fileID: 5561245228074669935, guid: 99c9f0b1453885740afcbb6e3e7475f2, type: 3}
-  description: 
+  _prefab: {fileID: 654632029885406961, guid: 99c9f0b1453885740afcbb6e3e7475f2, type: 3}
+  _description: 
   _itemSprite:
     Name: FalconIronHelm
     Collection: Knights
@@ -90,4 +27,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 75359c824db0d2b66a8f6ff9145eeafd
     Tags: []
-  marketValue: 4
+  _marketValue: 4
+  equipableInfo:
+    modifiers:
+    - attribute: 3
+      offset: 7
+    - attribute: 6
+      offset: 11
+    wards: []
+    counters: []
+    interrupts: []

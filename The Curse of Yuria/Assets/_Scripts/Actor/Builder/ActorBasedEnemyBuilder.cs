@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace TCOY.UserActors
 {
-    public class ActorBasedEnemyBuilder : IPrefabComponentsBuilder
+    public class ActorBasedEnemyBuilder : MonoBehaviour, IPrefabComponentsBuilder
     {
         Enemy enemy;
 

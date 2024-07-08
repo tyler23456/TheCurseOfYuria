@@ -12,24 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: DarkSkip
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 4ac5dcf852f440a4592562319776c241, type: 3}
-  _prefab: {fileID: 5704237430909992935, guid: ee1dfad612e8d8b43b7991e2f7aa0e54, type: 3}
-  info: 
+  _prefab: {fileID: 3770922785888024052, guid: ee1dfad612e8d8b43b7991e2f7aa0e54, type: 3}
+  _description: Cast an orb around the target that will neutralize any dark-based
+    attacks.
   _itemSprite:
     Name: DarkSkip
     Collection: Supplies
@@ -42,5 +28,16 @@ MonoBehaviour:
     Multiple: 1
     Hash: 8b6da46856830ea90bc70976b4f1a660
     Tags: []
-  worth: 4
-  cost: 0
+  _marketValue: 4
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 1558332597376287028, guid: 2aa4f40e33c880b4b82a43ed20bb9ec0, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities:
+    - statusEffect: {fileID: 11400000, guid: 8e093993ac98dec4e9b6b1b4bc381b4c, type: 2}
+      probability: 0.95
+  cost: 2

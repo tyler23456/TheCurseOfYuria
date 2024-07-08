@@ -12,72 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd90c4673afd1641ab5d12b93064875, type: 3}
   m_Name: GladiatorHelm2
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: equipableInfo
-      Entry: 7
-      Data: 0|TCOY.Items.EquipableInfo, Assembly-CSharp
-    - Name: modifiers
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: wards
-      Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: counters
-      Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: interrupts
-      Entry: 7
-      Data: 4|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _icon: {fileID: 21300000, guid: 9b059f40c85c490c968f2abf81d7ae38, type: 3}
-  _prefab: {fileID: 3212595622202631995, guid: 264245316bcfc34468f3b897ea8aad17, type: 3}
-  description: 
+  _prefab: {fileID: 5372923313270168885, guid: 264245316bcfc34468f3b897ea8aad17, type: 3}
+  _description: 
   _itemSprite:
     Name: GladiatorHelm2
     Collection: Basic
@@ -90,4 +27,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: d2585fa465ad9cc77ab6179fe5c48202
     Tags: []
-  marketValue: 4
+  _marketValue: 4
+  equipableInfo:
+    modifiers:
+    - attribute: 3
+      offset: 7
+    - attribute: 6
+      offset: -3
+    wards: []
+    counters: []
+    interrupts: []

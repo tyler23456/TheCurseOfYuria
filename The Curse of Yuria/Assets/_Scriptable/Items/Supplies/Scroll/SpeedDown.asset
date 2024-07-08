@@ -12,24 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: SpeedDown
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 11e754ce546262d4fa07fcbe48e9fe85, type: 3}
-  _prefab: {fileID: 9108448252239652317, guid: 03f202af622a1b643b4352e07ac63d9d, type: 3}
-  info: 
+  _prefab: {fileID: 8855547488459402795, guid: 03f202af622a1b643b4352e07ac63d9d, type: 3}
+  _description: Cast a temporary effect that lowers the target's speed.
   _itemSprite:
     Name: SpeedDown
     Collection: Supplies
@@ -42,5 +27,16 @@ MonoBehaviour:
     Multiple: 1
     Hash: 9149e99914501e1b939bee993bb1ef97
     Tags: []
-  worth: 4
-  cost: 0
+  _marketValue: 4
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 5062031598457638996, guid: 07faa21ac3437c641a55a466637d4f48, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities:
+    - statusEffect: {fileID: 11400000, guid: 35bf9104ac509c74cad065c022c4e15d, type: 2}
+      probability: 0.95
+  cost: 2

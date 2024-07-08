@@ -12,24 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: ThunderSkip
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 43c7b07335dc4e1498fde8d38934c437, type: 3}
-  _prefab: {fileID: 4470057768886680284, guid: 895672f7d8fe241489390546bfe42445, type: 3}
-  info: 
+  _prefab: {fileID: 9061763144499921458, guid: 895672f7d8fe241489390546bfe42445, type: 3}
+  _description: Cast an orb around the target that will neutralize any thunder-based
+    attacks.
   _itemSprite:
     Name: ThunderSkip
     Collection: Supplies
@@ -42,5 +28,16 @@ MonoBehaviour:
     Multiple: 1
     Hash: 8b6da46856830ea90bc70976b4f1a660
     Tags: []
-  worth: 4
-  cost: 0
+  _marketValue: 4
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 1558332597376287028, guid: b008dbe8f7ce860479fa0230a196b8a5, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities:
+    - statusEffect: {fileID: 11400000, guid: af6e9ed8568eca74e89e820ee1c2225a, type: 2}
+      probability: 0.95
+  cost: 2

@@ -12,24 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d5ed929cc05de4e9ff4057e86f7043, type: 3}
   m_Name: GreenPotionM
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: f73efbc8b98b74d48a7fb12161cfdcbe, type: 3}
-  _prefab: {fileID: 2749901435637128954, guid: 6549444433e2f5b4b9f925f3903ffc5b, type: 3}
-  info: 
+  _prefab: {fileID: 2523665065745860322, guid: 6549444433e2f5b4b9f925f3903ffc5b, type: 3}
+  _description: A larger quantity of potion that will restore a fair amount of MP.
   _itemSprite:
     Name: GreenPotionM
     Collection: Supplies
@@ -42,4 +27,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 7389e96bbf34ba9d66cfd7c8c965f582
     Tags: []
-  worth: 4
+  _marketValue: 4
+  skillInfo:
+    power: 4
+    armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: 58e92859ea816f142bcd47bd915112c7, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 0}
+  statusEffectsInfo:
+    statusEffectProbabilities: []

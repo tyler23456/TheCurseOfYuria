@@ -12,124 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81e6c75cbed47644ba49fdd8e3ef969, type: 3}
   m_Name: LittleLionSword
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: skillInfo
-      Entry: 7
-      Data: 0|TCOY.Items.SkillInfo, Assembly-CSharp
-    - Name: power
-      Entry: 3
-      Data: 0
-    - Name: armType
-      Entry: 6
-      Data: 
-    - Name: elementType
-      Entry: 6
-      Data: 
-    - Name: calculationType
-      Entry: 6
-      Data: 
-    - Name: bonusTypes
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[IBonusType, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: particleSystem
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: statusEffectsInfo
-      Entry: 7
-      Data: 2|TCOY.Items.StatusEffectsInfo, Assembly-CSharp
-    - Name: statusEffectProbabilities
-      Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[StatusEffectProbability, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: equipableInfo
-      Entry: 7
-      Data: 4|TCOY.Items.EquipableInfo, Assembly-CSharp
-    - Name: modifiers
-      Entry: 7
-      Data: 5|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: wards
-      Entry: 7
-      Data: 6|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: counters
-      Entry: 7
-      Data: 7|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: interrupts
-      Entry: 7
-      Data: 8|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _icon: {fileID: 21300000, guid: 05324b45a7dd4102a3832c4f345fba11, type: 3}
-  _prefab: {fileID: 2755560847065670955, guid: 5b3df74c1eafe4c4c9cec0ee052a6bc5, type: 3}
-  description: 
+  _prefab: {fileID: 985211999386961045, guid: 5b3df74c1eafe4c4c9cec0ee052a6bc5, type: 3}
+  _description: 
   _itemSprite:
     Name: LittleLionSword [Paint]
     Collection: Thrones
@@ -144,4 +29,17 @@ MonoBehaviour:
     Hash: a09e2fd26c4bd597f807d7694b9908a6
     Tags:
     - Paint
-  marketValue: 4
+  _marketValue: 4
+  skillInfo:
+    power: 0
+    armType: {fileID: 0}
+    elementType: {fileID: 0}
+    calculationType: {fileID: 0}
+    bonusTypes: []
+    particleSystem: {fileID: 0}
+  statusEffectsInfo:
+    statusEffectProbabilities: []
+  equipableInfo:
+    modifiers: []
+    counters: []
+    interrupts: []

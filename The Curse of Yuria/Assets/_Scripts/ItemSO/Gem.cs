@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TCOY.Items
 {
-    public class Gem : ItemBase, IItem
+    public class Gem : ItemSO, IItem
     {
         public override string type => "Gem";
     }

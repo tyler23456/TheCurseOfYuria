@@ -12,18 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd81c45a38e25a48ac8944c5fbaa306, type: 3}
   m_Name: GoblinAmulet
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   _icon: {fileID: 21300000, guid: 28402b283d8b1354f9d2d6c576c498c8, type: 3}
-  _prefab: {fileID: 9031100357114937352, guid: bd9e4e14795fa6f46846b4c39a19daf0, type: 3}
-  description: 
+  _prefab: {fileID: 7039463902888237820, guid: bd9e4e14795fa6f46846b4c39a19daf0, type: 3}
+  _description: 
   _itemSprite:
     Name: GoblinAmulet
     Collection: Supplies
@@ -36,4 +27,4 @@ MonoBehaviour:
     Multiple: 1
     Hash: 7439e8687ddb7ccfd3f5f2b6e8dc8bec
     Tags: []
-  marketValue: 4
+  _marketValue: 4

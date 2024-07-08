@@ -12,24 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d5ed929cc05de4e9ff4057e86f7043, type: 3}
   m_Name: PurplePotionS
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 270f2f60745f6484881fac1a5e557415, type: 3}
-  _prefab: {fileID: 5511373477652996708, guid: 417f793ad374baf4e83a834914e855c7, type: 3}
-  info: 
+  _prefab: {fileID: 2839647651576242033, guid: 417f793ad374baf4e83a834914e855c7, type: 3}
+  _description: 
   _itemSprite:
     Name: PurplePotionS
     Collection: Supplies
@@ -42,4 +27,15 @@ MonoBehaviour:
     Multiple: 1
     Hash: 671fcb86d5c3832d05afe4429c79d210
     Tags: []
-  worth: 4
+  _marketValue: 4
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 5406767978647780189, guid: bafb0a0d524b6fe498747e88b79f98c4, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities:
+    - statusEffect: {fileID: 11400000, guid: 1af67323599600b4d9b00b97c88ce548, type: 2}
+      probability: 0.6

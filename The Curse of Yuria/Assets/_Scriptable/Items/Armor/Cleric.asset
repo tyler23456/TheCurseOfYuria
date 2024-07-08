@@ -12,72 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aeadf7fb46759741b5681dcc00c3096, type: 3}
   m_Name: Cleric
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: equipableInfo
-      Entry: 7
-      Data: 0|TCOY.Items.EquipableInfo, Assembly-CSharp
-    - Name: modifiers
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: wards
-      Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: counters
-      Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: interrupts
-      Entry: 7
-      Data: 4|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _icon: {fileID: 21300000, guid: 0578ff2509eb47c7a86d27bc1e546ae8, type: 3}
-  _prefab: {fileID: 5705845637134093675, guid: c3ba004087c620e4e8e68d7660af585e, type: 3}
-  description: 
+  _prefab: {fileID: 1510318225547637949, guid: c3ba004087c620e4e8e68d7660af585e, type: 3}
+  _description: clearic wear used in prolonged praying rituals.
   _itemSprite:
     Name: Cleric [Paint]
     Collection: Basic
@@ -103,4 +40,15 @@ MonoBehaviour:
     Hash: e34ca8815bc59d4c3ec45ba15b04fea0
     Tags:
     - Paint
-  marketValue: 4
+  _marketValue: 14
+  equipableInfo:
+    modifiers:
+    - attribute: 3
+      offset: 11
+    - attribute: 7
+      offset: 14
+    wards:
+    - elementType: {fileID: 11400000, guid: 0ed350d9141d4124d8cfe2e5c127feb3, type: 2}
+      amount: 10
+    counters: []
+    interrupts: []

@@ -12,24 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d5ed929cc05de4e9ff4057e86f7043, type: 3}
   m_Name: Wine
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 26b6d871be67c924d83ce20513ced304, type: 3}
-  _prefab: {fileID: 7599406979704279450, guid: a03933f026561a843a9caaab6902bfdb, type: 3}
-  info: 
+  _prefab: {fileID: 5326433079747151951, guid: a03933f026561a843a9caaab6902bfdb, type: 3}
+  _description: Tastes like wine that's been aging for years.  This will restore
+    some health.
   _itemSprite:
     Name: Wine
     Collection: Supplies
@@ -42,4 +28,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 00f80db7311add2d553b050a9f8789ad
     Tags: []
-  worth: 4
+  _marketValue: 4
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: f117aa43d73050a469876f83fa098e44, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 0}
+  statusEffectsInfo:
+    statusEffectProbabilities: []

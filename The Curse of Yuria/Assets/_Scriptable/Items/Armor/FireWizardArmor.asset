@@ -12,72 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aeadf7fb46759741b5681dcc00c3096, type: 3}
   m_Name: FireWizardArmor
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: equipableInfo
-      Entry: 7
-      Data: 0|TCOY.Items.EquipableInfo, Assembly-CSharp
-    - Name: modifiers
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: wards
-      Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: counters
-      Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: interrupts
-      Entry: 7
-      Data: 4|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _icon: {fileID: 21300000, guid: d92dc600a5b4405ba6a2a54677e15b40, type: 3}
-  _prefab: {fileID: 2505052643692258249, guid: 9d7f68b326f138d4ea4e7bbac7478a27, type: 3}
-  description: 
+  _prefab: {fileID: 5066738275550855403, guid: 9d7f68b326f138d4ea4e7bbac7478a27, type: 3}
+  _description: Given to the arch mages of every kingdom as a gift from lothleir,
+    the famous blacksmith who invented it.  Its the best armor for magic and especially
+    fire protection of the land.
   _itemSprite:
     Name: FireWizardArmor
     Collection: Basic
@@ -101,4 +40,17 @@ MonoBehaviour:
     Multiple: 1
     Hash: e4d1254e4d3c8a239dfa91224a76b763
     Tags: []
-  marketValue: 4
+  _marketValue: 19
+  equipableInfo:
+    modifiers:
+    - attribute: 3
+      offset: 20
+    - attribute: 5
+      offset: 25
+    - attribute: 6
+      offset: -9
+    wards:
+    - elementType: {fileID: 11400000, guid: 61dd2432436639444aa0b5f9ab37ff9d, type: 2}
+      amount: 29
+    counters: []
+    interrupts: []

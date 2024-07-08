@@ -12,18 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd81c45a38e25a48ac8944c5fbaa306, type: 3}
   m_Name: Ember
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   _icon: {fileID: 21300000, guid: d4775dfc123f48c4f8996e3e93022b1c, type: 3}
-  _prefab: {fileID: 6501797717977719978, guid: 665c681d76612fa46bc6eb2b6a6e54cb, type: 3}
-  description: 
+  _prefab: {fileID: 2416371911166973686, guid: 665c681d76612fa46bc6eb2b6a6e54cb, type: 3}
+  _description: 
   _itemSprite:
     Name: Ember
     Collection: Supplies
@@ -36,4 +27,4 @@ MonoBehaviour:
     Multiple: 1
     Hash: 6defadc64375a82db10cd19e2dac6b82
     Tags: []
-  marketValue: 4
+  _marketValue: 4

@@ -12,24 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 86f0741e2f6b3d34faefc81c8aa06ead, type: 3}
-  _prefab: {fileID: 5963739093106098168, guid: 585797fb8afa9b14f88e951dc410e732, type: 3}
-  info: 
+  _prefab: {fileID: 1947392571065521669, guid: 585797fb8afa9b14f88e951dc410e732, type: 3}
+  _description: Cast fire-based magic on a target.
   _itemSprite:
     Name: Fire
     Collection: Supplies
@@ -42,5 +27,16 @@ MonoBehaviour:
     Multiple: 1
     Hash: 73b1b850d84fd1ef1a3536726865aa99
     Tags: []
-  worth: 4
-  cost: 0
+  _marketValue: 4
+  skillInfo:
+    power: 3
+    armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+    elementType: {fileID: 11400000, guid: 61dd2432436639444aa0b5f9ab37ff9d, type: 2}
+    calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 3716787501423605696, guid: d40d075809b5a3f4ab6151c684aed3f3, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities:
+    - statusEffect: {fileID: 11400000, guid: ae77481f8ee6b884ab328cb287dd14e0, type: 2}
+      probability: 0.05
+  cost: 2

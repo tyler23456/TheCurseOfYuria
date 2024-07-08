@@ -12,24 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: Burn
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 72590ece6dc17ea4fbb0af4ab36cb9b0, type: 3}
-  _prefab: {fileID: 2874365154872781413, guid: 47b3984aa6191cf4fb10ba14496a31d2, type: 3}
-  info: 
+  _prefab: {fileID: 7505741091618106757, guid: 47b3984aa6191cf4fb10ba14496a31d2, type: 3}
+  _description: Inflicts the "Burn" status effect on a target.  Burn will periodically
+    damage the target with fire damage.
   _itemSprite:
     Name: Burn
     Collection: Supplies
@@ -42,5 +28,16 @@ MonoBehaviour:
     Multiple: 1
     Hash: d65cff6b7720473755273ad676b84379
     Tags: []
-  worth: 4
-  cost: 0
+  _marketValue: 4
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+    elementType: {fileID: 11400000, guid: 61dd2432436639444aa0b5f9ab37ff9d, type: 2}
+    calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 1229073937782193204, guid: 9823f8241ce798444a7d51ed0d252b9a, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities:
+    - statusEffect: {fileID: 11400000, guid: ae77481f8ee6b884ab328cb287dd14e0, type: 2}
+      probability: 0.95
+  cost: 2

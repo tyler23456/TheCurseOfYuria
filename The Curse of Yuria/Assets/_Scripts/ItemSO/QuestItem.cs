@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TCOY.Items
 {
-    public class QuestItem : ItemBase, IItem
+    public class QuestItem : ItemSO, IItem
     {
         public override string type => "QuestItem";
     }

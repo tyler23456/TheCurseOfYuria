@@ -12,24 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: Sleep
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 4cb8b4c18b8d1d04396c7692ca4e34f9, type: 3}
-  _prefab: {fileID: 2962993908276383086, guid: 613fbace4f1aec5499d52eeca2483881, type: 3}
-  info: 
+  _prefab: {fileID: 3147478643256920208, guid: 613fbace4f1aec5499d52eeca2483881, type: 3}
+  _description: Inflicts the "Sleep" status effect on the target.  Sleep will immobilize
+    the player and stop their ATB guage from charging for a variable amount of time.
   _itemSprite:
     Name: Sleep
     Collection: Supplies
@@ -42,5 +28,16 @@ MonoBehaviour:
     Multiple: 1
     Hash: fab74b9440a14077f3d67b3ffbb45ebd
     Tags: []
-  worth: 4
-  cost: 0
+  _marketValue: 4
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 3803506460705675422, guid: efca1fc7876650244b258ed3ee1231a4, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities:
+    - statusEffect: {fileID: 11400000, guid: 2c943905b5818e74983d52f2c15d8d00, type: 2}
+      probability: 0.95
+  cost: 2

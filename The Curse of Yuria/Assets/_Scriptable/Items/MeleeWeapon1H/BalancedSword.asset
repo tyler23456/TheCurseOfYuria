@@ -12,124 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81e6c75cbed47644ba49fdd8e3ef969, type: 3}
   m_Name: BalancedSword
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: skillInfo
-      Entry: 7
-      Data: 0|TCOY.Items.SkillInfo, Assembly-CSharp
-    - Name: power
-      Entry: 3
-      Data: 0
-    - Name: armType
-      Entry: 6
-      Data: 
-    - Name: elementType
-      Entry: 6
-      Data: 
-    - Name: calculationType
-      Entry: 6
-      Data: 
-    - Name: bonusTypes
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[IBonusType, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: particleSystem
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: statusEffectsInfo
-      Entry: 7
-      Data: 2|TCOY.Items.StatusEffectsInfo, Assembly-CSharp
-    - Name: statusEffectProbabilities
-      Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[StatusEffectProbability, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: equipableInfo
-      Entry: 7
-      Data: 4|TCOY.Items.EquipableInfo, Assembly-CSharp
-    - Name: modifiers
-      Entry: 7
-      Data: 5|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: wards
-      Entry: 7
-      Data: 6|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: counters
-      Entry: 7
-      Data: 7|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: interrupts
-      Entry: 7
-      Data: 8|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _icon: {fileID: 21300000, guid: effbbd8536bd427da8b73e1eeb43556f, type: 3}
-  _prefab: {fileID: 619938307712060648, guid: 6350c8377e5420d40b313cd7d47ccd3b, type: 3}
-  description: 
+  _prefab: {fileID: 8871203090475910185, guid: 6350c8377e5420d40b313cd7d47ccd3b, type: 3}
+  _description: A sword specifically crafted to be easy to hold while in combat.
   _itemSprite:
     Name: BalancedSword [Paint]
     Collection: Knights
@@ -144,4 +29,23 @@ MonoBehaviour:
     Hash: ec7cf87be9249b393ce5569a01d41538
     Tags:
     - Paint
-  marketValue: 4
+  _marketValue: 6
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: 241958a3a01de8544a64f4d9cc9e7062, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+    bonusTypes:
+    - {fileID: 11400000, guid: 95654927c8f7be14a9e8a723adecc6dd, type: 2}
+    particleSystem: {fileID: 0}
+  statusEffectsInfo:
+    statusEffectProbabilities: []
+  equipableInfo:
+    modifiers:
+    - attribute: 2
+      offset: 14
+    - attribute: 6
+      offset: -4
+    wards: []
+    counters: []
+    interrupts: []

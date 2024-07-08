@@ -12,24 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d5ed929cc05de4e9ff4057e86f7043, type: 3}
   m_Name: Vinegar
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 82e1a3b108ffc184ba25495e0b19f911, type: 3}
-  _prefab: {fileID: 1075995460832903891, guid: 914b997a32f19e24b98d28ed06db6fae, type: 3}
-  info: 
+  _prefab: {fileID: 2451552256857392684, guid: 914b997a32f19e24b98d28ed06db6fae, type: 3}
+  _description: It probably taste terrible if taken by itself but it will restore
+    a small amount of health.
   _itemSprite:
     Name: Vinegar
     Collection: Supplies
@@ -42,4 +28,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 952d28e79d073760216150ce6f1c6d02
     Tags: []
-  worth: 4
+  _marketValue: 4
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: f117aa43d73050a469876f83fa098e44, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 8544434443688463029, guid: 7fbb7b8dbd54bdf42b2b5875fe14b8bf, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities: []

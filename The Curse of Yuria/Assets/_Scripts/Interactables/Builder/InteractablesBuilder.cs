@@ -4,21 +4,21 @@ using UnityEngine;
 
 namespace TCOY.Interactables
 {
-    public class InteractablesBuilder : IPrefabComponentsBuilder
+    public class InteractablesBuilder : MonoBehaviour, IPrefabComponentsBuilder
     {
-        Item item;
+        ItemBehaviour item;
 
         void IPrefabComponentsBuilder.AddComponentsWithAppropriateValuesTo(GameObject prefab)
         {
-            item = prefab.GetComponent<Item>();
+            item = prefab.GetComponent<ItemBehaviour>();
 
             if (item == null)
-                prefab.AddComponent<Item>();
+                prefab.AddComponent<ItemBehaviour>();
         }
 
         bool IPrefabComponentsBuilder.HasComponentsWithAppropriateValuesFor(GameObject prefab)
         {
-            item = prefab.GetComponent<Item>();
+            item = prefab.GetComponent<ItemBehaviour>();
             return item != null;
         }
     }

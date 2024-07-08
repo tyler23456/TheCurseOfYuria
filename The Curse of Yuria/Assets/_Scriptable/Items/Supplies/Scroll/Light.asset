@@ -12,24 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: Light
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: da98aa7fe8a8aff4190d9b5eeb7a893c, type: 3}
-  _prefab: {fileID: 2610082016232162564, guid: 6c93533ec9f6c9f4a8137583ef12edc9, type: 3}
-  info: 
+  _prefab: {fileID: 3690730491294700924, guid: 6c93533ec9f6c9f4a8137583ef12edc9, type: 3}
+  _description: Cast light-based magic on a target.
   _itemSprite:
     Name: Light
     Collection: Supplies
@@ -42,5 +27,14 @@ MonoBehaviour:
     Multiple: 1
     Hash: 73b1b850d84fd1ef1a3536726865aa99
     Tags: []
-  worth: 4
-  cost: 0
+  _marketValue: 4
+  skillInfo:
+    power: 4
+    armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+    elementType: {fileID: 11400000, guid: 97b64b870e1d7cf4e94ad6c7aced1304, type: 2}
+    calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 335701130982456758, guid: 6f35ccbeb00794040ac4b65146c8fd7e, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities: []
+  cost: 2

@@ -12,24 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: Thunder
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 78b7b1b00f9886546bad49738e08ac86, type: 3}
-  _prefab: {fileID: 1450113278548713622, guid: f31db9cbafc023c4185299c64fb0550c, type: 3}
-  info: 
+  _prefab: {fileID: 8525019237638478904, guid: f31db9cbafc023c4185299c64fb0550c, type: 3}
+  _description: Cast thunder-based magic on a target.
   _itemSprite:
     Name: Thunder
     Collection: Supplies
@@ -42,5 +27,16 @@ MonoBehaviour:
     Multiple: 1
     Hash: 73b1b850d84fd1ef1a3536726865aa99
     Tags: []
-  worth: 4
-  cost: 0
+  _marketValue: 4
+  skillInfo:
+    power: 3
+    armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+    elementType: {fileID: 11400000, guid: cd55b3b1c40b8dd4daea30da3e507901, type: 2}
+    calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 3950214905299764854, guid: 14edab54bc882fd4a9866554d6bedc2b, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities:
+    - statusEffect: {fileID: 11400000, guid: 61dea5dbd52f2044198734224c6bcac7, type: 2}
+      probability: 0.05
+  cost: 2

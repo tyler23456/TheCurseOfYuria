@@ -11,13 +11,13 @@ namespace TCOY.Items
     public class EquipableInfo
     {
         [Space(5)]
-        public List<Modifier> modifiers = new List<Modifier>();
+        [SerializeField] public List<Modifier> modifiers = new List<Modifier>();
         [Space(5)]
-        public List<Ward> wards = new List<Ward>();
+        [SerializeField] public List<Ward> wards = new List<Ward>();
         [Space(5)]
-        public List<Reactor> counters = new List<Reactor>();
+        [SerializeField] public List<Reactor> counters = new List<Reactor>();
         [Space(5)]
-        public List<Reactor> interrupts = new List<Reactor>();
+        [SerializeField] public List<Reactor> interrupts = new List<Reactor>();
 
         public void Equip(IActor target, string equipmentName, EquipmentPart part, ItemSprite equipmentSprite)
         {

@@ -12,24 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: Paralyze
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 4534db6667d3b754c8eef891eff1dd95, type: 3}
-  _prefab: {fileID: 8196160977919613476, guid: 1afb5de8a9824974ca878e486a7ce16a, type: 3}
-  info: 
+  _prefab: {fileID: 7342631612807094479, guid: 1afb5de8a9824974ca878e486a7ce16a, type: 3}
+  _description: Inflicts the "Paralyze" status effect on the target.  Paralyze will
+    immobilize the player for a variable amount of time.
   _itemSprite:
     Name: Paralyze
     Collection: Supplies
@@ -42,5 +28,16 @@ MonoBehaviour:
     Multiple: 1
     Hash: fab74b9440a14077f3d67b3ffbb45ebd
     Tags: []
-  worth: 4
-  cost: 0
+  _marketValue: 4
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 6846817570176300725, guid: f540104585cd8a84b88c69d063e7750f, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities:
+    - statusEffect: {fileID: 11400000, guid: 38d6dd2d5fcd1ba468331a4a743bc351, type: 2}
+      probability: 0.95
+  cost: 2

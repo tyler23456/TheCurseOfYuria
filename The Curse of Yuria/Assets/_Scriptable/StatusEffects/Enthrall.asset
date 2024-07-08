@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663053bce791bac47a44a5281673c9bd, type: 3}
+  m_Name: Enthrall
+  m_EditorClassIdentifier: 
+  duration: Infinity
+  icon: {fileID: -606357570, guid: 080cb6d98b00c2645b2c41df5f69bc78, type: 3}
+  moves:
+  - skill: {fileID: 11400000, guid: 998908422ab360649aeb62f798a0bcb5, type: 2}
+    target: {fileID: 11400000, guid: 0b4711a4aa657e946a29d56d3c7283f7, type: 2}
+  probability: 0.5
+  removeAllTargetsWithTheSameLayerAsUser: 1

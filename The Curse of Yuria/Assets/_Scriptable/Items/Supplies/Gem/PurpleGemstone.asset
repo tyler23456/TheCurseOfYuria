@@ -12,18 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8d1e273a1894d4796be00aa0062422, type: 3}
   m_Name: PurpleGemstone
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   _icon: {fileID: 21300000, guid: 64f66db4954223a488f6eb38aea1cfbf, type: 3}
-  _prefab: {fileID: 1635773849662206248, guid: 1b4ce3c71a4716e4d8f9ee785c6c589b, type: 3}
-  info: 
+  _prefab: {fileID: 139053055845651260, guid: 1b4ce3c71a4716e4d8f9ee785c6c589b, type: 3}
+  _description: 
   _itemSprite:
     Name: PurpleGemstone
     Collection: Supplies
@@ -36,4 +27,4 @@ MonoBehaviour:
     Multiple: 1
     Hash: b99df06bee1af494d5e6be8708785025
     Tags: []
-  worth: 4
+  _marketValue: 15

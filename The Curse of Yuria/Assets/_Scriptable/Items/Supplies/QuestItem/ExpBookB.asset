@@ -12,18 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd81c45a38e25a48ac8944c5fbaa306, type: 3}
   m_Name: ExpBookB
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   _icon: {fileID: 21300000, guid: 48cae7c08ec622c4c857bef084b21c60, type: 3}
-  _prefab: {fileID: 6563384908537238970, guid: 193c1b493533c094dbe70482b14e6667, type: 3}
-  description: 
+  _prefab: {fileID: 9160948547902866017, guid: 193c1b493533c094dbe70482b14e6667, type: 3}
+  _description: 
   _itemSprite:
     Name: ExpBookB
     Collection: Supplies
@@ -36,4 +27,4 @@ MonoBehaviour:
     Multiple: 1
     Hash: 411220f90fb3315443a7354a00437054
     Tags: []
-  marketValue: 4
+  _marketValue: 4

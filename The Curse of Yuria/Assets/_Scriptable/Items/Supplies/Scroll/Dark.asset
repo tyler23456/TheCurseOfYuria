@@ -12,24 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: Dark
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 961481803829e9745b4314f7bf319eec, type: 3}
-  _prefab: {fileID: 8199937575306893073, guid: 54bde1ef531a5414e952d8b66b85af56, type: 3}
-  info: 
+  _prefab: {fileID: 732060557294537623, guid: 54bde1ef531a5414e952d8b66b85af56, type: 3}
+  _description: Cast darkness-based magic on a target.
   _itemSprite:
     Name: Dark
     Collection: Supplies
@@ -42,5 +27,14 @@ MonoBehaviour:
     Multiple: 1
     Hash: 73b1b850d84fd1ef1a3536726865aa99
     Tags: []
-  worth: 4
-  cost: 0
+  _marketValue: 4
+  skillInfo:
+    power: 4
+    armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+    elementType: {fileID: 11400000, guid: 0ed350d9141d4124d8cfe2e5c127feb3, type: 2}
+    calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 2748146283442478975, guid: 1f26d3f51db44c24dac866a2ff5be7c7, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities: []
+  cost: 2

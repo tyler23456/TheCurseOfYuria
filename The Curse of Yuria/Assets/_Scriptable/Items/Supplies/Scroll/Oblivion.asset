@@ -12,24 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: Oblivion
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 1b329abf2fa3a6948952070f1195996e, type: 3}
-  _prefab: {fileID: 8234862281163233384, guid: 6c5da2fe859924944815b1dc4079544a, type: 3}
-  info: 
+  _prefab: {fileID: 2502673977216387354, guid: 6c5da2fe859924944815b1dc4079544a, type: 3}
+  _description: Cast non elemental-based magic on a target.  this deals a lot of
+    damage.
   _itemSprite:
     Name: Oblivion
     Collection: Supplies
@@ -42,5 +28,14 @@ MonoBehaviour:
     Multiple: 1
     Hash: 3a78b069c4cee40f9514520938256b8e
     Tags: []
-  worth: 4
-  cost: 0
+  _marketValue: 4
+  skillInfo:
+    power: 5
+    armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 7864439438791569329, guid: 76df43a3a89f6854491700452bd0ec66, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities: []
+  cost: 2

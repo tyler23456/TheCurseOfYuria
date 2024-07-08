@@ -12,72 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aeadf7fb46759741b5681dcc00c3096, type: 3}
   m_Name: FireWarriorArmor
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: equipableInfo
-      Entry: 7
-      Data: 0|TCOY.Items.EquipableInfo, Assembly-CSharp
-    - Name: modifiers
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: wards
-      Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: counters
-      Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: interrupts
-      Entry: 7
-      Data: 4|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _icon: {fileID: 21300000, guid: 2eedf4a4de94454d861afbc3aa7cafe4, type: 3}
-  _prefab: {fileID: 2218264675332057278, guid: ef3cb32188850a24e999c1b80a1bc1ba, type: 3}
-  description: 
+  _prefab: {fileID: 5530386095692383880, guid: ef3cb32188850a24e999c1b80a1bc1ba, type: 3}
+  _description: A decent armor when dealing with fire attacks.  And surpurb armor
+    for physical defense that still maintains a fair amount of mobility.
   _itemSprite:
     Name: FireWarriorArmor
     Collection: Basic
@@ -101,4 +39,17 @@ MonoBehaviour:
     Multiple: 1
     Hash: c104aea2ec9d7e05f2be6a2943f59d3a
     Tags: []
-  marketValue: 4
+  _marketValue: 9
+  equipableInfo:
+    modifiers:
+    - attribute: 3
+      offset: 24
+    - attribute: 5
+      offset: 4
+    - attribute: 6
+      offset: -3
+    wards:
+    - elementType: {fileID: 11400000, guid: 61dd2432436639444aa0b5f9ab37ff9d, type: 2}
+      amount: 21
+    counters: []
+    interrupts: []

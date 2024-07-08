@@ -12,18 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd81c45a38e25a48ac8944c5fbaa306, type: 3}
   m_Name: RareSilverRing
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   _icon: {fileID: 21300000, guid: 46746305cc7eca74eb9dd0f059f1f516, type: 3}
-  _prefab: {fileID: 1350079097742444260, guid: 1d2edbd0b1aa2f941ac0898e337647dd, type: 3}
-  description: 
+  _prefab: {fileID: 2973059051451302686, guid: 1d2edbd0b1aa2f941ac0898e337647dd, type: 3}
+  _description: 
   _itemSprite:
     Name: RareSilverRing
     Collection: Basic
@@ -36,4 +27,4 @@ MonoBehaviour:
     Multiple: 1
     Hash: b4fd664e4f44816bc29da8f6e2750ec0
     Tags: []
-  marketValue: 4
+  _marketValue: 4

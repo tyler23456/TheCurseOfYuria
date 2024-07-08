@@ -12,24 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: Entrall
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 8dbe939084fb5b94a961bf669b2bb2b8, type: 3}
-  _prefab: {fileID: 7562924454466102626, guid: 0f594f3fb0a3044468b719b31955fe4e, type: 3}
-  info: 
+  _prefab: {fileID: 7645568155773912256, guid: 0f594f3fb0a3044468b719b31955fe4e, type: 3}
+  _description: Inflicts the "Entrall" status effect on a target.  The target has
+    a variable percent chance of attacking their allies.
   _itemSprite:
     Name: Entrall
     Collection: Supplies
@@ -42,5 +28,16 @@ MonoBehaviour:
     Multiple: 1
     Hash: fab74b9440a14077f3d67b3ffbb45ebd
     Tags: []
-  worth: 4
-  cost: 0
+  _marketValue: 4
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 3189163135992822113, guid: 2678f3b8c148f8a418a86721ce7a2a5a, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities:
+    - statusEffect: {fileID: 11400000, guid: 1fe84fe51c80d004c86f0892be93c35a, type: 2}
+      probability: 0.9
+  cost: 2

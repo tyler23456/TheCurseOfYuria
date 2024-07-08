@@ -12,124 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c196187a2a53c2e45831f5911729989e, type: 3}
   m_Name: GoldDragon
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: skillInfo
-      Entry: 7
-      Data: 0|TCOY.Items.SkillInfo, Assembly-CSharp
-    - Name: power
-      Entry: 3
-      Data: 0
-    - Name: armType
-      Entry: 6
-      Data: 
-    - Name: elementType
-      Entry: 6
-      Data: 
-    - Name: calculationType
-      Entry: 6
-      Data: 
-    - Name: bonusTypes
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[IBonusType, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: particleSystem
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: statusEffectsInfo
-      Entry: 7
-      Data: 2|TCOY.Items.StatusEffectsInfo, Assembly-CSharp
-    - Name: statusEffectProbabilities
-      Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[StatusEffectProbability, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: equipableInfo
-      Entry: 7
-      Data: 4|TCOY.Items.EquipableInfo, Assembly-CSharp
-    - Name: modifiers
-      Entry: 7
-      Data: 5|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: wards
-      Entry: 7
-      Data: 6|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: counters
-      Entry: 7
-      Data: 7|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: interrupts
-      Entry: 7
-      Data: 8|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _icon: {fileID: 21300000, guid: b6a818ef96f74851a0655890eb4241a7, type: 3}
-  _prefab: {fileID: 191334165990100717, guid: 574bed22f7fc7d04694129efac3a99d9, type: 3}
-  description: 
+  _prefab: {fileID: 7619680226153908225, guid: 574bed22f7fc7d04694129efac3a99d9, type: 3}
+  _description: A bow that is built from dragon scales and tethlite, a common mineral
+    known for its gold-like color.  This is one of the best bows in existance for
+    bow masters that can handle the intense draw weight.  A great weapon for hunting
+    giant creatures.  This weapon inflicts thunder damage.
   _itemSprite:
     Name: GoldDragon
     Collection: Basic
@@ -144,4 +32,25 @@ MonoBehaviour:
     Multiple: 1
     Hash: 1465ce151811dc6328575c27edef9b3f
     Tags: []
-  marketValue: 4
+  _marketValue: 15
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: 8a3ed9064fa7dc348b7ed5684b89a2dc, type: 2}
+    elementType: {fileID: 11400000, guid: cd55b3b1c40b8dd4daea30da3e507901, type: 2}
+    calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+    bonusTypes:
+    - {fileID: 11400000, guid: 95654927c8f7be14a9e8a723adecc6dd, type: 2}
+    particleSystem: {fileID: 0}
+  statusEffectsInfo:
+    statusEffectProbabilities: []
+  equipableInfo:
+    modifiers:
+    - attribute: 2
+      offset: 29
+    - attribute: 6
+      offset: 5
+    - attribute: 7
+      offset: 16
+    wards: []
+    counters: []
+    interrupts: []

@@ -5,7 +5,7 @@ using HeroEditor.Common.Enums;
 
 namespace TCOY.Interactables
 {
-    public class Item : InteractableBase, IInteractablePointer
+    public class ItemBehaviour : InteractableBase, IInteractablePointer
     {
         protected new void Start()
         {

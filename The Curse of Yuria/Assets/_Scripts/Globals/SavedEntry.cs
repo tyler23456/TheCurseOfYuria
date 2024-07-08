@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class SavedEntry
+public class SavedEntry : Entry
 {
-    public string ID = System.DateTime.Now.Ticks.ToString() + "|" + System.Guid.NewGuid().ToString();
-    public IItem item;
-    public int count = 1;
+    [SerializeField] public string ID = System.DateTime.Now.Ticks.ToString() + "|" + System.Guid.NewGuid().ToString();
 }

@@ -42,7 +42,7 @@ namespace TCOY.Items
         [SerializeField] bool refreshPrefabs = false;
 
         GameObject prefab;
-        ItemBase asset;
+        ItemSO asset;
         GameObject obj;
 
         IPrefabComponentsBuilder[] prefabComponentsBuilders;
@@ -122,7 +122,7 @@ namespace TCOY.Items
         void RefreshItemCategory(Sprite icon, string path, IItem scriptableObject)
         {
             prefab = (GameObject)AssetDatabase.LoadAssetAtPath(prefabsRootPath + path + ".prefab", typeof(GameObject));
-            asset = (ItemBase)AssetDatabase.LoadAssetAtPath(assetsRootPath + path + ".asset", typeof(ItemBase));
+            asset = (ItemSO)AssetDatabase.LoadAssetAtPath(assetsRootPath + path + ".asset", typeof(ItemSO));
 
             if (prefab == null)
                 prefab = CreatePrefab(icon, path);
@@ -179,7 +179,7 @@ namespace TCOY.Items
 
         void RefreshScriptableObject(Sprite icon, GameObject prefab, string path)
         {
-            asset = (ItemBase)AssetDatabase.LoadAssetAtPath(assetsRootPath + path + ".asset", typeof(ItemBase));
+            asset = (ItemSO)AssetDatabase.LoadAssetAtPath(assetsRootPath + path + ".asset", typeof(ItemSO));
 
             if (CompareItemSprite(asset.itemSprite, itemSprites[icon.name]))
                 if (asset.icon == icon)

@@ -12,18 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd81c45a38e25a48ac8944c5fbaa306, type: 3}
   m_Name: RuneStone
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   _icon: {fileID: 21300000, guid: a3f2579b8245ddc41ad17428cd7f5b50, type: 3}
-  _prefab: {fileID: 9165555338332553691, guid: a32109ed7cc099344af6237966d44619, type: 3}
-  description: 
+  _prefab: {fileID: 6359996289415562226, guid: a32109ed7cc099344af6237966d44619, type: 3}
+  _description: 
   _itemSprite:
     Name: RuneStone
     Collection: Supplies
@@ -36,4 +27,4 @@ MonoBehaviour:
     Multiple: 1
     Hash: 14ecc5e60513e63eed94fe719fa2619c
     Tags: []
-  marketValue: 4
+  _marketValue: 4

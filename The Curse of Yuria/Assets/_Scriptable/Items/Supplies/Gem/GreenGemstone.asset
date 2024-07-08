@@ -12,18 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8d1e273a1894d4796be00aa0062422, type: 3}
   m_Name: GreenGemstone
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   _icon: {fileID: 21300000, guid: bb784d498a88ddb4b9603d99767c4cf6, type: 3}
-  _prefab: {fileID: 36818829758586398, guid: c2246f0ee1734074c881ca14c02db2c8, type: 3}
-  info: 
+  _prefab: {fileID: 1397834165006621738, guid: c2246f0ee1734074c881ca14c02db2c8, type: 3}
+  _description: 
   _itemSprite:
     Name: GreenGemstone
     Collection: Supplies
@@ -36,4 +27,4 @@ MonoBehaviour:
     Multiple: 1
     Hash: fb76170cb094e63a48dc5c88a8b561b7
     Tags: []
-  worth: 4
+  _marketValue: 10

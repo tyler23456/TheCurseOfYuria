@@ -12,124 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c196187a2a53c2e45831f5911729989e, type: 3}
   m_Name: OrcBow
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: skillInfo
-      Entry: 7
-      Data: 0|TCOY.Items.SkillInfo, Assembly-CSharp
-    - Name: power
-      Entry: 3
-      Data: 0
-    - Name: armType
-      Entry: 6
-      Data: 
-    - Name: elementType
-      Entry: 6
-      Data: 
-    - Name: calculationType
-      Entry: 6
-      Data: 
-    - Name: bonusTypes
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[IBonusType, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: particleSystem
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: statusEffectsInfo
-      Entry: 7
-      Data: 2|TCOY.Items.StatusEffectsInfo, Assembly-CSharp
-    - Name: statusEffectProbabilities
-      Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[StatusEffectProbability, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: equipableInfo
-      Entry: 7
-      Data: 4|TCOY.Items.EquipableInfo, Assembly-CSharp
-    - Name: modifiers
-      Entry: 7
-      Data: 5|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: wards
-      Entry: 7
-      Data: 6|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: counters
-      Entry: 7
-      Data: 7|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: interrupts
-      Entry: 7
-      Data: 8|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _icon: {fileID: 21300000, guid: bfced7af3179499a87980dc461d0e1b8, type: 3}
-  _prefab: {fileID: 5327866342349338098, guid: 6416769bbdf5ae04b8e8013b55a58412, type: 3}
-  description: 
+  _prefab: {fileID: 1970803590409442245, guid: 6416769bbdf5ae04b8e8013b55a58412, type: 3}
+  _description: A common bow used by orcs, thieves and berserkers.
   _itemSprite:
     Name: OrcBow
     Collection: Basic
@@ -144,4 +29,25 @@ MonoBehaviour:
     Multiple: 1
     Hash: 1d1111e398f8ec26af475725b011e6f1
     Tags: []
-  marketValue: 4
+  _marketValue: 4
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: 8a3ed9064fa7dc348b7ed5684b89a2dc, type: 2}
+    elementType: {fileID: 11400000, guid: 0ed350d9141d4124d8cfe2e5c127feb3, type: 2}
+    calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+    bonusTypes:
+    - {fileID: 11400000, guid: 95654927c8f7be14a9e8a723adecc6dd, type: 2}
+    particleSystem: {fileID: 0}
+  statusEffectsInfo:
+    statusEffectProbabilities:
+    - statusEffect: {fileID: 11400000, guid: f8cac8eef1e9b1741aa7a3ff955a24ee, type: 2}
+      probability: 0.4
+  equipableInfo:
+    modifiers:
+    - attribute: 2
+      offset: 16
+    - attribute: 6
+      offset: 3
+    wards: []
+    counters: []
+    interrupts: []

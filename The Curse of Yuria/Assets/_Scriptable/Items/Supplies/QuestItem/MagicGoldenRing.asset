@@ -12,18 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd81c45a38e25a48ac8944c5fbaa306, type: 3}
   m_Name: MagicGoldenRing
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   _icon: {fileID: 21300000, guid: e54380621027e444a9d4e583847e693a, type: 3}
-  _prefab: {fileID: 7277728734024620311, guid: 1df923e11463c9946bd4f006f7ac6ed3, type: 3}
-  description: 
+  _prefab: {fileID: 6098714736032890721, guid: 1df923e11463c9946bd4f006f7ac6ed3, type: 3}
+  _description: 
   _itemSprite:
     Name: MagicGoldenRing
     Collection: Basic
@@ -36,4 +27,4 @@ MonoBehaviour:
     Multiple: 1
     Hash: 89309544a98c2c8587705da927f8f038
     Tags: []
-  marketValue: 4
+  _marketValue: 4

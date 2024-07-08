@@ -12,18 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd81c45a38e25a48ac8944c5fbaa306, type: 3}
   m_Name: DecoratedSilverRing
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   _icon: {fileID: 21300000, guid: eafb90b8a9273e247b68681e67860578, type: 3}
-  _prefab: {fileID: 2047946256241143046, guid: aff11950c7994eb4c85fdd87f0c4fa75, type: 3}
-  description: 
+  _prefab: {fileID: 2155183371277744569, guid: aff11950c7994eb4c85fdd87f0c4fa75, type: 3}
+  _description: 
   _itemSprite:
     Name: DecoratedSilverRing
     Collection: Basic
@@ -36,4 +27,4 @@ MonoBehaviour:
     Multiple: 1
     Hash: 63a6ed6c795b3ca8b67fb500afad6159
     Tags: []
-  marketValue: 4
+  _marketValue: 4

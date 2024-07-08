@@ -12,24 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: Freeze
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 138c5427eb3473e43b62a3d784452129, type: 3}
-  _prefab: {fileID: 4941467914418971237, guid: f2891096619a7b34290b562a37db19e7, type: 3}
-  info: 
+  _prefab: {fileID: 6343844955913149095, guid: f2891096619a7b34290b562a37db19e7, type: 3}
+  _description: Inflicts the "Freeze" status effect on the target.  Freeze will periodically
+    damage the target with ice damage.
   _itemSprite:
     Name: Freeze
     Collection: Supplies
@@ -42,5 +28,16 @@ MonoBehaviour:
     Multiple: 1
     Hash: d65cff6b7720473755273ad676b84379
     Tags: []
-  worth: 4
-  cost: 0
+  _marketValue: 4
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+    elementType: {fileID: 11400000, guid: ec53dfa52e95a994f944653b3b1d8422, type: 2}
+    calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 8811997313417184112, guid: 0edd1d14a2b57054290773590f8925fd, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities:
+    - statusEffect: {fileID: 11400000, guid: 8b0826c5e0b7bfc4c9ab3d4e447d2878, type: 2}
+      probability: 0.95
+  cost: 2

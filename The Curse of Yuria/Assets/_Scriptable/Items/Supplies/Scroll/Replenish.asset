@@ -12,24 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: Replenish
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 81a923360fc4ce84da8658b0cd8bdef3, type: 3}
-  _prefab: {fileID: 3837948504259566703, guid: 02d8f0961e2ef4b4388ec0b078b19036, type: 3}
-  info: 
+  _prefab: {fileID: 1453105440696427794, guid: 02d8f0961e2ef4b4388ec0b078b19036, type: 3}
+  _description: Replenishes a target's health.
   _itemSprite:
     Name: Replenish
     Collection: Supplies
@@ -42,5 +27,14 @@ MonoBehaviour:
     Multiple: 1
     Hash: c21e11e6e2b2812ff643ce0dd9534cb3
     Tags: []
-  worth: 4
-  cost: 0
+  _marketValue: 4
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: d4951b43f3bcada4e9bb24de971309b9, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: f117aa43d73050a469876f83fa098e44, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 8544434443688463029, guid: 7fbb7b8dbd54bdf42b2b5875fe14b8bf, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities: []
+  cost: 2

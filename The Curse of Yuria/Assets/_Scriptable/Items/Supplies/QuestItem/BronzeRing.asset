@@ -12,18 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd81c45a38e25a48ac8944c5fbaa306, type: 3}
   m_Name: BronzeRing
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   _icon: {fileID: 21300000, guid: de421919e958abc429ecdf553068dd4b, type: 3}
-  _prefab: {fileID: 7067717222172291789, guid: 59369093fda89d84dac39e3a34d3681f, type: 3}
-  description: 
+  _prefab: {fileID: 8853841495523195010, guid: 59369093fda89d84dac39e3a34d3681f, type: 3}
+  _description: 
   _itemSprite:
     Name: BronzeRing
     Collection: Supplies
@@ -36,4 +27,4 @@ MonoBehaviour:
     Multiple: 1
     Hash: 3874de7dc8630e836378905faa414c87
     Tags: []
-  marketValue: 4
+  _marketValue: 4

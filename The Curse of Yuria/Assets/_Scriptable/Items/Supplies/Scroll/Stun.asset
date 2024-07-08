@@ -12,24 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db58d5f94feaf49bc6282c23300eea, type: 3}
   m_Name: Stun
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: be23a024083a6064db2068b7b231a6a5, type: 3}
-  _prefab: {fileID: 5330627925567244512, guid: 4a476ca6364307a4cbe385c1e34d176a, type: 3}
-  info: 
+  _prefab: {fileID: 2906678865542678742, guid: 4a476ca6364307a4cbe385c1e34d176a, type: 3}
+  _description: Inflicts the "Stun" status effect on a target.  Stun will stop the
+    target's ATB guage from charging for a variable amount of time.
   _itemSprite:
     Name: Stun
     Collection: Supplies
@@ -42,5 +28,16 @@ MonoBehaviour:
     Multiple: 1
     Hash: d65cff6b7720473755273ad676b84379
     Tags: []
-  worth: 4
-  cost: 0
+  _marketValue: 4
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: c933a078735b4ee49bc5dc4d61832143, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 442907092464650958, guid: 5773b0d31791d874097ec8f946dbefdc, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities:
+    - statusEffect: {fileID: 11400000, guid: 928bafba0e9e72649b1ae4d868bb052a, type: 2}
+      probability: 0.95
+  cost: 2

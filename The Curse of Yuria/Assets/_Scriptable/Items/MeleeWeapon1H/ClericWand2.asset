@@ -12,124 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81e6c75cbed47644ba49fdd8e3ef969, type: 3}
   m_Name: ClericWand2
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: skillInfo
-      Entry: 7
-      Data: 0|TCOY.Items.SkillInfo, Assembly-CSharp
-    - Name: power
-      Entry: 3
-      Data: 0
-    - Name: armType
-      Entry: 6
-      Data: 
-    - Name: elementType
-      Entry: 6
-      Data: 
-    - Name: calculationType
-      Entry: 6
-      Data: 
-    - Name: bonusTypes
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[IBonusType, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: particleSystem
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: statusEffectsInfo
-      Entry: 7
-      Data: 2|TCOY.Items.StatusEffectsInfo, Assembly-CSharp
-    - Name: statusEffectProbabilities
-      Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[StatusEffectProbability, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: equipableInfo
-      Entry: 7
-      Data: 4|TCOY.Items.EquipableInfo, Assembly-CSharp
-    - Name: modifiers
-      Entry: 7
-      Data: 5|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: wards
-      Entry: 7
-      Data: 6|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: counters
-      Entry: 7
-      Data: 7|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: interrupts
-      Entry: 7
-      Data: 8|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _icon: {fileID: 21300000, guid: 248631fdb89a4b57b55ccdf8829eb846, type: 3}
-  _prefab: {fileID: 2663476114215371342, guid: 70ac6c56cef503f4eb3906855a5a1503, type: 3}
-  description: 
+  _prefab: {fileID: 7903737611203992309, guid: 70ac6c56cef503f4eb3906855a5a1503, type: 3}
+  _description: An impovement upon the previous Cleric Wand by increasing both strength
+    and magic attributes.
   _itemSprite:
     Name: ClericWand2
     Collection: Basic
@@ -142,4 +28,25 @@ MonoBehaviour:
     Multiple: 1
     Hash: f30fb235d12fc5e3da516457c2fca194
     Tags: []
-  marketValue: 4
+  _marketValue: 13
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: 241958a3a01de8544a64f4d9cc9e7062, type: 2}
+    elementType: {fileID: 11400000, guid: 97b64b870e1d7cf4e94ad6c7aced1304, type: 2}
+    calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+    bonusTypes:
+    - {fileID: 11400000, guid: 95654927c8f7be14a9e8a723adecc6dd, type: 2}
+    particleSystem: {fileID: 0}
+  statusEffectsInfo:
+    statusEffectProbabilities: []
+  equipableInfo:
+    modifiers:
+    - attribute: 2
+      offset: 15
+    - attribute: 4
+      offset: 8
+    - attribute: 6
+      offset: -5
+    wards: []
+    counters: []
+    interrupts: []

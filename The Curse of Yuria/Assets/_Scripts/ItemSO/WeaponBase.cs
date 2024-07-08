@@ -18,11 +18,6 @@ namespace TCOY.Items
         public ReadOnlyCollection<Reactor> getCounters => equipableInfo.counters.AsReadOnly();
         public ReadOnlyCollection<Reactor> getInterrupts => equipableInfo.interrupts.AsReadOnly();
 
-        public override void Awake()
-        {
-            base.Awake();
-            equipableInfo = new EquipableInfo();
-        }
 
         public override IEnumerator Use(IActor user, params IActor[] targets)
         {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class GoalState : MonoBehaviour
+public abstract class GoalState : ScriptableObject
 {
     public enum State { enter, stay, exit }
 

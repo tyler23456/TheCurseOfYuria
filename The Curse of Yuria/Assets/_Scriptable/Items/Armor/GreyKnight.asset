@@ -12,72 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aeadf7fb46759741b5681dcc00c3096, type: 3}
   m_Name: GreyKnight
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: equipableInfo
-      Entry: 7
-      Data: 0|TCOY.Items.EquipableInfo, Assembly-CSharp
-    - Name: modifiers
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: wards
-      Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: counters
-      Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: interrupts
-      Entry: 7
-      Data: 4|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _icon: {fileID: 21300000, guid: 65666644c8924888a14f9c0eb0f0b964, type: 3}
-  _prefab: {fileID: 4570236957051908841, guid: 53b3c1eba5a36b4479b4df5c2b9b970e, type: 3}
-  description: 
+  _prefab: {fileID: 5483838929345321030, guid: 53b3c1eba5a36b4479b4df5c2b9b970e, type: 3}
+  _description: A more refined version of a previously invented armor called "Dark
+    Knight".  This improves on its predecessor by incorporating even more of the
+    rare mineral "Nafeite", which helps to repel thunder attacks.
   _itemSprite:
     Name: GreyKnight
     Collection: Basic
@@ -101,4 +40,15 @@ MonoBehaviour:
     Multiple: 1
     Hash: e7a07aed98c17ce15001358585543bad
     Tags: []
-  marketValue: 4
+  _marketValue: 26
+  equipableInfo:
+    modifiers:
+    - attribute: 3
+      offset: 19
+    - attribute: 6
+      offset: -4
+    wards:
+    - elementType: {fileID: 11400000, guid: cd55b3b1c40b8dd4daea30da3e507901, type: 2}
+      amount: 30
+    counters: []
+    interrupts: []

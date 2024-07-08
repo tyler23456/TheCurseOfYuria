@@ -5,6 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class Modifier
 {
-    public IStats.Attribute attribute;
-    public int offset;
+    [SerializeField] public IStats.Attribute attribute;
+    [SerializeField] public int offset;
 }

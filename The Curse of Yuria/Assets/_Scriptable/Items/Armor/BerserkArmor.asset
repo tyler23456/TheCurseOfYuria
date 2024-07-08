@@ -12,8 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aeadf7fb46759741b5681dcc00c3096, type: 3}
   m_Name: BerserkArmor
   m_EditorClassIdentifier: 
+  _icon: {fileID: 21300000, guid: 8468f4f10db844369891b926b6d2d612, type: 3}
+  _prefab: {fileID: 9139080588336497992, guid: 36217335b7219e14c9e3fbaaf5da9c63, type: 3}
+  _description: This armor is used by various tribes in Yuria and is said to be magically
+    imbued with magic to make the wearer rage in battle.
+  _itemSprite:
+    Name: BerserkArmor
+    Collection: Basic
+    Edition: Plugins
+    Id: Plugins.Basic.Armor.BerserkArmor
+    Path: Assets/User/Plugins/HeroEditor/FantasyHeroes/Resources/Sprites/Equipment/Armor/Basic/BerserkArmor.png
+    Sprite: {fileID: 21300004, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    Sprites:
+    - {fileID: 21300004, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300002, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300022, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300010, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300008, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300016, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300018, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300012, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300006, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300014, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300020, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    - {fileID: 21300000, guid: 33b2c3b8e52948e4b120df31ff7c8fad, type: 3}
+    Multiple: 1
+    Hash: 33ceb31eb167a69247014b570809920e
+    Tags: []
+  _marketValue: 7
   equipableInfo:
-    modifiers: []
+    modifiers:
+    - attribute: 3
+      offset: 11
+    - attribute: 6
+      offset: 16
+    - attribute: 2
+      offset: 5
+    wards: []
     counters: []
     interrupts: []
-  basicInfo: {fileID: 0}

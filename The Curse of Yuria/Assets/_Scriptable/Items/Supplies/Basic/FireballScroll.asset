@@ -12,24 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d5ed929cc05de4e9ff4057e86f7043, type: 3}
   m_Name: FireballScroll
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: ea3b3e39f0ee20d468b9b5ec238b9daa, type: 3}
-  _prefab: {fileID: 5478183518835942143, guid: 7edf2944fed26eb4ab16c8237745e470, type: 3}
-  info: 
+  _prefab: {fileID: 4988876879676612455, guid: 7edf2944fed26eb4ab16c8237745e470, type: 3}
+  _description: 
   _itemSprite:
     Name: FireballScroll
     Collection: Basic
@@ -42,4 +27,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 55918b636aad3fdc9834c0bc3bb3f3b3
     Tags: []
-  worth: 4
+  _marketValue: 4
+  skillInfo:
+    power: 0
+    armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 0}
+  statusEffectsInfo:
+    statusEffectProbabilities: []

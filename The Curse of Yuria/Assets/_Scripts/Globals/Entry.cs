@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct Entry
+[System.Serializable]
+public class Entry
 {
-    public IItem item;
-    public int count;
+    [SerializeField] public IItem item;
+    [SerializeField] public int count;
 }

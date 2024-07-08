@@ -12,24 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d5ed929cc05de4e9ff4057e86f7043, type: 3}
   m_Name: GoldenKey
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: statusEffectsInfo
-      Entry: 6
-      Data: 
-    - Name: skillInfo
-      Entry: 6
-      Data: 
   _icon: {fileID: 21300000, guid: 9e109e30dedd4db4799d99dad8daa2d0, type: 3}
-  _prefab: {fileID: 1206163322551980037, guid: 737fded4c622065468044858721e9b0b, type: 3}
-  info: 
+  _prefab: {fileID: 6663050482213976023, guid: 737fded4c622065468044858721e9b0b, type: 3}
+  _description: 
   _itemSprite:
     Name: GoldenKey
     Collection: Supplies
@@ -42,4 +27,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 243fe44ce99331def15f1e4c3a556770
     Tags: []
-  worth: 4
+  _marketValue: 4
+  skillInfo:
+    power: 0
+    armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: 61de58de23378784885cb8da01958dd3, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 0}
+  statusEffectsInfo:
+    statusEffectProbabilities: []

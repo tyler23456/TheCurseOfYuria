@@ -12,70 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d5ed929cc05de4e9ff4057e86f7043, type: 3}
   m_Name: SmallPotion
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: skillInfo
-      Entry: 7
-      Data: 0|TCOY.Items.SkillInfo, Assembly-CSharp
-    - Name: power
-      Entry: 3
-      Data: 0
-    - Name: armType
-      Entry: 6
-      Data: 
-    - Name: elementType
-      Entry: 6
-      Data: 
-    - Name: calculationType
-      Entry: 6
-      Data: 
-    - Name: bonusTypes
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[IBonusType, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: particleSystem
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: statusEffectsInfo
-      Entry: 7
-      Data: 2|TCOY.Items.StatusEffectsInfo, Assembly-CSharp
-    - Name: statusEffectProbabilities
-      Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[StatusEffectProbability, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _icon: {fileID: 21300000, guid: 7ae830bf277740a8852b2339619a11eb, type: 3}
-  _prefab: {fileID: 127900282185826375, guid: 127cb7e0f2d9a0344ba6ff1c2c06e04c, type: 3}
-  description: 
+  _prefab: {fileID: 681307449787381521, guid: 127cb7e0f2d9a0344ba6ff1c2c06e04c, type: 3}
+  _description: A part of a collection of potion sizes designed to restore health. 
+    This will restore health by a factor of 4.
   _itemSprite:
     Name: SmallPotion [Paint]
     Collection: Basic
@@ -90,4 +30,13 @@ MonoBehaviour:
     Hash: 9266fc4c60d6fda75e62d7a158c2ae9e
     Tags:
     - Paint
-  marketValue: 4
+  _marketValue: 4
+  skillInfo:
+    power: 4
+    armType: {fileID: 11400000, guid: f24147cc2023fbb42b1aa314fddc3899, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: f117aa43d73050a469876f83fa098e44, type: 2}
+    bonusTypes: []
+    particleSystem: {fileID: 8544434443688463029, guid: 7fbb7b8dbd54bdf42b2b5875fe14b8bf, type: 3}
+  statusEffectsInfo:
+    statusEffectProbabilities: []

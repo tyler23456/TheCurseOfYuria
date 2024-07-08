@@ -9,7 +9,7 @@ namespace TCOY.Items
     [System.Serializable]
     public class StatusEffectsInfo
     {
-        [Space(5)] public List<StatusEffectProbability> statusEffectProbabilities = new List<StatusEffectProbability>();
+        [Space(5)] [SerializeField] public List<StatusEffectProbability> statusEffectProbabilities = new List<StatusEffectProbability>();
 
         public bool CheckForStatusEffectCounters(IActor user, IActor target, IItem item)
         {

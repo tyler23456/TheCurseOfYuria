@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class StatusEffectProbability
 {
-    public StatusEffect statusEffect;
-    [Range(0f, 1f)] public float probability = 1;
+    [SerializeField] public StatusEffect statusEffect;
+    [SerializeField] [Range(0f, 1f)] public float probability = 1;
 }

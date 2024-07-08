@@ -12,72 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aeadf7fb46759741b5681dcc00c3096, type: 3}
   m_Name: DarkMountain
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: equipableInfo
-      Entry: 7
-      Data: 0|TCOY.Items.EquipableInfo, Assembly-CSharp
-    - Name: modifiers
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[Modifier, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: wards
-      Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[Ward, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: counters
-      Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: interrupts
-      Entry: 7
-      Data: 4|System.Collections.Generic.List`1[[Reactor, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _icon: {fileID: 21300000, guid: e70a46d59b4c499e8a19a7967f22ad2f, type: 3}
-  _prefab: {fileID: 4334896994322406810, guid: ba49d1322757aee40abd07e80c6b36d3, type: 3}
-  description: 
+  _prefab: {fileID: 5719302095408590631, guid: ba49d1322757aee40abd07e80c6b36d3, type: 3}
+  _description: A contraversial guild that lives in the mountains in the northern
+    part of Yuria.  They are known to have periodic skirmishes with Iviskian soldiers.
   _itemSprite:
     Name: DarkMountain
     Collection: Thrones
@@ -101,4 +39,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 9c328249b4dd23de27abf1002bf22da1
     Tags: []
-  marketValue: 4
+  _marketValue: 5
+  equipableInfo:
+    modifiers:
+    - attribute: 3
+      offset: 8
+    wards:
+    - elementType: {fileID: 11400000, guid: 97b64b870e1d7cf4e94ad6c7aced1304, type: 2}
+      amount: 5
+    counters: []
+    interrupts: []
