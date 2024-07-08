@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: ec1de562147d461cbdebd0bc7292bc8d, type: 3}
   _prefab: {fileID: 3053758214549492672, guid: 8595d7db95bb888478a2fc037751da0a, type: 3}
-  _description: 
+  _description: A helmet that originated from the villiges and towns in the northern
+    mountains of Yuria.
   _itemSprite:
     Name: DarkMountainHelm [Paint]
     Collection: Thrones

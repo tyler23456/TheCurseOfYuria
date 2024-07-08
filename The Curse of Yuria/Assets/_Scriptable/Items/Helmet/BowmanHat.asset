@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 8d9d387ae3d745d18746e9e9949e0bca, type: 3}
   _prefab: {fileID: 5182929045523950026, guid: b39b53fdad13fdc4ab0d3bb16048f771, type: 3}
-  _description: 
+  _description: A lesser quality hat at a reasonable price.
   _itemSprite:
     Name: BowmanHat [Paint]
     Collection: Basic

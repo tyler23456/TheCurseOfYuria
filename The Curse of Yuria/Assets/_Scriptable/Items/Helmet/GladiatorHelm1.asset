@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 3c3581f1a8614a78868c3d34fa721ffd, type: 3}
   _prefab: {fileID: 8562591945263367982, guid: 5514b6a999f7f4746a3fe931cf652fad, type: 3}
-  _description: 
+  _description: 'A traditional helmet worn by contestants of the colisium. '
   _itemSprite:
     Name: GladiatorHelm1
     Collection: Basic

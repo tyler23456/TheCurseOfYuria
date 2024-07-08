@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: ced213e1637f47188f9665b88f36379a, type: 3}
   _prefab: {fileID: 654632029885406961, guid: 99c9f0b1453885740afcbb6e3e7475f2, type: 3}
-  _description: 
+  _description: A helmet worn by the Glorious Falcons Guild.
   _itemSprite:
     Name: FalconIronHelm
     Collection: Knights

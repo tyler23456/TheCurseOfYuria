@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: c2d3ff617fbb42c3a588fc7c49787ce1, type: 3}
   _prefab: {fileID: 142906658099956223, guid: 57ce1ebec47ac71419976a5006d0ff72, type: 3}
-  _description: A hat that is imbued with magic to increase the speed of the wearer.
+  _description: An improvement on its previous iteration that is imbued with magic
+    to increase the speed of the wearer.
   _itemSprite:
     Name: AdvancedDipperHat
     Collection: Basic

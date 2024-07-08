@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 55e5c0dcdd0765d46b403d7daf68dd33, type: 3}
   _prefab: {fileID: 29072776687683509, guid: 8c3eb3630db73fd4b8ee4f1b3b6ad7fa, type: 3}
-  _description: 
+  _description: Traditionally worn by blacksmiths.  This trend started from the famous
+    blacksmith Hujei, who wore a similar headband.
   _itemSprite:
     Name: BlacksmithHeadband
     Collection: Basic

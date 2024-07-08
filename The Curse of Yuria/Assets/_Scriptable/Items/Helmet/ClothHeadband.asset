@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 425bffcc6dd3685468f879132ccef482, type: 3}
   _prefab: {fileID: 8249937220441751233, guid: 5f086753e19fbf143bef51e184825230, type: 3}
-  _description: 
+  _description: A common headband worn by blacksmiths.
   _itemSprite:
     Name: ClothHeadband
     Collection: Basic

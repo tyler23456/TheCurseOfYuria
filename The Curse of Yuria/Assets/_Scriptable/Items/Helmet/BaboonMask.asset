@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: c14f1db91eac2ce42ae01c587d066655, type: 3}
   _prefab: {fileID: 5539472886529119093, guid: 70f80115fa05aaf45afee83111463d61, type: 3}
-  _description: 
+  _description: Made from a baboon head and treated for human use.  Baboon skin is
+    useful against ice and thunder=based attacks.
   _itemSprite:
     Name: BaboonMask
     Collection: Basic

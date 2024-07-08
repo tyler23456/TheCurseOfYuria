@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: d1542c7f8d6249c3b8b4d819f2ab1601, type: 3}
   _prefab: {fileID: 4947703875676355116, guid: b87d168f3a490ef469af4c746762038f, type: 3}
-  _description: 
+  _description: Hoods worn by clergymen of lower rank.
   _itemSprite:
     Name: ClericHood [Paint]
     Collection: Basic

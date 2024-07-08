@@ -34,6 +34,8 @@ MonoBehaviour:
       offset: 3
     - attribute: 6
       offset: 10
+    - attribute: 7
+      offset: 5
     wards: []
     counters: []
     interrupts: []

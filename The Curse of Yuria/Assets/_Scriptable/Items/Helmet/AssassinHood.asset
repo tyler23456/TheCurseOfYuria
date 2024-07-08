@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 8cd9243134834bc39a16389caf20b75b, type: 3}
   _prefab: {fileID: 2921008023979392658, guid: ee17a3bd0f0b3c749abdc9917b23d84e, type: 3}
-  _description: 
+  _description: A hood that veils the identity of the wearer.
   _itemSprite:
     Name: AssassinHood [Paint]
     Collection: Basic

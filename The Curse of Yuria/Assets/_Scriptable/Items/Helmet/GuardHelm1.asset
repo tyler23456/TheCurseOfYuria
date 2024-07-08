@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 916da663fc1d4567afc85433dc52c8b2, type: 3}
   _prefab: {fileID: 4986253840958474983, guid: 62ebcf382e41b824e9792b61a6265c3e, type: 3}
-  _description: 
+  _description: A helmet that served as protection for guards.
   _itemSprite:
     Name: GuardHelm1 [Paint]
     Collection: Basic

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: c2d226e4aa0a4dac834b3b076b56c4aa, type: 3}
   _prefab: {fileID: 5684063844169788784, guid: 4a2043b48a6e7204ab142c5fbdb35a1b, type: 3}
-  _description: 
+  _description: A helmet that will grant emense protection but significantly lowers
+    the wearer's speed.
   _itemSprite:
     Name: CataphractHelm [Paint]
     Collection: Basic
@@ -33,9 +34,9 @@ MonoBehaviour:
   equipableInfo:
     modifiers:
     - attribute: 3
-      offset: 13
+      offset: 15
     - attribute: 6
-      offset: -2
+      offset: -11
     wards: []
     counters: []
     interrupts: []

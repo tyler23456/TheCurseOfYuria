@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 98f60d0228e147c8a0a44d89ae5e3c5a, type: 3}
   _prefab: {fileID: 2301213808697904903, guid: f2892026da07918438c534041830fbd5, type: 3}
-  _description: 
+  _description: A bandage required to be worn by soldiers who deserted their posts
+    as a punishment.  Not very useful for protection.
   _itemSprite:
     Name: DeserterBandage [FullHair]
     Collection: Basic

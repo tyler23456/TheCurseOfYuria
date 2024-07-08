@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: c98a1315d38e4a97bed7d04535dbcae5, type: 3}
   _prefab: {fileID: 1813897398212236237, guid: 2d6399911ecf82c4a97c012d2ecde6ad, type: 3}
-  _description: 
+  _description: A hood that will provide adaquate fire protection.
   _itemSprite:
     Name: FireAdeptHood
     Collection: Basic

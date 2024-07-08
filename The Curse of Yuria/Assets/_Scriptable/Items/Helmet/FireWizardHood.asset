@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: ffe18594cd504e0c9d0c7b0e1b578b78, type: 3}
   _prefab: {fileID: 3093429155204018184, guid: f0c94ec5ac878b4408611aedc5503f7e, type: 3}
-  _description: 
+  _description: One of the best hoods to block fire attacks.
   _itemSprite:
     Name: FireWizardHood
     Collection: Basic

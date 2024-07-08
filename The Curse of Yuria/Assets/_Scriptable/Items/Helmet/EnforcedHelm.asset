@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 0573634d0f2c4845ba2218c156430455, type: 3}
   _prefab: {fileID: 913967543056558483, guid: 11a106cd01ee3534980751298e775ac2, type: 3}
-  _description: 
+  _description: One of the best helmets to wear for physical protection.
   _itemSprite:
     Name: EnforcedHelm [Paint]
     Collection: Basic

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: dc68c1f9d18f44eabbd089ced9ad8b0d, type: 3}
   _prefab: {fileID: 145910213890896549, guid: b5f0693109a9195439f2e34be4f8625b, type: 3}
-  _description: 
+  _description: A helmet that served as protection for guards of lower rank.
   _itemSprite:
     Name: GuardHelm [Paint]
     Collection: Knights

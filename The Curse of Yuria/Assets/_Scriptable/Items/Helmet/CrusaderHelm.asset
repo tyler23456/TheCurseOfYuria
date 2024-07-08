@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 66f77dff949647dc819238749b60c604, type: 3}
   _prefab: {fileID: 483251330398195184, guid: 6c8711a553d34f444a23b1d493ede030, type: 3}
-  _description: 
+  _description: A helmet that will provide some protection without compromising speed.
   _itemSprite:
     Name: CrusaderHelm [Paint]
     Collection: Knights

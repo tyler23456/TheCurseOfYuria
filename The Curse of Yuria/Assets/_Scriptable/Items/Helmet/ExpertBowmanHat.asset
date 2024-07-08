@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: b28ddad61e2942779cd87c2f2dffd694, type: 3}
   _prefab: {fileID: 2165436960270277365, guid: c7dc9c289f140754a855b1bc8029f1a5, type: 3}
-  _description: 
+  _description: A hat worn by elite bow masters.
   _itemSprite:
     Name: ExpertBowmanHat
     Collection: Basic

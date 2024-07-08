@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 4baa855af8234c13a839f1073379938a, type: 3}
   _prefab: {fileID: 3490520275996193374, guid: 7b328bf4272abd846bc8e18a873f9a23, type: 3}
-  _description: 
+  _description: A decent helmet for protection.  An old type of helmet that is used
+    to hunt large beasts.
   _itemSprite:
     Name: DestroyerHelm [Paint]
     Collection: Basic

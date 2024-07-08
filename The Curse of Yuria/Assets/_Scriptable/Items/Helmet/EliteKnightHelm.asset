@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 5ed83b6582ff4228ae921e7a95427446, type: 3}
   _prefab: {fileID: 5383422216728789272, guid: 26449879782b49d4ea62825ed86c9cc5, type: 3}
-  _description: 
+  _description: A great helmet worn by knights of the Elite Guard.
   _itemSprite:
     Name: EliteKnightHelm
     Collection: Knights

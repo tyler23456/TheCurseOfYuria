@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 785ef024e39b4c5a828b95c15b7c62d8, type: 3}
   _prefab: {fileID: 6011260797753272255, guid: c37370b86c582ea4f89785691576f5d3, type: 3}
-  _description: 
+  _description: A helmet given to champions of the colisium.
   _itemSprite:
     Name: ChampionHelm
     Collection: Basic

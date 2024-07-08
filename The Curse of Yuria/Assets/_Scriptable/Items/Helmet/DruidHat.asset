@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: d799cb67d5a44982a09110150893d434, type: 3}
   _prefab: {fileID: 3348024975035047012, guid: 2bdaa41d0630664449c1991b9746ec02, type: 3}
-  _description: 
+  _description: May not look like much, but this magically imbued helmet will provide
+    adequate protection against magic attacks.
   _itemSprite:
     Name: DruidHat [Paint]
     Collection: Basic

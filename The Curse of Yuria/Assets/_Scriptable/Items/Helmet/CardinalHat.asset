@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 34a9cbd5b27041d2b592e8626f3b6d99, type: 3}
   _prefab: {fileID: 5634619465280034508, guid: 42782de795f2c4a40b50f66a30234518, type: 3}
-  _description: 
+  _description: Hats traditionally worn by officials that work directly under the
+    pope.
   _itemSprite:
     Name: CardinalHat [Paint]
     Collection: Basic
