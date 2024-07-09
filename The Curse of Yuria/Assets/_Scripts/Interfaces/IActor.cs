@@ -8,6 +8,7 @@ public interface IActor
     bool enabled { get; set; }
     bool useDefaultItems { get; set; }
     Collider2D getCollider2D { get; }
+    AudioSource getAudioSource { get; }
     GameObject obj { get; }
     IStats getStats { get; }
     IATBGuage getATBGuage { get; }

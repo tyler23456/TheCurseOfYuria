@@ -7,41 +7,51 @@ using HeroEditor.Common.Enums;
 
 namespace TCOY.Items
 {
-    public class WeaponBase : SkillBase, IItem, IEquipment
+    public class WeaponBase : EquipableBase, IItem, IEquipment
     {
-        [Space(5)] [SerializeField] protected EquipableInfo equipableInfo;
+        [Space(5)] [SerializeField] protected SkillInfo skillInfo;
+        [Space(5)] [SerializeField] protected StatusEffectsInfo statusEffectsInfo;
 
-        public virtual EquipmentPart part => EquipmentPart.Armor;
+        public override string type => "";
 
-        public ReadOnlyCollection<Modifier> getModifiers => equipableInfo.modifiers.AsReadOnly();
-        public ReadOnlyCollection<Ward> getWards => equipableInfo.wards.AsReadOnly();
-        public ReadOnlyCollection<Reactor> getCounters => equipableInfo.counters.AsReadOnly();
-        public ReadOnlyCollection<Reactor> getInterrupts => equipableInfo.interrupts.AsReadOnly();
+        public override IEnumerator Use(IActor user, IActor[] targets) { yield return null; }
+        public override IEnumerator Use(IActor target) { yield return null; }
+        public override void Equip(IActor user) { }
+        public override void Unequip(IActor user) { }
 
+        public ArmType armType => skillInfo.armType;
+        public ElementType elementType => skillInfo.elementType;
+        public CalculationType calculationType => skillInfo.calculationType;
+        public List<BonusType> bonusTypes => skillInfo.bonusTypes;
 
-        public override IEnumerator Use(IActor user, params IActor[] targets)
+        bool CheckForStatusEffectOnHits(IActor user, IActor target, IItem item)
         {
-            skillInfo.SetDirection(user, targets);
-
-            Animator animator = user.obj.GetComponent<Animator>();
-            animator?.SetTrigger("Slash");
-
-            foreach (IActor target in targets)
-                target.StartCoroutine(skillInfo.PerformAnimation(user, target, this, statusEffectsInfo));
-
-            yield return null;
+            return statusEffectsInfo.CheckForStatusEffectCounters(user, target, item);
         }
 
-        public override void Equip(IActor user)
+        public void CheckStatusEffects(IActor target)
         {
-            base.Equip(user);
-            equipableInfo.Equip(user, name, part, itemSprite);
+            statusEffectsInfo.CheckStatusEffects(target);
         }
 
-        public override void Unequip(IActor user)
+        public bool TrueForAnyStatusEffect(Func<StatusEffect, bool> predicate)
         {
-            base.Unequip(user);
-            equipableInfo.Unequip(user, name, part);
+            return statusEffectsInfo.TrueForAnyStatusEffect(predicate);
+        }
+
+        public bool ContainsStatusEffectThatCanRemoveKO()
+        {
+            return statusEffectsInfo.ContainsStatusEffectThatCanRemoveKO();
+        }
+
+        public bool IsInvalidTarget(IActor target)
+        {
+            return statusEffectsInfo.IsInvalidTarget(target);
+        }
+
+        public bool ContainsType(string typeName)
+        {
+            return armType.name == typeName || elementType.name == typeName || calculationType.name == typeName || bonusTypes.Exists(i => i.name == typeName);
         }
     }
 }

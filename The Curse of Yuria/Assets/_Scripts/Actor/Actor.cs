@@ -21,6 +21,7 @@ namespace TCOY.UserActors
 
         protected DefaultItems editorEquipper;
         protected new Collider2D collider2D;
+        protected AudioSource audioSource;
         protected SpriteRenderer[] spriteRenderers;
         protected Inventory equipment;
         protected Inventory skills;
@@ -31,6 +32,7 @@ namespace TCOY.UserActors
         protected Detection detection;
 
         public Collider2D getCollider2D => collider2D;
+        public AudioSource getAudioSource => audioSource;
         public GameObject obj => gameObject;
         public IStats getStats => stats;
         public IATBGuage getATBGuage => aTBGuage;
@@ -58,6 +60,7 @@ namespace TCOY.UserActors
         {
             editorEquipper = GetComponent<DefaultItems>();
             collider2D = GetComponent<Collider2D>();
+            audioSource = GetComponent<AudioSource>();
             spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
             aTBGuage = new ATBGuage();

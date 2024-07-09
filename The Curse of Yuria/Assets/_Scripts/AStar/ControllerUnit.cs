@@ -22,6 +22,7 @@ namespace TCOY.AStar
         public IActor actor { get; set; }
         public Animator animator { get; set; }
         public new Rigidbody2D rigidbody2D { get; set; }
+        public AudioSource audioSource { get; set; }
         public bool pathSuccess { get; set; }
         public List<Vector2> waypoints { get; set; } = new List<Vector2>();
         public int index { get; set; }
@@ -47,6 +48,7 @@ namespace TCOY.AStar
             actor = GetComponent<IActor>();
             animator = actor.obj.GetComponent<Animator>();
             rigidbody2D = actor.obj.GetComponent<Rigidbody2D>();
+            audioSource = GetComponent<AudioSource>();
 
             if (goal == null)
                 goal = initialGoalState;
@@ -54,7 +56,7 @@ namespace TCOY.AStar
                 action = initialActionState;
             
             groundChecker = new UserActors.GroundChecker(animator);
-            stepSFX = new StepSFX(animator, GetComponent<AudioSource>());
+            stepSFX = new StepSFX(animator, audioSource);
         }
 
         void Start()

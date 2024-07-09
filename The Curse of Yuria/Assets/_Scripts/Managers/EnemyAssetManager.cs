@@ -65,6 +65,7 @@ public class EnemyAssetManager : MonoBehaviour
         Rigidbody2D body = prefab.GetComponent<Rigidbody2D>();
         BoxCollider2D previousCollider = prefab.GetComponent<BoxCollider2D>();
         Animator animator = prefab.GetComponent<Animator>();
+        AudioSource audioSource = prefab.GetComponent<AudioSource>();
 
         if (animator == null)
             animator = prefab.AddComponent<Animator>();
@@ -81,7 +82,12 @@ public class EnemyAssetManager : MonoBehaviour
 
         if (previousCollider != null)
             DestroyImmediate(previousCollider, true);
-        
+
+        if (audioSource == null)
+            audioSource = prefab.AddComponent<AudioSource>();
+
+        audioSource.spatialBlend = 1f;
+
         PrefabUtility.SavePrefabAsset(prefab);
     }
 

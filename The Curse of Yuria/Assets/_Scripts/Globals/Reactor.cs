@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Reactor
 {
-    public Skill action;
+    public TypeSO type;
     public LayerMask mask;
     public Skill reaction;
     public Targeter target;
@@ -20,6 +20,6 @@ public class Reactor
         else if ((mask.value & (1 << 14)) != 0)
             name = "Enemy";
 
-        return "if " + action.name + " on " + name + " then " + reaction.name + " on " + target.name;
+        return "if " + type.name + " on " + name + " then " + reaction.name + " on " + target.name;
     }
 }

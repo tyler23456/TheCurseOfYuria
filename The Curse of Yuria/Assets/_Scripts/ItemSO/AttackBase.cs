@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using HeroEditor.Common.Data;
 
 namespace TCOY.Items
 {
-    public abstract class SkillBase : Skill
+    
+    public class AttackBase : EquipableBase
     {
         [Space(5)] [SerializeField] protected SkillInfo skillInfo;
         [Space(5)] [SerializeField] protected StatusEffectsInfo statusEffectsInfo;
@@ -19,7 +19,7 @@ namespace TCOY.Items
         public override void Unequip(IActor user) { }
 
         public ArmType armType => skillInfo.armType;
-        public override ElementType elementType => skillInfo.elementType;
+        public ElementType elementType => skillInfo.elementType;
         public CalculationType calculationType => skillInfo.calculationType;
         public List<BonusType> bonusTypes => skillInfo.bonusTypes;
 
@@ -33,7 +33,7 @@ namespace TCOY.Items
             statusEffectsInfo.CheckStatusEffects(target);
         }
 
-        public override bool TrueForAnyStatusEffect(Func<StatusEffect, bool> predicate)
+        public bool TrueForAnyStatusEffect(Func<StatusEffect, bool> predicate)
         {
             return statusEffectsInfo.TrueForAnyStatusEffect(predicate);
         }
@@ -48,7 +48,7 @@ namespace TCOY.Items
             return statusEffectsInfo.IsInvalidTarget(target);
         }
 
-        public override bool ContainsType(string typeName)
+        public bool ContainsType(string typeName)
         {
             return armType.name == typeName || elementType.name == typeName || calculationType.name == typeName || bonusTypes.Exists(i => i.name == typeName);
         }

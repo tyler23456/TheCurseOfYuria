@@ -9,4 +9,5 @@ public abstract class Skill : ItemSO
     public abstract ElementType elementType { get; }
 
     public abstract bool TrueForAnyStatusEffect(Func<StatusEffect, bool> predicate);
+    public abstract bool ContainsType(string typeName);
 }
