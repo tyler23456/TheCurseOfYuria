@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: c93df491b22c48259a5415822574e351, type: 3}
   _prefab: {fileID: 2639059955250817860, guid: 6235ced5357b68f46b94ccf70cf8da74, type: 3}
-  _description: 
+  _description: A shield given to those in the Elite Guard.  This is considered the
+    third generation shield.
   _itemSprite:
     Name: GuardShield2
     Collection: Basic
@@ -27,8 +28,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 7f12845b9ae925a7e6fa20e166b9c92e
     Tags: []
-  _marketValue: 4
+  _marketValue: 7
   equipableInfo:
-    modifiers: []
+    modifiers:
+    - attribute: 3
+      offset: 8
+    - attribute: 6
+      offset: -2
+    wards: []
     counters: []
     interrupts: []

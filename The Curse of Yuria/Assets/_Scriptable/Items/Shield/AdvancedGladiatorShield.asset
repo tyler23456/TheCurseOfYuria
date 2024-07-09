@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 9048d57223744be5a0643fcc2da4f7de, type: 3}
   _prefab: {fileID: 2989358251299885318, guid: ab37c96de5cde9342a9823e9a19ea35a, type: 3}
-  _description: 
+  _description: An higher ranking shield used by gladiators.
   _itemSprite:
     Name: AdvancedGladiatorShield
     Collection: Basic
@@ -27,8 +27,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 9ace79e4bf1e1e6cb9bcfb7bc093b34a
     Tags: []
-  _marketValue: 4
+  _marketValue: 6
   equipableInfo:
-    modifiers: []
+    modifiers:
+    - attribute: 3
+      offset: 9
+    - attribute: 6
+      offset: -2
+    wards: []
     counters: []
     interrupts: []

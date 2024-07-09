@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: e3e8206ed9454344a924be95baf6868b, type: 3}
   _prefab: {fileID: 6231722276901995392, guid: 2f7c6470392b3c24b850bcab3c583f9e, type: 3}
-  _description: 
+  _description: Commonly gifted to champions of the colosseum.
   _itemSprite:
     Name: ChampionShield
     Collection: Basic
@@ -27,8 +27,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: c42549695e6fabd946dc45ea4cf2ffe6
     Tags: []
-  _marketValue: 4
+  _marketValue: 7
   equipableInfo:
-    modifiers: []
+    modifiers:
+    - attribute: 3
+      offset: 9
+    - attribute: 6
+      offset: -2
+    wards: []
     counters: []
     interrupts: []

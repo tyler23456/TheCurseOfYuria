@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: d0f634c44ad540969f94c1df75ee8b43, type: 3}
   _prefab: {fileID: 5972959963546186844, guid: 1f4022b2c7c06a446bae892bbfc038c0, type: 3}
-  _description: 
+  _description: Given to front end soldiers of the clergy in battle.
   _itemSprite:
     Name: CrusaderShield
     Collection: Basic
@@ -27,8 +27,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 3a1a80f9d25de7ad90d80eace9ea8ca4
     Tags: []
-  _marketValue: 4
+  _marketValue: 10
   equipableInfo:
-    modifiers: []
+    modifiers:
+    - attribute: 3
+      offset: 8
+    - attribute: 6
+      offset: 0
+    wards: []
     counters: []
     interrupts: []

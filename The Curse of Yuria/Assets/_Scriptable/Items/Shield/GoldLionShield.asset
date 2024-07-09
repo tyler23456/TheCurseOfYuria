@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: e0b6bd32b9ea4587889ec884475714ec, type: 3}
   _prefab: {fileID: 4712837302792950198, guid: 4aafe662f51f63848bc7b9aa35544c0b, type: 3}
-  _description: 
+  _description: A common shield used by the Lion's Den Guild.
   _itemSprite:
     Name: GoldLionShield
     Collection: Thrones
@@ -27,8 +27,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 2904ea020062c5545db2e7461bad13ae
     Tags: []
-  _marketValue: 4
+  _marketValue: 6
   equipableInfo:
-    modifiers: []
+    modifiers:
+    - attribute: 3
+      offset: 7
+    - attribute: 6
+      offset: -1
+    wards: []
     counters: []
     interrupts: []

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 977604879b384844976ceee7b952f8ed, type: 3}
   _prefab: {fileID: 8836894811169127257, guid: 5a3e1f6face0ffa4dbeb683498eb2296, type: 3}
-  _description: 
+  _description: A shield given to those in the Elite Guard.  This is considered the
+    first generation shield.
   _itemSprite:
     Name: GuardShield
     Collection: Basic
@@ -27,8 +28,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 177410a5e3be4b5b34fda7bc2be21e29
     Tags: []
-  _marketValue: 4
+  _marketValue: 5
   equipableInfo:
-    modifiers: []
+    modifiers:
+    - attribute: 3
+      offset: 6
+    - attribute: 6
+      offset: -1
+    wards: []
     counters: []
     interrupts: []

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: f4196aebd2a046c09e6c02036270220a, type: 3}
   _prefab: {fileID: 801649768004754551, guid: 3f64980fbfb11b148b8bb20d5e039f3b, type: 3}
-  _description: 
+  _description: The third of a series of iron based shields for higher ranking foot
+    soldiers.  Its offers great protection for its weight.
   _itemSprite:
     Name: IronShield3
     Collection: Vikings
@@ -27,8 +28,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 83efd4beb60a15057eb4bd58601837d7
     Tags: []
-  _marketValue: 4
+  _marketValue: 5
   equipableInfo:
-    modifiers: []
+    modifiers:
+    - attribute: 3
+      offset: 13
+    - attribute: 6
+      offset: -3
+    wards: []
     counters: []
     interrupts: []

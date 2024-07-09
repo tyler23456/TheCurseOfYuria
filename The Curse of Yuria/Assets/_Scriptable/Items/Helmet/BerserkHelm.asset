@@ -28,7 +28,7 @@ MonoBehaviour:
     Multiple: 1
     Hash: 7de31a7131d8ff1f78f5b9009e6a7434
     Tags: []
-  _marketValue: 4
+  _marketValue: 9
   equipableInfo:
     modifiers:
     - attribute: 3

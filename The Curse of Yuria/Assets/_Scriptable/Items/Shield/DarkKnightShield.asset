@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: e0601474fae4450ea712dfbc9c430922, type: 3}
   _prefab: {fileID: 81094995567632246, guid: c56fe0072a71e794aa5a9584d23eaa1d, type: 3}
-  _description: 
+  _description: The origin of this shield is not known, but it can protect against
+    light attacks and dark attacks.
   _itemSprite:
     Name: DarkKnightShield
     Collection: Basic
@@ -27,8 +28,17 @@ MonoBehaviour:
     Multiple: 1
     Hash: 75db99711468d78bf277fabadfb0d6ac
     Tags: []
-  _marketValue: 4
+  _marketValue: 7
   equipableInfo:
-    modifiers: []
+    modifiers:
+    - attribute: 3
+      offset: 7
+    - attribute: 6
+      offset: -1
+    wards:
+    - elementType: {fileID: 11400000, guid: 97b64b870e1d7cf4e94ad6c7aced1304, type: 2}
+      amount: 12
+    - elementType: {fileID: 11400000, guid: 0ed350d9141d4124d8cfe2e5c127feb3, type: 2}
+      amount: 9
     counters: []
     interrupts: []

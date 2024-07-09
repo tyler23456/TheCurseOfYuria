@@ -30,5 +30,6 @@ MonoBehaviour:
   _marketValue: 4
   equipableInfo:
     modifiers: []
+    wards: []
     counters: []
     interrupts: []

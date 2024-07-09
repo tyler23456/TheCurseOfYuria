@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 16de92f93ae64e20a1688157faecb6ef, type: 3}
   _prefab: {fileID: 1985475897749848959, guid: b6fea426390d5d94299359e363c7a261, type: 3}
-  _description: 
+  _description: A shield given to lower ranking knights before a battle with an opponent
+    expecting to use fire-based warfare.
   _itemSprite:
     Name: FireKnightShield
     Collection: Basic
@@ -27,8 +28,15 @@ MonoBehaviour:
     Multiple: 1
     Hash: 669131594b16432d3bb6c74387467652
     Tags: []
-  _marketValue: 4
+  _marketValue: 7
   equipableInfo:
-    modifiers: []
+    modifiers:
+    - attribute: 3
+      offset: 6
+    - attribute: 6
+      offset: -1
+    wards:
+    - elementType: {fileID: 11400000, guid: 61dd2432436639444aa0b5f9ab37ff9d, type: 2}
+      amount: 13
     counters: []
     interrupts: []

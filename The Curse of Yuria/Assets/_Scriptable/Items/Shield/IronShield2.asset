@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: c969cd594f744797b81f6ac18baa28bc, type: 3}
   _prefab: {fileID: 3654573776798413701, guid: c76c36f547fa8b442952861b6c027579, type: 3}
-  _description: 
+  _description: The second of a series of iron based shields for higher ranking foot
+    soldiers.  Its offers adaquate protection for its weight.
   _itemSprite:
     Name: IronShield2
     Collection: Vikings
@@ -29,6 +30,11 @@ MonoBehaviour:
     Tags: []
   _marketValue: 4
   equipableInfo:
-    modifiers: []
+    modifiers:
+    - attribute: 3
+      offset: 11
+    - attribute: 6
+      offset: -2
+    wards: []
     counters: []
     interrupts: []

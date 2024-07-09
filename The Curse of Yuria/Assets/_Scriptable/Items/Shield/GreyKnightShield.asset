@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: b469928fef254a11878337f8123f4b17, type: 3}
   _prefab: {fileID: 8487513004027443035, guid: 457b1a4f56ed7f845ae580481411dfa8, type: 3}
-  _description: 
+  _description: Contains a rare mineral called "Nafeite" which helps repel thunder-based
+    attacks.
   _itemSprite:
     Name: GreyKnightShield
     Collection: Basic
@@ -27,8 +28,15 @@ MonoBehaviour:
     Multiple: 1
     Hash: 4453ea209fce34da553569ea4ab42901
     Tags: []
-  _marketValue: 4
+  _marketValue: 15
   equipableInfo:
-    modifiers: []
+    modifiers:
+    - attribute: 3
+      offset: 9
+    - attribute: 6
+      offset: -2
+    wards:
+    - elementType: {fileID: 11400000, guid: cd55b3b1c40b8dd4daea30da3e507901, type: 2}
+      amount: 19
     counters: []
     interrupts: []

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 3a9634b61b804eee86f5384633cbe069, type: 3}
   _prefab: {fileID: 5049584484655998865, guid: 927cfcd4e066c6f48ac8472895406f78, type: 3}
-  _description: 
+  _description: A shield awarded to soliders for special services to the king.  It
+    is a trophy shield, but is also an excellent shield to use in battle.
   _itemSprite:
     Name: FireWarriorShield
     Collection: Basic
@@ -27,8 +28,15 @@ MonoBehaviour:
     Multiple: 1
     Hash: ffcc872c73a584e483187a69c4eb454e
     Tags: []
-  _marketValue: 4
+  _marketValue: 12
   equipableInfo:
-    modifiers: []
+    modifiers:
+    - attribute: 3
+      offset: 12
+    - attribute: 6
+      offset: -3
+    wards:
+    - elementType: {fileID: 11400000, guid: 61dd2432436639444aa0b5f9ab37ff9d, type: 2}
+      amount: 17
     counters: []
     interrupts: []

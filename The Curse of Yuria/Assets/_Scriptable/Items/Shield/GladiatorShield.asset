@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: be5c308edb014c398e7284c7dfabe92d, type: 3}
   _prefab: {fileID: 4468882350485477094, guid: fb4a6c9d6dc0e904dadb49921c20261d, type: 3}
-  _description: 
+  _description: This shield is a standard for combatants competing in the colosseum.
   _itemSprite:
     Name: GladiatorShield
     Collection: Basic
@@ -27,8 +27,13 @@ MonoBehaviour:
     Multiple: 1
     Hash: 318fec041d8c73e37bc1003dc2d349b9
     Tags: []
-  _marketValue: 4
+  _marketValue: 2
   equipableInfo:
-    modifiers: []
+    modifiers:
+    - attribute: 3
+      offset: 5
+    - attribute: 6
+      offset: -1
+    wards: []
     counters: []
     interrupts: []

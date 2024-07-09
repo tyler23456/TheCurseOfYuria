@@ -29,7 +29,7 @@ MonoBehaviour:
     Hash: a5ff7dfeb8cb1ba1bba92b969cd0184d
     Tags:
     - FullHair
-  _marketValue: 4
+  _marketValue: 10
   equipableInfo:
     modifiers:
     - attribute: 3

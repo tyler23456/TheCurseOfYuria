@@ -30,7 +30,7 @@ MonoBehaviour:
     Hash: 8a4f684bc183c995251d0694338fb0e8
     Tags:
     - Paint
-  _marketValue: 4
+  _marketValue: 3
   equipableInfo:
     modifiers:
     - attribute: 3
