@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db4d5d9a3cc35844925f295b1c828a4, type: 3}
+  m_Name: DefaultAttack
+  m_EditorClassIdentifier: 
+  _icon: {fileID: 0}
+  _prefab: {fileID: 0}
+  _description: Its the default attack that is used by enemies or an allie that does
+    not have a weapon equipped.
+  _itemSprite:
+    Name: 
+    Collection: 
+    Edition: 
+    Id: 
+    Path: 
+    Sprite: {fileID: 0}
+    Sprites: []
+    Multiple: 0
+    Hash: 
+    Tags: []
+  _marketValue: 4
+  skillInfo:
+    power: 2
+    armType: {fileID: 11400000, guid: 241958a3a01de8544a64f4d9cc9e7062, type: 2}
+    elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
+    calculationType: {fileID: 11400000, guid: 8befdb1afeb9aa84fa9fd7c9cc479ada, type: 2}
+    bonusTypes:
+    - {fileID: 11400000, guid: 95654927c8f7be14a9e8a723adecc6dd, type: 2}
+    particleSystem: {fileID: 0}
+  statusEffectsInfo:
+    statusEffectProbabilities: []

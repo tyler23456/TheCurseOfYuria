@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [System.Serializable]
-public abstract class Skill : ItemSO
+public abstract class Skill : ItemSO, IItem
 {
     public abstract ElementType elementType { get; }
 

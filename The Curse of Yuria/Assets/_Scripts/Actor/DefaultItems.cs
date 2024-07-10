@@ -7,7 +7,7 @@ using HeroEditor.Common.Enums;
 public class DefaultItems : MonoBehaviour
 {
     [SerializeField] Character character;
-    [SerializeField] List<ItemSO> defaultItems;
+    [SerializeField] List<Equipable> defaultItems;
 
     protected void OnValidate()
     {
@@ -26,12 +26,12 @@ public class DefaultItems : MonoBehaviour
         if (defaultItems == null)
             return;
 
-        foreach (IItem item in defaultItems)
-            if (item != null && item is IEquipment)
-                character.Equip(item.itemSprite, ((IEquipment)item).part);
+        foreach (Equipable item in defaultItems)
+            if (item != null)
+                character.Equip(item.itemSprite, item.part);
     }
 
-    public ItemSO[] GetDefaultItems()
+    public Equipable[] GetDefaultItems()
     {
         return defaultItems.ToArray();
     }

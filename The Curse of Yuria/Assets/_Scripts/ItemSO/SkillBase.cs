@@ -6,7 +6,7 @@ using HeroEditor.Common.Data;
 
 namespace TCOY.Items
 {
-    public abstract class SkillBase : Skill
+    public abstract class SkillBase : Skill, IItem
     {
         [Space(5)] [SerializeField] protected SkillInfo skillInfo;
         [Space(5)] [SerializeField] protected StatusEffectsInfo statusEffectsInfo;

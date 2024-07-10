@@ -13,6 +13,7 @@ namespace TCOY.UserActors
 
         public new Rigidbody2D rigidbody2D { get; private set; }
         public Animator animator { get; private set; }
+        public List<Move> getMoves => moves;
 
         protected new void Awake()
         {
@@ -43,7 +44,7 @@ namespace TCOY.UserActors
             if (TargeterDatabase.Instance.getNearbyAllieTargeter.CalculateTargets(transform.position).Length == 0)
                 return;
 
-            IActor[] targets = movesQueue.Peek().target.CalculateTargets(transform.position);
+            IActor[] targets = movesQueue.Peek().targeter.CalculateTargets(transform.position);
 
             if (targets.Length == 0)
             {

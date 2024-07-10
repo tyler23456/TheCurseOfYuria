@@ -7,6 +7,10 @@ namespace TCOY.UserActors
 {
     public class ActorBasedEnemyBuilder : MonoBehaviour, IPrefabComponentsBuilder
     {
+        [SerializeField] Skill defaultSkill;
+        [SerializeField] Targeter defaultTargeter;
+
+        Move move;
         Enemy enemy;
 
         void IPrefabComponentsBuilder.AddComponentsWithAppropriateValuesTo(GameObject prefab)
@@ -15,6 +19,14 @@ namespace TCOY.UserActors
 
             if (enemy == null)
                 enemy = prefab.AddComponent<Enemy>();
+
+            if (enemy.getMoves.Count == 0)
+            {
+                move = new Move();
+                move.skill = defaultSkill;
+                move.targeter = defaultTargeter;
+                enemy.getMoves.Add(move);
+            }    
 
             Color color = enemy.trajectoryPathColor;
 

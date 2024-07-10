@@ -93,9 +93,9 @@ namespace TCOY.UserActors
             if (editorEquipper == null || _useDefaultItems == false)
                 return;
 
-            ItemSO[] items = editorEquipper.GetDefaultItems();
+            Equipable[] items = editorEquipper.GetDefaultItems();
 
-            foreach (IItem item in items)
+            foreach (Equipable item in items)
                 item.Equip(this);
         }
 

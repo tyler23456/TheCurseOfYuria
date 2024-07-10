@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Collections.ObjectModel;
 using HeroEditor.Common.Enums;
 
-public abstract class Equipable : ItemSO
+public abstract class Equipable : ItemSO, IItem
 {
     public abstract EquipmentPart part { get; }
 

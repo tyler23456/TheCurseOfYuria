@@ -121,7 +121,7 @@ public class ItemDisplayAsset : MonoBehaviour
         allie?.obj.SetActive(previousActive);
 
         allieIndex += offset;
-        allieIndex = Mathf.Clamp(allieIndex, 0, allies.childCount);
+        allieIndex = Mathf.Clamp(allieIndex, 0, allies.childCount - 1);
 
         allie = allies.GetChild(allieIndex).GetComponent<IActor>();
         previousActive = allie.obj.activeSelf;
@@ -342,10 +342,16 @@ public class ItemDisplayAsset : MonoBehaviour
 
         for (int i = 0; i < attributes.Length; i++)
         {
-            oldModifier = oldModifiers.FirstOrDefault(e => e.attribute == (IStats.Attribute)i);
-            newModifier = newModifiers.FirstOrDefault(e => e.attribute == (IStats.Attribute)i);
+            oldModifier = oldModifiers.FirstOrDefault<Modifier>(e => e.attribute == (IStats.Attribute)i);
+            newModifier = newModifiers.FirstOrDefault<Modifier>(e => e.attribute == (IStats.Attribute)i);
 
-            modifierValue = newModifierValue - oldModifierValue;
+            if (oldModifier == null)
+                oldModifier = new Modifier();
+
+            if (newModifier == null)
+                newModifier = new Modifier();
+
+            modifierValue = newModifier.offset - oldModifier.offset;
 
             AddAllieInfo(attributes[i], attributeValues[i], modifierValue);
         }

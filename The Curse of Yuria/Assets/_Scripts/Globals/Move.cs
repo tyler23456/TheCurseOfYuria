@@ -8,5 +8,5 @@ using System.Linq;
 public class Move
 {
     [SerializeField] public Skill skill;
-    [SerializeField] public Targeter target;
+    [SerializeField] public Targeter targeter;
 }

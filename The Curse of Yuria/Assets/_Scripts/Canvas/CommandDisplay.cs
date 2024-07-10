@@ -9,6 +9,7 @@ public class CommandDisplay : DisplayBase
 {
     public static DisplayBase Instance { get; protected set; }
 
+    [SerializeField] Skill defaultAttack;
     [SerializeField] StatusEffectBase KOStatusEffect;
 
     [SerializeField] RectTransform display;
@@ -197,6 +198,9 @@ public class CommandDisplay : DisplayBase
 
     void OnSelectAttack(string commandName)
     {
+        if (commandName == "None")
+            commandName = defaultAttack.name;
+
         OnSelectCommand(commandName);
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using HeroEditor.Common.Data;
 using HeroEditor.Common.Enums;
 
-public abstract class ItemSO : ScriptableObject
+public abstract class ItemSO : ScriptableObject, IItem
 {
     [HideInInspector] [SerializeField] Sprite _icon;
     [HideInInspector] [SerializeField] GameObject _prefab;

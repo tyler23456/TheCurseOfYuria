@@ -12,17 +12,22 @@ namespace TCOY.Items
         [Space(5)] [SerializeField] protected SkillInfo skillInfo;
         [Space(5)] [SerializeField] protected StatusEffectsInfo statusEffectsInfo;
 
-        public override string type => "";
-
-        public override IEnumerator Use(IActor user, IActor[] targets) { yield return null; }
-        public override IEnumerator Use(IActor target) { yield return null; }
-        public override void Equip(IActor user) { }
-        public override void Unequip(IActor user) { }
-
         public ArmType armType => skillInfo.armType;
         public ElementType elementType => skillInfo.elementType;
         public CalculationType calculationType => skillInfo.calculationType;
         public List<BonusType> bonusTypes => skillInfo.bonusTypes;
+
+        public override IEnumerator Use(IActor user, params IActor[] targets)
+        {
+            skillInfo.SetDirection(user, targets);
+
+            user.obj.GetComponent<Animator>()?.SetTrigger("Slash");
+
+            foreach (IActor target in targets)
+                target.StartCoroutine(skillInfo.PerformAnimation(user, target, this, statusEffectsInfo));
+
+            yield return null;
+        }
 
         bool CheckForStatusEffectOnHits(IActor user, IActor target, IItem item)
         {
