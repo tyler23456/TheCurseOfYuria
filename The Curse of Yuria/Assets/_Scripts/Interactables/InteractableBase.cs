@@ -8,6 +8,9 @@ namespace TCOY.Interactables
     [RequireComponent(typeof(Collider2D))]
     public class InteractableBase : MonoBehaviour
     {
+        static bool isFirst = true;
+        protected static new Camera camera;
+
         [SerializeField] protected string ID = "";
 
         protected string getID => ID;
@@ -17,6 +20,16 @@ namespace TCOY.Interactables
         {
             if (ID == "")
                 ID = System.DateTime.Now.Ticks.ToString() + "|" + System.Guid.NewGuid().ToString();    
+        }
+
+        public void Awake()
+        {
+            if (!isFirst)
+                return;
+
+            isFirst = false;
+
+            camera = GameObject.Find("/DontDestroyOnLoad/Main Camera").GetComponent<Camera>();
         }
 
         protected void Start()
@@ -37,6 +50,21 @@ namespace TCOY.Interactables
             IScriptedSequencerData.actions.Enqueue(action);
 
             scriptedSequencerDisplay.gameObject.SetActive(true);
+        }
+
+        protected virtual void SetPositionOfAllies(IActor player, Vector2 position, Vector3 eulerAngles)
+        {
+            bool previousActive = false;
+            foreach (Transform allie in player.obj.transform.parent)
+            {
+                previousActive = allie.gameObject.activeSelf;
+                allie.gameObject.SetActive(false);
+                allie.position = position;
+                allie.eulerAngles = eulerAngles;
+                allie.gameObject.SetActive(previousActive);
+            }
+
+            camera.transform.position = player.obj.transform.position + new Vector3(0f, 0f, -1f);
         }
     }
 }

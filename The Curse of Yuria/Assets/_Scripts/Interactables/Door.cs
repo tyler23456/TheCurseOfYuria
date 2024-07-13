@@ -8,9 +8,9 @@ namespace TCOY.Interactables
     {
         [SerializeField] string sceneName;
         [SerializeField] Vector3 destination;
-        [SerializeField] float eulerAngleZ;
+        [SerializeField] float eulerAngleY;
         [SerializeField] Sprite OpenDoor;
-        [SerializeField] List<IItem> RequiredItems;
+        [SerializeField] List<ItemSO> RequiredItems;
         [SerializeField] Prompt onLockedPrompt;
 
         Sprite closedDoor;
@@ -46,6 +46,8 @@ namespace TCOY.Interactables
 
             loadingDisplay.GetChild(0).name = sceneName;
             loadingDisplay.gameObject.SetActive(true);
+
+            SetPositionOfAllies(player, destination, new Vector3(0f, eulerAngleY, 0f));
         }
 
         public void ShowOpenDoorSprite()
