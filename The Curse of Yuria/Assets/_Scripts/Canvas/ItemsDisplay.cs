@@ -69,7 +69,7 @@ public class ItemsDisplay : DisplayBase
 
     void RefreshEquipmentWithSFX(string type)
     {
-        AudioManager.Instance.PlaySFX(display.cycleEquipmentParts);
+        MenuSFXManager.Instance.PlayChangeEquipmentPart();
         RefreshEquipment(type);
     }
 
@@ -85,7 +85,7 @@ public class ItemsDisplay : DisplayBase
 
     void RefreshScrollsWithSFX(string type)
     {
-        AudioManager.Instance.PlaySFX(display.cycleEquipmentParts);
+        MenuSFXManager.Instance.PlayChangeEquipmentPart();
         display.onGlobalClick = OnEquipScroll;
         display.onLocalClick = OnUnequipScroll;
         display.isRefreshingStatusAttributes = false;
@@ -97,7 +97,7 @@ public class ItemsDisplay : DisplayBase
 
     void RefreshReadonlyWithSFX(string type)
     {
-        AudioManager.Instance.PlaySFX(display.cycleEquipmentParts);
+        MenuSFXManager.Instance.PlayChangeEquipmentPart();
         display.onGlobalClick = (itemName) => { };
         display.isRefreshingStatusAttributes = false;
         display.localInventoryGameObject.SetActive(false);
@@ -123,7 +123,7 @@ public class ItemsDisplay : DisplayBase
         }
 
         current.Equip(display.allie);
-        AudioManager.Instance.PlaySFX(display.equip);
+        MenuSFXManager.Instance.PlayEquip();
 
         display.RefreshItemInfo(current.type);
     }
@@ -139,7 +139,7 @@ public class ItemsDisplay : DisplayBase
 
         InventoryManager.Instance.Get(current.type).Add(itemName);
         current.Unequip(display.allie);
-        AudioManager.Instance.PlaySFX(display.unequip);
+        MenuSFXManager.Instance.PlayUnequip();
 
         display.RefreshItemInfo(type);
     }

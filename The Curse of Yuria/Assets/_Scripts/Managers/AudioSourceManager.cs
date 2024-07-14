@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioSourceManager : MonoBehaviour
 {
-    public static AudioManager Instance { get; private set; }
-
     AudioSource music;
     AudioSource atmosphere;
     AudioSource SFX;
 
     void Awake()
     {
-        Instance = this;
         music = transform.GetChild(0).GetComponent<AudioSource>();
         atmosphere = transform.GetChild(1).GetComponent<AudioSource>();
         SFX = transform.GetChild(2).GetComponent<AudioSource>();
@@ -38,5 +35,20 @@ public class AudioManager : MonoBehaviour
     {
         SFX.pitch = pitch;
         SFX.PlayOneShot(clip, volume);
+    }
+
+    public void PlaySFX(List<AudioClip> clips, float minVolume = 1f, float maxVolume = 1f, float minPitch = 1f, float maxPitch = 1f)
+    {
+
+        float volume = Random.Range(minVolume, maxVolume);
+        float pitch = Random.Range(minPitch, maxPitch);
+
+        SFX.volume = volume;
+        SFX.pitch = pitch;
+
+        int index = Random.Range(0, clips.Count);
+
+        SFX.PlayOneShot(clips[index]);
+
     }
 }

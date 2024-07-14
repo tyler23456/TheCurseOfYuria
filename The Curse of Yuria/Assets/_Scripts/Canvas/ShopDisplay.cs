@@ -90,7 +90,7 @@ public class ShopDisplay : DisplayBase
 
     void RefreshEquipmentWithSFX(string type, Inventory inventory)
     {
-        AudioManager.Instance.PlaySFX(display.cycleEquipmentParts);
+        MenuSFXManager.Instance.PlayChangeEquipmentPart();
         RefreshEquipment(type, inventory);
     }
 
@@ -106,7 +106,7 @@ public class ShopDisplay : DisplayBase
 
     void RefreshScrollsWithSFX(string type, Inventory inventory)
     {
-        AudioManager.Instance.PlaySFX(display.cycleEquipmentParts);
+        MenuSFXManager.Instance.PlayChangeEquipmentPart();
         this.type = type;      
         display.isRefreshingStatusAttributes = false;
         display.localInventoryGameObject.SetActive(true);
@@ -117,7 +117,7 @@ public class ShopDisplay : DisplayBase
 
     void RefreshReadonlyWithSFX(string type, Inventory inventory)
     {
-        AudioManager.Instance.PlaySFX(display.cycleEquipmentParts);
+        MenuSFXManager.Instance.PlayChangeEquipmentPart();
         this.type = type;        
         display.isRefreshingStatusAttributes = false;
         display.localInventoryGameObject.SetActive(false);

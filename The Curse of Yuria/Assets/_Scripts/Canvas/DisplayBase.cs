@@ -5,6 +5,15 @@ using UnityEngine;
 
 public class DisplayBase : MonoBehaviour
 {
+    protected AudioClip open;
+    protected AudioClip close;
+    protected AudioClip hover;
+    protected AudioClip click;
+    protected AudioClip equip;
+    protected AudioClip unequip;
+
+
+
     [SerializeField] Transform displayTransform;
 
     public virtual void Initialize()

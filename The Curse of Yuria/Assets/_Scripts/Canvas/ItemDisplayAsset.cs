@@ -99,7 +99,7 @@ public class ItemDisplayAsset : MonoBehaviour
         allieIndex = 0;
         isRefreshingStatusAttributes = true;
       
-        AudioManager.Instance.PlaySFX(open);
+        MenuSFXManager.Instance.PlayEquipmentMenuOpen();
         GameStateManager.Instance.Pause();
     }
 
@@ -197,12 +197,12 @@ public class ItemDisplayAsset : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            AudioManager.Instance.PlaySFX(cyclePartyMembers);
+            MenuSFXManager.Instance.PlayCyclePartyMembers();
             RefreshAllie(-1);
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            AudioManager.Instance.PlaySFX(cyclePartyMembers);
+            MenuSFXManager.Instance.PlayCyclePartyMembers();
             RefreshAllie(1);
         }
         detailedActorViewCamera.transform.position = allie.obj.transform.position + new Vector3(0f, 1f, -2.5f);

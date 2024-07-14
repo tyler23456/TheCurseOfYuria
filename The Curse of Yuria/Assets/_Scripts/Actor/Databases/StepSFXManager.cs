@@ -15,17 +15,19 @@ namespace TCOY.AStar
         [SerializeField] AssetLabelReference StepFXWoodReference;
         [SerializeField] AssetLabelReference StepFXSnowReference;
 
+        [SerializeField] AudioSourceManager audioSourceManager;
+
         [SerializeField] float minVolume = 0.6f;
         [SerializeField] float maxVolume = 1.4f;
         [SerializeField] float minPitch = 0.6f;
         [SerializeField] float maxPitch = 1.4f;
 
-        List<AudioClip> StepFXGrass = new List<AudioClip>();
-        List<AudioClip> StepFXDirt = new List<AudioClip>();
-        List<AudioClip> StepFXWood = new List<AudioClip>();
-        List<AudioClip> StepFXSnow = new List<AudioClip>();
+        List<AudioClip> StepSFXGrass = new List<AudioClip>();
+        List<AudioClip> StepSFXDirt = new List<AudioClip>();
+        List<AudioClip> StepSFXWood = new List<AudioClip>();
+        List<AudioClip> StepSFXSnow = new List<AudioClip>();
 
-        Dictionary<string, List<AudioClip>> stepFXs = new Dictionary<string, List<AudioClip>>();
+        Dictionary<string, List<AudioClip>> stepSFXs = new Dictionary<string, List<AudioClip>>();
 
 
         public void Awake()
@@ -34,44 +36,35 @@ namespace TCOY.AStar
 
             Addressables.LoadAssetsAsync<AudioClip>(StepFXGrassReference, (i) =>
             {
-                StepFXGrass.Add(i);
+                StepSFXGrass.Add(i);
 
             }).WaitForCompletion();
             Addressables.LoadAssetsAsync<AudioClip>(StepFXDirtReference, (i) =>
             {
-                StepFXDirt.Add(i);
+                StepSFXDirt.Add(i);
 
             }).WaitForCompletion();
             Addressables.LoadAssetsAsync<AudioClip>(StepFXWoodReference, (i) =>
             {
-                StepFXWood.Add(i);
+                StepSFXWood.Add(i);
 
             }).WaitForCompletion();
             Addressables.LoadAssetsAsync<AudioClip>(StepFXSnowReference, (i) =>
             {
-                StepFXSnow.Add(i);
+                StepSFXSnow.Add(i);
 
             }).WaitForCompletion();
 
-
-            stepFXs.Add("GrassStepSFX", StepFXGrass);
-            stepFXs.Add("DirtStepSFX", StepFXDirt);
-            stepFXs.Add("WoodStepSFX", StepFXWood);
-            stepFXs.Add("SnowStepSFX", StepFXSnow);
+            stepSFXs.Add("GrassStepSFX", StepSFXGrass);
+            stepSFXs.Add("DirtStepSFX", StepSFXDirt);
+            stepSFXs.Add("WoodStepSFX", StepSFXWood);
+            stepSFXs.Add("SnowStepSFX", StepSFXSnow);
         }
 
 
         public void Play(string groundType, AudioSource audioSource)
         {
-            float volume = Random.Range(minVolume, maxVolume);
-            float pitch = Random.Range(minPitch, maxPitch);
-
-            audioSource.volume = volume;
-            audioSource.pitch = pitch;
-
-            int index = Random.Range(0, stepFXs[groundType].Count);
-
-            audioSource.PlayOneShot(stepFXs[groundType][index]);
+            audioSourceManager.PlaySFX(stepSFXs[groundType]);
         }
     }
 }
