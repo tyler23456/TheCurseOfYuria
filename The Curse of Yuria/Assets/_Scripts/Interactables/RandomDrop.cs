@@ -21,7 +21,7 @@ namespace TCOY.Interactables
 
         bool isFirstEnable = true;
         
-        protected override void OnValidate()
+        protected void OnValidate()
         {
             if (minCount > maxCount)
                 minCount = maxCount;

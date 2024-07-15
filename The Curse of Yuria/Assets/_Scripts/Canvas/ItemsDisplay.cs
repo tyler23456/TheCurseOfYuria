@@ -26,6 +26,9 @@ public class ItemsDisplay : DisplayBase
         display.gameObject.SetActive(true);
         display.Initialize();
 
+        display.exitButton.onClick.RemoveAllListeners();
+        display.exitButton.onClick.AddListener(OnExit);
+
         display.helmetsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.helmetType));
         display.meleeWeapons1HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee1HandedType));
         display.meleeWeapons2HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee2HandedType));
@@ -65,6 +68,11 @@ public class ItemsDisplay : DisplayBase
     private void Update()
     {
         display.UpdateAllieView();
+    }
+
+    void OnExit()
+    {
+        gameObject.SetActive(false);
     }
 
     void RefreshEquipmentWithSFX(string type)

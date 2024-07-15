@@ -32,13 +32,11 @@ namespace TCOY.ControllerStates
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     controller.animator.SetInteger("State", 2);
-                    controller.velocity += Vector2.left * controller.speed * 2f;
                     controller.rigidbody2D.AddForce(Vector2.left * controller.speed * 2f);
                 }
                 else
                 {
                     controller.animator.SetInteger("State", 1);
-                    controller.velocity += Vector2.left * controller.speed;
                     controller.rigidbody2D.AddForce(Vector2.left * controller.speed);
                 }
             }
@@ -47,13 +45,11 @@ namespace TCOY.ControllerStates
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     controller.animator.SetInteger("State", 2);
-                    controller.velocity += Vector2.right * controller.speed * 2f;
                     controller.rigidbody2D.AddForce(Vector2.right * controller.speed * 2f);
                 }
                 else
                 {
                     controller.animator.SetInteger("State", 1);
-                    controller.velocity += Vector2.right * controller.speed;
                     controller.rigidbody2D.AddForce(Vector2.right * controller.speed);
                 }
             }

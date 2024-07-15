@@ -34,35 +34,38 @@ namespace TCOY.ControllerStates
             {
                 trigger = hit.transform.GetComponent<IClimber>();
 
-                if (trigger != null && trigger.enabled == true)
+                if (trigger != null)
                     break;
             }
 
             if (Input.GetKey(KeyCode.W))
             {
-                controller.velocity += Vector2.up * controller.speed / 2f;
+                controller.animator.SetInteger("State", 5);
+                controller.rigidbody2D.AddForce(Vector2.up * controller.speed / 2f);
             }
             else if (Input.GetKey(KeyCode.S))
             {
-                controller.velocity += Vector2.down * controller.speed / 2f;
+                controller.animator.SetInteger("State", 5);
+                controller.rigidbody2D.AddForce(Vector2.down * controller.speed / 2f);
             }
             else if (Input.GetKey(KeyCode.A))
             {
-                controller.velocity += Vector2.left * controller.speed / 2f;
+                controller.animator.SetInteger("State", 5);
+                controller.rigidbody2D.AddForce(Vector2.left * controller.speed / 2f);
             }
             else if (Input.GetKey(KeyCode.D))
             {
-                controller.velocity += Vector2.right * controller.speed / 2f;
+                controller.animator.SetInteger("State", 5);
+                controller.rigidbody2D.AddForce(Vector2.right * controller.speed / 2f);
             }
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                controller.velocity += Vector2.up * 100;
-                IPlayerControls.state = IPlayerControls.State.Normal;
+                controller.SetAction(StateDatabase.Instance.GetAction("JumpState"));
             }
                 
             if (trigger == null)
-                IPlayerControls.state = IPlayerControls.State.Normal;
+                controller.SetAction(StateDatabase.Instance.GetAction("GroundState"));
         }
 
         protected override void Exit(IController controller)

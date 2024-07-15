@@ -14,7 +14,7 @@ namespace TCOY.Interactables
 
             controller = player.obj.GetComponent<IController>();
 
-            if (controller.action.name != "ClimbState")
+            if (controller.action.name == "ClimbState")
                 return;
 
             controller.SetAction(StateDatabase.Instance.GetAction("ClimbState"));

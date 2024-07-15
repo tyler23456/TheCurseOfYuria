@@ -14,10 +14,8 @@ namespace TCOY.Interactables
         Character character;
         Animator animator;
 
-        protected override void OnValidate()
+        protected void OnValidate()
         {
-            base.OnValidate();
-
             character = GetComponent<Character>();
             character.UnEquip(EquipmentPart.Helmet);
             character.UnEquip(EquipmentPart.Earrings);
@@ -37,10 +35,8 @@ namespace TCOY.Interactables
                 character.Equip(item.itemSprite, ((IEquipment)item).part);
         }
 
-        protected new void Start()
+        protected void Start()
         {
-            base.Start();
-
             character = GetComponent<Character>();
             animator = transform.GetChild(0).GetComponent<Animator>();
         }

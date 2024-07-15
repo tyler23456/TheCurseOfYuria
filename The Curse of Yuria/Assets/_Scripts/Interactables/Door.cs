@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TCOY.Interactables
 {
-    public class Door : InteractableBase, IInteractableTrigger
+    public class Door : InteractableWithIDBase, IInteractableTrigger
     {
         [SerializeField] string sceneName;
         [SerializeField] Vector3 destination;

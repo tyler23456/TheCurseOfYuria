@@ -67,15 +67,21 @@ namespace TCOY.AStar
 
         public void SetGoal(GoalState goal)
         {
-            goalState = GoalState.State.exit;
-            goal.UpdateState(this);
+            if (this.goal != null)
+            {
+                goalState = GoalState.State.exit;
+                this.goal.UpdateState(this);
+            }
             this.goal = goal;
         }
 
         public void SetAction(ActionState action)
         {
-            actionState = ActionState.State.exit;
-            action.UpdateState(this);
+            if (this.action != null)
+            {
+                actionState = ActionState.State.exit;
+                this.action.UpdateState(this);
+            }     
             this.action = action;
         }
 

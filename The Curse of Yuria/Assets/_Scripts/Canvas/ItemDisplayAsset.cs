@@ -51,6 +51,7 @@ public class ItemDisplayAsset : MonoBehaviour
     [SerializeField] public Button scrollsTab;
     [SerializeField] public Button basicTab;
     [SerializeField] public Button questItemsTab;
+    [SerializeField] public Button exitButton;
 
     [Header("Slots")]
     [SerializeField] public Image helmetSlot;
@@ -95,6 +96,7 @@ public class ItemDisplayAsset : MonoBehaviour
         localInventoryUI = new InventoryUI();
 
         ClearTabListenters();
+
 
         allieIndex = 0;
         isRefreshingStatusAttributes = true;

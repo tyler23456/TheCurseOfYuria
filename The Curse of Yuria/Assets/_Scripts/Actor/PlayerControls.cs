@@ -82,7 +82,6 @@ namespace TCOY.ControllerStates
             IController firstController = transform.GetChild(0).GetComponent<IController>();
             firstController.SetGoal(selectedDefaultGoal);
             firstController.SetAction(selectedDefaultAction); //temporary
-            Debug.Log("0  " + firstController.goal.name + "   " + firstController.action.name);
 
             for (int i = 0; i < count; i++)
             {

@@ -87,14 +87,24 @@ public class SaveManager : MonoBehaviour
 
     public void ClearNonPersistentData()
     {
-        InventoryManager.Instance.EmptyAllInventories();      
+        Transform t = null;
+
+        InventoryManager.Instance.EmptyAllInventories();
         PopupManager.Instance.ClearAllPopups();
+        
+        for (int i = allies.childCount - 1; i >= 0; i--)
+        {
+            t = allies.GetChild(i);
+            t.parent = null;
+            Destroy(t.gameObject);
+        }
 
-        foreach (Transform child in allies)
-            Destroy(child.gameObject);
-
-        foreach (Transform child in enemies)
-            Destroy(child.gameObject);
+        for (int i = enemies.childCount - 1; i >= 0; i--)
+        {
+            t = enemies.GetChild(i);
+            t.parent = null;
+            Destroy(t.gameObject);
+        }
 
         IBattleData.aTBGuagesFilled.Clear();
         IBattleData.pendingCommands.Clear();

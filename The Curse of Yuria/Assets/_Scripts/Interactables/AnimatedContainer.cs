@@ -11,22 +11,18 @@ namespace TCOY.Interactables
 
         Animator animator;
 
-        protected override void OnValidate()
+        protected void OnValidate()
         {
             if (requiredItems == null)
                 requiredItems = new List<IItem>();
-
-            base.OnValidate();
         }
 
 
-        protected new void Start()
+        protected void Start()
         {
-            base.Start();
-
             animator = GetComponent<Animator>();
 
-            if (!InventoryManager.Instance.completedIds.Contains(getID) || animator == null)
+            if (animator == null)
                 return;
 
             animator.enabled = true;
@@ -35,9 +31,6 @@ namespace TCOY.Interactables
 
         public override void Interact(IActor player)
         {
-            if (InventoryManager.Instance.completedIds.Contains(getID))
-                return;
-
             if (!requiredItems.TrueForAll(i => InventoryManager.Instance.questItems.Contains(i.name)))
             {
                 ShowLockedPrompt();

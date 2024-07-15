@@ -7,7 +7,7 @@ namespace TCOY.Independent
     [RequireComponent(typeof(Collider2D))]
     public class PlatformBehaviour : MonoBehaviour
     {
-        const float DisabledDuration = 2f;
+        /*const float DisabledDuration = 0.5f;
 
         new Collider2D collider;
 
@@ -32,7 +32,22 @@ namespace TCOY.Independent
             }
         }
 
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            ExecutePlatformBehavior(collision);
+        }
+
         private void OnCollisionStay2D(Collision2D collision)
+        {
+            ExecutePlatformBehavior(collision);
+        }
+
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            ExecutePlatformBehavior(collision);
+        }
+
+        void ExecutePlatformBehavior(Collision2D collision)
         {
             IActor player = collision.gameObject.GetComponent<IActor>();
 
@@ -43,6 +58,6 @@ namespace TCOY.Independent
                 return;
 
             collider.enabled = false;
-        }
+        }*/
     }
 }

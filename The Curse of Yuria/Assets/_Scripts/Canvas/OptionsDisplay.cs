@@ -12,6 +12,7 @@ public class OptionsDisplay : DisplayBase
     [SerializeField] Button controlsTab;
     [SerializeField] Button saveTab;
     [SerializeField] Button quitTab;
+    [SerializeField] Button exitButton;
 
     [SerializeField] RectTransform graphicsDisplay;
     [SerializeField] RectTransform settingsDisplay;
@@ -34,18 +35,25 @@ public class OptionsDisplay : DisplayBase
         controlsTab.onClick.RemoveAllListeners();
         saveTab.onClick.RemoveAllListeners();
         quitTab.onClick.RemoveAllListeners();
+        exitButton.onClick.RemoveAllListeners();
 
         graphicsTab.onClick.AddListener(OnClickGraphicsTab);
         SettingsTab.onClick.AddListener(OnClickSettingsTab);
         controlsTab.onClick.AddListener(OnClickControlsTab);
         saveTab.onClick.AddListener(OnClickSaveTab);
         quitTab.onClick.AddListener(OnClickQuitTab);
+        exitButton.onClick.AddListener(OnExit);
         OnClickGraphicsTab();
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
+    }
+
+    private void OnExit()
+    {
+        gameObject.SetActive(false);   
     }
 
     void ResetTabDisplays()

@@ -11,16 +11,7 @@ namespace TCOY.Interactables
         static bool isFirst = true;
         protected static new Camera camera;
 
-        [SerializeField] protected string ID = "";
-
-        protected string getID => ID;
         public virtual string getAction => "Interact with ";
-
-        protected virtual void OnValidate()
-        {
-            if (ID == "")
-                ID = System.DateTime.Now.Ticks.ToString() + "|" + System.Guid.NewGuid().ToString();    
-        }
 
         public void Awake()
         {
@@ -30,11 +21,6 @@ namespace TCOY.Interactables
             isFirst = false;
 
             camera = GameObject.Find("/DontDestroyOnLoad/Main Camera").GetComponent<Camera>();
-        }
-
-        protected void Start()
-        {
-            
         }
 
         public virtual void Interact(IActor player)

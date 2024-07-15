@@ -21,18 +21,10 @@ namespace TCOY.ControllerStates
             {
                 controller.goalState = State.stay;
                 Enter(controller);
-                
             }
-
 
             if (controller.goalState == State.stay)
                 Stay(controller);
-
-            foreach (GoalState transitionState in transitionStates)
-                if (transitionState.CheckForTransition(controller) == true)
-                {
-                    controller.SetGoal(transitionState);
-                }
 
             if (controller.goalState == State.exit)
             {

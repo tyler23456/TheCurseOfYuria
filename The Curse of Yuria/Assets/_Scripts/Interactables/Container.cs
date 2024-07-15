@@ -8,19 +8,14 @@ namespace TCOY.Interactables
     {
         [SerializeField] protected SavedEntry[] entries;
 
-        protected override void OnValidate()
+        protected void OnValidate()
         {
-            base.OnValidate();
-
             if (entries == null)
                 entries = new SavedEntry[] { };
         }
 
         public override void Interact(IActor player)
         {
-            if (InventoryManager.Instance.completedIds.Contains(getID))
-                return;
-
             IObtainedItemsData.inventory.Clear();
 
             foreach (SavedEntry entry in entries)

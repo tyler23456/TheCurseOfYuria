@@ -19,6 +19,7 @@ public class CommandDisplay : DisplayBase
     [SerializeField] Button attackTab;
     [SerializeField] Button magicTab;
     [SerializeField] Button itemTab;
+    [SerializeField] Button exitButton;
 
     IActor currentAllie;
     string commandName = "None";
@@ -50,10 +51,12 @@ public class CommandDisplay : DisplayBase
         attackTab.onClick.RemoveAllListeners();
         magicTab.onClick.RemoveAllListeners();
         itemTab.onClick.RemoveAllListeners();
+        exitButton.onClick.RemoveAllListeners();
 
         attackTab.onClick.AddListener(() => OnClickAttack());
         magicTab.onClick.AddListener(() => OnClickSkill());
         itemTab.onClick.AddListener(() => OnClickItems());
+        exitButton.onClick.AddListener(OnExit);
 
         commandName = "None";
 
@@ -67,6 +70,11 @@ public class CommandDisplay : DisplayBase
 
         MarkerManager.instance.DestroyAllMarkers();
         GameStateManager.Instance.Play();
+    }
+
+    void OnExit()
+    {
+        gameObject.SetActive(false);
     }
 
     public void RefreshGridWithAttackOptions()

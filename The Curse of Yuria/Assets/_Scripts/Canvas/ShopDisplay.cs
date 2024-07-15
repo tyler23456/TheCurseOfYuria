@@ -34,6 +34,9 @@ public class ShopDisplay : DisplayBase
         display.gameObject.SetActive(true);
         display.Initialize();
 
+        display.exitButton.onClick.RemoveAllListeners();
+        display.exitButton.onClick.AddListener(OnExit);
+
         display.helmetsTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
         display.meleeWeapons1HTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
         display.meleeWeapons2HTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
@@ -86,6 +89,11 @@ public class ShopDisplay : DisplayBase
     private void Update()
     {
         display.UpdateAllieView();
+    }
+
+    void OnExit()
+    {
+        gameObject.SetActive(false);
     }
 
     void RefreshEquipmentWithSFX(string type, Inventory inventory)

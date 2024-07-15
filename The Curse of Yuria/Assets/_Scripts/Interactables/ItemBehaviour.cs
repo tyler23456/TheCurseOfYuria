@@ -5,16 +5,8 @@ using HeroEditor.Common.Enums;
 
 namespace TCOY.Interactables
 {
-    public class ItemBehaviour : InteractableBase, IInteractablePointer
+    public class ItemBehaviour : InteractableWithIDBase, IInteractablePointer
     {
-        protected new void Start()
-        {
-            base.Start();
-
-            if (InventoryManager.Instance.completedIds.Contains(getID))
-                gameObject.SetActive(false);
-        }
-
         public override void Interact(IActor player)
         {
             InventoryManager.Instance.AddItem(name, 60);

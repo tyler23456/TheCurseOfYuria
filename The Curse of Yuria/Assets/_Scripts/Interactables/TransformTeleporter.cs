@@ -40,8 +40,10 @@ namespace TCOY.Interactables
 
         void TransitionToInterior()
         {
-            foreach (Transform child in transform.parent)
-                if (child != transform)
+            foreach (Transform child in destination.parent.parent)
+                if (child == destination.parent)
+                    child.gameObject.SetActive(true);
+                else
                     child.gameObject.SetActive(false);
 
             IVolume.interiorAmbience = 1f;
