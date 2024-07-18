@@ -51,7 +51,12 @@ public sealed class InventoryManager : MonoBehaviour
 
     public void AddItem(string itemName, int count = 1)
     {
-        inventories[ItemDatabase.Instance.GetType(itemName)].Add(itemName, count);
+        string type = ItemDatabase.Instance.GetType(itemName);
+
+        if (type == "Gem")
+            olms += ItemDatabase.Instance.Get(itemName).marketValue;
+        else
+            inventories[type].Add(itemName, count);
     }
 
     public Inventory Get(string type)

@@ -5,33 +5,17 @@ using UnityEngine.AddressableAssets;
 using HeroEditor.Common.Enums;
 
 [ExecuteAlways]
-public class ItemDatabase : MonoBehaviour//, ISerializationCallbackReceiver
+public class ItemDatabase : MonoBehaviour
 {
     public static ItemDatabase Instance { get; private set; }
 
     [SerializeField] AssetLabelReference itemsReference;
-    [SerializeField] bool populate = false;
 
     Dictionary<string, IItem> items = new Dictionary<string, IItem>();
-
-    public List<string> keys = new List<string>();
-    public List<IItem> values = new List<IItem>();
-
-    
+  
     void Awake()
     {
         Instance = this;
-
-        Populate();
-    }
-    
-    void Update()
-    {
-        if (!populate)
-            return;
-
-        populate = false;
-
         Populate();
     }
 

@@ -7,10 +7,18 @@ namespace TCOY.Interactables
 {
     public class ItemBehaviour : InteractableWithIDBase, IInteractablePointer
     {
+        protected void Start()
+        {
+            if (uniqueIdentifier.IsNotFoundInInventory())
+                return;
+
+            gameObject.SetActive(false);
+        }
+
         public override void Interact(IActor player)
         {
             InventoryManager.Instance.AddItem(name, 60);
-            InventoryManager.Instance.completedIds.Add(getID, 1);
+            uniqueIdentifier.AddToInventory();
             gameObject.SetActive(false);
         }
     }

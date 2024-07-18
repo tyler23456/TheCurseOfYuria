@@ -5,6 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class Entry
 {
-    [SerializeField] public IItem item;
+    [SerializeField] public ItemSO item;
     [SerializeField] public int count;
 }

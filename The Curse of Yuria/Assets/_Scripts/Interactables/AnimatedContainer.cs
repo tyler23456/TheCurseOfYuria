@@ -1,22 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 namespace TCOY.Interactables
 {
     public class AnimatedContainer : Container, IInteractable, IInteractablePointer
     {
-        [SerializeField] List<IItem> requiredItems;
+        [SerializeField] UniqueIdentifier uniqueIdentifier;
+        [SerializeField] List<Entry> requiredItems;
         [SerializeField] Prompt onLockedPrompt;
 
         Animator animator;
 
-        protected void OnValidate()
-        {
-            if (requiredItems == null)
-                requiredItems = new List<IItem>();
-        }
+        public string getID => uniqueIdentifier.getID;
 
+        protected new void OnValidate()
+        {
+            base.OnValidate();
+
+            string path = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(gameObject);
+            GameObject obj = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+
+            if (obj == null)
+                return;
+
+            uniqueIdentifier.Initialize(obj.GetComponent<AnimatedContainer>().getID);
+        }
 
         protected void Start()
         {
@@ -25,18 +35,22 @@ namespace TCOY.Interactables
             if (animator == null)
                 return;
 
+            if (uniqueIdentifier.IsNotFoundInInventory())
+                return;
+
             animator.enabled = true;
             animator.Play("Base Layer.Activate", 0, 1f);
         }
 
         public override void Interact(IActor player)
         {
-            if (!requiredItems.TrueForAll(i => InventoryManager.Instance.questItems.Contains(i.name)))
+            if (!requiredItems.TrueForAll(i => InventoryManager.Instance.questItems.Contains(i.item.name)))
             {
                 ShowLockedPrompt();
                 return;
             }
 
+            uniqueIdentifier.AddToInventory();
             base.Interact(player);
 
             if (animator != null)

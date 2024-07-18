@@ -1,22 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 namespace TCOY.Interactables
 {
     public class InteractableWithIDBase : InteractableBase
     {
-        [SerializeField] protected string ID = "";
+        [SerializeField] protected UniqueIdentifier uniqueIdentifier;
 
-        protected string getID => ID;
+        protected string getID => uniqueIdentifier.getID;
 
-        protected void Start()
+
+        protected void OnValidate()
         {
-            if (ID == null || ID == "")
-                ID = System.DateTime.Now.Ticks.ToString() + "|" + System.Guid.NewGuid().ToString();
+            string path = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(gameObject);
+            GameObject obj = AssetDatabase.LoadAssetAtPath<GameObject>(path);
 
-            if (InventoryManager.Instance.completedIds.Contains(getID))
-                gameObject.SetActive(false);
+            if (obj == null)
+                return;
+
+            uniqueIdentifier.Initialize(obj.GetComponent<InteractableWithIDBase>().getID);
         }
     }
 }

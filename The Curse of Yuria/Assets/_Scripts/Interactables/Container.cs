@@ -10,8 +10,11 @@ namespace TCOY.Interactables
 
         protected void OnValidate()
         {
-            if (entries == null)
-                entries = new SavedEntry[] { };
+            if (entries != null && entries.Length > 0)
+            
+            entries[0].Initialize("");
+            for (int i = 1; i < entries.Length; i++)
+                entries[i].Initialize(entries[i - 1].ID);
         }
 
         public override void Interact(IActor player)

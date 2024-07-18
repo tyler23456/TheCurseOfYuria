@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 namespace TCOY.Interactables
 {
@@ -16,10 +17,8 @@ namespace TCOY.Interactables
         Sprite closedDoor;
         SpriteRenderer spriteRenderer;
 
-        protected new void Start()
+        protected void Start()
         {
-            base.Start();
-
             spriteRenderer = GetComponent<SpriteRenderer>();
 
             if (spriteRenderer == null)
@@ -27,8 +26,10 @@ namespace TCOY.Interactables
 
             closedDoor = spriteRenderer.sprite;
 
-            if (InventoryManager.Instance.completedIds.Contains(getID))
-                ShowOpenDoorSprite();
+            if (uniqueIdentifier.IsNotFoundInInventory())
+                return;
+
+            ShowOpenDoorSprite();
         }
 
         public override void Interact(IActor player)
@@ -40,7 +41,7 @@ namespace TCOY.Interactables
             }
 
             ShowOpenDoorSprite();
-            InventoryManager.Instance.completedIds.Add(getID, 1);
+            uniqueIdentifier.AddToInventory();
 
             Transform loadingDisplay = GameObject.Find("/DontDestroyOnLoad/Canvas/LoadingDisplay").transform;
 

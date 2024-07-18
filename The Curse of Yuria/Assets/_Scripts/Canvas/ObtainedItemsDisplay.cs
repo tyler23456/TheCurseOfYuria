@@ -13,7 +13,6 @@ public class ObtainedItemsDisplay : DisplayBase
     [SerializeField] Button obtainedItemPrefab;
     [SerializeField] Button exitButton;
 
-    Inventory inventory = new Inventory();
     InventoryUI inventoryUI = new InventoryUI();
 
     public Action<string> onClick { get; set; } = (itemName) => { };
@@ -27,6 +26,7 @@ public class ObtainedItemsDisplay : DisplayBase
     protected override void OnEnable()
     {
         base.OnEnable();
+
         GameStateManager.Instance.Play();
         exitButton.onClick.AddListener(OnExit);
         OnRefresh();
@@ -36,7 +36,7 @@ public class ObtainedItemsDisplay : DisplayBase
     {
         inventoryUI.grid = grid;
         inventoryUI.buttonPrefab = obtainedItemPrefab;
-        inventoryUI.inventory = inventory;
+        inventoryUI.inventory = IObtainedItemsData.inventory;
         inventoryUI.OnClick = OnClick;
         inventoryUI.OnClick += onClick;
         inventoryUI.onPointerEnter = (itemName) => { };
@@ -47,7 +47,7 @@ public class ObtainedItemsDisplay : DisplayBase
     protected override void OnDisable()
     {
         base.OnDisable();
-        inventory.Clear();
+        IObtainedItemsData.inventory.Clear();
         onClick = (itemName) => { };
     }
 
@@ -58,7 +58,7 @@ public class ObtainedItemsDisplay : DisplayBase
 
         OnRefresh();
 
-        if (inventory.count == 0)
+        if (IObtainedItemsData.inventory.count == 0)
             gameObject.SetActive(false);
     }
 
