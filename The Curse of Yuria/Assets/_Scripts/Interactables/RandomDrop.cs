@@ -39,6 +39,9 @@ namespace TCOY.Interactables
 
             isFirstEnable = true;
 
+            if (weightedEntries.Count == 0)
+                return;
+
             foreach (WeightedEntry entry in weightedEntries)
             {
                 items.Add(entry.item);
@@ -46,6 +49,7 @@ namespace TCOY.Interactables
             }
 
             count = Random.Range(minCount, maxCount);
+            count = Mathf.Clamp(count, 1, weightedEntries.Count);
 
             for (int i = 0; i < count; i++)
             {
@@ -69,7 +73,8 @@ namespace TCOY.Interactables
         }
     }
 
-    public struct WeightedEntry
+    [System.Serializable]
+    public class WeightedEntry
     {
         public IItem item;
         [Range(1, 20)] public int minCount;

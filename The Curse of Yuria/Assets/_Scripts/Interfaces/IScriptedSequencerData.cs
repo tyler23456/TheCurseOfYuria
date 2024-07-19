@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IScriptedSequencerData
 {
-    static Queue<IScriptedSequencerAction> actions { get; private set; } = new Queue<IScriptedSequencerAction>();
+    static Queue<ActionSO> actions { get; private set; } = new Queue<ActionSO>();
 }

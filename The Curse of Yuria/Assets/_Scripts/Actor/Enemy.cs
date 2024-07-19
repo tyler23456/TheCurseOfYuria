@@ -41,10 +41,10 @@ namespace TCOY.UserActors
 
         void MakeADecision()
         {
-            if (TargeterDatabase.Instance.getNearbyAllieTargeter.CalculateTargets(transform.position).Length == 0)
+            if (TargeterDatabase.Instance.getNearbyAllieTargeter.CalculateTargets(collider2D.bounds.center).Length == 0)
                 return;
 
-            IActor[] targets = movesQueue.Peek().targeter.CalculateTargets(transform.position);
+            IActor[] targets = movesQueue.Peek().targeter.CalculateTargets(collider2D.bounds.center);
 
             if (targets.Length == 0)
             {

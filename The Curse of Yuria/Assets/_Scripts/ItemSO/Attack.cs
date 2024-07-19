@@ -1,13 +1,30 @@
+using HeroEditor.Common.Enums;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace TCOY.Items
 {
     [CreateAssetMenu(fileName = "Attack", menuName = "Attacks/Attack")]
-    public class Attack : SkillBase
+    public class Attack : SkillBase, IItem
     {
         public override IEnumerator Use(IActor user, params IActor[] targets)
+        {
+            string weaponName = user.getEquipment.Find(i =>
+        ItemDatabase.Instance.Part(i) == EquipmentPart.MeleeWeapon1H ||
+        ItemDatabase.Instance.Part(i) == EquipmentPart.MeleeWeapon2H ||
+        ItemDatabase.Instance.Part(i) == EquipmentPart.Bow);
+
+            if (weaponName == null)
+                yield return UseDefaultAttack(user, targets);
+            else
+                yield return ItemDatabase.Instance.Get(weaponName).Use(user, targets);
+
+            yield return null;
+        }
+
+        IEnumerator UseDefaultAttack(IActor user, params IActor[] targets)
         {
             skillInfo.SetDirection(user, targets);
 

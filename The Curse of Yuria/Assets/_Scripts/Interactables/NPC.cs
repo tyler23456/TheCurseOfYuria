@@ -73,11 +73,11 @@ namespace TCOY.Interactables
         [System.Serializable]
         public class PromptBrancher
         {
-            [SerializeField] QuestBase unlockingQuest;
-            [SerializeField] IScriptedSequencerAction action;
+            [SerializeField] QuestSO unlockingQuest;
+            [SerializeField] ActionSO action;
 
-            public QuestBase getUnlockingQuest => unlockingQuest;
-            public IScriptedSequencerAction getAction => action;
+            public QuestSO getUnlockingQuest => unlockingQuest;
+            public ActionSO getAction => action;
         }
     }
 }

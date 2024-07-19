@@ -90,17 +90,8 @@ public class CommandDisplay : DisplayBase
 
     public void OnClickAttack()
     {
-        string weapon = currentAllie.getEquipment.Find(i =>
-        ItemDatabase.Instance.Part(i) == EquipmentPart.MeleeWeapon1H ||
-        ItemDatabase.Instance.Part(i) == EquipmentPart.MeleeWeapon2H ||
-        ItemDatabase.Instance.Part(i) == EquipmentPart.Bow);
-
         RefreshGridWithAttackOptions();
-
-        if (weapon == null)
-            return;
-
-        OnSelectAttack(weapon);
+        OnSelectAttack(defaultAttack.name);
     }
 
     public void OnClickSkill()
@@ -206,9 +197,6 @@ public class CommandDisplay : DisplayBase
 
     void OnSelectAttack(string commandName)
     {
-        if (commandName == "None")
-            commandName = defaultAttack.name;
-
         OnSelectCommand(commandName);
     }
 

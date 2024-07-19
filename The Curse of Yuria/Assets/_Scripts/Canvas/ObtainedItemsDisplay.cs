@@ -15,8 +15,6 @@ public class ObtainedItemsDisplay : DisplayBase
 
     InventoryUI inventoryUI = new InventoryUI();
 
-    public Action<string> onClick { get; set; } = (itemName) => { };
-
     public override void Initialize()
     {
         base.Initialize();
@@ -38,7 +36,7 @@ public class ObtainedItemsDisplay : DisplayBase
         inventoryUI.buttonPrefab = obtainedItemPrefab;
         inventoryUI.inventory = IObtainedItemsData.inventory;
         inventoryUI.OnClick = OnClick;
-        inventoryUI.OnClick += onClick;
+        inventoryUI.OnClick += IObtainedItemsData.onClick;
         inventoryUI.onPointerEnter = (itemName) => { };
         inventoryUI.onPointerExit = (itemName) => { };
         inventoryUI.Display();
@@ -48,7 +46,7 @@ public class ObtainedItemsDisplay : DisplayBase
     {
         base.OnDisable();
         IObtainedItemsData.inventory.Clear();
-        onClick = (itemName) => { };
+        IObtainedItemsData.onClick = (itemName) => { };
     }
 
     void OnClick(string itemName)

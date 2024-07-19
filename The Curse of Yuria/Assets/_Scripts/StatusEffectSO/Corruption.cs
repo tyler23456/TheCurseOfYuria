@@ -20,7 +20,7 @@ public class Corruption : StatusEffectIcon
             return false;
 
         Move move = moves[Random.Range(0, moves.Count)];
-        List<IActor> targets = new List<IActor>(move.targeter.CalculateTargets(user.obj.transform.position));
+        List<IActor> targets = new List<IActor>(move.targeter.CalculateTargets(user.getCollider2D.bounds.center));
 
         int layer = user.obj.layer == LayerMask.NameToLayer("Allie") ? LayerMask.NameToLayer("Enemy") : LayerMask.NameToLayer("Allie");
 

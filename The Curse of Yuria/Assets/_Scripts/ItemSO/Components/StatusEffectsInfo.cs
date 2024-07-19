@@ -32,7 +32,7 @@ namespace TCOY.Items
 
         public bool TrueForAnyStatusEffect(Func<StatusEffect, bool> predicate)
         {
-            return statusEffectProbabilities.Find(i => predicate.Invoke(i.statusEffect)).statusEffect != null;
+            return statusEffectProbabilities.Find(i => predicate.Invoke(i.statusEffect)) != null;
         }
 
         public bool ContainsStatusEffectThatCanRemoveKO()

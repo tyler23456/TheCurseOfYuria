@@ -49,7 +49,7 @@ namespace TCOY.Interactables
             Collider2D collider = target.gameObject.GetComponent<Collider2D>();
             MarkerManager.instance.SetMarkerWorldPositionAt("InteractingTrigger", collider.bounds.center + Vector3.up * collider.bounds.extents.y);
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.W))
             {
                 targets = target.gameObject.GetComponents<IInteractable>();
                 foreach (IInteractable target in targets)

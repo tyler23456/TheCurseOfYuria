@@ -26,11 +26,14 @@ namespace TCOY.Items
 
         public IEnumerator PerformEffect(IActor user, IActor target, StatusEffectsInfo statusEffectsInfo)
         {
-            ParticleSystem particleSystem = GameObject.Instantiate(this.particleSystem.gameObject, target.obj.transform).GetComponent<ParticleSystem>();
-            GameObject.Destroy(particleSystem.gameObject, particleSystem.main.duration);
+            if (this.particleSystem != null)
+            {
+                ParticleSystem particleSystem = GameObject.Instantiate(this.particleSystem.gameObject, target.obj.transform).GetComponent<ParticleSystem>();
+                GameObject.Destroy(particleSystem.gameObject, particleSystem.main.duration);
 
-            while (particleSystem.time < particleSystem.main.duration / 10f)
-                yield return new WaitForEndOfFrame();
+                while (particleSystem.time < particleSystem.main.duration / 10f)
+                    yield return new WaitForEndOfFrame();
+            }      
 
             if (user == null)
                 yield break;
@@ -52,11 +55,14 @@ namespace TCOY.Items
 
         public IEnumerator PerformEffect(IActor target)
         {
-            ParticleSystem particleSystem = GameObject.Instantiate(this.particleSystem.gameObject, target.obj.transform).GetComponent<ParticleSystem>();
-            GameObject.Destroy(particleSystem.gameObject, particleSystem.main.duration);
+            if (this.particleSystem != null)
+            {
+                ParticleSystem particleSystem = GameObject.Instantiate(this.particleSystem.gameObject, target.obj.transform).GetComponent<ParticleSystem>();
+                GameObject.Destroy(particleSystem.gameObject, particleSystem.main.duration);
 
-            while (particleSystem.time < particleSystem.main.duration / 10f)
-                yield return new WaitForEndOfFrame();
+                while (particleSystem.time < particleSystem.main.duration / 10f)
+                    yield return new WaitForEndOfFrame();
+            }
 
             if (target == null)
                 yield break;

@@ -101,7 +101,7 @@ public class BattleManager : MonoBehaviour
             foreach (Reactor reactor in reactors)
                 if (((1 << command.targets[0].obj.layer) & reactor.mask) != 0 && command.item.ContainsType(reactor.type.name))
                 {
-                    Command reaction = new Command(actor, reactor.reaction, reactor.target.CalculateTargets(actor.obj.transform.position));
+                    Command reaction = new Command(actor, reactor.reaction, reactor.target.CalculateTargets(actor.getCollider2D.bounds.center));
 
                     if (isCounter)
                         IBattleData.pendingCommands.AddLast(reaction);
@@ -113,7 +113,7 @@ public class BattleManager : MonoBehaviour
 
     void RefreshNearbyEnemies()
     {
-        IActor[] enemyTargets = enemyTargeter.CalculateTargets(allies.GetChild(0).position);
+        IActor[] enemyTargets = enemyTargeter.CalculateTargets(allies.GetChild(0).GetComponent<IActor>().getCollider2D.bounds.center);
 
         foreach (Transform t in enemies)
             t.parent = null;

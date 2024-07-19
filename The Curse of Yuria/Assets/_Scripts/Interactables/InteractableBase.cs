@@ -28,7 +28,7 @@ namespace TCOY.Interactables
 
         }
 
-        public virtual void ActivateScriptedSequence (IScriptedSequencerAction action)
+        public virtual void ActivateScriptedSequence (ActionSO action)
         {
             Transform scriptedSequencerDisplay = GameObject.Find("/DontDestroyOnLoad/Canvas/ScriptedSequencerDisplay").transform;
 

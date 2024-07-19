@@ -19,7 +19,7 @@ namespace TCOY.AStar
             this.animator = animator;
             this.audioSource = audioSource;
         }
-
+        
         public void Update()
         {
             accumulator += Time.deltaTime;      
