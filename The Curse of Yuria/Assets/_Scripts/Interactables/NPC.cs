@@ -8,7 +8,6 @@ namespace TCOY.Interactables
 {
     public class NPC : InteractableBase, IInteractablePointer
     {
-        [SerializeField] IItem[] equipment;
         [SerializeField] List<PromptBrancher> promptBranchers;
 
         Character character;
@@ -16,7 +15,7 @@ namespace TCOY.Interactables
 
         protected void OnValidate()
         {
-            character = GetComponent<Character>();
+            /*character = GetComponent<Character>();
             character.UnEquip(EquipmentPart.Helmet);
             character.UnEquip(EquipmentPart.Earrings);
             character.UnEquip(EquipmentPart.Glasses);
@@ -28,11 +27,11 @@ namespace TCOY.Interactables
             character.UnEquip(EquipmentPart.Shield);
             character.UnEquip(EquipmentPart.Bow);
 
-            if (equipment == null)
-                equipment = new IItem[] { };
+            if (equipables == null)
+                equipables = new Equipable[] { };
 
-            foreach (IItem item in equipment)
-                character.Equip(item.itemSprite, ((IEquipment)item).part);
+            foreach (Equipable equipable in equipables)
+                character.Equip(equipable.itemSprite, ((IEquipment)equipable).part);*/
         }
 
         protected void Start()
