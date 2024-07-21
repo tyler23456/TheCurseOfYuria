@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
+  m_Name: NPC2Prompt1
+  m_EditorClassIdentifier: 
+  characterName: {fileID: 0}
+  text: When in battle (or out of battle) your party members will charge an ATB guage
+    which is indicated by the light blue bar of in the top left corner of the screen. 
+    Once this guage is full, you can press "Tab" to open up the command window for
+    that party member.

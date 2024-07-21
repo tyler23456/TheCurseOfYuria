@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
-  m_Name: _NPC1Prompt!
+  m_Name: NPC2Prompt3
   m_EditorClassIdentifier: 
   characterName: {fileID: 0}
-  text: You can access the equipment menu by pressing the "1" key.  While in the
-    equipment menu.
+  text: When clicking on the "scroll" or "supply" icon, it will display more options
+    below.  After selecting one of these options, you can then click on a target
+    (either an enemy or a party member) to use the option on.

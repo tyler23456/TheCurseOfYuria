@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
+  m_Name: NPC2Prompt2
+  m_EditorClassIdentifier: 
+  characterName: {fileID: 0}
+  text: In the top of the command window, you will see three icons.  An "Attack"
+    icon, a "Scroll" icon and a "supply" icon.  The attack icons allows you to attack
+    targets.  The scroll icon allows you to use magic.  The supply icon allows you
+    to use items such as potions, food, etc.
