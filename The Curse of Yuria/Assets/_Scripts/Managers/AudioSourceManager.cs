@@ -39,7 +39,11 @@ public class AudioSourceManager : MonoBehaviour
 
     public void PlaySFX(List<AudioClip> clips, float minVolume = 1f, float maxVolume = 1f, float minPitch = 1f, float maxPitch = 1f)
     {
+        Play(SFX, clips, minVolume, maxVolume, minPitch, maxPitch);
+    }
 
+    public void Play(AudioSource audioSource, List<AudioClip> clips, float minVolume = 1f, float maxVolume = 1f, float minPitch = 1f, float maxPitch = 1f)
+    {
         float volume = Random.Range(minVolume, maxVolume);
         float pitch = Random.Range(minPitch, maxPitch);
 
@@ -48,7 +52,6 @@ public class AudioSourceManager : MonoBehaviour
 
         int index = Random.Range(0, clips.Count);
 
-        SFX.PlayOneShot(clips[index]);
-
+        audioSource.PlayOneShot(clips[index]);
     }
 }

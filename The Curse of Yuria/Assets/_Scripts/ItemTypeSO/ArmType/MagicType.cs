@@ -12,4 +12,9 @@ public class MagicType : ArmTypeBase
         return accumulator * ((user.getStats.GetAttribute(IStats.Attribute.Magic) + IStats.OffenseSensitivity) / (IStats.OffenseSensitivity)) 
                            * (IStats.DefenseSensitivity / (IStats.DefenseSensitivity + target.getStats.GetAttribute(IStats.Attribute.Aura) * defenseNormal));
     }
+
+    public override void PlaySoundEffect(AudioSource audiosource)
+    {
+        
+    }
 }

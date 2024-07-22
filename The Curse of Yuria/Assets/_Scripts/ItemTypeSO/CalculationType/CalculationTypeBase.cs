@@ -9,4 +9,8 @@ public abstract class CalculationTypeBase : CalculationType
     {
         return 0f;
     }
+
+    public override void PlaySoundEffect(AudioSource audiosource)
+    {
+    }
 }

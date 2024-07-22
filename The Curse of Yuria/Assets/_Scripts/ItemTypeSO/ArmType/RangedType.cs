@@ -9,4 +9,9 @@ public class RangedType : StrengthTypeBase
     {
         return base.Calculate(user, target, accumulator);
     }
+
+    public override void PlaySoundEffect(AudioSource audiosource)
+    {
+        ArmTypeSFXManager.Instance.PlayReleaseBowSFX(audiosource);
+    }
 }

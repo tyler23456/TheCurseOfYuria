@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Melee", menuName = "ArmType/Melee")]
-public class MeleeType : StrengthTypeBase
+[CreateAssetMenu(fileName = "Weaponless", menuName = "ArmType/Weaponless")]
+public class WeaponlessType : StrengthTypeBase
 {
 
     public override float Calculate(IActor user, IActor target, float accumulator)
@@ -13,6 +13,6 @@ public class MeleeType : StrengthTypeBase
 
     public override void PlaySoundEffect(AudioSource audiosource)
     {
-        ArmTypeSFXManager.Instance.PlaySwingSFX(audiosource);
+        
     }
 }

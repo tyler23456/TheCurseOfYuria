@@ -36,10 +36,11 @@ namespace TCOY.Interactables
             {
                 int count = entry.count - InventoryManager.Instance.completedIds.GetCount(entry.ID);
 
+                PlaySoundEffect();
+
                 if (count <= 0)
                     continue;
 
-                PlaySoundEffect();
                 IObtainedItemsData.inventory.Add(entry.item.name, count);
             }
 

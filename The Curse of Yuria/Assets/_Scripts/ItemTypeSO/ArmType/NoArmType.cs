@@ -9,4 +9,9 @@ public class NoArmType : ArmTypeBase
     {
         return accumulator;
     }
+
+    public override void PlaySoundEffect(AudioSource audiosource)
+    {
+        
+    }
 }

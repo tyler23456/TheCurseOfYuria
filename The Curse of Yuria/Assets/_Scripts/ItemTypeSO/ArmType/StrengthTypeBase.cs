@@ -11,4 +11,9 @@ public class StrengthTypeBase : ArmTypeBase
         return accumulator * ((user.getStats.GetAttribute(IStats.Attribute.Strength) + IStats.OffenseSensitivity) / (IStats.OffenseSensitivity))
                            * (IStats.DefenseSensitivity / (IStats.DefenseSensitivity + target.getStats.GetAttribute(IStats.Attribute.Defense) * defenseNormal ));
     }
+
+    public override void PlaySoundEffect(AudioSource audiosource)
+    {
+        throw new System.NotImplementedException();
+    }
 }

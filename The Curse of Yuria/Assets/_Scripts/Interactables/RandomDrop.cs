@@ -60,10 +60,17 @@ namespace TCOY.Interactables
             }
         }
 
+        void PlaySoundEffect()
+        {
+            InteractableSFXManager.Instance.PlaySearchEnemySFX();
+        }
+
         public override void Interact(IActor player)
         {
             for (int i = 0; i < IObtainedItemsData.inventory.count; i++)
                 IObtainedItemsData.inventory.Add(inventory.GetName(i), inventory.GetCount(i));
+
+            PlaySoundEffect();
                       
             Transform obtainedItemsDisplay = GameObject.Find("/DontDestroyOnLoad/Canvas/ObtainedItemsDisplay").transform;
             obtainedItemsDisplay.gameObject.SetActive(false);

@@ -16,7 +16,9 @@ namespace TCOY.Items
 
         public IEnumerator PerformAnimation(IActor user, IActor target, IItem item, StatusEffectsInfo statusEffectsInfo)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
+            armType.PlaySoundEffect(user.getAudioSource);
+            yield return new WaitForSeconds(0.3f);
 
             if (statusEffectsInfo.CheckForStatusEffectCounters(user, target, item))
                 yield break;
@@ -49,6 +51,7 @@ namespace TCOY.Items
                 accumulator = bonusType.Calculate(user, target, accumulator);
 
             accumulator = calculationType.Calculate(user, target, accumulator);
+            calculationType.PlaySoundEffect(target.getAudioSource);
 
             statusEffectsInfo.CheckStatusEffects(target);
         }

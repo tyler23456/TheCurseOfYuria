@@ -10,4 +10,9 @@ public class HPDamageType : CalculationTypeBase
         target.getStats.ApplyHPDamage(accumulator);
         return accumulator;
     }
+
+    public override void PlaySoundEffect(AudioSource audiosource)
+    {
+        CalculationTypeSFXManager.Instance.PlayHitSFX(audiosource);
+    }
 }

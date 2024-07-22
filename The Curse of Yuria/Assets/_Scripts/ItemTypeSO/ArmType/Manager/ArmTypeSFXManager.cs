@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-public class ActorSFXManager : MonoBehaviour
+public class ArmTypeSFXManager : MonoBehaviour
 {
-    public static ActorSFXManager Instance { get; private set; }
+    public static ArmTypeSFXManager Instance { get; private set; }
 
     [SerializeField] AssetLabelReference swingReference;
     [SerializeField] AssetLabelReference releaseBowReference;
-    [SerializeField] AssetLabelReference hitReference;
 
     [SerializeField] AudioSourceManager audioSourceManager;
 
     List<AudioClip> swingSFX = new List<AudioClip>();
     List<AudioClip> releaseBowSFX = new List<AudioClip>();
-    List<AudioClip> hitSFX = new List<AudioClip>();
 
     void Awake()
     {
@@ -31,25 +29,15 @@ public class ActorSFXManager : MonoBehaviour
             releaseBowSFX.Add(i);
 
         }).WaitForCompletion();
-        Addressables.LoadAssetsAsync<AudioClip>(hitReference, (i) =>
-        {
-            hitSFX.Add(i);
-
-        }).WaitForCompletion();
     }
 
-    public void PlaySwingSFX()
+    public void PlaySwingSFX(AudioSource audioSource)
     {
-        audioSourceManager.PlaySFX(swingSFX);
+        audioSourceManager.Play(audioSource, swingSFX);
     }
 
-    public void PlayReleaseBowSFX()
+    public void PlayReleaseBowSFX(AudioSource audioSource)
     {
-        audioSourceManager.PlaySFX(releaseBowSFX);
-    }
-
-    public void PlayHitSFX()
-    {
-        audioSourceManager.PlaySFX(hitSFX);
+        audioSourceManager.Play(audioSource, releaseBowSFX);
     }
 }

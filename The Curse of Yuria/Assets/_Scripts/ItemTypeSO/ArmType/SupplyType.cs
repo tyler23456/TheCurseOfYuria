@@ -9,4 +9,9 @@ public class SupplyType : ArmTypeBase
     {
         return accumulator;
     }
+
+    public override void PlaySoundEffect(AudioSource audiosource)
+    {
+
+    }
 }
