@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
   m_Name: NPC3Prompt2
   m_EditorClassIdentifier: 
-  characterName: {fileID: 0}
+  characterName: {fileID: 11400000, guid: 58cef171858bae84f89fe92dfed46ea9, type: 2}
   text: You can also sell items by clicking the "sell" button in the shop menu. 
     The inventory will switch over from the shop keeper's to you, the player.

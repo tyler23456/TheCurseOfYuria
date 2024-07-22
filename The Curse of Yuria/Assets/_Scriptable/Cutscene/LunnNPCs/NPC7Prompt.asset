@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
   m_Name: NPC7Prompt
   m_EditorClassIdentifier: 
-  characterName: {fileID: 0}
+  characterName: {fileID: 11400000, guid: 0c26588ce3887dd4bb20a3cd16ddc95b, type: 2}
   text: I've heard stories of endless treasures being stowed away in Luna's Castle
     from the original inhabitants.  They were all merchants from different areas
     of Yuria.

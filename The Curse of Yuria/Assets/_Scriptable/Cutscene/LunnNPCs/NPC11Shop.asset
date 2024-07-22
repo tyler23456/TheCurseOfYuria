@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9bbce98579bb94b8a0c6001bad5959, type: 3}
   m_Name: NPC11Shop
   m_EditorClassIdentifier: 
-  characterName: {fileID: 0}
+  characterName: {fileID: 11400000, guid: 1d7aa667d1fc3cb42a137001d1ca11a8, type: 2}
   buyersRating: 1.5
   sellersRating: 1.8
   entries:

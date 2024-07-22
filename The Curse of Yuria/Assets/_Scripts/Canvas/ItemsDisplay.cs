@@ -131,6 +131,7 @@ public class ItemsDisplay : DisplayBase
         }
 
         current.Equip(display.allie);
+
         MenuSFXManager.Instance.PlayEquip();
 
         display.RefreshItemInfo(current.type);
@@ -147,6 +148,7 @@ public class ItemsDisplay : DisplayBase
 
         InventoryManager.Instance.Get(current.type).Add(itemName);
         current.Unequip(display.allie);
+
         MenuSFXManager.Instance.PlayUnequip();
 
         display.RefreshItemInfo(type);
@@ -162,6 +164,8 @@ public class ItemsDisplay : DisplayBase
         IItem scroll = ItemDatabase.Instance.Get(itemName);
         scroll.Equip(display.allie);
 
+        MenuSFXManager.Instance.PlayAddScroll();
+
         display.RefreshItemInfo(scroll.type);
     }
 
@@ -171,6 +175,8 @@ public class ItemsDisplay : DisplayBase
         scroll.Unequip(display.allie);
 
         InventoryManager.Instance.scrolls.Add(itemName);
+
+        MenuSFXManager.Instance.PlayUnequip();
 
         display.RefreshItemInfo(scroll.type);
     }

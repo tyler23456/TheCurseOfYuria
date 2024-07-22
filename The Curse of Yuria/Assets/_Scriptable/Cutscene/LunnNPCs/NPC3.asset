@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220bf2bb7a263c34f96fc4c7bb0c8c92, type: 3}
   m_Name: NPC3
   m_EditorClassIdentifier: 
-  characterName: {fileID: 0}
+  characterName: {fileID: 11400000, guid: 58cef171858bae84f89fe92dfed46ea9, type: 2}
   actions:
   - {fileID: 11400000, guid: f4ae723e7185e384cbeaa0d6703f241a, type: 2}
   - {fileID: 11400000, guid: 0a34192ce3303394a8bfd26e60925dec, type: 2}

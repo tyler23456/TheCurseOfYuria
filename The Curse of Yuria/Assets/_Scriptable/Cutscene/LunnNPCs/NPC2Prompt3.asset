@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
   m_Name: NPC2Prompt3
   m_EditorClassIdentifier: 
-  characterName: {fileID: 0}
+  characterName: {fileID: 11400000, guid: 23dbbacd86187164f89b6b3f78becc41, type: 2}
   text: When clicking on the "scroll" or "supply" icon, it will display more options
     below.  After selecting one of these options, you can then click on a target
     (either an enemy or a party member) to use the option on.

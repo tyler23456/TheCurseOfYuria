@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
   m_Name: NPC5Prompt
   m_EditorClassIdentifier: 
-  characterName: {fileID: 0}
+  characterName: {fileID: 11400000, guid: b11b1efcc93a0034e90d0f485dc8cf78, type: 2}
   text: Last night there were several reports of a Spinder wandering around Luna's
     castle.  We had to place a guard near the entrance.

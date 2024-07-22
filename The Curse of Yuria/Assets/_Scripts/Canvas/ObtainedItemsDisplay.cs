@@ -54,6 +54,8 @@ public class ObtainedItemsDisplay : DisplayBase
         IObtainedItemsData.inventory.Remove(itemName);
         InventoryManager.Instance.AddItem(itemName);
 
+        MenuSFXManager.Instance.PlayObtainSFX();
+
         OnRefresh();
 
         if (IObtainedItemsData.inventory.count == 0)

@@ -5,9 +5,9 @@ using UnityEngine.AddressableAssets;
 
 namespace TCOY.AStar
 {
-    public class StepSFXManager : MonoBehaviour
+    public class AStarSFXManager : MonoBehaviour
     {
-        public static StepSFXManager Instance { get; private set; }
+        public static AStarSFXManager Instance { get; private set; }
 
 
         [SerializeField] AssetLabelReference StepFXGrassReference;
@@ -61,8 +61,7 @@ namespace TCOY.AStar
             stepSFXs.Add("SnowStepSFX", StepSFXSnow);
         }
 
-
-        public void Play(string groundType, AudioSource audioSource)
+        public void PlayStepSFX(string groundType, AudioSource audioSource)
         {
             audioSourceManager.PlaySFX(stepSFXs[groundType]);
         }

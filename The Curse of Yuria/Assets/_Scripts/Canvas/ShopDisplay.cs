@@ -83,7 +83,7 @@ public class ShopDisplay : DisplayBase
         IShopData.inventory.Clear();
         buy.transform.parent.gameObject.SetActive(false);
         sell.transform.parent.gameObject.SetActive(false);
-        display.gameObject.SetActive(true);
+        display.gameObject.SetActive(false);
     }
 
     private void Update()

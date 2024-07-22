@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
   m_Name: NPC1Prompt3
   m_EditorClassIdentifier: 
-  characterName: {fileID: 0}
+  characterName: {fileID: 11400000, guid: 714252b2335262640833c15d87d270ee, type: 2}
   text: In the center of the menu, you will see a group of 9 icons.  If you left
     click on one of these icons, it will switch the type of equipment (or item) you
     are looking at.  Some of these icons have images.  If you right click on one

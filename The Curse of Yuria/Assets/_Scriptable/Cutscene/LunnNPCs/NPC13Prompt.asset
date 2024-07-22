@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
   m_Name: NPC13Prompt
   m_EditorClassIdentifier: 
-  characterName: {fileID: 0}
+  characterName: {fileID: 11400000, guid: 26649ccc95725114f9b76ffe1ff9d8c8, type: 2}
   text: The land is scary lately.  Saage lost their crops.  How could an entire land
     become unfertile in just 20 years.  That's never happened anywhere in Yuria.

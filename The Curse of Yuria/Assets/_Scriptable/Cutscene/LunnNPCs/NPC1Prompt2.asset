@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
   m_Name: NPC1Prompt2
   m_EditorClassIdentifier: 
-  characterName: {fileID: 0}
+  characterName: {fileID: 11400000, guid: 714252b2335262640833c15d87d270ee, type: 2}
   text: At the very bottom of the menu, you can click on a piece of equipment and
     it will be equipped to the party member you currently have selected.

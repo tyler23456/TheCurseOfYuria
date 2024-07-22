@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
   m_Name: NPC1Prompt5
   m_EditorClassIdentifier: 
-  characterName: {fileID: 0}
+  characterName: {fileID: 11400000, guid: 714252b2335262640833c15d87d270ee, type: 2}
   text: When clicking on the scroll icon, an extra window will pop up in the left
     panel.  This window displays the scrolls that a party member currently has equipped. 
     Each scroll will grant the party member the ability to use a certain type of

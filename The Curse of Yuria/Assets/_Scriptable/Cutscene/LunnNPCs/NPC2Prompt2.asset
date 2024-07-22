@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
   m_Name: NPC2Prompt2
   m_EditorClassIdentifier: 
-  characterName: {fileID: 0}
+  characterName: {fileID: 11400000, guid: 23dbbacd86187164f89b6b3f78becc41, type: 2}
   text: In the top of the command window, you will see three icons.  An "Attack"
     icon, a "Scroll" icon and a "supply" icon.  The attack icons allows you to attack
     targets.  The scroll icon allows you to use magic.  The supply icon allows you

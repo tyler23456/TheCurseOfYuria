@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
   m_Name: NPC11Prompt1
   m_EditorClassIdentifier: 
-  characterName: {fileID: 0}
+  characterName: {fileID: 11400000, guid: 1d7aa667d1fc3cb42a137001d1ca11a8, type: 2}
   text: Welcome to my shop.  Can I interest you in any of my items or equipment?

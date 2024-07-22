@@ -87,11 +87,10 @@ namespace TCOY.ControllerStates
             {
                 transform.GetChild(i).gameObject.SetActive(true);
             }
-                
+            
             for (int i = IAllie.MaxActiveAlliesCount; i < transform.childCount; i++)
             {
                 transform.GetChild(i).gameObject.SetActive(false);
-                transform.GetChild(i).position = Vector3.down * 10000;
             }
 
             for (int i = 1; i < transform.childCount; i++)

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
   m_Name: NPC1Prompt1
   m_EditorClassIdentifier: 
-  characterName: {fileID: 0}
+  characterName: {fileID: 11400000, guid: 714252b2335262640833c15d87d270ee, type: 2}
   text: You can access the equipment menu by pressing the "1" key.  While in the
     equipment menu, you can switch between different party members with the "Q" and
     "E" buttons.

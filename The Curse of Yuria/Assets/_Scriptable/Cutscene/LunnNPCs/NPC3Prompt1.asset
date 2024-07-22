@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
   m_Name: NPC3Prompt1
   m_EditorClassIdentifier: 
-  characterName: {fileID: 0}
+  characterName: {fileID: 11400000, guid: 58cef171858bae84f89fe92dfed46ea9, type: 2}
   text: When talking to a shop keeper, a shop menu will pop up.  This menu is similar
     to the equipment menu.  The items at the very bottom can be purchased in exchange
     for currency.  This world uses "olms" as currency.  You can check how many olms

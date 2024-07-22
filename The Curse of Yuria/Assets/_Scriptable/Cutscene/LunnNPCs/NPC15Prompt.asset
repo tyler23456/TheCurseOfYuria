@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
   m_Name: NPC15Prompt
   m_EditorClassIdentifier: 
-  characterName: {fileID: 0}
+  characterName: {fileID: 11400000, guid: b5a55c922c408884b9135a340e388447, type: 2}
   text: Its been sunny all week and I'm required to guard all day.  I need a drink.

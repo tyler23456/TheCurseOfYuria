@@ -6,6 +6,7 @@ using HeroEditor.Common.Enums;
 
 namespace TCOY.Interactables
 {
+    
     public class NPC : InteractableBase, IInteractablePointer
     {
         [SerializeField] List<PromptBrancher> promptBranchers;

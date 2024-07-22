@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4347df9e95200640bbfcd6439a228ad, type: 3}
   m_Name: NPC9Prompt
   m_EditorClassIdentifier: 
-  characterName: {fileID: 0}
+  characterName: {fileID: 11400000, guid: b1b4c0863400931409bcc4ab9807d0ec, type: 2}
   text: Its a shame what happened to Saage, the kingdom of the west.  That means
     they'll relocate.  Some of them will settle here.  I hope we have room.

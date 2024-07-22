@@ -74,7 +74,7 @@ namespace TCOY.UserActors
             spriteFlipper = new SpriteFlipper(spriteRenderers);
 
             stats.Initialize();
-            stats.onHPDamage = (damage) => { }; //play a hit soundFX
+            stats.onHPDamage = (damage) => ActorSFXManager.Instance.PlayHitSFX();
             stats.onHPDamage += (damage) => PopupManager.Instance.AddHPDamagePopup(damage, collider2D.bounds.center);
             stats.onHPDamage += (damage) => CameraShakerHandler.Shake(ShakeDatabase.Instance.Get("Hit"));
             stats.onHPDamage += (damage) => hitAnimator.Start();

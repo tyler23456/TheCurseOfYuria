@@ -41,7 +41,7 @@ namespace TCOY.AStar
 
             string tag = hit.transform.gameObject.tag;
 
-            StepSFXManager.Instance.Play(tag, audioSource);
+            AStarSFXManager.Instance.PlayStepSFX(tag, audioSource);
         }
     }
 }

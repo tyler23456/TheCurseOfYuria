@@ -20,6 +20,7 @@ namespace TCOY.Interactables
             InventoryManager.Instance.AddItem(name, 60);
             uniqueIdentifier.AddToInventory();
             gameObject.SetActive(false);
+            InteractableSFXManager.Instance.PlayGrabItemSFX();
         }
     }
 }

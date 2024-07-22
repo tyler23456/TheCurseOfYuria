@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public abstract class ActionBase : ActionSO
 {
-    [SerializeField] protected CharacterNameBase characterName;
+    [SerializeField] protected CharacterName characterName;
 
     public override bool isFinished { get; protected set; } = false;
 

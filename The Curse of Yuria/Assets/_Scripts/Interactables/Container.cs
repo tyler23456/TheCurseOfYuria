@@ -17,9 +17,20 @@ namespace TCOY.Interactables
                 entries[i].Initialize(entries[i - 1].ID);
         }
 
+        void PlaySoundEffect()
+        {
+            if (name.Contains("Chest"))
+                InteractableSFXManager.Instance.PlayOpenChestSFX();
+            if (name.Contains("Sack"))
+                InteractableSFXManager.Instance.PlayOpenSackSFX();
+            else
+                InteractableSFXManager.Instance.PlayOpenCrateSFX();
+        }
+
         public override void Interact(IActor player)
         {
-            IObtainedItemsData.inventory.Clear();
+            GameObject obj = GameObject.Find("/DontDestroyOnLoad/Canvas/ObtainedItemsDisplay");
+            obj.SetActive(false);
 
             foreach (SavedEntry entry in entries)
             {
@@ -28,11 +39,13 @@ namespace TCOY.Interactables
                 if (count <= 0)
                     continue;
 
+                PlaySoundEffect();
                 IObtainedItemsData.inventory.Add(entry.item.name, count);
             }
 
             IObtainedItemsData.onClick = OnClick;
-            GameObject.Find("/DontDestroyOnLoad/Canvas/ObtainedItemsDisplay").SetActive(true);
+
+            obj.SetActive(true);
         }
 
         public void OnClick(string itemName)

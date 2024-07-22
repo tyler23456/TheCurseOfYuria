@@ -15,13 +15,13 @@ public class Prompt : ActionBase, ICutsceneAction
         Camera camera = CutsceneDisplay.Instance.getCamera;
         Text textName = CutsceneDisplay.Instance.getPromptName;
         TMP_Text textBody = CutsceneDisplay.Instance.getPromptText;
-
+        
         textName.text = characterName.name;
         textBody.text = this.text;
         textBody.maxVisibleCharacters = 0;
         onStart.Invoke();
 
-        Transform t = NPCManager.instance.Find(characterName.name);
+        Transform t = characterName.gameObject.transform;
 
         UpdateRenderTextureCamera(camera, t);
         

@@ -7,12 +7,18 @@ namespace TCOY.UserActors
     public class HitAnimator
     {
         IActor actor;
+        List<Color> colors = new List<Color>();
         SpriteRenderer[] spriteRenderers;
+
+        bool isTinted = false;
 
         public HitAnimator(IActor actor, SpriteRenderer[] spriteRenderers)
         {
             this.actor = actor;
             this.spriteRenderers = spriteRenderers;
+
+            foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+                colors.Add(spriteRenderer.color);
         }
 
         public void Start()
@@ -22,15 +28,23 @@ namespace TCOY.UserActors
 
         public IEnumerator HitAnimation()
         {
+            isTinted = true;
             float accumulator = Time.unscaledTime;
-            while (Time.unscaledTime < accumulator + 0.5f)
+            while (Time.unscaledTime < accumulator + 0.25f)
             {
-                foreach (SpriteRenderer spriteRenderer in spriteRenderers)
-                    spriteRenderer.enabled = !spriteRenderer.enabled;
+                isTinted = !isTinted;
+                for (int i = 0; i < colors.Count; i++)
+                {
+                    if (isTinted)
+                        spriteRenderers[i].color = Color.red;
+                    else
+                        spriteRenderers[i].color = colors[i];
+                }
+                    
                 yield return new WaitForSecondsRealtime(0.05f);
             }
-            foreach (SpriteRenderer spriteRenderer in spriteRenderers)
-                spriteRenderer.enabled = true;
+            for (int i = 0; i < colors.Count; i++)
+                spriteRenderers[i].color = colors[i];
 
         }
     }
