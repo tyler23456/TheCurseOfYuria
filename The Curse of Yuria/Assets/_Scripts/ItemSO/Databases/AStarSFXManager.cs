@@ -63,7 +63,7 @@ namespace TCOY.AStar
 
         public void PlayStepSFX(string groundType, AudioSource audioSource)
         {
-            audioSourceManager.PlaySFX(stepSFXs[groundType], 0.2f, 0.4f, 0.7f, 1.3f);
+            audioSourceManager.PlaySFX(stepSFXs[groundType], 0.15f, 0.3f, 0.7f, 1.3f);
         }
     }
 }

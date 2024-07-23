@@ -14,8 +14,8 @@ public class TrajectoryPathDrawer : MonoBehaviour
     [SerializeField] bool destroyWhenFinishedDrawing = true;
     [SerializeField] LineRenderer lineRenderer;
 
-    Transform user;
-    Transform target;
+    Collider2D user;
+    Collider2D target;
 
     float drawRateAccumulator = 0f;
     int visibleLinesCount = 1;
@@ -23,7 +23,7 @@ public class TrajectoryPathDrawer : MonoBehaviour
 
     public Action onFinishedDrawing { get; set; } = () => { };
 
-    public void Initialize(Transform user, Transform target, Color color)
+    public void Initialize(Collider2D user, Collider2D target, Color color)
     {
         lineRenderer = GetComponent<LineRenderer>();
         drawRateAccumulator = 0f;
@@ -84,7 +84,7 @@ public class TrajectoryPathDrawer : MonoBehaviour
             }
             visibleLinesCount = Mathf.Clamp(visibleLinesCount, 1, lineCount);
         }
-        DrawPath(user.position, target.position, visibleLinesCount);
+        DrawPath(user.bounds.center, target.bounds.center, visibleLinesCount);
     }
 
     struct LaunchData

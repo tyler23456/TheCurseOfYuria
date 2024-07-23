@@ -48,7 +48,7 @@ public class BattleManager : MonoBehaviour
 
             TrajectoryPathDrawer drawer = Instantiate(lineDrawerPrefab.gameObject).GetComponent<TrajectoryPathDrawer>();
             drawer.onFinishedDrawing = () => RunCommand(command);
-            drawer.Initialize(command.user.obj.transform, command.targets[0].obj.transform, command.user.trajectoryPathColor);
+            drawer.Initialize(command.user.getCollider2D, command.targets[0].getCollider2D, command.user.trajectoryPathColor);
 
             yield return new WaitForSeconds(1f);
         }

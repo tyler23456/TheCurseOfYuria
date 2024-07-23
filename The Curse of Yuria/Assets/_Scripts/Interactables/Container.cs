@@ -21,7 +21,7 @@ namespace TCOY.Interactables
         {
             if (name.Contains("Chest"))
                 InteractableSFXManager.Instance.PlayOpenChestSFX();
-            if (name.Contains("Sack"))
+            else if (name.Contains("sack"))
                 InteractableSFXManager.Instance.PlayOpenSackSFX();
             else
                 InteractableSFXManager.Instance.PlayOpenCrateSFX();
@@ -32,11 +32,11 @@ namespace TCOY.Interactables
             GameObject obj = GameObject.Find("/DontDestroyOnLoad/Canvas/ObtainedItemsDisplay");
             obj.SetActive(false);
 
+            PlaySoundEffect();
+
             foreach (SavedEntry entry in entries)
             {
                 int count = entry.count - InventoryManager.Instance.completedIds.GetCount(entry.ID);
-
-                PlaySoundEffect();
 
                 if (count <= 0)
                     continue;
