@@ -11,6 +11,8 @@ namespace TCOY.Interactables
     {
         [SerializeField] List<PromptBrancher> promptBranchers;
 
+        public override string getAction => "Talk to ";
+
         Character character;
         Animator animator;
 

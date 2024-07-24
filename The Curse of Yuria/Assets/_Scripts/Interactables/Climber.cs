@@ -8,6 +8,8 @@ namespace TCOY.Interactables
     {
         static IController controller;
 
+        public override string getAction => "Climb ";
+
         public override void Interact(IActor player)
         {
             base.Interact(player);

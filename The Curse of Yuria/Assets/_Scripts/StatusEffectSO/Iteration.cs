@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewIteration", menuName = "StatusEffects/Iteration")]
 public class Iteration : StatusEffectIcon, IStatusEffect
 {
-    enum ActivationType { OnKnockOut, TickDuration  }
+    enum ActivationType { OnKnockOut, TickDuration }
 
     [SerializeField] Skill action;
     [SerializeField] int power = 2;

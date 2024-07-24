@@ -7,6 +7,8 @@ namespace TCOY.Interactables
 {
     public class ItemBehaviour : InteractableWithIDBase, IInteractablePointer
     {
+        public override string getAction => "Take ";
+
         protected void Start()
         {
             if (uniqueIdentifier.IsNotFoundInInventory())

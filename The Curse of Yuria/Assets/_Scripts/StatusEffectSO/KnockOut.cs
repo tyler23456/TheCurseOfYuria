@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 
 [CreateAssetMenu(fileName = "NewKnockOut", menuName = "StatusEffects/KnockOut")]
 public class KnockOut : StatusEffectBase, IStatusEffect
@@ -29,6 +30,9 @@ public class KnockOut : StatusEffectBase, IStatusEffect
         Animator animator = target.obj.GetComponent<Animator>();
         animator?.SetInteger("MovePriority", animator.GetInteger("MovePriority") + 1);
         target.getATBGuage.RaisePriority();
+
+        AnimationEvents animationEvents = target.obj.GetComponent<AnimationEvents>();
+        animationEvents?.SetExpression("Default");
 
         IEnabler[] objectsToEnable = target.obj.GetComponents<IEnabler>();
         foreach (IEnabler objectToEnable in objectsToEnable)

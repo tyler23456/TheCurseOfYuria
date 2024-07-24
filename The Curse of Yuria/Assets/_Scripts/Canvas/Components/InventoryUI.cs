@@ -53,7 +53,7 @@ public class InventoryUI
                 button.transform.GetChild(1).GetComponent<Image>().sprite = ItemDatabase.Instance.Get(inventory.GetName(index)).icon;
             if (showCount)
                 button.transform.GetChild(2).GetComponent<Text>().text = inventory.GetCount(index).ToString();
-            if (showName)
+            if (showName || ItemDatabase.Instance.Get(inventory.GetName(index)).type == "Scroll")
                 button.transform.GetChild(3).GetComponent<Text>().text = inventory.GetName(index);
         }
     }

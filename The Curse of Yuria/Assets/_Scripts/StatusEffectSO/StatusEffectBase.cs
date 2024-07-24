@@ -23,7 +23,6 @@ public abstract class StatusEffectBase : StatusEffect
 
         OnRemove(target);
         target.getStatusEffects.Remove(name);
-
     }
 
     public override bool OnAttack(IActor user, IActor target, IItem item)

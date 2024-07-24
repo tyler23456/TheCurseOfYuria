@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class TargeterBase : Targeter
 {
     static LayerMask layerMask; 
-    static float targetCheckDistance = 30f;
+    static float targetCheckDistance = 15f;
 
     protected static int colliderCount { get; private set; } = 0;
     protected static Collider2D[] colliders { get; private set; } = new Collider2D[10];

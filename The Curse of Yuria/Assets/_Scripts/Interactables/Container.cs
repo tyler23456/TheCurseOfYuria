@@ -8,6 +8,8 @@ namespace TCOY.Interactables
     {
         [SerializeField] protected SavedEntry[] entries;
 
+        public override string getAction => "Open ";
+
         protected void OnValidate()
         {
             if (entries != null && entries.Length > 0)

@@ -12,6 +12,8 @@ namespace TCOY.Interactables
 
         [SerializeField] public List<WeightedEntry> weightedEntries;
 
+        public override string getAction => "Loot ";
+
         List<IItem> items = new List<IItem>();
         List<float> weights = new List<float>();
         int count = 1;
@@ -55,7 +57,7 @@ namespace TCOY.Interactables
             {
                 WeightedEntry weightedEntry = new WeightedEntry();
                 IItem item = WeightedDecision.Generate(items, weights);
-                int entryCount = Random.Range(weightedEntry.minCount, weightedEntry.maxCount);
+                int entryCount = Random.Range(weightedEntries[i].minCount, weightedEntries[i].maxCount + 1);
                 inventory.Add(item.name, entryCount);
             }
         }
@@ -67,7 +69,7 @@ namespace TCOY.Interactables
 
         public override void Interact(IActor player)
         {
-            for (int i = 0; i < IObtainedItemsData.inventory.count; i++)
+            for (int i = 0; i < inventory.count; i++)
                 IObtainedItemsData.inventory.Add(inventory.GetName(i), inventory.GetCount(i));
 
             PlaySoundEffect();
@@ -83,7 +85,7 @@ namespace TCOY.Interactables
     [System.Serializable]
     public class WeightedEntry
     {
-        public IItem item;
+        public ItemSO item;
         [Range(1, 20)] public int minCount;
         [Range(1, 20)] public int maxCount;
         public float weight;
