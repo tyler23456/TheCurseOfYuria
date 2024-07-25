@@ -69,7 +69,7 @@ public class SwitchAllieDisplay : DisplayBase
     {
         base.OnDisable();
 
-        MenuSFXManager.Instance.PlayGenericClose();
+        //MenuSFXManager.Instance.PlayGenericClose();
     }
 
     void OnClick(string allieName)

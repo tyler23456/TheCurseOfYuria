@@ -42,6 +42,13 @@ public class OptionsDisplay : DisplayBase
         controlsTab.onClick.AddListener(OnClickControlsTab);
         saveTab.onClick.AddListener(OnClickSaveTab);
         quitTab.onClick.AddListener(OnClickQuitTab);
+
+        graphicsTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+        SettingsTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+        controlsTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+        saveTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+        quitTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+
         exitButton.onClick.AddListener(OnExit);
         OnClickGraphicsTab();
 
@@ -60,6 +67,11 @@ public class OptionsDisplay : DisplayBase
         gameObject.SetActive(false);   
     }
 
+    void OnTabEnter()
+    {
+        MenuSFXManager.Instance.PlayHover();
+    }
+
     void ResetTabDisplays()
     {
         graphicsDisplay.gameObject.SetActive(false);
@@ -73,29 +85,34 @@ public class OptionsDisplay : DisplayBase
     {
         ResetTabDisplays();
         graphicsDisplay.gameObject.SetActive(true);
+        MenuSFXManager.Instance.PlayClick();
     }
 
     void OnClickSettingsTab()
     {
         ResetTabDisplays();
         settingsDisplay.gameObject.SetActive(true);
+        MenuSFXManager.Instance.PlayClick();
     }
 
     void OnClickControlsTab()
     {
         ResetTabDisplays();
         controlsDisplay.gameObject.SetActive(true);
+        MenuSFXManager.Instance.PlayClick();
     }
 
     void OnClickSaveTab()
     {
         ResetTabDisplays();
         saveDisplay.gameObject.SetActive(true);
+        MenuSFXManager.Instance.PlayClick();
     }
 
     void OnClickQuitTab()
     {
         ResetTabDisplays();
         quitDisplay.gameObject.SetActive(true);
+        MenuSFXManager.Instance.PlayClick();
     }
 }

@@ -77,6 +77,9 @@ namespace TCOY.ControllerStates
 
         void OnTransformChildrenChanged()
         {
+            if (transform.childCount == 0)
+                return;
+
             int count = Mathf.Min(transform.childCount, IAllie.MaxActiveAlliesCount);
 
             IController firstController = transform.GetChild(0).GetComponent<IController>();

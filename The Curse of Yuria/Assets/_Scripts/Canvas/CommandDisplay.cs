@@ -77,8 +77,6 @@ public class CommandDisplay : DisplayBase
 
         MarkerManager.instance.DestroyAllMarkers();
         GameStateManager.Instance.Play();
-
-        MenuSFXManager.Instance.PlayGenericClose();
     }
 
     void OnExit()
@@ -219,6 +217,7 @@ public class CommandDisplay : DisplayBase
         this.commandName = commandName;
         display.gameObject.SetActive(false);
         MenuSFXManager.Instance.PlayClick();
+        //MenuSFXManager.Instance.PlayGenericClose();
     }
 
     void OnSelectAttack(string commandName)
