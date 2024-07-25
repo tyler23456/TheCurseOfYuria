@@ -25,7 +25,7 @@ public class ObtainedItemsDisplay : DisplayBase
     {
         base.OnEnable();
 
-        GameStateManager.Instance.Play();
+        //GameStateManager.Instance.Play();
         exitButton.onClick.AddListener(OnExit);
         OnRefresh();
     }

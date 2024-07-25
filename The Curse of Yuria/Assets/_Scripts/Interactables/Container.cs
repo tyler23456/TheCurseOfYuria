@@ -22,11 +22,11 @@ namespace TCOY.Interactables
         void PlaySoundEffect()
         {
             if (name.Contains("Chest"))
-                InteractableSFXManager.Instance.PlayOpenChestSFX();
+                InteractableSFXManager.Instance.PlayOpenChestSFX(GetComponent<AudioSource>());
             else if (name.Contains("sack"))
-                InteractableSFXManager.Instance.PlayOpenSackSFX();
+                InteractableSFXManager.Instance.PlayOpenSackSFX(GetComponent<AudioSource>());
             else
-                InteractableSFXManager.Instance.PlayOpenCrateSFX();
+                InteractableSFXManager.Instance.PlayOpenCrateSFX(GetComponent<AudioSource>());
         }
 
         public override void Interact(IActor player)

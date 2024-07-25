@@ -31,7 +31,7 @@ namespace TCOY.Items
             if (this.particleSystem != null)
             {
                 ParticleSystem particleSystem = GameObject.Instantiate(this.particleSystem.gameObject, target.obj.transform).GetComponent<ParticleSystem>();
-                GameObject.Destroy(particleSystem.gameObject, particleSystem.main.duration);
+                GameObject.Destroy(particleSystem.gameObject, 10f);
 
                 while (particleSystem.time < particleSystem.main.duration / 10f)
                     yield return new WaitForEndOfFrame();

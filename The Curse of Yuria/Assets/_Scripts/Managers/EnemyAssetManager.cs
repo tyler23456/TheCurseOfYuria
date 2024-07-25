@@ -87,6 +87,9 @@ public class EnemyAssetManager : MonoBehaviour
             audioSource = prefab.AddComponent<AudioSource>();
 
         audioSource.spatialBlend = 1f;
+        audioSource.rolloffMode = AudioRolloffMode.Linear;
+        audioSource.maxDistance = 50f;
+        audioSource.playOnAwake = false;
 
         PrefabUtility.SavePrefabAsset(prefab);
     }

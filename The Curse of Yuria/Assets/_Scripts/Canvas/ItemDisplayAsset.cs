@@ -148,7 +148,7 @@ public class ItemDisplayAsset : MonoBehaviour
 
     public void OnTabClick()
     {
-        MenuSFXManager.Instance.PlayClick();
+        MenuSFXManager.Instance.PlayChangeEquipmentPart();
     }
 
 

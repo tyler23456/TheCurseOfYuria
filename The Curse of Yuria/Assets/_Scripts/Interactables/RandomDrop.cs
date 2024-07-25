@@ -64,7 +64,7 @@ namespace TCOY.Interactables
 
         void PlaySoundEffect()
         {
-            InteractableSFXManager.Instance.PlaySearchEnemySFX();
+            InteractableSFXManager.Instance.PlaySearchEnemySFX(GetComponent<AudioSource>());
         }
 
         public override void Interact(IActor player)

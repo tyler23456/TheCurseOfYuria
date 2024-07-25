@@ -14,15 +14,23 @@ namespace TCOY.Interactables
             if (uniqueIdentifier.IsNotFoundInInventory())
                 return;
 
-            gameObject.SetActive(false);
+            HideInteraction();
         }
 
         public override void Interact(IActor player)
         {
             InventoryManager.Instance.AddItem(name, 60);
             uniqueIdentifier.AddToInventory();
-            gameObject.SetActive(false);
-            InteractableSFXManager.Instance.PlayGrabItemSFX();
+            InteractableSFXManager.Instance.PlayGrabItemSFX(GetComponent<AudioSource>());
+            HideInteraction();
+            
         }
+
+        void HideInteraction()
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+        }
+
     }
 }

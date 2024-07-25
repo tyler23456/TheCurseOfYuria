@@ -31,15 +31,14 @@ public class AudioSourceManager : MonoBehaviour
         atmosphere.Play();
     }
 
-    public void PlaySFX(AudioClip clip, float volume = 1f, float pitch = 1f)
+    public void PlaySFX(AudioClip clip)
     {
-        SFX.pitch = pitch;
-        SFX.PlayOneShot(clip, volume);
+        SFX.PlayOneShot(clip);
     }
 
-    public void PlaySFX(List<AudioClip> clips, float minVolume = 1f, float maxVolume = 1f, float minPitch = 1f, float maxPitch = 1f)
+    public void PlaySFX(List<AudioClip> clips)
     {
-        Play(SFX, clips, minVolume, maxVolume, minPitch, maxPitch);
+        Play(SFX, clips);
     }
 
     public void Play(AudioSource audioSource, List<AudioClip> clips, float minVolume = 1f, float maxVolume = 1f, float minPitch = 1f, float maxPitch = 1f)
@@ -47,11 +46,11 @@ public class AudioSourceManager : MonoBehaviour
         float volume = Random.Range(minVolume, maxVolume);
         float pitch = Random.Range(minPitch, maxPitch);
 
-        SFX.volume = volume;
-        SFX.pitch = pitch;
+        audioSource.volume = volume;
+        audioSource.pitch = pitch;
 
         int index = Random.Range(0, clips.Count);
 
-        audioSource.PlayOneShot(clips[index]);
+        audioSource.PlayOneShot(clips[index], SFX.volume);
     }
 }
