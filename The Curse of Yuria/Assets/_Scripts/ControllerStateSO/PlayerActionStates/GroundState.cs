@@ -7,9 +7,10 @@ namespace TCOY.ControllerStates
     [CreateAssetMenu(fileName = "GroundState", menuName = "PlayerActionStates/GroundState")]
     public class GroundState : ActionBase
     {
+        StepSFX stepSFX = new StepSFX();
+
         protected override void Enter(IController controller)
         {
-
         }
 
         protected override void Stay(IController controller)
@@ -33,11 +34,13 @@ namespace TCOY.ControllerStates
                 {
                     controller.animator.SetInteger("State", 2);
                     controller.rigidbody2D.AddForce(Vector2.left * controller.speed * 2f);
+                    stepSFX.Update(controller.audioSource);
                 }
                 else
                 {
                     controller.animator.SetInteger("State", 1);
                     controller.rigidbody2D.AddForce(Vector2.left * controller.speed);
+                    stepSFX.Update(controller.audioSource);
                 }
             }
             else if (Input.GetKey(KeyCode.D))
@@ -46,11 +49,13 @@ namespace TCOY.ControllerStates
                 {
                     controller.animator.SetInteger("State", 2);
                     controller.rigidbody2D.AddForce(Vector2.right * controller.speed * 2f);
+                    stepSFX.Update(controller.audioSource);
                 }
                 else
                 {
                     controller.animator.SetInteger("State", 1);
                     controller.rigidbody2D.AddForce(Vector2.right * controller.speed);
+                    stepSFX.Update(controller.audioSource);
                 }
             }
 

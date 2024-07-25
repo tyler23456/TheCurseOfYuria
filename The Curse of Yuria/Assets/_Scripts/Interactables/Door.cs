@@ -14,7 +14,7 @@ namespace TCOY.Interactables
         [SerializeField] List<ItemSO> RequiredItems;
         [SerializeField] Prompt onLockedPrompt;
 
-        public override string getAction => "Enter ";
+        public override string getAction => "";
 
         Sprite closedDoor;
         SpriteRenderer spriteRenderer;

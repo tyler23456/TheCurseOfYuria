@@ -41,7 +41,6 @@ namespace TCOY.AStar
         public ActionState.State actionState { get; set; } = ActionState.State.enter;
         
         protected TCOY.UserActors.GroundChecker groundChecker;
-        protected StepSFX stepSFX;
 
         void Awake()
         {
@@ -56,7 +55,6 @@ namespace TCOY.AStar
                 action = initialActionState;
             
             groundChecker = new UserActors.GroundChecker(animator);
-            stepSFX = new StepSFX(animator, audioSource);
         }
 
         void Start()
@@ -109,7 +107,6 @@ namespace TCOY.AStar
             goal.UpdateState(this);
 
             groundChecker.Update();
-            stepSFX.Update();
         }
 
         void FixedUpdate()

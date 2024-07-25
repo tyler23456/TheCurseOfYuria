@@ -11,7 +11,7 @@ namespace TCOY.Interactables
         [SerializeField] Transform destination;
         [SerializeField] State state;
 
-        public override string getAction => "Enter ";
+        public override string getAction => "";
 
         public override void Interact(IActor player)
         {

@@ -10,6 +10,7 @@ public interface IController : IPath
     Vector2 velocity { get; set; }
     float speed { get; set; }
     IActor actor { get; }
+    AudioSource audioSource { get; }
     Animator animator { get; }
     Rigidbody2D rigidbody2D { get; }
     ActionState action { get; }

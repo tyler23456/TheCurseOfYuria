@@ -72,13 +72,19 @@ namespace TCOY.Interactables
             for (int i = 0; i < inventory.count; i++)
                 IObtainedItemsData.inventory.Add(inventory.GetName(i), inventory.GetCount(i));
 
-            PlaySoundEffect();
-                      
             Transform obtainedItemsDisplay = GameObject.Find("/DontDestroyOnLoad/Canvas/ObtainedItemsDisplay").transform;
             obtainedItemsDisplay.gameObject.SetActive(false);
             obtainedItemsDisplay.gameObject.SetActive(true);
 
-            Destroy(gameObject);
+            PlaySoundEffect();
+            HideInteraction();
+        }
+
+        void HideInteraction()
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+            Destroy(gameObject, 10f);
         }
     }
 
