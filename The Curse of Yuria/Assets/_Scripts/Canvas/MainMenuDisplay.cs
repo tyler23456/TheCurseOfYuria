@@ -39,7 +39,11 @@ public class MainMenuDisplay : DisplayBase
 
         newGame.onClick.AddListener(StartNewGame);
         load.onClick.AddListener(RefreshFiles);
-        quit.onClick.AddListener(Application.Quit);
+        quit.onClick.AddListener(Quit);
+
+        newGame.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+        load.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+        quit.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
 
         rightPanel.gameObject.SetActive(false);
     }
@@ -49,9 +53,26 @@ public class MainMenuDisplay : DisplayBase
         base.OnDisable();
     }
 
+    void OnTabEnter()
+    {
+        MenuSFXManager.Instance.PlayHover();
+    }
+
+    void OnItemEnter()
+    {
+        MenuSFXManager.Instance.PlayHover();
+    }
+
+    void OnItemClick(FileInfo fileInfo)
+    {
+        SaveManager.instance.OnLoad(fileInfo.Name);
+        MenuSFXManager.Instance.PlayClick();
+    }
+
     void StartNewGame()
     {
         SaveManager.instance.OnNewGame();
+        MenuSFXManager.Instance.PlayClick();
     }
 
     void RefreshFiles()
@@ -67,13 +88,21 @@ public class MainMenuDisplay : DisplayBase
         DirectoryInfo info = new DirectoryInfo(Application.persistentDataPath + Path.AltDirectorySeparatorChar);
         FileInfo[] fileInfos = info.GetFiles();
 
-
         foreach (FileInfo fileInfo in fileInfos)
         {
             button = Instantiate(buttonPrefab, grid);
             button.onClick.RemoveAllListeners();
-            button.onClick.AddListener(() => SaveManager.instance.OnLoad(fileInfo.Name));
+            button.onClick.AddListener(() => OnItemClick(fileInfo));
             button.transform.GetChild(0).GetComponent<Text>().text = fileInfo.Name.Split('.')[0];
+            button.GetComponent<PointerHover>().onPointerEnter = OnItemEnter;
         }
+
+        MenuSFXManager.Instance.PlayClick();
+    }
+
+    void Quit()
+    {
+        MenuSFXManager.Instance.PlayClick();
+        Application.Quit();
     }
 }

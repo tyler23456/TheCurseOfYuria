@@ -44,11 +44,15 @@ public class OptionsDisplay : DisplayBase
         quitTab.onClick.AddListener(OnClickQuitTab);
         exitButton.onClick.AddListener(OnExit);
         OnClickGraphicsTab();
+
+        MenuSFXManager.Instance.PlayOptionsMenuOpen();
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
+
+        MenuSFXManager.Instance.PlayOptionsMenuClose();
     }
 
     private void OnExit()

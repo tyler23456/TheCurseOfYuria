@@ -96,6 +96,7 @@ public class ItemDisplayAsset : MonoBehaviour
         localInventoryUI = new InventoryUI();
 
         ClearTabListenters();
+        AddTabSFX();
 
 
         allieIndex = 0;
@@ -117,6 +118,39 @@ public class ItemDisplayAsset : MonoBehaviour
         basicTab.onClick.RemoveAllListeners();
         questItemsTab.onClick.RemoveAllListeners();
     }
+    public void AddTabSFX()
+    {
+        helmetsTab.onClick.AddListener(OnTabClick);
+        meleeWeapons1HTab.onClick.AddListener(OnTabClick);
+        meleeWeapons2HTab.onClick.AddListener(OnTabClick);
+        armorTab.onClick.AddListener(OnTabClick);
+        shieldsTab.onClick.AddListener(OnTabClick);
+        bowsTab.onClick.AddListener(OnTabClick);
+        scrollsTab.onClick.AddListener(OnTabClick);
+        basicTab.onClick.AddListener(OnTabClick);
+        questItemsTab.onClick.AddListener(OnTabClick);
+
+        helmetsTab.GetComponent<PointerHover>().onPointerEnter = OnTabHover;
+        meleeWeapons1HTab.GetComponent<PointerHover>().onPointerEnter = OnTabHover;
+        meleeWeapons2HTab.GetComponent<PointerHover>().onPointerEnter = OnTabHover;
+        armorTab.GetComponent<PointerHover>().onPointerEnter = OnTabHover;
+        shieldsTab.GetComponent<PointerHover>().onPointerEnter = OnTabHover;
+        bowsTab.GetComponent<PointerHover>().onPointerEnter = OnTabHover;
+        scrollsTab.GetComponent<PointerHover>().onPointerEnter = OnTabHover;
+        basicTab.GetComponent<PointerHover>().onPointerEnter = OnTabHover;
+        questItemsTab.GetComponent<PointerHover>().onPointerEnter = OnTabHover;
+    }
+
+    public void OnTabHover()
+    {
+        MenuSFXManager.Instance.PlayHover();
+    }
+
+    public void OnTabClick()
+    {
+        MenuSFXManager.Instance.PlayClick();
+    }
+
 
     public void RefreshAllie(int offset = 0)
     {
@@ -217,6 +251,8 @@ public class ItemDisplayAsset : MonoBehaviour
         this.itemName.text = itemName;
         this.itemInfo.text = current.description;
         this.itemSprite.sprite = current.icon;
+
+        MenuSFXManager.Instance.PlayHover();
     }
 
     public void ClearAllieAndItemInfo(string itemName = "")
@@ -280,15 +316,16 @@ public class ItemDisplayAsset : MonoBehaviour
 
             slots[itemType].sprite = ItemDatabase.Instance.GetIcon(allie.getEquipment.GetName(i));
             string item = allie.getEquipment.Find(i => ItemDatabase.Instance.GetType(i) == itemType);
+
             if (item != null)
             {
-                slots[itemType].GetComponent<PointerHover>().onPointerEnter = () => { ShowItemInfo(item); RefreshAllieInfo(item); };
-                slots[itemType].GetComponent<PointerHover>().onPointerExit = () => { ClearItemInfo(); RefreshAllieInfo(""); };
+                //slots[itemType].GetComponent<PointerHover>().onPointerEnter = () => { ShowItemInfo(item); RefreshAllieInfo(item); };
+                //slots[itemType].GetComponent<PointerHover>().onPointerExit = () => { ClearItemInfo(); RefreshAllieInfo(""); };
             }
             else
             {
-                slots[itemType].GetComponent<PointerHover>().onPointerEnter = () => {  };
-                slots[itemType].GetComponent<PointerHover>().onPointerExit = () => {  };
+                //slots[itemType].GetComponent<PointerHover>().onPointerEnter = () => {  };
+                //slots[itemType].GetComponent<PointerHover>().onPointerExit = () => {  };
             }
                 
         }

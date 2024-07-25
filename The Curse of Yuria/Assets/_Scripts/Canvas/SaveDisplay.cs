@@ -34,13 +34,34 @@ namespace TCOY.Canvas
             overwriteButton.onClick.RemoveAllListeners();
             loadButton.onClick.RemoveAllListeners();
 
-            newSaveButton.onClick.AddListener(() => { SaveManager.instance.OnNewSave(); RefreshFiles(); });
+            newSaveButton.onClick.AddListener(OnNewSave);
             overwriteButton.onClick.AddListener(OnOverwriteSettingSet);
             loadButton.onClick.AddListener(OnLoadSettingSet);
+
+            newSaveButton.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+            overwriteButton.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+            loadButton.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
 
             heading.text = "Save a new file";
             description.text = "";
             RefreshFiles();
+        }
+
+        void OnTabEnter()
+        {
+            MenuSFXManager.Instance.PlayHover();
+        }
+
+        void OnItemEnter()
+        {
+            MenuSFXManager.Instance.PlayHover();
+        }
+
+        void OnNewSave()
+        {
+            SaveManager.instance.OnNewSave();
+            RefreshFiles();
+            MenuSFXManager.Instance.PlayClick();
         }
 
         void RefreshFiles()
@@ -71,8 +92,11 @@ namespace TCOY.Canvas
                             SaveManager.instance.OnLoad(fileInfo.Name);
                             break;
                     }
+                    MenuSFXManager.Instance.PlayClick();
                 });
                 button.transform.GetChild(0).GetComponent<Text>().text = fileInfo.Name.Split('.')[0];
+
+                button.GetComponent<PointerHover>().onPointerEnter = OnItemEnter;
             }
         }
 
@@ -80,12 +104,14 @@ namespace TCOY.Canvas
         {
             state = State.Overwrite;
             heading.text = "Overwrite a save file";
+            MenuSFXManager.Instance.PlayClick();
         }
 
         void OnLoadSettingSet()
         {
             state = State.Load;
             heading.text = "Load a save file";
+            MenuSFXManager.Instance.PlayClick();
         }
     }
 }

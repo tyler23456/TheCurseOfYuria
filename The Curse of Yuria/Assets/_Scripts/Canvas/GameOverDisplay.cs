@@ -39,9 +39,13 @@ public class GameOverDisplay : DisplayBase
         mainMenu.onClick.RemoveAllListeners();
         quit.onClick.RemoveAllListeners();
 
-        load.onClick.AddListener(RefreshFiles);
+        load.onClick.AddListener(LoadSaves);
         mainMenu.onClick.AddListener(LoadMainMenu);
-        quit.onClick.AddListener(Application.Quit);
+        quit.onClick.AddListener(Quit);
+
+        load.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+        mainMenu.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+        quit.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
 
         animator.SetTrigger("Activate");
         rightPanel.gameObject.SetActive(false);
@@ -52,10 +56,27 @@ public class GameOverDisplay : DisplayBase
         base.OnDisable();
     }
 
+    void OnTabEnter()
+    {
+        MenuSFXManager.Instance.PlayHover();
+    }
+
+    void OnItemEnter()
+    {
+        MenuSFXManager.Instance.PlayHover();
+    }
+
+    void LoadSaves()
+    {
+        RefreshFiles();
+        MenuSFXManager.Instance.PlayClick();
+    }
+
     void LoadMainMenu()
     {
         LoadingDisplay.GetChild(0).name = "MainMenu";
         LoadingDisplay.gameObject.SetActive(true);
+        MenuSFXManager.Instance.PlayClick();
     }
 
     void RefreshFiles()
@@ -78,6 +99,13 @@ public class GameOverDisplay : DisplayBase
             button.onClick.RemoveAllListeners();
             button.onClick.AddListener(() => SaveManager.instance.OnLoad(fileInfo.Name));
             button.transform.GetChild(0).GetComponent<Text>().text = fileInfo.Name.Split('.')[0];
+            button.GetComponent<PointerHover>().onPointerEnter = OnItemEnter;
         }
+    }
+
+    void Quit()
+    {
+        Application.Quit();
+        MenuSFXManager.Instance.PlayClick();
     }
 }

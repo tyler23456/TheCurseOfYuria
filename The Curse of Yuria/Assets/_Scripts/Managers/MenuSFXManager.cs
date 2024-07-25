@@ -15,12 +15,14 @@ public class MenuSFXManager : MonoBehaviour
 
     [SerializeField] AudioSourceManager audioSourceManager;
 
-    [SerializeField] AudioClip mainMenuOpen;
-    [SerializeField] AudioClip mainMenuClose;
+    [SerializeField] AudioClip optionsMenuOpen;
+    [SerializeField] AudioClip optionsMenuClose;
     [SerializeField] AudioClip equipmentMenuOpen;
     [SerializeField] AudioClip equipmentMenuClose;
     [SerializeField] AudioClip generalOpen;
     [SerializeField] AudioClip generalClose;
+    [SerializeField] AudioClip cyclePartyMembers;
+    [SerializeField] AudioClip changeEquipmentPart;
     [SerializeField] AudioClip hover;
     [SerializeField] AudioClip click;
 
@@ -55,14 +57,14 @@ public class MenuSFXManager : MonoBehaviour
         }).WaitForCompletion();
     }
 
-    public void PlayMainMenuOpen()
+    public void PlayOptionsMenuOpen()
     {
-        audioSourceManager.PlaySFX(mainMenuOpen);
+        audioSourceManager.PlaySFX(optionsMenuOpen);
     }
 
-    public void PlayMainMenuClose()
+    public void PlayOptionsMenuClose()
     {
-        audioSourceManager.PlaySFX(mainMenuClose);
+        audioSourceManager.PlaySFX(optionsMenuClose);
     }
 
     public void PlayEquipmentMenuOpen()
@@ -72,7 +74,7 @@ public class MenuSFXManager : MonoBehaviour
 
     public void PlayChangeEquipmentPart()
     {
-        
+        audioSourceManager.PlaySFX(changeEquipmentPart);
     }
 
     public void PlayEquipmentMenuClose()
@@ -82,7 +84,7 @@ public class MenuSFXManager : MonoBehaviour
 
     public void PlayCyclePartyMembers()
     {
-
+        audioSourceManager.PlaySFX(cyclePartyMembers);
     }
 
     public void PlayGenericOpen()

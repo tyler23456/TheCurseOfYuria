@@ -73,6 +73,8 @@ public class ShopDisplay : DisplayBase
         display.RefreshAllie(0);
         RefreshEquipment(InventoryManager.Instance.helmetType, shopInventories[InventoryManager.Instance.helmetType]);
         OnBuy();
+
+        MenuSFXManager.Instance.PlayGenericOpen();
     }
 
     protected override void OnDisable()
@@ -84,6 +86,8 @@ public class ShopDisplay : DisplayBase
         buy.transform.parent.gameObject.SetActive(false);
         sell.transform.parent.gameObject.SetActive(false);
         display.gameObject.SetActive(false);
+
+        MenuSFXManager.Instance.PlayGenericClose();
     }
 
     private void Update()

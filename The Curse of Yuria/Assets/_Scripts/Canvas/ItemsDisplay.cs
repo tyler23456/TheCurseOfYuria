@@ -57,12 +57,16 @@ public class ItemsDisplay : DisplayBase
         display.RefreshAllie(0);
 
         RefreshEquipment(InventoryManager.Instance.helmetType);
+
+        MenuSFXManager.Instance.PlayEquipmentMenuOpen();
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
         display.gameObject.SetActive(false);
+
+        MenuSFXManager.Instance.PlayEquipmentMenuClose();
     }
 
     private void Update()

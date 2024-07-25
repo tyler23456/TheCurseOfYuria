@@ -61,11 +61,15 @@ public class SwitchAllieDisplay : DisplayBase
         inventoryUI.Display();
 
         cameraFollowEnabler = userCamera.GetComponent<IEnabler>();
+
+        MenuSFXManager.Instance.PlayGenericOpen();
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
+
+        MenuSFXManager.Instance.PlayGenericClose();
     }
 
     void OnClick(string allieName)
@@ -113,7 +117,7 @@ public class SwitchAllieDisplay : DisplayBase
         nextAllie.getFadeAnimator.OnCoroutineEnd = (actor) => OnNextActorEnd(null);
         nextAllie.getFadeAnimator.Start(0f, 1f, Duration);
 
-
+        MenuSFXManager.Instance.PlayClick();
     }
 
     void OnPreviousActorUpdate(IActor actor)
@@ -151,7 +155,7 @@ public class SwitchAllieDisplay : DisplayBase
 
     void OnPointerEnter(string itemName)
     {
-
+        MenuSFXManager.Instance.PlayHover();
     }
 
     void OnPointerExit(string itemName)

@@ -31,11 +31,15 @@ public class CutsceneDisplay : DisplayBase
 
         GameStateManager.Instance.Stop();
         StartCoroutine(Activate());
+
+        MenuSFXManager.Instance.PlayGenericOpen();
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
+
+        MenuSFXManager.Instance.PlayGenericClose();
     }
 
     public IEnumerator Activate()

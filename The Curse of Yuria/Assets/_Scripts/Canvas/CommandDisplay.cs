@@ -53,15 +53,22 @@ public class CommandDisplay : DisplayBase
         itemTab.onClick.RemoveAllListeners();
         exitButton.onClick.RemoveAllListeners();
 
-        attackTab.onClick.AddListener(() => OnClickAttack());
-        magicTab.onClick.AddListener(() => OnClickSkill());
-        itemTab.onClick.AddListener(() => OnClickItems());
+        attackTab.onClick.AddListener(OnClickAttack);
+        magicTab.onClick.AddListener(OnClickSkill);
+        itemTab.onClick.AddListener(OnClickItems);
+
+        attackTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+        magicTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+        itemTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+
         exitButton.onClick.AddListener(OnExit);
 
         commandName = "None";
 
         currentAllie.obj.transform.SetAsFirstSibling();
         RefreshGridWithAttackOptions();
+
+        MenuSFXManager.Instance.PlayGenericOpen();
     }
 
     protected override void OnDisable()
@@ -70,6 +77,8 @@ public class CommandDisplay : DisplayBase
 
         MarkerManager.instance.DestroyAllMarkers();
         GameStateManager.Instance.Play();
+
+        MenuSFXManager.Instance.PlayGenericClose();
     }
 
     void OnExit()
@@ -83,15 +92,27 @@ public class CommandDisplay : DisplayBase
         attackInventoryUI.buttonPrefab = buttonPrefab;
         attackInventoryUI.OnClick = OnSelectItem;
         attackInventoryUI.inventory = new Inventory();
-        attackInventoryUI.onPointerEnter = (itemName) => { };
+        attackInventoryUI.onPointerEnter = OnItemEnter;
         attackInventoryUI.onPointerExit = (itemName) => { };
         attackInventoryUI.Display();
+    }
+
+    public void OnTabEnter()
+    {
+        MenuSFXManager.Instance.PlayHover();
+    }
+
+    public void OnItemEnter(string itemName)
+    {
+        MenuSFXManager.Instance.PlayHover();
     }
 
     public void OnClickAttack()
     {
         RefreshGridWithAttackOptions();
         OnSelectAttack(defaultAttack.name);
+
+        MenuSFXManager.Instance.PlayClick();
     }
 
     public void OnClickSkill()
@@ -105,6 +126,8 @@ public class CommandDisplay : DisplayBase
         skillInventoryUI.onPointerEnter = (itemName) => { };
         skillInventoryUI.onPointerExit = (itemName) => { };
         skillInventoryUI.Display();
+
+        MenuSFXManager.Instance.PlayClick();
     }
 
     public void OnClickItems()
@@ -116,6 +139,8 @@ public class CommandDisplay : DisplayBase
         itemInventoryUI.onPointerEnter = (itemName) => { };
         itemInventoryUI.onPointerExit = (itemName) => { };
         itemInventoryUI.Display();
+
+        MenuSFXManager.Instance.PlayClick();
     }
 
     public void Update()
@@ -193,6 +218,7 @@ public class CommandDisplay : DisplayBase
     {
         this.commandName = commandName;
         display.gameObject.SetActive(false);
+        MenuSFXManager.Instance.PlayClick();
     }
 
     void OnSelectAttack(string commandName)
@@ -223,6 +249,8 @@ public class CommandDisplay : DisplayBase
 
         IBattleData.aTBGuagesFilled.RemoveFirst();
         gameObject.SetActive(false);
+
+        MenuSFXManager.Instance.PlayClick();
 
     }
 }
