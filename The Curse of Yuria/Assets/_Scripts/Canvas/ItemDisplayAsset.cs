@@ -102,7 +102,7 @@ public class ItemDisplayAsset : MonoBehaviour
         allieIndex = 0;
         isRefreshingStatusAttributes = true;
       
-        MenuSFXManager.Instance.PlayEquipmentMenuOpen();
+        //MenuSFXManager.Instance.PlayEquipmentMenuOpen();
         GameStateManager.Instance.Pause();
     }
 

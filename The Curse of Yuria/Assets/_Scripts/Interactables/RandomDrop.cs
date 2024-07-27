@@ -87,8 +87,8 @@ namespace TCOY.Interactables
 
         void HideInteraction()
         {
-            foreach (SpriteRenderer spriteRenderer in actor.getSpriteRenderers)
-                spriteRenderer.enabled = false;
+            foreach (Transform t in transform)
+                t.gameObject.SetActive(false);
 
             actor.getCollider2D.enabled = false;
             Destroy(gameObject, 10f);
