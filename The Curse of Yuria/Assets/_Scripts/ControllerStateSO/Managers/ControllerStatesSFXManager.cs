@@ -121,20 +121,20 @@ namespace TCOY.ControllerStates
             stepSFXs.Add("WoodStepSFX", StepSFXWood);
             stepSFXs.Add("SnowStepSFX", StepSFXSnow);
 
-            stepSFXs.Add("GrassLandStepSFX", StepSFXGrassLand);
-            stepSFXs.Add("DirtLandStepSFX", StepSFXDirtLand);
-            stepSFXs.Add("WoodLandStepSFX", StepSFXWoodLand);
-            stepSFXs.Add("SnowLandStepSFX", StepSFXSnowLand);
+            stepSFXs.Add("LandGrassStepSFX", StepSFXGrassLand);
+            stepSFXs.Add("LandDirtStepSFX", StepSFXDirtLand);
+            stepSFXs.Add("LandWoodStepSFX", StepSFXWoodLand);
+            stepSFXs.Add("LandSnowStepSFX", StepSFXSnowLand);
 
             stepSFXs.Add("JumpStepSFX", StepSFXDirtLand);
 
-            stepSFXs.Add("LadderLandStepSFX", StepSFXWoodLand);
-            stepSFXs.Add("LadderClimbStepSFX", StepSFXSnowLand);
+            stepSFXs.Add("LandLadderStepSFX", StepSFXLadderLand);
+            stepSFXs.Add("LadderClimbStepSFX", StepSFXLadderClimb);
         }
 
-        public void PlayStepSFX(string groundType, AudioSource audioSource)
+        public void PlayStepSFX(string groundType, AudioSource audioSource, float minVolume = 1f, float maxVolume = 1f, float minPitch = 1f, float maxPitch = 1f)
         {
-            audioSourceManager.Play(audioSource, stepSFXs[groundType], 0.15f, 0.3f, 0.7f, 1.3f);
+            audioSourceManager.Play(audioSource, stepSFXs[groundType], minVolume, maxVolume, minPitch, maxPitch);
         }
     }
 }

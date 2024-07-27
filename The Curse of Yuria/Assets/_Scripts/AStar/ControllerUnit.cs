@@ -39,8 +39,11 @@ namespace TCOY.AStar
 
         public GoalState.State goalState { get; set; } = GoalState.State.enter;
         public ActionState.State actionState { get; set; } = ActionState.State.enter;
-        
-        protected TCOY.UserActors.GroundChecker groundChecker;
+
+        public bool isGroundedEnter => groundChecker.isGroundedEnter;
+        public bool isGroundedExit => groundChecker.isGroundedExit;
+
+        protected GroundChecker groundChecker;
 
         void Awake()
         {
@@ -54,7 +57,7 @@ namespace TCOY.AStar
             if (action == null)
                 action = initialActionState;
             
-            groundChecker = new UserActors.GroundChecker(animator);
+            groundChecker = new GroundChecker(animator);
         }
 
         void Start()

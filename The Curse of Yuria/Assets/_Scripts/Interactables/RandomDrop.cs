@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace TCOY.Interactables
 {
+    [RequireComponent(typeof(IActor))]
     public class RandomDrop : InteractableBase, IInteractablePointer, IEnabler
     {
         [Range(0, 20)]public int minCount = 1;
@@ -22,6 +23,8 @@ namespace TCOY.Interactables
         Inventory inventory = new Inventory();
 
         bool isFirstEnable = true;
+
+        IActor actor;
         
         protected void OnValidate()
         {
@@ -38,6 +41,8 @@ namespace TCOY.Interactables
         {
             if (!isFirstEnable)
                 return;
+
+            actor = GetComponent<IActor>();
 
             isFirstEnable = true;
 
@@ -82,8 +87,10 @@ namespace TCOY.Interactables
 
         void HideInteraction()
         {
-            GetComponent<SpriteRenderer>().enabled = false;
-            GetComponent<Collider2D>().enabled = false;
+            foreach (SpriteRenderer spriteRenderer in actor.getSpriteRenderers)
+                spriteRenderer.enabled = false;
+
+            actor.getCollider2D.enabled = false;
             Destroy(gameObject, 10f);
         }
     }

@@ -7,7 +7,7 @@ namespace TCOY.ControllerStates
     [CreateAssetMenu(fileName = "GroundState", menuName = "PlayerActionStates/GroundState")]
     public class GroundState : ActionBase
     {
-        StepSFX stepSFX = new StepSFX();
+        ControllerStatesSFX controllerStatesSFX = new ControllerStatesSFX();
 
         protected override void Enter(IController controller)
         {
@@ -19,49 +19,53 @@ namespace TCOY.ControllerStates
 
             controller.animator.SetInteger("State", 0);
 
-            if (Input.GetKeyDown(KeyCode.A))
+
+
+
+            if (controller.isGroundedEnter)
             {
-                controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+                controllerStatesSFX.UpdateLandSFX(controller.audioSource);
             }
-            if (Input.GetKeyDown(KeyCode.D))
+            else if (Input.GetKey(KeyCode.A))
             {
-                controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 0, 0f);
-            }
-            
-            if (Input.GetKey(KeyCode.A))
-            {
+
+                if (controller.rigidbody2D.transform.eulerAngles.y < 90f)
+                    controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     controller.animator.SetInteger("State", 2);
                     controller.rigidbody2D.AddForce(Vector2.left * controller.speed * 2f);
-                    stepSFX.Update(controller.audioSource);
+                    controllerStatesSFX.UpdateStepSFX(controller.audioSource);
                 }
                 else
                 {
                     controller.animator.SetInteger("State", 1);
                     controller.rigidbody2D.AddForce(Vector2.left * controller.speed);
-                    stepSFX.Update(controller.audioSource);
+                    controllerStatesSFX.UpdateStepSFX(controller.audioSource);
                 }
             }
             else if (Input.GetKey(KeyCode.D))
             {
+                if (controller.rigidbody2D.transform.eulerAngles.y > 90f)
+                    controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 0, 0f);
+
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     controller.animator.SetInteger("State", 2);
                     controller.rigidbody2D.AddForce(Vector2.right * controller.speed * 2f);
-                    stepSFX.Update(controller.audioSource);
+                    controllerStatesSFX.UpdateStepSFX(controller.audioSource);
                 }
                 else
                 {
                     controller.animator.SetInteger("State", 1);
                     controller.rigidbody2D.AddForce(Vector2.right * controller.speed);
-                    stepSFX.Update(controller.audioSource);
+                    controllerStatesSFX.UpdateStepSFX(controller.audioSource);
                 }
             }
 
             if (Input.GetKeyDown(KeyCode.Space))
                 controller.SetAction(StateDatabase.Instance.GetAction("JumpState"));
-                
         }
 
         protected override void Exit(IController controller)

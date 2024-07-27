@@ -35,10 +35,13 @@ public class ObtainedItemsDisplay : DisplayBase
         inventoryUI.grid = grid;
         inventoryUI.buttonPrefab = obtainedItemPrefab;
         inventoryUI.inventory = IObtainedItemsData.inventory;
-        inventoryUI.OnClick = OnClick;
-        inventoryUI.OnClick += IObtainedItemsData.onClick;
+        inventoryUI.OnClick = OnLeftClick;
+        inventoryUI.OnClick += IObtainedItemsData.onLeftClick;
+
         inventoryUI.onPointerEnter = (itemName) => { };
         inventoryUI.onPointerExit = (itemName) => { };
+        inventoryUI.onPointerRightClick = OnRightClick;
+        inventoryUI.onPointerRightClick += IObtainedItemsData.onRightClick;
         inventoryUI.Display();
     }
 
@@ -46,15 +49,29 @@ public class ObtainedItemsDisplay : DisplayBase
     {
         base.OnDisable();
         IObtainedItemsData.inventory.Clear();
-        IObtainedItemsData.onClick = (itemName) => { };
+        IObtainedItemsData.onLeftClick = (itemName) => { };
     }
 
-    void OnClick(string itemName)
+    void OnLeftClick(string itemName)
     {
         IObtainedItemsData.inventory.Remove(itemName);
         InventoryManager.Instance.AddItem(itemName);
 
         MenuSFXManager.Instance.PlayObtainSFX();
+
+        OnRefresh();
+
+        if (IObtainedItemsData.inventory.count == 0)
+            gameObject.SetActive(false);
+    }
+
+    void OnRightClick(string itemName)
+    {
+        int count = IObtainedItemsData.inventory.GetCount(itemName);
+        IObtainedItemsData.inventory.Remove(itemName, count);
+        InventoryManager.Instance.AddItem(itemName, count);
+
+        MenuSFXManager.Instance.PlayObtainAllSFX();
 
         OnRefresh();
 

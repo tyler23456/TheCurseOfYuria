@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TCOY.UserActors
+namespace TCOY.AStar
 {
     [System.Serializable]
     public class GroundChecker
@@ -11,6 +11,9 @@ namespace TCOY.UserActors
 
         bool isGrounded;
         bool isFalling;
+
+        public bool isGroundedEnter { get; set; } = false;
+        public bool isGroundedExit { get; set; } = false;
 
         public GroundChecker(Animator animator)
         {
@@ -23,6 +26,10 @@ namespace TCOY.UserActors
                 //return;
 
             isGrounded = Physics2D.CircleCast(animator.transform.position, 0.1f, Vector3.down, 0.1f, LayerMask.GetMask("TileCollision"));
+
+            isGroundedEnter = animator.GetBool("IsGrounded") == false && isGrounded == true;
+            isGroundedExit = animator.GetBool("IsGrounded") == true && isGrounded == false;
+
             animator.SetBool("IsGrounded", isGrounded);
 
             //isFalling = Physics2D.CircleCast(animator.transform.position, 0.4f, Vector3.down, 1f, LayerMask.GetMask("TileCollision"));

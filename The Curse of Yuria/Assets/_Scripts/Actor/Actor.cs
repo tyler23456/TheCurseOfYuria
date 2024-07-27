@@ -31,6 +31,7 @@ namespace TCOY.UserActors
         protected SpriteFlipper spriteFlipper;
         protected Detection detection;
 
+        public SpriteRenderer[] getSpriteRenderers => spriteRenderers;
         public Collider2D getCollider2D => collider2D;
         public AudioSource getAudioSource => audioSource;
         public GameObject obj => gameObject;

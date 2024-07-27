@@ -7,6 +7,7 @@ public interface IActor
 {
     bool enabled { get; set; }
     bool useDefaultItems { get; set; }
+    SpriteRenderer[] getSpriteRenderers { get; }
     Collider2D getCollider2D { get; }
     AudioSource getAudioSource { get; }
     GameObject obj { get; }

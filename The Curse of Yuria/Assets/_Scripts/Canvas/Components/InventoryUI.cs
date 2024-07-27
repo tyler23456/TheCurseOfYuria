@@ -5,7 +5,6 @@ using System;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-
 public class InventoryUI
 {
     public Button buttonPrefab;
@@ -13,6 +12,7 @@ public class InventoryUI
     public Action<string> OnClick { get; set; } = (info) => { };
     public Action<string> onPointerEnter { get; set; } = (info) => { };
     public Action<string> onPointerExit { get; set; } = (info) => { };
+    public Action<string> onPointerRightClick { get; set; } = (info) => { };
     public IInventory inventory { get; set; } = null;
 
     public bool showName { get; set; } = false;
@@ -47,6 +47,10 @@ public class InventoryUI
             pointerHover.onPointerExit = () =>
             {
                 onPointerExit.Invoke(inventory.GetName(index));
+            };
+            pointerHover.onPointerRightClick = () =>
+            {
+                onPointerRightClick.Invoke(inventory.GetName(index));
             };
 
             if (showSprite)

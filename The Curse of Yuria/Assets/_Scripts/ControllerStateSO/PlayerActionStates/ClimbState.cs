@@ -7,9 +7,16 @@ namespace TCOY.ControllerStates
     [CreateAssetMenu(fileName = "ClimbState", menuName = "PlayerActionStates/ClimbState")]
     public class ClimbState : ActionBase
     {
+        const float minVolume = 0.7f;
+        const float maxVolume = 1f;
+        const float minPitch = 0.7f;
+        const float maxPitch = 1.3f;
+
         float gravityScale;
         IClimber trigger;
         Transform allies;
+
+        ControllerStatesSFX stepSFX = new ControllerStatesSFX();
 
         protected override void Enter(IController controller)
         {
@@ -17,6 +24,8 @@ namespace TCOY.ControllerStates
             controller.actor.obj.transform.eulerAngles = new Vector3(0f, 180f, 0f);
             gravityScale = controller.rigidbody2D.gravityScale;
             controller.rigidbody2D.gravityScale = 0f;
+
+            ControllerStatesSFXManager.Instance.PlayStepSFX("LandWoodStepSFX", controller.audioSource, 0.1f, 0.2f, 0.7f, 1.3f);
 
             if (allies == null)
                 allies = GameObject.Find("/DontDestroyOnLoad/Allies").transform;
@@ -42,21 +51,25 @@ namespace TCOY.ControllerStates
             {
                 controller.animator.SetInteger("State", 5);
                 controller.rigidbody2D.AddForce(Vector2.up * controller.speed / 2f);
+                stepSFX.UpdateOther(controller.audioSource, "LadderClimbStepSFX", minVolume, maxVolume, minPitch, maxPitch);
             }
             else if (Input.GetKey(KeyCode.S))
             {
                 controller.animator.SetInteger("State", 5);
                 controller.rigidbody2D.AddForce(Vector2.down * controller.speed / 2f);
+                stepSFX.UpdateOther(controller.audioSource, "LadderClimbStepSFX", minVolume, maxVolume, minPitch, maxPitch);
             }
             else if (Input.GetKey(KeyCode.A))
             {
                 controller.animator.SetInteger("State", 5);
                 controller.rigidbody2D.AddForce(Vector2.left * controller.speed / 2f);
+                stepSFX.UpdateOther(controller.audioSource, "LadderClimbStepSFX", minVolume, maxVolume, minPitch, maxPitch);
             }
             else if (Input.GetKey(KeyCode.D))
             {
                 controller.animator.SetInteger("State", 5);
                 controller.rigidbody2D.AddForce(Vector2.right * controller.speed / 2f);
+                stepSFX.UpdateOther(controller.audioSource, "LadderClimbStepSFX", minVolume, maxVolume, minPitch, maxPitch);
             }
 
             if (Input.GetKeyDown(KeyCode.Space))

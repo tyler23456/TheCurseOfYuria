@@ -35,7 +35,7 @@ public class Shop : ActionBase
 
         IShopData.buyersRating = buyersRating;
         IShopData.sellersRating = sellersRating / SellDivisor;
-        IShopData.onClick = OnBuyItem;
+        IShopData.onLeftClick = OnBuyItem;
         GameObject.Find("/DontDestroyOnLoad/Canvas/ShopDisplay").SetActive(true);
         yield return null;
     }

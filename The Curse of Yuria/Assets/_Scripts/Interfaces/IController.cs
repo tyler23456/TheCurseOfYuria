@@ -17,6 +17,10 @@ public interface IController : IPath
     GoalState goal { get; }
     ActionState.State actionState { get; set; }
     GoalState.State goalState { get; set; }
+
+    bool isGroundedEnter { get; }
+    bool isGroundedExit { get; }
+
     void SetGoal(GoalState goal);
     public void SetAction(ActionState action);
 }

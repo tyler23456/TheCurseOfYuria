@@ -76,7 +76,7 @@ namespace TCOY.Interactables
 
         public void PlaySearchEnemySFX(AudioSource audioSource)
         {
-            audioSourceManager.Play(audioSource, openSackSFX);
+            audioSourceManager.Play(audioSource, searchEnemySFX);
         }
     }
 }

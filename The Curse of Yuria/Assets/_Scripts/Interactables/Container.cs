@@ -46,16 +46,27 @@ namespace TCOY.Interactables
                 IObtainedItemsData.inventory.Add(entry.item.name, count);
             }
 
-            IObtainedItemsData.onClick = OnClick;
+            IObtainedItemsData.onLeftClick = OnLeftClick;
+            IObtainedItemsData.onRightClick = OnRightClick;
 
             obj.SetActive(true);
         }
 
-        public void OnClick(string itemName)
+        public void OnLeftClick(string itemName)
         {
             foreach (SavedEntry entry in entries)
                 if (entry.item.name == itemName)
                     InventoryManager.Instance.completedIds.Add(entry.ID);
+        }
+
+        public void OnRightClick(string itemName)
+        {
+            foreach (SavedEntry entry in entries)
+                if (entry.item.name == itemName)
+                {
+                    int count = entry.count - InventoryManager.Instance.completedIds.GetCount(entry.ID);
+                    InventoryManager.Instance.completedIds.Add(entry.ID, count);
+                }        
         }
     }
 }

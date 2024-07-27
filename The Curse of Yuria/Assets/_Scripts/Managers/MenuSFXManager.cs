@@ -12,6 +12,7 @@ public class MenuSFXManager : MonoBehaviour
     [SerializeField] AssetLabelReference addScrollReference;
     [SerializeField] AssetLabelReference unequipReference;
     [SerializeField] AssetLabelReference obtainReference;
+    [SerializeField] AssetLabelReference obtainAllReference;
 
     [SerializeField] AudioSourceManager audioSourceManager;
 
@@ -30,6 +31,7 @@ public class MenuSFXManager : MonoBehaviour
     List<AudioClip> addScroll = new List<AudioClip>();
     List<AudioClip> unequip = new List<AudioClip>();
     List<AudioClip> obtain = new List<AudioClip>();
+    List<AudioClip> obtainAll = new List<AudioClip>();
 
     void Awake()
     {
@@ -53,6 +55,11 @@ public class MenuSFXManager : MonoBehaviour
         Addressables.LoadAssetsAsync<AudioClip>(obtainReference, (i) =>
         {
             obtain.Add(i);
+
+        }).WaitForCompletion();
+        Addressables.LoadAssetsAsync<AudioClip>(obtainAllReference, (i) =>
+        {
+            obtainAll.Add(i);
 
         }).WaitForCompletion();
     }
@@ -120,6 +127,11 @@ public class MenuSFXManager : MonoBehaviour
     public void PlayObtainSFX()
     {
         audioSourceManager.PlaySFX(obtain);
+    }
+
+    public void PlayObtainAllSFX()
+    {
+        audioSourceManager.PlaySFX(obtainAll);
     }
 
     public void PlayAddScroll()
