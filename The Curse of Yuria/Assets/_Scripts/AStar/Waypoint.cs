@@ -42,12 +42,17 @@ namespace TCOY.AStar
         {
             Connection connection = new GameObject(this.name + " Connected to " + otherWaypoint.name).AddComponent<Connection>();
             connection.transform.parent = transform.parent;
+
+            connection.gameObject.AddComponent<LineRenderer>();
             connection.ConnectWaypoints(this, otherWaypoint);
             this.neighbors.Add(otherWaypoint);
             this.connections.Add(connection);
+            
             otherWaypoint.neighbors.Add(this);
             otherWaypoint.connections.Add(connection);
         }
+
+        
 
         public void Remove(Waypoint otherWaypoint)
         {

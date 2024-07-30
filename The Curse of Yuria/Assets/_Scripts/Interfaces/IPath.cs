@@ -10,4 +10,5 @@ public interface IPath
     List<Vector2> waypoints { get; set; }
     int index { get; set; }
     IConnection connection { get; }
+    Vector2 contactPoint { get; }
 }

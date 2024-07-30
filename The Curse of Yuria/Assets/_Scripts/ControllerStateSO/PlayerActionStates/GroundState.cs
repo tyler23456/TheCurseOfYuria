@@ -19,9 +19,6 @@ namespace TCOY.ControllerStates
 
             controller.animator.SetInteger("State", 0);
 
-
-
-
             if (controller.isGroundedEnter)
             {
                 controllerStatesSFX.UpdateLandSFX(controller.audioSource);
@@ -31,7 +28,7 @@ namespace TCOY.ControllerStates
 
                 if (controller.rigidbody2D.transform.eulerAngles.y < 90f)
                     controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 180f, 0f);
-
+                
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     controller.animator.SetInteger("State", 2);

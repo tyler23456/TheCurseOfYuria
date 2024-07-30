@@ -10,15 +10,23 @@ namespace TCOY.AStar
     [RequireComponent(typeof(EdgeCollider2D))]
     public class Connection : MonoBehaviour, IConnection
     {
-        [SerializeField] [HideInInspector] EdgeCollider2D collider;
+        [SerializeField] [HideInInspector] new EdgeCollider2D collider;
 
         [SerializeField] Waypoint firstWaypoint;
         [SerializeField] Waypoint secondWaypoint;
         [SerializeField] ActionState action;
+        [SerializeField] LineRenderer lineRenderer;
+        [SerializeField] bool isTrajectory = false;
 
         public IWaypoint getFirstWaypoint => firstWaypoint;
         public IWaypoint getSecondWaypoint => secondWaypoint;
         public ActionState getAction => action;
+
+        public void OnEnable()
+        {
+            AddLineRenderer();
+            RefreshLineRenderer();
+        }
 
         public void ConnectWaypoints(Waypoint firstWaypoint, Waypoint secondWaypoint)
         {
@@ -26,11 +34,39 @@ namespace TCOY.AStar
             this.secondWaypoint = secondWaypoint;
             RefreshTransform();
             RefreshCollider();
+            RefreshLineRenderer();
+        }
+
+        public void AddLineRenderer()
+        {
+           
+        }
+
+        public void RefreshLineRenderer()
+        {
+            lineRenderer = GetComponent<LineRenderer>();
+
+            if (lineRenderer == null)
+                lineRenderer = gameObject.AddComponent<LineRenderer>();
+
+            //need to add vertices to the line renderer
+            lineRenderer.positionCount = 3;
+
+            lineRenderer.startWidth = 0.2f;
+            lineRenderer.endWidth = 0.2f;
+            lineRenderer.SetPosition(0, firstWaypoint.position);
+            lineRenderer.SetPosition(2, secondWaypoint.position);
+            lineRenderer.sortingOrder = 201;
+
+            if (isTrajectory)
+                lineRenderer.SetPosition(1, new Vector2((firstWaypoint.position.x + secondWaypoint.position.x) / 2f, Mathf.Max(firstWaypoint.position.y, secondWaypoint.position.y) + 1.5f));
+            else
+                lineRenderer.SetPosition(1, (firstWaypoint.position + secondWaypoint.position) / 2);
         }
 
         public void RefreshTransform()
         {
-            Vector2 averagePosition = (firstWaypoint.position + secondWaypoint.position) / 2;
+            Vector2 averagePosition = (firstWaypoint.position + secondWaypoint.position) / 2f;
             transform.position = averagePosition;
         }
 
@@ -43,6 +79,7 @@ namespace TCOY.AStar
 
             RefreshTransformOfAttachedWaypoints();
             RefreshCollider();
+            RefreshLineRenderer();
         }
 
         public void RefreshTransformOfAttachedWaypoints()

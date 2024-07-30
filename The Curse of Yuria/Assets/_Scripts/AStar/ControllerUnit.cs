@@ -17,6 +17,8 @@ namespace TCOY.AStar
 
         Transform allies;
 
+        public float accumulator { get; set; } = 0f;
+
         public Vector2 velocity { get; set; } = Vector2.zero;
         public float speed { get; set; } = 28f * 2f;
         public IActor actor { get; set; }
@@ -29,6 +31,7 @@ namespace TCOY.AStar
         public Vector2 destination { get; set; }
         public Vector2 position => transform.position;
         public IConnection connection { get; private set; }
+        public Vector2 contactPoint { get; private set; }
         
         public float safeDistance => _safeDistance;
         public float battleDistance => _battleDistance;
@@ -56,7 +59,7 @@ namespace TCOY.AStar
                 goal = initialGoalState;
             if (action == null)
                 action = initialActionState;
-            
+
             groundChecker = new GroundChecker(animator);
         }
 
@@ -127,7 +130,7 @@ namespace TCOY.AStar
                 return;
         }
 
-        void OnTriggerEnter2D(Collider2D collision)
+        void OnTriggerStay2D(Collider2D collision)
         {
             IConnection connection = collision.GetComponent<IConnection>();
 
@@ -135,6 +138,8 @@ namespace TCOY.AStar
                 return;
 
             this.connection = connection;
+
+            contactPoint = collision.bounds.ClosestPoint(transform.position);
         }
 
         void OnDrawGizmos()

@@ -83,8 +83,9 @@ namespace TCOY.ControllerStates
             int count = Mathf.Min(transform.childCount, IAllie.MaxActiveAlliesCount);
 
             IController firstController = transform.GetChild(0).GetComponent<IController>();
+            firstController.rigidbody2D.isKinematic = false;
             firstController.SetGoal(selectedDefaultGoal);
-            firstController.SetAction(selectedDefaultAction); //temporary
+            firstController.SetAction(selectedDefaultAction);
 
             for (int i = 0; i < count; i++)
             {
@@ -101,6 +102,7 @@ namespace TCOY.ControllerStates
                 IController controller = transform.GetChild(i).GetComponent<IController>();
                 controller.SetGoal(unselectedDefaultGoal);
                 controller.SetAction(unselectedDefaultAction); //temporary
+                controller.rigidbody2D.isKinematic = true;
                 Debug.Log(i.ToString() + "  " + controller.goal.name + "   " + controller.action.name);
             }
                 

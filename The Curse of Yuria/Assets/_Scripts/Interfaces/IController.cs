@@ -7,6 +7,7 @@ public interface IController : IPath
     float safeDistance { get; }
     float battleDistance { get; }
     float stopDistance { get; }
+    float accumulator { get; set; }
     Vector2 velocity { get; set; }
     float speed { get; set; }
     IActor actor { get; }
@@ -17,7 +18,7 @@ public interface IController : IPath
     GoalState goal { get; }
     ActionState.State actionState { get; set; }
     GoalState.State goalState { get; set; }
-
+   
     bool isGroundedEnter { get; }
     bool isGroundedExit { get; }
 

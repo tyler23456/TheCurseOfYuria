@@ -108,7 +108,7 @@ namespace TCOY.AStar
                 user.waypoints.Add(currentNode.position);
 
             user.waypoints.Reverse();
-            user.waypoints.Add(target.position);
+            user.waypoints.Add(target.contactPoint);
         }
 
         Vector3[] simplifyPath(List<Node> path)
