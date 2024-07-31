@@ -52,8 +52,6 @@ namespace TCOY.AStar
             otherWaypoint.connections.Add(connection);
         }
 
-        
-
         public void Remove(Waypoint otherWaypoint)
         {
             _Remove(otherWaypoint);
@@ -109,15 +107,18 @@ namespace TCOY.AStar
         {
             IController controller = collision.GetComponent<IController>();
 
-            if (controller == null || controller.waypoints.Count == 0 || controller.goal.name == "PlayerState") //may need to change player state later
+            if (controller == null || controller.waypoints.Count == 0 || controller.goal.name == "PlayerState")
                 return;
 
             Vector2 position = transform.position;
 
-            if (controller.index >= controller.waypoints.Count || position != controller.waypoints[controller.index])
+            if (Vector3.Distance(position, controller.position) > IWaypoint.distanceThreshold)
                 return;
 
-            controller.index++;
+            if (controller.waypointIndex >= controller.waypoints.Count || position != controller.waypoints[controller.waypointIndex])
+                return;
+
+            controller.waypointIndex++;
 
             Connection targetConnection = null;
             foreach (Connection connection in connections)

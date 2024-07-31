@@ -32,12 +32,11 @@ namespace TCOY.ControllerStates
 
         protected bool MoveActor(IController controller, float speed)
         {
-            if (controller.waypoints.Count == 0 || controller.index >= controller.waypoints.Count)
+            if (controller.waypoints.Count == 0 || controller.waypointIndex >= controller.waypoints.Count)
                 return false;
 
-            Vector2 waypoint = controller.waypoints[controller.index];
-            float distance = Vector2.Distance(waypoint, controller.position);
-            Vector3 direction = (waypoint - controller.position).normalized;
+            Vector3 waypointPosition = controller.waypoints[controller.waypointIndex];
+            Vector3 direction = (waypointPosition - controller.rigidbody2D.transform.position).normalized;
 
             if (direction.x > 0f && controller.rigidbody2D.transform.eulerAngles.y >= 90f)
                 controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 0f, 0f);
@@ -45,8 +44,8 @@ namespace TCOY.ControllerStates
             else if (direction.x < 0f && controller.rigidbody2D.transform.eulerAngles.y < 90f)
                 controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 180f, 0f);
 
-            controller.rigidbody2D.transform.position = Vector2.Lerp(controller.rigidbody2D.transform.position, waypoint, Time.deltaTime * speed);
- 
+            controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, IWaypoint.distanceThreshold / 2f);
+            
             return true;
         }
 

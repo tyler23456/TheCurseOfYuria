@@ -9,26 +9,29 @@ namespace TCOY.ControllerStates
     {
         protected override void Stay(IController controller)
         {
-            if (controller.waypoints.Count == 0 || controller.index >= controller.waypoints.Count)
+            if (controller.waypoints.Count == 0 || controller.waypointIndex >= controller.waypoints.Count)
                 return;
 
             if (Vector3.Distance(controller.position, controller.destination) < controller.stopDistance)
+            {
+                controller.animator.SetInteger("State", 0);
                 return;
+            }
 
             if (!MoveActor(controller, 4f))
                 return;
 
-            Vector2 path2D = controller.waypoints[controller.index];
+            Vector2 path2D = controller.waypoints[controller.waypointIndex];
             Vector2 position = controller.position;
             Vector2 direction = (path2D - position).normalized;
 
             controller.animator.SetInteger("State", 0);
 
             if (direction.x > 0f)
-                controller.animator.SetInteger("State", 3);
+                controller.animator.SetInteger("State", 2);
 
             else if (direction.x < 0f)
-                controller.animator.SetInteger("State", 3);
+                controller.animator.SetInteger("State", 2);
         }
     }
 }

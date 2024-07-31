@@ -7,23 +7,47 @@ namespace TCOY.ControllerStates
     [CreateAssetMenu(fileName = "AutoJumpState", menuName = "AutoActionStates/AutoJumpState")]
     public class AutoJumpState : ActionBase
     {
+        const int subWaypointCount = 2;
+
         protected override void Enter(IController controller)
         {
-            if (controller.waypoints.Count == 0 || controller.index >= controller.waypoints.Count)
+            if (controller.waypoints.Count == 0 || controller.waypointIndex >= controller.waypoints.Count)
                 EndTheState(controller);
 
-            base.Enter(controller);  
+            base.Enter(controller);
+
+            Vector2 waypoint = controller.waypoints[controller.waypointIndex];
+
+            controller.subWaypointIndex = 0;
+            controller.subWaypoints[0] = new Vector2((controller.position.x + waypoint.x) / 2f, Mathf.Max(controller.position.y, waypoint.y) + 1.5f);
+            controller.subWaypoints[1] = waypoint;
         }
 
         protected override void Stay(IController controller)
         {
-            if (controller.waypoints.Count == 0 || controller.index >= controller.waypoints.Count)
+            if (controller.waypoints.Count == 0 || controller.waypointIndex >= controller.waypoints.Count)
                 EndTheState(controller);
 
             base.Stay(controller);
 
-            if (!MoveActor(controller, 4f))
-                return;
+            float speed = 0f;
+
+            if (Vector3.Distance(controller.position, controller.subWaypoints[controller.subWaypointIndex]) <= IWaypoint.distanceThreshold)
+                controller.subWaypointIndex = Mathf.Clamp(controller.subWaypointIndex + 1, 0, subWaypointCount - 1);
+
+            Vector3 waypointPosition = controller.subWaypoints[controller.subWaypointIndex];
+            Vector3 direction = (waypointPosition - controller.rigidbody2D.transform.position).normalized;
+
+            if (direction.x > 0f && controller.rigidbody2D.transform.eulerAngles.y >= 90f)
+                controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+
+            else if (direction.x < 0f && controller.rigidbody2D.transform.eulerAngles.y < 90f)
+                controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+
+            if (controller.subWaypointIndex == 1)
+                controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, IWaypoint.distanceThreshold / 3f);
+            else
+                controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, IWaypoint.distanceThreshold / 1f);
         }
 
         void EndTheState(IController controller)
@@ -34,7 +58,6 @@ namespace TCOY.ControllerStates
         protected override void Exit(IController controller)
         {
             base.Exit(controller);
-            controller.rigidbody2D.gravityScale = 1f;
         }
     }
 }

@@ -27,7 +27,9 @@ namespace TCOY.AStar
         public AudioSource audioSource { get; set; }
         public bool pathSuccess { get; set; }
         public List<Vector2> waypoints { get; set; } = new List<Vector2>();
-        public int index { get; set; }
+        public int waypointIndex { get; set; }
+        public Vector2[] subWaypoints { get; set; } = new Vector2[2];
+        public int subWaypointIndex { get; set; } = 0;
         public Vector2 destination { get; set; }
         public Vector2 position => transform.position;
         public IConnection connection { get; private set; }

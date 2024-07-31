@@ -44,7 +44,7 @@ namespace TCOY.ControllerStates
                 controller.destination = allies.GetChild(0).position;
                 PathRequester.RequestPath(controller, allies.GetChild(0).GetComponent<IPath>());
 
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.5f);
             }
         }
 
@@ -52,12 +52,12 @@ namespace TCOY.ControllerStates
         {
             if (controller.waypoints != null)
             {
-                for (int i = controller.index; i < controller.waypoints.Count; i++)
+                for (int i = controller.waypointIndex; i < controller.waypoints.Count; i++)
                 {
                     Gizmos.color = Color.red / 2f;
                     Gizmos.DrawCube(controller.waypoints[i], Vector3.one);
 
-                    if (i == controller.index)
+                    if (i == controller.waypointIndex)
                         Gizmos.DrawLine(controller.rigidbody2D.transform.position, controller.waypoints[i]);
                     else
                         Gizmos.DrawLine(controller.waypoints[i - 1], controller.waypoints[i]);

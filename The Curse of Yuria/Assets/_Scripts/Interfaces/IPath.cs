@@ -8,7 +8,9 @@ public interface IPath
     Vector2 destination { get; set; }
     bool pathSuccess { get; set; }
     List<Vector2> waypoints { get; set; }
-    int index { get; set; }
+    int waypointIndex { get; set; }
+    Vector2[] subWaypoints { get; set; }
+    int subWaypointIndex { get; set; }
     IConnection connection { get; }
     Vector2 contactPoint { get; }
 }

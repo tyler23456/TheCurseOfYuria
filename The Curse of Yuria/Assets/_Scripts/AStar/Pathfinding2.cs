@@ -85,7 +85,8 @@ namespace TCOY.AStar
         void TraversePath(IPath user, IPath target, Waypoint startNode, Waypoint endNode)
         {
             user.waypoints.Clear();
-            user.index = 0;
+            user.waypointIndex = 1;
+
             Waypoint currentNode = endNode;
 
             Vector2 previousDirection = (target.position - currentNode.position).normalized;
@@ -107,6 +108,7 @@ namespace TCOY.AStar
             if (Vector2.Dot(previousDirection, currentDirection) > -0.8f)
                 user.waypoints.Add(currentNode.position);
 
+            user.waypoints.Add(user.position);
             user.waypoints.Reverse();
             user.waypoints.Add(target.contactPoint);
         }
