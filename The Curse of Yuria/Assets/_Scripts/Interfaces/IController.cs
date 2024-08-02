@@ -22,6 +22,7 @@ public interface IController : IPath
     bool isGroundedEnter { get; }
     bool isGroundedExit { get; }
 
+    void ResetToDefault();
     void SetGoal(GoalState goal);
     public void SetAction(ActionState action);
 }

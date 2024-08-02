@@ -7,7 +7,8 @@ public interface IPath
     Vector2 position { get; }
     Vector2 destination { get; set; }
     bool pathSuccess { get; set; }
-    List<Vector2> waypoints { get; set; }
+    IWaypoint previousWaypoint { get; set; }
+    List<IWaypoint> waypoints { get; set; }
     int waypointIndex { get; set; }
     Vector2[] subWaypoints { get; set; }
     int subWaypointIndex { get; set; }

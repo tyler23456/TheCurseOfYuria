@@ -103,6 +103,7 @@ namespace TCOY.ControllerStates
                 controller.SetGoal(unselectedDefaultGoal);
                 controller.SetAction(unselectedDefaultAction); //temporary
                 controller.rigidbody2D.isKinematic = true;
+                controller.rigidbody2D.velocity = Vector2.zero;
                 Debug.Log(i.ToString() + "  " + controller.goal.name + "   " + controller.action.name);
             }
                 

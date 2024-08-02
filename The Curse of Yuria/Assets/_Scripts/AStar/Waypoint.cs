@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TCOY.Heap;
 using UnityEditor;
+using System.Linq;
 
 namespace TCOY.AStar
 {
@@ -102,39 +103,19 @@ namespace TCOY.AStar
         {
             RemoveAllAndDestroyConnection();
         }
-        
-        void OnTriggerStay2D(Collider2D collision)
+
+        public IConnection FindConnection(IWaypoint otherWaypoint)
         {
-            IController controller = collision.GetComponent<IController>();
-
-            if (controller == null || controller.waypoints.Count == 0 || controller.goal.name == "PlayerState")
-                return;
-
-            Vector2 position = transform.position;
-
-            if (Vector3.Distance(position, controller.position) > IWaypoint.distanceThreshold)
-                return;
-
-            if (controller.waypointIndex >= controller.waypoints.Count || position != controller.waypoints[controller.waypointIndex])
-                return;
-
-            controller.waypointIndex++;
-
             Connection targetConnection = null;
             foreach (Connection connection in connections)
-                if (controller.waypoints.Contains(connection.GetOtherWaypoint(this).position))
+                if (connection.getFirstWaypoint.Equals(otherWaypoint) || connection.getSecondWaypoint.Equals(otherWaypoint))
                 {
                     targetConnection = connection;
                     break;
                 }
-            
-            if (targetConnection == null || targetConnection.getAction == null)
-                return;
 
-            controller.SetAction(targetConnection.getAction);
+            return targetConnection;
         }
-
-       
 
         public int CompareTo(Waypoint nodeToCompare)
         {
@@ -152,4 +133,27 @@ namespace TCOY.AStar
             Gizmos.DrawSphere(transform.position, 1f);
         }
     }
+
+    public class SimpleWaypoint : IWaypoint
+    {
+        List<Waypoint> neighbors;
+        List<Connection> connections;
+
+        public SimpleWaypoint(Vector2 position)
+        {
+            this.position = position;
+        }
+
+        public Color color { get; set; } = IWaypoint.defaultColor;
+
+        public List<IWaypoint> getNeighbors => neighbors.ConvertAll(i => (IWaypoint)i);
+        public List<IConnection> getConnections => connections.ConvertAll(i => (IConnection)i);
+        public Vector2 position { get; }
+
+        public IConnection FindConnection(IWaypoint otherWaypoint)
+        {
+            return null;
+        }
+    }
+
 }

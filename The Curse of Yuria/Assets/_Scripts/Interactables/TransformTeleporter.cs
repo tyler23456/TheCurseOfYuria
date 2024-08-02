@@ -31,6 +31,13 @@ namespace TCOY.Interactables
             }
 
             SetPositionOfAllies(player, destination.position, new Vector3(0f, destination.eulerAngles.y, 0f));
+
+            Transform parent = player.obj.transform.parent;
+
+            IController controller1 = parent.GetChild(1).GetComponent<IController>();
+            IController controller2 = parent.GetChild(2).GetComponent<IController>();
+            controller1.ResetToDefault();
+            controller2.ResetToDefault();
         }
 
 

@@ -42,6 +42,13 @@ public class LoadingDisplay : DisplayBase
             progress = asyncOperation.progress / 0.9f;
             yield return new WaitForEndOfFrame();
         }
+        
+        Transform parent = GameObject.Find("/DontDestroyOnLoad/Allies").transform;
+
+        IController controller1 = parent.GetChild(1).GetComponent<IController>();
+        IController controller2 = parent.GetChild(2).GetComponent<IController>();
+        controller1.ResetToDefault();
+        controller2.ResetToDefault();
 
         gameObject.SetActive(false);
     }

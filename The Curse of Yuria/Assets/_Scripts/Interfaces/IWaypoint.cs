@@ -11,4 +11,5 @@ public interface IWaypoint
     Vector2 position { get; }
     List<IWaypoint> getNeighbors { get; }
     List<IConnection> getConnections { get; }
+    IConnection FindConnection(IWaypoint otherWaypoint);
 }

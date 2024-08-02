@@ -30,12 +30,9 @@ namespace TCOY.ControllerStates
         protected virtual void Stay(IController controller) { }
         protected virtual void Exit(IController controller) { }
 
-        protected bool MoveActor(IController controller, float speed)
+        protected void MoveActor(IController controller, float speed)
         {
-            if (controller.waypoints.Count == 0 || controller.waypointIndex >= controller.waypoints.Count)
-                return false;
-
-            Vector3 waypointPosition = controller.waypoints[controller.waypointIndex];
+            Vector3 waypointPosition = controller.waypoints[controller.waypointIndex].position;
             Vector3 direction = (waypointPosition - controller.rigidbody2D.transform.position).normalized;
 
             if (direction.x > 0f && controller.rigidbody2D.transform.eulerAngles.y >= 90f)
@@ -45,8 +42,27 @@ namespace TCOY.ControllerStates
                 controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 180f, 0f);
 
             controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, IWaypoint.distanceThreshold / 2f);
-            
-            return true;
+        }
+
+        public void CheckForEndState(IController controller)
+        {
+            IWaypoint waypoint = controller.waypoints[controller.waypointIndex];
+
+            if (Vector3.Distance(waypoint.position, controller.position) > IWaypoint.distanceThreshold)
+                return;
+
+            if (controller.waypointIndex >= controller.waypoints.Count - 1)
+                return;
+
+            controller.previousWaypoint = waypoint;
+            controller.waypointIndex++;
+
+            IConnection connection = waypoint.FindConnection(controller.waypoints[controller.waypointIndex]);
+
+            if (connection == null || connection.getAction == null)
+                controller.SetAction(StateDatabase.Instance.GetAction("AutoGroundState"));
+            else
+                controller.SetAction(connection.getAction);
         }
 
         public override bool CheckForTransition(IController controller)

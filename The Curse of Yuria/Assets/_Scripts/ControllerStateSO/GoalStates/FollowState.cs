@@ -38,13 +38,16 @@ namespace TCOY.ControllerStates
         {
             while (true)
             {
+                if (controller.waypointIndex < controller.waypoints.Count - 1) //remove later
+                    yield return null;
+
                 if (controller.animator.GetInteger("MovePriority") < int.MaxValue) //|| controller.actor.enabled == false)
                     yield return null;
 
                 controller.destination = allies.GetChild(0).position;
                 PathRequester.RequestPath(controller, allies.GetChild(0).GetComponent<IPath>());
 
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.2f);
             }
         }
 
@@ -55,12 +58,12 @@ namespace TCOY.ControllerStates
                 for (int i = controller.waypointIndex; i < controller.waypoints.Count; i++)
                 {
                     Gizmos.color = Color.red / 2f;
-                    Gizmos.DrawCube(controller.waypoints[i], Vector3.one);
+                    Gizmos.DrawCube(controller.waypoints[i].position, Vector3.one);
 
                     if (i == controller.waypointIndex)
-                        Gizmos.DrawLine(controller.rigidbody2D.transform.position, controller.waypoints[i]);
+                        Gizmos.DrawLine(controller.rigidbody2D.transform.position, controller.waypoints[i].position);
                     else
-                        Gizmos.DrawLine(controller.waypoints[i - 1], controller.waypoints[i]);
+                        Gizmos.DrawLine(controller.waypoints[i - 1].position, controller.waypoints[i].position);
                 }
             }
         }

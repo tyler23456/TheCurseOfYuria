@@ -26,7 +26,9 @@ namespace TCOY.AStar
         public new Rigidbody2D rigidbody2D { get; set; }
         public AudioSource audioSource { get; set; }
         public bool pathSuccess { get; set; }
-        public List<Vector2> waypoints { get; set; } = new List<Vector2>();
+
+        public IWaypoint previousWaypoint { get; set; }
+        public List<IWaypoint> waypoints { get; set; } = new List<IWaypoint>();
         public int waypointIndex { get; set; }
         public Vector2[] subWaypoints { get; set; } = new Vector2[2];
         public int subWaypointIndex { get; set; } = 0;
@@ -49,6 +51,16 @@ namespace TCOY.AStar
         public bool isGroundedExit => groundChecker.isGroundedExit;
 
         protected GroundChecker groundChecker;
+
+        public void ResetToDefault()
+        {
+            waypointIndex = 0;
+            subWaypointIndex = 0;
+            waypoints.Clear();
+
+            SetGoal(StateDatabase.Instance.GetGoal("FollowState"));
+            SetAction(StateDatabase.Instance.GetAction("AutoGroundState"));
+        }
 
         void Awake()
         {
@@ -151,9 +163,9 @@ namespace TCOY.AStar
 
             List<Vector2> points = new List<Vector2>();
             points.Add(transform.position);
-            foreach(Vector2 position in waypoints)
+            foreach(IWaypoint waypoint in waypoints)
             {
-                points.Add(position);
+                points.Add(waypoint.position);
             }
 
             for (int i = 1; i < points.Count; i++)

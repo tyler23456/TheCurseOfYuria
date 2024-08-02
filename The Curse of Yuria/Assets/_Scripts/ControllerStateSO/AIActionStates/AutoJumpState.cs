@@ -16,7 +16,7 @@ namespace TCOY.ControllerStates
 
             base.Enter(controller);
 
-            Vector2 waypoint = controller.waypoints[controller.waypointIndex];
+            Vector2 waypoint = controller.waypoints[controller.waypointIndex].position;
 
             controller.subWaypointIndex = 0;
             controller.subWaypoints[0] = new Vector2((controller.position.x + waypoint.x) / 2f, Mathf.Max(controller.position.y, waypoint.y) + 1.5f);
@@ -29,8 +29,6 @@ namespace TCOY.ControllerStates
                 EndTheState(controller);
 
             base.Stay(controller);
-
-            float speed = 0f;
 
             if (Vector3.Distance(controller.position, controller.subWaypoints[controller.subWaypointIndex]) <= IWaypoint.distanceThreshold)
                 controller.subWaypointIndex = Mathf.Clamp(controller.subWaypointIndex + 1, 0, subWaypointCount - 1);
@@ -48,6 +46,8 @@ namespace TCOY.ControllerStates
                 controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, IWaypoint.distanceThreshold / 3f);
             else
                 controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, IWaypoint.distanceThreshold / 1f);
+
+            CheckForEndState(controller);
         }
 
         void EndTheState(IController controller)

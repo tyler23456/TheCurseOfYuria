@@ -98,7 +98,7 @@ namespace TCOY.AStar
 
                 //helps to prevent directions that overlap one another
                 if (Vector2.Dot(previousDirection, currentDirection) > -0.8f)
-                    user.waypoints.Add(currentNode.position);
+                    user.waypoints.Add(currentNode);
 
                 currentNode = currentNode.parent;
                 previousDirection = currentDirection;
@@ -106,11 +106,12 @@ namespace TCOY.AStar
 
             currentDirection = (currentNode.position - user.position).normalized;
             if (Vector2.Dot(previousDirection, currentDirection) > -0.8f)
-                user.waypoints.Add(currentNode.position);
+                user.waypoints.Add(currentNode);
 
-            user.waypoints.Add(user.position);
+            user.waypoints.Add(new SimpleWaypoint(user.position));
             user.waypoints.Reverse();
-            user.waypoints.Add(target.contactPoint);
+            user.waypoints.Add(new SimpleWaypoint(target.contactPoint));
+            user.previousWaypoint = user.waypoints[0];
         }
 
         Vector3[] simplifyPath(List<Node> path)

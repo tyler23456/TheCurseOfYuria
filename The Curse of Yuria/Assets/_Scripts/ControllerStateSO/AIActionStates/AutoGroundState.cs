@@ -18,10 +18,9 @@ namespace TCOY.ControllerStates
                 return;
             }
 
-            if (!MoveActor(controller, 4f))
-                return;
-
-            Vector2 path2D = controller.waypoints[controller.waypointIndex];
+            MoveActor(controller, 4f);
+                
+            Vector2 path2D = controller.waypoints[controller.waypointIndex].position;
             Vector2 position = controller.position;
             Vector2 direction = (path2D - position).normalized;
 
@@ -32,6 +31,8 @@ namespace TCOY.ControllerStates
 
             else if (direction.x < 0f)
                 controller.animator.SetInteger("State", 2);
+
+            CheckForEndState(controller);
         }
     }
 }
