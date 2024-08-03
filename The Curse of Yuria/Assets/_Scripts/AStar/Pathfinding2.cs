@@ -25,9 +25,6 @@ namespace TCOY.AStar
 
         IEnumerator FindPath(IPath user, IPath target)
         {
-            if (!((IController)user).animator.GetBool("IsGrounded"))
-                yield return null;
-
             Waypoint startNode = waypointManager.CalculateClosestWaypoint(user);
             Waypoint targetNode = waypointManager.CalculateClosestWaypoint(target);
 
@@ -82,10 +79,11 @@ namespace TCOY.AStar
             yield break;
         }
 
+        
         void TraversePath(IPath user, IPath target, Waypoint startNode, Waypoint endNode)
         {
             user.waypoints.Clear();
-            user.waypointIndex = 1;
+            user.waypointIndex = 0;
 
             Waypoint currentNode = endNode;
 
@@ -98,7 +96,7 @@ namespace TCOY.AStar
 
                 //helps to prevent directions that overlap one another
                 if (Vector2.Dot(previousDirection, currentDirection) > -0.8f)
-                    user.waypoints.Add(currentNode);
+                    user.waypoints.Add(new SimpleWaypoint(currentNode.position, currentNode.FindConnection(currentNode.parent).getAction));
 
                 currentNode = currentNode.parent;
                 previousDirection = currentDirection;
@@ -106,12 +104,10 @@ namespace TCOY.AStar
 
             currentDirection = (currentNode.position - user.position).normalized;
             if (Vector2.Dot(previousDirection, currentDirection) > -0.8f)
-                user.waypoints.Add(currentNode);
+                user.waypoints.Add(new SimpleWaypoint(currentNode.position, ((IController)user).action));
 
-            user.waypoints.Add(new SimpleWaypoint(user.position));
             user.waypoints.Reverse();
-            user.waypoints.Add(new SimpleWaypoint(target.contactPoint));
-            user.previousWaypoint = user.waypoints[0];
+            user.waypoints.Add(new SimpleWaypoint(target.contactPoint, target.connection.getAction));
         }
 
         Vector3[] simplifyPath(List<Node> path)

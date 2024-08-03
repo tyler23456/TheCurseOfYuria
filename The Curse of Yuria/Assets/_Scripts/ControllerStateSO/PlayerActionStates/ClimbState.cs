@@ -81,6 +81,11 @@ namespace TCOY.ControllerStates
                 controller.SetAction(StateDatabase.Instance.GetAction("GroundState"));
         }
 
+        public override ActionState GetSisterState()
+        {
+            return StateDatabase.Instance.GetAction("AutoClimbState");
+        }
+
         protected override void Exit(IController controller)
         {
             controller.rigidbody2D.gravityScale = gravityScale;

@@ -20,8 +20,11 @@ namespace TCOY.ControllerStates
             if (controller.waypoints.Count == 0 || controller.waypointIndex >= controller.waypoints.Count)
                 return;
 
-            MoveActor(controller, 4f);
-            CheckForEndState(controller);
+            if (Vector3.Distance(controller.position, controller.destination) < controller.stopDistance)
+                return;
+
+            MoveActor(controller, 0.5f);
+            CheckForEndSAutoState(controller);
         }
 
         protected override void Exit(IController controller)

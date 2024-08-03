@@ -28,7 +28,7 @@ namespace TCOY.AStar
         public bool pathSuccess { get; set; }
 
         public IWaypoint previousWaypoint { get; set; }
-        public List<IWaypoint> waypoints { get; set; } = new List<IWaypoint>();
+        public List<SimpleWaypoint> waypoints { get; set; } = new List<SimpleWaypoint>();
         public int waypointIndex { get; set; }
         public Vector2[] subWaypoints { get; set; } = new Vector2[2];
         public int subWaypointIndex { get; set; } = 0;
@@ -163,7 +163,7 @@ namespace TCOY.AStar
 
             List<Vector2> points = new List<Vector2>();
             points.Add(transform.position);
-            foreach(IWaypoint waypoint in waypoints)
+            foreach(SimpleWaypoint waypoint in waypoints)
             {
                 points.Add(waypoint.position);
             }

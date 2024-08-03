@@ -133,27 +133,4 @@ namespace TCOY.AStar
             Gizmos.DrawSphere(transform.position, 1f);
         }
     }
-
-    public class SimpleWaypoint : IWaypoint
-    {
-        List<Waypoint> neighbors;
-        List<Connection> connections;
-
-        public SimpleWaypoint(Vector2 position)
-        {
-            this.position = position;
-        }
-
-        public Color color { get; set; } = IWaypoint.defaultColor;
-
-        public List<IWaypoint> getNeighbors => neighbors.ConvertAll(i => (IWaypoint)i);
-        public List<IConnection> getConnections => connections.ConvertAll(i => (IConnection)i);
-        public Vector2 position { get; }
-
-        public IConnection FindConnection(IWaypoint otherWaypoint)
-        {
-            return null;
-        }
-    }
-
 }

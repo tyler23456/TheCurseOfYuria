@@ -18,7 +18,7 @@ namespace TCOY.ControllerStates
                 return;
             }
 
-            MoveActor(controller, 4f);
+            MoveActor(controller);
                 
             Vector2 path2D = controller.waypoints[controller.waypointIndex].position;
             Vector2 position = controller.position;
@@ -32,7 +32,7 @@ namespace TCOY.ControllerStates
             else if (direction.x < 0f)
                 controller.animator.SetInteger("State", 2);
 
-            CheckForEndState(controller);
+            CheckForEndSAutoState(controller);
         }
     }
 }

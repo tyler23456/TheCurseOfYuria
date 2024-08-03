@@ -38,5 +38,10 @@ namespace TCOY.ControllerStates
 
             controller.rigidbody2D.gravityScale = 1f;
         }
+
+        public override ActionState GetSisterState()
+        {
+            return StateDatabase.Instance.GetAction("AutoJumpState");
+        }
     }
 }

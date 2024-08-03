@@ -47,7 +47,7 @@ namespace TCOY.ControllerStates
             else
                 controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, IWaypoint.distanceThreshold / 1f);
 
-            CheckForEndState(controller);
+            CheckForEndSAutoState(controller);
         }
 
         void EndTheState(IController controller)

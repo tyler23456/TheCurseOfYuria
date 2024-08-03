@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TCOY.AStar;
 
 namespace TCOY.ControllerStates
 {
     public abstract class ActionBase : ActionState
     {
+
+
         public new string name => base.name;
 
         public override void UpdateState(IController controller)
@@ -30,7 +33,7 @@ namespace TCOY.ControllerStates
         protected virtual void Stay(IController controller) { }
         protected virtual void Exit(IController controller) { }
 
-        protected void MoveActor(IController controller, float speed)
+        protected void MoveActor(IController controller, float speed = 1f)
         {
             Vector3 waypointPosition = controller.waypoints[controller.waypointIndex].position;
             Vector3 direction = (waypointPosition - controller.rigidbody2D.transform.position).normalized;
@@ -41,28 +44,20 @@ namespace TCOY.ControllerStates
             else if (direction.x < 0f && controller.rigidbody2D.transform.eulerAngles.y < 90f)
                 controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 180f, 0f);
 
-            controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, IWaypoint.distanceThreshold / 2f);
+            controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, IWaypoint.distanceThreshold * speed / 2f);
         }
 
-        public void CheckForEndState(IController controller)
+        public void CheckForEndSAutoState(IController controller)
         {
-            IWaypoint waypoint = controller.waypoints[controller.waypointIndex];
-
-            if (Vector3.Distance(waypoint.position, controller.position) > IWaypoint.distanceThreshold)
+            if (Vector3.Distance(controller.waypoints[controller.waypointIndex].position, controller.position) > IWaypoint.distanceThreshold)
                 return;
 
             if (controller.waypointIndex >= controller.waypoints.Count - 1)
                 return;
 
-            controller.previousWaypoint = waypoint;
             controller.waypointIndex++;
 
-            IConnection connection = waypoint.FindConnection(controller.waypoints[controller.waypointIndex]);
-
-            if (connection == null || connection.getAction == null)
-                controller.SetAction(StateDatabase.Instance.GetAction("AutoGroundState"));
-            else
-                controller.SetAction(connection.getAction);
+            controller.SetAction(controller.waypoints[controller.waypointIndex].action);
         }
 
         public override bool CheckForTransition(IController controller)
