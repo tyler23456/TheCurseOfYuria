@@ -25,13 +25,26 @@ namespace TCOY.AStar
 
         IEnumerator FindPath(IPath user, IPath target)
         {
+            user.pathSuccess = false;
+
+            if (!target.isTouchingTargetableConnection)
+            {
+                pathRequester.FinishedProcessingPath();
+                yield break;
+            }
+
+            /*if (((IController)user).action.name == "AutoJumpState")
+            {
+                pathRequester.FinishedProcessingPath();
+                yield break;
+            }*/
+
             Waypoint startNode = waypointManager.CalculateClosestWaypoint(user);
             Waypoint targetNode = waypointManager.CalculateClosestWaypoint(target);
 
             Heap<Waypoint> openSet = new Heap<Waypoint>(waypointManager.transform.childCount);
             List<Waypoint> closedSet = new List<Waypoint>();
-            user.pathSuccess = false;
-
+           
             if (startNode == null || targetNode == null)
             {
                 pathRequester.FinishedProcessingPath();

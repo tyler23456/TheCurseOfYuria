@@ -47,7 +47,7 @@ namespace TCOY.ControllerStates
                 controller.destination = allies.GetChild(0).position;
                 PathRequester.RequestPath(controller, allies.GetChild(0).GetComponent<IPath>());
 
-                yield return new WaitForSeconds(0.9f);
+                yield return new WaitForSeconds(0.1f);
             }
         }
 

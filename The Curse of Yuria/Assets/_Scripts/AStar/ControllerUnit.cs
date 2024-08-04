@@ -51,6 +51,7 @@ namespace TCOY.AStar
         public bool isGroundedExit => groundChecker.isGroundedExit;
 
         protected GroundChecker groundChecker;
+        public bool isTouchingTargetableConnection { get; private set; }
 
         public void ResetToDefault()
         {
@@ -131,6 +132,8 @@ namespace TCOY.AStar
 
         void FixedUpdate()
         {
+            isTouchingTargetableConnection = false;
+
             if (allies.childCount == 0)
                 return;
 
@@ -151,12 +154,14 @@ namespace TCOY.AStar
             if (connection == null)
                 return;
 
-            if (transform.parent.name == "Allies" && transform.GetSiblingIndex() == 0 && connection.getAction.name == "AutoJumpState")
+            if (transform == null || transform.parent == null || transform.parent.name == "Allies" && transform.GetSiblingIndex() == 0 && connection.getAction.name == "AutoJumpState")
                 return;
 
             this.connection = connection;
 
             contactPoint = collision.bounds.ClosestPoint(transform.position);
+
+            isTouchingTargetableConnection = true;
         }
 
         void OnDrawGizmos()

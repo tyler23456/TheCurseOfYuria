@@ -13,4 +13,5 @@ public interface IPath
     int subWaypointIndex { get; set; }
     IConnection connection { get; }
     Vector2 contactPoint { get; }
+    bool isTouchingTargetableConnection { get; }
 }
