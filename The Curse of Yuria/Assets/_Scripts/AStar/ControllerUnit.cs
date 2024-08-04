@@ -151,6 +151,9 @@ namespace TCOY.AStar
             if (connection == null)
                 return;
 
+            if (transform.parent.name == "Allies" && transform.GetSiblingIndex() == 0 && connection.getAction.name == "AutoJumpState")
+                return;
+
             this.connection = connection;
 
             contactPoint = collision.bounds.ClosestPoint(transform.position);

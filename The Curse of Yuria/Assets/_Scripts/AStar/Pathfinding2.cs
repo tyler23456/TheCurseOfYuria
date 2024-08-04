@@ -104,7 +104,7 @@ namespace TCOY.AStar
 
             currentDirection = (currentNode.position - user.position).normalized;
             if (Vector2.Dot(previousDirection, currentDirection) > -0.8f)
-                user.waypoints.Add(new SimpleWaypoint(currentNode.position, ((IController)user).action));
+                user.waypoints.Add(new SimpleWaypoint(currentNode.position, user.connection.getAction));
 
             user.waypoints.Reverse();
             user.waypoints.Add(new SimpleWaypoint(target.contactPoint, target.connection.getAction));
