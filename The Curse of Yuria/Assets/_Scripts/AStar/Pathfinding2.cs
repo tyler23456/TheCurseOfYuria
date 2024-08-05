@@ -33,11 +33,11 @@ namespace TCOY.AStar
                 yield break;
             }
 
-            /*if (((IController)user).action.name == "AutoJumpState")
+            if (((IController)user).action.name == "AutoJumpState")
             {
                 pathRequester.FinishedProcessingPath();
                 yield break;
-            }*/
+            }
 
             Waypoint startNode = waypointManager.CalculateClosestWaypoint(user);
             Waypoint targetNode = waypointManager.CalculateClosestWaypoint(target);

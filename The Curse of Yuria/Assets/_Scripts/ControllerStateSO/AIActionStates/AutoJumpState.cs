@@ -43,11 +43,12 @@ namespace TCOY.ControllerStates
                 controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 180f, 0f);
 
             if (controller.subWaypointIndex == 1)
+            {
                 controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, IWaypoint.distanceThreshold / 3f);
+                CheckForEndSAutoState(controller);
+            }        
             else
                 controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, IWaypoint.distanceThreshold / 1f);
-
-            CheckForEndSAutoState(controller);
         }
 
         void EndTheState(IController controller)

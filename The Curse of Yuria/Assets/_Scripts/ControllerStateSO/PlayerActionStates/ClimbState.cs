@@ -59,18 +59,6 @@ namespace TCOY.ControllerStates
                 controller.rigidbody2D.AddForce(Vector2.down * controller.speed / 2f);
                 stepSFX.UpdateOther(controller.audioSource, "LadderClimbStepSFX", minVolume, maxVolume, minPitch, maxPitch);
             }
-            else if (Input.GetKey(KeyCode.A))
-            {
-                controller.animator.SetInteger("State", 5);
-                controller.rigidbody2D.AddForce(Vector2.left * controller.speed / 2f);
-                stepSFX.UpdateOther(controller.audioSource, "LadderClimbStepSFX", minVolume, maxVolume, minPitch, maxPitch);
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                controller.animator.SetInteger("State", 5);
-                controller.rigidbody2D.AddForce(Vector2.right * controller.speed / 2f);
-                stepSFX.UpdateOther(controller.audioSource, "LadderClimbStepSFX", minVolume, maxVolume, minPitch, maxPitch);
-            }
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -78,7 +66,14 @@ namespace TCOY.ControllerStates
             }
                 
             if (trigger == null)
+            {
                 controller.SetAction(StateDatabase.Instance.GetAction("GroundState"));
+                return;
+            }
+
+            Vector2 rigidbody2Dposition = controller.rigidbody2D.position;
+            rigidbody2Dposition.x = Mathf.Lerp(rigidbody2Dposition.x, trigger.position.x, 4f * Time.deltaTime);
+            controller.rigidbody2D.position = (rigidbody2Dposition);
         }
 
         public override ActionState GetSisterState()

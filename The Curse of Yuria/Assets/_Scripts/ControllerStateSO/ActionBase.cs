@@ -7,8 +7,6 @@ namespace TCOY.ControllerStates
 {
     public abstract class ActionBase : ActionState
     {
-
-
         public new string name => base.name;
 
         public override void UpdateState(IController controller)

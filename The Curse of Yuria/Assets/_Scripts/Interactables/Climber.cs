@@ -10,6 +10,8 @@ namespace TCOY.Interactables
 
         public override string getAction => "Climb ";
 
+        public Vector2 position => transform.position;
+
         public override void Interact(IActor player)
         {
             base.Interact(player);

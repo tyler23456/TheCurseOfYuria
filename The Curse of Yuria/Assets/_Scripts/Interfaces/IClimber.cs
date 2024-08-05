@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IClimber
 {
     bool enabled { get; }
+    Vector2 position { get; }
 }

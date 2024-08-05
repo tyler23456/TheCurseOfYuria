@@ -84,6 +84,7 @@ namespace TCOY.ControllerStates
 
             IController firstController = transform.GetChild(0).GetComponent<IController>();
             firstController.rigidbody2D.isKinematic = false;
+            firstController.rigidbody2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
             firstController.SetGoal(selectedDefaultGoal);
             firstController.SetAction(selectedDefaultAction);
 
@@ -103,6 +104,7 @@ namespace TCOY.ControllerStates
                 controller.SetGoal(unselectedDefaultGoal);
                 controller.SetAction(unselectedDefaultAction); //temporary
                 controller.rigidbody2D.isKinematic = true;
+                controller.rigidbody2D.collisionDetectionMode = CollisionDetectionMode2D.Discrete;
                 controller.rigidbody2D.velocity = Vector2.zero;
                 Debug.Log(i.ToString() + "  " + controller.goal.name + "   " + controller.action.name);
             }
