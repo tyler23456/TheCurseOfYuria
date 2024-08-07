@@ -45,7 +45,7 @@ namespace TCOY.ControllerStates
             controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, IWaypoint.distanceThreshold * speed / 2f);
         }
 
-        public void CheckForEndSAutoState(IController controller)
+        public void CheckForEndAutoState(IController controller)
         {
             if (Vector3.Distance(controller.waypoints[controller.waypointIndex].position, controller.position) > IWaypoint.distanceThreshold)
                 return;
@@ -54,7 +54,6 @@ namespace TCOY.ControllerStates
                 return;
 
             controller.waypointIndex++;
-
             controller.SetAction(controller.waypoints[controller.waypointIndex].action);
         }
 

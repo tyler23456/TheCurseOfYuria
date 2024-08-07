@@ -45,7 +45,7 @@ namespace TCOY.ControllerStates
             if (controller.subWaypointIndex == 1)
             {
                 controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, IWaypoint.distanceThreshold / 3f);
-                CheckForEndSAutoState(controller);
+                CheckForEndAutoState(controller);
             }        
             else
                 controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, IWaypoint.distanceThreshold / 1f);

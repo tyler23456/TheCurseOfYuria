@@ -24,7 +24,7 @@ namespace TCOY.ControllerStates
                 return;
 
             MoveActor(controller, 0.5f);
-            CheckForEndSAutoState(controller);
+            CheckForEndAutoState(controller);
         }
 
         protected override void Exit(IController controller)

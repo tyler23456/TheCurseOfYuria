@@ -160,7 +160,6 @@ namespace TCOY.AStar
             this.connection = connection;
 
             contactPoint = collision.bounds.ClosestPoint(transform.position);
-
             isTouchingTargetableConnection = true;
         }
 

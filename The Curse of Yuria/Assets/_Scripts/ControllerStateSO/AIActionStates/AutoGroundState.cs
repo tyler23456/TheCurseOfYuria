@@ -32,7 +32,7 @@ namespace TCOY.ControllerStates
             else if (direction.x < 0f)
                 controller.animator.SetInteger("State", 2);
 
-            CheckForEndSAutoState(controller);
+            CheckForEndAutoState(controller);
         }
     }
 }
