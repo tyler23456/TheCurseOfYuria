@@ -21,6 +21,7 @@ namespace TCOY.ControllerStates
             controller.subWaypointIndex = 0;
             controller.subWaypoints[0] = new Vector2((controller.position.x + waypoint.x) / 2f, Mathf.Max(controller.position.y, waypoint.y) + 1.5f);
             controller.subWaypoints[1] = waypoint;
+            controller.isPathfindingPaused = true;
         }
 
         protected override void Stay(IController controller)
@@ -44,11 +45,11 @@ namespace TCOY.ControllerStates
 
             if (controller.subWaypointIndex == 1)
             {
-                controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, IWaypoint.distanceThreshold / 3f);
+                controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, 10f * Time.deltaTime);
                 CheckForEndAutoState(controller);
             }        
             else
-                controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, IWaypoint.distanceThreshold / 1f);
+                controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, 19f * Time.deltaTime);
         }
 
         void EndTheState(IController controller)
@@ -59,6 +60,7 @@ namespace TCOY.ControllerStates
         protected override void Exit(IController controller)
         {
             base.Exit(controller);
+            controller.isPathfindingPaused = false;
         }
     }
 }

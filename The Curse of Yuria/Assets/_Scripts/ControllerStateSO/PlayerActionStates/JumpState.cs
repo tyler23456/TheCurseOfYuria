@@ -24,7 +24,7 @@ namespace TCOY.ControllerStates
 
             controller.accumulator += Time.deltaTime;
 
-            controller.rigidbody2D.AddForce(Vector2.up * 0.25f * controller.speed, ForceMode2D.Impulse);
+            controller.rigidbody2D.AddForce(Vector2.up * 0.25f * controller.speed * 50f * Time.deltaTime, ForceMode2D.Impulse);
 
             if (Input.GetKey(KeyCode.Space) && controller.accumulator < MaxDuration)
                 return;

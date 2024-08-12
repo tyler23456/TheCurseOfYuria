@@ -24,13 +24,13 @@ namespace TCOY.AStar
             if (this == null)
                 return;
 
-            List<IWaypoint> waypoints = new List<IWaypoint>();
+            List<Waypoint> waypoints = new List<Waypoint>();
 
             foreach (Transform t in transform)
-                if (t.TryGetComponent(out IWaypoint waypoint))
+                if (t.TryGetComponent(out Waypoint waypoint))
                     waypoints.Add(waypoint);
 
-            foreach (IWaypoint waypoint in waypoints)
+            foreach (Waypoint waypoint in waypoints)
                 if (previousWaypoint == null || previousWaypoint != null && !waypoint.Equals(previousWaypoint))
                     waypoint.color = IWaypoint.defaultColor;
 

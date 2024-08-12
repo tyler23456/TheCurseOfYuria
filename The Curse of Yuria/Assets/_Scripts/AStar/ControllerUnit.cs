@@ -14,6 +14,7 @@ namespace TCOY.AStar
         [SerializeField] float _safeDistance = 30f;
         [SerializeField] float _battleDistance = 10f;
         [SerializeField] float _stopDistance = 2f;
+        [SerializeField] float _goDistance = 3f;
 
         Transform allies;
 
@@ -32,14 +33,15 @@ namespace TCOY.AStar
         public int waypointIndex { get; set; }
         public Vector2[] subWaypoints { get; set; } = new Vector2[2];
         public int subWaypointIndex { get; set; } = 0;
-        public Vector2 destination { get; set; }
+        public IPath target { get; set; }
         public Vector2 position => transform.position;
-        public IConnection connection { get; private set; }
+        public IConnection connection { get; set; }
         public Vector2 contactPoint { get; private set; }
-        
+
         public float safeDistance => _safeDistance;
         public float battleDistance => _battleDistance;
-        public float stopDistance => _stopDistance;
+        public float stopDistance { get { return _stopDistance; } set { _stopDistance = value; } }
+        public float goDistance { get { return _goDistance; } set { _goDistance = value; } }
 
         public GoalState goal { get; set; }
         public ActionState action { get; set; }
@@ -52,6 +54,9 @@ namespace TCOY.AStar
 
         protected GroundChecker groundChecker;
         public bool isTouchingTargetableConnection { get; private set; }
+        public bool isPathfindingPaused { get; set; } = false;
+        public bool isInitialized { get; set; } = false;
+        public bool isAutoMovementPaused { get; set; } = false;
 
         public void ResetToDefault()
         {
@@ -61,6 +66,8 @@ namespace TCOY.AStar
 
             SetGoal(StateDatabase.Instance.GetGoal("FollowState"));
             SetAction(StateDatabase.Instance.GetAction("AutoGroundState"));
+
+            isInitialized = false;
         }
 
         void Awake()
@@ -123,7 +130,7 @@ namespace TCOY.AStar
 
             if (GameStateManager.Instance.isPaused)
                 return;
-
+            
             action.UpdateState(this);
             goal.UpdateState(this);
 
@@ -145,27 +152,31 @@ namespace TCOY.AStar
 
             if (GameStateManager.Instance.isPaused)
                 return;
+
+            action.FixedUpdateState(this);
         }
 
         void OnTriggerStay2D(Collider2D collision)
         {
-            IConnection connection = collision.GetComponent<IConnection>();
+            Connection connection = collision.GetComponent<Connection>();
 
             if (connection == null)
                 return;
 
-            if (transform == null || transform.parent == null || transform.parent.name == "Allies" && transform.GetSiblingIndex() == 0 && connection.getAction.name == "AutoJumpState")
+            if (transform == null || transform.parent == null || connection.getAction.name == "AutoJumpState" || goal != null && goal.name == "FollowState" && isInitialized)
                 return;
+
+            isInitialized = true;
 
             this.connection = connection;
 
             contactPoint = collision.bounds.ClosestPoint(transform.position);
             isTouchingTargetableConnection = true;
         }
-
+        
         void OnDrawGizmos()
         {
-            if (name != "Chicken")
+            if (name != "Nate")
                 return;
 
             List<Vector2> points = new List<Vector2>();
@@ -179,11 +190,11 @@ namespace TCOY.AStar
             {
                 var p1 = points[i - 1];
                 var p2 = points[i];
-                var thickness = 6;
+                var thickness = 10;
                 Handles.DrawBezier(p1, p2, p1, p2, Color.red, null, thickness);
             }
 
-            groundChecker?.OnDrawGizmos();
+            //groundChecker?.OnDrawGizmos();
         }
     }
 }

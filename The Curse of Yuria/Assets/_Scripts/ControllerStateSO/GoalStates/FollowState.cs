@@ -12,7 +12,7 @@ namespace TCOY.ControllerStates
 
         public override bool CheckForTransition(IController controller)
         {
-            return Vector3.Distance(controller.position, controller.destination) < controller.battleDistance;
+            return Vector3.Distance(controller.position, controller.target.position) < controller.battleDistance;
         }
 
         protected override void Enter(IController controller)
@@ -22,16 +22,15 @@ namespace TCOY.ControllerStates
             if (allies == null)
                 allies = GameObject.Find("/DontDestroyOnLoad/Allies").transform;
 
-            controller.destination = allies.GetChild(0).position;
             controller.waypoints.Clear();
-            controller.actor.StartCoroutine(CheckForPath(controller));
+            controller.StartCoroutine(CheckForPath(controller));
         }
 
-       
+        
         protected override void Exit(IController controller)
         {
             base.Exit(controller);
-            controller.actor.StopCoroutine(CheckForPath(controller));
+            controller.StopAllCoroutines();
         }
 
         IEnumerator CheckForPath(IController controller)
@@ -44,7 +43,6 @@ namespace TCOY.ControllerStates
                 if (controller.animator.GetInteger("MovePriority") < int.MaxValue) //|| controller.actor.enabled == false)
                     yield return null;
 
-                controller.destination = allies.GetChild(0).position;
                 PathRequester.RequestPath(controller, allies.GetChild(0).GetComponent<IPath>());
 
                 yield return new WaitForSeconds(0.1f);

@@ -27,23 +27,23 @@ namespace TCOY.AStar
         {
             user.pathSuccess = false;
 
+            if (user.isPathfindingPaused)
+            {
+                pathRequester.FinishedProcessingPath();
+                yield break;
+            }
+
             if (!target.isTouchingTargetableConnection)
             {
                 pathRequester.FinishedProcessingPath();
                 yield break;
             }
 
-            if (((IController)user).action.name == "AutoJumpState")
-            {
-                pathRequester.FinishedProcessingPath();
-                yield break;
-            }
+            Connection startNode = (Connection)user.connection;
+            Connection targetNode = (Connection)target.connection;
 
-            Waypoint startNode = waypointManager.CalculateClosestWaypoint(user);
-            Waypoint targetNode = waypointManager.CalculateClosestWaypoint(target);
-
-            Heap<Waypoint> openSet = new Heap<Waypoint>(waypointManager.transform.childCount);
-            List<Waypoint> closedSet = new List<Waypoint>();
+            Heap<Connection> openSet = new Heap<Connection>(waypointManager.transform.childCount);
+            List<Connection> closedSet = new List<Connection>();
            
             if (startNode == null || targetNode == null)
             {
@@ -55,7 +55,7 @@ namespace TCOY.AStar
 
             while (openSet.Count > 0)
             {
-                Waypoint currentNode = openSet.RemoveFirst();
+                Connection currentNode = openSet.RemoveFirst();
 
 
                 closedSet.Add(currentNode);
@@ -66,17 +66,17 @@ namespace TCOY.AStar
                     break;
                 }
 
-                foreach (Waypoint neighbor in currentNode.getNeighbors)
+                foreach (Connection neighbor in currentNode.getNeighbors)
                 {
                     if (closedSet.Contains(neighbor))
                         continue;
 
-                    int newMovementCost = currentNode.gCost + GetDistance(currentNode, neighbor);
+                    int newMovementCost = currentNode.gCost + GetDistance(currentNode) + GetDistance(neighbor);
 
                     if (newMovementCost < neighbor.gCost || !openSet.Contains(neighbor))
                     {
                         neighbor.gCost = newMovementCost;
-                        neighbor.hCost = GetDistance(neighbor, targetNode);
+                        neighbor.hCost = GetDistance(neighbor) + GetDistance(targetNode);
                         neighbor.parent = currentNode;
 
                         if (!openSet.Contains(neighbor))
@@ -93,34 +93,27 @@ namespace TCOY.AStar
         }
 
         
-        void TraversePath(IPath user, IPath target, Waypoint startNode, Waypoint endNode)
+        void TraversePath(IPath user, IPath target, Connection startNode, Connection endNode)
         {
             user.waypoints.Clear();
             user.waypointIndex = 0;
 
-            Waypoint currentNode = endNode;
-
-            Vector2 previousDirection = (target.position - currentNode.position).normalized;
-            Vector2 currentDirection = Vector2.zero;
+            Connection currentNode = endNode;
+            Waypoint currentWaypoint = null;
 
             while (currentNode.position != startNode.position)
             {
-                currentDirection = (currentNode.position - currentNode.parent.position).normalized;
-
-                //helps to prevent directions that overlap one another
-                if (Vector2.Dot(previousDirection, currentDirection) > -0.8f)
-                    user.waypoints.Add(new SimpleWaypoint(currentNode.position, currentNode.FindConnection(currentNode.parent).getAction));
-
+                currentWaypoint = currentNode.GetSharedWaypoint(currentNode.parent);
+                user.waypoints.Add(new SimpleWaypoint(currentWaypoint.position, currentNode.parent.getAction, currentNode.parent));
                 currentNode = currentNode.parent;
-                previousDirection = currentDirection;
             }
 
-            currentDirection = (currentNode.position - user.position).normalized;
-            if (Vector2.Dot(previousDirection, currentDirection) > -0.8f)
-                user.waypoints.Add(new SimpleWaypoint(currentNode.position, user.connection.getAction));
+            //user.waypoints.Add(new SimpleWaypoint(user.position, startNode.getAction, startNode));
 
             user.waypoints.Reverse();
-            user.waypoints.Add(new SimpleWaypoint(target.contactPoint, target.connection.getAction));
+            user.waypoints.Add(new SimpleWaypoint(target.contactPoint, endNode.getAction, endNode));
+
+            user.target = target;
         }
 
         Vector3[] simplifyPath(List<Node> path)
@@ -155,6 +148,11 @@ namespace TCOY.AStar
         int GetDistance(Waypoint nodeA, Waypoint nodeB)
         {
             return (int)Vector3.Distance(nodeA.transform.position, nodeB.transform.position);
+        }
+
+        int GetDistance(Connection connection)
+        {
+            return (int)Vector3.Distance(connection.getFirstWaypoint.position, connection.getSecondWaypoint.position);
         }
     }
 }

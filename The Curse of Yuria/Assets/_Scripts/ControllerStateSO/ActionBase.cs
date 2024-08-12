@@ -18,7 +18,10 @@ namespace TCOY.ControllerStates
             }
 
             if (controller.actionState == State.stay)
+            {
                 Stay(controller);
+            }
+                
 
             if (controller.actionState == State.exit)
             {
@@ -27,8 +30,15 @@ namespace TCOY.ControllerStates
             }
         }
 
+        public override void FixedUpdateState(IController controller)
+        {
+            if (controller.actionState == State.stay)
+                FixedStay(controller);
+        }
+
         protected virtual void Enter(IController controller) { }
         protected virtual void Stay(IController controller) { }
+        protected virtual void FixedStay(IController controller) { }
         protected virtual void Exit(IController controller) { }
 
         protected void MoveActor(IController controller, float speed = 1f)
@@ -42,9 +52,9 @@ namespace TCOY.ControllerStates
             else if (direction.x < 0f && controller.rigidbody2D.transform.eulerAngles.y < 90f)
                 controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 180f, 0f);
 
-            controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, IWaypoint.distanceThreshold * speed / 2f);
+            controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, 7.1f * Time.deltaTime * speed);
         }
-
+        
         public void CheckForEndAutoState(IController controller)
         {
             if (Vector3.Distance(controller.waypoints[controller.waypointIndex].position, controller.position) > IWaypoint.distanceThreshold)
@@ -54,6 +64,8 @@ namespace TCOY.ControllerStates
                 return;
 
             controller.waypointIndex++;
+
+            controller.connection = controller.waypoints[controller.waypointIndex].connection;
             controller.SetAction(controller.waypoints[controller.waypointIndex].action);
         }
 

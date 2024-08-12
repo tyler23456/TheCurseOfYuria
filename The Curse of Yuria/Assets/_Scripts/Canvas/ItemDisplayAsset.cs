@@ -172,6 +172,7 @@ public class ItemDisplayAsset : MonoBehaviour
         RefreshTabs();
         RefreshCurrency(0);
         RefreshAllieInfo();
+        RefreshLocalInventory(allie.getScrolls);
     }
 
     public void SetLocalInventoryBehavior(bool showName = false, bool showCount = true, bool showSprite = true)

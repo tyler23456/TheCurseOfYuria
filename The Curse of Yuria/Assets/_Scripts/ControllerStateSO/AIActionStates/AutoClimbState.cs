@@ -20,10 +20,21 @@ namespace TCOY.ControllerStates
             if (controller.waypoints.Count == 0 || controller.waypointIndex >= controller.waypoints.Count)
                 return;
 
-            if (Vector3.Distance(controller.position, controller.destination) < controller.stopDistance)
+            float distance = Vector3.Distance(controller.position, controller.waypoints[controller.waypoints.Count - 1].position);
+
+            float speed = 1f;
+            if (distance > controller.goDistance * 2f)
+                speed = 1.5f;
+
+            if (distance > controller.goDistance)
+                controller.isAutoMovementPaused = false;
+            else if (distance < controller.stopDistance)
+                controller.isAutoMovementPaused = true;
+
+            if (controller.isAutoMovementPaused)
                 return;
 
-            MoveActor(controller, 0.5f);
+            MoveActor(controller, speed * 0.5f);
             CheckForEndAutoState(controller);
         }
 

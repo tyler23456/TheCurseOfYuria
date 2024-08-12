@@ -4,6 +4,7 @@ using UnityEngine;
 using TCOY.Heap;
 using UnityEditor;
 using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace TCOY.AStar
 {
@@ -26,8 +27,8 @@ namespace TCOY.AStar
         public int fCost => hCost + gCost;
         public int heapIndex { get { return _heapIndex; } set { _heapIndex = value; } }
 
-        public List<IWaypoint> getNeighbors => neighbors.ConvertAll(i => (IWaypoint)i);
-        public List<IConnection> getConnections => connections.ConvertAll(i => (IConnection)i);
+        public ReadOnlyCollection<Waypoint> getNeighbors => neighbors.AsReadOnly();
+        public ReadOnlyCollection<Connection> getConnections => connections.AsReadOnly();
         public Vector2 position => transform.position;
 
         void Reset()
@@ -104,7 +105,7 @@ namespace TCOY.AStar
             RemoveAllAndDestroyConnection();
         }
 
-        public IConnection FindConnection(IWaypoint otherWaypoint)
+        public Connection FindConnection(IWaypoint otherWaypoint)
         {
             Connection targetConnection = null;
             foreach (Connection connection in connections)
@@ -125,12 +126,25 @@ namespace TCOY.AStar
                 compare = hCost.CompareTo(nodeToCompare.hCost);
             }
             return -compare;
-        }  
+        }
 
+
+        GUIStyle gUIStyle = new GUIStyle();
+        List<string> textArray = new List<string>();
         void OnDrawGizmos()
         {
+            gUIStyle.fontSize = 24;
+            gUIStyle.fontStyle = FontStyle.Bold;
+            gUIStyle.richText = true;
+
+            List<string> textArray = name.Split('(', ')').ToList();
+            if (textArray.Count == 1)
+                textArray.Add("0");
+
+            Handles.Label(transform.position, "<color=#FFFFFF>" + textArray[1] + "</color>", gUIStyle);
+
             Gizmos.color = color;
-            Gizmos.DrawSphere(transform.position, 1f);
+            Gizmos.DrawSphere(transform.position, 1f);  
         }
     }
 }

@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class SimpleWaypoint
 {
-    public SimpleWaypoint(Vector2 position, ActionState action)
+    public Vector2 position { get; }
+    public ActionState action { get; }
+    public IConnection connection { get; }
+
+    public SimpleWaypoint(Vector2 position, ActionState action, IConnection connection)
     {
         this.position = position;
         this.action = action;
+        this.connection = connection;
     }
-
-    public Vector2 position { get; }
-    public ActionState action { get; }
 }

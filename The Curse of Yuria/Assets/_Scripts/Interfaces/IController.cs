@@ -6,7 +6,8 @@ public interface IController : IPath
 {
     float safeDistance { get; }
     float battleDistance { get; }
-    float stopDistance { get; }
+    float stopDistance { get; set; }
+    float goDistance { get; set; }
     float accumulator { get; set; }
     Vector2 velocity { get; set; }
     float speed { get; set; }
@@ -24,5 +25,8 @@ public interface IController : IPath
 
     void ResetToDefault();
     void SetGoal(GoalState goal);
-    public void SetAction(ActionState action);
+    void SetAction(ActionState action);
+
+    void StopAllCoroutines();
+    Coroutine StartCoroutine(IEnumerator routine);
 }

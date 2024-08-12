@@ -17,15 +17,19 @@ namespace TCOY.ControllerStates
         [SerializeField] ActionState selectedDefaultAction;
         [SerializeField] ActionState unselectedDefaultAction;
 
+        float[] stopDistances = new float[3] { 0f, 1.5f, 3f };
+        float[] goDistances = new float[3] { 0.75f, 2.25f, 3.75f }; 
+        IController controller;
+
         void Awake()
         {
+
         }
 
         void Start()
         {
             OnTransformChildrenChanged();
         }
-
 
         void Update()
         {
@@ -82,15 +86,20 @@ namespace TCOY.ControllerStates
 
             int count = Mathf.Min(transform.childCount, IAllie.MaxActiveAlliesCount);
 
-            IController firstController = transform.GetChild(0).GetComponent<IController>();
-            firstController.rigidbody2D.isKinematic = false;
-            firstController.rigidbody2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-            firstController.SetGoal(selectedDefaultGoal);
-            firstController.SetAction(selectedDefaultAction);
+            controller = transform.GetChild(0).GetComponent<IController>();
+            controller.rigidbody2D.isKinematic = false;
+            controller.rigidbody2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+            controller.SetGoal(selectedDefaultGoal);
+            controller.SetAction(selectedDefaultAction);
 
             for (int i = 0; i < count; i++)
             {
                 transform.GetChild(i).gameObject.SetActive(true);
+
+                controller = transform.GetChild(i).GetComponent<IController>();
+                controller.stopDistance = stopDistances[i];
+                controller.goDistance = goDistances[i];
+
             }
             
             for (int i = IAllie.MaxActiveAlliesCount; i < transform.childCount; i++)
@@ -100,7 +109,7 @@ namespace TCOY.ControllerStates
 
             for (int i = 1; i < transform.childCount; i++)
             {
-                IController controller = transform.GetChild(i).GetComponent<IController>();
+                controller = transform.GetChild(i).GetComponent<IController>();
                 controller.SetGoal(unselectedDefaultGoal);
                 controller.SetAction(unselectedDefaultAction); //temporary
                 controller.rigidbody2D.isKinematic = true;
