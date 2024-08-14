@@ -22,6 +22,7 @@ namespace TCOY.ControllerStates
             controller.subWaypoints[0] = new Vector2((controller.position.x + waypoint.x) / 2f, Mathf.Max(controller.position.y, waypoint.y) + 1.5f);
             controller.subWaypoints[1] = waypoint;
             controller.isPathfindingPaused = true;
+            controller.animator.SetInteger("State", 3);
         }
 
         protected override void Stay(IController controller)

@@ -17,7 +17,7 @@ namespace TCOY.ControllerStates
         {
             base.Stay(controller);
 
-            controller.animator.SetInteger("State", 0);
+            controller.animator.SetInteger("State", controller.idleState);
 
             if (controller.isGroundedEnter)
             {

@@ -65,7 +65,7 @@ namespace TCOY.ControllerStates
 
             controller.waypointIndex++;
 
-            controller.connection = controller.waypoints[controller.waypointIndex].connection;
+            controller.pathfindingConnection = controller.waypoints[controller.waypointIndex].connection;
             controller.SetAction(controller.waypoints[controller.waypointIndex].action);
         }
 

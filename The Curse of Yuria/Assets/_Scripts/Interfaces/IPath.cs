@@ -12,6 +12,7 @@ public interface IPath
     Vector2[] subWaypoints { get; set; }
     int subWaypointIndex { get; set; }
     IConnection connection { get; set; }
+    IConnection pathfindingConnection { get; set; }
     Vector2 contactPoint { get; }
     bool isTouchingTargetableConnection { get; }
     bool isPathfindingPaused { get; set; }

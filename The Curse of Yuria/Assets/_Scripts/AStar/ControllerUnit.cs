@@ -20,6 +20,7 @@ namespace TCOY.AStar
 
         public float accumulator { get; set; } = 0f;
 
+        public Vector2 origin { get; private set; }
         public Vector2 velocity { get; set; } = Vector2.zero;
         public float speed { get; set; } = 28f * 2f;
         public IActor actor { get; set; }
@@ -36,6 +37,7 @@ namespace TCOY.AStar
         public IPath target { get; set; }
         public Vector2 position => transform.position;
         public IConnection connection { get; set; }
+        public IConnection pathfindingConnection { get; set; }
         public Vector2 contactPoint { get; private set; }
 
         public float safeDistance => _safeDistance;
@@ -57,6 +59,7 @@ namespace TCOY.AStar
         public bool isPathfindingPaused { get; set; } = false;
         public bool isInitialized { get; set; } = false;
         public bool isAutoMovementPaused { get; set; } = false;
+        public int idleState { get; set; } = 0;
 
         public void ResetToDefault()
         {
@@ -83,6 +86,7 @@ namespace TCOY.AStar
                 action = initialActionState;
 
             groundChecker = new GroundChecker(animator);
+            origin = transform.position;
         }
 
         void Start()
@@ -160,16 +164,16 @@ namespace TCOY.AStar
         {
             Connection connection = collision.GetComponent<Connection>();
 
-            if (connection == null)
+            if (connection == null || connection.getAction.name == "AutoJumpState")
                 return;
 
-            if (transform == null || transform.parent == null || connection.getAction.name == "AutoJumpState" || goal != null && goal.name == "FollowState" && isInitialized)
-                return;
-
-            isInitialized = true;
-
+            if (!isInitialized)
+            {
+                pathfindingConnection = connection;
+                isInitialized = true;
+            }
+            
             this.connection = connection;
-
             contactPoint = collision.bounds.ClosestPoint(transform.position);
             isTouchingTargetableConnection = true;
         }

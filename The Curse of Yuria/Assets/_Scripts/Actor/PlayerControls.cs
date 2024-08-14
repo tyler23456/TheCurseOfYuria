@@ -16,9 +16,8 @@ namespace TCOY.ControllerStates
         [SerializeField] GoalState unselectedDefaultGoal;
         [SerializeField] ActionState selectedDefaultAction;
         [SerializeField] ActionState unselectedDefaultAction;
-
-        float[] stopDistances = new float[3] { 0f, 1.5f, 3f };
-        float[] goDistances = new float[3] { 0.75f, 2.25f, 3.75f }; 
+        
+        IPath previousController;
         IController controller;
 
         void Awake()
@@ -29,6 +28,16 @@ namespace TCOY.ControllerStates
         void Start()
         {
             OnTransformChildrenChanged();
+        }
+
+        public void Refresh()
+        {
+            OnTransformChildrenChanged();
+        }
+
+        public void SetUnselectedDefaultGoal(GoalState goal)
+        {
+            this.unselectedDefaultGoal = goal;
         }
 
         void Update()
@@ -65,7 +74,7 @@ namespace TCOY.ControllerStates
 
         void RotateActiveAllies(bool isRotatingClockwise)
         {
-            int count = Mathf.Min(transform.childCount,IAllie.MaxActiveAlliesCount);
+            int count = Mathf.Min(transform.childCount, IAllie.MaxActiveAlliesCount);
 
             for (int i = 0; i < count ; i++)
             {
@@ -73,7 +82,7 @@ namespace TCOY.ControllerStates
                     transform.GetChild(0).SetSiblingIndex(count - 1);
                 else
                     transform.GetChild(count - 1).SetSiblingIndex(0);
-
+                
                 if (transform.GetChild(0).GetComponent<IActor>().enabled == true)
                     break;
             }
@@ -92,14 +101,19 @@ namespace TCOY.ControllerStates
             controller.SetGoal(selectedDefaultGoal);
             controller.SetAction(selectedDefaultAction);
 
+            previousController = null;
             for (int i = 0; i < count; i++)
             {
                 transform.GetChild(i).gameObject.SetActive(true);
 
                 controller = transform.GetChild(i).GetComponent<IController>();
-                controller.stopDistance = stopDistances[i];
-                controller.goDistance = goDistances[i];
+                controller.stopDistance = 1.5f;
+                controller.goDistance = 2.25f;
 
+                if (previousController != null)
+                    controller.target = previousController;
+
+                previousController = controller;
             }
             
             for (int i = IAllie.MaxActiveAlliesCount; i < transform.childCount; i++)

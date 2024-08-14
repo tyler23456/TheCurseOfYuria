@@ -9,7 +9,7 @@ namespace TCOY.ControllerStates
     {
         protected override void Enter(IController controller)
         {
-
+            controller.idleState = 1;
         }
 
         protected override void Stay(IController controller)
@@ -19,7 +19,7 @@ namespace TCOY.ControllerStates
 
         protected override void Exit(IController controller)
         {
-
+            controller.idleState = 0;
         }
     }
 }

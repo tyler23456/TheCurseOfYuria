@@ -15,7 +15,7 @@ namespace TCOY.ControllerStates
             controller.accumulator = 0f;
             controller.rigidbody2D.gravityScale = 0f;
 
-            controller.animator.SetInteger("State", 2);
+            controller.animator.SetInteger("State", 3);
         }
 
         protected override void Stay(IController controller)

@@ -12,7 +12,7 @@ namespace TCOY.ControllerStates
             if (controller.waypoints.Count == 0 || controller.waypointIndex >= controller.waypoints.Count)
                 return;
             
-            float distance = Vector3.Distance(controller.position, controller.waypoints[controller.waypoints.Count - 1].position);
+            float distance = Vector3.Distance(controller.position, controller.target.position);
 
             float speed = 1f;
             if (distance > controller.goDistance * 2f)
@@ -25,7 +25,7 @@ namespace TCOY.ControllerStates
 
             if (controller.isAutoMovementPaused)
             {
-                controller.animator.SetInteger("State", 0);
+                controller.animator.SetInteger("State", controller.idleState);
                 return;
             }
 

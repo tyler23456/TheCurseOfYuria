@@ -29,6 +29,8 @@ namespace TCOY.UserActors
 
             foreach (Move move in moves)
                 movesQueue.Enqueue(move);
+
+            GetComponent<IController>().target = GameObject.Find("/DontDestroyOnLoad/Allies").transform.GetChild(0).GetComponent<IController>();
         }
 
         protected new void Update()

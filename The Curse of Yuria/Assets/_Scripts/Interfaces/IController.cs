@@ -9,6 +9,8 @@ public interface IController : IPath
     float stopDistance { get; set; }
     float goDistance { get; set; }
     float accumulator { get; set; }
+    int idleState { get; set; }
+    Vector2 origin { get; }
     Vector2 velocity { get; set; }
     float speed { get; set; }
     IActor actor { get; }

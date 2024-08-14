@@ -8,8 +8,6 @@ namespace TCOY.ControllerStates
     [CreateAssetMenu(fileName = "FollowState", menuName = "GoalStates/FollowState")]
     public class FollowState : GoalBase
     {
-        Transform allies;
-
         public override bool CheckForTransition(IController controller)
         {
             return Vector3.Distance(controller.position, controller.target.position) < controller.battleDistance;
@@ -19,10 +17,9 @@ namespace TCOY.ControllerStates
         {
             base.Enter(controller);
 
-            if (allies == null)
-                allies = GameObject.Find("/DontDestroyOnLoad/Allies").transform;
-
             controller.waypoints.Clear();
+            controller.waypointIndex = 0;
+            controller.isInitialized = false;
             controller.StartCoroutine(CheckForPath(controller));
         }
 
@@ -43,7 +40,7 @@ namespace TCOY.ControllerStates
                 if (controller.animator.GetInteger("MovePriority") < int.MaxValue) //|| controller.actor.enabled == false)
                     yield return null;
 
-                PathRequester.RequestPath(controller, allies.GetChild(0).GetComponent<IPath>());
+                PathRequester.RequestPath(controller, controller.target);
 
                 yield return new WaitForSeconds(0.1f);
             }

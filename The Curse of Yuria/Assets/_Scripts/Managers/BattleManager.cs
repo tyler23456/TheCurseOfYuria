@@ -43,6 +43,8 @@ public class BattleManager : MonoBehaviour
             if (IBattleData.pendingCommands.Count == 0)
                 continue;
 
+            CheckWhetherPlayerIsInBattle();
+
             Command command = IBattleData.pendingCommands.First.Value;
             IBattleData.pendingCommands.RemoveFirst();
 
@@ -116,10 +118,41 @@ public class BattleManager : MonoBehaviour
         IActor[] enemyTargets = enemyTargeter.CalculateTargets(allies.GetChild(0).GetComponent<IActor>().getCollider2D.bounds.center);
 
         foreach (Transform t in enemies)
+        {
             t.parent = null;
+            t.GetComponent<IController>().SetGoal(StateDatabase.Instance.GetGoal("PatrolState"));
+        }
 
         foreach (IActor enemyTarget in enemyTargets)
+        {
             enemyTarget.obj.transform.parent = enemies;
+
+            if (IBattleData.isInBattle)
+                enemyTarget.obj.GetComponent<IController>().SetGoal(StateDatabase.Instance.GetGoal("BattleState"));
+        }
+            
+    }
+
+    void CheckWhetherPlayerIsInBattle()
+    {
+        bool isTargetingOpposingSide = IBattleData.pendingCommands.Any(i => i.user != null && i.targets[0] != null && i.user.obj.layer != i.targets[0].obj.layer);
+
+        if (isTargetingOpposingSide && IBattleData.isInBattle == false)
+        {
+            IBattleData.isInBattle = true;
+            //code for start battle here
+            IPlayerControls controls = allies.GetComponent<IPlayerControls>();
+            controls.SetUnselectedDefaultGoal(StateDatabase.Instance.GetGoal("BattleState"));
+            controls.Refresh();
+        }
+        else if (enemies.childCount == 0 && IBattleData.isInBattle == true)
+        {
+            IBattleData.isInBattle = false;
+            //code for end battle here
+            IPlayerControls controls = allies.GetComponent<IPlayerControls>();
+            controls.SetUnselectedDefaultGoal(StateDatabase.Instance.GetGoal("FollowState"));
+            controls.Refresh();
+        }
     }
 
     void CheckForGameOver()

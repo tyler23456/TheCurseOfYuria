@@ -39,7 +39,7 @@ namespace TCOY.AStar
                 yield break;
             }
 
-            Connection startNode = (Connection)user.connection;
+            Connection startNode = (Connection)user.pathfindingConnection;
             Connection targetNode = (Connection)target.connection;
 
             Heap<Connection> openSet = new Heap<Connection>(waypointManager.transform.childCount);
@@ -112,8 +112,6 @@ namespace TCOY.AStar
 
             user.waypoints.Reverse();
             user.waypoints.Add(new SimpleWaypoint(target.contactPoint, endNode.getAction, endNode));
-
-            user.target = target;
         }
 
         Vector3[] simplifyPath(List<Node> path)
