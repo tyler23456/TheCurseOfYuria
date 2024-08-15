@@ -4,9 +4,8 @@ using UnityEngine;
 
 public abstract class TargeterBase : Targeter
 {
-    static LayerMask layerMask; 
-    static float targetCheckDistance = 15f;
-
+    static LayerMask layerMask;
+    
     protected static int colliderCount { get; private set; } = 0;
     protected static Collider2D[] colliders { get; private set; } = new Collider2D[10];
     protected static List<IActor> targets { get; private set; } = new List<IActor>();
@@ -17,7 +16,7 @@ public abstract class TargeterBase : Targeter
 
     protected virtual bool canTargetKO => false;
 
-    public override IActor[] CalculateTargets(Vector2 position)
+    public override IActor[] CalculateTargets(Vector2 position, float targetCheckDistance = DefaultTargetCheckDistance)
     {
         switch (party)
         {
@@ -32,7 +31,7 @@ public abstract class TargeterBase : Targeter
                 break;
         }
 
-        colliderCount = Physics2D.OverlapCircleNonAlloc(position, targetCheckDistance, colliders, layerMask);
+        colliderCount = Physics2D.OverlapCircleNonAlloc(position, DefaultTargetCheckDistance, colliders, layerMask);
 
         targets.Clear();
         for (int i = 0; i < colliderCount; i++)
@@ -42,7 +41,7 @@ public abstract class TargeterBase : Targeter
             if (target == null)
                 continue;
 
-            if (target.getStatusEffects.Contains("KnockOut"))
+            if (target.getStatusEffects.Contains(StatFXDatabase.Instance.getKnockOut.name))
                 continue;
 
             if (target.getDetection.getPriority < 0)
@@ -50,11 +49,11 @@ public abstract class TargeterBase : Targeter
 
             Vector2 direction = ((Vector2)target.getCollider2D.bounds.center - position).normalized;
 
-            if (Physics2D.Raycast(position, direction, targetCheckDistance, LayerMask.GetMask("TileCollision")).collider == null)
+            //if (Physics2D.Raycast(position, direction, DefaultTargetCheckDistance, LayerMask.GetMask("TileCollision")).collider == null)
                 targets.Add(colliders[i].GetComponent<IActor>());
         }
 
-        FilterResults(targets);
+        //FilterResults(targets);
 
         return targets.ToArray();
     }

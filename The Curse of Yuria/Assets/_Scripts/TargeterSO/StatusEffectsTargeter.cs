@@ -10,7 +10,7 @@ public class StatusEffectsTargeter : TargeterBase
     
     [SerializeField] List<StatusEffectBase> statusEffects;
 
-    public override IActor[] CalculateTargets(Vector2 position)
+    public override IActor[] CalculateTargets(Vector2 position, float targetCheckDistance = DefaultTargetCheckDistance)
     {
         base.CalculateTargets(position);
 

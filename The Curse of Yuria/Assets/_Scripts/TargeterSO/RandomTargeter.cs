@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewRandomTargeter", menuName = "Targeters/RandomTargeter")]
 public class RandomTargeter : TargeterBase
 {
-    public override IActor[] CalculateTargets(Vector2 position)
+    public override IActor[] CalculateTargets(Vector2 position, float targetCheckDistance = DefaultTargetCheckDistance)
     {
         base.CalculateTargets(position);
 

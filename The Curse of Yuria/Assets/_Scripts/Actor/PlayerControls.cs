@@ -133,5 +133,16 @@ namespace TCOY.ControllerStates
             }
                 
         }
+
+        private void OnDrawGizmos()
+        {
+            if (IBattleData.isInBattle)
+                Gizmos.color = Color.red;
+            else
+                Gizmos.color = Color.blue;
+
+            Gizmos.DrawSphere(transform.GetChild(0).position, 1f);
+
+        }
     }
 }

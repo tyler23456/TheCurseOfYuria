@@ -9,7 +9,7 @@ public class DistanceTargeter : TargeterBase
 
     [SerializeField] Distance distance;
 
-    public override IActor[] CalculateTargets(Vector2 position)
+    public override IActor[] CalculateTargets(Vector2 position, float targetCheckDistance = DefaultTargetCheckDistance)
     {
         base.CalculateTargets(position);
 

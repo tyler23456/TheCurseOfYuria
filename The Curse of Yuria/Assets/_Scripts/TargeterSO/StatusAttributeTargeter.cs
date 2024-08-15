@@ -10,7 +10,7 @@ public class StatusAttributeTargeter : TargeterBase
     [SerializeField] State state;
     [SerializeField] IStats.Attribute attribute;
 
-    public override IActor[] CalculateTargets(Vector2 position)
+    public override IActor[] CalculateTargets(Vector2 position, float targetCheckDistance = DefaultTargetCheckDistance)
     {
         base.CalculateTargets(position);
 

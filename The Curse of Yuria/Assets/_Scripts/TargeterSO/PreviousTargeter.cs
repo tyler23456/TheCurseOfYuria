@@ -12,7 +12,7 @@ public class PreviousTargeter : TargeterBase
     [SerializeField] Type type;
     [SerializeField] Order order;
 
-    public override IActor[] CalculateTargets(Vector2 position)
+    public override IActor[] CalculateTargets(Vector2 position, float targetCheckDistance = DefaultTargetCheckDistance)
     {
         List<IActor> results = new List<IActor>();
 
