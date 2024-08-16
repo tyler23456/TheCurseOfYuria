@@ -4,19 +4,24 @@ using UnityEngine;
 
 namespace TCOY.ControllerStates
 {
-    [CreateAssetMenu(fileName = "AutoPathState", menuName = "AutoActionStates/AutoPathState")]
-    public class AutoPathState : ActionBase
-    {
+    [CreateAssetMenu(fileName = "AutoResetState", menuName = "AutoActionStates/AutoResetState")]
+    public class AutoResetState : ActionBase
+    { 
         protected override void Enter(IController controller)
         {
             //automatically checks path and has AI fall to a connection if no connection exists.
-            if (controller.isGrounded && controller.connection != null)
+            if (controller.isGrounded && controller.connection != null && !controller.forcePathReconnection)
             {
                 controller.SetAction(controller.connection.getAction);
                 controller.pathfindingConnection = controller.connection;
+                AStar.PathRequester.RequestPath(controller, controller.target);
             }    
             else
+            {
                 controller.SetAction(StateDatabase.Instance.GetAction("AutoFallState"));
+                controller.forcePathReconnection = false;
+            }
+                
         }
 
         protected override void Stay(IController controller)
@@ -31,7 +36,7 @@ namespace TCOY.ControllerStates
 
         public override ActionState GetSisterState()
         {
-            return StateDatabase.Instance.GetAction("FallState");
+            return StateDatabase.Instance.GetAction("ResetState");
         }
     }
 }

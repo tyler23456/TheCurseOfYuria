@@ -9,6 +9,13 @@ namespace TCOY.ControllerStates
     {
         protected override void Enter(IController controller)
         {
+            if (controller.actor.obj.transform.parent.name == "Allies")
+                controller.target = controller.actor.obj.transform.parent.GetChild(controller.actor.obj.transform.GetSiblingIndex() - 1).GetComponent<IPath>();
+            else
+                controller.target = GameObject.Find("/DontDestroyOnLoad/Allies").transform.GetChild(0).GetComponent<IPath>();
+
+            controller.SetAction(StateDatabase.Instance.GetAction("AutoResetState"));
+
             controller.idleState = 1;
             
         }

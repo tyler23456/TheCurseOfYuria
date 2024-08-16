@@ -8,5 +8,6 @@ public interface IPlayerControls
     static State state = State.Normal;
 
     void Refresh();
-    public void SetUnselectedDefaultGoal(GoalState goal);
+    void SetUnselectedDefaultGoal(GoalState goal);
+    void SetUnselectedGoal(GoalState goal);
 }

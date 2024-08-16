@@ -9,6 +9,9 @@ namespace TCOY.ControllerStates
     {
         protected override void Stay(IController controller)
         {
+            if (controller.idleState == 1)
+                return;
+
             if (controller.waypoints.Count == 0 || controller.waypointIndex >= controller.waypoints.Count)
                 return;
             

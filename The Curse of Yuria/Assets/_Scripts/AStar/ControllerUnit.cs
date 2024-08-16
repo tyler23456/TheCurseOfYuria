@@ -48,11 +48,12 @@ namespace TCOY.AStar
 
         public bool previousIsGrounded { get; private set; } = false;
         public bool isGrounded { get; private set; } = false;
+        public bool forcePathReconnection { get; set; } = false;
 
         public void ResetToDefault()
         {
+            forcePathReconnection = true;
             SetGoal(initialGoalState);
-            SetAction(initialActionState);
         }
 
         void Awake()

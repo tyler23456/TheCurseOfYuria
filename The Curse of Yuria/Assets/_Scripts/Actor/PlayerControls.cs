@@ -15,7 +15,6 @@ namespace TCOY.ControllerStates
         [SerializeField] GoalState selectedDefaultGoal;
         [SerializeField] GoalState unselectedDefaultGoal;
         
-        IPath previousController;
         IController controller;
 
         void Awake()
@@ -36,6 +35,15 @@ namespace TCOY.ControllerStates
         public void SetUnselectedDefaultGoal(GoalState goal)
         {
             this.unselectedDefaultGoal = goal;
+        }
+
+        public void SetUnselectedGoal(GoalState goal)
+        {
+            for (int i = 1; i < transform.childCount; i++)
+            {
+                controller = transform.GetChild(i).GetComponent<IController>();
+                controller.SetGoal(goal);
+            }
         }
 
         void Update()
@@ -96,16 +104,9 @@ namespace TCOY.ControllerStates
             controller = transform.GetChild(0).GetComponent<IController>();
             controller.SetGoal(selectedDefaultGoal);
 
-            previousController = null;
             for (int i = 0; i < count; i++)
             {
                 transform.GetChild(i).gameObject.SetActive(true);
-                controller = transform.GetChild(i).GetComponent<IController>();
-
-                if (previousController != null)
-                    controller.target = previousController;
-
-                previousController = controller;
             }
             
             for (int i = IAllie.MaxActiveAlliesCount; i < transform.childCount; i++)
@@ -117,8 +118,7 @@ namespace TCOY.ControllerStates
             {
                 controller = transform.GetChild(i).GetComponent<IController>();
                 controller.SetGoal(unselectedDefaultGoal);
-            }
-                
+            }      
         }
 
         private void OnDrawGizmos()

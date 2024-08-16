@@ -43,12 +43,12 @@ public class MarkerManager : MonoBehaviour
 
     void SetMarkerScreenPositionAt(int index, Vector2 screenPosition)
     {
-        ((RectTransform)markerParent.GetChild(index)).position = screenPosition;
+        ((RectTransform)markerParent.GetChild(index)).position = mainCamera.ScreenToWorldPoint(screenPosition);
     }
 
     void SetMarkerWorldPositionAt(int index, Vector3 worldPosition)
     {
-        ((RectTransform)markerParent.GetChild(index)).position = mainCamera.WorldToScreenPoint(worldPosition);
+        ((RectTransform)markerParent.GetChild(index)).position = worldPosition;
     }
 
     void SetMarkerMessageAt(int index, string message)
@@ -72,12 +72,12 @@ public class MarkerManager : MonoBehaviour
 
     public void SetMarkerScreenPositionAt(string identifier, Vector2 screenPosition)
     {
-        ((RectTransform)markerParent.Find(identifier)).position = screenPosition;
+        ((RectTransform)markerParent.Find(identifier)).position = mainCamera.ScreenToWorldPoint(screenPosition);
     }
 
     public void SetMarkerWorldPositionAt(string identifier, Vector3 worldPosition)
     {
-        ((RectTransform)markerParent.Find(identifier)).position = mainCamera.WorldToScreenPoint(worldPosition);
+        ((RectTransform)markerParent.Find(identifier)).position = worldPosition;
     }
 
     public void SetMarkerMessageAt(string identifier, string message)

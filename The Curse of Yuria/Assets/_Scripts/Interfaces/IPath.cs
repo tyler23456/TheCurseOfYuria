@@ -18,4 +18,5 @@ public interface IPath
     bool previousIsGrounded { get; }
     bool isPathfindingPaused { get; set; }
     bool isAutoMovementPaused { get; set; }
+    bool forcePathReconnection { get; set; }
 }

@@ -149,7 +149,6 @@ public class BattleManager : MonoBehaviour
             IBattleData.isInBattle = true;
             IPlayerControls controls = allies.GetComponent<IPlayerControls>();
             controls.SetUnselectedDefaultGoal(StateDatabase.Instance.GetGoal("BattleState"));
-            controls.Refresh();
         }
         else if (farEnemies.Count == 0 && IBattleData.isInBattle)
         {

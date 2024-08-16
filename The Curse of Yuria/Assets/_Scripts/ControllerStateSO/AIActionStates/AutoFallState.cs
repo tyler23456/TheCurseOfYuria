@@ -11,7 +11,7 @@ namespace TCOY.ControllerStates
         {
             //has AI fall until they are touching a targetable connection.
             //Then it will force
-            controller.rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+            controller.rigidbody2D.isKinematic = false;
             controller.rigidbody2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         }
 
@@ -25,13 +25,14 @@ namespace TCOY.ControllerStates
             {
                 controller.SetAction(StateDatabase.Instance.GetAction("AutoGroundState"));
                 controller.pathfindingConnection = controller.connection;
+                AStar.PathRequester.RequestPath(controller, controller.target);
             }
                 
         }
 
         protected override void Exit(IController controller)
         {
-            controller.rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
+            controller.rigidbody2D.isKinematic = true;
             controller.rigidbody2D.collisionDetectionMode = CollisionDetectionMode2D.Discrete;
         }
 

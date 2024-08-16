@@ -41,7 +41,7 @@ namespace TCOY.ControllerStates
 
         public override ActionState GetSisterState()
         {
-            return StateDatabase.Instance.GetAction("AutoPathState");
+            return StateDatabase.Instance.GetAction("AutoJumpState");
         }
     }
 }
