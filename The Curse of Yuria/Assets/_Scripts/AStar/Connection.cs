@@ -36,6 +36,7 @@ namespace TCOY.AStar
 
         public void Awake()
         {
+            connections = new List<Connection>();
             connections.Clear();
             connections.AddRange(firstWaypoint.getConnections);
             connections.AddRange(secondWaypoint.getConnections);

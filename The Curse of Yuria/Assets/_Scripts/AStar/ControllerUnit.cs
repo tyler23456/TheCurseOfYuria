@@ -51,12 +51,8 @@ namespace TCOY.AStar
 
         public void ResetToDefault()
         {
-            waypointIndex = 0;
-            subWaypointIndex = 0;
-            waypoints.Clear();
-
-            SetGoal(StateDatabase.Instance.GetGoal("FollowState"));
-            SetAction(StateDatabase.Instance.GetAction("AutoPathState"));
+            SetGoal(initialGoalState);
+            SetAction(initialActionState);
         }
 
         void Awake()

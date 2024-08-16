@@ -12,6 +12,8 @@ namespace TCOY.ControllerStates
         {
             base.Enter(controller);
 
+            controller.pathfindingConnection = null;
+            controller.connection = null;
             controller.waypoints.Clear();
             controller.waypointIndex = 0;
             controller.StartCoroutine(CheckForPath(controller));

@@ -10,7 +10,7 @@ namespace TCOY.ControllerStates
         protected override void Enter(IController controller)
         {
             //automatically checks path and has AI fall to a connection if no connection exists.
-            if (controller.isGrounded)
+            if (controller.isGrounded && controller.connection != null)
             {
                 controller.SetAction(controller.connection.getAction);
                 controller.pathfindingConnection = controller.connection;

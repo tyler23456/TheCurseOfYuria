@@ -25,7 +25,7 @@ namespace TCOY.Interactables
             if (!GameStateManager.Instance.isPlaying)
                 return;
 
-            Ray ray = new Ray(allies.GetChild(0).position - Vector3.forward, Vector3.forward);
+            Ray ray = new Ray(allies.GetChild(0).position - Vector3.forward + Vector3.up, Vector3.forward);
             RaycastHit2D[] hits = Physics2D.GetRayIntersectionAll(ray, Mathf.Infinity);
 
             foreach (RaycastHit2D hit in hits)
