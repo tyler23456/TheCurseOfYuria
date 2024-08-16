@@ -8,18 +8,12 @@ namespace TCOY.ControllerStates
     [CreateAssetMenu(fileName = "FollowState", menuName = "GoalStates/FollowState")]
     public class FollowState : GoalBase
     {
-        public override bool CheckForTransition(IController controller)
-        {
-            return Vector3.Distance(controller.position, controller.target.position) < controller.battleDistance;
-        }
-
         protected override void Enter(IController controller)
         {
             base.Enter(controller);
 
             controller.waypoints.Clear();
             controller.waypointIndex = 0;
-            controller.isInitialized = false;
             controller.StartCoroutine(CheckForPath(controller));
         }
 

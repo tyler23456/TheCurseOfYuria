@@ -14,8 +14,8 @@ public interface IPath
     IConnection connection { get; set; }
     IConnection pathfindingConnection { get; set; }
     Vector2 contactPoint { get; }
-    bool isTouchingTargetableConnection { get; }
+    bool isGrounded { get; }
+    bool previousIsGrounded { get; }
     bool isPathfindingPaused { get; set; }
-    bool isInitialized { get; set; }
     bool isAutoMovementPaused { get; set; }
 }

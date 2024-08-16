@@ -4,10 +4,8 @@ using UnityEngine;
 
 public interface IController : IPath
 {
-    float safeDistance { get; }
-    float battleDistance { get; }
-    float stopDistance { get; set; }
-    float goDistance { get; set; }
+    const float stopDistance = 1.5f;
+    const float goDistance = 2.25f;
     float accumulator { get; set; }
     int idleState { get; set; }
     Vector2 origin { get; }
@@ -21,9 +19,6 @@ public interface IController : IPath
     GoalState goal { get; }
     ActionState.State actionState { get; set; }
     GoalState.State goalState { get; set; }
-
-    bool isGroundedEnter { get; }
-    bool isGroundedExit { get; }
 
     void ResetToDefault();
     void SetGoal(GoalState goal);

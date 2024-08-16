@@ -33,7 +33,7 @@ namespace TCOY.AStar
                 yield break;
             }
 
-            if (!target.isTouchingTargetableConnection)
+            if (!target.isGrounded)
             {
                 pathRequester.FinishedProcessingPath();
                 yield break;

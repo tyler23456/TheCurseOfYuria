@@ -14,13 +14,13 @@ namespace TCOY.ControllerStates
             base.Enter(controller);
             controller.accumulator = 0f;
             controller.rigidbody2D.gravityScale = 0f;
-
-            controller.animator.SetInteger("State", 3);
         }
 
         protected override void Stay(IController controller)
         {
-            base.Stay(controller);
+            PlayerMovement(controller);
+
+            controller.animator.SetInteger("State", 3);
 
             controller.accumulator += Time.deltaTime;
 
@@ -29,7 +29,7 @@ namespace TCOY.ControllerStates
             if (Input.GetKey(KeyCode.Space) && controller.accumulator < MaxDuration)
                 return;
 
-            controller.SetAction(StateDatabase.Instance.GetAction("GroundState"));
+            controller.SetAction(StateDatabase.Instance.GetAction("FallState"));
         }
 
         protected override void Exit(IController controller)
@@ -41,7 +41,7 @@ namespace TCOY.ControllerStates
 
         public override ActionState GetSisterState()
         {
-            return StateDatabase.Instance.GetAction("AutoJumpState");
+            return StateDatabase.Instance.GetAction("AutoPathState");
         }
     }
 }

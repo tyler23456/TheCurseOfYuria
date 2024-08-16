@@ -31,6 +31,8 @@ namespace TCOY.UserActors
                 movesQueue.Enqueue(move);
 
             GetComponent<IController>().target = GameObject.Find("/DontDestroyOnLoad/Allies").transform.GetChild(0).GetComponent<IController>();
+
+            aTBGuage.LowerPriority();
         }
 
         protected new void Update()
@@ -58,6 +60,25 @@ namespace TCOY.UserActors
             Command command = new Command(this, movesQueue.Peek().skill, targets);
             IBattleData.pendingCommands.AddLast(command);
             movesQueue.Enqueue(movesQueue.Dequeue());
+        }
+
+        private void OnDrawGizmos()
+        {      
+            IController controller = GetComponent<IController>();
+
+            if (controller.goal == null)
+                return;
+
+            if (controller.goal.name == "PatrolState")
+            {
+                Gizmos.color = Color.blue;
+            }
+            else if (controller.goal.name == "HostileState")
+            {
+                Gizmos.color = Color.red;
+            }
+
+            Gizmos.DrawSphere(transform.position, 1f);
         }
     }
 }

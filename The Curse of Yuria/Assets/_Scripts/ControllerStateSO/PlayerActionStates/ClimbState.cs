@@ -49,18 +49,16 @@ namespace TCOY.ControllerStates
 
             if (Input.GetKey(KeyCode.W))
             {
-                controller.animator.SetInteger("State", 5);
                 controller.rigidbody2D.AddForce(Vector2.up * controller.speed * 25f * Time.deltaTime);
                 stepSFX.UpdateOther(controller.audioSource, "LadderClimbStepSFX", minVolume, maxVolume, minPitch, maxPitch);
             }
             else if (Input.GetKey(KeyCode.S))
             {
-                controller.animator.SetInteger("State", 5);
                 controller.rigidbody2D.AddForce(Vector2.down * controller.speed * 25f * Time.deltaTime);
                 stepSFX.UpdateOther(controller.audioSource, "LadderClimbStepSFX", minVolume, maxVolume, minPitch, maxPitch);
             }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
             {
                 controller.SetAction(StateDatabase.Instance.GetAction("JumpState"));
             }
@@ -78,7 +76,7 @@ namespace TCOY.ControllerStates
 
         public override ActionState GetSisterState()
         {
-            return StateDatabase.Instance.GetAction("AutoClimbState");
+            return StateDatabase.Instance.GetAction("AutoPathState");
         }
 
         protected override void Exit(IController controller)

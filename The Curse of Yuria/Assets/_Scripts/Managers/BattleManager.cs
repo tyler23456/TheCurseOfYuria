@@ -15,9 +15,9 @@ public class BattleManager : MonoBehaviour
     [SerializeField] Targeter farEnemyTargeter;
     [SerializeField] List<StatusEffectBase> gameOverStatusEffects;
 
-    HashSet<IActor> closeEnemies;
-    HashSet<IActor> farEnemies;
-    HashSet<IActor> enemyTargets;
+    HashSet<IActor> closeEnemies = new HashSet<IActor>();
+    HashSet<IActor> farEnemies = new HashSet<IActor>();
+    HashSet<IActor> enemyTargets = new HashSet<IActor>();
 
     public void Start()
     {
@@ -118,15 +118,32 @@ public class BattleManager : MonoBehaviour
     void RefreshNearbyEnemies()
     {
         closeEnemies = closeEnemyTargeter.CalculateTargets(allies.GetChild(0).GetComponent<IActor>().getCollider2D.bounds.center).ToHashSet();
-        farEnemies = farEnemyTargeter.CalculateTargets(allies.GetChild(0).GetComponent<IActor>().getCollider2D.bounds.center).ToHashSet();
+
+        farEnemies.Clear();
+        for (int i = 0; i < IAllie.MaxActiveAlliesCount; i++)
+            farEnemies.UnionWith(farEnemyTargeter.CalculateTargets(allies.GetChild(i).GetComponent<IActor>().getCollider2D.bounds.center).ToHashSet());
+        
         enemyTargets = new HashSet<IActor>();
 
         foreach (Transform t in enemies)
             enemyTargets.Add(t.GetComponent<IActor>());
 
-        bool isTargetingOpposingSide = IBattleData.pendingCommands.Any(i => i.user != null && i.targets[0] != null && i.user.obj.layer != i.targets[0].obj.layer);
+        closeEnemies.ExceptWith(enemyTargets);
+        enemyTargets.ExceptWith(farEnemies);
 
-        if (isTargetingOpposingSide && !IBattleData.isInBattle)
+        foreach (IActor actor in closeEnemies)
+        {
+            actor.obj.transform.parent = enemies;
+            actor.obj.GetComponent<IController>().SetGoal(StateDatabase.Instance.GetGoal("HostileState"));
+        }
+
+        foreach (IActor actor in enemyTargets)
+        {
+            actor.obj.transform.parent = null;
+            actor.obj.GetComponent<IController>().SetGoal(StateDatabase.Instance.GetGoal("PatrolState"));
+        }
+
+        if (closeEnemies.Count > 0 && !IBattleData.isInBattle)
         {
             //enter battle code here
             IBattleData.isInBattle = true;
@@ -142,21 +159,6 @@ public class BattleManager : MonoBehaviour
             controls.SetUnselectedDefaultGoal(StateDatabase.Instance.GetGoal("FollowState"));
             controls.Refresh();
         }
-
-        closeEnemies.Except(enemyTargets);
-        farEnemies.Except(enemyTargets);
-
-        foreach (IActor actor in closeEnemies)
-        {
-            actor.obj.transform.parent = enemies;
-            actor.obj.GetComponent<IController>().SetGoal(StateDatabase.Instance.GetGoal("BattleState"));
-        }
-
-        foreach (IActor actor in farEnemies)
-        {
-            actor.obj.transform.parent = null;
-            actor.obj.GetComponent<IController>().SetGoal(StateDatabase.Instance.GetGoal("PatrolState"));
-        }     
     }
 
     void CheckForGameOver()

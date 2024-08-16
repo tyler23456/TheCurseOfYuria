@@ -63,5 +63,10 @@ namespace TCOY.ControllerStates
             base.Exit(controller);
             controller.isPathfindingPaused = false;
         }
+
+        public override ActionState GetSisterState()
+        {
+            return StateDatabase.Instance.GetAction("FallState");
+        }
     }
 }

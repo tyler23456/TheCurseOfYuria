@@ -13,13 +13,11 @@ namespace TCOY.ControllerStates
         {
         }
 
-        protected override void Stay(IController controller)
+        protected void PlayerMovement(IController controller)
         {
-            base.Stay(controller);
-
             controller.animator.SetInteger("State", controller.idleState);
 
-            if (controller.isGroundedEnter)
+            if (controller.isGrounded != controller.previousIsGrounded)
             {
                 controllerStatesSFX.UpdateLandSFX(controller.audioSource);
             }
@@ -28,7 +26,7 @@ namespace TCOY.ControllerStates
 
                 if (controller.rigidbody2D.transform.eulerAngles.y < 90f)
                     controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 180f, 0f);
-                
+
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     controller.animator.SetInteger("State", 2);
@@ -60,8 +58,18 @@ namespace TCOY.ControllerStates
                     controllerStatesSFX.UpdateStepSFX(controller.audioSource);
                 }
             }
+        }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+        protected override void Stay(IController controller)
+        {
+            base.Stay(controller);
+
+            PlayerMovement(controller);
+
+            if (!controller.isGrounded)
+                controller.SetAction(StateDatabase.Instance.GetAction("FallState"));
+
+            else if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
                 controller.SetAction(StateDatabase.Instance.GetAction("JumpState"));
         }
 
@@ -72,7 +80,7 @@ namespace TCOY.ControllerStates
 
         public override ActionState GetSisterState()
         {
-            return StateDatabase.Instance.GetAction("AutoGroundState");
+            return StateDatabase.Instance.GetAction("AutoPathState");
         }
     }
 }

@@ -4,13 +4,14 @@ using UnityEngine;
 
 namespace TCOY.ControllerStates
 {
-    [CreateAssetMenu(fileName = "BattleState", menuName = "GoalStates/BattleState")]
-    public class BattleState : GoalBase
+    [CreateAssetMenu(fileName = "HostileState", menuName = "GoalStates/HostileState")]
+    public class HostileState : GoalBase
     {
         protected override void Enter(IController controller)
         {
             controller.idleState = 1;
-            
+            controller.animator.SetInteger("State", controller.idleState);
+            controller.actor.getATBGuage.RaisePriority();
         }
 
         protected override void Stay(IController controller)
@@ -21,6 +22,9 @@ namespace TCOY.ControllerStates
         protected override void Exit(IController controller)
         {
             controller.idleState = 0;
+            controller.animator.SetInteger("State", controller.idleState);
+            controller.actor.getATBGuage.LowerPriority();
         }
     }
 }
+

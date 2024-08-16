@@ -9,10 +9,13 @@ public class LoadingDisplay : DisplayBase
     public static LoadingDisplay Instance { get; protected set; }
 
     [SerializeField] Transform allies;
+    [SerializeField] Transform enemies;
 
     [SerializeField] GameObject mainCamera;
     [SerializeField] Image SceneLoaderImage;
     [SerializeField] Slider progressBar;
+
+    Transform t;
 
     public override void Initialize()
     {
@@ -23,6 +26,14 @@ public class LoadingDisplay : DisplayBase
     protected override void OnEnable()
     {
         base.OnEnable();
+
+        for (int i = enemies.childCount - 1; i >= 0; i--)
+        {
+            t = enemies.GetChild(i);
+            t.parent = null;
+            Destroy(t.gameObject);
+        }
+
         GameStateManager.Instance.Stop();
         StartCoroutine(CoroutineLoad());
     }
@@ -42,7 +53,7 @@ public class LoadingDisplay : DisplayBase
             progress = asyncOperation.progress / 0.9f;
             yield return new WaitForEndOfFrame();
         }
-        
+
         Transform parent = GameObject.Find("/DontDestroyOnLoad/Allies").transform;
 
         IController controller1 = parent.GetChild(1).GetComponent<IController>();

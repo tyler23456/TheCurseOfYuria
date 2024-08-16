@@ -11,10 +11,6 @@ namespace TCOY.AStar
     {
         [SerializeField] GoalState initialGoalState;
         [SerializeField] ActionState initialActionState;
-        [SerializeField] float _safeDistance = 30f;
-        [SerializeField] float _battleDistance = 10f;
-        [SerializeField] float _stopDistance = 2f;
-        [SerializeField] float _goDistance = 3f;
 
         Transform allies;
 
@@ -40,26 +36,18 @@ namespace TCOY.AStar
         public IConnection pathfindingConnection { get; set; }
         public Vector2 contactPoint { get; private set; }
 
-        public float safeDistance => _safeDistance;
-        public float battleDistance => _battleDistance;
-        public float stopDistance { get { return _stopDistance; } set { _stopDistance = value; } }
-        public float goDistance { get { return _goDistance; } set { _goDistance = value; } }
-
         public GoalState goal { get; set; }
         public ActionState action { get; set; }
 
         public GoalState.State goalState { get; set; } = GoalState.State.enter;
         public ActionState.State actionState { get; set; } = ActionState.State.enter;
 
-        public bool isGroundedEnter => groundChecker.isGroundedEnter;
-        public bool isGroundedExit => groundChecker.isGroundedExit;
-
-        protected GroundChecker groundChecker;
-        public bool isTouchingTargetableConnection { get; private set; }
         public bool isPathfindingPaused { get; set; } = false;
-        public bool isInitialized { get; set; } = false;
         public bool isAutoMovementPaused { get; set; } = false;
         public int idleState { get; set; } = 0;
+
+        public bool previousIsGrounded { get; private set; } = false;
+        public bool isGrounded { get; private set; } = false;
 
         public void ResetToDefault()
         {
@@ -68,9 +56,7 @@ namespace TCOY.AStar
             waypoints.Clear();
 
             SetGoal(StateDatabase.Instance.GetGoal("FollowState"));
-            SetAction(StateDatabase.Instance.GetAction("AutoGroundState"));
-
-            isInitialized = false;
+            SetAction(StateDatabase.Instance.GetAction("AutoPathState"));
         }
 
         void Awake()
@@ -85,7 +71,6 @@ namespace TCOY.AStar
             if (action == null)
                 action = initialActionState;
 
-            groundChecker = new GroundChecker(animator);
             origin = transform.position;
         }
 
@@ -134,16 +119,15 @@ namespace TCOY.AStar
 
             if (GameStateManager.Instance.isPaused)
                 return;
-            
-            action.UpdateState(this);
-            goal.UpdateState(this);
 
-            groundChecker.Update();
+            goal.UpdateState(this);
+            action.UpdateState(this);
         }
 
         void FixedUpdate()
         {
-            isTouchingTargetableConnection = false;
+            previousIsGrounded = isGrounded;
+            isGrounded = false;
 
             if (allies.childCount == 0)
                 return;
@@ -166,16 +150,11 @@ namespace TCOY.AStar
 
             if (connection == null || connection.getAction.name == "AutoJumpState")
                 return;
-
-            if (!isInitialized)
-            {
-                pathfindingConnection = connection;
-                isInitialized = true;
-            }
             
             this.connection = connection;
             contactPoint = collision.bounds.ClosestPoint(transform.position);
-            isTouchingTargetableConnection = true;
+            
+            isGrounded = true;
         }
         
         void OnDrawGizmos()

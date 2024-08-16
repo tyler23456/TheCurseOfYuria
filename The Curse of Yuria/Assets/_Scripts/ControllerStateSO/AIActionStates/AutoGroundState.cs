@@ -15,12 +15,12 @@ namespace TCOY.ControllerStates
             float distance = Vector3.Distance(controller.position, controller.target.position);
 
             float speed = 1f;
-            if (distance > controller.goDistance * 2f)
+            if (distance > IController.goDistance * 2f)
                 speed = 1.5f;
 
-            if (distance > controller.goDistance)
+            if (distance > IController.goDistance)
                 controller.isAutoMovementPaused = false;
-            else if (distance < controller.stopDistance)
+            else if (distance < IController.stopDistance)
                 controller.isAutoMovementPaused = true;
 
             if (controller.isAutoMovementPaused)
@@ -42,6 +42,11 @@ namespace TCOY.ControllerStates
                 controller.animator.SetInteger("State", 2);
 
             CheckForEndAutoState(controller);
+        }
+
+        public override ActionState GetSisterState()
+        {
+            return StateDatabase.Instance.GetAction("GroundState");
         }
     }
 }

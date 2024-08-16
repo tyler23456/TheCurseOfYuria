@@ -14,8 +14,6 @@ namespace TCOY.ControllerStates
 
         [SerializeField] GoalState selectedDefaultGoal;
         [SerializeField] GoalState unselectedDefaultGoal;
-        [SerializeField] ActionState selectedDefaultAction;
-        [SerializeField] ActionState unselectedDefaultAction;
         
         IPath previousController;
         IController controller;
@@ -96,19 +94,13 @@ namespace TCOY.ControllerStates
             int count = Mathf.Min(transform.childCount, IAllie.MaxActiveAlliesCount);
 
             controller = transform.GetChild(0).GetComponent<IController>();
-            controller.rigidbody2D.isKinematic = false;
-            controller.rigidbody2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
             controller.SetGoal(selectedDefaultGoal);
-            controller.SetAction(selectedDefaultAction);
 
             previousController = null;
             for (int i = 0; i < count; i++)
             {
                 transform.GetChild(i).gameObject.SetActive(true);
-
                 controller = transform.GetChild(i).GetComponent<IController>();
-                controller.stopDistance = 1.5f;
-                controller.goDistance = 2.25f;
 
                 if (previousController != null)
                     controller.target = previousController;
@@ -125,11 +117,6 @@ namespace TCOY.ControllerStates
             {
                 controller = transform.GetChild(i).GetComponent<IController>();
                 controller.SetGoal(unselectedDefaultGoal);
-                controller.SetAction(unselectedDefaultAction); //temporary
-                controller.rigidbody2D.isKinematic = true;
-                controller.rigidbody2D.collisionDetectionMode = CollisionDetectionMode2D.Discrete;
-                controller.rigidbody2D.velocity = Vector2.zero;
-                Debug.Log(i.ToString() + "  " + controller.goal.name + "   " + controller.action.name);
             }
                 
         }
