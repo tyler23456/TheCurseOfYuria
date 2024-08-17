@@ -6,14 +6,11 @@ namespace TCOY.Canvas
 {
     public class PopupBehaviour : MonoBehaviour
     {
-        new Camera camera;
         Vector3 startingPosition;
 
         void Start()
         {
-            camera = GameObject.Find("/DontDestroyOnLoad/Main Camera").GetComponent<Camera>();
             startingPosition = transform.position;
-            TranslatePosition();
             transform.GetChild(0).gameObject.SetActive(true);
         }
 
@@ -24,7 +21,7 @@ namespace TCOY.Canvas
 
         void TranslatePosition()
         {
-            transform.position = camera.WorldToScreenPoint(startingPosition);
+            transform.position = startingPosition;
         }
     }
 }

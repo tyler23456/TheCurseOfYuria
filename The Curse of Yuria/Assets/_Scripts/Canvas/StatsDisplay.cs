@@ -8,7 +8,18 @@ public class StatsDisplay : DisplayBase
 {
     public static DisplayBase Instance { get; protected set; }
 
+    [SerializeField] Image border;
+    [SerializeField] Color borderColorWhenInBattle;
     [SerializeField] List<StatDisplay> statDisplays;
+    
+
+    bool isInBattle = false;
+    Color defaultColor;
+
+    void Awake()
+    {
+        defaultColor = border.color;
+    }
 
     public override void Initialize()
     {
@@ -23,6 +34,20 @@ public class StatsDisplay : DisplayBase
 
     protected override void OnDisable()
     {
+    }
+
+    protected void Update()
+    {
+        if (IBattleData.isInBattle && !this.isInBattle)
+        {
+            this.isInBattle = true;
+            border.color = borderColorWhenInBattle;
+        }
+        else if (!IBattleData.isInBattle && this.isInBattle)
+        {
+            this.isInBattle = false;
+            border.color = defaultColor;
+        }
     }
 
     public void OnTransformChildrenChanged()
