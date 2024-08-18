@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
+using UnityEngine.Rendering;
 
 namespace TCOY.ControllerStates
 {
@@ -107,6 +108,7 @@ namespace TCOY.ControllerStates
             for (int i = 0; i < count; i++)
             {
                 transform.GetChild(i).gameObject.SetActive(true);
+                transform.GetChild(i).GetChild(0).GetComponent<SortingGroup>().sortingOrder = 410 - i;
             }
             
             for (int i = IAllie.MaxActiveAlliesCount; i < transform.childCount; i++)

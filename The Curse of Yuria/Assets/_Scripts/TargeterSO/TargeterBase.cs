@@ -47,10 +47,7 @@ public abstract class TargeterBase : Targeter
             if (target.getDetection.getPriority < 0)
                 continue;
 
-            Vector2 direction = ((Vector2)target.getCollider2D.bounds.center - position).normalized;
-
-            //if (Physics2D.Raycast(position, direction, DefaultTargetCheckDistance, LayerMask.GetMask("TileCollision")).collider == null)
-                targets.Add(colliders[i].GetComponent<IActor>());
+            targets.Add(colliders[i].GetComponent<IActor>());
         }
 
         //FilterResults(targets);
@@ -62,6 +59,8 @@ public abstract class TargeterBase : Targeter
     {
         targets.RemoveAll(i => i.getStatusEffects.Contains(StatFXDatabase.Instance.getKnockOut.name));
     }
+
+
 
 
 

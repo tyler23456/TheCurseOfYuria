@@ -19,6 +19,11 @@ public class MarkerManager : MonoBehaviour
         instance = this;
     }
 
+    public void AddAllieMarker(string identifier, Vector3 worldPosition)
+    {
+        Instantiate(markerPrefab, markerParent).name = "AllieMarker";
+    }
+
     public void AddMarker(string identifier, string message = "")
     {
         Instantiate(markerPrefab, markerParent).transform.GetChild(0).GetChild(0).GetComponent<Text>().text = message;

@@ -21,7 +21,7 @@ namespace TCOY.Items
             user.obj.GetComponent<Animator>()?.SetTrigger("Cast");
 
             foreach (IActor target in targets)
-                target.StartCoroutine(skillInfo.PerformAnimation(user, target, this, statusEffectsInfo));
+                yield return target.StartCoroutine(skillInfo.PerformAnimation(user, target, this, statusEffectsInfo));
 
             LightManager.instance.FadeIn();
 

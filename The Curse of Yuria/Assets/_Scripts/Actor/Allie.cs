@@ -14,9 +14,6 @@ namespace TCOY.UserActors
         {
             base.Awake();
 
-            //foreach (SpriteRenderer spriteRenderer in spriteRenderers)
-                //spriteRenderer.sortingOrder += 300;
-
             rigidbody2D = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
             

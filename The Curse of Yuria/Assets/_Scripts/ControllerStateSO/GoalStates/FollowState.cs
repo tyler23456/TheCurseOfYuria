@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TCOY.AStar;
+using UnityEngine.Rendering;
 
 namespace TCOY.ControllerStates
 {
@@ -12,8 +13,10 @@ namespace TCOY.ControllerStates
         {
             base.Enter(controller);
 
+            controller.actor.obj.transform.GetChild(0).GetComponent<SortingGroup>().sortingOrder = 500;
+
             if (controller.actor.obj.transform.parent.name == "Allies")
-                controller.target = controller.actor.obj.transform.parent.GetChild(controller.actor.obj.transform.GetSiblingIndex() - 1).GetComponent<IPath>();
+                controller.target = controller.actor.obj.transform.parent.GetChild(controller.actor.obj.transform.GetSiblingIndex() - 1).GetComponent<IPath>();    
             else
                 controller.target = GameObject.Find("/DontDestroyOnLoad/Allies").transform.GetChild(0).GetComponent<IPath>();
 

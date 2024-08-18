@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace TCOY.ControllerStates
 {
@@ -10,7 +11,7 @@ namespace TCOY.ControllerStates
         protected override void Enter(IController controller)
         {
             if (controller.actor.obj.transform.parent.name == "Allies")
-                controller.target = controller.actor.obj.transform.parent.GetChild(controller.actor.obj.transform.GetSiblingIndex() - 1).GetComponent<IPath>();
+                controller.target = controller.actor.obj.transform.parent.GetChild(controller.actor.obj.transform.GetSiblingIndex() - 1).GetComponent<IPath>();            
             else
                 controller.target = GameObject.Find("/DontDestroyOnLoad/Allies").transform.GetChild(0).GetComponent<IPath>();
 

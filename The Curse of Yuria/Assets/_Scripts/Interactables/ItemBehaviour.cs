@@ -19,7 +19,7 @@ namespace TCOY.Interactables
 
         public override void Interact(IActor player)
         {
-            InventoryManager.Instance.AddItem(name, 60);
+            InventoryManager.Instance.AddItem(name, 1);
             uniqueIdentifier.AddToInventory();
             InteractableSFXManager.Instance.PlayGrabItemSFX(GetComponent<AudioSource>());
             HideInteraction();

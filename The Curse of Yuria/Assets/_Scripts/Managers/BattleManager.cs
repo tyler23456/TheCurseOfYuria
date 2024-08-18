@@ -18,6 +18,9 @@ public class BattleManager : MonoBehaviour
     HashSet<IActor> closeEnemies = new HashSet<IActor>();
     HashSet<IActor> farEnemies = new HashSet<IActor>();
     HashSet<IActor> enemyTargets = new HashSet<IActor>();
+    HashSet<IActor> enemiesToRemove = new HashSet<IActor>();
+
+    List<Command> allieCommands = new List<Command>();
 
     public void Start()
     {
@@ -123,13 +126,17 @@ public class BattleManager : MonoBehaviour
         for (int i = 0; i < IAllie.MaxActiveAlliesCount; i++)
             farEnemies.UnionWith(farEnemyTargeter.CalculateTargets(allies.GetChild(i).GetComponent<IActor>().getCollider2D.bounds.center).ToHashSet());
         
-        enemyTargets = new HashSet<IActor>();
+        enemyTargets.Clear();
+        enemiesToRemove.Clear();
 
         foreach (Transform t in enemies)
+        {
             enemyTargets.Add(t.GetComponent<IActor>());
-
+            enemiesToRemove.Add(t.GetComponent<IActor>());
+        }
+        
         closeEnemies.ExceptWith(enemyTargets);
-        enemyTargets.ExceptWith(farEnemies);
+        enemiesToRemove.ExceptWith(farEnemies);
 
         foreach (IActor actor in closeEnemies)
         {
@@ -137,13 +144,28 @@ public class BattleManager : MonoBehaviour
             actor.obj.GetComponent<IController>().SetGoal(StateDatabase.Instance.GetGoal("HostileState"));
         }
 
-        foreach (IActor actor in enemyTargets)
+        foreach (IActor actor in enemiesToRemove)
         {
             actor.obj.transform.parent = null;
             actor.obj.GetComponent<IController>().SetGoal(StateDatabase.Instance.GetGoal("PatrolState"));
         }
 
-        if (closeEnemies.Count > 0 && !IBattleData.isInBattle)
+        bool isTargetingEnemy = IBattleData.pendingCommands.Any(i => i.targets[0].obj.layer != i.user.obj.layer);
+        allieCommands.Clear();
+
+        foreach (Command command in IBattleData.pendingCommands)
+            if (command.user.obj.layer == LayerMask.NameToLayer("Allie") && command.user.obj.layer != command.targets[0].obj.layer)
+                allieCommands.Add(command);
+
+        foreach (Command command in allieCommands)
+            foreach (IActor actor in command.targets)
+                if (!enemyTargets.Contains(actor))
+                {
+                    actor.obj.transform.parent = enemies;
+                    actor.obj.GetComponent<IController>().SetGoal(StateDatabase.Instance.GetGoal("HostileState"));
+                }
+
+        if (isTargetingEnemy && !IBattleData.isInBattle)
         {
             //enter battle code here
             IBattleData.isInBattle = true;
