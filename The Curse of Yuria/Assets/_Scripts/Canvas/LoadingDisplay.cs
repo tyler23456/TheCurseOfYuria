@@ -45,7 +45,7 @@ public class LoadingDisplay : DisplayBase
 
     IEnumerator CoroutineLoad()
     {
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(transform.GetChild(0).name);
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(ILoadingData.sceneID);
         float progress = 0f;
 
         while (!asyncOperation.isDone)
@@ -54,13 +54,15 @@ public class LoadingDisplay : DisplayBase
             yield return new WaitForEndOfFrame();
         }
 
-        Transform parent = GameObject.Find("/DontDestroyOnLoad/Allies").transform;
+        int count = Mathf.Min(allies.childCount, IAllie.MaxActiveAlliesCount);
 
-        IController controller1 = parent.GetChild(1).GetComponent<IController>();
-        IController controller2 = parent.GetChild(2).GetComponent<IController>();
-        controller1.ResetToDefault();
-        controller2.ResetToDefault();
-
+        for (int i = 1; i < count; i++)
+            if (allies.childCount >= 3)
+            {
+                IController controller = allies.GetChild(i).GetComponent<IController>();
+                controller.ResetToDefault();
+            }
+        allies.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
 }

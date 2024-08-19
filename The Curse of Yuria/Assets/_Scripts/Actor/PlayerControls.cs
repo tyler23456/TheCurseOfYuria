@@ -26,7 +26,7 @@ namespace TCOY.ControllerStates
             defaultMainCameraLayerMask = mainCamera.cullingMask;
         }
 
-        void Start()
+        void OnEnable()
         {
             OnTransformChildrenChanged();
         }
@@ -56,6 +56,9 @@ namespace TCOY.ControllerStates
                 return;
 
             if (GameStateManager.Instance.isStopped)
+                return;
+
+            if (GameStateManager.Instance.isWaiting)
                 return;
 
             if (Input.GetKeyDown(KeyCode.Escape))

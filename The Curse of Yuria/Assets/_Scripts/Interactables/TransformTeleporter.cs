@@ -32,12 +32,16 @@ namespace TCOY.Interactables
 
             SetPositionOfAllies(player, destination.position, new Vector3(0f, destination.eulerAngles.y, 0f));
 
-            Transform parent = player.obj.transform.parent;
+            Transform allies = player.obj.transform.parent;
 
-            IController controller1 = parent.GetChild(1).GetComponent<IController>();
-            IController controller2 = parent.GetChild(2).GetComponent<IController>();
-            controller1.ResetToDefault();
-            controller2.ResetToDefault();
+            int count = Mathf.Min(allies.childCount, IAllie.MaxActiveAlliesCount);
+
+            for (int i = 1; i < count; i++)
+                if (allies.childCount >= 3)
+                {
+                    IController controller = allies.GetChild(i).GetComponent<IController>();
+                    controller.ResetToDefault();
+                }
         }
 
 

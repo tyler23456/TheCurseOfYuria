@@ -32,9 +32,20 @@ public class SaveManager : MonoBehaviour
         IAllie allie = AllieDatabase.Instance.Instantiate("River");
         allie.obj.name = "River";
         allie.obj.transform.parent = allies;
+        IAllie allie2 = AllieDatabase.Instance.Instantiate("Nate");
+        allie2.obj.name = "Nate";
+        allie2.obj.transform.parent = allies;
+        IAllie allie3 = AllieDatabase.Instance.Instantiate("Sarah");
+        allie3.obj.name = "Sarah";
+        allie3.obj.transform.parent = allies;
+        IAllie allie4 = AllieDatabase.Instance.Instantiate("Juel");
+        allie4.obj.name = "Juel";
+        allie4.obj.transform.parent = allies;
+
+        allies.gameObject.SetActive(true);
 
         ILoadingData.sceneID = 3;
-        ILoadingData.destination = Vector2.zero;
+        ILoadingData.destination = new Vector3(0, 0, 0);
         ILoadingData.eulerAngleZ = 0f;
         loadingDisplay.gameObject.SetActive(true);
     }

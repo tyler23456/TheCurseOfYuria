@@ -16,9 +16,9 @@ namespace TCOY.Items
 
         public IEnumerator PerformAnimation(IActor user, IActor target, IItem item, StatusEffectsInfo statusEffectsInfo)
         {
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSecondsRealtime(0.2f);
             armType.PlaySoundEffect(user.getAudioSource);
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSecondsRealtime(0.3f);
 
             if (statusEffectsInfo.CheckForStatusEffectCounters(user, target, item))
                 yield break;

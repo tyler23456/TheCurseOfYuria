@@ -74,7 +74,8 @@ public class GameOverDisplay : DisplayBase
 
     void LoadMainMenu()
     {
-        LoadingDisplay.GetChild(0).name = "MainMenu";
+        ILoadingData.sceneID = 2;
+        ILoadingData.destination = new Vector3(16.724180221557618f, -26.64665985107422f, 0f);
         LoadingDisplay.gameObject.SetActive(true);
         MenuSFXManager.Instance.PlayClick();
     }

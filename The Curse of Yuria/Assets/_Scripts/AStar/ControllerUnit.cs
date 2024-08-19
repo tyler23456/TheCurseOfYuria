@@ -114,6 +114,9 @@ namespace TCOY.AStar
             if (GameStateManager.Instance.isStopped)
                 return;
 
+            if (GameStateManager.Instance.isWaiting)
+                return;
+
             if (GameStateManager.Instance.isPaused)
                 return;
 
@@ -133,6 +136,9 @@ namespace TCOY.AStar
                 return;
 
             if (GameStateManager.Instance.isStopped)
+                return;
+
+            if (GameStateManager.Instance.isWaiting)
                 return;
 
             if (GameStateManager.Instance.isPaused)

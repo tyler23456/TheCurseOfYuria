@@ -18,7 +18,7 @@ namespace TCOY.ControllerStates
 
             controller.animator.SetInteger("State", 3);
 
-            if (controller.isGrounded)
+            if (controller.animator.GetBool("IsGrounded"))
                 controller.SetAction(StateDatabase.Instance.GetAction("GroundState"));
 
         }

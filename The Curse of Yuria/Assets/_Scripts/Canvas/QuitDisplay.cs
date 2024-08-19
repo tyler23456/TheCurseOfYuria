@@ -36,10 +36,8 @@ namespace TCOY.Canvas
 
         void OnReturnToMenu()
         {
-            ILoadingData.destination = Vector2.zero;
-            ILoadingData.eulerAngleZ = 0f;
             ILoadingData.sceneID = 2;
-
+            ILoadingData.destination = new Vector3(16.724180221557618f, -26.64665985107422f, 0f);
             loadingDisplay.gameObject.SetActive(true);
         }
 

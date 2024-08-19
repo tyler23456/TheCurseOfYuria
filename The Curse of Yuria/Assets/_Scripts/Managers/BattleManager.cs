@@ -40,7 +40,7 @@ public class BattleManager : MonoBehaviour
             if (!GameStateManager.Instance.isPlaying)
                 yield return new WaitForEndOfFrame();
 
-            yield return new WaitForEndOfFrame();     
+            yield return new WaitForEndOfFrame();
 
             RemoveBrokenCommands();
 
@@ -148,7 +148,9 @@ public class BattleManager : MonoBehaviour
         closeEnemies = closeEnemyTargeter.CalculateTargets(allies.GetChild(0).GetComponent<IActor>().getCollider2D.bounds.center).ToHashSet();
 
         farEnemies.Clear();
-        for (int i = 0; i < IAllie.MaxActiveAlliesCount; i++)
+
+        int count = Mathf.Min(allies.childCount, IAllie.MaxActiveAlliesCount);
+        for (int i = 0; i < count; i++)
             farEnemies.UnionWith(farEnemyTargeter.CalculateTargets(allies.GetChild(i).GetComponent<IActor>().getCollider2D.bounds.center).ToHashSet());
         
         enemyTargets.Clear();

@@ -31,7 +31,7 @@ public class MainMenuDisplay : DisplayBase
     protected override void OnEnable()
     {
         base.OnEnable();
-        GameStateManager.Instance.Stop();
+        GameStateManager.Instance.Wait();
 
         newGame.onClick.RemoveAllListeners();
         load.onClick.RemoveAllListeners();

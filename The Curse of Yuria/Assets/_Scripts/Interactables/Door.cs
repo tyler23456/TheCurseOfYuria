@@ -7,7 +7,7 @@ namespace TCOY.Interactables
 {
     public class Door : InteractableWithIDBase, IInteractableTrigger
     {
-        [SerializeField] string sceneName;
+        [SerializeField] int sceneID;
         [SerializeField] Vector3 destination;
         [SerializeField] float eulerAngleY;
         [SerializeField] Sprite OpenDoor;
@@ -47,7 +47,7 @@ namespace TCOY.Interactables
 
             Transform loadingDisplay = GameObject.Find("/DontDestroyOnLoad/Canvas/LoadingDisplay").transform;
 
-            loadingDisplay.GetChild(0).name = sceneName;
+            ILoadingData.sceneID = sceneID;
             loadingDisplay.gameObject.SetActive(true);
 
             SetPositionOfAllies(player, destination, new Vector3(0f, eulerAngleY, 0f));
