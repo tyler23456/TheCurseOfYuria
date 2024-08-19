@@ -22,6 +22,7 @@ public interface IActor
     ISpriteFlipper getSpriteFlipper { get; }
     IDetection getDetection { get; }
     Color trajectoryPathColor { get; set; }
+    void RotateToward(Vector3 point);
     Coroutine StartCoroutine(IEnumerator routine);
     void StopCoroutine(IEnumerator routine);
     void StopCoroutine(Coroutine routine);

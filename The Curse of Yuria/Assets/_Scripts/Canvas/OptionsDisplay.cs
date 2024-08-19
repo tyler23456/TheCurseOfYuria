@@ -49,8 +49,14 @@ public class OptionsDisplay : DisplayBase
         saveTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
         quitTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
 
+        //--------------------------------------------
+        graphicsTab.gameObject.SetActive(false);
+        SettingsTab.gameObject.SetActive(false);
+        controlsTab.gameObject.SetActive(false);
+        //---------------------------------------------
+
         exitButton.onClick.AddListener(OnExit);
-        OnClickGraphicsTab();
+        OnClickSaveTab();
 
         MenuSFXManager.Instance.PlayOptionsMenuOpen();
     }

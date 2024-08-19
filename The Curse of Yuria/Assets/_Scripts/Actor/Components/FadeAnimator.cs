@@ -63,5 +63,15 @@ namespace TCOY.UserActors
             OnCoroutineUpdate = (actor) => { };
             OnCoroutineEnd = (actor) => { };
         }
+
+        public void ResetToOpaque()
+        {
+            foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+                spriteRenderer.color = new Color(
+                    spriteRenderer.color.r,
+                    spriteRenderer.color.g,
+                    spriteRenderer.color.b,
+                    1f);
+        }
     }
 }

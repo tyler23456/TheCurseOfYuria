@@ -151,7 +151,6 @@ public class ItemDisplayAsset : MonoBehaviour
         MenuSFXManager.Instance.PlayChangeEquipmentPart();
     }
 
-
     public void RefreshAllie(int offset = 0)
     {
         allie?.obj.SetActive(previousActive);
@@ -162,7 +161,7 @@ public class ItemDisplayAsset : MonoBehaviour
         allie = allies.GetChild(allieIndex).GetComponent<IActor>();
         previousActive = allie.obj.activeSelf;
         allie.obj.SetActive(true);
-
+        
         detailedActorViewCamera.cullingMask = (1 << allie.obj.transform.GetChild(0).gameObject.layer)
             | (1 << LayerMask.NameToLayer("Light"));
 
@@ -173,6 +172,11 @@ public class ItemDisplayAsset : MonoBehaviour
         RefreshCurrency(0);
         RefreshAllieInfo();
         RefreshLocalInventory(allie.getScrolls);
+    }
+
+    public void RefreshAllies()
+    {
+        allies.GetComponent<IPlayerControls>().Refresh();
     }
 
     public void SetLocalInventoryBehavior(bool showName = false, bool showCount = true, bool showSprite = true)

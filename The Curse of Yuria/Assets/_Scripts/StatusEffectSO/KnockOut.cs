@@ -16,6 +16,8 @@ public class KnockOut : StatusEffectBase, IStatusEffect
         target.getATBGuage.LowerPriority();
         animator?.SetInteger("State", 9);
 
+        AnimationEvents animationEvents = target.obj.GetComponent<AnimationEvents>();
+        animationEvents?.SetExpression("Dead");
 
         IEnabler[] objectsToEnable = target.obj.GetComponents<IEnabler>();
         foreach (IEnabler objectToEnable in objectsToEnable)

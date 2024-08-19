@@ -26,6 +26,8 @@ public class CommandDisplay : DisplayBase
     List<IActor> potentialTargets = new List<IActor>();
     IActor target = null;
 
+    List<IActor> aTBGuagesFilledToRemove = new List<IActor>();
+
     InventoryUI attackInventoryUI;
     InventoryUI skillInventoryUI;
     InventoryUI itemInventoryUI;
@@ -39,6 +41,15 @@ public class CommandDisplay : DisplayBase
     protected override void OnEnable()
     {
         base.OnEnable();
+
+        //check for valid atbguageFilledEntries
+        RemoveBrokenATBGuagesFilled();
+
+        if (IBattleData.aTBGuagesFilled.Count == 0)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
 
         display.gameObject.SetActive(true);
 
@@ -77,6 +88,18 @@ public class CommandDisplay : DisplayBase
 
         MarkerManager.instance.DestroyAllMarkers();
         GameStateManager.Instance.Play();
+    }
+
+    void RemoveBrokenATBGuagesFilled()
+    {
+        aTBGuagesFilledToRemove.Clear();
+
+        foreach (IActor allie in IBattleData.aTBGuagesFilled)
+            if (allie.obj.layer == LayerMask.NameToLayer("Allie") && allie.obj.transform.GetSiblingIndex() >= IAllie.MaxActiveAlliesCount)
+                aTBGuagesFilledToRemove.Add(allie);
+
+        foreach (IActor allie in aTBGuagesFilledToRemove)
+            IBattleData.aTBGuagesFilled.Remove(allie);
     }
 
     void OnExit()

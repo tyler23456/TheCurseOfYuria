@@ -16,7 +16,7 @@ public interface IItem
     int marketValue { get; }
 
 
-    IEnumerator Use(IActor user, params IActor[] targets);
+    IEnumerator Use(IActor user, List<IActor> targets);
     IEnumerator Use(IActor target);
     void Equip(IActor target);
     void Unequip(IActor target);

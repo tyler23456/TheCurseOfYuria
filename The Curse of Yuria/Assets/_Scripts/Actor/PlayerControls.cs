@@ -13,14 +13,17 @@ namespace TCOY.ControllerStates
         [SerializeField] Transform commandDisplay;
         [SerializeField] Transform switchAllieDisplay;
 
+        [SerializeField] Camera mainCamera;
+
         [SerializeField] GoalState selectedDefaultGoal;
         [SerializeField] GoalState unselectedDefaultGoal;
-        
+
         IController controller;
+        int defaultMainCameraLayerMask = 0;
 
         void Awake()
         {
-
+            defaultMainCameraLayerMask = mainCamera.cullingMask;
         }
 
         void Start()
@@ -100,6 +103,8 @@ namespace TCOY.ControllerStates
             if (transform.childCount == 0)
                 return;
 
+            mainCamera.cullingMask = defaultMainCameraLayerMask;
+
             int count = Mathf.Min(transform.childCount, IAllie.MaxActiveAlliesCount);
 
             controller = transform.GetChild(0).GetComponent<IController>();
@@ -108,7 +113,8 @@ namespace TCOY.ControllerStates
             for (int i = 0; i < count; i++)
             {
                 transform.GetChild(i).gameObject.SetActive(true);
-                transform.GetChild(i).GetChild(0).GetComponent<SortingGroup>().sortingOrder = 410 - i;
+                transform.GetChild(i).GetChild(0).GetComponent<SortingGroup>().sortingOrder = 510 - (i * 3);
+                mainCamera.cullingMask |= (1 << transform.GetChild(i).GetChild(0).gameObject.layer);
             }
             
             for (int i = IAllie.MaxActiveAlliesCount; i < transform.childCount; i++)
@@ -120,7 +126,9 @@ namespace TCOY.ControllerStates
             {
                 controller = transform.GetChild(i).GetComponent<IController>();
                 controller.SetGoal(unselectedDefaultGoal);
-            }      
+            }
+            
+            
         }
 
         private void OnDrawGizmos()

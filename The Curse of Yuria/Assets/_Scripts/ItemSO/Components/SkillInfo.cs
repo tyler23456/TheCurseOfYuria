@@ -76,27 +76,12 @@ namespace TCOY.Items
         }
 
 
-        public void SetDirection(IActor user, params IActor[] targets)
+        public void SetDirection(IActor user, List<IActor> targets)
         {
-            if (targets.Length == 0)
+            if (targets.Count == 0)
                 return;
 
-            Vector2 direction = (targets[0].obj.transform.position - user.obj.transform.position).normalized;
-
-            if (user.obj.layer == LayerMask.NameToLayer("Enemy"))
-            {
-                if (direction.x >= 0)
-                    user.obj.transform.eulerAngles = new Vector3(0f, 180f, 0f);
-                else
-                    user.obj.transform.eulerAngles = new Vector3(0f, 0f, 0f);
-            }
-            else
-            {
-                if (direction.x >= 0)
-                    user.obj.transform.eulerAngles = new Vector3(0f, 0f, 0f);
-                else
-                    user.obj.transform.eulerAngles = new Vector3(0f, 180f, 0f);
-            }
+            user.RotateToward(targets[0].getCollider2D.bounds.center);
         }
     }
 }

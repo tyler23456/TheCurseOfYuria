@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TCOY.AStar
+namespace TCOY.UserActors
 {
     [System.Serializable]
     public class GroundChecker

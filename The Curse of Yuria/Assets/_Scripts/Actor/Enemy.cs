@@ -31,16 +31,11 @@ namespace TCOY.UserActors
                 movesQueue.Enqueue(move);
 
             GetComponent<IController>().target = GameObject.Find("/DontDestroyOnLoad/Allies").transform.GetChild(0).GetComponent<IController>();
-
-            aTBGuage.LowerPriority();
         }
 
         protected new void Update()
         {
             base.Update();
-
-            
-
         }
 
         void MakeADecision()
@@ -79,6 +74,17 @@ namespace TCOY.UserActors
             }
 
             Gizmos.DrawSphere(transform.position, 1f);
+        }
+
+        public override void RotateToward(Vector3 point)
+        {
+            Vector3 direction = (point - transform.position).normalized;
+
+            if (direction.x > 0f && transform.eulerAngles.y < 90f)
+                transform.eulerAngles = new Vector3(0f, 180f, 0f);
+
+            else if (direction.x < 0f && transform.eulerAngles.y >= 90f)
+                transform.eulerAngles = new Vector3(0f, 0f, 0f);
         }
     }
 }

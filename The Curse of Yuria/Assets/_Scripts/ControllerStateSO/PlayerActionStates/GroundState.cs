@@ -66,10 +66,10 @@ namespace TCOY.ControllerStates
 
             PlayerMovement(controller);
 
-            if (!controller.isGrounded)
+            if (!controller.animator.GetBool("IsGrounded"))
                 controller.SetAction(StateDatabase.Instance.GetAction("FallState"));
 
-            else if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
+            else if (Input.GetKeyDown(KeyCode.Space) && controller.animator.GetBool("IsGrounded"))
                 controller.SetAction(StateDatabase.Instance.GetAction("JumpState"));
         }
 

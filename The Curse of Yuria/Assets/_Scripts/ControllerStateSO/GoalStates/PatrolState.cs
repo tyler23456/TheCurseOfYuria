@@ -12,11 +12,13 @@ namespace TCOY.ControllerStates
 
         protected override void Enter(IController controller) 
         {
+            controller.actor.getATBGuage.EnterStasis();
+
             controller.waypoints.Clear();
             controller.waypointIndex = Random.Range(0, waypointPositions.Length);
             controller.accumulator = Random.Range(0, idleDuration);
             controller.idleState = 0;
-            CheckDirection(controller, controller.origin + waypointPositions[controller.waypointIndex]);
+            controller.actor.RotateToward(controller.origin + waypointPositions[controller.waypointIndex]);
         }
 
 
@@ -42,24 +44,12 @@ namespace TCOY.ControllerStates
                 controller.waypointIndex++;
                 controller.waypointIndex = controller.waypointIndex % waypointPositions.Length;
 
-                CheckDirection(controller, controller.origin + waypointPositions[controller.waypointIndex]);
+                controller.actor.RotateToward(controller.origin + waypointPositions[controller.waypointIndex]);
             }
         }
 
         protected override void Exit(IController controller) 
         {
-            
-        }
-
-        void CheckDirection(IController controller, Vector3 waypointPosition)
-        {
-            Vector3 direction = (waypointPosition - controller.rigidbody2D.transform.position).normalized;
-
-            if (direction.x > 0f)
-                controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 180f, 0f);
-
-            else if (direction.x < 0f)
-                controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 0f, 0f);
         }
     }
 }

@@ -15,9 +15,11 @@ public class RaycastTargeter : TargeterBase
         {
             Vector2 direction = ((Vector2)targets[i].getCollider2D.bounds.center - position).normalized;
 
-            if (Physics2D.Raycast(position, direction, targetDistanceOverride + 1, LayerMask.GetMask("TileCollision")).collider != null)
+            float dot = Vector3.Dot(direction.normalized, targets[i].obj.transform.right.normalized);
+
+            if (Physics2D.Raycast(position, direction, targetDistanceOverride + 1, LayerMask.GetMask("TileCollision")).collider != null || dot < 0.6f)
                 targets.Remove(targets[i]);
-        }           
+        }
 
         return targets.ToArray();
     }

@@ -107,6 +107,7 @@ public class SwitchAllieDisplay : DisplayBase
 
         //next allie
         unselectedDestination = previousAllie.rigidbody2D.position + distance;
+        userCamera.cullingMask |= (1 << nextAllie.obj.transform.GetChild(0).gameObject.layer);
         nextAllie.obj.SetActive(true);
         nextAllie.getCollider2D.enabled = false;
         nextAllie.obj.transform.position = unselectedDestination;
@@ -151,6 +152,7 @@ public class SwitchAllieDisplay : DisplayBase
         nextAllie.getATBGuage.Reset();
         //call update for other methods
         previousAllie.getATBGuage.LowerPriority();
+        previousAllie.getFadeAnimator.ResetToOpaque();
     }
 
     void OnPointerEnter(string itemName)

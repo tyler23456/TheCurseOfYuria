@@ -44,13 +44,8 @@ namespace TCOY.ControllerStates
         protected void MoveActor(IController controller, float speed = 1f)
         {
             Vector3 waypointPosition = controller.waypoints[controller.waypointIndex].position;
-            Vector3 direction = (waypointPosition - controller.rigidbody2D.transform.position).normalized;
 
-            if (direction.x > 0f && controller.rigidbody2D.transform.eulerAngles.y >= 90f)
-                controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 0f, 0f);
-
-            else if (direction.x < 0f && controller.rigidbody2D.transform.eulerAngles.y < 90f)
-                controller.rigidbody2D.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            controller.actor.RotateToward(waypointPosition);
 
             controller.rigidbody2D.transform.position = Vector3.MoveTowards(controller.rigidbody2D.transform.position, waypointPosition, 7.1f * Time.deltaTime * speed);
         }

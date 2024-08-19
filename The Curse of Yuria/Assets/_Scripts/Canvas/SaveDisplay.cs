@@ -13,10 +13,10 @@ namespace TCOY.Canvas
     {
         public enum State { NewSave, Overwrite, Load }
 
-        [SerializeField] GameObject partyMemberPrefab;
-
-        [SerializeField] Button buttonPrefab; 
-        [SerializeField] RectTransform grid;
+        [SerializeField] Button buttonPrefab;
+        [SerializeField] GameObject leftPanel;
+        [SerializeField] GameObject rightPanel;
+        [SerializeField] RectTransform rightGrid;
         [SerializeField] Text heading;
         [SerializeField] Text description;
 
@@ -30,6 +30,9 @@ namespace TCOY.Canvas
 
         void OnEnable()
         {
+            leftPanel.SetActive(false);
+            rightPanel.SetActive(true);
+
             newSaveButton.onClick.RemoveAllListeners();
             overwriteButton.onClick.RemoveAllListeners();
             loadButton.onClick.RemoveAllListeners();
@@ -66,10 +69,10 @@ namespace TCOY.Canvas
 
         void RefreshFiles()
         {
-            if (grid == null)
+            if (rightGrid == null)
                 return;
 
-            foreach (RectTransform child in grid)
+            foreach (RectTransform child in rightGrid)
                 GameObject.Destroy(child.gameObject);
 
             DirectoryInfo info = new DirectoryInfo(Application.persistentDataPath + Path.AltDirectorySeparatorChar);
@@ -78,7 +81,7 @@ namespace TCOY.Canvas
 
             foreach (FileInfo fileInfo in fileInfos)
             {
-                button = GameObject.Instantiate(buttonPrefab, grid);
+                button = GameObject.Instantiate(buttonPrefab, rightGrid);
                 button.onClick.RemoveAllListeners();
                 button.onClick.AddListener(() =>
                 {

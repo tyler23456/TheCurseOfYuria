@@ -107,5 +107,16 @@ namespace TCOY.UserActors
 
             aTBGuage.Update();
         }
+
+        public virtual void RotateToward(Vector3 point)
+        {
+            Vector3 direction = (point - transform.position).normalized;
+
+            if (direction.x > 0f && transform.eulerAngles.y >= 90f)
+                transform.eulerAngles = new Vector3(0f, 0f, 0f);
+
+            else if (direction.x < 0f && transform.eulerAngles.y < 90f)
+                transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        }
     }
 }

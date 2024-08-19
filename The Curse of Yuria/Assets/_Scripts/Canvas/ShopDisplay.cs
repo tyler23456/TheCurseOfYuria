@@ -80,11 +80,14 @@ public class ShopDisplay : DisplayBase
     protected override void OnDisable()
     {
         base.OnDisable();
+        
         shopInventories.Clear();
         display.RefreshCurrency();
         IShopData.inventory.Clear();
         buy.transform.parent.gameObject.SetActive(false);
         sell.transform.parent.gameObject.SetActive(false);
+
+        display.RefreshAllies();
         display.gameObject.SetActive(false);
 
         MenuSFXManager.Instance.PlayEquipmentMenuClose();

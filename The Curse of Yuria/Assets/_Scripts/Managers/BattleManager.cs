@@ -21,6 +21,7 @@ public class BattleManager : MonoBehaviour
     HashSet<IActor> enemiesToRemove = new HashSet<IActor>();
 
     List<Command> allieCommands = new List<Command>();
+    List<Command> commandsToRemove = new List<Command>();
 
     public void Start()
     {
@@ -39,7 +40,9 @@ public class BattleManager : MonoBehaviour
             if (!GameStateManager.Instance.isPlaying)
                 yield return new WaitForEndOfFrame();
 
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();     
+
+            RemoveBrokenCommands();
 
             RefreshNearbyEnemies();
 
@@ -52,6 +55,8 @@ public class BattleManager : MonoBehaviour
 
             Command command = IBattleData.pendingCommands.First.Value;
             IBattleData.pendingCommands.RemoveFirst();
+
+            command.user.RotateToward(command.user.getCollider2D.bounds.center);
 
             TrajectoryPathDrawer drawer = Instantiate(lineDrawerPrefab.gameObject).GetComponent<TrajectoryPathDrawer>();
             drawer.onFinishedDrawing = () => RunCommand(command);
@@ -115,6 +120,26 @@ public class BattleManager : MonoBehaviour
                     else
                         IBattleData.pendingCommands.AddFirst(reaction);
                 }
+        }
+    }
+
+    void RemoveBrokenCommands()
+    {
+        commandsToRemove.Clear();
+
+        foreach (Command command in IBattleData.pendingCommands)
+        {
+            if (command.user == null || !command.user.getATBGuage.isActive)
+            {
+                commandsToRemove.Add(command);
+                continue;
+            }
+            command.targets.RemoveAll(i => i == null);
+        }
+
+        foreach (Command command in commandsToRemove)
+        {
+            IBattleData.pendingCommands.Remove(command);
         }
     }
 

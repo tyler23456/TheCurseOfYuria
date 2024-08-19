@@ -9,4 +9,5 @@ public interface IFadeAnimator
     Action<IActor> OnCoroutineEnd { get; set; }
 
     void Start(float startColorAlpha, float endingColorAlpha, float duration);
+    void ResetToOpaque();
 }

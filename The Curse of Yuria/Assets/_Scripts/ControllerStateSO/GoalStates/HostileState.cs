@@ -11,7 +11,7 @@ namespace TCOY.ControllerStates
         {
             controller.idleState = 1;
             controller.animator.SetInteger("State", controller.idleState);
-            controller.actor.getATBGuage.RaisePriority();
+            controller.actor.getATBGuage.ExitStasis();
         }
 
         protected override void Stay(IController controller)
@@ -22,8 +22,6 @@ namespace TCOY.ControllerStates
         protected override void Exit(IController controller)
         {
             controller.idleState = 0;
-            controller.animator.SetInteger("State", controller.idleState);
-            controller.actor.getATBGuage.LowerPriority();
         }
     }
 }

@@ -7,6 +7,7 @@ namespace TCOY.UserActors
     public class CameraFollow : MonoBehaviour, IEnabler
     {
         [SerializeField] Transform allies;
+        [SerializeField] Camera mainCamera;
 
         private void Start()
         {

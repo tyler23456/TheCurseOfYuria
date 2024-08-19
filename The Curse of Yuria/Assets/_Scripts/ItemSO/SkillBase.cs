@@ -13,7 +13,7 @@ namespace TCOY.Items
 
         public override string type => "";
 
-        public override IEnumerator Use(IActor user, IActor[] targets) { yield return null; }
+        public override IEnumerator Use(IActor user, List<IActor> targets) { yield return null; }
         public override IEnumerator Use(IActor target) { yield return null; }
         public override void Equip(IActor user) { }
         public override void Unequip(IActor user) { }

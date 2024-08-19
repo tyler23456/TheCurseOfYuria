@@ -11,4 +11,6 @@ public interface IATBGuage
     void Reset();
     public void RaisePriority();
     public void LowerPriority();
+    void EnterStasis();
+    void ExitStasis();
 }

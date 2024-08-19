@@ -17,7 +17,7 @@ namespace TCOY.Items
         public CalculationType calculationType => skillInfo.calculationType;
         public List<BonusType> bonusTypes => skillInfo.bonusTypes;
 
-        public override IEnumerator Use(IActor user, params IActor[] targets)
+        public override IEnumerator Use(IActor user, List<IActor> targets)
         {
             skillInfo.SetDirection(user, targets);
 

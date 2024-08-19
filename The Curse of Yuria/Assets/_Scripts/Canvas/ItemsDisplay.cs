@@ -64,6 +64,7 @@ public class ItemsDisplay : DisplayBase
     protected override void OnDisable()
     {
         base.OnDisable();
+        display.RefreshAllies();
         display.gameObject.SetActive(false);
 
         MenuSFXManager.Instance.PlayEquipmentMenuClose();

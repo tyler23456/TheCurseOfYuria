@@ -9,7 +9,7 @@ namespace TCOY.Items
     [CreateAssetMenu(fileName = "Attack", menuName = "Attacks/Attack")]
     public class Attack : SkillBase, IItem
     {
-        public override IEnumerator Use(IActor user, params IActor[] targets)
+        public override IEnumerator Use(IActor user, List<IActor> targets)
         {
             string weaponName = user.getEquipment.Find(i =>
         ItemDatabase.Instance.Part(i) == EquipmentPart.MeleeWeapon1H ||
@@ -24,7 +24,7 @@ namespace TCOY.Items
             yield return null;
         }
 
-        IEnumerator UseDefaultAttack(IActor user, params IActor[] targets)
+        IEnumerator UseDefaultAttack(IActor user, List<IActor> targets)
         {
             skillInfo.SetDirection(user, targets);
 

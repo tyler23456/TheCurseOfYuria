@@ -58,7 +58,7 @@ namespace TCOY.ControllerStates
                 stepSFX.UpdateOther(controller.audioSource, "LadderClimbStepSFX", minVolume, maxVolume, minPitch, maxPitch);
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 controller.SetAction(StateDatabase.Instance.GetAction("JumpState"));
             }

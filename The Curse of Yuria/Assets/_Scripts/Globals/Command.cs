@@ -6,7 +6,7 @@ public class Command
 {
     public IActor user { get; private set; }
     public Skill item { get; private set; }
-    public IActor[] targets { get; private set; }
+    public List<IActor> targets { get; private set; }
 
     public bool isCounterable { get; set; } = true;
     public bool isInterruptable { get; set; } = true;
@@ -15,6 +15,6 @@ public class Command
     {
         this.user = user;
         this.item = item;
-        this.targets = targets;
+        this.targets = new List<IActor>(targets);
     }
 }

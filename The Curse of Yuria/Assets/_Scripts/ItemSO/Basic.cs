@@ -8,7 +8,7 @@ namespace TCOY.Items
     {
         public override string type => "Basic";
 
-        public override IEnumerator Use(IActor user, params IActor[] targets)
+        public override IEnumerator Use(IActor user, List<IActor> targets)
         {
             InventoryManager.Instance.basic.Remove(name);
 

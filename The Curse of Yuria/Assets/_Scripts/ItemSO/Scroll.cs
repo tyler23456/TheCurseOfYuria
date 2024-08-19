@@ -11,7 +11,7 @@ namespace TCOY.Items
         public override string type => "Scroll";
         public int getCost => cost;
 
-        public override IEnumerator Use(IActor user, params IActor[] targets)
+        public override IEnumerator Use(IActor user, List<IActor> targets)
         {
             LightManager.instance.FadeOut();
 

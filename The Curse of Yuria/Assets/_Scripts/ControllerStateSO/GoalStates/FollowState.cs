@@ -13,8 +13,6 @@ namespace TCOY.ControllerStates
         {
             base.Enter(controller);
 
-            controller.actor.obj.transform.GetChild(0).GetComponent<SortingGroup>().sortingOrder = 500;
-
             if (controller.actor.obj.transform.parent.name == "Allies")
                 controller.target = controller.actor.obj.transform.parent.GetChild(controller.actor.obj.transform.GetSiblingIndex() - 1).GetComponent<IPath>();    
             else

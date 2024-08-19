@@ -15,6 +15,8 @@ namespace TCOY.UserActors
         bool isFull = false;
         int priority = int.MaxValue;
 
+        bool isInStasis = false;
+
         public Action OnATBGuageFilled { get; set; } = () => { };
         public Action<float> onATBChanged { get; set; } = (value) => {};
         public float getMaximumValue => maximumValue;
@@ -47,6 +49,9 @@ namespace TCOY.UserActors
             if (accumulator < maximumValue || isFull)
                 return;
 
+            if (isInStasis)
+                return;
+
             isFull = true;
             OnATBGuageFilled.Invoke();
         }
@@ -59,6 +64,16 @@ namespace TCOY.UserActors
         public void LowerPriority()
         {
             priority--;
+        }
+
+        public void EnterStasis()
+        {
+            isInStasis = true;
+        }
+
+        public void ExitStasis()
+        {
+            isInStasis = false;
         }
     }
 }
