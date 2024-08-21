@@ -24,7 +24,7 @@ namespace TCOY.ControllerStates
 
             string tag = hit.transform.gameObject.tag;
 
-            ControllerStatesSFXManager.Instance.PlayStepSFX(tag, audioSource, 0.15f, 0.3f, 0.7f, 1.3f);
+            ControllerStatesSFXManager.Instance.PlayStepSFX(tag, audioSource, 0.15f / 1.2f, 0.3f / 1.2f, 0.7f, 1.3f);
         }
 
         public void UpdateLandSFX(AudioSource audioSource)
@@ -36,7 +36,7 @@ namespace TCOY.ControllerStates
 
             string tag = hit.transform.gameObject.tag;
 
-            ControllerStatesSFXManager.Instance.PlayStepSFX("Land" + tag, audioSource, 0.15f, 0.3f, 0.7f, 1.3f);
+            ControllerStatesSFXManager.Instance.PlayStepSFX("Land" + tag, audioSource, 0.1f / 1.2f, 0.2f / 1.2f, 0.7f, 1.3f);
         }
 
         public void UpdateOther(AudioSource audioSource, string tag, float minVolume, float maxVolume, float minPitch, float maxPitch)

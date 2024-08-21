@@ -6,10 +6,8 @@ namespace TCOY.Interactables
 {
     public class TransformTeleporter : InteractableBase, IInteractableTrigger
     {
-        enum State { arbitrary, Interior, Exterior }
-
         [SerializeField] Transform destination;
-        [SerializeField] State state;
+        [SerializeField] ITransformTeleporter.State state;
 
         public override string getAction => "";
 
@@ -19,13 +17,13 @@ namespace TCOY.Interactables
 
             switch (state)
             {
-                case State.arbitrary:
+                case ITransformTeleporter.State.arbitrary:
                     TransitionToArbitrary();
                     break;
-                case State.Interior:
+                case ITransformTeleporter.State.Interior:
                     TransitionToInterior();
                     break;
-                case State.Exterior:
+                case ITransformTeleporter.State.Exterior:
                     TransitionToExterior();
                     break;
             }
@@ -42,6 +40,8 @@ namespace TCOY.Interactables
                     IController controller = allies.GetChild(i).GetComponent<IController>();
                     controller.ResetToDefault();
                 }
+
+            ITransformTeleporter.state = state;
         }
 
 

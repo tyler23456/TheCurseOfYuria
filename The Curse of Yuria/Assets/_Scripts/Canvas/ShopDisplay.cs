@@ -13,7 +13,6 @@ public class ShopDisplay : DisplayBase
     [Header("Shop")]
     [SerializeField] Button buy;
     [SerializeField] Button sell;
-    [SerializeField] Text selectedInfo;
 
     string type;
     Dictionary<string, Inventory> shopInventories = new Dictionary<string, Inventory>();
@@ -143,7 +142,7 @@ public class ShopDisplay : DisplayBase
 
     void OnBuy()
     {
-        selectedInfo.text = "Buy an item";
+        display.selectionInfo.text = "Buy an item";
         display.ClearTabListenters();
 
         display.helmetsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.helmetType, shopInventories[InventoryManager.Instance.helmetType]));
@@ -168,7 +167,7 @@ public class ShopDisplay : DisplayBase
 
     void OnSell()
     {
-        selectedInfo.text = "Sell an item";
+        display.selectionInfo.text = "Sell an item";
         display.ClearTabListenters();
 
         display.helmetsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.helmetType, InventoryManager.Instance.helmets));

@@ -62,7 +62,6 @@ public class LoadingDisplay : DisplayBase
                 IController controller = allies.GetChild(i).GetComponent<IController>();
                 controller.ResetToDefault();
             }
-        allies.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
 }

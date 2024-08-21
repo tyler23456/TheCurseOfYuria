@@ -54,6 +54,7 @@ public class ItemDisplayAsset : MonoBehaviour
     [SerializeField] public Button exitButton;
 
     [Header("Slots")]
+    [SerializeField] public Text selectionInfo;
     [SerializeField] public Image helmetSlot;
     [SerializeField] public Image meleeWeapon1HSlot;
     [SerializeField] public Image meleeWeapon2HSlot;

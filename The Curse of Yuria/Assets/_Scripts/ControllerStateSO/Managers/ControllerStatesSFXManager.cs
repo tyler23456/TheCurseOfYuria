@@ -9,7 +9,6 @@ namespace TCOY.ControllerStates
     {
         public static ControllerStatesSFXManager Instance { get; private set; }
 
-
         [SerializeField] AssetLabelReference StepFXGrassReference;
         [SerializeField] AssetLabelReference StepFXDirtReference;
         [SerializeField] AssetLabelReference StepFXWoodReference;
@@ -44,7 +43,6 @@ namespace TCOY.ControllerStates
 
         List<AudioClip> StepSFXJump = new List<AudioClip>();
 
-        List<AudioClip> StepSFXLadderLand = new List<AudioClip>();
         List<AudioClip> StepSFXLadderClimb = new List<AudioClip>();
 
         Dictionary<string, List<AudioClip>> stepSFXs = new Dictionary<string, List<AudioClip>>();
@@ -104,12 +102,6 @@ namespace TCOY.ControllerStates
 
             }).WaitForCompletion();
 
-
-            Addressables.LoadAssetsAsync<AudioClip>(ladderLandReference, (i) =>
-            {
-                StepSFXLadderLand.Add(i);
-            
-            }).WaitForCompletion();
             Addressables.LoadAssetsAsync<AudioClip>(ladderClimbReference, (i) =>
             {
                 StepSFXLadderClimb.Add(i);
@@ -128,7 +120,6 @@ namespace TCOY.ControllerStates
 
             stepSFXs.Add("JumpStepSFX", StepSFXDirtLand);
 
-            stepSFXs.Add("LandLadderStepSFX", StepSFXLadderLand);
             stepSFXs.Add("LadderClimbStepSFX", StepSFXLadderClimb);
         }
 

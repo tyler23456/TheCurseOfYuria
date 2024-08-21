@@ -42,8 +42,6 @@ public class SaveManager : MonoBehaviour
         allie4.obj.name = "Juel";
         allie4.obj.transform.parent = allies;
 
-        allies.gameObject.SetActive(true);
-
         ILoadingData.sceneID = 3;
         ILoadingData.destination = new Vector3(0, 0, 0);
         ILoadingData.eulerAngleZ = 0f;

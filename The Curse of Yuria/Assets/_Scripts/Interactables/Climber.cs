@@ -23,5 +23,10 @@ namespace TCOY.Interactables
 
             controller.SetAction(StateDatabase.Instance.GetAction("ClimbState"));
         }
+
+        public override bool CannotShowActionText(IActor player)
+        {
+            return player.obj.GetComponent<IController>().action.name == "ClimbState";
+        }
     }
 }

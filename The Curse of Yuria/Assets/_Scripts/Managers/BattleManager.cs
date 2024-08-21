@@ -56,7 +56,7 @@ public class BattleManager : MonoBehaviour
             Command command = IBattleData.pendingCommands.First.Value;
             IBattleData.pendingCommands.RemoveFirst();
 
-            command.user.RotateToward(command.user.getCollider2D.bounds.center);
+            command.user.RotateToward(command.targets[0].getCollider2D.bounds.center);
 
             TrajectoryPathDrawer drawer = Instantiate(lineDrawerPrefab.gameObject).GetComponent<TrajectoryPathDrawer>();
             drawer.onFinishedDrawing = () => RunCommand(command);

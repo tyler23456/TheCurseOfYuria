@@ -28,6 +28,11 @@ namespace TCOY.Interactables
 
         }
 
+        public virtual bool CannotShowActionText(IActor player)
+        {
+            return false;
+        }
+
         public virtual void ActivateScriptedSequence (ActionSO action)
         {
             Transform scriptedSequencerDisplay = GameObject.Find("/DontDestroyOnLoad/Canvas/ScriptedSequencerDisplay").transform;

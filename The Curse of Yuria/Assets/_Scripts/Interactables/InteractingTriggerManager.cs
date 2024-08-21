@@ -12,6 +12,7 @@ namespace TCOY.Interactables
 
         IInteractableTrigger target;
         IInteractable[] targets;
+        IActor player;
 
         private void Awake()
         {
@@ -21,6 +22,7 @@ namespace TCOY.Interactables
         void Update()
         {
             target = null;
+            player = null;
 
             if (!GameStateManager.Instance.isPlaying)
                 return;
@@ -36,14 +38,16 @@ namespace TCOY.Interactables
                     break;
             }
 
-            if (target == null || target.enabled == false)
+            player = allies.GetChild(0).GetComponent<IActor>();
+
+            if (target == null || target.enabled == false || target.CannotShowActionText(player))
             {
                 MarkerManager.instance.DestroyAllMarkersWith("InteractingTrigger");
                 return;
             }
 
             if (MarkerManager.instance.Count("InteractingTrigger") == 0)
-                MarkerManager.instance.AddMarker("InteractingTrigger");
+                MarkerManager.instance.AddMarker("InteractingTrigger");         
 
             MarkerManager.instance.SetMarkerMessageAt("InteractingTrigger", target.getAction + target.gameObject.name);
             Collider2D collider = target.gameObject.GetComponent<Collider2D>();
@@ -53,7 +57,7 @@ namespace TCOY.Interactables
             {
                 targets = target.gameObject.GetComponents<IInteractable>();
                 foreach (IInteractable target in targets)
-                    target.Interact(allies.GetChild(0).GetComponent<IActor>());
+                    target.Interact(player);
             }
         }
     }

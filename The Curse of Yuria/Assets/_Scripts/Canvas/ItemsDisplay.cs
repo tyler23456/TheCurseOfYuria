@@ -54,6 +54,8 @@ public class ItemsDisplay : DisplayBase
         display.onExitItem = (n) => display.ClearItemInfo();
         display.onExitItem += (n) => display.RefreshAllieInfo("");
 
+        display.selectionInfo.text = "Equip/ Unequip an item";
+
         display.RefreshAllie(0);
 
         RefreshEquipment(InventoryManager.Instance.helmetType);
