@@ -128,7 +128,7 @@ namespace TCOY.AStar
             return -compare;
         }
 
-
+#if UNITY_EDITOR
         GUIStyle gUIStyle = new GUIStyle();
         List<string> textArray = new List<string>();
         void OnDrawGizmos()
@@ -146,5 +146,6 @@ namespace TCOY.AStar
             Gizmos.color = color;
             Gizmos.DrawSphere(transform.position, 1f);  
         }
+#endif
     }
 }

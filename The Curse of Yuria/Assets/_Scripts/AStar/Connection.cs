@@ -127,6 +127,7 @@ namespace TCOY.AStar
             return -compare;
         }
 
+#if UNITY_EDITOR
         void OnDrawGizmos()
         {
             Gizmos.color = Color.clear;
@@ -146,5 +147,6 @@ namespace TCOY.AStar
             var thickness = 3;
             Handles.DrawBezier(p1, p2, p1, p2, Color.green, null, thickness);
         }
+#endif
     }
 }

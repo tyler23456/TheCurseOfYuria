@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace TCOY.UserActors
 {
+#if UNITY_EDITOR
     [ExecuteAlways]
     public class CharacterNameBehavior : MonoBehaviour
     {
@@ -43,4 +44,5 @@ namespace TCOY.UserActors
             }
         }
     }
+#endif
 }

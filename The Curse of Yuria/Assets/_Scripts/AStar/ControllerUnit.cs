@@ -159,7 +159,8 @@ namespace TCOY.AStar
             
             isGrounded = true;
         }
-        
+
+#if UNITY_EDITOR
         void OnDrawGizmos()
         {
             if (name != "Nate")
@@ -182,5 +183,6 @@ namespace TCOY.AStar
 
             //groundChecker?.OnDrawGizmos();
         }
+#endif
     }
 }

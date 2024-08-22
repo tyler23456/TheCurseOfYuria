@@ -15,6 +15,7 @@ namespace TCOY.Interactables
 
         public string getID => uniqueIdentifier.getID;
 
+#if UNITY_EDITOR
         protected new void OnValidate()
         {
             base.OnValidate();
@@ -27,6 +28,7 @@ namespace TCOY.Interactables
 
             uniqueIdentifier.Initialize(obj.GetComponent<AnimatedContainer>().getID);
         }
+#endif
 
         protected void Start()
         {

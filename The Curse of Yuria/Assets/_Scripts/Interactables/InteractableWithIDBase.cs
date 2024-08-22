@@ -11,7 +11,7 @@ namespace TCOY.Interactables
 
         protected string getID => uniqueIdentifier.getID;
 
-
+#if UNITY_EDITOR
         protected void OnValidate()
         {
             string path = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(gameObject);
@@ -22,5 +22,6 @@ namespace TCOY.Interactables
 
             uniqueIdentifier.Initialize(obj.GetComponent<InteractableWithIDBase>().getID);
         }
+#endif
     }
 }
