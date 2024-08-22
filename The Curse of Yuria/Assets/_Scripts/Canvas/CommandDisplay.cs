@@ -95,7 +95,8 @@ public class CommandDisplay : DisplayBase
         aTBGuagesFilledToRemove.Clear();
 
         foreach (IActor allie in IBattleData.aTBGuagesFilled)
-            if (allie.obj.layer == LayerMask.NameToLayer("Allie") && allie.obj.transform.GetSiblingIndex() >= IAllie.MaxActiveAlliesCount)
+            if (allie.obj.layer == LayerMask.NameToLayer("Allie"))
+                if (allie.obj.transform.GetSiblingIndex() >= IAllie.MaxActiveAlliesCount || allie.getStatusEffects.Contains(KOStatusEffect.name))
                 aTBGuagesFilledToRemove.Add(allie);
 
         foreach (IActor allie in aTBGuagesFilledToRemove)

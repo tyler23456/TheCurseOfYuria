@@ -26,11 +26,6 @@ namespace TCOY.ControllerStates
 
         [SerializeField] AudioSourceManager audioSourceManager;
 
-        [SerializeField] float minVolume = 0.6f;
-        [SerializeField] float maxVolume = 1.4f;
-        [SerializeField] float minPitch = 0.6f;
-        [SerializeField] float maxPitch = 1.4f;
-
         List<AudioClip> StepSFXGrass = new List<AudioClip>();
         List<AudioClip> StepSFXDirt = new List<AudioClip>();
         List<AudioClip> StepSFXWood = new List<AudioClip>();

@@ -7,12 +7,14 @@ public class AudioSourceManager : MonoBehaviour
     AudioSource music;
     AudioSource atmosphere;
     AudioSource SFX;
+    AudioSource dialogue;
 
     void Awake()
     {
         music = transform.GetChild(0).GetComponent<AudioSource>();
         atmosphere = transform.GetChild(1).GetComponent<AudioSource>();
         SFX = transform.GetChild(2).GetComponent<AudioSource>();
+        dialogue = transform.GetChild(3).GetComponent<AudioSource>();
     }
 
     public void PlayMusic(AudioClip clip, float volume = 1f, float pitch = 1f)
@@ -52,5 +54,27 @@ public class AudioSourceManager : MonoBehaviour
         int index = Random.Range(0, clips.Count);
 
         audioSource.PlayOneShot(clips[index], SFX.volume);
+    }
+
+    public void PlayDialogue(List<AudioClip> clips, float minVolume = 1f, float maxVolume = 1f, float minPitch = 1f, float maxPitch = 1f)
+    {
+        if (dialogue.isPlaying)
+            return;
+
+        float volume = Random.Range(minVolume, maxVolume);
+        float pitch = Random.Range(minPitch, maxPitch);
+
+        dialogue.volume = volume;
+        dialogue.pitch = pitch;
+
+        int index = Random.Range(0, clips.Count);
+
+        dialogue.clip = clips[index];
+        dialogue.Play();
+    }
+
+    public void StopDialogue()
+    {  
+        dialogue.Stop();
     }
 }

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: {fileID: 11400000, guid: 58cef171858bae84f89fe92dfed46ea9, type: 2}
   text: You can also sell items by clicking the "sell" button in the shop menu. 
-    The inventory will switch over from the shop keeper's to you, the player.
+    The inventory will switch from the shop keeper's to you, the player.

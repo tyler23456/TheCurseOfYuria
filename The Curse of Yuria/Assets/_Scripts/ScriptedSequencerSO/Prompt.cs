@@ -8,6 +8,8 @@ using System;
 [CreateAssetMenu(fileName = "NewPrompt", menuName = "Cutscene/Prompt")]
 public class Prompt : ActionBase, ICutsceneAction
 {
+    static List<char> vowels = new List<char> { 'a', 'e', 'i', 'o', 'u' };
+
     [TextArea(3, 10)] [SerializeField] string text;
 
     public override IEnumerator Activate()
@@ -29,6 +31,10 @@ public class Prompt : ActionBase, ICutsceneAction
         {
             onUpdate.Invoke();
             textBody.maxVisibleCharacters++;
+
+            if (textBody.maxVisibleCharacters <= textBody.text.Length && !vowels.Contains(textBody.text[textBody.maxVisibleCharacters - 1]))
+                DialogueSFXManager.Instance.PlayDialogueSFX();
+
             yield return null;
             
             if (Input.GetKeyDown(KeyCode.Mouse1))
@@ -38,6 +44,7 @@ public class Prompt : ActionBase, ICutsceneAction
                 onStop.Invoke();
         }
 
+        DialogueSFXManager.Instance.StopDialogueSFX();
         onFinish.Invoke();
 
         onStart = () => { };

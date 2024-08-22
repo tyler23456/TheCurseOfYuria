@@ -64,6 +64,8 @@ public class MainMenuDisplay : DisplayBase
         {
             previousActive = allie.gameObject.activeSelf;
             allie.position = anchor.position;
+            allie.GetComponent<IActor>().getStats.ResetHPAndMP();
+            allie.GetComponent<IActor>().getStatusEffects.RemoveAll();
             allie.eulerAngles = anchor.eulerAngles;
             allie.gameObject.SetActive(previousActive);
         }

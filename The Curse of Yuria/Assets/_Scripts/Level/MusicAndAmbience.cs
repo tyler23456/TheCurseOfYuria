@@ -6,7 +6,7 @@ namespace TCOY.Level
 {
     public class MusicAndAmbience : MonoBehaviour
     {
-        enum MusicState { level, battle }
+        enum MusicState { level, battle, gameOver }
         enum AmbienceState { exterior, interior }
 
         [SerializeField] AudioSource musicSource;
@@ -16,12 +16,27 @@ namespace TCOY.Level
         [SerializeField] AudioClip levelAmbience;
         [SerializeField] AudioClip interiorAmbience;
         [SerializeField] List<AudioClip> battleMusic;
+        [SerializeField] AudioClip gameOver;
 
         MusicState musicState = MusicState.level;
         AmbienceState ambienceState = AmbienceState.exterior;
 
         void Update()
         {
+            if (IBattleData.isGameOver)
+            {
+                if (musicState != MusicState.gameOver)
+                {
+                    musicState = MusicState.gameOver;
+                    musicSource.clip = gameOver;
+                    musicSource.Play();
+                }
+                return;
+            }
+
+            if (!GameStateManager.Instance.isPlaying)
+                return;
+
             if (ITransformTeleporter.state == ITransformTeleporter.State.Interior && ambienceState == AmbienceState.exterior)
             {
                 ambienceState = AmbienceState.interior;
@@ -47,9 +62,6 @@ namespace TCOY.Level
                 musicSource.clip = levelMusic;
                 musicSource.Play();
             }
-           
-        }
-
-        
+        }  
     }
 }

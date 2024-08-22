@@ -30,6 +30,9 @@ public class BattleManager : MonoBehaviour
 
     void Update()
     {
+        if (GameStateManager.Instance.isStopped)
+            return;
+
         CheckForGameOver();
     }
 
@@ -211,9 +214,6 @@ public class BattleManager : MonoBehaviour
 
     void CheckForGameOver()
     {
-        if (!GameStateManager.Instance.isPlaying)
-            return;
-
         int count = Mathf.Min(allies.childCount, IAllie.MaxActiveAlliesCount);
 
         for (int i = 0; i < count; i++)

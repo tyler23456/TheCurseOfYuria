@@ -24,6 +24,7 @@ public interface IStats
     int GetWeakness(int index);
     void OffsetAttribute(IStats.Attribute attribute, int offset);
     void OffsetWeakness(int index, int offset);
+    void ResetHPAndMP();
     void ResetAll();
     void ApplyCost(int cost);
     void ApplyHPDamage(float amount);

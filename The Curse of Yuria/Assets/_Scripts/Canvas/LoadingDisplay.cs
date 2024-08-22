@@ -57,11 +57,10 @@ public class LoadingDisplay : DisplayBase
         int count = Mathf.Min(allies.childCount, IAllie.MaxActiveAlliesCount);
 
         for (int i = 1; i < count; i++)
-            if (allies.childCount >= 3)
-            {
-                IController controller = allies.GetChild(i).GetComponent<IController>();
-                controller.ResetToDefault();
-            }
+        {
+            IController controller = allies.GetChild(i).GetComponent<IController>();
+            controller.ResetToDefault();
+        }
         gameObject.SetActive(false);
     }
 }

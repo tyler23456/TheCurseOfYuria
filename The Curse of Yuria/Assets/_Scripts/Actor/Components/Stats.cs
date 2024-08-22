@@ -85,6 +85,12 @@ namespace TCOY.UserActors
             onStatsChanged.Invoke(attributes);
         }
 
+        public void ResetHPAndMP()
+        {
+            HP = maxHP;
+            MP = maxMP;
+        }
+
         public void ResetAll()
         {
             HP = maxHP;

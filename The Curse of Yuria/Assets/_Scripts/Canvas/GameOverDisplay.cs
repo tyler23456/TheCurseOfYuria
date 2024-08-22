@@ -34,6 +34,7 @@ public class GameOverDisplay : DisplayBase
     protected override void OnEnable()
     {
         base.OnEnable();
+        GameStateManager.Instance.Stop();
 
         load.onClick.RemoveAllListeners();
         mainMenu.onClick.RemoveAllListeners();
@@ -49,11 +50,15 @@ public class GameOverDisplay : DisplayBase
 
         animator.SetTrigger("Activate");
         rightPanel.gameObject.SetActive(false);
+
+        IBattleData.isGameOver = true;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
+
+        IBattleData.isGameOver = false;
     }
 
     void OnTabEnter()

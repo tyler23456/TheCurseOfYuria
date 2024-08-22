@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: {fileID: 11400000, guid: 58cef171858bae84f89fe92dfed46ea9, type: 2}
   text: Lastly, you can collect olms (currency) by either selling items to a shop
-    keeper or merchant, or by collecting olms.  olms are a type of gem that can be
-    found throughout the game.
+    keeper or merchant, or by finding olms.  olms are a type of gem that can be found
+    throughout the game.

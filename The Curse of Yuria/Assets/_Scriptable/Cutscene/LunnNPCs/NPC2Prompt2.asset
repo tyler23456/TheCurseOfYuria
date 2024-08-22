@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: {fileID: 11400000, guid: 23dbbacd86187164f89b6b3f78becc41, type: 2}
   text: In the top of the command window, you will see three icons.  An "Attack"
-    icon, a "Scroll" icon and a "supply" icon.  The attack icons allows you to attack
+    icon, a "Scroll" icon and a "supply" icon.  The attack icon allows you to attack
     targets.  The scroll icon allows you to use magic.  The supply icon allows you
     to use items such as potions, food, etc.
