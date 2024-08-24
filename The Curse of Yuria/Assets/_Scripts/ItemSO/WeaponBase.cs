@@ -29,7 +29,7 @@ namespace TCOY.Items
             yield return null;
         }
 
-        bool CheckForStatusEffectOnHits(IActor user, IActor target, IItem item)
+        Effect CheckForStatusEffectOnHits(IActor user, IActor target, IItem item)
         {
             return statusEffectsInfo.CheckForStatusEffectCounters(user, target, item);
         }

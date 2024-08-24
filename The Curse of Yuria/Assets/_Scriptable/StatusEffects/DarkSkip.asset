@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DarkSkip
   m_EditorClassIdentifier: 
   duration: 120
+  particleSystem: {fileID: 7485119826907495163, guid: d1620c53695f8374eafe24e48f1fe8be, type: 3}
   elementTypes:
   - {fileID: 11400000, guid: 0ed350d9141d4124d8cfe2e5c127feb3, type: 2}
-  itemTypes: []

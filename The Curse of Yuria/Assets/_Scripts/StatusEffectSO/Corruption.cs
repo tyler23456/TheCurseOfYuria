@@ -14,10 +14,10 @@ public class Corruption : StatusEffectIcon
         base.Activate(target, accumulator);
     }
 
-    public override bool OnAttack(IActor user, IActor target, IItem item)
+    public override Effect OnAttack(IActor user, IActor target, IItem item)
     {
         if (Random.Range(0f, 1f) >= probability)
-            return false;
+            return new Effect(user, target, item);
 
         Move move = moves[Random.Range(0, moves.Count)];
         List<IActor> targets = new List<IActor>(move.targeter.CalculateTargets(user.getCollider2D.bounds.center));
@@ -28,11 +28,9 @@ public class Corruption : StatusEffectIcon
             targets.RemoveAll(i => i.obj.layer == layer);
 
         if (targets.Count == 0)
-            return false;
+            return new Effect(user, target, item);
 
-        Command command = new Command(user, move.skill, targets[0]);
-        IBattleData.pendingCommands.AddLast(command);
-        return true;
+        return new Effect(user, targets[0], move.skill, false, true);
     }
 
     public override void OnAdd(IActor target)

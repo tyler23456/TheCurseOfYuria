@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892b16b08acb6a543a85205462cde204, type: 3}
   m_Name: Deflect
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  visualEffect: {fileID: 1195529030501976933, guid: 503b40e97c037b94d931467092af8fb5, type: 3}
   duration: 120
+  particleSystem: {fileID: 7485119826907495163, guid: bc39da201042b5e47833da1d5b7ed317, type: 3}
   type: 0

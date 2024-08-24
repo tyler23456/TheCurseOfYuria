@@ -11,8 +11,8 @@ public abstract class StatusEffectBase : StatusEffect
 
     public override void Activate(IActor target, float accumulator = 0f)
     {
-        OnAdd(target);
         target.getStatusEffects.Add(name, accumulator);
+        OnAdd(target);
         target.StartCoroutine(UpdateEffect(target));
     }
 
@@ -21,20 +21,17 @@ public abstract class StatusEffectBase : StatusEffect
         while (target.getStatusEffects.Elapse(name, duration))
             yield return null;
 
-        OnRemove(target);
-        target.getStatusEffects.Remove(name);
+        OnRemove(target);    
     }
 
-    public override bool OnAttack(IActor user, IActor target, IItem item)
+    public override Effect OnAttack(IActor user, IActor target, IItem item)
     {
-        bool itemCancellationFlag = false;
-        return itemCancellationFlag;
+        return new Effect(user, target, item);
     }
 
-    public override bool OnHit(IActor user, IActor target, IItem item)
+    public override Effect OnHit(IActor user, IActor target, IItem item)
     {
-        bool itemCancellationFlag = false;
-        return itemCancellationFlag;
+        return new Effect(user, target, item);
     }
 
     public override void OnAdd(IActor target)
@@ -44,6 +41,6 @@ public abstract class StatusEffectBase : StatusEffect
 
     public override void OnRemove(IActor target)
     {
-        
+        target.getStatusEffects.Remove(name);
     }
 }

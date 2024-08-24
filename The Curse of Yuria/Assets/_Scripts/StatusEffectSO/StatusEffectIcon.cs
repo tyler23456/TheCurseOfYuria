@@ -14,12 +14,13 @@ public abstract class StatusEffectIcon : StatusEffectBase
             return;
 
         GameObject obj = new GameObject(icon.name);
-        obj.transform.parent = target.obj.transform;
+        obj.transform.parent = target.obj.transform.GetChild(3);
+        obj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         SpriteRenderer spriteRenderer = obj.AddComponent<SpriteRenderer>();
         spriteRenderer.sprite = icon;
-        spriteRenderer.sortingOrder = 199;
-        int count = target.getStatusEffects.getCount;
-        obj.transform.localPosition = new Vector3(-3f + (1.5f * count), 1f, 0f);
+        spriteRenderer.sortingOrder = 515;
+        int count = target.obj.transform.GetChild(3).childCount;
+        obj.transform.position = target.getCollider2D.bounds.max + new Vector3(-3f + (1.5f * count), 0.2f, 0f);
     }
 
     public override void OnRemove(IActor target)
@@ -29,6 +30,6 @@ public abstract class StatusEffectIcon : StatusEffectBase
         if (icon == null)
             return;
 
-        Destroy(target.obj.transform.Find(icon.name).gameObject);
+        Destroy(target.obj.transform.GetChild(3).Find(icon.name).gameObject);
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace TCOY.Items
 {
@@ -11,16 +12,24 @@ namespace TCOY.Items
     {
         [Space(5)] [SerializeField] public List<StatusEffectProbability> statusEffectProbabilities = new List<StatusEffectProbability>();
 
-        public bool CheckForStatusEffectCounters(IActor user, IActor target, IItem item)
+        public Effect CheckForStatusEffectCounters(IActor user, IActor target, IItem item)
         {
-            List<bool> itemCancellationFlags = new List<bool>();
+            List<Effect> effects = new List<Effect>();
+
+            int i = 0;
+            bool isEffectCounterable = false;
             foreach (string statusEffect in target.getStatusEffects.GetNames())
-                itemCancellationFlags.Add(StatFXDatabase.Instance.Get(statusEffect).OnHit(user, target, item));
+            {
+                effects.Add(StatFXDatabase.Instance.Get(statusEffect).OnHit(user, target, item));
 
-            if (itemCancellationFlags.Contains(true))
-                return true;
-
-            return false;
+                if (effects.Last().itemCancellationFlag == true || effects.Last().isSuccessful)
+                {
+                    isEffectCounterable = true;
+                    break;
+                }
+                i++;
+            }       
+            return isEffectCounterable? effects[i] : new Effect(user, target, item);
         }
 
         public void CheckStatusEffects(IActor target)

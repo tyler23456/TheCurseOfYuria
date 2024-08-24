@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace TCOY.UserActors
 {
-#if UNITY_EDITOR
+
     [ExecuteAlways]
     public class CharacterNameBehavior : MonoBehaviour
     {
@@ -18,6 +18,7 @@ namespace TCOY.UserActors
             characterName.gameObject = this.gameObject;
         }
 
+#if UNITY_EDITOR
         public void Update()
         {
             if (!changeName)
@@ -43,6 +44,6 @@ namespace TCOY.UserActors
                 AssetDatabase.SaveAssetIfDirty(characterName);
             }
         }
-    }
 #endif
+    }
 }

@@ -27,7 +27,12 @@ namespace TCOY.Items
 
             yield return null;
         }
-     
+
+        public override IEnumerator Use(IActor target)
+        {
+            yield return target.StartCoroutine(skillInfo.PerformEffect(target));
+        }
+
         public override void Equip(IActor target)
         {
             base.Equip(target);

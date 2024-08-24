@@ -7,7 +7,7 @@ using UnityEngine;
 namespace TCOY.Items
 {
     [CreateAssetMenu(fileName = "Attack", menuName = "Attacks/Attack")]
-    public class Attack : SkillBase, IItem
+    public class Attack : SkillBase, IItem, IMelee
     {
         public override IEnumerator Use(IActor user, List<IActor> targets)
         {

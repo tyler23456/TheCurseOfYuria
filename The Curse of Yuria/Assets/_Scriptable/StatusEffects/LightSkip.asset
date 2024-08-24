@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: LightSkip
   m_EditorClassIdentifier: 
   duration: 120
+  particleSystem: {fileID: 7485119826907495163, guid: 70d44feb1df13974cba0a1c3eb20961e, type: 3}
   elementTypes:
   - {fileID: 11400000, guid: 97b64b870e1d7cf4e94ad6c7aced1304, type: 2}
-  itemTypes: []

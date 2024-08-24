@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: IceSkip
   m_EditorClassIdentifier: 
   duration: 120
+  particleSystem: {fileID: 7485119826907495163, guid: 7414ac7ca929e4c4eb8540e2fdda7611, type: 3}
   elementTypes:
   - {fileID: 11400000, guid: ec53dfa52e95a994f944653b3b1d8422, type: 2}
-  itemTypes: []

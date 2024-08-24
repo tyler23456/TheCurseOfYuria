@@ -1,25 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [CreateAssetMenu(fileName = "NewCancellation", menuName = "StatusEffects/Cancellation")]
 public class Cancellation : StatusEffectBase
 {
+    [SerializeField] ParticleSystem particleSystem;
     [SerializeField] List<ElementType> elementTypes;
 
-    public override bool OnHit(IActor user, IActor target, IItem item)
+    public override Effect OnHit(IActor user, IActor target, IItem item)
     {
         if (item is not Skill)
-            return false;
+            return new Effect(user, target, item);
 
         Skill skill = (Skill)item;
 
-        if (elementTypes.TrueForAll(i => i.name != skill.elementType.name))
+        if (elementTypes.Any(i => i.name == skill.elementType.name))
         {
-            user.getStatusEffects.Remove(name);
-            return true;
+            Destroy(Instantiate(particleSystem.gameObject, target.obj.transform), 10f);
+            OnRemove(target);         
+            return new Effect(user, target, item, true, true);
         }
             
-        return false;
+        return new Effect(user, target, item);
+    }
+
+    public override void OnRemove(IActor target)
+    {
+        base.OnRemove(target);
+        target.getStatusEffects.Remove(name);
     }
 }

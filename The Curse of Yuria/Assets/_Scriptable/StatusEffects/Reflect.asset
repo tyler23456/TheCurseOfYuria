@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892b16b08acb6a543a85205462cde204, type: 3}
   m_Name: Reflect
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  visualEffect: {fileID: 1060761730636022831, guid: 7da78a4f9a3c7574f96a3e76848e9ef0, type: 3}
   duration: 120
+  particleSystem: {fileID: 3961702990707023446, guid: 915bd4112581d5847bf3caaaec966cea, type: 3}
   type: 1

@@ -11,9 +11,9 @@ public class StatFXDatabase : MonoBehaviour
     [SerializeField] StatusEffectBase knockOut;
     [SerializeField] AssetLabelReference statusEffectsReference;
     [SerializeField] bool populate = false;
-    [SerializeField] List<StatusEffectBase> serializedEffects = new List<StatusEffectBase>();
+    [SerializeField] List<StatusEffect> serializedEffects = new List<StatusEffect>();
 
-    Dictionary<string, IStatusEffect> statusEffects = new Dictionary<string, IStatusEffect>();
+    Dictionary<string, StatusEffect> statusEffects = new Dictionary<string, StatusEffect>();
 
     public StatusEffect getKnockOut => knockOut;
 
@@ -29,17 +29,17 @@ public class StatFXDatabase : MonoBehaviour
 
         populate = false;
 
-        Addressables.LoadAssetsAsync<StatusEffectBase>(statusEffectsReference, (i) =>
+        Addressables.LoadAssetsAsync<StatusEffect>(statusEffectsReference, (i) =>
         {
             serializedEffects.Add(i);
         }).WaitForCompletion();
     }
 
-    public IStatusEffect Get(string name)
+    public StatusEffect Get(string name)
     {
         if (statusEffects.Count == 0)
         {
-            foreach (IStatusEffect effect in serializedEffects)
+            foreach (StatusEffect effect in serializedEffects)
                 statusEffects.Add(effect.name, effect);
             serializedEffects.Clear();
         }

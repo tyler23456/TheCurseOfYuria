@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 206d692147b45cf4b963ac225be28883, type: 3}
   _prefab: {fileID: 2128515311120533104, guid: 25cd8fac0860779418d773d376dab0b0, type: 3}
-  _description: 
+  _description: Its a bottle with a mixture in it.  Drink it and see what happens.
   _itemSprite:
     Name: Bottle1
     Collection: Basic
@@ -34,6 +34,6 @@ MonoBehaviour:
     elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
     calculationType: {fileID: 11400000, guid: f117aa43d73050a469876f83fa098e44, type: 2}
     bonusTypes: []
-    particleSystem: {fileID: 0}
+    particleSystem: {fileID: 1950955519420029270, guid: c9e0b705eb72cdf4cb4c88e0d7d2fae0, type: 3}
   statusEffectsInfo:
     statusEffectProbabilities: []

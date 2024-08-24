@@ -23,7 +23,7 @@ namespace TCOY.Items
         public CalculationType calculationType => skillInfo.calculationType;
         public List<BonusType> bonusTypes => skillInfo.bonusTypes;
 
-        bool CheckForStatusEffectOnHits(IActor user, IActor target, IItem item)
+        Effect CheckForStatusEffectOnHits(IActor user, IActor target, IItem item)
         {
             return statusEffectsInfo.CheckForStatusEffectCounters(user, target, item);
         }

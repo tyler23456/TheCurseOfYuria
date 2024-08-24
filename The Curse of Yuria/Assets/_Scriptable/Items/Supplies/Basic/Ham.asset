@@ -34,6 +34,6 @@ MonoBehaviour:
     elementType: {fileID: 11400000, guid: a238b8bbc5cf66f4a92d40d02b972012, type: 2}
     calculationType: {fileID: 11400000, guid: f117aa43d73050a469876f83fa098e44, type: 2}
     bonusTypes: []
-    particleSystem: {fileID: 8544434443688463029, guid: 7fbb7b8dbd54bdf42b2b5875fe14b8bf, type: 3}
+    particleSystem: {fileID: 3930562947882695137, guid: 5feaf8a7d3596234a9eedf0a181139a2, type: 3}
   statusEffectsInfo:
     statusEffectProbabilities: []

@@ -20,17 +20,20 @@ namespace TCOY.Items
             armType.PlaySoundEffect(user.getAudioSource);
             yield return new WaitForSecondsRealtime(0.3f);
 
-            if (statusEffectsInfo.CheckForStatusEffectCounters(user, target, item))
+            Effect effect = statusEffectsInfo.CheckForStatusEffectCounters(user, target, item);
+            if (effect.itemCancellationFlag)
                 yield break;
 
-            yield return PerformEffect(user, target, statusEffectsInfo);
+            yield return PerformEffect(effect.user, effect.target, statusEffectsInfo);
         }
 
         public IEnumerator PerformEffect(IActor user, IActor target, StatusEffectsInfo statusEffectsInfo)
         {
             if (this.particleSystem != null)
             {
-                ParticleSystem particleSystem = GameObject.Instantiate(this.particleSystem.gameObject, target.obj.transform).GetComponent<ParticleSystem>();
+                ParticleSystem particleSystem = GameObject.Instantiate(this.particleSystem.gameObject, target.getCollider2D.bounds.center, Quaternion.identity).GetComponent<ParticleSystem>();
+                particleSystem.transform.parent = target.obj.transform;
+
                 GameObject.Destroy(particleSystem.gameObject, 10f);
 
                 while (particleSystem.time < particleSystem.main.duration / 10f)

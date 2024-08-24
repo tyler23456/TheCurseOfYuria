@@ -16,14 +16,16 @@ public class Redirection : StatusEffectBase, IStatusEffect
         base.Activate(target, duration);
     }
 
-    public override bool OnHit(IActor user, IActor target, IItem item)
+    public override Effect OnHit(IActor user, IActor target, IItem item)
     {
-        if (type == Type.Deflection && item is IAttack || type == Type.Reflection && item is IScroll)
+        bool isSuccessful = false;
+        if (type == Type.Deflection && item is IMelee || type == Type.Reflection && item is IScroll)
         {
-            Destroy(Instantiate(particleSystem.gameObject, target.obj.transform), particleSystem.main.duration);
+            Destroy(Instantiate(particleSystem.gameObject, target.obj.transform), 10f);
             target = user;
+            isSuccessful = true;
         }
 
-        return false;
+        return new Effect(user, target, item, false, isSuccessful);
     }
 }

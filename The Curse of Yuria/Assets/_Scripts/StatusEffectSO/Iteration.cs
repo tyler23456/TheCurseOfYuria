@@ -19,10 +19,12 @@ public class Iteration : StatusEffectIcon, IStatusEffect
 
     public IEnumerator enumerator(IActor target)
     {
+        yield return new WaitForSeconds(tickDuration);
+
         while (target.getStatusEffects.Contains(name))
         {
             target.StartCoroutine(action.Use(target));
-            yield return new WaitForSeconds(tickDuration);
-        }   
+            yield return new WaitForSeconds(tickDuration);         
+        }
     }
 }
