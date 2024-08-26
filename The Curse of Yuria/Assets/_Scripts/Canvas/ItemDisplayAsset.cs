@@ -93,6 +93,9 @@ namespace TCOY.Canvas
         public Action<string> onEnterItem = (itemName) => { };
         public Action<string> onExitItem = (itemName) => { };
 
+        List<IActor> activeAllies = new List<IActor>();
+        IActor tempActor;
+
         public void Initialize()
         {
             globalInventoryUI = new InventoryUI();
@@ -159,10 +162,21 @@ namespace TCOY.Canvas
         {
             allie?.obj.SetActive(previousActive);
 
-            allieIndex += offset;
-            allieIndex = Mathf.Clamp(allieIndex, 0, allies.childCount - 1);
+            activeAllies.Clear();
+            foreach (Transform t in allies)
+            {
+                tempActor = t.GetComponent<IActor>();
+                if (!tempActor.getStatusEffects.Contains("KnockOut"))
+                    activeAllies.Add(tempActor);
+            }
 
-            allie = allies.GetChild(allieIndex).GetComponent<IActor>();
+            if (activeAllies.Count == 0)
+                gameObject.SetActive(false);
+                
+            allieIndex += offset;
+            allieIndex = Mathf.Clamp(allieIndex, 0, activeAllies.Count - 1);
+
+            allie = activeAllies[allieIndex];
             previousActive = allie.obj.activeSelf;
             allie.obj.SetActive(true);
 
@@ -251,7 +265,7 @@ namespace TCOY.Canvas
                 MenuSFXManager.Instance.PlayCyclePartyMembers();
                 RefreshAllie(1);
             }
-            detailedActorViewCamera.transform.position = allie.obj.transform.position + new Vector3(0f, 1f, -2.5f);
+            detailedActorViewCamera.transform.position = allie.getCollider2D.bounds.center + new Vector3(0f, 0f, -2.8f);
         }
 
         public void ShowItemInfo(string itemName)

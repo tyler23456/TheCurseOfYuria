@@ -17,7 +17,7 @@ namespace TCOY.ControllerStates
         
         protected override void Stay(IController controller)
         {
-            if (controller.idleState == 1)
+            if (IBattleData.isInBattle)
                 return;
 
             if (controller.waypoints.Count == 0 || controller.waypointIndex >= controller.waypoints.Count)
@@ -43,7 +43,7 @@ namespace TCOY.ControllerStates
 
         protected override void Exit(IController controller)
         {
-            controller.animator.SetInteger("State", controller.idleState);
+            controller.animator.SetInteger("State", 0);
         }
 
         public override ActionState GetSisterState()

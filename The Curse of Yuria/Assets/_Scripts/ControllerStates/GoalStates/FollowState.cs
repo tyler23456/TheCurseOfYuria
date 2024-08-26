@@ -9,17 +9,18 @@ namespace TCOY.ControllerStates
     [CreateAssetMenu(fileName = "FollowState", menuName = "GoalStates/FollowState")]
     public class FollowState : GoalBase
     {
+        static Transform parent;
+
         protected override void Enter(IController controller)
         {
             base.Enter(controller);
 
-            if (controller.actor.obj.transform.parent.name == "Allies")
-                controller.target = controller.actor.obj.transform.parent.GetChild(controller.actor.obj.transform.GetSiblingIndex() - 1).GetComponent<IPath>();    
-            else
-                controller.target = GameObject.Find("/DontDestroyOnLoad/Allies").transform.GetChild(0).GetComponent<IPath>();
+            parent = controller.actor.obj.transform.parent;
+
+            if (parent.name != "Allies")
+                controller.target = GameObject.Find("/DontDestroyOnLoad/Allies").transform.GetChild(0).GetComponent<IPath>();         
 
             controller.SetAction(StateDatabase.Instance.GetAction("AutoResetState"));
-
             controller.waypoints.Clear();
             controller.waypointIndex = 0;
             controller.StartCoroutine(CheckForPath(controller));

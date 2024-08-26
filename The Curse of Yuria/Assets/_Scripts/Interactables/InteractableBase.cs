@@ -45,14 +45,16 @@ namespace TCOY.Interactables
 
         protected virtual void SetPositionOfAllies(IActor player, Vector2 position, Vector3 eulerAngles)
         {
-            bool previousActive = false;
+            bool previousKinematic = false;
+            IController controller = null;
             foreach (Transform allie in player.obj.transform.parent)
             {
-                previousActive = allie.gameObject.activeSelf;
-                allie.gameObject.SetActive(false);
+                controller = allie.GetComponent<IController>();
+                previousKinematic = controller.rigidbody2D.isKinematic;
+                controller.rigidbody2D.isKinematic = true;
                 allie.position = position;
                 allie.eulerAngles = eulerAngles;
-                allie.gameObject.SetActive(previousActive);
+                controller.rigidbody2D.isKinematic = previousKinematic;
             }
 
             camera.transform.position = player.obj.transform.position + new Vector3(0f, 0f, -1f);

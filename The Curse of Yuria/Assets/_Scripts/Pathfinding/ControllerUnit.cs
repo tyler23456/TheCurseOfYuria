@@ -44,7 +44,6 @@ namespace TCOY.Pathfinding
 
         public bool isPathfindingPaused { get; set; } = false;
         public bool isAutoMovementPaused { get; set; } = false;
-        public int idleState { get; set; } = 0;
 
         public bool previousIsGrounded { get; private set; } = false;
         public bool isGrounded { get; private set; } = false;
@@ -52,6 +51,9 @@ namespace TCOY.Pathfinding
 
         public void ResetToDefault()
         {
+            if (actor.getStatusEffects.Contains("KnockOut"))
+                return;
+
             forcePathReconnection = true;
             SetGoal(initialGoalState);
         }

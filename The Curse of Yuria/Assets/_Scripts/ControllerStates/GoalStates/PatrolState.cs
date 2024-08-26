@@ -17,7 +17,6 @@ namespace TCOY.ControllerStates
             controller.waypoints.Clear();
             controller.waypointIndex = Random.Range(0, waypointPositions.Length);
             controller.accumulator = Random.Range(0, idleDuration);
-            controller.idleState = 0;
             controller.actor.RotateToward(controller.origin + waypointPositions[controller.waypointIndex]);
         }
 
@@ -34,7 +33,7 @@ namespace TCOY.ControllerStates
             else
             {
                 controller.accumulator += Time.deltaTime;
-                controller.animator.SetInteger("State", controller.idleState);
+                controller.animator.SetInteger("State", 0);
 
                 if (controller.accumulator < idleDuration)
                     return;

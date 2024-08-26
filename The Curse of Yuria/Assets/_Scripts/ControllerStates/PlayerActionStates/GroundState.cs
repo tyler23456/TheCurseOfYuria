@@ -15,7 +15,7 @@ namespace TCOY.ControllerStates
 
         protected void PlayerMovement(IController controller)
         {
-            controller.animator.SetInteger("State", controller.idleState);
+            controller.animator.SetInteger("State", 0);
 
             if (controller.isGrounded != controller.previousIsGrounded)
             {

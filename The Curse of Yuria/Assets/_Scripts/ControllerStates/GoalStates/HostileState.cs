@@ -9,8 +9,7 @@ namespace TCOY.ControllerStates
     {
         protected override void Enter(IController controller)
         {
-            controller.idleState = 1;
-            controller.animator.SetInteger("State", controller.idleState);
+            controller.animator.SetInteger("State", 0);
             controller.actor.getATBGuage.ExitStasis();
         }
 
@@ -21,7 +20,6 @@ namespace TCOY.ControllerStates
 
         protected override void Exit(IController controller)
         {
-            controller.idleState = 0;
         }
     }
 }

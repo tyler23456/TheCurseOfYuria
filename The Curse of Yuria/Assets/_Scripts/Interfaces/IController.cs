@@ -7,7 +7,6 @@ public interface IController : IPath
     const float stopDistance = 1.5f;
     const float goDistance = 2.25f;
     float accumulator { get; set; }
-    int idleState { get; set; }
     Vector2 origin { get; }
     Vector2 velocity { get; set; }
     float speed { get; set; }

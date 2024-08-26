@@ -106,6 +106,8 @@ namespace TCOY.UserActors
             if (transform.childCount == 0)
                 return;
 
+            ResetTargets();
+
             mainCamera.cullingMask = defaultMainCameraLayerMask;
 
             int count = Mathf.Min(transform.childCount, IAllie.MaxActiveAlliesCount);
@@ -136,6 +138,27 @@ namespace TCOY.UserActors
             }
 
             IPlayerControls.initializeGoalStatesOnRefresh = true;
+        }
+
+        public void ResetTargets()
+        {
+            int count = Mathf.Min(transform.childCount, IAllie.MaxActiveAlliesCount);
+
+            for (int i = 1; i < count; i++)
+            {
+                controller = transform.GetChild(i).GetComponent<IController>();
+
+                for (int ii = transform.GetChild(i).GetSiblingIndex() - 1; ii >= 0; ii--)
+                {
+                    if (!transform.GetChild(ii).GetComponent<IActor>().getStatusEffects.Contains("KnockOut"))
+                    {
+                        controller.target = transform.GetChild(ii).GetComponent<IPath>();
+                        break;
+                    }
+                }
+                if (controller.target == null)
+                    controller.target = transform.GetChild(0).GetComponent<IPath>();
+            }
         }
 
         private void OnDrawGizmos()

@@ -24,6 +24,8 @@ namespace TCOY.UserActors
             aTBGuage.OnATBGuageFilled = () => IBattleData.aTBGuagesFilled.AddLast(this);
 
             stats.onHPDamage += (damage) => animator.SetTrigger("Hit");
+
+            stats.onZeroHealth += () => transform.parent.GetComponent<IPlayerControls>().ResetTargets();
         }
 
         protected void FixedUpdate()
