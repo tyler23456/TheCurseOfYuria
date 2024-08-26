@@ -4,35 +4,38 @@ using UnityEngine;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 using HeroEditor.Common.Enums;
 
-public class DefaultItems : MonoBehaviour
+namespace TCOY.UserActors
 {
-    [SerializeField] Character character;
-    [SerializeField] List<Equipable> defaultItems;
-
-    protected void OnValidate()
+    public class DefaultItems : MonoBehaviour
     {
-        character = GetComponent<Character>();
-        character.UnEquip(EquipmentPart.Helmet);
-        character.UnEquip(EquipmentPart.Earrings);
-        character.UnEquip(EquipmentPart.Glasses);
-        character.UnEquip(EquipmentPart.Mask);
-        character.UnEquip(EquipmentPart.MeleeWeapon1H);
-        character.UnEquip(EquipmentPart.MeleeWeapon2H);
-        character.UnEquip(EquipmentPart.Cape);
-        character.UnEquip(EquipmentPart.Armor);
-        character.UnEquip(EquipmentPart.Shield);
-        character.UnEquip(EquipmentPart.Bow);
+        [SerializeField] Character character;
+        [SerializeField] List<Equipable> defaultItems;
 
-        if (defaultItems == null)
-            return;
+        protected void OnValidate()
+        {
+            character = GetComponent<Character>();
+            character.UnEquip(EquipmentPart.Helmet);
+            character.UnEquip(EquipmentPart.Earrings);
+            character.UnEquip(EquipmentPart.Glasses);
+            character.UnEquip(EquipmentPart.Mask);
+            character.UnEquip(EquipmentPart.MeleeWeapon1H);
+            character.UnEquip(EquipmentPart.MeleeWeapon2H);
+            character.UnEquip(EquipmentPart.Cape);
+            character.UnEquip(EquipmentPart.Armor);
+            character.UnEquip(EquipmentPart.Shield);
+            character.UnEquip(EquipmentPart.Bow);
 
-        foreach (Equipable item in defaultItems)
-            if (item != null)
-                character.Equip(item.itemSprite, item.part);
-    }
+            if (defaultItems == null)
+                return;
 
-    public Equipable[] GetDefaultItems()
-    {
-        return defaultItems.ToArray();
+            foreach (Equipable item in defaultItems)
+                if (item != null)
+                    character.Equip(item.itemSprite, item.part);
+        }
+
+        public Equipable[] GetDefaultItems()
+        {
+            return defaultItems.ToArray();
+        }
     }
 }

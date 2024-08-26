@@ -3,122 +3,125 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OptionsDisplay : DisplayBase
+namespace TCOY.Canvas
 {
-    public static DisplayBase Instance { get; protected set; }
-
-    [SerializeField] Button graphicsTab;
-    [SerializeField] Button SettingsTab;
-    [SerializeField] Button controlsTab;
-    [SerializeField] Button saveTab;
-    [SerializeField] Button quitTab;
-    [SerializeField] Button exitButton;
-
-    [SerializeField] RectTransform graphicsDisplay;
-    [SerializeField] RectTransform settingsDisplay;
-    [SerializeField] RectTransform controlsDisplay;
-    [SerializeField] RectTransform saveDisplay;
-    [SerializeField] RectTransform quitDisplay;
-
-    public override void Initialize()
+    public class OptionsDisplay : DisplayBase
     {
-        base.Initialize();
-        Instance = this;
-    }
+        public static DisplayBase Instance { get; protected set; }
 
-    protected override void OnEnable()
-    {
-        base.OnEnable();
+        [SerializeField] Button graphicsTab;
+        [SerializeField] Button SettingsTab;
+        [SerializeField] Button controlsTab;
+        [SerializeField] Button saveTab;
+        [SerializeField] Button quitTab;
+        [SerializeField] Button exitButton;
 
-        graphicsTab.onClick.RemoveAllListeners();
-        SettingsTab.onClick.RemoveAllListeners();
-        controlsTab.onClick.RemoveAllListeners();
-        saveTab.onClick.RemoveAllListeners();
-        quitTab.onClick.RemoveAllListeners();
-        exitButton.onClick.RemoveAllListeners();
+        [SerializeField] RectTransform graphicsDisplay;
+        [SerializeField] RectTransform settingsDisplay;
+        [SerializeField] RectTransform controlsDisplay;
+        [SerializeField] RectTransform saveDisplay;
+        [SerializeField] RectTransform quitDisplay;
 
-        graphicsTab.onClick.AddListener(OnClickGraphicsTab);
-        SettingsTab.onClick.AddListener(OnClickSettingsTab);
-        controlsTab.onClick.AddListener(OnClickControlsTab);
-        saveTab.onClick.AddListener(OnClickSaveTab);
-        quitTab.onClick.AddListener(OnClickQuitTab);
+        public override void Initialize()
+        {
+            base.Initialize();
+            Instance = this;
+        }
 
-        graphicsTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
-        SettingsTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
-        controlsTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
-        saveTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
-        quitTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+        protected override void OnEnable()
+        {
+            base.OnEnable();
 
-        //--------------------------------------------
-        graphicsTab.gameObject.SetActive(false);
-        SettingsTab.gameObject.SetActive(false);
-        controlsTab.gameObject.SetActive(false);
-        //---------------------------------------------
+            graphicsTab.onClick.RemoveAllListeners();
+            SettingsTab.onClick.RemoveAllListeners();
+            controlsTab.onClick.RemoveAllListeners();
+            saveTab.onClick.RemoveAllListeners();
+            quitTab.onClick.RemoveAllListeners();
+            exitButton.onClick.RemoveAllListeners();
 
-        exitButton.onClick.AddListener(OnExit);
-        OnClickSaveTab();
+            graphicsTab.onClick.AddListener(OnClickGraphicsTab);
+            SettingsTab.onClick.AddListener(OnClickSettingsTab);
+            controlsTab.onClick.AddListener(OnClickControlsTab);
+            saveTab.onClick.AddListener(OnClickSaveTab);
+            quitTab.onClick.AddListener(OnClickQuitTab);
 
-        MenuSFXManager.Instance.PlayOptionsMenuOpen();
-    }
+            graphicsTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+            SettingsTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+            controlsTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+            saveTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
+            quitTab.GetComponent<PointerHover>().onPointerEnter = OnTabEnter;
 
-    protected override void OnDisable()
-    {
-        base.OnDisable();
+            //--------------------------------------------
+            graphicsTab.gameObject.SetActive(false);
+            SettingsTab.gameObject.SetActive(false);
+            controlsTab.gameObject.SetActive(false);
+            //---------------------------------------------
 
-        MenuSFXManager.Instance.PlayOptionsMenuClose();
-    }
+            exitButton.onClick.AddListener(OnExit);
+            OnClickSaveTab();
 
-    private void OnExit()
-    {
-        gameObject.SetActive(false);   
-    }
+            MenuSFXManager.Instance.PlayOptionsMenuOpen();
+        }
 
-    void OnTabEnter()
-    {
-        MenuSFXManager.Instance.PlayHover();
-    }
+        protected override void OnDisable()
+        {
+            base.OnDisable();
 
-    void ResetTabDisplays()
-    {
-        graphicsDisplay.gameObject.SetActive(false);
-        settingsDisplay.gameObject.SetActive(false);
-        controlsDisplay.gameObject.SetActive(false);
-        saveDisplay.gameObject.SetActive(false);
-        quitDisplay.gameObject.SetActive(false);
-    }
+            MenuSFXManager.Instance.PlayOptionsMenuClose();
+        }
 
-    void OnClickGraphicsTab()
-    {
-        ResetTabDisplays();
-        graphicsDisplay.gameObject.SetActive(true);
-        MenuSFXManager.Instance.PlayClick();
-    }
+        private void OnExit()
+        {
+            gameObject.SetActive(false);
+        }
 
-    void OnClickSettingsTab()
-    {
-        ResetTabDisplays();
-        settingsDisplay.gameObject.SetActive(true);
-        MenuSFXManager.Instance.PlayClick();
-    }
+        void OnTabEnter()
+        {
+            MenuSFXManager.Instance.PlayHover();
+        }
 
-    void OnClickControlsTab()
-    {
-        ResetTabDisplays();
-        controlsDisplay.gameObject.SetActive(true);
-        MenuSFXManager.Instance.PlayClick();
-    }
+        void ResetTabDisplays()
+        {
+            graphicsDisplay.gameObject.SetActive(false);
+            settingsDisplay.gameObject.SetActive(false);
+            controlsDisplay.gameObject.SetActive(false);
+            saveDisplay.gameObject.SetActive(false);
+            quitDisplay.gameObject.SetActive(false);
+        }
 
-    void OnClickSaveTab()
-    {
-        ResetTabDisplays();
-        saveDisplay.gameObject.SetActive(true);
-        MenuSFXManager.Instance.PlayClick();
-    }
+        void OnClickGraphicsTab()
+        {
+            ResetTabDisplays();
+            graphicsDisplay.gameObject.SetActive(true);
+            MenuSFXManager.Instance.PlayClick();
+        }
 
-    void OnClickQuitTab()
-    {
-        ResetTabDisplays();
-        quitDisplay.gameObject.SetActive(true);
-        MenuSFXManager.Instance.PlayClick();
+        void OnClickSettingsTab()
+        {
+            ResetTabDisplays();
+            settingsDisplay.gameObject.SetActive(true);
+            MenuSFXManager.Instance.PlayClick();
+        }
+
+        void OnClickControlsTab()
+        {
+            ResetTabDisplays();
+            controlsDisplay.gameObject.SetActive(true);
+            MenuSFXManager.Instance.PlayClick();
+        }
+
+        void OnClickSaveTab()
+        {
+            ResetTabDisplays();
+            saveDisplay.gameObject.SetActive(true);
+            MenuSFXManager.Instance.PlayClick();
+        }
+
+        void OnClickQuitTab()
+        {
+            ResetTabDisplays();
+            quitDisplay.gameObject.SetActive(true);
+            MenuSFXManager.Instance.PlayClick();
+        }
     }
 }

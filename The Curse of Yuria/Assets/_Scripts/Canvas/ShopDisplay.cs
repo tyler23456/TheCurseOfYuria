@@ -4,227 +4,230 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class ShopDisplay : DisplayBase
+namespace TCOY.Canvas
 {
-    public static ShopDisplay Instance { get; protected set; }
-
-    [SerializeField] ItemDisplayAsset display; 
-
-    [Header("Shop")]
-    [SerializeField] Button buy;
-    [SerializeField] Button sell;
-
-    string type;
-    Dictionary<string, Inventory> shopInventories = new Dictionary<string, Inventory>();
-
-    public Action<string> onBuyItem { get; set; } = (itemName) => { };
-    public Action<string> onSellItem { get; set; } = (itemName) => { };
-
-    public override void Initialize()
+    public class ShopDisplay : DisplayBase
     {
-        base.Initialize();
-        Instance = this;
-    }
+        public static ShopDisplay Instance { get; protected set; }
 
-    protected override void OnEnable()
-    {
-        base.OnEnable();
+        [SerializeField] ItemDisplayAsset display;
 
-        display.gameObject.SetActive(true);
-        display.Initialize();
+        [Header("Shop")]
+        [SerializeField] Button buy;
+        [SerializeField] Button sell;
 
-        display.exitButton.onClick.RemoveAllListeners();
-        display.exitButton.onClick.AddListener(OnExit);
+        string type;
+        Dictionary<string, Inventory> shopInventories = new Dictionary<string, Inventory>();
 
-        display.helmetsTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
-        display.meleeWeapons1HTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
-        display.meleeWeapons2HTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
-        display.armorTab.GetComponent<PointerHover>().onPointerRightClick =  () => { };
-        display.shieldsTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
-        display.bowsTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
+        public Action<string> onBuyItem { get; set; } = (itemName) => { };
+        public Action<string> onSellItem { get; set; } = (itemName) => { };
 
-        shopInventories = new Dictionary<string, Inventory>();
-        shopInventories.Add(InventoryManager.Instance.helmetType, new Inventory());
-        shopInventories.Add(InventoryManager.Instance.melee1HandedType, new Inventory());
-        shopInventories.Add(InventoryManager.Instance.melee2HandedType, new Inventory());
-        shopInventories.Add(InventoryManager.Instance.armorType, new Inventory());
-        shopInventories.Add(InventoryManager.Instance.shieldType, new Inventory());
-        shopInventories.Add(InventoryManager.Instance.bowType, new Inventory());
-        shopInventories.Add(InventoryManager.Instance.scrollType, new Inventory());
-        shopInventories.Add(InventoryManager.Instance.basicType, new Inventory());
-        shopInventories.Add(InventoryManager.Instance.questItemType, new Inventory());
+        public override void Initialize()
+        {
+            base.Initialize();
+            Instance = this;
+        }
 
-        for (int i = 0; i < IShopData.inventory.count; i++)
-            shopInventories[ItemDatabase.Instance.Get(IShopData.inventory.GetName(i)).type].Add(IShopData.inventory.GetName(i), IShopData.inventory.GetCount(i));
-            
+        protected override void OnEnable()
+        {
+            base.OnEnable();
 
-        buy.onClick.RemoveAllListeners();
-        sell.onClick.RemoveAllListeners();
+            display.gameObject.SetActive(true);
+            display.Initialize();
 
-        buy.onClick.AddListener(OnBuy);
-        sell.onClick.AddListener(OnSell);
+            display.exitButton.onClick.RemoveAllListeners();
+            display.exitButton.onClick.AddListener(OnExit);
 
-        buy.transform.parent.gameObject.SetActive(true);
-        sell.transform.parent.gameObject.SetActive(true);
+            display.helmetsTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
+            display.meleeWeapons1HTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
+            display.meleeWeapons2HTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
+            display.armorTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
+            display.shieldsTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
+            display.bowsTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
 
-        display.onLocalClick = (itemName) => { };
+            shopInventories = new Dictionary<string, Inventory>();
+            shopInventories.Add(InventoryManager.Instance.helmetType, new Inventory());
+            shopInventories.Add(InventoryManager.Instance.melee1HandedType, new Inventory());
+            shopInventories.Add(InventoryManager.Instance.melee2HandedType, new Inventory());
+            shopInventories.Add(InventoryManager.Instance.armorType, new Inventory());
+            shopInventories.Add(InventoryManager.Instance.shieldType, new Inventory());
+            shopInventories.Add(InventoryManager.Instance.bowType, new Inventory());
+            shopInventories.Add(InventoryManager.Instance.scrollType, new Inventory());
+            shopInventories.Add(InventoryManager.Instance.basicType, new Inventory());
+            shopInventories.Add(InventoryManager.Instance.questItemType, new Inventory());
 
-        display.RefreshAllie(0);
-        RefreshEquipment(InventoryManager.Instance.helmetType, shopInventories[InventoryManager.Instance.helmetType]);
-        OnBuy();
+            for (int i = 0; i < IShopData.inventory.count; i++)
+                shopInventories[ItemDatabase.Instance.Get(IShopData.inventory.GetName(i)).type].Add(IShopData.inventory.GetName(i), IShopData.inventory.GetCount(i));
 
-        MenuSFXManager.Instance.PlayEquipmentMenuOpen();
-    }
 
-    protected override void OnDisable()
-    {
-        base.OnDisable();
-        
-        shopInventories.Clear();
-        display.RefreshCurrency();
-        IShopData.inventory.Clear();
-        buy.transform.parent.gameObject.SetActive(false);
-        sell.transform.parent.gameObject.SetActive(false);
+            buy.onClick.RemoveAllListeners();
+            sell.onClick.RemoveAllListeners();
 
-        display.RefreshAllies();
-        display.gameObject.SetActive(false);
+            buy.onClick.AddListener(OnBuy);
+            sell.onClick.AddListener(OnSell);
 
-        MenuSFXManager.Instance.PlayEquipmentMenuClose();
-    }
+            buy.transform.parent.gameObject.SetActive(true);
+            sell.transform.parent.gameObject.SetActive(true);
 
-    private void Update()
-    {
-        display.UpdateAllieView();
-    }
+            display.onLocalClick = (itemName) => { };
 
-    void OnExit()
-    {
-        gameObject.SetActive(false);
-    }
+            display.RefreshAllie(0);
+            RefreshEquipment(InventoryManager.Instance.helmetType, shopInventories[InventoryManager.Instance.helmetType]);
+            OnBuy();
 
-    void RefreshEquipmentWithSFX(string type, Inventory inventory)
-    {
-        MenuSFXManager.Instance.PlayChangeEquipmentPart();
-        RefreshEquipment(type, inventory);
-    }
+            MenuSFXManager.Instance.PlayEquipmentMenuOpen();
+        }
 
-    void RefreshEquipment(string type, Inventory inventory)
-    {
-        this.type = type;
-        display.isRefreshingStatusAttributes = true;
-        display.localInventoryGameObject.SetActive(false);
-        display.SetGlobalInventoryBehavior();
-        display.SetLocalInventoryBehavior();
-        display.RefreshItemInfo(type, inventory);
-    }
+        protected override void OnDisable()
+        {
+            base.OnDisable();
 
-    void RefreshScrollsWithSFX(string type, Inventory inventory)
-    {
-        MenuSFXManager.Instance.PlayChangeEquipmentPart();
-        this.type = type;      
-        display.isRefreshingStatusAttributes = false;
-        display.localInventoryGameObject.SetActive(true);
-        display.SetGlobalInventoryBehavior(showName: true);
-        display.SetLocalInventoryBehavior(showName: true, showCount: false);
-        display.RefreshItemInfo(type, inventory);
-    }
+            shopInventories.Clear();
+            display.RefreshCurrency();
+            IShopData.inventory.Clear();
+            buy.transform.parent.gameObject.SetActive(false);
+            sell.transform.parent.gameObject.SetActive(false);
 
-    void RefreshReadonlyWithSFX(string type, Inventory inventory)
-    {
-        MenuSFXManager.Instance.PlayChangeEquipmentPart();
-        this.type = type;        
-        display.isRefreshingStatusAttributes = false;
-        display.localInventoryGameObject.SetActive(false);
-        display.SetGlobalInventoryBehavior();
-        display.SetLocalInventoryBehavior();
-        display.RefreshItemInfo(type, inventory);
-    }
+            display.RefreshAllies();
+            display.gameObject.SetActive(false);
 
-    void OnBuy()
-    {
-        display.selectionInfo.text = "Buy an item";
-        display.ClearTabListenters();
+            MenuSFXManager.Instance.PlayEquipmentMenuClose();
+        }
 
-        display.helmetsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.helmetType, shopInventories[InventoryManager.Instance.helmetType]));
-        display.meleeWeapons1HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee1HandedType, shopInventories[InventoryManager.Instance.melee1HandedType]));
-        display.meleeWeapons2HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee2HandedType, shopInventories[InventoryManager.Instance.melee2HandedType]));
-        display.armorTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.armorType, shopInventories[InventoryManager.Instance.armorType]));
-        display.shieldsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.shieldType, shopInventories[InventoryManager.Instance.shieldType]));
-        display.bowsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.bowType, shopInventories[InventoryManager.Instance.bowType]));
-        display.scrollsTab.onClick.AddListener(() => RefreshScrollsWithSFX(InventoryManager.Instance.scrollType, shopInventories[InventoryManager.Instance.scrollType]));
-        display.basicTab.onClick.AddListener(() => RefreshReadonlyWithSFX(InventoryManager.Instance.basicType, shopInventories[InventoryManager.Instance.basicType]));
-        display.questItemsTab.onClick.AddListener(() => RefreshReadonlyWithSFX(InventoryManager.Instance.questItemType, shopInventories[InventoryManager.Instance.questItemType]));
+        private void Update()
+        {
+            display.UpdateAllieView();
+        }
 
-        display.onGlobalClick = OnBuyItem;
-        display.onEnterItem = display.ShowItemInfo;
-        display.onEnterItem += display.RefreshAllieInfo;
-        display.onEnterItem += ShowPlayerDeficit;
-        display.onExitItem = (n) => display.ClearItemInfo();
-        display.onExitItem += (n) => display.RefreshAllieInfo("");
+        void OnExit()
+        {
+            gameObject.SetActive(false);
+        }
 
-        display.RefreshGlobalInventory(shopInventories[type]); //might need to change this
-    }
+        void RefreshEquipmentWithSFX(string type, Inventory inventory)
+        {
+            MenuSFXManager.Instance.PlayChangeEquipmentPart();
+            RefreshEquipment(type, inventory);
+        }
 
-    void OnSell()
-    {
-        display.selectionInfo.text = "Sell an item";
-        display.ClearTabListenters();
+        void RefreshEquipment(string type, Inventory inventory)
+        {
+            this.type = type;
+            display.isRefreshingStatusAttributes = true;
+            display.localInventoryGameObject.SetActive(false);
+            display.SetGlobalInventoryBehavior();
+            display.SetLocalInventoryBehavior();
+            display.RefreshItemInfo(type, inventory);
+        }
 
-        display.helmetsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.helmetType, InventoryManager.Instance.helmets));
-        display.meleeWeapons1HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee1HandedType, InventoryManager.Instance.meleeWeapons1H));
-        display.meleeWeapons2HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee2HandedType, InventoryManager.Instance.meleeWeapons2H));
-        display.armorTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.armorType, InventoryManager.Instance.armor));
-        display.shieldsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.shieldType, InventoryManager.Instance.shields));
-        display.bowsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.bowType, InventoryManager.Instance.bows));
-        display.scrollsTab.onClick.AddListener(() => RefreshScrollsWithSFX(InventoryManager.Instance.scrollType, InventoryManager.Instance.scrolls));
-        display.basicTab.onClick.AddListener(() => RefreshReadonlyWithSFX(InventoryManager.Instance.basicType, InventoryManager.Instance.basic));
-        display.questItemsTab.onClick.AddListener(() => RefreshReadonlyWithSFX(InventoryManager.Instance.questItemType, InventoryManager.Instance.questItems));
+        void RefreshScrollsWithSFX(string type, Inventory inventory)
+        {
+            MenuSFXManager.Instance.PlayChangeEquipmentPart();
+            this.type = type;
+            display.isRefreshingStatusAttributes = false;
+            display.localInventoryGameObject.SetActive(true);
+            display.SetGlobalInventoryBehavior(showName: true);
+            display.SetLocalInventoryBehavior(showName: true, showCount: false);
+            display.RefreshItemInfo(type, inventory);
+        }
 
-        display.onGlobalClick = OnSellItem;
-        display.onEnterItem = display.ShowItemInfo;
-        display.onEnterItem += display.RefreshAllieInfo;
-        display.onEnterItem += ShowPlayerProfit;
-        display.onExitItem = (n) => display.ClearItemInfo();
-        display.onExitItem += (n) => display.RefreshAllieInfo("");
+        void RefreshReadonlyWithSFX(string type, Inventory inventory)
+        {
+            MenuSFXManager.Instance.PlayChangeEquipmentPart();
+            this.type = type;
+            display.isRefreshingStatusAttributes = false;
+            display.localInventoryGameObject.SetActive(false);
+            display.SetGlobalInventoryBehavior();
+            display.SetLocalInventoryBehavior();
+            display.RefreshItemInfo(type, inventory);
+        }
 
-        display.RefreshGlobalInventory(InventoryManager.Instance.Get(type));
-    }
+        void OnBuy()
+        {
+            display.selectionInfo.text = "Buy an item";
+            display.ClearTabListenters();
 
-    void OnBuyItem(string itemName)
-    {
-        IItem current = ItemDatabase.Instance.Get(itemName);
-        InventoryManager.Instance.olms -= (int)(current.marketValue * IShopData.buyersRating);
-        InventoryManager.Instance.AddItem(itemName);
-        shopInventories[current.type].Remove(itemName);
-        onBuyItem.Invoke(itemName);
+            display.helmetsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.helmetType, shopInventories[InventoryManager.Instance.helmetType]));
+            display.meleeWeapons1HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee1HandedType, shopInventories[InventoryManager.Instance.melee1HandedType]));
+            display.meleeWeapons2HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee2HandedType, shopInventories[InventoryManager.Instance.melee2HandedType]));
+            display.armorTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.armorType, shopInventories[InventoryManager.Instance.armorType]));
+            display.shieldsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.shieldType, shopInventories[InventoryManager.Instance.shieldType]));
+            display.bowsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.bowType, shopInventories[InventoryManager.Instance.bowType]));
+            display.scrollsTab.onClick.AddListener(() => RefreshScrollsWithSFX(InventoryManager.Instance.scrollType, shopInventories[InventoryManager.Instance.scrollType]));
+            display.basicTab.onClick.AddListener(() => RefreshReadonlyWithSFX(InventoryManager.Instance.basicType, shopInventories[InventoryManager.Instance.basicType]));
+            display.questItemsTab.onClick.AddListener(() => RefreshReadonlyWithSFX(InventoryManager.Instance.questItemType, shopInventories[InventoryManager.Instance.questItemType]));
 
-        display.RefreshAllieInfo();
-        display.RefreshGlobalInventory(shopInventories[current.type]);
-    }
+            display.onGlobalClick = OnBuyItem;
+            display.onEnterItem = display.ShowItemInfo;
+            display.onEnterItem += display.RefreshAllieInfo;
+            display.onEnterItem += ShowPlayerDeficit;
+            display.onExitItem = (n) => display.ClearItemInfo();
+            display.onExitItem += (n) => display.RefreshAllieInfo("");
 
-    void OnSellItem(string itemName)
-    {
-        IItem current = ItemDatabase.Instance.Get(itemName);
-        InventoryManager.Instance.olms += (int)(current.marketValue * IShopData.sellersRating);
-        shopInventories[current.type].Add(itemName);
-        InventoryManager.Instance.Get(current.type).Remove(itemName);
-        onSellItem.Invoke(itemName);
+            display.RefreshGlobalInventory(shopInventories[type]); //might need to change this
+        }
 
-        display.RefreshAllieInfo();
-        display.RefreshGlobalInventory(InventoryManager.Instance.Get(current.type));
-    }
+        void OnSell()
+        {
+            display.selectionInfo.text = "Sell an item";
+            display.ClearTabListenters();
 
-    void ShowPlayerProfit(string itemName)
-    {
-        IItem current = ItemDatabase.Instance.Get(itemName);
-        int price = (int)(current.marketValue * IShopData.sellersRating);
-        display.RefreshAllieInfo(itemName, price);
-    }
+            display.helmetsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.helmetType, InventoryManager.Instance.helmets));
+            display.meleeWeapons1HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee1HandedType, InventoryManager.Instance.meleeWeapons1H));
+            display.meleeWeapons2HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee2HandedType, InventoryManager.Instance.meleeWeapons2H));
+            display.armorTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.armorType, InventoryManager.Instance.armor));
+            display.shieldsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.shieldType, InventoryManager.Instance.shields));
+            display.bowsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.bowType, InventoryManager.Instance.bows));
+            display.scrollsTab.onClick.AddListener(() => RefreshScrollsWithSFX(InventoryManager.Instance.scrollType, InventoryManager.Instance.scrolls));
+            display.basicTab.onClick.AddListener(() => RefreshReadonlyWithSFX(InventoryManager.Instance.basicType, InventoryManager.Instance.basic));
+            display.questItemsTab.onClick.AddListener(() => RefreshReadonlyWithSFX(InventoryManager.Instance.questItemType, InventoryManager.Instance.questItems));
 
-    void ShowPlayerDeficit(string itemName)
-    {
-        IItem current = ItemDatabase.Instance.Get(itemName);
-        int price = (int)(current.marketValue * IShopData.buyersRating);
-        display.RefreshAllieInfo(itemName, -price);
+            display.onGlobalClick = OnSellItem;
+            display.onEnterItem = display.ShowItemInfo;
+            display.onEnterItem += display.RefreshAllieInfo;
+            display.onEnterItem += ShowPlayerProfit;
+            display.onExitItem = (n) => display.ClearItemInfo();
+            display.onExitItem += (n) => display.RefreshAllieInfo("");
+
+            display.RefreshGlobalInventory(InventoryManager.Instance.Get(type));
+        }
+
+        void OnBuyItem(string itemName)
+        {
+            IItem current = ItemDatabase.Instance.Get(itemName);
+            InventoryManager.Instance.olms -= (int)(current.marketValue * IShopData.buyersRating);
+            InventoryManager.Instance.AddItem(itemName);
+            shopInventories[current.type].Remove(itemName);
+            onBuyItem.Invoke(itemName);
+
+            display.RefreshAllieInfo();
+            display.RefreshGlobalInventory(shopInventories[current.type]);
+        }
+
+        void OnSellItem(string itemName)
+        {
+            IItem current = ItemDatabase.Instance.Get(itemName);
+            InventoryManager.Instance.olms += (int)(current.marketValue * IShopData.sellersRating);
+            shopInventories[current.type].Add(itemName);
+            InventoryManager.Instance.Get(current.type).Remove(itemName);
+            onSellItem.Invoke(itemName);
+
+            display.RefreshAllieInfo();
+            display.RefreshGlobalInventory(InventoryManager.Instance.Get(current.type));
+        }
+
+        void ShowPlayerProfit(string itemName)
+        {
+            IItem current = ItemDatabase.Instance.Get(itemName);
+            int price = (int)(current.marketValue * IShopData.sellersRating);
+            display.RefreshAllieInfo(itemName, price);
+        }
+
+        void ShowPlayerDeficit(string itemName)
+        {
+            IItem current = ItemDatabase.Instance.Get(itemName);
+            int price = (int)(current.marketValue * IShopData.buyersRating);
+            display.RefreshAllieInfo(itemName, -price);
+        }
     }
 }

@@ -5,82 +5,85 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 
-public class ObtainedItemsDisplay : DisplayBase
+namespace TCOY.Canvas
 {
-    public static ObtainedItemsDisplay Instance { get; protected set; }
-
-    [SerializeField] RectTransform grid;
-    [SerializeField] Button obtainedItemPrefab;
-    [SerializeField] Button exitButton;
-
-    InventoryUI inventoryUI = new InventoryUI();
-
-    public override void Initialize()
+    public class ObtainedItemsDisplay : DisplayBase
     {
-        base.Initialize();
-        Instance = this;
-    }
+        public static ObtainedItemsDisplay Instance { get; protected set; }
 
-    protected override void OnEnable()
-    {
-        base.OnEnable();
+        [SerializeField] RectTransform grid;
+        [SerializeField] Button obtainedItemPrefab;
+        [SerializeField] Button exitButton;
 
-        //GameStateManager.Instance.Play();
-        exitButton.onClick.AddListener(OnExit);
-        OnRefresh();
-    }
+        InventoryUI inventoryUI = new InventoryUI();
 
-    public void OnRefresh()
-    {
-        inventoryUI.grid = grid;
-        inventoryUI.buttonPrefab = obtainedItemPrefab;
-        inventoryUI.inventory = IObtainedItemsData.inventory;
-        inventoryUI.OnClick = OnLeftClick;
-        inventoryUI.OnClick += IObtainedItemsData.onLeftClick;
+        public override void Initialize()
+        {
+            base.Initialize();
+            Instance = this;
+        }
 
-        inventoryUI.onPointerEnter = (itemName) => { };
-        inventoryUI.onPointerExit = (itemName) => { };
-        inventoryUI.onPointerRightClick = OnRightClick;
-        inventoryUI.onPointerRightClick += IObtainedItemsData.onRightClick;
-        inventoryUI.Display();
-    }
+        protected override void OnEnable()
+        {
+            base.OnEnable();
 
-    protected override void OnDisable()
-    {
-        base.OnDisable();
-        IObtainedItemsData.inventory.Clear();
-        IObtainedItemsData.onLeftClick = (itemName) => { };
-    }
+            //GameStateManager.Instance.Play();
+            exitButton.onClick.AddListener(OnExit);
+            OnRefresh();
+        }
 
-    void OnLeftClick(string itemName)
-    {
-        IObtainedItemsData.inventory.Remove(itemName);
-        InventoryManager.Instance.AddItem(itemName);
+        public void OnRefresh()
+        {
+            inventoryUI.grid = grid;
+            inventoryUI.buttonPrefab = obtainedItemPrefab;
+            inventoryUI.inventory = IObtainedItemsData.inventory;
+            inventoryUI.OnClick = OnLeftClick;
+            inventoryUI.OnClick += IObtainedItemsData.onLeftClick;
 
-        MenuSFXManager.Instance.PlayObtainSFX();
+            inventoryUI.onPointerEnter = (itemName) => { };
+            inventoryUI.onPointerExit = (itemName) => { };
+            inventoryUI.onPointerRightClick = OnRightClick;
+            inventoryUI.onPointerRightClick += IObtainedItemsData.onRightClick;
+            inventoryUI.Display();
+        }
 
-        OnRefresh();
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            IObtainedItemsData.inventory.Clear();
+            IObtainedItemsData.onLeftClick = (itemName) => { };
+        }
 
-        if (IObtainedItemsData.inventory.count == 0)
+        void OnLeftClick(string itemName)
+        {
+            IObtainedItemsData.inventory.Remove(itemName);
+            InventoryManager.Instance.AddItem(itemName);
+
+            MenuSFXManager.Instance.PlayObtainSFX();
+
+            OnRefresh();
+
+            if (IObtainedItemsData.inventory.count == 0)
+                gameObject.SetActive(false);
+        }
+
+        void OnRightClick(string itemName)
+        {
+            int count = IObtainedItemsData.inventory.GetCount(itemName);
+            IObtainedItemsData.inventory.Remove(itemName, count);
+            InventoryManager.Instance.AddItem(itemName, count);
+
+            MenuSFXManager.Instance.PlayObtainAllSFX();
+
+            OnRefresh();
+
+            if (IObtainedItemsData.inventory.count == 0)
+                gameObject.SetActive(false);
+        }
+
+        void OnExit()
+        {
             gameObject.SetActive(false);
-    }
-
-    void OnRightClick(string itemName)
-    {
-        int count = IObtainedItemsData.inventory.GetCount(itemName);
-        IObtainedItemsData.inventory.Remove(itemName, count);
-        InventoryManager.Instance.AddItem(itemName, count);
-
-        MenuSFXManager.Instance.PlayObtainAllSFX();
-
-        OnRefresh();
-
-        if (IObtainedItemsData.inventory.count == 0)
-            gameObject.SetActive(false);
-    }
-
-    void OnExit()
-    {
-        gameObject.SetActive(false);
+        }
     }
 }

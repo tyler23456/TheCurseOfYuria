@@ -12,7 +12,7 @@ namespace TCOY.Interactables
         [SerializeField] float eulerAngleY;
         [SerializeField] Sprite OpenDoor;
         [SerializeField] List<ItemSO> RequiredItems;
-        [SerializeField] Prompt onLockedPrompt;
+        [SerializeField] ActionSO onLockedPrompt;
 
         public override string getAction => "";
 

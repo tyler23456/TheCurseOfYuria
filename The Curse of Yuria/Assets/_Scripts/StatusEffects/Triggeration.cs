@@ -1,0 +1,34 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace TCOY.StatusEffects
+{
+    [CreateAssetMenu(fileName = "NewTriggeration", menuName = "StatusEffects/Triggeration")]
+    public class Triggeration : StatusEffectBase, IStatusEffect
+    {
+        [SerializeField] List<IStatusEffect> triggers;
+        [SerializeField] Skill skill;
+
+        public override void Activate(IActor target, float accumulator = 0)
+        {
+            base.Activate(target, accumulator);
+            target.StartCoroutine(enumerator(target));
+        }
+
+        public IEnumerator enumerator(IActor target)
+        {
+            while (target.getStatusEffects.Contains(name))
+            {
+                foreach (StatusEffectBase trigger in triggers)
+                    if (target.getStatusEffects.Contains(trigger.name))
+                    {
+                        skill.Use(target);
+                        target.getStatusEffects.Remove(name);
+                    }
+
+                yield return new WaitForEndOfFrame();
+            }
+        }
+    }
+}

@@ -9,7 +9,7 @@ namespace TCOY.Interactables
     {
         [SerializeField] UniqueIdentifier uniqueIdentifier;
         [SerializeField] List<Entry> requiredItems;
-        [SerializeField] Prompt onLockedPrompt;
+        [SerializeField] ActionSO onLockedPrompt;
 
         Animator animator;
 

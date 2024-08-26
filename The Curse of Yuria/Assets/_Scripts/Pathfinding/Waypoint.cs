@@ -1,0 +1,150 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
+using System.Linq;
+using System.Collections.ObjectModel;
+
+namespace TCOY.Pathfinding
+{
+    [ExecuteAlways]
+    [RequireComponent(typeof(CircleCollider2D))]
+    public class Waypoint : MonoBehaviour, IHeapItem<Waypoint>, IWaypoint
+    {
+        [SerializeField] WaypointManager waypointManager;
+        [SerializeField] List<Waypoint> neighbors;
+        [SerializeField] List<Connection> connections;
+        
+        int _heapIndex;
+
+        public int hCost;
+        public int gCost;
+        public Waypoint parent;
+
+        public Color color { get; set; } = IWaypoint.defaultColor;
+
+        public int fCost => hCost + gCost;
+        public int heapIndex { get { return _heapIndex; } set { _heapIndex = value; } }
+
+        public ReadOnlyCollection<Waypoint> getNeighbors => neighbors.AsReadOnly();
+        public ReadOnlyCollection<Connection> getConnections => connections.AsReadOnly();
+        public Vector2 position => transform.position;
+
+        void Reset()
+        {
+            if (transform.parent.GetComponent<WaypointManager>() == null)
+                transform.parent.gameObject.AddComponent<WaypointManager>();
+
+            if (waypointManager == null)
+                waypointManager = transform.parent.GetComponent<WaypointManager>();
+        }
+
+        public void Add(Waypoint otherWaypoint)
+        {
+            Connection connection = new GameObject(this.name + " Connected to " + otherWaypoint.name).AddComponent<Connection>();
+            connection.transform.parent = transform.parent;
+
+            connection.gameObject.AddComponent<LineRenderer>();
+            connection.ConnectWaypoints(this, otherWaypoint);
+            this.neighbors.Add(otherWaypoint);
+            this.connections.Add(connection);
+            
+            otherWaypoint.neighbors.Add(this);
+            otherWaypoint.connections.Add(connection);
+        }
+
+        public void Remove(Waypoint otherWaypoint)
+        {
+            _Remove(otherWaypoint);
+        }
+
+        public void RemoveAndDestroyConnection(Waypoint otherWaypoint)
+        {
+            Connection connection = _Remove(otherWaypoint);
+            DestroyImmediate(connection.gameObject);
+        }
+
+        Connection _Remove(Waypoint otherWaypoint)
+        {
+            Connection connection = this.connections.Find(i => i.GetOtherWaypoint(this).Equals(otherWaypoint));
+            this.neighbors.Remove(otherWaypoint);
+            this.connections.Remove(connection);
+            otherWaypoint.neighbors.Remove(this);
+            otherWaypoint.connections.Remove(connection);
+            return connection;
+        }
+
+        public void RemoveAllAndDestroyConnection()
+        {
+            for (int i = neighbors.Count - 1; i >= 0; i--)
+                this.RemoveAndDestroyConnection(neighbors[i]);
+        }
+
+        void Update()
+        {
+            if (!transform.hasChanged)
+                return;
+
+            transform.hasChanged = false;
+            UpdateTransform();
+        }
+
+        public void UpdateTransform()
+        {
+            foreach (Connection connection in connections)
+            {
+                connection.RefreshTransform();
+                connection.RefreshCollider();
+            }
+                
+        }
+
+        void OnDestroy()
+        {
+            RemoveAllAndDestroyConnection();
+        }
+
+        public Connection FindConnection(IWaypoint otherWaypoint)
+        {
+            Connection targetConnection = null;
+            foreach (Connection connection in connections)
+                if (connection.getFirstWaypoint.Equals(otherWaypoint) || connection.getSecondWaypoint.Equals(otherWaypoint))
+                {
+                    targetConnection = connection;
+                    break;
+                }
+
+            return targetConnection;
+        }
+
+        public int CompareTo(Waypoint nodeToCompare)
+        {
+            int compare = fCost.CompareTo(nodeToCompare.fCost);
+            if (compare == 0)
+            {
+                compare = hCost.CompareTo(nodeToCompare.hCost);
+            }
+            return -compare;
+        }
+
+#if UNITY_EDITOR
+        GUIStyle gUIStyle = new GUIStyle();
+        List<string> textArray = new List<string>();
+        void OnDrawGizmos()
+        {
+            gUIStyle.fontSize = 24;
+            gUIStyle.fontStyle = FontStyle.Bold;
+            gUIStyle.richText = true;
+
+            List<string> textArray = name.Split('(', ')').ToList();
+            if (textArray.Count == 1)
+                textArray.Add("0");
+
+            Handles.Label(transform.position, "<color=#FFFFFF>" + textArray[1] + "</color>", gUIStyle);
+
+            Gizmos.color = color;
+            Gizmos.DrawSphere(transform.position, 1f);  
+        }
+#endif
+    }
+}

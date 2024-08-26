@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CompanyLogoAnimators : MonoBehaviour
+namespace TCOY.Level
 {
-    bool hasLoaded = false;
-
-    void Update()
+    public class CompanyLogoAnimators : MonoBehaviour
     {
-        if (hasLoaded)
-            return;
+        bool hasLoaded = false;
 
-        hasLoaded = true;
+        void Update()
+        {
+            if (hasLoaded)
+                return;
 
-        //Transform loadingDisplay = GameObject.Find("/DontDestroyOnLoad/Canvas/LoadingDisplay").transform;
-        //ILoadingData.sceneID = 1;
-        //loadingDisplay.gameObject.SetActive(true);
+            hasLoaded = true;
 
-        SceneManager.LoadSceneAsync(1);
+            //Transform loadingDisplay = GameObject.Find("/DontDestroyOnLoad/Canvas/LoadingDisplay").transform;
+            //ILoadingData.sceneID = 1;
+            //loadingDisplay.gameObject.SetActive(true);
+
+            SceneManager.LoadSceneAsync(1);
+        }
     }
 }

@@ -75,17 +75,17 @@ namespace TCOY.UserActors
             spriteFlipper = new SpriteFlipper(spriteRenderers);
 
             stats.Initialize();
-            stats.onHPDamage += (damage) => PopupManager.Instance.AddHPDamagePopup(damage, collider2D.bounds.center);
-            stats.onHPDamage += (damage) => CameraShakerHandler.Shake(ShakeDatabase.Instance.Get("Hit"));
+            stats.onHPDamage += (damage) => PopupFactory.Instance.AddHPDamagePopup(damage, collider2D.bounds.center);
+            stats.onHPDamage += (damage) => CameraShakerHandler.Shake(ShakeManager.Instance.Get("Hit"));
             stats.onHPDamage += (damage) => hitAnimator.Start();
 
             stats.onZeroHealth = () => StatFXDatabase.Instance.getKnockOut.Activate(this);
 
-            stats.onHPRecovery = (recovery) => PopupManager.Instance.AddHPRecoveryPopup(recovery, collider2D.bounds.center);
+            stats.onHPRecovery = (recovery) => PopupFactory.Instance.AddHPRecoveryPopup(recovery, collider2D.bounds.center);
 
-            stats.onMPDamage = (damage) => PopupManager.Instance.AddMPDamagePopup(damage, collider2D.bounds.center);
+            stats.onMPDamage = (damage) => PopupFactory.Instance.AddMPDamagePopup(damage, collider2D.bounds.center);
 
-            stats.onMPRecovery = (recovery) => PopupManager.Instance.AddMPRecoveryPopup(recovery, collider2D.bounds.center);
+            stats.onMPRecovery = (recovery) => PopupFactory.Instance.AddMPRecoveryPopup(recovery, collider2D.bounds.center);
         }
 
         protected void Start()

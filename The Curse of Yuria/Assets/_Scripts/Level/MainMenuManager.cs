@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TCOY.Canvas
+namespace TCOY.Level
 {
     public class MainMenuManager : MonoBehaviour
     {

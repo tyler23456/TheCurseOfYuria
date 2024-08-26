@@ -1,0 +1,57 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System.Collections.ObjectModel;
+
+namespace TCOY.ScriptedSequencers
+{
+    [CreateAssetMenu(fileName = "NewShop", menuName = "Cutscene/Shop")]
+    public class Shop : ActionBase
+    {
+        const float SellDivisor = 2f;
+
+        [SerializeField] [Range(0.1f, 10f)] float buyersRating = 1f;
+        [SerializeField] [Range(0.1f, 10f)] float sellersRating = 1f;
+        [SerializeField] List<SavedEntry> entries;
+
+        void OnValidate()
+        {
+            /*foreach (SavedEntry entry in entries)
+                if (entry.ID == "")
+                    entry.Initialize();*/
+        }
+
+        public override IEnumerator Activate()
+        {
+            IShopData.inventory.Clear();
+            foreach (SavedEntry entry in entries)
+            {
+                int count = entry.count - InventoryManager.Instance.completedIds.GetCount(entry.ID);
+
+                if (count <= 0)
+                    continue;
+
+                //ObtainedItemsDisplay.Instance.getInventory.Add(entry.item.name, count);
+                IShopData.inventory.Add(entry.item.name, entry.count);
+            }
+
+            IShopData.buyersRating = buyersRating;
+            IShopData.sellersRating = sellersRating / SellDivisor;
+            IShopData.onLeftClick = OnBuyItem;
+            GameObject.Find("/DontDestroyOnLoad/Canvas/ShopDisplay").SetActive(true);
+            yield return null;
+        }
+
+        public void OnBuyItem(string itemName)
+        {
+            foreach (SavedEntry entry in entries)
+                if (entry.item.name == itemName)
+                    InventoryManager.Instance.completedIds.Add(entry.ID);
+        }
+
+        public void OnSellItem(string itemName)
+        {
+            //checks to see if item exists, if it does not, it creates a new ID.  If it does exist, takes out ID from player ids
+        }
+    }
+}

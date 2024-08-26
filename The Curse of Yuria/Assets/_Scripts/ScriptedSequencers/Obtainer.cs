@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+namespace TCOY.ScriptedSequencers
+{
+    [CreateAssetMenu(fileName = "NewObtainer", menuName = "Cutscene/Obtainer")]
+    public class Obtainer : ActionBase, ICutsceneAction
+    {
+        [SerializeField] List<Entry> entries;
+
+        public override IEnumerator Activate()
+        {
+            base.Activate();
+
+            foreach (Entry entry in entries)
+                InventoryManager.Instance.AddItem(entry.item.name, entry.count);
+
+            yield return new WaitForEndOfFrame();
+        }
+    }
+}

@@ -4,51 +4,53 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class CutsceneDisplay : DisplayBase
+namespace TCOY.Canvas
 {
-    public static CutsceneDisplay Instance { get; protected set; }
-
-    [SerializeField] new Camera camera;
-    [SerializeField] Text promptName;
-    [SerializeField] TMP_Text promptText;
-
-    public Camera getCamera => camera;
-    public Text getPromptName => promptName;
-    public TMP_Text getPromptText => promptText;
-
-    public Queue<ActionBase> actions { get; private set; } = new Queue<ActionBase>();
-    Transform[] actorTransforms = new Transform[] { };
-
-    public override void Initialize()
+    public class CutsceneDisplay : DisplayBase
     {
-        base.Initialize();
-        Instance = this;
-    }
+        public static CutsceneDisplay Instance { get; protected set; }
 
-    protected override void OnEnable()
-    {
-        base.OnEnable();
+        [SerializeField] new Camera camera;
+        [SerializeField] Text promptName;
+        [SerializeField] TMP_Text promptText;
 
-        GameStateManager.Instance.Stop();
-        StartCoroutine(Activate());
+        public Camera getCamera => camera;
+        public Text getPromptName => promptName;
+        public TMP_Text getPromptText => promptText;
 
-        MenuSFXManager.Instance.PlayGenericOpen();
-    }
+        Transform[] actorTransforms = new Transform[] { };
 
-    protected override void OnDisable()
-    {
-        base.OnDisable();
-
-        MenuSFXManager.Instance.PlayGenericClose();
-    }
-
-    public IEnumerator Activate()
-    {
-        while (IScriptedSequencerData.actions.Count > 0)
+        public override void Initialize()
         {
-            yield return IScriptedSequencerData.actions.Dequeue().Activate();
-            yield return null;
+            base.Initialize();
+            Instance = this;
         }
-        gameObject.SetActive(false);
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
+            GameStateManager.Instance.Stop();
+            StartCoroutine(Activate());
+
+            MenuSFXManager.Instance.PlayGenericOpen();
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+
+            MenuSFXManager.Instance.PlayGenericClose();
+        }
+
+        public IEnumerator Activate()
+        {
+            while (IScriptedSequencerData.actions.Count > 0)
+            {
+                yield return IScriptedSequencerData.actions.Dequeue().Activate();
+                yield return null;
+            }
+            gameObject.SetActive(false);
+        }
     }
 }

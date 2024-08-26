@@ -5,38 +5,41 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System;
 
-public class PointerHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+namespace TCOY.Canvas
 {
-    [SerializeField] Image border;
-
-    Color defaultColor;
-    
-    public Action onPointerEnter = () => { };
-    public Action onPointerExit = () => { };
-    public Action onPointerRightClick = () => { };
-
-    void Start()
+    public class PointerHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
-        defaultColor = border.color;
-    }
+        [SerializeField] Image border;
 
-    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
-    {
+        Color defaultColor;
 
-        if (eventData.button == PointerEventData.InputButton.Right)
-            onPointerRightClick.Invoke();
-    }
+        public Action onPointerEnter = () => { };
+        public Action onPointerExit = () => { };
+        public Action onPointerRightClick = () => { };
 
-    void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
-    {
-        onPointerEnter.Invoke();
-        border.color = border.color * 3f;
-    }
+        void Start()
+        {
+            defaultColor = border.color;
+        }
 
-    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
-    {
-        onPointerExit.Invoke();
-        border.color = defaultColor;
+        void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+        {
+
+            if (eventData.button == PointerEventData.InputButton.Right)
+                onPointerRightClick.Invoke();
+        }
+
+        void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+        {
+            onPointerEnter.Invoke();
+            border.color = border.color * 3f;
+        }
+
+        void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+        {
+            onPointerExit.Invoke();
+            border.color = defaultColor;
+        }
     }
 }
 

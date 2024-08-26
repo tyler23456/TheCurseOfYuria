@@ -21,7 +21,7 @@ public class AllieMarkerManager : MonoBehaviour
         Instantiate(markerPrefab, allies.GetChild(0).transform.position, Quaternion.identity, markerParent).name = "0";
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         foreach (Transform child in transform)
             child.position = allies.GetChild(Int32.Parse(child.name)).transform.position + Vector3.down * 0.15f;

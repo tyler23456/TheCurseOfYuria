@@ -3,165 +3,176 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SwitchAllieDisplay : DisplayBase
+namespace TCOY.Canvas
 {
-    public static DisplayBase Instance { get; protected set; }
-
-    [SerializeField] Transform allies;
-
-    [SerializeField] RectTransform display;
-    [SerializeField] RectTransform grid;
-    [SerializeField] Button buttonPrefab;
-    [SerializeField] Camera userCamera;
-    
-    Inventory inventory = new Inventory();
-    InventoryUI inventoryUI = new InventoryUI();
-
-    bool switching = true;
-    float gravityScale = 8f;
-    Vector2 selectedDestination = Vector2.zero;
-    Vector2 unselectedDestination = Vector2.zero;
-    Vector2 distance = new Vector2(-10f, 0f);
-    IAllie previousAllie;
-    IAllie nextAllie;
-    int unselectedIndex = 0;
-
-    float accumulator = 0f;
-    float percentageComplete = 0f;
-    const float Duration = 1.5f;
-
-    IEnabler cameraFollowEnabler;
-
-    public override void Initialize()
+    public class SwitchAllieDisplay : DisplayBase
     {
-        base.Initialize();
-        Instance = this;
-    }
+        public static DisplayBase Instance { get; protected set; }
 
-    protected override void OnEnable()
-    {
-        base.OnEnable();
+        [SerializeField] Transform allies;
 
-        display.gameObject.SetActive(true);
+        [SerializeField] RectTransform display;
+        [SerializeField] RectTransform grid;
+        [SerializeField] Button buttonPrefab;
+        [SerializeField] Camera userCamera;
+        [SerializeField] Transform allieMarkers;
 
-        inventory.Clear();
+        Inventory inventory = new Inventory();
+        InventoryUI inventoryUI = new InventoryUI();
 
-        for (int i = 3; i < allies.childCount; i++)
-            inventory.Add(allies.GetChild(i).name);
+        bool switching = true;
+        float gravityScale = 8f;
+        Vector2 selectedDestination = Vector2.zero;
+        Vector2 unselectedDestination = Vector2.zero;
+        Vector2 distance = new Vector2(-10f, 0f);
+        IAllie previousAllie;
+        IAllie nextAllie;
+        int unselectedIndex = 0;
 
-        inventoryUI.showSprite = false;
-        inventoryUI.showName = true;
-        inventoryUI.showCount = false;
-        inventoryUI.grid = grid;
-        inventoryUI.buttonPrefab = buttonPrefab;
-        inventoryUI.inventory = inventory;
-        inventoryUI.OnClick = OnClick;
-        inventoryUI.onPointerEnter = OnPointerEnter;
-        inventoryUI.onPointerExit = OnPointerExit;
-        inventoryUI.Display();
+        float accumulator = 0f;
+        float percentageComplete = 0f;
+        const float Duration = 1.5f;
 
-        cameraFollowEnabler = userCamera.GetComponent<IEnabler>();
+        IEnabler cameraFollowEnabler;
 
-        MenuSFXManager.Instance.PlayGenericOpen();
-    }
+        public override void Initialize()
+        {
+            base.Initialize();
+            Instance = this;
+        }
 
-    protected override void OnDisable()
-    {
-        base.OnDisable();
+        protected override void OnEnable()
+        {
+            base.OnEnable();
 
-        //MenuSFXManager.Instance.PlayGenericClose();
-    }
+            display.gameObject.SetActive(true);
 
-    void OnClick(string allieName)
-    {
-        cameraFollowEnabler.enabled = false;
+            inventory.Clear();
 
-        previousAllie = allies.GetChild(0).GetComponent<IAllie>();
+            for (int i = 3; i < allies.childCount; i++)
+                inventory.Add(allies.GetChild(i).name);
 
-        Transform nextAllieTransform = allies.Find(allieName);
+            inventoryUI.showSprite = false;
+            inventoryUI.showName = true;
+            inventoryUI.showCount = false;
+            inventoryUI.grid = grid;
+            inventoryUI.buttonPrefab = buttonPrefab;
+            inventoryUI.inventory = inventory;
+            inventoryUI.OnClick = OnClick;
+            inventoryUI.onPointerEnter = OnPointerEnter;
+            inventoryUI.onPointerExit = OnPointerExit;
+            inventoryUI.Display();
 
-        if (nextAllieTransform == null)
-            return;
+            cameraFollowEnabler = userCamera.GetComponent<IEnabler>();
 
-        nextAllie = nextAllieTransform.GetComponent<IAllie>();
-       
-        if (nextAllie == null)
-            return;
+            MenuSFXManager.Instance.PlayGenericOpen();
+        }
 
-        display.gameObject.SetActive(false);
-        GameStateManager.Instance.Stop();
+        protected override void OnDisable()
+        {
+            base.OnDisable();
 
-        gravityScale = previousAllie.rigidbody2D.gravityScale;
+            //MenuSFXManager.Instance.PlayGenericClose();
+        }
 
-        //previous allie
-        selectedDestination = previousAllie.obj.transform.position;
-        previousAllie.getCollider2D.enabled = false;
-        previousAllie.obj.transform.eulerAngles = new Vector3(0f, 180f, 0f);
-        previousAllie.animator.SetInteger("State", 2);
-        previousAllie.rigidbody2D.gravityScale = 0f;
-        previousAllie.getFadeAnimator.OnCoroutineUpdate = (actor) => OnPreviousActorUpdate(null);
-        previousAllie.getFadeAnimator.OnCoroutineEnd = (actor) => OnPreviousActorEnd(null);
-        previousAllie.getFadeAnimator.Start(1f, 0f, Duration);
+        void OnClick(string allieName)
+        {
+            allieMarkers.gameObject.SetActive(false);
 
-        accumulator = 0f;
+            cameraFollowEnabler.enabled = false;
 
-        //next allie
-        unselectedDestination = previousAllie.rigidbody2D.position + distance;
-        userCamera.cullingMask |= (1 << nextAllie.obj.transform.GetChild(0).gameObject.layer);
-        nextAllie.obj.SetActive(true);
-        nextAllie.getCollider2D.enabled = false;
-        nextAllie.obj.transform.position = unselectedDestination;
-        nextAllie.obj.transform.eulerAngles = new Vector3(0f, 0f, 0f);
-        nextAllie.animator.SetInteger("State", 2);
-        nextAllie.rigidbody2D.gravityScale = 0f;
-        nextAllie.getFadeAnimator.OnCoroutineUpdate = (actor) => OnNextActorUpdate(null);
-        nextAllie.getFadeAnimator.OnCoroutineEnd = (actor) => OnNextActorEnd(null);
-        nextAllie.getFadeAnimator.Start(0f, 1f, Duration);
+            previousAllie = allies.GetChild(0).GetComponent<IAllie>();
 
-        MenuSFXManager.Instance.PlayClick();
-    }
+            Transform nextAllieTransform = allies.Find(allieName);
 
-    void OnPreviousActorUpdate(IActor actor)
-    {
-        accumulator += Time.unscaledDeltaTime;
-        percentageComplete = accumulator / Duration;
-        previousAllie.obj.transform.position = Vector3.Lerp(selectedDestination, unselectedDestination, percentageComplete);
-    }
+            if (nextAllieTransform == null)
+                return;
 
-    void OnNextActorUpdate(IActor actor)
-    {
-        nextAllie.obj.transform.position = Vector3.Lerp(unselectedDestination, selectedDestination, percentageComplete);
-    }
+            nextAllie = nextAllieTransform.GetComponent<IAllie>();
 
-    void OnPreviousActorEnd(IActor actor)
-    {
-    }
+            if (nextAllie == null)
+                return;
 
-    void OnNextActorEnd(IActor actor)
-    {
-        nextAllie.rigidbody2D.gravityScale = gravityScale;
-        nextAllie.getCollider2D.enabled = true;
-        nextAllie.getATBGuage.RaisePriority();
+            display.gameObject.SetActive(false);
+            GameStateManager.Instance.Wait();
 
-        unselectedIndex = nextAllie.obj.transform.GetSiblingIndex();
-        nextAllie.obj.transform.SetSiblingIndex(0);
-        previousAllie.obj.transform.SetSiblingIndex(unselectedIndex);
-        
-        cameraFollowEnabler.enabled = true;
-        gameObject.SetActive(false);
-        nextAllie.getATBGuage.Reset();
-        //call update for other methods
-        previousAllie.getATBGuage.LowerPriority();
-        previousAllie.getFadeAnimator.ResetToOpaque();
-    }
+            gravityScale = previousAllie.rigidbody2D.gravityScale;
 
-    void OnPointerEnter(string itemName)
-    {
-        MenuSFXManager.Instance.PlayHover();
-    }
+            //previous allie
+            selectedDestination = previousAllie.obj.transform.position;
+            previousAllie.getCollider2D.enabled = false;
+            previousAllie.obj.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            previousAllie.animator.SetInteger("State", 2);
+            previousAllie.rigidbody2D.gravityScale = 0f;
+            previousAllie.getFadeAnimator.OnCoroutineUpdate = (actor) => OnPreviousActorUpdate(null);
+            previousAllie.getFadeAnimator.OnCoroutineEnd = (actor) => OnPreviousActorEnd(null);
+            accumulator = 0f;
 
-    void OnPointerExit(string itemName)
-    {
+            //next allie
+            unselectedDestination = previousAllie.rigidbody2D.position + distance;
+            userCamera.cullingMask |= (1 << nextAllie.obj.transform.GetChild(0).gameObject.layer);
+            nextAllie.getFadeAnimator.SetToTransparent();
+            nextAllie.obj.SetActive(true);
+            nextAllie.getCollider2D.enabled = false;
+            nextAllie.obj.transform.position = unselectedDestination;
+            nextAllie.obj.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            nextAllie.animator.SetInteger("State", 2);
+            nextAllie.rigidbody2D.gravityScale = 0f;
+            nextAllie.getFadeAnimator.OnCoroutineUpdate = (actor) => OnNextActorUpdate(null);
+            nextAllie.getFadeAnimator.OnCoroutineEnd = (actor) => OnNextActorEnd(null);
 
+            previousAllie.getFadeAnimator.Start(1f, 0f, Duration);
+            nextAllie.getFadeAnimator.Start(0f, 1f, Duration);
+
+            MenuSFXManager.Instance.PlayClick();
+        }
+
+        void OnPreviousActorUpdate(IActor actor)
+        {
+            accumulator += Time.unscaledDeltaTime;
+            percentageComplete = accumulator / Duration;
+            previousAllie.obj.transform.position = Vector3.Lerp(selectedDestination, unselectedDestination, percentageComplete);
+            previousAllie.animator.SetInteger("State", 2);
+        }
+
+        void OnNextActorUpdate(IActor actor)
+        {
+            nextAllie.obj.transform.position = Vector3.Lerp(unselectedDestination, selectedDestination, percentageComplete);
+            nextAllie.animator.SetInteger("State", 2);
+        }
+
+        void OnPreviousActorEnd(IActor actor)
+        {
+        }
+
+        void OnNextActorEnd(IActor actor)
+        {
+            nextAllie.rigidbody2D.gravityScale = gravityScale;
+            nextAllie.getCollider2D.enabled = true;
+            nextAllie.getATBGuage.RaisePriority();
+
+            unselectedIndex = nextAllie.obj.transform.GetSiblingIndex();
+            nextAllie.obj.transform.SetSiblingIndex(0);
+            previousAllie.obj.transform.SetSiblingIndex(unselectedIndex);
+
+            cameraFollowEnabler.enabled = true;
+            gameObject.SetActive(false);
+            nextAllie.getATBGuage.Reset();
+            //call update for other methods
+            previousAllie.getATBGuage.LowerPriority();
+            previousAllie.getFadeAnimator.ResetToOpaque();
+
+            allieMarkers.gameObject.SetActive(true);
+        }
+
+        void OnPointerEnter(string itemName)
+        {
+            MenuSFXManager.Instance.PlayHover();
+        }
+
+        void OnPointerExit(string itemName)
+        {
+
+        }
     }
 }

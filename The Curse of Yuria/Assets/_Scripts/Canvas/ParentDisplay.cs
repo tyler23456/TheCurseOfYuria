@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParentDisplay : MonoBehaviour
+namespace TCOY.Canvas
 {
-    DisplayBase[] displays;
-    void Awake()
+    public class ParentDisplay : MonoBehaviour
     {
-        foreach (Transform child in transform)
+        DisplayBase[] displays;
+        void Awake()
         {
-            displays = child.GetComponents<DisplayBase>();
+            foreach (Transform child in transform)
+            {
+                displays = child.GetComponents<DisplayBase>();
 
-            foreach (DisplayBase display in displays)
-                if (display != null)
-                    display.Initialize();
+                foreach (DisplayBase display in displays)
+                    if (display != null)
+                        display.Initialize();
+            }
         }
     }
 }

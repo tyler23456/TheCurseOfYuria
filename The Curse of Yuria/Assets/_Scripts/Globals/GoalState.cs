@@ -9,4 +9,5 @@ public abstract class GoalState : ScriptableObject
     public abstract void UpdateState(IController controller);
     public abstract void OnDrawGizmosMethod(IController controller);
     public abstract bool CheckForTransition(IController controller);
+    public abstract IEnumerator CheckForPath(IController controller);
 }

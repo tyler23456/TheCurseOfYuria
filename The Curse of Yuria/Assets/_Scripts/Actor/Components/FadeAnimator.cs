@@ -64,6 +64,16 @@ namespace TCOY.UserActors
             OnCoroutineEnd = (actor) => { };
         }
 
+        public void SetToTransparent()
+        {
+            foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+                spriteRenderer.color = new Color(
+                    spriteRenderer.color.r,
+                    spriteRenderer.color.g,
+                    spriteRenderer.color.b,
+                    0f);
+        }
+
         public void ResetToOpaque()
         {
             foreach (SpriteRenderer spriteRenderer in spriteRenderers)

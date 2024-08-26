@@ -29,16 +29,16 @@ public class SaveManager : MonoBehaviour
     {
         ClearNonPersistentData();
 
-        IAllie allie = AllieDatabase.Instance.Instantiate("River");
+        IAllie allie = AllieFactory.Instance.Instantiate("River");
         allie.obj.name = "River";
         allie.obj.transform.parent = allies;
-        IAllie allie2 = AllieDatabase.Instance.Instantiate("Nate");
+        IAllie allie2 = AllieFactory.Instance.Instantiate("Nate");
         allie2.obj.name = "Nate";
         allie2.obj.transform.parent = allies;
-        IAllie allie3 = AllieDatabase.Instance.Instantiate("Sarah");
+        IAllie allie3 = AllieFactory.Instance.Instantiate("Sarah");
         allie3.obj.name = "Sarah";
         allie3.obj.transform.parent = allies;
-        IAllie allie4 = AllieDatabase.Instance.Instantiate("Juel");
+        IAllie allie4 = AllieFactory.Instance.Instantiate("Juel");
         allie4.obj.name = "Juel";
         allie4.obj.transform.parent = allies;
 
@@ -99,7 +99,7 @@ public class SaveManager : MonoBehaviour
         Transform t = null;
 
         InventoryManager.Instance.EmptyAllInventories();
-        PopupManager.Instance.ClearAllPopups();
+        PopupFactory.Instance.ClearAllPopups();
         
         for (int i = allies.childCount - 1; i >= 0; i--)
         {
@@ -279,7 +279,7 @@ public class SaveManager : MonoBehaviour
 
             foreach (AllieData allieData in allieDatas)
             {
-                IAllie allie = AllieDatabase.Instance.Instantiate(allieData.name, new Vector3(allieData.positionX, allieData.positionY, 0f), Quaternion.identity);
+                IAllie allie = AllieFactory.Instance.Instantiate(allieData.name, new Vector3(allieData.positionX, allieData.positionY, 0f), Quaternion.identity);
                 allie.obj.SetActive(false);
                 allie.useDefaultItems = false;
                 allie.obj.name = allieData.name;

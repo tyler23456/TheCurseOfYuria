@@ -6,6 +6,7 @@ public interface IPlayerControls
 {
     enum State { Normal = 0, Combat = 1, Climb = 2 }
     static State state = State.Normal;
+    static bool initializeGoalStatesOnRefresh = true;
 
     void Refresh();
     void SetUnselectedDefaultGoal(GoalState goal);

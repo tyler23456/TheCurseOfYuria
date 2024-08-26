@@ -16,7 +16,6 @@ namespace TCOY.Interactables
             instance = this;
         }
 
-
         void Update()
         {
             target = null;

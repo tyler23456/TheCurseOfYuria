@@ -2,26 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class UniqueIdentifier
+namespace TCOY.Interactables
 {
-    [SerializeField] string ID = "";
-
-    public string getID => ID;
-
-    public void Initialize(string prefabIdentifier)
+    [System.Serializable]
+    public class UniqueIdentifier
     {
-        if (ID == null || ID == "" || ID == prefabIdentifier)
-            ID = System.DateTime.Now.Ticks.ToString() + "|" + System.Guid.NewGuid().ToString();
-    }
+        [SerializeField] string ID = "";
 
-    public bool IsNotFoundInInventory()
-    {
-        return !InventoryManager.Instance.completedIds.Contains(ID);
-    }
+        public string getID => ID;
 
-    public void AddToInventory()
-    {
-        InventoryManager.Instance.completedIds.Add(ID);
+        public void Initialize(string prefabIdentifier)
+        {
+            if (ID == null || ID == "" || ID == prefabIdentifier)
+                ID = System.DateTime.Now.Ticks.ToString() + "|" + System.Guid.NewGuid().ToString();
+        }
+
+        public bool IsNotFoundInInventory()
+        {
+            return !InventoryManager.Instance.completedIds.Contains(ID);
+        }
+
+        public void AddToInventory()
+        {
+            InventoryManager.Instance.completedIds.Add(ID);
+        }
     }
 }

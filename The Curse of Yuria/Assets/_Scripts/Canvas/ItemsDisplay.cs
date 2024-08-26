@@ -7,184 +7,187 @@ using HeroEditor.Common.Data;
 using System.Linq;
 using System.Collections.ObjectModel;
 
-public class ItemsDisplay : DisplayBase
+namespace TCOY.Canvas
 {
-    public static ItemsDisplay Instance { get; protected set; }
-
-    [SerializeField] ItemDisplayAsset display;
-
-    public override void Initialize()
+    public class ItemsDisplay : DisplayBase
     {
-        base.Initialize();
-        Instance = this;
-    }
+        public static ItemsDisplay Instance { get; protected set; }
 
-    protected override void OnEnable()
-    {
-        base.OnEnable();
+        [SerializeField] ItemDisplayAsset display;
 
-        display.gameObject.SetActive(true);
-        display.Initialize();
-
-        display.exitButton.onClick.RemoveAllListeners();
-        display.exitButton.onClick.AddListener(OnExit);
-
-        display.helmetsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.helmetType));
-        display.meleeWeapons1HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee1HandedType));
-        display.meleeWeapons2HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee2HandedType));
-        display.armorTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.armorType));
-        display.shieldsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.shieldType));
-        display.bowsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.bowType));
-        display.scrollsTab.onClick.AddListener(() => RefreshScrollsWithSFX(InventoryManager.Instance.scrollType));
-        display.basicTab.onClick.AddListener(() => RefreshReadonlyWithSFX(InventoryManager.Instance.basicType));
-        display.questItemsTab.onClick.AddListener(() => RefreshReadonlyWithSFX(InventoryManager.Instance.questItemType));
-
-        display.helmetsTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.helmetType);
-        display.meleeWeapons1HTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.melee1HandedType);
-        display.meleeWeapons2HTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.melee2HandedType);
-        display.armorTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.armorType);
-        display.shieldsTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.shieldType);
-        display.bowsTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.bowType);
-        display.scrollsTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
-        display.basicTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
-        display.questItemsTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
-
-        display.onEnterItem = display.ShowItemInfo;
-        display.onEnterItem += display.RefreshAllieInfo;
-        display.onExitItem = (n) => display.ClearItemInfo();
-        display.onExitItem += (n) => display.RefreshAllieInfo("");
-
-        display.selectionInfo.text = "Equip/ Unequip an item";
-
-        display.RefreshAllie(0);
-
-        RefreshEquipment(InventoryManager.Instance.helmetType);
-
-        MenuSFXManager.Instance.PlayEquipmentMenuOpen();
-    }
-
-    protected override void OnDisable()
-    {
-        base.OnDisable();
-        display.RefreshAllies();
-        display.gameObject.SetActive(false);
-
-        MenuSFXManager.Instance.PlayEquipmentMenuClose();
-    }
-
-    private void Update()
-    {
-        display.UpdateAllieView();
-    }
-
-    void OnExit()
-    {
-        gameObject.SetActive(false);
-    }
-
-    void RefreshEquipmentWithSFX(string type)
-    {
-        MenuSFXManager.Instance.PlayChangeEquipmentPart();
-        RefreshEquipment(type);
-    }
-
-    void RefreshEquipment(string type)
-    {
-        display.onGlobalClick = OnEquipEquipment;
-        display.isRefreshingStatusAttributes = true;
-        display.localInventoryGameObject.SetActive(false);
-        display.SetGlobalInventoryBehavior();
-        display.SetLocalInventoryBehavior();
-        display.RefreshItemInfo(type);
-    }
-
-    void RefreshScrollsWithSFX(string type)
-    {
-        MenuSFXManager.Instance.PlayChangeEquipmentPart();
-        display.onGlobalClick = OnEquipScroll;
-        display.onLocalClick = OnUnequipScroll;
-        display.isRefreshingStatusAttributes = false;
-        display.localInventoryGameObject.SetActive(true);
-        display.SetGlobalInventoryBehavior(showName: true);
-        display.SetLocalInventoryBehavior(showName: true, showCount: false);
-        display.RefreshItemInfo(type);
-    }
-
-    void RefreshReadonlyWithSFX(string type)
-    {
-        MenuSFXManager.Instance.PlayChangeEquipmentPart();
-        display.onGlobalClick = (itemName) => { };
-        display.isRefreshingStatusAttributes = false;
-        display.localInventoryGameObject.SetActive(false);
-        display.SetGlobalInventoryBehavior();
-        display.SetLocalInventoryBehavior();
-        display.RefreshItemInfo(type);
-    }
-
-    void OnEquipEquipment(string itemName)
-    {
-        IEquipment current = (IEquipment)ItemDatabase.Instance.Get(itemName);
-
-        string previous = display.allie.getEquipment.Find(i => ItemDatabase.Instance.GetType(i) == current.type);
-
-        if (previous == null)
+        public override void Initialize()
         {
-            InventoryManager.Instance.Get(current.type).Remove(itemName);
-        }
-        else
-        {
-            InventoryManager.Instance.Get(current.type).Add(previous);
-            InventoryManager.Instance.Get(current.type).Remove(itemName);
+            base.Initialize();
+            Instance = this;
         }
 
-        current.Equip(display.allie);
+        protected override void OnEnable()
+        {
+            base.OnEnable();
 
-        MenuSFXManager.Instance.PlayEquip();
+            display.gameObject.SetActive(true);
+            display.Initialize();
 
-        display.RefreshItemInfo(current.type);
-    }
+            display.exitButton.onClick.RemoveAllListeners();
+            display.exitButton.onClick.AddListener(OnExit);
 
-    void OnUnequipEquipment(string type)
-    {
-        string itemName = display.allie.getEquipment.Find(i => ItemDatabase.Instance.GetType(i) == type);
+            display.helmetsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.helmetType));
+            display.meleeWeapons1HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee1HandedType));
+            display.meleeWeapons2HTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.melee2HandedType));
+            display.armorTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.armorType));
+            display.shieldsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.shieldType));
+            display.bowsTab.onClick.AddListener(() => RefreshEquipmentWithSFX(InventoryManager.Instance.bowType));
+            display.scrollsTab.onClick.AddListener(() => RefreshScrollsWithSFX(InventoryManager.Instance.scrollType));
+            display.basicTab.onClick.AddListener(() => RefreshReadonlyWithSFX(InventoryManager.Instance.basicType));
+            display.questItemsTab.onClick.AddListener(() => RefreshReadonlyWithSFX(InventoryManager.Instance.questItemType));
 
-        if (itemName == null)
-            return;
+            display.helmetsTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.helmetType);
+            display.meleeWeapons1HTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.melee1HandedType);
+            display.meleeWeapons2HTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.melee2HandedType);
+            display.armorTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.armorType);
+            display.shieldsTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.shieldType);
+            display.bowsTab.GetComponent<PointerHover>().onPointerRightClick = () => OnUnequipEquipment(InventoryManager.Instance.bowType);
+            display.scrollsTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
+            display.basicTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
+            display.questItemsTab.GetComponent<PointerHover>().onPointerRightClick = () => { };
 
-        IEquipment current = (IEquipment)ItemDatabase.Instance.Get(itemName);
+            display.onEnterItem = display.ShowItemInfo;
+            display.onEnterItem += display.RefreshAllieInfo;
+            display.onExitItem = (n) => display.ClearItemInfo();
+            display.onExitItem += (n) => display.RefreshAllieInfo("");
 
-        InventoryManager.Instance.Get(current.type).Add(itemName);
-        current.Unequip(display.allie);
+            display.selectionInfo.text = "Equip/ Unequip an item";
 
-        MenuSFXManager.Instance.PlayUnequip();
+            display.RefreshAllie(0);
 
-        display.RefreshItemInfo(type);
-    }
+            RefreshEquipment(InventoryManager.Instance.helmetType);
 
-    protected void OnEquipScroll(string itemName)
-    {
-        if (display.allie.getScrolls.Contains(itemName))
-            return;
+            MenuSFXManager.Instance.PlayEquipmentMenuOpen();
+        }
 
-        InventoryManager.Instance.scrolls.Remove(itemName);
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            display.RefreshAllies();
+            display.gameObject.SetActive(false);
 
-        IItem scroll = ItemDatabase.Instance.Get(itemName);
-        scroll.Equip(display.allie);
+            MenuSFXManager.Instance.PlayEquipmentMenuClose();
+        }
 
-        MenuSFXManager.Instance.PlayAddScroll();
+        private void Update()
+        {
+            display.UpdateAllieView();
+        }
 
-        display.RefreshItemInfo(scroll.type);
-    }
+        void OnExit()
+        {
+            gameObject.SetActive(false);
+        }
 
-    protected void OnUnequipScroll(string itemName)
-    {
-        IItem scroll = ItemDatabase.Instance.Get(itemName);
-        scroll.Unequip(display.allie);
+        void RefreshEquipmentWithSFX(string type)
+        {
+            MenuSFXManager.Instance.PlayChangeEquipmentPart();
+            RefreshEquipment(type);
+        }
 
-        InventoryManager.Instance.scrolls.Add(itemName);
+        void RefreshEquipment(string type)
+        {
+            display.onGlobalClick = OnEquipEquipment;
+            display.isRefreshingStatusAttributes = true;
+            display.localInventoryGameObject.SetActive(false);
+            display.SetGlobalInventoryBehavior();
+            display.SetLocalInventoryBehavior();
+            display.RefreshItemInfo(type);
+        }
 
-        MenuSFXManager.Instance.PlayUnequip();
+        void RefreshScrollsWithSFX(string type)
+        {
+            MenuSFXManager.Instance.PlayChangeEquipmentPart();
+            display.onGlobalClick = OnEquipScroll;
+            display.onLocalClick = OnUnequipScroll;
+            display.isRefreshingStatusAttributes = false;
+            display.localInventoryGameObject.SetActive(true);
+            display.SetGlobalInventoryBehavior(showName: true);
+            display.SetLocalInventoryBehavior(showName: true, showCount: false);
+            display.RefreshItemInfo(type);
+        }
 
-        display.RefreshItemInfo(scroll.type);
+        void RefreshReadonlyWithSFX(string type)
+        {
+            MenuSFXManager.Instance.PlayChangeEquipmentPart();
+            display.onGlobalClick = (itemName) => { };
+            display.isRefreshingStatusAttributes = false;
+            display.localInventoryGameObject.SetActive(false);
+            display.SetGlobalInventoryBehavior();
+            display.SetLocalInventoryBehavior();
+            display.RefreshItemInfo(type);
+        }
+
+        void OnEquipEquipment(string itemName)
+        {
+            IEquipment current = (IEquipment)ItemDatabase.Instance.Get(itemName);
+
+            string previous = display.allie.getEquipment.Find(i => ItemDatabase.Instance.GetType(i) == current.type);
+
+            if (previous == null)
+            {
+                InventoryManager.Instance.Get(current.type).Remove(itemName);
+            }
+            else
+            {
+                InventoryManager.Instance.Get(current.type).Add(previous);
+                InventoryManager.Instance.Get(current.type).Remove(itemName);
+            }
+
+            current.Equip(display.allie);
+
+            MenuSFXManager.Instance.PlayEquip();
+
+            display.RefreshItemInfo(current.type);
+        }
+
+        void OnUnequipEquipment(string type)
+        {
+            string itemName = display.allie.getEquipment.Find(i => ItemDatabase.Instance.GetType(i) == type);
+
+            if (itemName == null)
+                return;
+
+            IEquipment current = (IEquipment)ItemDatabase.Instance.Get(itemName);
+
+            InventoryManager.Instance.Get(current.type).Add(itemName);
+            current.Unequip(display.allie);
+
+            MenuSFXManager.Instance.PlayUnequip();
+
+            display.RefreshItemInfo(type);
+        }
+
+        protected void OnEquipScroll(string itemName)
+        {
+            if (display.allie.getScrolls.Contains(itemName))
+                return;
+
+            InventoryManager.Instance.scrolls.Remove(itemName);
+
+            IItem scroll = ItemDatabase.Instance.Get(itemName);
+            scroll.Equip(display.allie);
+
+            MenuSFXManager.Instance.PlayAddScroll();
+
+            display.RefreshItemInfo(scroll.type);
+        }
+
+        protected void OnUnequipScroll(string itemName)
+        {
+            IItem scroll = ItemDatabase.Instance.Get(itemName);
+            scroll.Unequip(display.allie);
+
+            InventoryManager.Instance.scrolls.Add(itemName);
+
+            MenuSFXManager.Instance.PlayUnequip();
+
+            display.RefreshItemInfo(scroll.type);
+        }
     }
 }
