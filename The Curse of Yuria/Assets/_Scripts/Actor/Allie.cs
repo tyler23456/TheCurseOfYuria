@@ -25,7 +25,8 @@ namespace TCOY.UserActors
 
             stats.onHPDamage += (damage) => animator.SetTrigger("Hit");
 
-            stats.onZeroHealth += () => transform.parent.GetComponent<IPlayerControls>().ResetTargets();
+            stats.onZeroHealthEnter += () => transform.parent.GetComponent<IPlayerControls>().ResetTargets();
+            stats.onZeroHealthExit += () => transform.parent.GetComponent<IPlayerControls>().Refresh();
         }
 
         protected void FixedUpdate()

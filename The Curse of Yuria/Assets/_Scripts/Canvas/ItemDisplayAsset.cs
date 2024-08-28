@@ -76,6 +76,7 @@ namespace TCOY.Canvas
         InventoryUI globalInventoryUI;
 
         [NonSerialized] public bool previousActive = true;
+        [NonSerialized] public float previousEulerAngleY = 0f;
         [NonSerialized] public bool isRefreshingStatusAttributes = true;
         [NonSerialized] public int allieIndex = 0;
         public IActor allie;
@@ -93,8 +94,8 @@ namespace TCOY.Canvas
         public Action<string> onEnterItem = (itemName) => { };
         public Action<string> onExitItem = (itemName) => { };
 
-        List<IActor> activeAllies = new List<IActor>();
-        IActor tempActor;
+        //List<IActor> activeAllies = new List<IActor>();
+        //IActor tempActor;
 
         public void Initialize()
         {
@@ -162,7 +163,10 @@ namespace TCOY.Canvas
         {
             allie?.obj.SetActive(previousActive);
 
-            activeAllies.Clear();
+            if (allie != null)
+                allie.obj.transform.eulerAngles = Vector3.up * previousEulerAngleY;
+
+            /*activeAllies.Clear();
             foreach (Transform t in allies)
             {
                 tempActor = t.GetComponent<IActor>();
@@ -171,14 +175,16 @@ namespace TCOY.Canvas
             }
 
             if (activeAllies.Count == 0)
-                gameObject.SetActive(false);
+                gameObject.SetActive(false);*/
                 
             allieIndex += offset;
-            allieIndex = Mathf.Clamp(allieIndex, 0, activeAllies.Count - 1);
+            allieIndex = Mathf.Clamp(allieIndex, 0, allies.childCount - 1);
 
-            allie = activeAllies[allieIndex];
+            allie = allies.GetChild(allieIndex).GetComponent<IActor>();
             previousActive = allie.obj.activeSelf;
             allie.obj.SetActive(true);
+            previousEulerAngleY = allie.obj.transform.eulerAngles.y;
+            allie.obj.transform.eulerAngles = Vector3.zero;
 
             detailedActorViewCamera.cullingMask = (1 << allie.obj.transform.GetChild(0).gameObject.layer)
                 | (1 << LayerMask.NameToLayer("Light"));
@@ -265,7 +271,11 @@ namespace TCOY.Canvas
                 MenuSFXManager.Instance.PlayCyclePartyMembers();
                 RefreshAllie(1);
             }
-            detailedActorViewCamera.transform.position = allie.getCollider2D.bounds.center + new Vector3(0f, 0f, -2.8f);
+
+            if (allie.getStatusEffects.Contains("KnockOut"))
+                detailedActorViewCamera.transform.position = allie.getCollider2D.bounds.center + new Vector3(-0.65f, -0.9f, -2.8f);
+            else
+                detailedActorViewCamera.transform.position = allie.getCollider2D.bounds.center + new Vector3(0f, 0f, -2.8f);
         }
 
         public void ShowItemInfo(string itemName)

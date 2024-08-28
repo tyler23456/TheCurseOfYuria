@@ -24,9 +24,10 @@ namespace TCOY.UserActors
         void Awake()
         {
             defaultMainCameraLayerMask = mainCamera.cullingMask;
+            
         }
 
-        void OnEnable()
+        public void Start()
         {
             OnTransformChildrenChanged();
         }
@@ -96,7 +97,7 @@ namespace TCOY.UserActors
                 else
                     transform.GetChild(count - 1).SetSiblingIndex(0);
                 
-                if (transform.GetChild(0).GetComponent<IActor>().enabled == true)
+                if (!transform.GetChild(0).GetComponent<IActor>().getStatusEffects.Contains("KnockOut"))
                     break;
             }
         }

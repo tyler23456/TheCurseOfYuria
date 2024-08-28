@@ -79,7 +79,8 @@ namespace TCOY.UserActors
             stats.onHPDamage += (damage) => CameraShakerHandler.Shake(ShakeManager.Instance.Get("Hit"));
             stats.onHPDamage += (damage) => hitAnimator.Start();
 
-            stats.onZeroHealth = () => StatFXDatabase.Instance.getKnockOut.Activate(this);
+            stats.onZeroHealthEnter = () => StatFXDatabase.Instance.getKnockOut.Activate(this);
+            stats.onZeroHealthExit = () => statusEffects.Remove("KnockOut");
 
             stats.onHPRecovery = (recovery) => PopupFactory.Instance.AddHPRecoveryPopup(recovery, collider2D.bounds.center);
 

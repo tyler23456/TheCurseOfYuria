@@ -46,7 +46,6 @@ namespace TCOY.StatusEffects
 
             animator?.SetInteger("State", 0);
             target.enabled = true;
-
         }
     }
 }

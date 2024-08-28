@@ -51,9 +51,6 @@ namespace TCOY.Pathfinding
 
         public void ResetToDefault()
         {
-            if (actor.getStatusEffects.Contains("KnockOut"))
-                return;
-
             forcePathReconnection = true;
             SetGoal(initialGoalState);
         }

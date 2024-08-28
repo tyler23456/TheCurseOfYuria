@@ -21,8 +21,8 @@ namespace TCOY.UserActors
             containers = GetComponents<IInteractable>();
             scriptsToBeEnabled = GetComponents<IEnabler>();
 
-            stats.onZeroHealth += () => animator.enabled = true;
-            stats.onZeroHealth += () =>
+            stats.onZeroHealthEnter += () => animator.enabled = true;
+            stats.onZeroHealthEnter += () =>
             {
                 audioSource?.Play();
                 animator?.SetTrigger("Activate");

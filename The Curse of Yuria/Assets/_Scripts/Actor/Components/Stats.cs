@@ -44,7 +44,8 @@ namespace TCOY.UserActors
         int[] weaknesses;
 
         public Action<int[]> onStatsChanged { get; set; } = (statsDictionary) => { };
-        public Action onZeroHealth { get; set; } = () => { };
+        public Action onZeroHealthEnter { get; set; } = () => { };
+        public Action onZeroHealthExit { get; set; } = () => { };
         public Action<int> onHPDamage { get; set; } = (damage) => { };
         public Action<int> onHPRecovery { get; set; } = (recovery) => { };
         public Action<int> onMPDamage { get; set; } = (damage) => { };
@@ -133,17 +134,24 @@ namespace TCOY.UserActors
 
         public void ApplyHPRecovery(float amount)
         {
+            bool wasZero = HP < 1;
             int result = (int)(amount * UnityEngine.Random.Range(0.8f, 1.2f));
             HP += result;
             onHPRecovery.Invoke(result);
             onHPChanged.Invoke(HP);
-            CheckForZeroHealth();
+            CheckForZeroHealthExit(wasZero);
+        }
+
+        private void CheckForZeroHealthExit(bool wasZero)
+        {
+            if (wasZero && HP >= 1)
+                onZeroHealthExit.Invoke();
         }
 
         public void CheckForZeroHealth()
         {
             if (HP < 1)
-                onZeroHealth.Invoke();
+                onZeroHealthEnter.Invoke();
         }
 
         public int[] GetAttributes()
@@ -153,7 +161,7 @@ namespace TCOY.UserActors
 
         public int[] GetWeaknesses()
         {
-            return attributes.ToArray();
+            return weaknesses.ToArray();
         }
     }
 }

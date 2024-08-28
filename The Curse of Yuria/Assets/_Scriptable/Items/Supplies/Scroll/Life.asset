@@ -38,5 +38,5 @@ MonoBehaviour:
   statusEffectsInfo:
     statusEffectProbabilities:
     - statusEffect: {fileID: 11400000, guid: 1af67323599600b4d9b00b97c88ce548, type: 2}
-      probability: 0.95
+      probability: 1
   cost: 2

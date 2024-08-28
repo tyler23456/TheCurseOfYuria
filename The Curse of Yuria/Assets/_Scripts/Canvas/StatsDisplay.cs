@@ -30,11 +30,16 @@ namespace TCOY.Canvas
 
         protected override void OnEnable()
         {
-            OnRefresh();
+            
         }
 
         protected override void OnDisable()
         {
+        }
+
+        protected void Start()
+        {
+            OnRefresh();
         }
 
         protected void Update()

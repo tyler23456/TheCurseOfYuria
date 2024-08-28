@@ -13,7 +13,8 @@ namespace TCOY.StatusEffects
         public override void Activate(IActor target, float duration)
         {
             foreach (StatusEffectBase statusEffect in StatusEffectsToRemove)
-                target.getStatusEffects.Remove(statusEffect.name);
+                if (statusEffect.name != "KnockOut")
+                    target.getStatusEffects.Remove(statusEffect.name);
         }
 
         public bool ContainsStatusEffectToRemove(string statusEffectToRemoveName)

@@ -11,7 +11,7 @@ namespace TCOY.UserActors
         {
             base.Awake();
 
-            stats.onZeroHealth += () => gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            stats.onZeroHealthEnter += () => gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 }

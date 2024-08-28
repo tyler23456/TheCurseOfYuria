@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 246def5ab787390448570e94229c165a, type: 3}
   m_Name: Life
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  visualEffect: {fileID: 0}
   duration: 0
   StatusEffectsToRemove:
   - {fileID: 11400000, guid: a1731249df62122449371e32cb119535, type: 2}
