@@ -9,6 +9,8 @@ namespace TCOY.Pathfinding
     [RequireComponent(typeof(Animator), typeof(Rigidbody2D))]
     public class ControllerUnit : MonoBehaviour, IController, IPath
     {
+        public bool isActive { get; protected set; } = true;
+
         [SerializeField] GoalState initialGoalState;
         [SerializeField] ActionState initialActionState;
 
@@ -53,6 +55,16 @@ namespace TCOY.Pathfinding
         {
             forcePathReconnection = true;
             SetGoal(initialGoalState);
+        }
+
+        public void Activate()
+        {
+            this.isActive = true;
+        }
+
+        public void Deactivate()
+        {
+            this.isActive = false;
         }
 
         void Awake()
@@ -104,6 +116,9 @@ namespace TCOY.Pathfinding
 
         void Update()
         {
+            if (!isActive)
+                return;
+
             if (allies.childCount == 0)
                 return;
 
@@ -128,6 +143,9 @@ namespace TCOY.Pathfinding
             previousIsGrounded = isGrounded;
             isGrounded = false;
 
+            if (!isActive)
+                return;
+
             if (allies.childCount == 0)
                 return;
 
@@ -143,7 +161,7 @@ namespace TCOY.Pathfinding
             if (GameStateManager.Instance.isPaused)
                 return;
 
-            action.FixedUpdateState(this);
+            action.FixedUpdateState(this);//
         }
 
         void OnTriggerStay2D(Collider2D collision)

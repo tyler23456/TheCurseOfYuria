@@ -58,11 +58,17 @@ namespace TCOY.UserActors
 
         public void RaisePriority()
         {
+            if (priority == int.MaxValue)
+                return;
+
             priority++;
         }
 
         public void LowerPriority()
         {
+            if (priority == 0)
+                return;
+
             priority--;
         }
 

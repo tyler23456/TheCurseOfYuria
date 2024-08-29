@@ -35,6 +35,7 @@ namespace TCOY.Items
                 particleSystem.transform.parent = target.obj.transform;
 
                 GameObject.Destroy(particleSystem.gameObject, 10f);
+                GameObject.Destroy(particleSystem, particleSystem.main.duration);
 
                 while (particleSystem.time < particleSystem.main.duration / 10f)
                     yield return new WaitForEndOfFrame();
@@ -64,7 +65,10 @@ namespace TCOY.Items
             if (this.particleSystem != null)
             {
                 ParticleSystem particleSystem = GameObject.Instantiate(this.particleSystem.gameObject, target.obj.transform).GetComponent<ParticleSystem>();
-                GameObject.Destroy(particleSystem.gameObject, particleSystem.main.duration);
+                AudioSource audioSource = particleSystem.GetComponent<AudioSource>();
+                GameObject.Destroy(particleSystem.gameObject, 10f);
+                GameObject.Destroy(particleSystem, particleSystem.main.duration);
+                GameObject.Destroy(audioSource, audioSource.clip.length);
 
                 while (particleSystem.time < particleSystem.main.duration / 10f)
                     yield return new WaitForEndOfFrame();

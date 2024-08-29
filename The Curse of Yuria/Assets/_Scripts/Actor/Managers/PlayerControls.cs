@@ -24,7 +24,6 @@ namespace TCOY.UserActors
         void Awake()
         {
             defaultMainCameraLayerMask = mainCamera.cullingMask;
-            
         }
 
         public void Start()
@@ -128,14 +127,18 @@ namespace TCOY.UserActors
 
             for (int i = 0; i < count; i++)
             {
-                transform.GetChild(i).gameObject.SetActive(true);
+                controller = transform.GetChild(i).GetComponent<IController>();
+                controller.Activate();
+                controller.actor.Activate();
                 transform.GetChild(i).GetChild(0).GetComponent<SortingGroup>().sortingOrder = 510 - (i * 3);
                 mainCamera.cullingMask |= (1 << transform.GetChild(i).GetChild(0).gameObject.layer);
             }
             
             for (int i = IAllie.MaxActiveAlliesCount; i < transform.childCount; i++)
             {
-                transform.GetChild(i).gameObject.SetActive(false);
+                controller = transform.GetChild(i).GetComponent<IController>();
+                controller.Deactivate();
+                controller.actor.Deactivate();
             }
 
             IPlayerControls.initializeGoalStatesOnRefresh = true;

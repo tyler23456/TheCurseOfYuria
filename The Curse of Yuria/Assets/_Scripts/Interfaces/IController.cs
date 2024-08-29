@@ -6,6 +6,8 @@ public interface IController : IPath
 {
     const float stopDistance = 1.5f;
     const float goDistance = 2.25f;
+
+    bool isActive { get; }
     float accumulator { get; set; }
     Vector2 origin { get; }
     Vector2 velocity { get; set; }
@@ -20,6 +22,8 @@ public interface IController : IPath
     GoalState.State goalState { get; set; }
 
     void ResetToDefault();
+    void Activate();
+    void Deactivate();
     void SetGoal(GoalState goal);
     void SetAction(ActionState action);
 

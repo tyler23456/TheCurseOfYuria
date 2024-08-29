@@ -45,6 +45,12 @@ namespace TCOY.UserActors
                 if (!GameStateManager.Instance.isPlaying)
                     yield return new WaitForEndOfFrame();
 
+                if (enemies.childCount == 0)
+                    yield return new WaitForEndOfFrame();
+
+                if (allies.childCount == 0)
+                    yield return new WaitForEndOfFrame();
+
                 yield return new WaitForEndOfFrame();
 
                 RemoveBrokenCommands();
@@ -113,6 +119,10 @@ namespace TCOY.UserActors
             foreach (Transform t in actorsParent)
             {
                 actor = t.GetComponent<IActor>();
+
+                if (!actor.isActive)
+                    continue;
+
                 List<Reactor> reactors = isCounter ? actor.getCounters : actor.getInterrupts;
 
                 foreach (Reactor reactor in reactors)
@@ -134,7 +144,7 @@ namespace TCOY.UserActors
 
             foreach (Command command in IBattleData.pendingCommands)
             {
-                if (command.user == null || !command.user.getATBGuage.isActive)
+                if (command.user == null || !command.user.isActive || !command.user.getATBGuage.isActive)
                 {
                     commandsToRemove.Add(command);
                     continue;
@@ -169,6 +179,9 @@ namespace TCOY.UserActors
 
             closeEnemies.ExceptWith(enemyTargets);
             enemiesToRemove.ExceptWith(farEnemies);
+
+            closeEnemies.RemoveWhere(i => i.obj == null);
+            enemiesToRemove.RemoveWhere(i => i.obj == null);
 
             foreach (IActor actor in closeEnemies)
             {

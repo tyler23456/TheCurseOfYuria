@@ -25,7 +25,8 @@ namespace TCOY.StatusEffects
 
             while (target.getStatusEffects.Contains(name))
             {
-                target.StartCoroutine(action.Use(target));
+                if (target.isActive)
+                    target.StartCoroutine(action.Use(target));
                 yield return new WaitForSeconds(tickDuration);
             }
         }

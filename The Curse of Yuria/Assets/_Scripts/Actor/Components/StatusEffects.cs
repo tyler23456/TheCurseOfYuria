@@ -17,25 +17,21 @@ namespace TCOY.UserActors
             return names.Contains(name);
         }
 
-        public void Add(string name, float accumulator = 0f)
+        public bool Add(string name, float accumulator = 0f)
         {
             int index = names.IndexOf(name);
 
             if (index > -1)
             {
                 accumulators[index] = accumulator;
+                return true;
             }
             else
             {
                 names.Add(name);
                 accumulators.Add(accumulator);
+                return false;
             }
-        }
-
-        public void AddRange(List<string> names)
-        {
-            foreach (string name in names)
-                Add(name);
         }
 
         public void Remove(string name)

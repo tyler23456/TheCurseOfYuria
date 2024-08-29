@@ -19,17 +19,13 @@ namespace TCOY.ControllerStates
         {
             base.Stay(controller);
 
-            //controller.rigidbody2D.transform.position += Vector3.down * 10f * Time.deltaTime;
-
             if (controller.isGrounded)
             {
                 controller.SetAction(controller.connection.getAction);
                 controller.pathfindingConnection = controller.connection;
-                controller.actor.obj.SetActive(false);
-                controller.actor.obj.SetActive(true);
-                controller.StopAllCoroutines();
+                controller.rigidbody2D.Sleep();
+                controller.rigidbody2D.WakeUp();
                 Pathfinding.PathRequester.RequestPath(controller, controller.target);
-                controller.StartCoroutine(controller.goal.CheckForPath(controller));
             }
                 
         }

@@ -12,6 +12,8 @@ namespace TCOY.UserActors
     
     public class Actor : MonoBehaviour, IActor
     {
+        public bool isActive { get; protected set; } = true;
+
         [SerializeField] protected bool _useDefaultItems = true;
         [SerializeField] protected Stats stats;
         [SerializeField] protected ATBGuage aTBGuage;
@@ -89,7 +91,7 @@ namespace TCOY.UserActors
             stats.onMPRecovery = (recovery) => PopupFactory.Instance.AddMPRecoveryPopup(recovery, collider2D.bounds.center);
         }
 
-        protected void Start()
+        public void Start()
         {
             if (editorEquipper == null || _useDefaultItems == false)
                 return;
@@ -100,9 +102,29 @@ namespace TCOY.UserActors
                 item.Equip(this);
         }
 
+        public void RefreshEquipment()
+        {
+            foreach (string name in equipment.GetNames())
+                ItemDatabase.Instance.Get(name).Equip(this);
+        }
+
+        public void Activate()
+        {
+            this.isActive = true;
+            getFadeAnimator.ResetToOpaque();
+        }
+
+        public void Deactivate()
+        {
+            this.isActive = false;
+            getFadeAnimator.SetToTransparent();
+        }
 
         protected void Update()
         {
+            if (!isActive)
+                return;
+
             if (!GameStateManager.Instance.isPlaying)
                 return;
 

@@ -73,5 +73,8 @@ public sealed class InventoryManager : MonoBehaviour
     {
         foreach (KeyValuePair<string, Inventory> inventory in inventories)
             inventory.Value.Clear();
+
+        completedQuests.Clear();
+        completedIds.Clear();
     }
 }

@@ -70,7 +70,7 @@ namespace TCOY.ControllerStates
             }
 
             Vector2 rigidbody2Dposition = controller.rigidbody2D.position;
-            rigidbody2Dposition.x = Mathf.Lerp(rigidbody2Dposition.x, trigger.position.x, 4f * Time.deltaTime);
+            rigidbody2Dposition.x = Mathf.MoveTowards(rigidbody2Dposition.x, trigger.position.x, 4f * Time.deltaTime);
             controller.rigidbody2D.position = (rigidbody2Dposition);
         }
 

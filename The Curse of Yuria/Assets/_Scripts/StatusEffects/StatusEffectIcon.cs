@@ -22,7 +22,7 @@ namespace TCOY.StatusEffects
             spriteRenderer.sprite = icon;
             spriteRenderer.sortingOrder = 515;
             int count = target.obj.transform.GetChild(3).childCount;
-            obj.transform.position = target.getCollider2D.bounds.max + new Vector3(-3f + (1.5f * count), 0.2f, 0f);
+            obj.transform.position = target.getCollider2D.bounds.max + new Vector3(-3f + (0.75f * count), 0.2f, 0f);
         }
 
         public override void OnRemove(IActor target)

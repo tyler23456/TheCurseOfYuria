@@ -14,11 +14,9 @@ namespace TCOY.ControllerStates
             {
                 controller.SetAction(controller.connection.getAction);
                 controller.pathfindingConnection = controller.connection;
-                controller.actor.obj.SetActive(false);
-                controller.actor.obj.SetActive(true);
-                controller.StopAllCoroutines();
+                controller.rigidbody2D.Sleep();
+                controller.rigidbody2D.WakeUp();
                 Pathfinding.PathRequester.RequestPath(controller, controller.target);
-                controller.StartCoroutine(controller.goal.CheckForPath(controller));
             }    
             else
             {

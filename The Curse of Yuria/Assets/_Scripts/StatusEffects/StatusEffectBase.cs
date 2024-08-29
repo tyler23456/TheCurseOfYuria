@@ -13,15 +13,22 @@ namespace TCOY.StatusEffects
 
         public override void Activate(IActor target, float accumulator = 0f)
         {
-            target.getStatusEffects.Add(name, accumulator);
+            bool alreadyHasStatusEffect = target.getStatusEffects.Add(name, accumulator);
+
+            if (alreadyHasStatusEffect)
+                return;
+
             OnAdd(target);
             target.StartCoroutine(UpdateEffect(target));
         }
 
         IEnumerator UpdateEffect(IActor target)
         {
-            while (target.getStatusEffects.Elapse(name, duration))
-                yield return null;
+            while (true)
+                if (target.isActive && target.getStatusEffects.Elapse(name, duration))
+                    yield return null;
+                else
+                    break;
 
             OnRemove(target);
         }

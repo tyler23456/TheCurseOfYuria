@@ -89,6 +89,7 @@ namespace TCOY.Canvas
                 return;
 
             nextAllie = nextAllieTransform.GetComponent<IAllie>();
+            nextAllie.RefreshEquipment();
 
             if (nextAllie == null)
                 return;
@@ -153,16 +154,17 @@ namespace TCOY.Canvas
 
             unselectedIndex = nextAllie.obj.transform.GetSiblingIndex();
             nextAllie.obj.transform.SetSiblingIndex(0);
-            previousAllie.obj.transform.SetSiblingIndex(unselectedIndex);
-
-            cameraFollowEnabler.enabled = true;
-            gameObject.SetActive(false);
+            previousAllie.obj.transform.SetSiblingIndex(unselectedIndex);          
+    
             nextAllie.getATBGuage.Reset();
             //call update for other methods
             previousAllie.getATBGuage.LowerPriority();
             previousAllie.getFadeAnimator.ResetToOpaque();
 
+            
             allieMarkers.gameObject.SetActive(true);
+            cameraFollowEnabler.enabled = true;
+            gameObject.SetActive(false);
         }
 
         void OnPointerEnter(string itemName)

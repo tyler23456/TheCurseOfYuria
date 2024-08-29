@@ -5,6 +5,7 @@ using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 
 public interface IActor
 {
+    bool isActive { get; }
     bool enabled { get; set; }
     bool useDefaultItems { get; set; }
     SpriteRenderer[] getSpriteRenderers { get; }
@@ -22,6 +23,9 @@ public interface IActor
     ISpriteFlipper getSpriteFlipper { get; }
     IDetection getDetection { get; }
     Color trajectoryPathColor { get; set; }
+    void RefreshEquipment();
+    void Activate();
+    void Deactivate();
     void RotateToward(Vector3 point);
     Coroutine StartCoroutine(IEnumerator routine);
     void StopCoroutine(IEnumerator routine);

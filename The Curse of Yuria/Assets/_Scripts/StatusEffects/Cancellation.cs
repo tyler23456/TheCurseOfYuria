@@ -20,18 +20,17 @@ namespace TCOY.StatusEffects
 
             if (elementTypes.Any(i => i.name == skill.elementType.name))
             {
-                Destroy(Instantiate(particleSystem.gameObject, target.obj.transform), 10f);
+                ParticleSystem particleSystemInstance = Instantiate(particleSystem.gameObject, target.obj.transform).GetComponent<ParticleSystem>();
+                AudioSource audioSource = particleSystemInstance.GetComponent<AudioSource>();
+                particleSystemInstance.transform.position = target.getCollider2D.bounds.center;
+                GameObject.Destroy(particleSystemInstance.gameObject, 10f);
+                GameObject.Destroy(particleSystemInstance, particleSystemInstance.main.duration);
+                GameObject.Destroy(audioSource, audioSource.clip.length);
                 OnRemove(target);
                 return new Effect(user, target, item, true, true);
             }
 
             return new Effect(user, target, item);
-        }
-
-        public override void OnRemove(IActor target)
-        {
-            base.OnRemove(target);
-            target.getStatusEffects.Remove(name);
         }
     }
 }

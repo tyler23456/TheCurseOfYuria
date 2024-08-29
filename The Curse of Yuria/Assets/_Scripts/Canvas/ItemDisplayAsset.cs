@@ -161,28 +161,20 @@ namespace TCOY.Canvas
 
         public void RefreshAllie(int offset = 0)
         {
-            allie?.obj.SetActive(previousActive);
+            if (previousActive)
+                allie?.Activate();
+            else
+                allie?.Deactivate();
 
             if (allie != null)
                 allie.obj.transform.eulerAngles = Vector3.up * previousEulerAngleY;
-
-            /*activeAllies.Clear();
-            foreach (Transform t in allies)
-            {
-                tempActor = t.GetComponent<IActor>();
-                if (!tempActor.getStatusEffects.Contains("KnockOut"))
-                    activeAllies.Add(tempActor);
-            }
-
-            if (activeAllies.Count == 0)
-                gameObject.SetActive(false);*/
                 
             allieIndex += offset;
             allieIndex = Mathf.Clamp(allieIndex, 0, allies.childCount - 1);
 
             allie = allies.GetChild(allieIndex).GetComponent<IActor>();
-            previousActive = allie.obj.activeSelf;
-            allie.obj.SetActive(true);
+            previousActive = allie.isActive;
+            allie.Activate();
             previousEulerAngleY = allie.obj.transform.eulerAngles.y;
             allie.obj.transform.eulerAngles = Vector3.zero;
 
