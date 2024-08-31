@@ -141,7 +141,7 @@ namespace TCOY.Canvas
 
             current.Equip(display.allie);
 
-            MenuSFXManager.Instance.PlayEquip();
+            MenuSFXManager.Instance.PlayObtainSFX();
 
             display.RefreshItemInfo(current.type);
         }
@@ -158,7 +158,7 @@ namespace TCOY.Canvas
             InventoryManager.Instance.Get(current.type).Add(itemName);
             current.Unequip(display.allie);
 
-            MenuSFXManager.Instance.PlayUnequip();
+            MenuSFXManager.Instance.PlayObtainSFX();
 
             display.RefreshItemInfo(type);
         }

@@ -11,17 +11,14 @@ namespace TCOY.ControllerStates
 
         protected override void Enter(IController controller)
         {
+            controllerStatesSFX.UpdateLandSFX(controller.audioSource);
         }
 
         protected void PlayerMovement(IController controller)
         {
             controller.animator.SetInteger("State", 0);
 
-            if (controller.isGrounded != controller.previousIsGrounded)
-            {
-                controllerStatesSFX.UpdateLandSFX(controller.audioSource);
-            }
-            else if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A))
             {
 
                 if (controller.rigidbody2D.transform.eulerAngles.y < 90f)

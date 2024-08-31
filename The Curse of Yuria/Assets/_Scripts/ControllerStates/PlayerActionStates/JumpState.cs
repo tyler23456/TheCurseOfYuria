@@ -11,7 +11,6 @@ namespace TCOY.ControllerStates
 
         protected override void Enter(IController controller)
         {
-            base.Enter(controller);
             controller.accumulator = 0f;
             controller.rigidbody2D.gravityScale = 0f;
         }

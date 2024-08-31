@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +10,7 @@ namespace TCOY.Pathfinding
     [ExecuteInEditMode]
     public class WaypointEditor : MonoBehaviour
     {
+        [SerializeField] Transform waypointsParent;
         [HideInInspector][SerializeField] Waypoint previousWaypoint;
 
         Waypoint waypoint;
@@ -26,7 +29,7 @@ namespace TCOY.Pathfinding
 
             List<Waypoint> waypoints = new List<Waypoint>();
 
-            foreach (Transform t in transform)
+            foreach (Transform t in waypointsParent)
                 if (t.TryGetComponent(out Waypoint waypoint))
                     waypoints.Add(waypoint);
 
@@ -120,3 +123,5 @@ namespace TCOY.Pathfinding
         }
     }
 }
+
+#endif

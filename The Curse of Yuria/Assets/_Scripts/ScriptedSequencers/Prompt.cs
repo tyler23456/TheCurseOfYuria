@@ -79,12 +79,12 @@ namespace TCOY.ScriptedSequencers
 
                 if (t.GetChild(0).eulerAngles.y == 0f)
                 {
-                    camera.transform.position = t.position + new Vector3(0f, 1f, -2f);
+                    camera.transform.position = t.position + new Vector3(0f, 1f, -3f);
                     camera.transform.eulerAngles = new Vector3(0f, 0f, 0f);
                 }
                 else
                 {
-                    camera.transform.position = t.position + new Vector3(0f, 1f, 2f);
+                    camera.transform.position = t.position + new Vector3(0f, 1f, 3f);
                     camera.transform.eulerAngles = new Vector3(0f, 180f, 0f);
                 }
             }

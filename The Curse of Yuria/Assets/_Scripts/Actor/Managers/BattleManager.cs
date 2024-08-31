@@ -143,12 +143,13 @@ namespace TCOY.UserActors
 
             foreach (Command command in IBattleData.pendingCommands)
             {
-                if (command.user == null || !command.user.isActive || command.user.hasKOStatusEffect || !command.user.getATBGuage.isActive)
+                command.targets.RemoveAll(i => i == null || !i.isActive || i.hasKOStatusEffect && !command.item.ContainsStatusEffectThatCanRemoveKO());
+
+                if (command.user == null || !command.user.isActive || command.user.hasKOStatusEffect || !command.user.getATBGuage.isActive || command.targets.Count == 0)
                 {
                     commandsToRemove.Add(command);
                     continue;
                 }
-                command.targets.RemoveAll(i => i == null || !i.isActive || i.hasKOStatusEffect && !command.item.ContainsStatusEffectThatCanRemoveKO());
             }
 
             foreach (Command command in commandsToRemove)
