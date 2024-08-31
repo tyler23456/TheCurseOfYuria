@@ -56,13 +56,7 @@ namespace TCOY.Canvas
                 yield return new WaitForEndOfFrame();
             }
 
-            int count = Mathf.Min(allies.childCount, IAllie.MaxActiveAlliesCount);
-
-            for (int i = 1; i < count; i++)
-            {
-                IController controller = allies.GetChild(i).GetComponent<IController>();
-                controller.ResetToDefault();
-            }
+            allies.GetComponent<IPlayerControls>().Refresh();
 
             gameObject.SetActive(false);
         }

@@ -45,12 +45,12 @@ namespace TCOY.Interactables
             ShowOpenDoorSprite();
             uniqueIdentifier.AddToInventory();
 
+            SetPositionOfAllies(player, destination, new Vector3(0f, eulerAngleY, 0f));
+
             Transform loadingDisplay = GameObject.Find("/DontDestroyOnLoad/Canvas/LoadingDisplay").transform;
 
             ILoadingData.sceneID = sceneID;
             loadingDisplay.gameObject.SetActive(true);
-
-            SetPositionOfAllies(player, destination, new Vector3(0f, eulerAngleY, 0f));
         }
 
         public void ShowOpenDoorSprite()
