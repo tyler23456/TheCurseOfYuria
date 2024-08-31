@@ -23,6 +23,7 @@ public interface IActor
     ISpriteFlipper getSpriteFlipper { get; }
     IDetection getDetection { get; }
     Color trajectoryPathColor { get; set; }
+    bool hasKOStatusEffect { get; }
     void RefreshEquipment();
     void Activate();
     void Deactivate();

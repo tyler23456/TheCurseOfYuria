@@ -15,7 +15,6 @@ namespace TCOY.UserActors
         [SerializeField] TrajectoryPathDrawer lineDrawerPrefab;
         [SerializeField] Targeter closeEnemyTargeter;
         [SerializeField] Targeter farEnemyTargeter;
-        [SerializeField] List<StatusEffect> gameOverStatusEffects;
 
         HashSet<IActor> closeEnemies = new HashSet<IActor>();
         HashSet<IActor> farEnemies = new HashSet<IActor>();
@@ -120,7 +119,7 @@ namespace TCOY.UserActors
             {
                 actor = t.GetComponent<IActor>();
 
-                if (!actor.isActive)
+                if (!actor.isActive || actor.hasKOStatusEffect)
                     continue;
 
                 List<Reactor> reactors = isCounter ? actor.getCounters : actor.getInterrupts;
@@ -144,12 +143,12 @@ namespace TCOY.UserActors
 
             foreach (Command command in IBattleData.pendingCommands)
             {
-                if (command.user == null || !command.user.isActive || !command.user.getATBGuage.isActive)
+                if (command.user == null || !command.user.isActive || command.user.hasKOStatusEffect || !command.user.getATBGuage.isActive)
                 {
                     commandsToRemove.Add(command);
                     continue;
                 }
-                command.targets.RemoveAll(i => i == null);
+                command.targets.RemoveAll(i => i == null || !i.isActive || i.hasKOStatusEffect && !command.item.ContainsStatusEffectThatCanRemoveKO());
             }
 
             foreach (Command command in commandsToRemove)
@@ -232,7 +231,7 @@ namespace TCOY.UserActors
             int count = Mathf.Min(allies.childCount, IAllie.MaxActiveAlliesCount);
 
             for (int i = 0; i < count; i++)
-                if (gameOverStatusEffects.All(statusEffect => !allies.GetChild(i).GetComponent<IActor>().getStatusEffects.Contains(statusEffect.name)))
+                if (!allies.GetChild(i).GetComponent<IActor>().hasKOStatusEffect)
                     return;
 
             gameOverDisplay.gameObject.SetActive(true);

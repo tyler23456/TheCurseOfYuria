@@ -8,13 +8,13 @@ namespace TCOY.Pathfinding
 {
     public class Pathfinding2 : MonoBehaviour
     {
+        [SerializeField] Transform waypointParent;
+
         PathRequester pathRequester;
-        WaypointManager waypointManager;
 
         public void Awake()
         {
             pathRequester = GetComponent<PathRequester>();
-            waypointManager = GetComponent<WaypointManager>();
         }
 
         internal void StartFindPath(IPath user, IPath target)
@@ -41,7 +41,7 @@ namespace TCOY.Pathfinding
             Connection startNode = (Connection)user.pathfindingConnection;
             Connection targetNode = (Connection)target.connection;
 
-            Heap<Connection> openSet = new Heap<Connection>(waypointManager.transform.childCount);
+            Heap<Connection> openSet = new Heap<Connection>(waypointParent.childCount);
             List<Connection> closedSet = new List<Connection>();
            
             if (startNode == null || targetNode == null)

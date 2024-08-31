@@ -24,8 +24,6 @@ namespace TCOY.StatusEffects
             IEnabler[] objectsToEnable = target.obj.GetComponents<IEnabler>();
             foreach (IEnabler objectToEnable in objectsToEnable)
                 objectToEnable.enabled = true;
-
-            target.enabled = false;
         }
 
         public override void OnRemove(IActor target)
@@ -44,8 +42,7 @@ namespace TCOY.StatusEffects
             foreach (IEnabler objectToEnable in objectsToEnable)
                 objectToEnable.enabled = false;
 
-            animator?.SetInteger("State", 0);
-            target.enabled = true;
+            animator?.SetInteger("State", 0);;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace TCOY.Pathfinding
     [ExecuteInEditMode]
     public class WaypointEditor : MonoBehaviour
     {
-        [SerializeField] Waypoint previousWaypoint;
+        [HideInInspector][SerializeField] Waypoint previousWaypoint;
 
         Waypoint waypoint;
 

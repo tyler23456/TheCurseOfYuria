@@ -165,6 +165,8 @@ namespace TCOY.Canvas
             display.onExitItem += (n) => display.RefreshAllieInfo("");
 
             display.RefreshGlobalInventory(shopInventories[type]); //might need to change this
+
+            MenuSFXManager.Instance.PlayClick();
         }
 
         void OnSell()
@@ -190,18 +192,31 @@ namespace TCOY.Canvas
             display.onExitItem += (n) => display.RefreshAllieInfo("");
 
             display.RefreshGlobalInventory(InventoryManager.Instance.Get(type));
+
+            MenuSFXManager.Instance.PlayClick();
         }
 
         void OnBuyItem(string itemName)
         {
             IItem current = ItemDatabase.Instance.Get(itemName);
-            InventoryManager.Instance.olms -= (int)(current.marketValue * IShopData.buyersRating);
+
+            int itemValue = (int)(current.marketValue * IShopData.buyersRating);
+
+            if (itemValue > InventoryManager.Instance.olms)
+            {
+                NotificationManager.Instance.Notify("You do not have enough olms");
+                return;
+            }
+                
+            InventoryManager.Instance.olms -= itemValue;
             InventoryManager.Instance.AddItem(itemName);
             shopInventories[current.type].Remove(itemName);
             onBuyItem.Invoke(itemName);
 
             display.RefreshAllieInfo();
             display.RefreshGlobalInventory(shopInventories[current.type]);
+
+            MenuSFXManager.Instance.PlayEquip();
         }
 
         void OnSellItem(string itemName)
@@ -214,6 +229,8 @@ namespace TCOY.Canvas
 
             display.RefreshAllieInfo();
             display.RefreshGlobalInventory(InventoryManager.Instance.Get(current.type));
+
+            MenuSFXManager.Instance.PlayEquip();
         }
 
         void ShowPlayerProfit(string itemName)

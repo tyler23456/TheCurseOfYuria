@@ -26,11 +26,6 @@ namespace TCOY.UserActors
             defaultMainCameraLayerMask = mainCamera.cullingMask;
         }
 
-        public void Start()
-        {
-            OnTransformChildrenChanged();
-        }
-
         public void Refresh()
         {
             OnTransformChildrenChanged();

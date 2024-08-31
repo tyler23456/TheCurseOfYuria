@@ -51,7 +51,7 @@ namespace TCOY.Items
 
         public bool IsInvalidTarget(IActor target)
         {
-            return target.enabled == false && !ContainsStatusEffectThatCanRemoveKO() || target.obj.activeSelf == false;
+            return target.enabled == false || !target.isActive || target.hasKOStatusEffect && !ContainsStatusEffectThatCanRemoveKO() || target.obj.activeSelf == false;
         }
     }
 }

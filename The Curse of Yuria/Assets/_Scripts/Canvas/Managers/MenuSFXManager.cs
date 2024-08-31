@@ -26,6 +26,7 @@ public class MenuSFXManager : MonoBehaviour
     [SerializeField] AudioClip changeEquipmentPart;
     [SerializeField] AudioClip hover;
     [SerializeField] AudioClip click;
+    [SerializeField] AudioClip notification;
 
     List<AudioClip> equip = new List<AudioClip>();
     List<AudioClip> addScroll = new List<AudioClip>();
@@ -112,6 +113,11 @@ public class MenuSFXManager : MonoBehaviour
     public void PlayClick()
     {
         audioSourceManager.PlaySFX(click);
+    }
+
+    public void PlayNotification()
+    {
+        audioSourceManager.PlaySFX(notification);
     }
 
     public void PlayEquip()

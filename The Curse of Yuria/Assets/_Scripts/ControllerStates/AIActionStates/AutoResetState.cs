@@ -16,7 +16,11 @@ namespace TCOY.ControllerStates
                 controller.pathfindingConnection = controller.connection;
                 controller.rigidbody2D.Sleep();
                 controller.rigidbody2D.WakeUp();
+                controller.StopAllCoroutines();
+                controller.waypointIndex = 0;
+                controller.waypoints.Clear();
                 Pathfinding.PathRequester.RequestPath(controller, controller.target);
+                controller.StartCoroutine(controller.goal.CheckForPath(controller));
             }    
             else
             {

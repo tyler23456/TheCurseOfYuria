@@ -280,7 +280,6 @@ public class SaveManager : MonoBehaviour
             foreach (AllieData allieData in allieDatas)
             {
                 IAllie allie = AllieFactory.Instance.Instantiate(allieData.name, new Vector3(allieData.positionX, allieData.positionY, 0f), Quaternion.identity);
-                allie.obj.SetActive(false);
                 allie.useDefaultItems = false;
                 allie.obj.name = allieData.name;
                 allie.obj.transform.parent = allies;

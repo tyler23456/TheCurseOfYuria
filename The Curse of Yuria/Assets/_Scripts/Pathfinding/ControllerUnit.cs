@@ -119,6 +119,9 @@ namespace TCOY.Pathfinding
             if (!isActive)
                 return;
 
+            if (actor.hasKOStatusEffect)
+                return;
+
             if (allies.childCount == 0)
                 return;
 
@@ -144,6 +147,9 @@ namespace TCOY.Pathfinding
             isGrounded = false;
 
             if (!isActive)
+                return;
+
+            if (actor.hasKOStatusEffect)
                 return;
 
             if (allies.childCount == 0)

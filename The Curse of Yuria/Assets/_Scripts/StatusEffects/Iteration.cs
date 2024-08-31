@@ -10,7 +10,6 @@ namespace TCOY.StatusEffects
         enum ActivationType { OnKnockOut, TickDuration }
 
         [SerializeField] Skill action;
-        [SerializeField] int power = 2;
         [SerializeField] float tickDuration = 5f;
 
         public override void OnAdd(IActor target)
@@ -25,8 +24,7 @@ namespace TCOY.StatusEffects
 
             while (target.getStatusEffects.Contains(name))
             {
-                if (target.isActive)
-                    target.StartCoroutine(action.Use(target));
+                target.StartCoroutine(action.Use(target));
                 yield return new WaitForSeconds(tickDuration);
             }
         }

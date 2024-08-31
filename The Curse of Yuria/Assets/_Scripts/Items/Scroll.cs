@@ -30,7 +30,7 @@ namespace TCOY.Items
 
         public override IEnumerator Use(IActor target)
         {
-            yield return target.StartCoroutine(skillInfo.PerformEffect(target));
+            yield return target.StartCoroutine(skillInfo.PerformEffect(target, statusEffectsInfo));
         }
 
         public override void Equip(IActor target)

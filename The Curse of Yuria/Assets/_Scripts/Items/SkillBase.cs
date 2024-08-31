@@ -38,7 +38,7 @@ namespace TCOY.Items
             return statusEffectsInfo.TrueForAnyStatusEffect(predicate);
         }
 
-        public bool ContainsStatusEffectThatCanRemoveKO()
+        public override bool ContainsStatusEffectThatCanRemoveKO()
         {
             return statusEffectsInfo.ContainsStatusEffectThatCanRemoveKO();
         }

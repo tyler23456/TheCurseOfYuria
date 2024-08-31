@@ -192,8 +192,12 @@ namespace TCOY.Canvas
 
         public void RefreshAllies()
         {
+            if (allie != null)
+                allie.obj.transform.eulerAngles = Vector3.up * previousEulerAngleY;
+
             IPlayerControls.initializeGoalStatesOnRefresh = false;
             allies.GetComponent<IPlayerControls>().Refresh();
+            
         }
 
         public void SetLocalInventoryBehavior(bool showName = false, bool showCount = true, bool showSprite = true)

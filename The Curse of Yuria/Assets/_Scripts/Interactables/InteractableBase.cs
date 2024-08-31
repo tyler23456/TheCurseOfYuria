@@ -55,6 +55,8 @@ namespace TCOY.Interactables
                 allie.position = position;
                 allie.eulerAngles = eulerAngles;
                 controller.rigidbody2D.isKinematic = previousKinematic;
+                controller.rigidbody2D.Sleep();
+                controller.rigidbody2D.WakeUp();
             }
 
             camera.transform.position = player.obj.transform.position + new Vector3(0f, 0f, -1f);

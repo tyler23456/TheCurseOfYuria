@@ -47,6 +47,8 @@ namespace TCOY.Items
             if (statusEffectsInfo.IsInvalidTarget(target))
                 yield break;
 
+            statusEffectsInfo.CheckStatusEffects(target);
+
             float accumulator = 0;
             accumulator = elementType.Calculate(user, target, power * IStats.powerMultiplier);
             accumulator = armType.Calculate(user, target, accumulator);
@@ -56,12 +58,13 @@ namespace TCOY.Items
 
             accumulator = calculationType.Calculate(user, target, accumulator);
             calculationType.PlaySoundEffect(target.getAudioSource);
-
-            statusEffectsInfo.CheckStatusEffects(target);
         }
 
-        public IEnumerator PerformEffect(IActor target)
+        public IEnumerator PerformEffect(IActor target, StatusEffectsInfo statusEffectsInfo)
         {
+            if (statusEffectsInfo.IsInvalidTarget(target))
+                yield break;
+
             if (this.particleSystem != null)
             {
                 ParticleSystem particleSystem = GameObject.Instantiate(this.particleSystem.gameObject, target.obj.transform).GetComponent<ParticleSystem>();
@@ -74,7 +77,7 @@ namespace TCOY.Items
                     yield return new WaitForEndOfFrame();
             }
 
-            if (target == null)
+            if (statusEffectsInfo.IsInvalidTarget(target))
                 yield break;
 
             float accumulator = 0;

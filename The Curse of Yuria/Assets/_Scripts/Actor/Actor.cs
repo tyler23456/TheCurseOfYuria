@@ -52,6 +52,9 @@ namespace TCOY.UserActors
         public bool useDefaultItems { get { return _useDefaultItems; } set { _useDefaultItems = value; } }
         public Color trajectoryPathColor { get { return _trajectoryPathColor; } set { _trajectoryPathColor = value; } }
 
+        public bool hasKOStatusEffect => statusEffects.Contains("KnockOut");
+        public bool hasGameOverStatusEffect => statusEffects.Contains("KnockOut");
+
 
         public void Reset()
         {
@@ -123,6 +126,9 @@ namespace TCOY.UserActors
         protected void Update()
         {
             if (!isActive)
+                return;
+
+            if (hasKOStatusEffect)
                 return;
 
             if (!GameStateManager.Instance.isPlaying)
