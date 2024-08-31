@@ -83,10 +83,7 @@ namespace TCOY.Canvas
 
         ReadOnlyCollection<Modifier> oldModifiers;
         ReadOnlyCollection<Modifier> newModifiers;
-        Modifier oldModifier;
         Modifier newModifier;
-        int oldModifierValue = 0;
-        int newModifierValue = 0;
         int modifierValue = 0;
 
         public Action<string> onGlobalClick = (itemName) => { };
@@ -386,7 +383,6 @@ namespace TCOY.Canvas
             if (!isRefreshingStatusAttributes)
                 return;
 
-            IEquipment previous = null;
             IEquipment current = null;
 
             if (ItemDatabase.Instance.Contains(itemName))
@@ -394,14 +390,12 @@ namespace TCOY.Canvas
             else
                 current = (IEquipment)ItemDatabase.Instance.Get("Empty");
 
-            string previousItemName = allie.getEquipment.Find(i => ItemDatabase.Instance.GetType(i) == current.type);
+            List<ReadOnlyCollection<Modifier>> previousModifiersCollection = new List<ReadOnlyCollection<Modifier>>();
+            List<string> requiredRemovalItemNames = current.GetRequiredRemovalsFor(allie);
 
-            if (previousItemName == null)
-                previous = (IEquipment)ItemDatabase.Instance.Get("Empty");
-            else
-                previous = (IEquipment)ItemDatabase.Instance.Get(previousItemName);
+            foreach (string requiredRemovalItemName in requiredRemovalItemNames)
+                previousModifiersCollection.Add(((IEquipment)ItemDatabase.Instance.Get(requiredRemovalItemName)).getModifiers);
 
-            oldModifiers = previous.getModifiers;
             newModifiers = current.getModifiers;
 
             int[] attributeValues = allie.getStats.GetAttributes();
@@ -411,16 +405,20 @@ namespace TCOY.Canvas
 
             for (int i = 0; i < attributes.Length; i++)
             {
-                oldModifier = oldModifiers.FirstOrDefault<Modifier>(e => e.attribute == (IStats.Attribute)i);
                 newModifier = newModifiers.FirstOrDefault<Modifier>(e => e.attribute == (IStats.Attribute)i);
-
-                if (oldModifier == null)
-                    oldModifier = new Modifier();
+                List<Modifier> previousModifierCollection = previousModifiersCollection.ConvertAll(n => n.FirstOrDefault<Modifier>(e => e.attribute == (IStats.Attribute)i));
 
                 if (newModifier == null)
                     newModifier = new Modifier();
 
-                modifierValue = newModifier.offset - oldModifier.offset;
+                modifierValue = newModifier.offset;
+
+                foreach (Modifier previousModifier in previousModifierCollection)
+                    if (previousModifier != null)
+                        modifierValue -= previousModifier.offset;
+
+                if (current.name == "Empty")
+                    modifierValue = 0;
 
                 AddAllieInfo(attributes[i], attributeValues[i], modifierValue);
             }

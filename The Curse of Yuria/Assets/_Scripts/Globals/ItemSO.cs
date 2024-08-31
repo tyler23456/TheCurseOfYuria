@@ -27,6 +27,7 @@ public abstract class ItemSO : ScriptableObject, IItem
 
     public virtual IEnumerator Use(IActor user, List<IActor> targets) { yield return null; }
     public virtual IEnumerator Use(IActor target) { yield return null; }
-    public virtual void Equip(IActor user) { }
+    public virtual List<string> Equip(IActor user) { return new List<string>(); }
     public virtual void Unequip(IActor user) { }
+    public virtual List<string> GetRequiredRemovalsFor(IActor target) { return new List<string>(); }
 }

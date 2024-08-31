@@ -216,7 +216,7 @@ namespace TCOY.Canvas
             display.RefreshAllieInfo();
             display.RefreshGlobalInventory(shopInventories[current.type]);
 
-            MenuSFXManager.Instance.PlayEquip();
+            MenuSFXManager.Instance.PlayObtainSFX();
         }
 
         void OnSellItem(string itemName)
@@ -230,7 +230,7 @@ namespace TCOY.Canvas
             display.RefreshAllieInfo();
             display.RefreshGlobalInventory(InventoryManager.Instance.Get(current.type));
 
-            MenuSFXManager.Instance.PlayEquip();
+            MenuSFXManager.Instance.PlayObtainSFX();
         }
 
         void ShowPlayerProfit(string itemName)

@@ -17,5 +17,6 @@ public interface IInventory
     void SetCounts(int[] counts);
     void Clear();
     string Find(Func<string, bool> predicate);
+    List<string> FindAll(Func<string, bool> predicate);
     List<string> RemoveWhere(Func<string, bool> predicate);
 }

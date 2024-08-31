@@ -24,14 +24,19 @@ namespace TCOY.Items
         public override ReadOnlyCollection<Reactor> getCounters => equipableInfo.counters.AsReadOnly();
         public override ReadOnlyCollection<Reactor> getInterrupts => equipableInfo.interrupts.AsReadOnly();
 
-        public override void Equip(IActor user)
+        public override List<string> Equip(IActor user)
         {
-            equipableInfo.Equip(user, name, part, itemSprite);
+            return equipableInfo.Equip(user, name, part, itemSprite);
         }
 
         public override void Unequip(IActor user)
         {
             equipableInfo.Unequip(user, name, part);
+        }
+
+        public override List<string> GetRequiredRemovalsFor(IActor target)
+        {
+            return equipableInfo.GetRequiredRemovalsFor(target, name, part);
         }
     }
 }

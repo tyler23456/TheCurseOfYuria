@@ -127,21 +127,14 @@ namespace TCOY.Canvas
         {
             IEquipment current = (IEquipment)ItemDatabase.Instance.Get(itemName);
 
-            string previous = display.allie.getEquipment.Find(i => ItemDatabase.Instance.GetType(i) == current.type);
+            InventoryManager.Instance.Get(current.type).Remove(itemName);
 
-            if (previous == null)
-            {
-                InventoryManager.Instance.Get(current.type).Remove(itemName);
-            }
-            else
-            {
-                InventoryManager.Instance.Get(current.type).Add(previous);
-                InventoryManager.Instance.Get(current.type).Remove(itemName);
-            }
+            List<string> removedItems = current.Equip(display.allie);
 
-            current.Equip(display.allie);
+            foreach (string removedItem in removedItems)
+                InventoryManager.Instance.AddItem(removedItem);
 
-            MenuSFXManager.Instance.PlayObtainSFX();
+            MenuSFXManager.Instance.PlayEquip();
 
             display.RefreshItemInfo(current.type);
         }
@@ -158,9 +151,10 @@ namespace TCOY.Canvas
             InventoryManager.Instance.Get(current.type).Add(itemName);
             current.Unequip(display.allie);
 
-            MenuSFXManager.Instance.PlayObtainSFX();
+            MenuSFXManager.Instance.PlayUnequip();
 
             display.RefreshItemInfo(type);
+            RefreshEquipment(type);
         }
 
         protected void OnEquipScroll(string itemName)

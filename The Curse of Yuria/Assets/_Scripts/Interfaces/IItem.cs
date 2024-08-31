@@ -18,6 +18,7 @@ public interface IItem
 
     IEnumerator Use(IActor user, List<IActor> targets);
     IEnumerator Use(IActor target);
-    void Equip(IActor target);
+    List<string> Equip(IActor target);
     void Unequip(IActor target);
+    List<string> GetRequiredRemovalsFor(IActor target);
 }

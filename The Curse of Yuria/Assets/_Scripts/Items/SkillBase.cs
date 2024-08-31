@@ -15,7 +15,7 @@ namespace TCOY.Items
 
         public override IEnumerator Use(IActor user, List<IActor> targets) { yield return null; }
         public override IEnumerator Use(IActor target) { yield return null; }
-        public override void Equip(IActor user) { }
+        public override List<string> Equip(IActor user) { return new List<string>(); }
         public override void Unequip(IActor user) { }
 
         public ArmType armType => skillInfo.armType;

@@ -33,14 +33,16 @@ namespace TCOY.Items
             yield return target.StartCoroutine(skillInfo.PerformEffect(target, statusEffectsInfo));
         }
 
-        public override void Equip(IActor target)
+        public override List<string> Equip(IActor target)
         {
             base.Equip(target);
 
             if (target.getScrolls.Contains(name))
-                return;
+                return new List<string>();
 
             target.getScrolls.Add(name);
+
+            return new List<string>();
         }
 
         public override void Unequip(IActor target)

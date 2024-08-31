@@ -86,6 +86,15 @@ public class Inventory : IInventory
         return null;
     }
 
+    public List<string> FindAll(Func<string, bool> predicate)
+    {
+        List<string> results = new List<string>();
+        foreach (string name in names)
+            if (predicate(name))
+                results.Add(name);
+        return results;
+    }
+
     public int GetCount(string name)
     {
         for (int i = 0; i < names.Count; i++)

@@ -19,7 +19,7 @@ namespace TCOY.Items
         [Space(5)]
         [SerializeField] public List<Reactor> interrupts = new List<Reactor>();
 
-        public void Equip(IActor target, string equipmentName, EquipmentPart part, ItemSprite equipmentSprite)
+        public List<string> Equip(IActor target, string equipmentName, EquipmentPart part, ItemSprite equipmentSprite)
         {
             foreach (Modifier modifier in modifiers)
                 target.getStats.OffsetAttribute(modifier.attribute, modifier.offset);
@@ -81,6 +81,8 @@ namespace TCOY.Items
 
             target.getEquipment.Add(equipmentName);
             target.obj.GetComponent<Character>()?.Equip(equipmentSprite, part);
+
+            return removedItems;
         }
 
         public void Unequip(IActor target, string equipmentName, EquipmentPart part)
@@ -104,6 +106,51 @@ namespace TCOY.Items
 
             target.getEquipment.Remove(equipmentName);
             target.obj.GetComponent<Character>().UnEquip(part);
+        }
+
+        public virtual List<string> GetRequiredRemovalsFor(IActor target, string equipmentName, EquipmentPart part)
+        {
+            List<string> requiredRemovals = new List<string>();
+
+            switch (part)
+            {
+                case EquipmentPart.MeleeWeapon1H:
+                    requiredRemovals = target.getEquipment.FindAll(i =>
+                    ItemDatabase.Instance.Part(i) == EquipmentPart.MeleeWeapon1H ||
+                    ItemDatabase.Instance.Part(i) == EquipmentPart.MeleeWeapon2H ||
+                    ItemDatabase.Instance.Part(i) == EquipmentPart.Bow);
+                    break;
+
+                case EquipmentPart.MeleeWeapon2H:
+                    requiredRemovals = target.getEquipment.FindAll(i =>
+                    ItemDatabase.Instance.Part(i) == EquipmentPart.MeleeWeapon1H ||
+                    ItemDatabase.Instance.Part(i) == EquipmentPart.MeleeWeapon2H ||
+                    ItemDatabase.Instance.Part(i) == EquipmentPart.Shield ||
+                    ItemDatabase.Instance.Part(i) == EquipmentPart.Bow);
+                    break;
+
+                case EquipmentPart.Bow:
+                    requiredRemovals = target.getEquipment.FindAll(i =>
+                    ItemDatabase.Instance.Part(i) == EquipmentPart.MeleeWeapon1H ||
+                    ItemDatabase.Instance.Part(i) == EquipmentPart.MeleeWeapon2H ||
+                    ItemDatabase.Instance.Part(i) == EquipmentPart.Shield ||
+                    ItemDatabase.Instance.Part(i) == EquipmentPart.Bow);
+                    break;
+
+                case EquipmentPart.Shield:
+                    requiredRemovals = target.getEquipment.FindAll(i =>
+                    ItemDatabase.Instance.Part(i) == EquipmentPart.MeleeWeapon2H ||
+                    ItemDatabase.Instance.Part(i) == EquipmentPart.Shield ||
+                    ItemDatabase.Instance.Part(i) == EquipmentPart.Bow);
+                    break;
+
+                default:
+                    requiredRemovals = target.getEquipment.FindAll(i =>
+                    ItemDatabase.Instance.Part(i) == part);
+                    break;
+            }
+
+            return requiredRemovals;
         }
     }
 }
