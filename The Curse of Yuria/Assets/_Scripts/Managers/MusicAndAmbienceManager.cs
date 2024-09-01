@@ -16,7 +16,7 @@ public class MusicAndAmbienceManager : MonoBehaviour
 
     public void SetAndPlayMusic(AudioClip clip)
     {
-        if (music.clip != null && music.clip == clip)
+        if (music.clip != null && music.clip.name == clip.name)
             return;
 
         music.clip = clip;
@@ -25,7 +25,7 @@ public class MusicAndAmbienceManager : MonoBehaviour
 
     public void SetAndPlayAmbience(AudioClip clip)
     {
-        if (ambience.clip != null && ambience.clip == clip)
+        if (ambience.clip != null && ambience.clip.name == clip.name)
             return;
 
         ambience.clip = clip;
