@@ -21,15 +21,15 @@ namespace TCOY.ControllerStates
 
             if (controller.isGrounded)
             {
-                controller.SetAction(controller.connection.getAction);
-                controller.pathfindingConnection = controller.connection;
-                controller.rigidbody2D.Sleep();
-                controller.rigidbody2D.WakeUp();
                 controller.StopAllCoroutines();
+                controller.pathfindingConnection = controller.connection;
                 controller.waypointIndex = 0;
                 controller.waypoints.Clear();
+                controller.rigidbody2D.Sleep();
+                controller.rigidbody2D.WakeUp();
                 Pathfinding.PathRequester.RequestPath(controller, controller.target);
                 controller.StartCoroutine(controller.goal.CheckForPath(controller));
+                controller.SetAction(controller.connection.getAction);
             }
                 
         }

@@ -12,22 +12,21 @@ namespace TCOY.ControllerStates
             //automatically checks path and has AI fall to a connection if no connection exists.
             if (controller.isGrounded && controller.connection != null && !controller.forcePathReconnection)
             {
-                controller.SetAction(controller.connection.getAction);
-                controller.pathfindingConnection = controller.connection;
-                controller.rigidbody2D.Sleep();
-                controller.rigidbody2D.WakeUp();
                 controller.StopAllCoroutines();
+                controller.pathfindingConnection = controller.connection;
                 controller.waypointIndex = 0;
                 controller.waypoints.Clear();
+                controller.rigidbody2D.Sleep();
+                controller.rigidbody2D.WakeUp();
                 Pathfinding.PathRequester.RequestPath(controller, controller.target);
                 controller.StartCoroutine(controller.goal.CheckForPath(controller));
+                controller.SetAction(controller.connection.getAction);
             }    
             else
             {
                 controller.SetAction(StateDatabase.Instance.GetAction("AutoFallState"));
                 controller.forcePathReconnection = false;
             }
-                
         }
 
         protected override void Stay(IController controller)

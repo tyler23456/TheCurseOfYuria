@@ -24,7 +24,10 @@ namespace TCOY.ControllerStates
                 controller.SetAction(controller.connection.getAction.GetSisterState());
             }
             else if (controller.animator.GetBool("IsGrounded"))
+            {
                 controller.SetAction(StateDatabase.Instance.GetAction("GroundState"));
+            }
+                
         }
 
         protected override void Exit(IController controller)

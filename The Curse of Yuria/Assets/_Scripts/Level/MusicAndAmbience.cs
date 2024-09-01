@@ -6,11 +6,8 @@ namespace TCOY.Level
 {
     public class MusicAndAmbience : MonoBehaviour
     {
-        enum MusicState { level, battle, gameOver }
-        enum AmbienceState { exterior, interior }
-
-        [SerializeField] AudioSource musicSource;
-        [SerializeField] AudioSource ambienceSource;
+        enum MusicState { level, battle, gameOver, none }
+        enum AmbienceState { exterior, interior, none }
 
         [SerializeField] AudioClip levelMusic;
         [SerializeField] AudioClip levelAmbience;
@@ -18,8 +15,8 @@ namespace TCOY.Level
         [SerializeField] List<AudioClip> battleMusic;
         [SerializeField] AudioClip gameOver;
 
-        MusicState musicState = MusicState.level;
-        AmbienceState ambienceState = AmbienceState.exterior;
+        MusicState musicState = MusicState.none;
+        AmbienceState ambienceState = AmbienceState.none;
 
         void Update()
         {
@@ -28,8 +25,7 @@ namespace TCOY.Level
                 if (musicState != MusicState.gameOver)
                 {
                     musicState = MusicState.gameOver;
-                    musicSource.clip = gameOver;
-                    musicSource.Play();
+                    MusicAndAmbienceManager.Instance.SetAndPlayMusic(gameOver);
                 }
                 return;
             }
@@ -37,30 +33,26 @@ namespace TCOY.Level
             if (!GameStateManager.Instance.isPlaying)
                 return;
 
-            if (ITransformTeleporter.state == ITransformTeleporter.State.Interior && ambienceState == AmbienceState.exterior)
+            if (ITransformTeleporter.state == ITransformTeleporter.State.Interior && ambienceState != AmbienceState.interior)
             {
                 ambienceState = AmbienceState.interior;
-                ambienceSource.clip = interiorAmbience;
-                ambienceSource.Play();
+                MusicAndAmbienceManager.Instance.SetAndPlayAmbience(interiorAmbience);
             }
-            else if (ITransformTeleporter.state == ITransformTeleporter.State.Exterior && ambienceState == AmbienceState.interior)
+            else if (ITransformTeleporter.state == ITransformTeleporter.State.Exterior && ambienceState != AmbienceState.exterior)
             {
                 ambienceState = AmbienceState.exterior;
-                ambienceSource.clip = levelAmbience;
-                ambienceSource.Play();
+                MusicAndAmbienceManager.Instance.SetAndPlayAmbience(levelAmbience);
             }
 
-            if (IBattleData.isInBattle && musicState == MusicState.level)
+            if (IBattleData.isInBattle && musicState != MusicState.battle)
             {
                 musicState = MusicState.battle;
-                musicSource.clip = battleMusic[Random.Range(0, battleMusic.Count)];
-                musicSource.Play();
+                MusicAndAmbienceManager.Instance.SetAndPlayMusic(battleMusic[Random.Range(0, battleMusic.Count)]);
             }
-            else if (!IBattleData.isInBattle && musicState == MusicState.battle)
+            else if (!IBattleData.isInBattle && musicState != MusicState.level)
             {
                 musicState = MusicState.level;
-                musicSource.clip = levelMusic;
-                musicSource.Play();
+                MusicAndAmbienceManager.Instance.SetAndPlayMusic(levelMusic);
             }
         }  
     }

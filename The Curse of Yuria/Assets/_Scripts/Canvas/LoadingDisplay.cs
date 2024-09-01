@@ -53,10 +53,18 @@ namespace TCOY.Canvas
             while (!asyncOperation.isDone)
             {
                 progress = asyncOperation.progress / 0.9f;
+                progressBar.value = progress;
                 yield return new WaitForEndOfFrame();
             }
 
             allies.GetComponent<IPlayerControls>().Refresh();
+
+            GameStateManager.Instance.Play();
+
+            yield return new WaitForSecondsRealtime(0.3f);
+
+            ILoadingData.onFinishedLoading.Invoke();
+            ILoadingData.onFinishedLoading = () => { };
 
             gameObject.SetActive(false);
         }
