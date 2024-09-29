@@ -72,7 +72,7 @@ namespace TCOY.Canvas
 
                     allie.getStats.onHPChanged = (value) => statDisplays[ii].getHP.value = value;
                     allie.getStats.onMPChanged = (value) => statDisplays[ii].getMP.value = value;
-                    allie.getATBGuage.onATBChanged = (value) => statDisplays[ii].getAP.value = value;
+                    allie.getATBGuage.onATBChanged = (value) => statDisplays[ii].getAP.value = value;            
 
                     statDisplays[i].getName.gameObject.SetActive(true);
                     statDisplays[i].getHP.gameObject.SetActive(true);
@@ -86,6 +86,7 @@ namespace TCOY.Canvas
 
                     statDisplays[i].getHP.value = allie.getStats.HP;
                     statDisplays[i].getMP.value = allie.getStats.MP;
+                    statDisplays[i].getAP.value = allie.getATBGuage.getValue;
                 }
                 else
                 {

@@ -94,6 +94,15 @@ public class SaveManager : MonoBehaviour
         loadingDisplay.gameObject.SetActive(true);
     }
 
+    public void ClearNonPersistentSceneData()
+    {
+        ITransformTeleporter.state = ITransformTeleporter.State.Exterior;
+        IBattleData.isGameOver = false;
+        IBattleData.isInBattle = false;
+        IBattleData.pendingCommands.Clear();
+        IBattleData.successfulCommands.Clear();
+    }
+
     public void ClearNonPersistentData()
     {
         Transform t = null;
@@ -116,8 +125,8 @@ public class SaveManager : MonoBehaviour
         }
 
         IBattleData.aTBGuagesFilled.Clear();
-        IBattleData.pendingCommands.Clear();
-        IBattleData.successfulCommands.Clear();
+
+        ClearNonPersistentSceneData();
     }
 
     class SaveData

@@ -21,6 +21,7 @@ namespace TCOY.UserActors
         public Action<float> onATBChanged { get; set; } = (value) => {};
         public float getMaximumValue => maximumValue;
         public bool isActive => priority == int.MaxValue;
+        public float getValue => accumulator;
 
         public void Initialize(Dictionary<string, int> statsDictionary)
         {

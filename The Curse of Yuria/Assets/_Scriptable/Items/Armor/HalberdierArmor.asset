@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 635c93a6f3ed402e872920e987043b02, type: 3}
   _prefab: {fileID: 4684335975558785452, guid: e6b169f5c38b4fa4bb41fffb86db86e0, type: 3}
-  _description: 
+  _description: Armor that is worn by a certain class of male soldiers in Lunla called
+    the Halbeards, a name given to them because they are often seen using Halberds
+    as weapons.
   _itemSprite:
     Name: HalberdierArmor [Paint]
     Collection: Basic
@@ -43,5 +45,6 @@ MonoBehaviour:
   _marketValue: 4
   equipableInfo:
     modifiers: []
+    wards: []
     counters: []
     interrupts: []

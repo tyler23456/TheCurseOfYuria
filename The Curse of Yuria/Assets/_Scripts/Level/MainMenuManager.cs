@@ -9,6 +9,7 @@ namespace TCOY.Level
 
         public void Start()
         {
+            SaveManager.instance.ClearNonPersistentSceneData();
             GameObject.Find("/DontDestroyOnLoad/Canvas/MainMenuDisplay").SetActive(true);
         }
     }

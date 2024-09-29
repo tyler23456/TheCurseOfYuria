@@ -45,6 +45,7 @@ namespace TCOY.Interactables
             ShowOpenDoorSprite();
             uniqueIdentifier.AddToInventory();
 
+            SaveManager.instance.ClearNonPersistentSceneData();
             SetPositionOfAllies(player, destination, new Vector3(0f, eulerAngleY, 0f));
 
             Transform loadingDisplay = GameObject.Find("/DontDestroyOnLoad/Canvas/LoadingDisplay").transform;

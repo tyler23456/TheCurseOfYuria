@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 34bfdf4163431d74bbac1bf8a483f048, type: 3}
   _prefab: {fileID: 1364508788551717889, guid: 737d6a58f41aec94daf8c372b57ad7e0, type: 3}
-  _description: 
+  _description: Applies melee damage to a target but ignores that target's defense.
   _itemSprite:
     Name: Pierce
     Collection: Supplies

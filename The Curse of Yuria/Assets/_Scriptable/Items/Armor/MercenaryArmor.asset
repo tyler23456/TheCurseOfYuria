@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 2777179335d74458b0ce82c175276135, type: 3}
   _prefab: {fileID: 8828215183018029984, guid: 13d6fe9dd59ad5a48aa0fddcae4718c8, type: 3}
-  _description: 
+  _description: Armor worn by several unofficial guilds of hired assassins in the
+    northern mountains of Yuria.
   _itemSprite:
     Name: MercenaryArmor [Paint]
     Collection: Basic
@@ -43,5 +44,6 @@ MonoBehaviour:
   _marketValue: 4
   equipableInfo:
     modifiers: []
+    wards: []
     counters: []
     interrupts: []

@@ -14,6 +14,7 @@ namespace TCOY.Level
         [SerializeField] AudioClip interiorAmbience;
         [SerializeField] List<AudioClip> battleMusic;
         [SerializeField] AudioClip gameOver;
+        [SerializeField] bool startsWithExteriorAmbience = true;
 
         MusicState musicState = MusicState.none;
         AmbienceState ambienceState = AmbienceState.none;
@@ -29,9 +30,6 @@ namespace TCOY.Level
                 }
                 return;
             }
-
-            if (!GameStateManager.Instance.isPlaying)
-                return;
 
             if (ITransformTeleporter.state == ITransformTeleporter.State.Interior && ambienceState != AmbienceState.interior)
             {

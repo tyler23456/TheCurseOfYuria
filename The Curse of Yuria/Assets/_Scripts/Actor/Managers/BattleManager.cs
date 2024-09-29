@@ -24,6 +24,8 @@ namespace TCOY.UserActors
         List<Command> allieCommands = new List<Command>();
         List<Command> commandsToRemove = new List<Command>();
 
+        List<Command> targetIsEnemyOfUser = new List<Command>();
+
         public void Start()
         {
             StartCoroutine(BattleSystemLoop());
@@ -194,8 +196,10 @@ namespace TCOY.UserActors
                 actor.obj.transform.parent = null;
                 actor.obj.GetComponent<IController>().SetGoal(StateDatabase.Instance.GetGoal("PatrolState"));
             }
+            
 
-            bool isTargetingEnemy = IBattleData.pendingCommands.Any(i => i.targets[0].obj.layer != i.user.obj.layer);
+            bool isTargetingEnemy = IBattleData.pendingCommands.Any(i => i != null && i.targets != null && i.targets.Count > 0 && i.targets[0] != null && i.user != null && i.targets[0].obj.layer != i.user.obj.layer);
+            
             allieCommands.Clear();
 
             foreach (Command command in IBattleData.pendingCommands)

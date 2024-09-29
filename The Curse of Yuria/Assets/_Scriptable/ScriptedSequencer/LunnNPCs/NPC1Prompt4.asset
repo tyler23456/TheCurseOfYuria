@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: {fileID: 11400000, guid: 714252b2335262640833c15d87d270ee, type: 2}
   text: Supplies, such as food, potions, etc. can be shown in the equipment menu,
-    but not equipped  Only armor, weapons and scrolls can be equipped.
+    but not equipped.  Only armor, weapons and scrolls can be equipped.

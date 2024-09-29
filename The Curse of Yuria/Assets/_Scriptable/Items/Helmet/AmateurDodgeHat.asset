@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 878803e031b44940bdbf9bd7726b8761, type: 3}
   _prefab: {fileID: 6805401881818514783, guid: cacc3db980a970f4fb9d5002a6102f45, type: 3}
-  _description: 
+  _description: A hat designed to increase the speed of the wearer.  Traditionally
+    this hat is worn by bowmen.
   _itemSprite:
     Name: AmateurDodgeHat
     Collection: Basic

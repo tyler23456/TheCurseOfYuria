@@ -22,6 +22,7 @@ namespace TCOY.Interactables
             parentName = destination.parent.parent.name;
             childIndex = destination.parent.GetSiblingIndex();
 
+            SaveManager.instance.ClearNonPersistentSceneData();
             SetPositionOfAllies(player, destination.position, new Vector3(0f, destination.eulerAngles.y + 180f, 0f));
 
             Transform loadingDisplay = GameObject.Find("/DontDestroyOnLoad/Canvas/LoadingDisplay").transform;
