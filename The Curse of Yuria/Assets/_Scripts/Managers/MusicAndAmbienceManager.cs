@@ -12,6 +12,9 @@ public class MusicAndAmbienceManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        IAudioOptions.OnMusicVolumeChanged = (volume) => { music.volume = volume; };
+        IAudioOptions.OnAmbienceVolumeChanged = (volume) => { ambience.volume = volume; };
     }
 
     public void SetAndPlayMusic(AudioClip clip)

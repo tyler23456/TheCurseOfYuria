@@ -53,7 +53,6 @@ namespace TCOY.Canvas
 
             //--------------------------------------------
             graphicsTab.gameObject.SetActive(false);
-            SettingsTab.gameObject.SetActive(false);
             controlsTab.gameObject.SetActive(false);
             //---------------------------------------------
 

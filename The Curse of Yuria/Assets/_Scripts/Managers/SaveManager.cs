@@ -98,9 +98,14 @@ public class SaveManager : MonoBehaviour
     {
         ITransformTeleporter.state = ITransformTeleporter.State.Exterior;
         IBattleData.isGameOver = false;
-        IBattleData.isInBattle = false;
         IBattleData.pendingCommands.Clear();
         IBattleData.successfulCommands.Clear();
+        IPlayerControls.hasPlayerMoved = true;
+        IPlayerControls.isPlayerRunning = true;
+
+        IBattleData.SetBattleStateToNone();
+        IPlayerControls controls = allies.GetComponent<IPlayerControls>();
+        controls.SetUnselectedDefaultGoal(StateDatabase.Instance.GetGoal("FollowState"));
     }
 
     public void ClearNonPersistentData()

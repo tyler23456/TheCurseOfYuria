@@ -27,7 +27,7 @@ public class CalculationTypeSFXManager : MonoBehaviour
 
     public void PlayHitSFX(AudioSource audioSource)
     {
-        audioSourceManager.Play(audioSource, hitSFX);
+        audioSourceManager.PlaySFX(audioSource, hitSFX);
     }
 }
 

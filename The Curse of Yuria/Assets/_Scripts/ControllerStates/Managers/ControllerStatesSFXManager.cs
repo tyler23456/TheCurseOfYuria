@@ -120,7 +120,7 @@ namespace TCOY.ControllerStates
 
         public void PlayStepSFX(string groundType, AudioSource audioSource, float minVolume = 1f, float maxVolume = 1f, float minPitch = 1f, float maxPitch = 1f)
         {
-            audioSourceManager.Play(audioSource, stepSFXs[groundType], minVolume, maxVolume, minPitch, maxPitch);
+            audioSourceManager.PlayStepSFX(audioSource, stepSFXs[groundType], minVolume, maxVolume, minPitch, maxPitch);
         }
     }
 }

@@ -31,4 +31,5 @@ public interface IActor
     Coroutine StartCoroutine(IEnumerator routine);
     void StopCoroutine(IEnumerator routine);
     void StopCoroutine(Coroutine routine);
+    bool ContainsTag(string tag);
 }

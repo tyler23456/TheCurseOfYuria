@@ -94,6 +94,7 @@ namespace TCOY.UserActors
                 if (!transform.GetChild(0).GetComponent<IActor>().getStatusEffects.Contains("KnockOut"))
                     break;
             }
+            IPlayerControls.hasPlayerMoved = false;
         }
 
         void OnTransformChildrenChanged()
@@ -117,7 +118,10 @@ namespace TCOY.UserActors
                 controller = transform.GetChild(i).GetComponent<IController>();
 
                 if (IPlayerControls.initializeGoalStatesOnRefresh)
-                    controller.ResetToDefault();
+                {
+                    controller.forcePathReconnection = true;
+                    controller.SetGoal(unselectedDefaultGoal);
+                }
             }
 
             for (int i = 0; i < count; i++)
@@ -162,10 +166,7 @@ namespace TCOY.UserActors
 
         private void OnDrawGizmos()
         {
-            if (IBattleData.isInBattle)
-                Gizmos.color = Color.red;
-            else
-                Gizmos.color = Color.blue;
+            Gizmos.color = Color.blue;
 
             Gizmos.DrawSphere(transform.GetChild(0).position, 1f);
 

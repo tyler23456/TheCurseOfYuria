@@ -8,6 +8,9 @@ public interface IPlayerControls
     static State state = State.Normal;
     static bool initializeGoalStatesOnRefresh = true;
 
+    static bool hasPlayerMoved = true;
+    static bool isPlayerRunning = true;
+
     void ResetTargets();
     void Refresh();
     void SetUnselectedDefaultGoal(GoalState goal);

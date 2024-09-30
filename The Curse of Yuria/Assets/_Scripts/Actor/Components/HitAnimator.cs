@@ -28,9 +28,9 @@ namespace TCOY.UserActors
 
         public IEnumerator HitAnimation()
         {
-            isTinted = true;
+            isTinted = false;
             float accumulator = Time.unscaledTime;
-            while (Time.unscaledTime < accumulator + 0.25f)
+            for (int n = 0; n < 3; n++)
             {
                 isTinted = !isTinted;
                 for (int i = 0; i < colors.Count; i++)
@@ -41,7 +41,7 @@ namespace TCOY.UserActors
                         spriteRenderers[i].color = colors[i];
                 }
                     
-                yield return new WaitForSecondsRealtime(0.05f);
+                yield return new WaitForSecondsRealtime(0.1f);
             }
             for (int i = 0; i < colors.Count; i++)
                 spriteRenderers[i].color = colors[i];

@@ -14,6 +14,7 @@ namespace TCOY.UserActors
     {
         public bool isActive { get; protected set; } = true;
 
+        [SerializeField] protected List<string> additionalTags;
         [SerializeField] protected bool _useDefaultItems = true;
         [SerializeField] protected Stats stats;
         [SerializeField] protected ATBGuage aTBGuage;
@@ -146,6 +147,11 @@ namespace TCOY.UserActors
 
             else if (direction.x < 0f && transform.eulerAngles.y < 90f)
                 transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        }
+
+        public bool ContainsTag(string tag)
+        {
+            return additionalTags.Contains(tag);
         }
     }
 }

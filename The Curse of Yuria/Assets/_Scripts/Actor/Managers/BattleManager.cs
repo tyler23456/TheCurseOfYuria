@@ -196,9 +196,21 @@ namespace TCOY.UserActors
                 actor.obj.transform.parent = null;
                 actor.obj.GetComponent<IController>().SetGoal(StateDatabase.Instance.GetGoal("PatrolState"));
             }
-            
 
-            bool isTargetingEnemy = IBattleData.pendingCommands.Any(i => i != null && i.targets != null && i.targets.Count > 0 && i.targets[0] != null && i.user != null && i.targets[0].obj.layer != i.user.obj.layer);
+            bool isTargetingBoss = false;
+            targetIsEnemyOfUser.Clear();
+            foreach (Command i in IBattleData.pendingCommands)
+            {
+                if (i != null && i.targets != null && i.targets.Count > 0 && i.targets[0] != null && i.user != null && i.targets[0].obj.layer != i.user.obj.layer)
+                {
+                    targetIsEnemyOfUser.Add(i);
+                    if (i.targets[0].ContainsTag("Boss") || i.user.ContainsTag("Boss"))
+                        isTargetingBoss = true;
+                }
+            }
+
+
+            bool isTargetingEnemy = targetIsEnemyOfUser.Count > 0;
             
             allieCommands.Clear();
 
@@ -214,17 +226,23 @@ namespace TCOY.UserActors
                         actor.obj.GetComponent<IController>().SetGoal(StateDatabase.Instance.GetGoal("HostileState"));
                     }
 
-            if (isTargetingEnemy && !IBattleData.isInBattle)
+            if (isTargetingBoss && !IBattleData.isInBossBattle)
+            {
+                IBattleData.SetBattleStateToBossBattle();
+                IPlayerControls controls = allies.GetComponent<IPlayerControls>();
+                controls.SetUnselectedDefaultGoal(StateDatabase.Instance.GetGoal("BattleState"));
+            }
+            else if (isTargetingEnemy && !IBattleData.isInBattle)
             {
                 //enter battle code here
-                IBattleData.isInBattle = true;
+                IBattleData.SetBattleStateToNormalBattle();
                 IPlayerControls controls = allies.GetComponent<IPlayerControls>();
                 controls.SetUnselectedDefaultGoal(StateDatabase.Instance.GetGoal("BattleState"));
             }
             else if (farEnemies.Count == 0 && IBattleData.isInBattle)
             {
                 //exit battle code here
-                IBattleData.isInBattle = false;
+                IBattleData.SetBattleStateToNone();
                 IPlayerControls controls = allies.GetComponent<IPlayerControls>();
                 controls.SetUnselectedDefaultGoal(StateDatabase.Instance.GetGoal("FollowState"));
                 controls.Refresh();

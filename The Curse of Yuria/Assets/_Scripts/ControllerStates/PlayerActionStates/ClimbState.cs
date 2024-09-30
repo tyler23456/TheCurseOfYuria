@@ -51,11 +51,13 @@ namespace TCOY.ControllerStates
             {
                 controller.rigidbody2D.AddForce(Vector2.up * controller.speed * 25f * Time.deltaTime);
                 stepSFX.UpdateOther(controller.audioSource, "LadderClimbStepSFX", minVolume, maxVolume, minPitch, maxPitch);
+                IPlayerControls.hasPlayerMoved = true;
             }
             else if (Input.GetKey(KeyCode.S))
             {
                 controller.rigidbody2D.AddForce(Vector2.down * controller.speed * 25f * Time.deltaTime);
                 stepSFX.UpdateOther(controller.audioSource, "LadderClimbStepSFX", minVolume, maxVolume, minPitch, maxPitch);
+                IPlayerControls.hasPlayerMoved = true;
             }
 
             if (Input.GetKeyDown(KeyCode.Space))

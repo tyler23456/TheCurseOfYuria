@@ -17,7 +17,10 @@ namespace TCOY.ControllerStates
         
         protected override void Stay(IController controller)
         {
-            if (IBattleData.isInBattle)
+            if (controller.goal.name == "BattleState")
+                return;
+
+            if (!IPlayerControls.hasPlayerMoved)
                 return;
 
             if (controller.waypoints.Count == 0 || controller.waypointIndex >= controller.waypoints.Count)

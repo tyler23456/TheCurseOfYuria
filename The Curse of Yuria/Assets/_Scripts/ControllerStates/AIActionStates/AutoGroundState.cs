@@ -9,7 +9,15 @@ namespace TCOY.ControllerStates
     {
         protected override void Stay(IController controller)
         {
-            if (IBattleData.isInBattle)
+            if (controller.goal.name == "PatrolState")
+                return;
+
+            controller.animator.SetInteger("State", 0);
+
+            if (controller.goal.name == "BattleState")
+                return;
+
+            if (!IPlayerControls.hasPlayerMoved)
                 return;
 
             if (controller.waypoints.Count == 0 || controller.waypointIndex >= controller.waypoints.Count)
@@ -17,9 +25,9 @@ namespace TCOY.ControllerStates
             
             float distance = Vector3.Distance(controller.position, controller.target.position);
 
-            float speed = 1f;
+            float speed = 0.5f;
             if (distance > IController.goDistance * 2f)
-                speed = 1.5f;
+                speed = 0.75f;
 
             if (distance > IController.goDistance)
                 controller.isAutoMovementPaused = false;
@@ -27,22 +35,19 @@ namespace TCOY.ControllerStates
                 controller.isAutoMovementPaused = true;
 
             if (controller.isAutoMovementPaused)
-            {
-                controller.animator.SetInteger("State", 0);
                 return;
-            }
 
-            MoveActor(controller, speed);
+            MoveActor(controller, IPlayerControls.isPlayerRunning ? speed * 2f : speed);
                 
             Vector2 path2D = controller.waypoints[controller.waypointIndex].position;
             Vector2 position = controller.position;
             Vector2 direction = (path2D - position).normalized;
 
-            if (direction.x > 0f)
-                controller.animator.SetInteger("State", 2);
+            if (direction.x > 0.01f)
+                controller.animator.SetInteger("State", IPlayerControls.isPlayerRunning ? 2 : 1);
 
-            else if (direction.x < 0f)
-                controller.animator.SetInteger("State", 2);
+            else if (direction.x < -0.01f)
+                controller.animator.SetInteger("State", IPlayerControls.isPlayerRunning ? 2 : 1);
 
             CheckForEndAutoState(controller);
         }

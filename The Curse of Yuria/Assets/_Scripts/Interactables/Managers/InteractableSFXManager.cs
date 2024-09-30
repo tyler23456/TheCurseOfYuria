@@ -56,27 +56,27 @@ namespace TCOY.Interactables
 
         public void PlayGrabItemSFX(AudioSource audioSource)
         {
-            audioSourceManager.Play(audioSource, grabItemSFX);
+            audioSourceManager.PlaySFX(audioSource, grabItemSFX);
         }
 
         public void PlayOpenCrateSFX(AudioSource audioSource)
         {
-            audioSourceManager.Play(audioSource, openCrateSFX);
+            audioSourceManager.PlaySFX(audioSource, openCrateSFX);
         }
 
         public void PlayOpenChestSFX(AudioSource audioSource)
         {
-            audioSourceManager.Play(audioSource, openChestSFX);
+            audioSourceManager.PlaySFX(audioSource, openChestSFX);
         }
 
         public void PlayOpenSackSFX(AudioSource audioSource)
         {
-            audioSourceManager.Play(audioSource, openSackSFX);
+            audioSourceManager.PlaySFX(audioSource, openSackSFX);
         }
 
         public void PlaySearchEnemySFX(AudioSource audioSource)
         {
-            audioSourceManager.Play(audioSource, searchEnemySFX);
+            audioSourceManager.PlaySFX(audioSource, searchEnemySFX);
         }
     }
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public interface IController : IPath
 {
-    const float stopDistance = 1.5f;
-    const float goDistance = 2.25f;
+    const float stopDistance = 1.5f; //1.5f
+    const float goDistance = 2.24f; //2.24f
 
     bool isActive { get; }
     float accumulator { get; set; }

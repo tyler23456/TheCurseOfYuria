@@ -6,26 +6,29 @@ namespace TCOY.Level
 {
     public class MusicAndAmbience : MonoBehaviour
     {
-        enum MusicState { level, battle, gameOver, none }
-        enum AmbienceState { exterior, interior, none }
+        enum MusicState { none, level, normalBattle, bossBattle }
+        enum AmbienceState { none, exterior, interior }
 
         [SerializeField] AudioClip levelMusic;
         [SerializeField] AudioClip levelAmbience;
         [SerializeField] AudioClip interiorAmbience;
         [SerializeField] List<AudioClip> battleMusic;
+        [SerializeField] AudioClip bossBattleMusic;
         [SerializeField] AudioClip gameOver;
         [SerializeField] bool startsWithExteriorAmbience = true;
 
         MusicState musicState = MusicState.none;
         AmbienceState ambienceState = AmbienceState.none;
 
+        bool isGameover = false;
+
         void Update()
         {
             if (IBattleData.isGameOver)
             {
-                if (musicState != MusicState.gameOver)
+                if (!isGameover)
                 {
-                    musicState = MusicState.gameOver;
+                    isGameover = true;
                     MusicAndAmbienceManager.Instance.SetAndPlayMusic(gameOver);
                 }
                 return;
@@ -42,9 +45,15 @@ namespace TCOY.Level
                 MusicAndAmbienceManager.Instance.SetAndPlayAmbience(levelAmbience);
             }
 
-            if (IBattleData.isInBattle && musicState != MusicState.battle)
+
+            if (IBattleData.isInBossBattle && musicState < MusicState.bossBattle)
             {
-                musicState = MusicState.battle;
+                musicState = MusicState.bossBattle;
+                MusicAndAmbienceManager.Instance.SetAndPlayMusic(bossBattleMusic);
+            }
+            else if (IBattleData.isInBattle && musicState < MusicState.normalBattle)
+            {
+                musicState = MusicState.normalBattle;
                 MusicAndAmbienceManager.Instance.SetAndPlayMusic(battleMusic[Random.Range(0, battleMusic.Count)]);
             }
             else if (!IBattleData.isInBattle && musicState != MusicState.level)

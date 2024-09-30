@@ -29,13 +29,16 @@ namespace TCOY.ControllerStates
                     controller.animator.SetInteger("State", 2);
                     controller.rigidbody2D.AddForce(Vector2.left * controller.speed * 2f * 50f * Time.deltaTime);
                     controllerStatesSFX.UpdateStepSFX(controller.audioSource);
+                    IPlayerControls.isPlayerRunning = true;
                 }
                 else
                 {
                     controller.animator.SetInteger("State", 1);
                     controller.rigidbody2D.AddForce(Vector2.left * controller.speed * 50f * Time.deltaTime);
                     controllerStatesSFX.UpdateStepSFX(controller.audioSource);
+                    IPlayerControls.isPlayerRunning = false;
                 }
+                IPlayerControls.hasPlayerMoved = true;
             }
             else if (Input.GetKey(KeyCode.D))
             {
@@ -47,13 +50,16 @@ namespace TCOY.ControllerStates
                     controller.animator.SetInteger("State", 2);
                     controller.rigidbody2D.AddForce(Vector2.right * controller.speed * 2f * 50f * Time.deltaTime);
                     controllerStatesSFX.UpdateStepSFX(controller.audioSource);
+                    IPlayerControls.isPlayerRunning = true;
                 }
                 else
                 {
                     controller.animator.SetInteger("State", 1);
                     controller.rigidbody2D.AddForce(Vector2.right * controller.speed * 50f * Time.deltaTime);
                     controllerStatesSFX.UpdateStepSFX(controller.audioSource);
+                    IPlayerControls.isPlayerRunning = false;
                 }
+                IPlayerControls.hasPlayerMoved = true;
             }
         }
 

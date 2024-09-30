@@ -81,6 +81,7 @@ namespace TCOY.Canvas
             RefreshGridWithAttackOptions();
 
             MenuSFXManager.Instance.PlayGenericOpen();
+            IPlayerControls.hasPlayerMoved = false;
         }
 
         protected override void OnDisable()

@@ -35,12 +35,12 @@ namespace TCOY.ItemTypes
 
         public void PlaySwingSFX(AudioSource audioSource)
         {
-            audioSourceManager.Play(audioSource, swingSFX);
+            audioSourceManager.PlaySFX(audioSource, swingSFX);
         }
 
         public void PlayReleaseBowSFX(AudioSource audioSource)
         {
-            audioSourceManager.Play(audioSource, releaseBowSFX);
+            audioSourceManager.PlaySFX(audioSource, releaseBowSFX);
         }
     }
 }

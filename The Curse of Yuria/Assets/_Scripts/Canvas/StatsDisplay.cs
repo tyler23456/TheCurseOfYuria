@@ -44,12 +44,12 @@ namespace TCOY.Canvas
 
         protected void Update()
         {
-            if (IBattleData.isInBattle && !this.isInBattle)
+            if (IBattleData.battleState != IBattleData.BattleState.None && !this.isInBattle)
             {
                 this.isInBattle = true;
                 border.color = borderColorWhenInBattle;
             }
-            else if (!IBattleData.isInBattle && this.isInBattle)
+            else if (IBattleData.battleState == IBattleData.BattleState.None && this.isInBattle)
             {
                 this.isInBattle = false;
                 border.color = defaultColor;

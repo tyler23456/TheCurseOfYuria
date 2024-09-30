@@ -67,81 +67,81 @@ public class MenuSFXManager : MonoBehaviour
 
     public void PlayOptionsMenuOpen()
     {
-        audioSourceManager.PlaySFX(optionsMenuOpen);
+        audioSourceManager.PlayUI(optionsMenuOpen);
     }
 
     public void PlayOptionsMenuClose()
     {
-        audioSourceManager.PlaySFX(optionsMenuClose);
+        audioSourceManager.PlayUI(optionsMenuClose);
     }
 
     public void PlayEquipmentMenuOpen()
     {
-        audioSourceManager.PlaySFX(equipmentMenuOpen);
+        audioSourceManager.PlayUI(equipmentMenuOpen);
     }
 
     public void PlayChangeEquipmentPart()
     {
-        audioSourceManager.PlaySFX(changeEquipmentPart);
+        audioSourceManager.PlayUI(changeEquipmentPart);
     }
 
     public void PlayEquipmentMenuClose()
     {
-        audioSourceManager.PlaySFX(equipmentMenuClose);
+        audioSourceManager.PlayUI(equipmentMenuClose);
     }
 
     public void PlayCyclePartyMembers()
     {
-        audioSourceManager.PlaySFX(cyclePartyMembers);
+        audioSourceManager.PlayUI(cyclePartyMembers);
     }
 
     public void PlayGenericOpen()
     {
-        audioSourceManager.PlaySFX(generalOpen);
+        audioSourceManager.PlayUI(generalOpen);
     }
 
     public void PlayGenericClose()
     {
-        audioSourceManager.PlaySFX(generalClose);
+        audioSourceManager.PlayUI(generalClose);
     }
 
     public void PlayHover()
     {
-        audioSourceManager.PlaySFX(hover);
+        audioSourceManager.PlayUI(hover);
     }
 
     public void PlayClick()
     {
-        audioSourceManager.PlaySFX(click);
+        audioSourceManager.PlayUI(click);
     }
 
     public void PlayNotification()
     {
-        audioSourceManager.PlaySFX(notification);
+        audioSourceManager.PlayUI(notification);
     }
 
     public void PlayEquip()
     {
-        audioSourceManager.PlaySFX(equip);
+        audioSourceManager.PlayUI(equip);
     }
 
     public void PlayUnequip()
     {
-        audioSourceManager.PlaySFX(unequip);
+        audioSourceManager.PlayUI(unequip);
     }
 
     public void PlayObtainSFX()
     {
-        audioSourceManager.PlaySFX(obtain);
+        audioSourceManager.PlayUI(obtain);
     }
 
     public void PlayObtainAllSFX()
     {
-        audioSourceManager.PlaySFX(obtainAll);
+        audioSourceManager.PlayUI(obtainAll);
     }
 
     public void PlayAddScroll()
     {
-        audioSourceManager.PlaySFX(addScroll);
+        audioSourceManager.PlayUI(addScroll);
     }
 }
